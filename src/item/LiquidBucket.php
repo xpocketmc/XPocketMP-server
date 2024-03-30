@@ -26,9 +26,14 @@ namespace pocketmine\item;
 use pocketmine\block\Block;
 use pocketmine\block\Lava;
 use pocketmine\block\Liquid;
+use pocketmine\block\utils\Waterloggable;
+use pocketmine\block\VanillaBlocks;
+use pocketmine\block\Water;
 use pocketmine\event\player\PlayerBucketEmptyEvent;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
+use pocketmine\world\sound\BucketEmptyWaterSound;
+use function assert;
 
 class LiquidBucket extends Item{
 	private Liquid $liquid;
@@ -56,17 +61,29 @@ class LiquidBucket extends Item{
 
 	public function onInteractBlock(Player $player, Block $blockReplace, Block $blockClicked, int $face, Vector3 $clickVector, array &$returnedItems) : ItemUseResult{
 		if(!$blockReplace->canBeReplaced()){
-			return ItemUseResult::NONE;
+			if(!$this->liquid instanceof Water && !$blockReplace instanceof Waterloggable){
+				return ItemUseResult::NONE;
+			}
 		}
 
 		//TODO: move this to generic placement logic
-		$resultBlock = clone $this->liquid;
+		if($this->liquid instanceof Water && $blockClicked instanceof Waterloggable){
+			$resultBlock = (clone $blockClicked)->setWaterLogging(VanillaBlocks::WATER());
+		}else{
+			$resultBlock = clone $this->liquid;
+		}
 
 		$ev = new PlayerBucketEmptyEvent($player, $blockReplace, $face, $this, VanillaItems::BUCKET());
 		$ev->call();
 		if(!$ev->isCancelled()){
-			$player->getWorld()->setBlock($blockReplace->getPosition(), $resultBlock->getFlowingForm());
-			$player->getWorld()->addSound($blockReplace->getPosition()->add(0.5, 0.5, 0.5), $resultBlock->getBucketEmptySound());
+			if($resultBlock instanceof Liquid){
+				$player->getWorld()->setBlock($blockReplace->getPosition(), $resultBlock->getFlowingForm());
+				$player->getWorld()->addSound($blockReplace->getPosition()->add(0.5, 0.5, 0.5), $resultBlock->getBucketEmptySound());
+			}else{
+				assert($resultBlock instanceof Waterloggable);
+				$player->getWorld()->setBlock($resultBlock->getPosition(), $resultBlock);
+				$player->getWorld()->addSound($resultBlock->getPosition()->add(0.5, 0.5, 0.5), new BucketEmptyWaterSound());
+			}
 
 			$this->pop();
 			$returnedItems[] = $ev->getItem();

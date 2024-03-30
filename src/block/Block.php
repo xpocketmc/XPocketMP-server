@@ -29,6 +29,7 @@ namespace pocketmine\block;
 use pocketmine\block\tile\Spawnable;
 use pocketmine\block\tile\Tile;
 use pocketmine\block\utils\SupportType;
+use pocketmine\block\utils\Waterloggable;
 use pocketmine\data\runtime\InvalidSerializedRuntimeDataException;
 use pocketmine\data\runtime\RuntimeDataDescriber;
 use pocketmine\data\runtime\RuntimeDataReader;
@@ -379,7 +380,16 @@ class Block{
 		if($chunk === null){
 			throw new AssumptionFailedError("World::setBlock() should have loaded the chunk before calling this method");
 		}
-		$chunk->setBlockStateId($this->position->x & Chunk::COORD_MASK, $this->position->y, $this->position->z & Chunk::COORD_MASK, $this->getStateId());
+
+		$xMasked = $this->position->x & Chunk::COORD_MASK;
+		$zMasked = $this->position->z & Chunk::COORD_MASK;
+
+		$chunk->setBlockStateId($xMasked, $this->position->y, $zMasked, $this->getStateId());
+		if($this instanceof Waterloggable && $this->getWaterLogging() !== null){
+			$chunk->setBlockWaterlogged($xMasked, $this->position->y, $zMasked, $this->getWaterLogging()->getStateId());
+		}else{
+			$chunk->setBlockWaterlogged($xMasked, $this->position->y, $zMasked, null);
+		}
 
 		$tileType = $this->idInfo->getTileClass();
 		$oldTile = $world->getTile($this->position);

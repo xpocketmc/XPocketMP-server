@@ -26,6 +26,7 @@ namespace pocketmine\world\generator\populator;
 use pocketmine\block\BlockTypeIds;
 use pocketmine\block\Liquid;
 use pocketmine\block\RuntimeBlockStateRegistry;
+use pocketmine\block\utils\Waterloggable;
 use pocketmine\utils\Random;
 use pocketmine\world\biome\BiomeRegistry;
 use pocketmine\world\ChunkManager;
@@ -67,7 +68,15 @@ class GroundCover implements Populator{
 							continue;
 						}
 
-						$chunk->setBlockStateId($x, $y, $z, $b->getStateId());
+						$xMasked = $x & Chunk::COORD_MASK;
+						$zMasked = $z & Chunk::COORD_MASK;
+
+						$chunk->setBlockStateId($xMasked, $y, $zMasked, $b->getStateId());
+						if($b instanceof Waterloggable && $b->getWaterLogging() !== null){
+							$chunk->setBlockWaterlogged($xMasked, $y, $zMasked, $b->getWaterLogging()->getStateId());
+						}else{
+							$chunk->setBlockWaterlogged($xMasked, $y, $zMasked, null);
+						}
 					}
 				}
 			}

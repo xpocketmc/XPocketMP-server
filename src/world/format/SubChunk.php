@@ -83,6 +83,23 @@ class SubChunk{
 		$this->blockLayers[0]->set($x, $y, $z, $block);
 	}
 
+	public function getBlockWaterlogged(int $x, int $y, int $z) : int{
+		if(count($this->blockLayers) < 2){
+			return $this->emptyBlockId;
+		}
+		return $this->blockLayers[1]->get($x, $y, $z);
+	}
+
+	public function setBlockWaterlogged(int $x, int $y, int $z, ?int $block) : void{
+		if(count($this->blockLayers) === 0){
+			throw new \RuntimeException("Attempted to set waterlogging status before setting block state");
+		}
+		if(count($this->blockLayers) === 1){
+			$this->blockLayers[] = new PalettedBlockArray($this->emptyBlockId);
+		}
+		$this->blockLayers[1]->set($x, $y, $z, $block ?? $this->emptyBlockId);
+	}
+
 	/**
 	 * @return PalettedBlockArray[]
 	 */

@@ -25,7 +25,9 @@ namespace pocketmine\world;
 
 use pocketmine\block\Block;
 use pocketmine\block\RuntimeBlockStateRegistry;
+use pocketmine\block\utils\Waterloggable;
 use pocketmine\block\VanillaBlocks;
+use pocketmine\block\Water;
 use pocketmine\utils\Limits;
 use pocketmine\world\format\Chunk;
 
@@ -41,14 +43,33 @@ class SimpleChunkManager implements ChunkManager{
 
 	public function getBlockAt(int $x, int $y, int $z) : Block{
 		if($this->isInWorld($x, $y, $z) && ($chunk = $this->getChunk($x >> Chunk::COORD_BIT_SIZE, $z >> Chunk::COORD_BIT_SIZE)) !== null){
-			return RuntimeBlockStateRegistry::getInstance()->fromStateId($chunk->getBlockStateId($x & Chunk::COORD_MASK, $y, $z & Chunk::COORD_MASK));
+			$xMasked = $x & Chunk::COORD_MASK;
+			$zMasked = $z & Chunk::COORD_MASK;
+
+			$block = RuntimeBlockStateRegistry::getInstance()->fromStateId($chunk->getBlockStateId($xMasked, $y, $zMasked));
+			if($block instanceof Waterloggable){
+				$blockState = RuntimeBlockStateRegistry::getInstance()->fromStateId($chunk->getBlockWaterlogged($xMasked, $y, $zMasked));
+				if($blockState instanceof Water){
+					$block->setWaterLogging($blockState);
+				}
+			}
+
+			return $block;
 		}
 		return VanillaBlocks::AIR();
 	}
 
 	public function setBlockAt(int $x, int $y, int $z, Block $block) : void{
 		if(($chunk = $this->getChunk($x >> Chunk::COORD_BIT_SIZE, $z >> Chunk::COORD_BIT_SIZE)) !== null){
-			$chunk->setBlockStateId($x & Chunk::COORD_MASK, $y, $z & Chunk::COORD_MASK, $block->getStateId());
+			$xMasked = $x & Chunk::COORD_MASK;
+			$zMasked = $z & Chunk::COORD_MASK;
+
+			$chunk->setBlockStateId($xMasked, $y, $zMasked, $block->getStateId());
+			if($block instanceof Waterloggable && $block->getWaterLogging() !== null){
+				$chunk->setBlockWaterlogged($xMasked, $y, $zMasked, $block->getWaterLogging()->getStateId());
+			}else{
+				$chunk->setBlockWaterlogged($xMasked, $y, $zMasked, null);
+			}
 		}else{
 			throw new \InvalidArgumentException("Cannot set block at coordinates x=$x,y=$y,z=$z, terrain is not loaded or out of bounds");
 		}

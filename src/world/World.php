@@ -34,7 +34,9 @@ use pocketmine\block\tile\Spawnable;
 use pocketmine\block\tile\Tile;
 use pocketmine\block\tile\TileFactory;
 use pocketmine\block\UnknownBlock;
+use pocketmine\block\utils\Waterloggable;
 use pocketmine\block\VanillaBlocks;
+use pocketmine\block\Water;
 use pocketmine\data\bedrock\BiomeIds;
 use pocketmine\data\bedrock\block\BlockStateData;
 use pocketmine\data\bedrock\block\BlockStateDeserializeException;
@@ -1126,6 +1128,15 @@ class World implements ChunkManager{
 				UpdateBlockPacket::FLAG_NETWORK,
 				UpdateBlockPacket::DATA_LAYER_NORMAL
 			);
+			if($fullBlock instanceof Waterloggable && $fullBlock->getWaterLogging() !== null){
+				$waterLoggingBlock = $fullBlock->getWaterLogging();
+				$packets[] = UpdateBlockPacket::create(
+					$blockPosition,
+					$blockTranslator->internalIdToNetworkId($waterLoggingBlock?->getStateId() ?? VanillaBlocks::AIR()->getStateId()),
+					UpdateBlockPacket::FLAG_NETWORK,
+					UpdateBlockPacket::DATA_LAYER_LIQUID
+				);
+			}
 
 			if($tile instanceof Spawnable){
 				$packets[] = BlockActorDataPacket::create($blockPosition, $tile->getSerializedSpawnCompound());
@@ -1893,7 +1904,16 @@ class World implements ChunkManager{
 
 			$chunk = $this->chunks[$chunkHash] ?? null;
 			if($chunk !== null){
-				$block = RuntimeBlockStateRegistry::getInstance()->fromStateId($chunk->getBlockStateId($x & Chunk::COORD_MASK, $y, $z & Chunk::COORD_MASK));
+				$xMasked = $x & Chunk::COORD_MASK;
+				$zMasked = $z & Chunk::COORD_MASK;
+
+				$block = RuntimeBlockStateRegistry::getInstance()->fromStateId($chunk->getBlockStateId($xMasked, $y, $zMasked));
+				if($block instanceof Waterloggable){
+					$blockState = RuntimeBlockStateRegistry::getInstance()->fromStateId($chunk->getBlockWaterlogged($xMasked, $y, $zMasked));
+					if($blockState instanceof Water){
+						$block->setWaterLogging($blockState);
+					}
+				}
 			}else{
 				$addToCache = false;
 				$block = VanillaBlocks::AIR();
@@ -2543,6 +2563,12 @@ class World implements ChunkManager{
 				$localZ = $tilePosition->getFloorZ() & Chunk::COORD_MASK;
 
 				$newBlock = RuntimeBlockStateRegistry::getInstance()->fromStateId($chunk->getBlockStateId($localX, $localY, $localZ));
+				if($newBlock instanceof Waterloggable){
+					$blockState = RuntimeBlockStateRegistry::getInstance()->fromStateId($chunk->getBlockWaterlogged($localX, $localY, $localZ));
+					if($blockState instanceof Water){
+						$newBlock->setWaterLogging($blockState);
+					}
+				}
 				$expectedTileClass = $newBlock->getIdInfo()->getTileClass();
 				if(
 					$expectedTileClass === null || //new block doesn't expect a tile
