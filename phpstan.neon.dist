@@ -27,7 +27,7 @@ parameters:
 		- tests/plugins/TesterPlugin
 		- tools
 	scanFiles:
-		- src/XPocketMP.php
+		- src/PocketMine.php
 	paths:
 		- build
 		- src
@@ -35,7 +35,7 @@ parameters:
 		- tests/phpunit
 		- tests/plugins/TesterPlugin
 		- tools
-	excludePaths:
+	exclude
 		analyseAndScan:
 			- build/php
 	dynamicConstantNames:
