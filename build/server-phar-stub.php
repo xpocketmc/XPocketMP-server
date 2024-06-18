@@ -165,4 +165,4 @@ $start = hrtime(true);
 $cacheName = preparePharCache($tmpDir, __FILE__);
 echo "Cache ready at $cacheName in " . number_format((hrtime(true) - $start) / 1e9, 2) . "s\n";
 
-require 'phar://' . str_replace(DIRECTORY_SEPARATOR, '/', $cacheName) . '/src/PocketMine.php';
+require 'phar://' . str_replace(DIRECTORY_SEPARATOR, '/', $cacheName) . '/src/XPocketMP.php';
