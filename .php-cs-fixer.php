@@ -6,7 +6,7 @@ $finder = PhpCsFixer\Finder::create()
 	->in(__DIR__ . '/tests')
 	->in(__DIR__ . '/tools')
 	->notPath('plugins/DevTools')
-	->notName('PocketMine.php');
+	->notName('XPocketMP.php');
 
 return (new PhpCsFixer\Config)
 	->setRiskyAllowed(true)
