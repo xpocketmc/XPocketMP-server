@@ -27,7 +27,7 @@ parameters:
 		- tests/plugins/TesterPlugin
 		- tools
 	scanFiles:
-		- src/PocketMine.php
+		- src/XPocketMP.php
 	paths:
 		- build
 		- src
