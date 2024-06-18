@@ -35,7 +35,7 @@ parameters:
 		- tests/phpunit
 		- tests/plugins/TesterPlugin
 		- tools
-	exclude
+	excludePaths:
 		analyseAndScan:
 			- build/php
 	dynamicConstantNames:
