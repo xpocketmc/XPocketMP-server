@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
-use pocketmine\entity\Animal;
 use pocketmine\entity\EntitySizeInfo;
 use pocketmine\entity\Entity;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
