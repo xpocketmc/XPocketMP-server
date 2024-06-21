@@ -25,10 +25,10 @@ function generateDiscordEmbed(string $version, string $channel, string $descript
 		$phpEmbedLink = "";
 	}
 	return [
-		"content" => "<@&$newsPingRoleId> New PocketMine-MP release: $version ($channel)",
+		"content" => "<@&$newsPingRoleId> New XPocketMP release: $version ($channel)",
 		"embeds" => [
 			[
-				"title" => "New PocketMine-MP release: $version ($channel)",
+				"title" => "New XPocketMP release: $version ($channel)",
 				"description" => <<<DESCRIPTION
 $description
 
