@@ -14,12 +14,13 @@ use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\player\Player;
+use pocketmine\entity\Living;
 use function atan2;
 use function mt_rand;
 use function sqrt;
 use const M_PI;
 
-class Sheep extends Animal{
+class Sheep extends Living{
 
     private int $breedingCooldown = 0;
     private bool $isBaby = false;
