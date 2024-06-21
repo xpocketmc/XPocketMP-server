@@ -142,7 +142,7 @@ class Sheep extends Living{
         }
     }
 
-    private function isOnGround() : bool{
+    public function isOnGround() : bool{
         return $this->getWorld()->getBlockAt($this->location->floor()->subtract(0, 1, 0))->isSolid();
     }
 
