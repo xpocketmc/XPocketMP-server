@@ -11,11 +11,11 @@
 	<a href="https://discord.gg/bmSAZBG"><img src="https://img.shields.io/discord/1253659229189963796?label=discord&color=7289DA&logo=discord" alt="Discord" /></a>
 	<br>
 	<a href="https://github.com/pmmp/PocketMine-MP/releases"><img alt="GitHub all releases" src="https://img.shields.io/github/downloads/xpocketmc/XPocketMP-server/total?label=downloads%40total"></a>
-	<a href="https://github.com/xpocketmc/XPocketMP-server/releases/latest"><img alt="GitHub release (latest by SemVer)" src="https://img.shields.io/github/downloads/pmmp/PocketMine-MP/latest/total?sort=semver"></a>
+	<a href="https://github.com/xpocketmc/XPocketMP-server/releases/latest"><img alt="GitHub release (latest by SemVer)" src="https://img.shields.io/github/downloads/xpocketmc/XPocketMP-server/latest/total?sort=semver"></a>
 </p>
 
 ## What is this?
-PocketMine-MP is a highly customisable server software for Minecraft: Bedrock Edition, built from scratch in PHP, with over 10 years of history.
+XPocketMP is a highly customisable server software for Minecraft: Bedrock Edition, built from scratch in PHP, with over 10 years of history.
 
 If you're looking to create a Minecraft: Bedrock server with **custom functionality**, look no further.
 
@@ -25,13 +25,13 @@ If you're looking to create a Minecraft: Bedrock server with **custom functional
 - 🏎️ **Performance** - get 100+ players onto one server (depending on hardware and plugins)
 - ⤴️ **Continuously updated** - new Minecraft versions are usually supported within days
 
-## :x: PocketMine-MP is NOT a vanilla Minecraft server software.
+## :x: XPocketMP is NOT a vanilla Minecraft server software.
 **It is poorly suited to hosting vanilla survival servers.**
 It doesn't have many features from the vanilla game, such as vanilla world generation, redstone, mob AI, and various other things.
 
 If you just want to play **vanilla survival multiplayer**, consider using the [official Minecraft: Bedrock server software](https://minecraft.net/download/server/bedrock) instead of PocketMine-MP.
 
-If that's not an option for you, you may be able to add some of PocketMine-MP's missing features using plugins from [Poggit](https://poggit.pmmp.io/plugins), or write plugins to implement them yourself.
+If that's not an option for you, you may be able to add some of XPocketMP's missing features using plugins from [Poggit](https://poggit.pmmp.io/plugins), or write plugins to implement them yourself.
 
 ## Getting Started
 - [Documentation](http://pmmp.readthedocs.org/)
