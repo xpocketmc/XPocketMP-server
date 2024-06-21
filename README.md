@@ -1,9 +1,7 @@
 <p align="center">
-	<a href="https://pmmp.io">
-		<!--[if IE]>
 			<img src="https://github.com/xpocketmc/XPocketMP-server/blob/stable/.github/readme/20240621_222553.png" alt="The XPocketMP logo" title="XPocketMP" loading="eager" />
 		<![endif]-->
-	</a><br>
+<br>
 	<b>A highly customisable, open source server software for Minecraft: Bedrock Edition written in PHP</b>
 </p>
 
