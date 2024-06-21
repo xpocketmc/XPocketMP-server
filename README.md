@@ -15,7 +15,7 @@
 </p>
 
 ## What is this?
-XPocketMP is a highly customisable server software for Minecraft: Bedrock Edition, built from scratch in PHP, with over 10 years of history.
+XPocketMP is a highly customisable server software for Minecraft: Bedrock Edition, built from scratch in PHP, with over 1 years of history.
 
 If you're looking to create a Minecraft: Bedrock server with **custom functionality**, look no further.
 
