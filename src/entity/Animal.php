@@ -47,12 +47,13 @@ abstract class Animal extends Living {
         parent::attack($source);
     }
 
-    protected function updateMovement() : void {
+    protected function updateMovement(bool $teleport = false) : void {
         if($this->isInLove()) {
             $this->moveRandomly();
         } else {
             $this->avoidObstacles();
         }
+        parent::updateMovement($teleport);
     }
 
     protected function updateTarget() : void {
