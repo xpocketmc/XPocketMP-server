@@ -30,7 +30,6 @@ use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
 use pocketmine\world\World;
 use pocketmine\block\Block;
-use pocketmine\block\BlockFactory;
 use pocketmine\block\Crops;
 use pocketmine\block\Farmland;
 use pocketmine\math\Vector3;
