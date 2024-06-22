@@ -6,7 +6,6 @@ use pocketmine\block\BlockLegacyIds;
 use pocketmine\data\bedrock\EntityLegacyIds;
 use pocketmine\item\ItemFactory;
 use pocketmine\item\VanillaItems;
-use pocketmine\entity\object\ItemEntity;
 use pocketmine\level\particle\HeartParticle;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
@@ -23,10 +22,6 @@ class Sheep extends Animal {
 
     public function getInitialSizeInfo(): EntitySizeInfo {
         return new EntitySizeInfo($this->height, $this->width);
-    }
-
-    public function getNetworkTypeId(): string {
-        return EntityLegacyIds::SHEEP;
     }
 
     public function initEntity(CompoundTag $nbt): void {
