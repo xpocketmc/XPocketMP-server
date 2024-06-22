@@ -14,7 +14,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
+ * @aut>...
  * @link http://www.pocketmine.net/
  *
  */
@@ -29,7 +29,8 @@ use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
 use pocketmine\world\World;
-use pocketmine\block\BlockLegacyIds;
+use pocketmine\block\Block;
+use pocketmine\block\BlockFactory;
 use pocketmine\block\Crops;
 use pocketmine\block\Farmland;
 use pocketmine\math\Vector3;
@@ -47,7 +48,7 @@ class Villager extends Living implements Ageable {
     private int $profession = self::PROFESSION_FARMER;
 
     /** @var array<string, int> */
-    private array $villageBoundaries = [ // Defining the village boundaries
+    private array $villageBoundaries = [
         'x_min' => 0,
         'x_max' => 100,
         'z_min' => 0,
@@ -62,7 +63,7 @@ class Villager extends Living implements Ageable {
     }
 
     protected function getInitialSizeInfo() : EntitySizeInfo {
-        return new EntitySizeInfo(1.8, 0.6); // TODO: eye height??
+        return new EntitySizeInfo(1.8, 0.6);
     }
 
     public function getName() : string {
@@ -92,11 +93,8 @@ class Villager extends Living implements Ageable {
         return $nbt;
     }
 
-    /**
-     * Sets the villager profession
-     */
     public function setProfession(int $profession) : void {
-        $this->profession = $profession; // TODO: validation
+        $this->profession = $profession;
         $this->networkPropertiesDirty = true;
     }
 
@@ -117,10 +115,8 @@ class Villager extends Living implements Ageable {
     public function onUpdate(int $currentTick) : bool {
         parent::onUpdate($currentTick);
 
-        // Add walking logic
         $this->wanderAround();
 
-        // Add farming logic
         if ($this->profession === self::PROFESSION_FARMER) {
             $this->farmCrops();
         }
@@ -129,8 +125,7 @@ class Villager extends Living implements Ageable {
     }
 
     private function wanderAround() : void {
-        // Simple wandering logic within the village boundaries
-        if (mt_rand(0, 100) < 5) { // 5% chance to move every tick
+        if (mt_rand(0, 100) < 5) {
             $newX = mt_rand($this->villageBoundaries['x_min'], $this->villageBoundaries['x_max']);
             $newZ = mt_rand($this->villageBoundaries['z_min'], $this->villageBoundaries['z_max']);
             $this->moveTo($newX, (int) $this->getPosition()->getY(), $newZ);
@@ -138,13 +133,10 @@ class Villager extends Living implements Ageable {
     }
 
     private function farmCrops() : void {
-        // Logic to find a farm plot and perform farming actions
         foreach ($this->farmPlots as $plot) {
             if ($this->distanceSquared($plot['x'], $plot['y'], $plot['z']) < 2) {
-                // Simulate farming by planting and harvesting crops
                 $this->harvestAndReplant($plot['x'], $plot['y'], $plot['z']);
             } else {
-                // Move towards the farm plot
                 $this->moveTo($plot['x'], $plot['y'], $plot['z']);
             }
         }
@@ -152,15 +144,14 @@ class Villager extends Living implements Ageable {
 
     private function harvestAndReplant(int $x, int $y, int $z) : void {
         $world = $this->getWorld();
-        $block = $world->getBlockAt(new Vector3($x, $y, $z));
+        $block = $world->getBlockAt($x, $y, $z);
 
-        // Check if the block is a crop and fully grown
         if ($block instanceof Crops && $block->getAge() === Crops::MAX_AGE) {
-            // Harvest the crop
             $world->useBreakOn(new Vector3($x, $y, $z));
 
-            // Replant the crop
-            $world->setBlockAt(new Vector3($x, $y, $z), BlockLegacyIds::WHEAT_BLOCK);
+            $blockFactory = BlockFactory::getInstance();
+            $wheatBlock = $blockFactory->get(Block::WHEAT_BLOCK);
+            $world->setBlockAt($x, $y, $z, $wheatBlock);
         }
     }
 
@@ -170,17 +161,15 @@ class Villager extends Living implements Ageable {
     }
 
     private function moveTo(int $x, int $y, int $z) : void {
-        // Logic to move villager to the specified coordinates
         $this->setPosition(new Vector3($x, $y, $z));
     }
 
     private function generateRandomFarmPlots() : void {
-        // Generate a set of random farm plots within the village boundaries
-        $numPlots = mt_rand(1, 5); // Number of farm plots to generate
+        $numPlots = mt_rand(1, 5);
         for ($i = 0; $i < $numPlots; $i++) {
             $x = mt_rand($this->villageBoundaries['x_min'], $this->villageBoundaries['x_max']);
             $z = mt_rand($this->villageBoundaries['z_min'], $this->villageBoundaries['z_max']);
-            $y = $this->getWorld()->getHighestBlockAt($x, $z)->getPosition()->getY(); // Get the highest Y coordinate at (x, z)
+            $y = $this->getWorld()->getHighestBlockAt($x, $z)->getPosition()->getY();
             $this->farmPlots[] = ['x' => $x, 'y' => $y, 'z' => $z];
         }
     }
