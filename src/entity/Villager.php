@@ -34,6 +34,7 @@ use pocketmine\block\BlockFactory;
 use pocketmine\block\Crops;
 use pocketmine\block\Farmland;
 use pocketmine\math\Vector3;
+use pocketmine\block\Block;
 
 class Villager extends Living implements Ageable {
     public const PROFESSION_FARMER = 0;
