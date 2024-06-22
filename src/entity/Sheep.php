@@ -11,7 +11,6 @@ use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\player\Player;
 use pocketmine\world\World;
-use pocketmine\entity\EntitySizeInfo;
 
 class Sheep extends Animal {
 
