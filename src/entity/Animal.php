@@ -1,23 +1,5 @@
 <?php
 
-/*
- *  ____            _        _   __  __ _                  __  __ ____
- * |  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
- * | |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
- * |  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
- * |_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
- */
-
-declare(strict_types=1);
-
 namespace pocketmine\entity;
 
 use pocketmine\block\Block;
@@ -92,7 +74,7 @@ abstract class Animal extends Living {
 
     protected function avoidObstacles() : void {
         $direction = $this->getDirection();
-        $pos = $this->getPosition()->add($direction->multiply(1));
+        $pos = $this->getPosition()->add($direction->x, $direction->y, $direction->z);
         $block = $this->getWorld()->getBlockAt($pos->getFloorX(), $pos->getFloorY(), $pos->getFloorZ());
         if($block->isSolid()){
             $this->motion->x = -$this->motion->x;
@@ -139,7 +121,7 @@ abstract class Animal extends Living {
 
     protected function updateInLove() : void {
         if ($this->isInLove()) {
-            $this->getWorld()->addParticle(new HeartParticle($this));
+            $this->getWorld()->addParticle(new Vector3($this->x, $this->y, $this->z), new HeartParticle($this));
         }
     }
 
@@ -169,7 +151,7 @@ abstract class Animal extends Living {
     public function spawnTo(Player $player) : void {
         parent::spawnTo($player);
         if ($this->isInLove()) {
-            $this->getWorld()->addParticle(new HeartParticle($this));
+            $this->getWorld()->addParticle(new Vector3($this->x, $this->y, $this->z), new HeartParticle($this));
         }
     }
 }
