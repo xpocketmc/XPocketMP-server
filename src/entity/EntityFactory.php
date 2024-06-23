@@ -173,6 +173,10 @@ final class EntityFactory{
 			return new Zombie(Helper::parseLocation($nbt, $world), $nbt);
 		}, ['Zombie', 'minecraft:zombie']);
 
+		$this->register(Cow::class, function(World $world, CompoundTag $nbt) : Cow{
+			return new Cow(Helper::parseLocation($nbt, $world), $nbt);
+		}, ['Cow', 'minecraft:cow']);
+
 		$this->register(Human::class, function(World $world, CompoundTag $nbt) : Human{
 			return new Human(Helper::parseLocation($nbt, $world), Human::parseSkinNBT($nbt), $nbt);
 		}, ['Human']);
