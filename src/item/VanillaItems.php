@@ -502,6 +502,7 @@ final class VanillaItems{
 		self::register("netherite_scrap", new class(new IID(Ids::NETHERITE_SCRAP), "Netherite Scrap") extends Item{
 			public function isFireProof() : bool{ return true; }
 		});
+		
 		self::register("oak_sign", new ItemBlockWallOrFloor(new IID(Ids::OAK_SIGN), Blocks::OAK_SIGN(), Blocks::OAK_WALL_SIGN()));
 		self::register("painting", new PaintingItem(new IID(Ids::PAINTING), "Painting"));
 		self::register("paper", new Item(new IID(Ids::PAPER), "Paper"));
@@ -603,7 +604,8 @@ final class VanillaItems{
 		self::register("cow_spawn_egg", new class(new IID(Ids::COW_SPAWM_EGG), "Cow Spawn Egg") extends SpawnEgg{
 			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
 				return new Cow(Location::fromObject($pos, $world, $yaw, $pitch));
-		});
+            }
+      	});
 	}
 
 	private static function registerTierToolItems() : void{
