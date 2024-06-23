@@ -11,19 +11,19 @@
 
 namespace pocketmine\entity;
 
+use pocketmine\entity\EntitySizeInfo;
+use pocketmine\entity\Living;
 use pocketmine\item\ItemFactory;
 use pocketmine\item\ItemIds;
-use pocketmine\entity\EntitySizeInfo;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\world\World;
-use pocketmine\player\Player;
 use pocketmine\math\Vector3;
+use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\network\mcpe\protocol\types\entity\EntityEventPacket;
+use pocketmine\player\Player;
 use pocketmine\scheduler\ClosureTask;
-use pocketmine\plugin\PluginBase;
+use pocketmine\world\World;
 
-class Cow extends Animal {
+class Cow extends Living {
 
     public const NETWORK_ID = EntityIds::COW; 
 
@@ -66,7 +66,7 @@ class Cow extends Animal {
     }
 
     public function scheduleUpdate() {
-        $plugin = PluginBase::getInstance();
+        $plugin = YourPluginMainClass::getInstance();
         $plugin->getScheduler()->scheduleRepeatingTask(new ClosureTask(function (): void {
             $this->updateMovement();
         }), 20); // Update every second (20 ticks)
