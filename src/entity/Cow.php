@@ -20,8 +20,8 @@ use pocketmine\entity\Living;
 use pocketmine\entity\Entity;
 use pocketmine\player\Player;
 use pocketmine\math\Vector3;
-use pocketmine\network\mcpe\protocol\types\entity\EntityEvent;
 use pocketmine\network\mcpe\protocol\types\entity\EntityEventPacket;
+use pocketmine\event\entity\EntityRegainHealthEvent;
 use function mt_rand;
 
 class Cow extends Living {
@@ -34,8 +34,8 @@ class Cow extends Living {
     private int $breedCooldown = 0;
     private int $eatCooldown = 0;
 
-    public function __construct(World $world, CompoundTag $nbt){
-        parent::__construct($world, $nbt);
+    public function __construct(Location $location, CompoundTag $nbt){
+        parent::__construct($location, $nbt);
         $this->setMaxHealth(10);
         $this->setHealth(10);
         $this->breedCooldown = 0;
@@ -100,29 +100,22 @@ class Cow extends Living {
 
     private function breed() : void {
         $this->breedCooldown = 6000; // 5 menit cooldown
-        $childNBT = new CompoundTag("", [
-            "Pos" => [
-                new DoubleTag("", $this->x),
-                new DoubleTag("", $this->y),
-                new DoubleTag("", $this->z)
-            ],
-            "Motion" => [
-                new DoubleTag("", 0),
-                new DoubleTag("", 0),
-                new DoubleTag("", 0)
-            ],
-            "Rotation" => [
-                new FloatTag("", $this->yaw),
-                new FloatTag("", $this->pitch)
-            ]
-        ]);
-        $child = new Cow($this->world, $childNBT);
+        $childNBT = Entity::createBaseNBT($this);
+        $child = new Cow($this->location, $childNBT);
         $child->spawnToAll();
     }
 
     private function eat() : void {
         $this->eatCooldown = 1200; // 1 menit cooldown
-        $this->heal(2); // Heal 2 health points
+        $this->heal(new EntityRegainHealthEvent($this, 2, EntityRegainHealthEvent::CAUSE_EATING));
         $this->broadcastEntityEvent(EntityEventPacket::EAT_GRASS_ANIMATION); // Eating animation
+    }
+
+    public function getInitialSizeInfo() : EntitySizeInfo {
+        return new EntitySizeInfo($this->height, $this->width);
+    }
+
+    public static function getNetworkTypeId() : string {
+        return EntityIds::COW;
     }
 }
