@@ -116,7 +116,7 @@ jobs:
         run: composer install --no-dev --prefer-dist --no-interaction
 
       - name: Run integration tests
-        run: ./tests/travis.sh -t4
+        run: bash /tests/travis.sh -t4
 
   codegen:
     name: Generated Code consistency checks
