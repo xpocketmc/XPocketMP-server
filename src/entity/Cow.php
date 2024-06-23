@@ -3,10 +3,10 @@
 /**
  * Cow.php
  *
- * @license GPL-3.0-only
+ * @license MIT
  * @link https://github.com/XPocketMP
  * 
- * XPocketMP
+ * Teks XPocketMP
  */
 
 namespace pocketmine\entity;
@@ -17,12 +17,14 @@ use pocketmine\item\ItemIds;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\world\World;
 use pocketmine\entity\Living;
-use pocketmine\entity\Animal;
+use pocketmine\entity\Entity;
 use pocketmine\player\Player;
 use pocketmine\math\Vector3;
+use pocketmine\network\mcpe\protocol\types\entity\EntityEvent;
+use pocketmine\network\mcpe\protocol\types\entity\EntityEventPacket;
 use function mt_rand;
 
-class Cow extends Animal {
+class Cow extends Living {
 
     public const NETWORK_ID = self::COW;
 
@@ -99,20 +101,20 @@ class Cow extends Animal {
     private function breed() : void {
         $this->breedCooldown = 6000; // 5 menit cooldown
         $childNBT = new CompoundTag("", [
-            new ListTag("Pos", [
+            "Pos" => [
                 new DoubleTag("", $this->x),
                 new DoubleTag("", $this->y),
                 new DoubleTag("", $this->z)
-            ]),
-            new ListTag("Motion", [
+            ],
+            "Motion" => [
                 new DoubleTag("", 0),
                 new DoubleTag("", 0),
                 new DoubleTag("", 0)
-            ]),
-            new ListTag("Rotation", [
+            ],
+            "Rotation" => [
                 new FloatTag("", $this->yaw),
                 new FloatTag("", $this->pitch)
-            ])
+            ]
         ]);
         $child = new Cow($this->world, $childNBT);
         $child->spawnToAll();
@@ -124,4 +126,3 @@ class Cow extends Animal {
         $this->broadcastEntityEvent(EntityEventPacket::EAT_GRASS_ANIMATION); // Eating animation
     }
 }
-
