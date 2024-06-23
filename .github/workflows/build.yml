@@ -25,9 +25,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-php-
 
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-suggest
-
     - name: Create XPocketMP.phar
       run: composer make-server # Pastikan ini adalah command yang benar untuk membuat .phar file
 
