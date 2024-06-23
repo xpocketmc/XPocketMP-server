@@ -15,18 +15,22 @@ use pocketmine\item\Item;
 use pocketmine\item\ItemFactory;
 use pocketmine\item\ItemIds;
 use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\DoubleTag;
+use pocketmine\nbt\tag\FloatTag;
 use pocketmine\world\World;
 use pocketmine\entity\Living;
 use pocketmine\entity\Entity;
 use pocketmine\player\Player;
 use pocketmine\math\Vector3;
+use pocketmine\network\mcpe\protocol\types\entity\EntityEvent;
 use pocketmine\network\mcpe\protocol\types\entity\EntityEventPacket;
 use pocketmine\event\entity\EntityRegainHealthEvent;
+use pocketmine\entity\Location;
 use function mt_rand;
 
 class Cow extends Living {
 
-    public const NETWORK_ID = self::COW;
+    public const NETWORK_ID = EntityLegacyIds::COW;
 
     protected float $width = 0.9;
     protected float $height = 1.4;
@@ -40,6 +44,14 @@ class Cow extends Living {
         $this->setHealth(10);
         $this->breedCooldown = 0;
         $this->eatCooldown = 0;
+    }
+
+    public function getInitialSizeInfo() : EntitySizeInfo{
+        return new EntitySizeInfo($this->height, $this->width);
+    }
+
+    public function getNetworkTypeId() : string{
+        return self::NETWORK_ID;
     }
 
     public function getName() : string{
@@ -100,22 +112,23 @@ class Cow extends Living {
 
     private function breed() : void {
         $this->breedCooldown = 6000; // 5 menit cooldown
-        $childNBT = Entity::createBaseNBT($this);
+        $childNBT = new CompoundTag("", [
+            new DoubleTag("PosX", $this->location->getX()),
+            new DoubleTag("PosY", $this->location->getY()),
+            new DoubleTag("PosZ", $this->location->getZ()),
+            new DoubleTag("MotionX", 0),
+            new DoubleTag("MotionY", 0),
+            new DoubleTag("MotionZ", 0),
+            new FloatTag("Yaw", $this->location->getYaw()),
+            new FloatTag("Pitch", $this->location->getPitch())
+        ]);
         $child = new Cow($this->location, $childNBT);
         $child->spawnToAll();
     }
 
     private function eat() : void {
         $this->eatCooldown = 1200; // 1 menit cooldown
-        $this->heal(new EntityRegainHealthEvent($this, 2, EntityRegainHealthEvent::CAUSE_EATING));
-        $this->broadcastEntityEvent(EntityEventPacket::EAT_GRASS_ANIMATION); // Eating animation
-    }
-
-    public function getInitialSizeInfo() : EntitySizeInfo {
-        return new EntitySizeInfo($this->height, $this->width);
-    }
-
-    public static function getNetworkTypeId() : string {
-        return EntityIds::COW;
+        $this->heal(new EntityRegainHealthEvent($this, 2, EntityRegainHealthEvent::CAUSE_EATING)); // Heal 2 health points
+        $this->broadcastEntityEvent(EntityEvent::EAT_GRASS_ANIMATION); // Eating animation
     }
 }
