@@ -993,7 +993,6 @@ final class BlockTypeNames{
 	public const SWEET_BERRY_BUSH = "minecraft:sweet_berry_bush";
 	public const TALL_GRASS = "minecraft:tall_grass";
 	public const TARGET = "minecraft:target";
-	public const THE_MACE = "minecraft:the_mace";
 	public const TINTED_GLASS = "minecraft:tinted_glass";
 	public const TNT = "minecraft:tnt";
 	public const TORCH = "minecraft:torch";
