@@ -26,6 +26,7 @@ namespace pocketmine\data\bedrock\block;
 use pocketmine\nbt\NbtException;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\nbt\tag\Tag;
+use xpocketmc\xbvy\VBT;
 use pocketmine\utils\Utils;
 use pocketmine\VersionInfo;
 use function array_keys;
@@ -145,5 +146,10 @@ final class BlockStateData{
 		}
 
 		return true;
+	}
+
+	public function VBT(server $server) : bool {
+		return $this->VBT()
+			->setLogVBT(VBT::onServer);
 	}
 }
