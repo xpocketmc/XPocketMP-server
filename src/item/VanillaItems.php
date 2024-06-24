@@ -601,11 +601,6 @@ final class VanillaItems{
 				return new Villager(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
-		self::register("cow_spawn_egg", new class(new IID(Ids::COW_SPAWM_EGG), "Cow Spawn Egg") extends SpawnEgg{
-			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
-				return new Cow(Location::fromObject($pos, $world, $yaw, $pitch));
-            }
-      	});
 	}
 
 	private static function registerTierToolItems() : void{
