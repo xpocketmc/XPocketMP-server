@@ -590,11 +590,6 @@ final class VanillaItems{
 				return new Zombie(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
-		self::register("cow_spawn_egg", new class(new IID(Ids::COW_SPAWN_EGG), "Zombie Spawn Egg") extends SpawnEgg{
-			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
-				return new Cow(Location::formObject($pos, $world, $yaw, $pitch));
-			}
-		});
 		self::register("squid_spawn_egg", new class(new IID(Ids::SQUID_SPAWN_EGG), "Squid Spawn Egg") extends SpawnEgg{
 			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
 				return new Squid(Location::fromObject($pos, $world, $yaw, $pitch));
@@ -603,6 +598,11 @@ final class VanillaItems{
 		self::register("villager_spawn_egg", new class(new IID(Ids::VILLAGER_SPAWN_EGG), "Villager Spawn Egg") extends SpawnEgg{
 			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
 				return new Villager(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+		self::register("cow_spawn_egg", new class(new IID(Ids::COW_SPAWN_EGG), "Cow Spawn Egg") extends SpawnEgg{
+			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Cow(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
 	}
