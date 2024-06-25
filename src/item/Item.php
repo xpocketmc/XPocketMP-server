@@ -100,11 +100,6 @@ class Item implements \JsonSerializable{
 
 	protected bool $keepOnDeath = false;
 
-	protected int $id;
-    protected int $meta;
-    protected string $name;
-    protected array $enchantmentTags;
-
 	/**
 	 * Constructs a new Item type. This constructor should ONLY be used when constructing a new item TYPE to register
 	 * into the index.
@@ -122,10 +117,6 @@ class Item implements \JsonSerializable{
 		private array $enchantmentTags = []
 	){
 		$this->nbt = new CompoundTag();
-	    $this->id = $id;
-        $this->meta = $meta;
-        $this->name = $name;
-        $this->enchantmentTags = $enchantmentTags;
 	}
 
 	public function hasCustomBlockData() : bool{
