@@ -16,7 +16,6 @@
  * @author PocketMine Team
  * @link http://www.pocketmine.net/
  *
- *
  */
 
 declare(strict_types=1);
@@ -24,10 +23,12 @@ declare(strict_types=1);
 namespace pocketmine\entity;
 
 use pocketmine\item\Item;
+use pocketmine\item\ItemIds;
 use pocketmine\entity\Location;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\AddActorPacket;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
+use pocketmine\player\Player;
 use function mt_rand;
 
 class Cow extends Living
@@ -56,14 +57,14 @@ class Cow extends Living
     {
         $pk = new AddActorPacket();
         $pk->type = self::NETWORK_ID;
-        $pk->entityRuntimeId = $this->getId();
+        $pk->actorRuntimeId = $this->getId();
         $pk->position = $this->getPosition();
         $pk->motion = $this->getMotion();
         $pk->yaw = $this->yaw;
         $pk->pitch = $this->pitch;
         $pk->headYaw = $this->yaw;
 
-        $this->server->broadcastPacket($this->getViewers(), $pk);
+        $this->server->broadcastPackets($this->getViewers(), [$pk]);
     }
 
     public function getInitialSizeInfo() : EntitySizeInfo
@@ -71,7 +72,7 @@ class Cow extends Living
         return new EntitySizeInfo(1.4, 0.9); // tinggi 1.4 unit, lebar 0.9 unit
     }
 
-    public function getNetworkTypeId() : string
+    public static function getNetworkTypeId() : string
     {
         return EntityIds::COW;
     }
