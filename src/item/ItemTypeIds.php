@@ -325,8 +325,8 @@ final class ItemTypeIds{
 	public const PITCHER_POD = 20286;
 	public const NAME_TAG = 20287;
 
-	public const FIRST_UNUSED_ITEM_ID = 20288;
-	public const COW_SPAWN_EGG = 20289;
+	public const COW_SPAWN_EGG = 20288;
+	public const FIRST_UNUSED_ITEM_ID = 20289;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
 
