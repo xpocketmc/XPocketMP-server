@@ -111,7 +111,6 @@ class Item implements \JsonSerializable{
 	 * @param string[] $enchantmentTags
 	 */	
 	public function __construct(
-		int $id, int $meta = 0, strings $name = "", array $enchantmentTags = []
 		private ItemIdentifier $identifier,
 		protected string $name = "Unknown",
 		private array $enchantmentTags = []
