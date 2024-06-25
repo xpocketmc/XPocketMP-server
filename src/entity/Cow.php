@@ -53,9 +53,7 @@ class Cow extends Living
 
     public function getDrops() : array
     {
-        return [
-            Item::get(ItemTypeIds::RAW_BEEF, 0, mt_rand(1, 3)), // Drop 1-3 raw beef
-        ];
+        return [];
     }
 
     protected function addSpawnPacket(Player $player) : void
