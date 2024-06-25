@@ -9,7 +9,7 @@ class Leather extends Item {
      * @param int $meta
      */
     public function __construct(int $meta = 0){
-        parent::__construct(self::LEATHER, $meta, "Leather");
+        parent::__construct(ItemIds::LEATHER, $meta, "Leather");
     }
 
     /**
