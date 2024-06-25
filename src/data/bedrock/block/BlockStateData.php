@@ -147,9 +147,4 @@ final class BlockStateData{
 
 		return true;
 	}
-
-	public function VBT(server $server) : bool {
-		return $this->VBT()
-			->setLogVBT(VBT::onServer);
-	}
 }
