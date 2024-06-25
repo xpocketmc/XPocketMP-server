@@ -65,3 +65,4 @@ class Cow extends Living
         $this->server->broadcastPacket($this->getViewers(), $pk);
     }
 }
+
