@@ -16,6 +16,7 @@
  * @author PocketMine Team
  * @link http://www.pocketmine.net/
  *
+ * 
  */
 
 declare(strict_types=1);
@@ -27,6 +28,7 @@ use pocketmine\level\Level;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\AddActorPacket;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
+use function mt_rand;
 
 class Cow extends Living
 {
@@ -37,12 +39,12 @@ class Cow extends Living
         parent::__construct($level, $nbt);
     }
 
-    public function getName(): string
+    public function getName() : string
     {
         return "Cow";
     }
 
-    public function getDrops(): array
+    public function getDrops() : array
     {
         return [
             Item::get(Item::RAW_BEEF, 0, mt_rand(1, 3)), // Drop 1-3 raw beef
@@ -50,7 +52,7 @@ class Cow extends Living
         ];
     }
 
-    protected function addSpawnPacket(Player $player): void
+    protected function addSpawnPacket(Player $player) : void
     {
         $pk = new AddActorPacket();
         $pk->type = self::NETWORK_ID;
