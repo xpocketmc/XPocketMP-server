@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace pocketmine\entity;
 
 use pocketmine\item\Item;
+use pocketmine\item\ItemFactory;
 use pocketmine\item\ItemTypeIds;
 use pocketmine\entity\Location;
 use pocketmine\nbt\tag\CompoundTag;
@@ -12,6 +13,7 @@ use pocketmine\network\mcpe\protocol\AddActorPacket;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\player\Player;
 use pocketmine\Server;
+use pocketmine\entity\EntitySizeInfo;
 use function mt_rand;
 
 class Cow extends Living
@@ -35,7 +37,22 @@ class Cow extends Living
 
     public function getDrops() : array
     {
-        return [];
+        $drops = [];
+        $lootingLevel = $this->getLootingLevel(); // Jika ada mekanisme looting
+
+        // Tambahkan drop item kulit (Leather)
+        $leatherDropCount = mt_rand(0, 2 + $lootingLevel); // Drop 0-2 + looting level
+        if($leatherDropCount > 0){
+            $drops[] = ItemFactory::getInstance()->get(ItemTypeIds::LEATHER, 0, $leatherDropCount);
+        }
+
+        // Tambahkan drop item daging mentah (RawBeef)
+        $beefDropCount = mt_rand(1, 3 + $lootingLevel); // Drop 1-3 + looting level
+        if($beefDropCount > 0){
+            $drops[] = ItemFactory::getInstance()->get(ItemTypeIds::RAW_BEEF, 0, $beefDropCount);
+        }
+
+        return $drops;
     }
 
     protected function addSpawnPacket(Player $player) : void
