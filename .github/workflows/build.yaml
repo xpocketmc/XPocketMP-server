@@ -2,9 +2,9 @@ name: Build And Upload
 
 on:
   push:
-    branches: [ "stables" ]
+    branches: [ "stable" ]
   pull_request:
-    branches: [ "stables" ]
+    branches: [ "stable" ]
 
 permissions:
   contents: read
