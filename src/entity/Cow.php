@@ -55,7 +55,6 @@ class Cow extends Living
     {
         return [
             Item::get(ItemTypeIds::RAW_BEEF, 0, mt_rand(1, 3)), // Drop 1-3 raw beef
-            Item::get(ItemTypeIds::LEATHER, 0, mt_rand(0, 2))  // Drop 0-2 leather
         ];
     }
 
