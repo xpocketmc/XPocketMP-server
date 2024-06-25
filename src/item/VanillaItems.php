@@ -569,7 +569,7 @@ final class VanillaItems{
 		self::register("wheat_seeds", new WheatSeeds(new IID(Ids::WHEAT_SEEDS), "Wheat Seeds"));
 		self::register("writable_book", new WritableBook(new IID(Ids::WRITABLE_BOOK), "Book & Quill"));
 		self::register("written_book", new WrittenBook(new IID(Ids::WRITTEN_BOOK), "Written Book"));
-		
+
 		foreach(BoatType::cases() as $type){
 			//boat type is static, because different types of wood may have different properties
 			self::register(strtolower($type->name) . "_boat", new Boat(new IID(match($type){
