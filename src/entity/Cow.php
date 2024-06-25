@@ -38,17 +38,16 @@ class Cow extends Living
     public function getDrops() : array
     {
         $drops = [];
-        $lootingLevel = $this->getLootingLevel(); // Jika ada mekanisme looting
 
         // Tambahkan drop item kulit (Leather)
-        $leatherDropCount = mt_rand(0, 2 + $lootingLevel); // Drop 0-2 + looting level
-        if($leatherDropCount > 0){
+        $leatherDropCount = mt_rand(0, 2); // Drop 0-2
+        if ($leatherDropCount > 0) {
             $drops[] = ItemFactory::getInstance()->get(ItemTypeIds::LEATHER, 0, $leatherDropCount);
         }
 
         // Tambahkan drop item daging mentah (RawBeef)
-        $beefDropCount = mt_rand(1, 3 + $lootingLevel); // Drop 1-3 + looting level
-        if($beefDropCount > 0){
+        $beefDropCount = mt_rand(1, 3); // Drop 1-3
+        if ($beefDropCount > 0) {
             $drops[] = ItemFactory::getInstance()->get(ItemTypeIds::RAW_BEEF, 0, $beefDropCount);
         }
 
@@ -67,7 +66,7 @@ class Cow extends Living
         $pk->headYaw = $this->yaw;
 
         // Kirim paket ke setiap pemain yang melihat entitas ini
-        foreach($this->getViewers() as $viewer){
+        foreach($this->getViewers() as $viewer) {
             $viewer->getNetworkSession()->sendDataPacket($pk);
         }
     }
