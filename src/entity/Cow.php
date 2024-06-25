@@ -23,7 +23,7 @@ declare(strict_types=1);
 namespace pocketmine\entity;
 
 use pocketmine\item\Item;
-use pocketmine\item\ItemIds;
+use pocketmine\item\ItemTypeIds;
 use pocketmine\entity\Location;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\AddActorPacket;
@@ -54,8 +54,8 @@ class Cow extends Living
     public function getDrops() : array
     {
         return [
-            Item::get(ItemIds::RAW_BEEF, 0, mt_rand(1, 3)), // Drop 1-3 raw beef
-            Item::get(ItemIds::LEATHER, 0, mt_rand(0, 2))  // Drop 0-2 leather
+            Item::get(ItemTypeIds::RAW_BEEF, 0, mt_rand(1, 3)), // Drop 1-3 raw beef
+            Item::get(ItemTypeIds::LEATHER, 0, mt_rand(0, 2))  // Drop 0-2 leather
         ];
     }
 
