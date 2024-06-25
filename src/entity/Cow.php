@@ -32,37 +32,37 @@ use function mt_rand;
 
 class Cow extends Living
 {
-       public const NETWORK_ID = EntityIds::COW;
+          public const NETWORK_ID = EntityIds::COW;
 
-       public function __construct(Level $level, CompoundTag $nbt)
-       {
-               parent::__construct($level, $nbt);
-       }
+          public function __construct(Level $level, CompoundTag $nbt)
+          {
+                  parent::__construct($level, $nbt);
+          }
 
-       public function getName() : string
-       {
-           return "Cow";
-       }
+          public function getName() : string
+          {
+              return "Cow";
+          }
 
-       public function getDrops() : array
-       {
-           return [
-                  Item::get(Item::RAW_BEEF, 0, mt_rand(1, 3)), // Drop 1-3 raw beef
-                  Item::get(Item::LEATHER, 0, mt_rand(0, 2))  // Drop 0-2 leather
-           ];
-       }
+          public function getDrops() : array
+          {
+              return [
+                     Item::get(Item::RAW_BEEF, 0, mt_rand(1, 3)), // Drop 1-3 raw beef
+                     Item::get(Item::LEATHER, 0, mt_rand(0, 2))  // Drop 0-2 leather
+              ];
+          }
 
-       protected function addSpawnPacket(Player $player) : void
-       {
-               $pk = new AddActorPacket();
-               $pk->type = self::NETWORK_ID;
-               $pk->entityRuntimeId = $this->getId();
-               $pk->position = $this->asVector3();
-               $pk->motion = $this->getMotion();
-               $pk->yaw = $this->yaw;
-               $pk->pitch = $this->pitch;
-               $pk->headYaw = $this->yaw;
+          protected function addSpawnPacket(Player $player) : void
+          {
+                  $pk = new AddActorPacket();
+                  $pk->type = self::NETWORK_ID;
+                  $pk->entityRuntimeId = $this->getId();
+                  $pk->position = $this->asVector3();
+                  $pk->motion = $this->getMotion();
+                  $pk->yaw = $this->yaw;
+                  $pk->pitch = $this->pitch;
+                  $pk->headYaw = $this->yaw;
                
-               $this->server->broadcastPacket($this->getViewers(), $pk);
-       }
+                  $this->server->broadcastPacket($this->getViewers(), $pk);
+          }
 }
