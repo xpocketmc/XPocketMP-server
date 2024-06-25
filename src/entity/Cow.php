@@ -36,12 +36,14 @@ class Cow extends Living
 {
     public const NETWORK_ID = EntityIds::COW;
 
-    private $yaw;
-    private $pitch;
+    private float $yaw;
+    private float $pitch;
 
     public function __construct(Location $location, ?CompoundTag $nbt = null)
     {
         parent::__construct($location, $nbt);
+        $this->yaw = $location->getYaw();  // Assuming Location has getYaw() and getPitch() methods
+        $this->pitch = $location->getPitch();
     }
 
     public function getName() : string
@@ -68,7 +70,7 @@ class Cow extends Living
         $pk->pitch = $this->pitch;
         $pk->headYaw = $this->yaw;
 
-        $this->getServer()->broadcastPackets($this->getViewers(), [$pk]);
+        Server::getInstance()->broadcastPackets($this->getViewers(), [$pk]);  // Use Server instance method
     }
 
     public function getInitialSizeInfo() : EntitySizeInfo
