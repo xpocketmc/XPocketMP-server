@@ -29,13 +29,17 @@ use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\AddActorPacket;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\player\Player;
+use pocketmine\Server;
 use function mt_rand;
 
 class Cow extends Living
 {
     public const NETWORK_ID = EntityIds::COW;
 
-    public function __construct(Location $location, CompoundTag $nbt)
+    private $yaw;
+    private $pitch;
+
+    public function __construct(Location $location, ?CompoundTag $nbt = null)
     {
         parent::__construct($location, $nbt);
     }
@@ -64,12 +68,12 @@ class Cow extends Living
         $pk->pitch = $this->pitch;
         $pk->headYaw = $this->yaw;
 
-        $this->server->broadcastPackets($this->getViewers(), [$pk]);
+        $this->getServer()->broadcastPackets($this->getViewers(), [$pk]);
     }
 
     public function getInitialSizeInfo() : EntitySizeInfo
     {
-        return new EntitySizeInfo(1.4, 0.9); // tinggi 1.4 unit, lebar 0.9 unit
+        return new EntitySizeInfo(1.4, 0.9);
     }
 
     public static function getNetworkTypeId() : string
