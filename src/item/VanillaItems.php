@@ -134,6 +134,7 @@ use function strtolower;
  * @method static Cookie COOKIE()
  * @method static Item COPPER_INGOT()
  * @method static CoralFan CORAL_FAN()
+ * @method static SpawnEgg COW_SPAWN_EGG()
  * @method static ItemBlockWallOrFloor CRIMSON_SIGN()
  * @method static Boat DARK_OAK_BOAT()
  * @method static ItemBlockWallOrFloor DARK_OAK_SIGN()
