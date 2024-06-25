@@ -42,7 +42,7 @@ class Cow extends Living
     public function __construct(Location $location, ?CompoundTag $nbt = null)
     {
         parent::__construct($location, $nbt);
-        $this->yaw = $location->getYaw();  // Assuming Location has getYaw() and getPitch() methods
+        $this->yaw = $location->getYaw();
         $this->pitch = $location->getPitch();
     }
 
@@ -70,16 +70,21 @@ class Cow extends Living
         $pk->pitch = $this->pitch;
         $pk->headYaw = $this->yaw;
 
-        Server::getInstance()->broadcastPackets($this->getViewers(), [$pk]);  // Use Server instance method
+        $this->getServer()->broadcastPackets($this->getViewers(), [$pk]);
     }
 
     public function getInitialSizeInfo() : EntitySizeInfo
     {
-        return new EntitySizeInfo(1.4, 0.9);
+        return new EntitySizeInfo(1.4, 0.9); // tinggi 1.4 unit, lebar 0.9 unit
     }
 
     public static function getNetworkTypeId() : string
     {
         return EntityIds::COW;
+    }
+
+    private function getServer(): Server
+    {
+        return Server::getInstance(); // Adjust this method to correctly get the server instance
     }
 }
