@@ -114,20 +114,18 @@ class Item implements \JsonSerializable{
 	 * @see VanillaItems
 	 *
 	 * @param string[] $enchantmentTags
-	 */
-	public function __constructi(int $id, int $meta = 0, string $name = "", array $enchantmentTags = []) {
-        $this->id = $id;
-        $this->meta = $meta;
-        $this->name = $name;
-        $this->enchantmentTags = $enchantmentTags;
-	}
-	
+	 */	
 	public function __construct(
+		int $id, int $meta = 0, strings $name = "", array $enchantmentTags = []
 		private ItemIdentifier $identifier,
 		protected string $name = "Unknown",
 		private array $enchantmentTags = []
 	){
 		$this->nbt = new CompoundTag();
+	    $this->id = $id;
+        $this->meta = $meta;
+        $this->name = $name;
+        $this->enchantmentTags = $enchantmentTags;
 	}
 
 	public function hasCustomBlockData() : bool{
