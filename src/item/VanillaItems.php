@@ -137,6 +137,7 @@ use function strtolower;
  * @method static CoralFan CORAL_FAN()
  * @method static SpawnEgg COW_SPAWN_EGG()
  * @method static ItemBlockWallOrFloor CRIMSON_SIGN()
+ * @method static SpawnEgg CHICKEN_SPAWN_EGG()
  * @method static Boat DARK_OAK_BOAT()
  * @method static ItemBlockWallOrFloor DARK_OAK_SIGN()
  * @method static Item DIAMOND()
@@ -334,7 +335,6 @@ use function strtolower;
  * @method static WritableBook WRITABLE_BOOK()
  * @method static WrittenBook WRITTEN_BOOK()
  * @method static SpawnEgg ZOMBIE_SPAWN_EGG()
- * @method static SpawnEgg CHICKEN_SPAWN_EGG()
  */
 final class VanillaItems{
 	use CloningRegistryTrait;
@@ -611,7 +611,7 @@ final class VanillaItems{
 		});
 		self::register("chicken_spawn_egg", new class(new IID(Ids::CHICKEN_SPAWN_EGG), "Chicken Spawn Egg") extends SpawnEgg{
 			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
-				return new Chicken(Location::formObject($pos, world, $yaw, $pitch));
+				return new Chicken(Location::formObject($pos, $world, $yaw, $pitch));
 			}
 		});
 	}
