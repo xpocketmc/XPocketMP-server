@@ -188,6 +188,7 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::CHARCOAL, Items::CHARCOAL());
 		$this->map1to1Item(Ids::CHERRY_SIGN, Items::CHERRY_SIGN());
 		$this->map1to1Item(Ids::CHICKEN, Items::RAW_CHICKEN());
+		$this->map1to1Item(Ids::CHICKEN_SPAWN_EGG, Items::Chicken_Spawn_Egg());
 		$this->map1to1Item(Ids::CHORUS_FRUIT, Items::CHORUS_FRUIT());
 		$this->map1to1Item(Ids::CLAY_BALL, Items::CLAY());
 		$this->map1to1Item(Ids::CLOCK, Items::CLOCK());
