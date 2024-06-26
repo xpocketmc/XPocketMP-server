@@ -66,10 +66,7 @@ class Chicken extends Living {
             return true;
         }
         return parent::onInteract($player, $clickPos);
-    }
 
-    public function targetOption(Creature $creature, float $distance) : bool{
-        return $creature instanceof Player && $creature->getInventory()->getItemInHand()->equals(VanillaItems::WHEAT_SEEDS());
     }
 
     protected function getInitialSizeInfo() : EntitySizeInfo{
