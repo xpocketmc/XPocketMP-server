@@ -2,7 +2,6 @@
 
 namespace pocketmine\entity;
 
-use pocketmine\entity\Creature;
 use pocketmine\entity\Living;
 use pocketmine\entity\EntitySizeInfo;
 use pocketmine\event\entity\EntityRegainHealthEvent;
