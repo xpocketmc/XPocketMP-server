@@ -34,6 +34,3 @@ jobs:
           tools: php-cs-fixer:3.49
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-
-      - name: Run PHP-CS-Fixer
-        run: php-cs-fixer fix --dry-run --diff --ansi
