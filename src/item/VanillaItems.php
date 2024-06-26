@@ -611,7 +611,7 @@ final class VanillaItems{
 		});
 		self::register("chicken_spawn_egg", new class(new IID(Ids::CHICKEN_SPAWN_EGG), "Chicken Spawn Egg") extends SpawnEgg{
 			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
-				return new Chicken(Location::formObject($pos, $world, $yaw, $pitch));
+				return new Chicken(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
 	}
