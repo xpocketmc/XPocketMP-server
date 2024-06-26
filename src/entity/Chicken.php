@@ -16,6 +16,7 @@ class Chicken extends Living {
 
     public const NETWORK_ID = EntityIds::CHICKEN;
 
+    /** @var int */
     private $wanderTime = 0;
 
     protected function initEntity(CompoundTag $nbt) : void{
