@@ -2,15 +2,13 @@
 
 namespace pocketmine\entity;
 
+use pocketmine\entity\Creature;
+use pocketmine\entity\Living;
 use pocketmine\event\entity\EntityRegainHealthEvent;
-use pocketmine\item\Item;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\player\Player;
 
 class Chicken extends Living {
@@ -34,11 +32,11 @@ class Chicken extends Living {
 
     public function getDrops() : array{
         $drops = [];
-        $drops[] = Item::get(Item::FEATHER, 0, mt_rand(0, 2));
+        $drops[] = VanillaItems::FEATHER()->setCount(mt_rand(0, 2));
         if($this->isOnFire()){
-            $drops[] = Item::get(Item::COOKED_CHICKEN, 0, 1);
+            $drops[] = VanillaItems::COOKED_CHICKEN()->setCount(1);
         }else{
-            $drops[] = Item::get(Item::RAW_CHICKEN, 0, 1);
+            $drops[] = VanillaItems::RAW_CHICKEN()->setCount(1);
         }
         return $drops;
     }
@@ -63,15 +61,16 @@ class Chicken extends Living {
         return $hasUpdate;
     }
 
-    public function onInteract(Player $player, Item $item, Vector3 $clickPos) : bool{
-        if($item->getId() === Item::WHEAT_SEEDS){
+    public function onInteract(Player $player, Vector3 $clickPos) : bool{
+        $item = $player->getInventory()->getItemInHand();
+        if($item->equals(VanillaItems::WHEAT_SEEDS())){
             $this->heal(new EntityRegainHealthEvent($this, 1, EntityRegainHealthEvent::CAUSE_EATING));
             return true;
         }
-        return parent::onInteract($player, $item, $clickPos);
+        return parent::onInteract($player, $clickPos);
     }
 
     public function targetOption(Creature $creature, float $distance) : bool{
-        return $creature instanceof Player && $creature->getInventory()->getItemInHand()->getId() === Item::WHEAT_SEEDS;
+        return $creature instanceof Player && $creature->getInventory()->getItemInHand()->equals(VanillaItems::WHEAT_SEEDS());
     }
 }
