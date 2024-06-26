@@ -25,9 +25,10 @@ namespace pocketmine\item;
 
 use pocketmine\block\utils\RecordType;
 use pocketmine\block\VanillaBlocks as Blocks;
+use pocketmine\entity\Chicken;
+use pocketmine\entity\Cow;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Location;
-use pocketmine\entity\Cow;
 use pocketmine\entity\Squid;
 use pocketmine\entity\Villager;
 use pocketmine\entity\Zombie;
@@ -333,6 +334,7 @@ use function strtolower;
  * @method static WritableBook WRITABLE_BOOK()
  * @method static WrittenBook WRITTEN_BOOK()
  * @method static SpawnEgg ZOMBIE_SPAWN_EGG()
+ * @method static SpawnEgg CHICKEN_SPAWN_EGG()
  */
 final class VanillaItems{
 	use CloningRegistryTrait;
@@ -605,6 +607,11 @@ final class VanillaItems{
 		self::register("cow_spawn_egg", new class(new IID(Ids::COW_SPAWN_EGG), "Cow Spawn Egg") extends SpawnEgg{
 			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
 				return new Cow(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+		self::register("chicken_spawn_egg", new class(new IID(Ids::CHICKEN_SPAWN_EGG), "Chicken Spawn Egg") extends SpawnEgg{
+			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Chicken(Location::formObject($pos, world, $yaw, $pitch));
 			}
 		});
 	}
