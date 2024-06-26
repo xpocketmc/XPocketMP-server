@@ -4,7 +4,7 @@ namespace pocketmine\entity;
 
 use pocketmine\entity\Creature;
 use pocketmine\entity\Living;
-use pocketmine\entity\SizeInfo;
+use pocketmine\entity\EntitySizeInfo;
 use pocketmine\event\entity\EntityRegainHealthEvent;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
@@ -72,8 +72,8 @@ class Chicken extends Living {
         return $creature instanceof Player && $creature->getInventory()->getItemInHand()->equals(VanillaItems::WHEAT_SEEDS());
     }
 
-    protected function getInitialSizeInfo() : SizeInfo{
-        return new SizeInfo(0.4, 0.7);
+    protected function getInitialSizeInfo() : EntitySizeInfo{
+        return new EntitySizeInfo(0.4, 0.7);
     }
 
     public static function getNetworkTypeId() : string{
