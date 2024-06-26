@@ -20,10 +20,10 @@ class Chicken extends Living {
     private $wanderTime = 0;
 
     /** @var float */
-    private $yaw = 0;
+    private $yaw = 0; // @phpstan-ignore-next-line
 
     /** @var float */
-    private $pitch = 0;
+    private $pitch = 0; // @phpstan-ignore-next-line
 
     protected function initEntity(CompoundTag $nbt) : void{
         parent::initEntity($nbt);
