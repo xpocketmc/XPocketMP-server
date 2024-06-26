@@ -4,6 +4,7 @@ namespace pocketmine\entity;
 
 use pocketmine\entity\Creature;
 use pocketmine\entity\Living;
+use pocketmine\entity\SizeInfo;
 use pocketmine\event\entity\EntityRegainHealthEvent;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
@@ -14,9 +15,6 @@ use pocketmine\player\Player;
 class Chicken extends Living {
 
     public const NETWORK_ID = EntityIds::CHICKEN;
-
-    public $width = 0.4;
-    public $height = 0.7;
 
     private $wanderTime = 0;
 
@@ -72,5 +70,13 @@ class Chicken extends Living {
 
     public function targetOption(Creature $creature, float $distance) : bool{
         return $creature instanceof Player && $creature->getInventory()->getItemInHand()->equals(VanillaItems::WHEAT_SEEDS());
+    }
+
+    protected function getInitialSizeInfo() : SizeInfo{
+        return new SizeInfo(0.4, 0.7);
+    }
+
+    public static function getNetworkTypeId() : string{
+        return EntityIds::CHICKEN;
     }
 }
