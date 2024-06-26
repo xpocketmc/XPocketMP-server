@@ -83,15 +83,19 @@ class Chicken extends Living {
     public function attack(EntityDamageEvent $source) : void{
         parent::attack($source);
 
-        $this->wanderTime = mt_rand(20, 100)
-        $this->motion->x = mt_rand(-20, 20) / 10;
-        $this->motion->z = mt_rand(-20, 20) / 10;
+        // Menambahkan perilaku lari ketika dipukul
+        $this->wanderTime = mt_rand(20, 100); // Set waktu lari
+        $this->motion->x = mt_rand(-20, 20) / 10; // Kecepatan lari di sumbu X
+        $this->motion->z = mt_rand(-20, 20) / 10; // Kecepatan lari di sumbu Z
 
+        // Mengatur orientasi (yaw dan pitch) sesuai arah gerakan
         $this->updateOrientation();
     }
 
     private function updateOrientation() : void{
+        // Mengatur yaw (putaran horizontal) berdasarkan arah gerakan
         $this->yaw = rad2deg(atan2($this->motion->z, $this->motion->x)) - 90;
+        // Mengatur pitch (putaran vertikal), bisa disesuaikan dengan kebutuhan
         $this->pitch = 0;
     }
 }
