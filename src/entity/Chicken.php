@@ -5,6 +5,7 @@ namespace pocketmine\entity;
 use pocketmine\entity\Living;
 use pocketmine\entity\EntitySizeInfo;
 use pocketmine\event\entity\EntityRegainHealthEvent;
+use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
@@ -45,6 +46,9 @@ class Chicken extends Living {
         if($this->wanderTime > 0){
             $this->wanderTime -= $tickDiff;
             $this->move($this->motion->x, $this->motion->y, $this->motion->z);
+
+            // Mengatur orientasi (yaw dan pitch) sesuai arah gerakan
+            $this->updateOrientation();
         } else {
             if(mt_rand(1, 100) <= 10){
                 $this->wanderTime = mt_rand(20, 100);
@@ -66,7 +70,6 @@ class Chicken extends Living {
             return true;
         }
         return parent::onInteract($player, $clickPos);
-
     }
 
     protected function getInitialSizeInfo() : EntitySizeInfo{
@@ -75,5 +78,20 @@ class Chicken extends Living {
 
     public static function getNetworkTypeId() : string{
         return EntityIds::CHICKEN;
+    }
+
+    public function attack(EntityDamageEvent $source) : void{
+        parent::attack($source);
+
+        $this->wanderTime = mt_rand(20, 100)
+        $this->motion->x = mt_rand(-20, 20) / 10;
+        $this->motion->z = mt_rand(-20, 20) / 10;
+
+        $this->updateOrientation();
+    }
+
+    private function updateOrientation() : void{
+        $this->yaw = rad2deg(atan2($this->motion->z, $this->motion->x)) - 90;
+        $this->pitch = 0;
     }
 }
