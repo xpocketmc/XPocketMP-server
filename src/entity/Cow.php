@@ -36,7 +36,7 @@ class Cow extends Living
 
     public function getDrops() : array{
 		return [
-			VanillaItems::LEATHER()->setCount(mt_rand(1, 3))
+			VanillaItems::LEATHER()->setCount(mt_rand(1, 3)),
 			VanillaItems::RAW_BEEF()->setCount(mt_rand(1, 4))
 		];
 	}
@@ -66,10 +66,5 @@ class Cow extends Living
     public static function getNetworkTypeId() : string
     {
         return EntityIds::COW;
-    }
-
-    private function getServer(): Server
-    {
-        return Server::getInstance();
-    }
+	}
 }
