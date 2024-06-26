@@ -19,6 +19,12 @@ class Chicken extends Living {
     /** @var int */
     private $wanderTime = 0;
 
+    /** @var float */
+    private $yaw = 0;
+
+    /** @var float */
+    private $pitch = 0;
+
     protected function initEntity(CompoundTag $nbt) : void{
         parent::initEntity($nbt);
         $this->setMaxHealth(4);
