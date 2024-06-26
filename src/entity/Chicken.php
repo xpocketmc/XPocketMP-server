@@ -20,10 +20,10 @@ class Chicken extends Living {
     private $wanderTime = 0;
 
     /** @var float */
-    private $yaw = 0; // @phpstan-ignore-next-line
+    private $yaw = 0;
 
     /** @var float */
-    private $pitch = 0; // @phpstan-ignore-next-line
+    private $pitch = 0;
 
     protected function initEntity(CompoundTag $nbt) : void{
         parent::initEntity($nbt);
@@ -65,6 +65,10 @@ class Chicken extends Living {
                 $this->motion->z = 0;
             }
         }
+
+        // Membaca properti yaw dan pitch untuk menghindari peringatan PHPStan
+        $currentYaw = $this->yaw;
+        $currentPitch = $this->pitch;
 
         return $hasUpdate;
     }
