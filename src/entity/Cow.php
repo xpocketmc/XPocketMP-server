@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace pocketmine\entity;
 
 use pocketmine\item\Item;
-use pocketmine\item\ItemFactory;
-use pocketmine\item\ItemTypeIds;
+use pocketmine\item\VanillaItems;
 use pocketmine\entity\Location;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\AddActorPacket;
@@ -35,24 +34,12 @@ class Cow extends Living
         return "Cow";
     }
 
-    public function getDrops() : array
-    {
-        $drops = [];
-
-        // Tambahkan drop item kulit (Leather)
-        $leatherDropCount = mt_rand(0, 2); // Drop 0-2
-        if ($leatherDropCount > 0) {
-            $drops[] = ItemFactory::getInstance()->get(ItemTypeIds::LEATHER, 0, $leatherDropCount);
-        }
-
-        // Tambahkan drop item daging mentah (RawBeef)
-        $beefDropCount = mt_rand(1, 3); // Drop 1-3
-        if ($beefDropCount > 0) {
-            $drops[] = ItemFactory::getInstance()->get(ItemTypeIds::RAW_BEEF, 0, $beefDropCount);
-        }
-
-        return $drops;
-    }
+    public function getDrops() : array{
+		return [
+			VanillaItems::LEATHER()->setCount(mt_rand(1, 3))
+			VanillaItems::RAW_BEEF()->setCount(mt_rand(1, 4))
+		];
+	}
 
     protected function addSpawnPacket(Player $player) : void
     {
