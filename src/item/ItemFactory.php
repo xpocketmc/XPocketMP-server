@@ -3,7 +3,6 @@
 namespace pocketmine\item;
 
 use pocketmine\item\Item;
-use pocketmine\item\ItemFactory as PMItemFactory;
 
 class ItemFactory {
 
@@ -13,14 +12,11 @@ class ItemFactory {
     /**
      * Registers a custom item.
      *
-     * @param string $class
+     * @param string $id
+     * @param callable $callback
      */
-    public static function registerItem(string $class): void {
-        if (is_subclass_of($class, Item::class)) {
-            $item = new $class();
-            self::$customItems[$item->getId()] = $class;
-            PMItemFactory::registerItem($item);
-        }
+    public static function registerItem(string $id, callable $callback): void {
+        self::$customItems[$id] = $callback;
     }
 
     /**
@@ -28,30 +24,24 @@ class ItemFactory {
      */
     public static function initItems(): void {
         // Initialize Leather item
-        self::registerItem(Leather::class);
+        self::registerItem("leather", function() {
+            return Item::get(Item::LEATHER);
+        });
+        // Add more items as needed
     }
 
     /**
      * Retrieves a custom item by its ID.
      *
-     * @param int $id
+     * @param string $id
      * @return Item|null
      */
-    public static function get(int $id): ?Item {
+    public static function get(string $id): ?Item {
         if (isset(self::$customItems[$id])) {
-            $class = self::$customItems[$id];
-            return new $class();
+            $callback = self::$customItems[$id];
+            return $callback();
         }
         return null;
-    }
-
-    /**
-     * Method to get an instance of ItemFactory.
-     *
-     * @return self
-     */
-    public static function getInstance(): self {
-        return new self();
     }
 
     /**
