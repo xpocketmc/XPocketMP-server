@@ -261,7 +261,6 @@ class Server{
 	private CraftingManager $craftingManager;
 
 	private ResourcePackManager $resourceManager;
-    private Protocol $xpocketmpProtocol;
 	
 	private WorldManager $worldManager;
 
@@ -1694,8 +1693,8 @@ class Server{
 		return $this->tickSleeper;
 	}
 
-	private function xpocketmpProtocol() : void{
-		$xpocketmpProtocol->Protocol;
+	private function xpocketmpProtocol() : Protocol{
+		return $xpocketmpProtocol->Protocol;
 	}
 
 	private function tickProcessor() : void{
