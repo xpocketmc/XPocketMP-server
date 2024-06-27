@@ -122,6 +122,7 @@ use pocketmine\world\WorldManager;
 use pocketmine\YmlServerProperties as Yml;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Filesystem\Path;
+use xpocketmc\xpocketmprotocols\Protocol;
 use function array_fill;
 use function array_sum;
 use function base64_encode;
@@ -260,7 +261,8 @@ class Server{
 	private CraftingManager $craftingManager;
 
 	private ResourcePackManager $resourceManager;
-
+    private Protocol $xpocketmpProtocol;
+	
 	private WorldManager $worldManager;
 
 	private int $maxPlayers;
@@ -441,6 +443,10 @@ class Server{
 		return $this->resourceManager;
 	}
 
+	public function getXPocketMProtocols() :XPocketMProtocols{
+		return $this->xpocketmpProtocol;
+	}
+	
 	public function getWorldManager() : WorldManager{
 		return $this->worldManager;
 	}
