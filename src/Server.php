@@ -443,7 +443,7 @@ class Server{
 		return $this->resourceManager;
 	}
 
-	public function getXPocketMProtocols() :XPocketMProtocols{
+	public function getxpocketmprotocols() : Protocol{
 		return $this->xpocketmpProtocol;
 	}
 	
@@ -1692,6 +1692,10 @@ class Server{
 
 	public function getTickSleeper() : SleeperHandler{
 		return $this->tickSleeper;
+	}
+
+	private function xpocketmpProtocol() : void{
+		$xpocketmpProtocol->Protocol;
 	}
 
 	private function tickProcessor() : void{
