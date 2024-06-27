@@ -443,7 +443,7 @@ class Server{
 	}
 
 	public function getxpocketmprotocols() : Protocol{
-		return $this->xpocketmpProtocol;
+		return $this->Protocol;
 	}
 	
 	public function getWorldManager() : WorldManager{
@@ -1693,7 +1693,7 @@ class Server{
 		return $this->tickSleeper;
 	}
 
-	private function xpocketmpProtocol() : Protocol{
+	private function Protocol() : Protocol{
 		return $this->Protocol;
 	}
 
