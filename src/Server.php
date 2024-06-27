@@ -442,8 +442,8 @@ class Server{
 		return $this->resourceManager;
 	}
 
-	public function getxpocketmprotocols() : Protocol{
-		return $this->Protocol;
+	public function getxpocketmprotocols() : WorldManager{
+		return $this->worldManager;
 	}
 	
 	public function getWorldManager() : WorldManager{
@@ -1691,10 +1691,6 @@ class Server{
 
 	public function getTickSleeper() : SleeperHandler{
 		return $this->tickSleeper;
-	}
-
-	private function Protocol() : Protocol{
-		return $this->Protocol;
 	}
 
 	private function tickProcessor() : void{
