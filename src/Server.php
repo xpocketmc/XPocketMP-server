@@ -1694,7 +1694,7 @@ class Server{
 	}
 
 	private function xpocketmpProtocol() : Protocol{
-		return $xpocketmpProtocol->Protocol;
+		return $this->Protocol;
 	}
 
 	private function tickProcessor() : void{
