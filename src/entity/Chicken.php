@@ -11,6 +11,7 @@ use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\player\Player;
+use pocketmine\world\World;
 
 class Chicken extends Living {
 
@@ -24,6 +25,9 @@ class Chicken extends Living {
 
     /** @var float */
     private $pitch = 0;
+
+    /** @var Player|null */
+    private $targetPlayer = null;
 
     protected function initEntity(CompoundTag $nbt) : void{
         parent::initEntity($nbt);
@@ -49,6 +53,22 @@ class Chicken extends Living {
     public function entityBaseTick(int $tickDiff = 1) : bool{
         $hasUpdate = parent::entityBaseTick($tickDiff);
 
+        $this->updateTargetPlayer();
+
+        if ($this->targetPlayer instanceof Player) {
+            $this->followPlayer();
+        } else {
+            $this->wander($tickDiff);
+        }
+
+        // Membaca properti yaw dan pitch untuk menghindari peringatan PHPStan
+        $currentYaw = $this->yaw;
+        $currentPitch = $this->pitch;
+
+        return $hasUpdate;
+    }
+
+    private function wander(int $tickDiff) : void{
         if($this->wanderTime > 0){
             $this->wanderTime -= $tickDiff;
             $this->move($this->motion->x, $this->motion->y, $this->motion->z);
@@ -65,12 +85,30 @@ class Chicken extends Living {
                 $this->motion->z = 0;
             }
         }
+    }
 
-        // Membaca properti yaw dan pitch untuk menghindari peringatan PHPStan
-        $currentYaw = $this->yaw;
-        $currentPitch = $this->pitch;
+    private function updateTargetPlayer() : void{
+        foreach ($this->getWorld()->getPlayers() as $player) {
+            if ($player->getInventory()->getItemInHand()->equals(VanillaItems::WHEAT_SEEDS())) {
+                if ($this->distance($player) < 10) {
+                    $this->targetPlayer = $player;
+                    return;
+                }
+            }
+        }
+        $this->targetPlayer = null;
+    }
 
-        return $hasUpdate;
+    private function followPlayer() : void{
+        if ($this->targetPlayer instanceof Player) {
+            $direction = $this->targetPlayer->getPosition()->subtract($this->getPosition())->normalize();
+            $this->motion->x = $direction->x * 0.2;
+            $this->motion->z = $direction->z * 0.2;
+
+            // Mengatur orientasi (yaw dan pitch) sesuai arah gerakan
+            $this->updateOrientation();
+            $this->move($this->motion->x, $this->motion->y, $this->motion->z);
+        }
     }
 
     public function onInteract(Player $player, Vector3 $clickPos) : bool{
@@ -108,4 +146,15 @@ class Chicken extends Living {
         // Mengatur pitch (putaran vertikal), bisa disesuaikan dengan kebutuhan
         $this->pitch = 0;
     }
-} 
+
+    public static function spawnRandomly(World $world) : void{
+        for($i = 0; $i < mt_rand(1, 4); $i++){
+            $x = mt_rand(0, 100);
+            $y = mt_rand(60, 80);
+            $z = mt_rand(0, 100);
+            $pos = new Vector3($x, $y, $z);
+            $chicken = new self($world, $pos);
+            $world->addEntity($chicken);
+        }
+    }
+}
