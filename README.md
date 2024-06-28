@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/pmmp/PocketMine-MP/actions/workflows/main.yml"><img src="https://github.com/xpocketmc/XPocketMP-server/workflows/CI/badge.svg" alt="CI" /></a>
+	<a href="https://github.com/pmmp/PocketMine-MP/actions/workflows/main.yml"><img src="https://github.com/xpocketmc/XPocketMP-server/workflows/main.yml/badge.svg" alt="CI" /></a>
 	<a href="https://github.com/xpocketmc/XPocketMP-server/releases/latest"><img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/xpocketmc/XPocketMP-server"></a>
 	<a href="https://discord.gg/bmSAZBG"><img src="https://img.shields.io/discord/1253659229189963796?label=discord&color=7289DA&logo=discord" alt="Discord" /></a>
 	<br>
