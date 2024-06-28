@@ -62,8 +62,6 @@ class Chicken extends Living {
             $this->wander($tickDiff);
         }
 
-        $this->autoJump();
-
         // Membaca properti yaw dan pitch untuk menghindari peringatan PHPStan
         $currentYaw = $this->yaw;
         $currentPitch = $this->pitch;
@@ -111,13 +109,16 @@ class Chicken extends Living {
             // Mengatur orientasi (yaw dan pitch) sesuai arah gerakan
             $this->updateOrientation();
             $this->move($this->motion->x, $this->motion->y, $this->motion->z);
+
+            // Auto-jump jika ada penghalang di depan
+            $this->autoJump();
         }
     }
 
     private function autoJump() : void{
         // Deteksi blok di depan dan lompat jika ada penghalang
         $blockFront = $this->getWorld()->getBlock($this->getPosition()->add($this->motion->x, 0, $this->motion->z));
-        if(!$blockFront->isSolid()){
+        if($blockFront->isSolid()){
             $this->motion->y = 0.42;
         }
     }
@@ -126,7 +127,8 @@ class Chicken extends Living {
         $item = $player->getInventory()->getItemInHand();
         if($item->equals(VanillaItems::WHEAT_SEEDS())){
             $this->heal(new EntityRegainHealthEvent($this, 1, EntityRegainHealthEvent::CAUSE_EATING));
-            $player->getInventory()->getItemInHand()->pop(); // Kurangi jumlah benih di tangan pemain
+            $item->pop(); // Kurangi jumlah benih di tangan pemain
+            $player->getInventory()->setItemInHand($item); // Perbarui item di tangan pemain
             return true;
         }
         return parent::onInteract($player, $clickPos);
