@@ -12,6 +12,7 @@ use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\player\Player;
 use pocketmine\world\World;
+use pocketmine\entity\Location;
 
 class Chicken extends Living {
 
@@ -90,7 +91,7 @@ class Chicken extends Living {
     private function updateTargetPlayer() : void{
         foreach ($this->getWorld()->getPlayers() as $player) {
             if ($player->getInventory()->getItemInHand()->equals(VanillaItems::WHEAT_SEEDS())) {
-                if ($this->distance($player) < 10) {
+                if ($this->getPosition()->distance($player->getPosition()) < 10) {
                     $this->targetPlayer = $player;
                     return;
                 }
@@ -101,7 +102,7 @@ class Chicken extends Living {
 
     private function followPlayer() : void{
         if ($this->targetPlayer instanceof Player) {
-            $direction = $this->targetPlayer->getPosition()->subtract($this->getPosition())->normalize();
+            $direction = $this->targetPlayer->getPosition()->subtract($this->getPosition()->x, $this->getPosition()->y, $this->getPosition()->z)->normalize();
             $this->motion->x = $direction->x * 0.2;
             $this->motion->z = $direction->z * 0.2;
 
@@ -153,7 +154,8 @@ class Chicken extends Living {
             $y = mt_rand(60, 80);
             $z = mt_rand(0, 100);
             $pos = new Vector3($x, $y, $z);
-            $chicken = new self($world, $pos);
+            $location = new Location($x, $y, $z, $world, 0, 0);
+            $chicken = new self($location, new CompoundTag());
             $world->addEntity($chicken);
         }
     }
