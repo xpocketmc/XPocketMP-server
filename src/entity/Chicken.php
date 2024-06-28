@@ -20,7 +20,7 @@ class Chicken extends Living {
 
     /** @var int */
     private $wanderTime = 0;
-
+	
     /** @var float */
     private $yaw = 0;
 
@@ -61,6 +61,8 @@ class Chicken extends Living {
         } else {
             $this->wander($tickDiff);
         }
+
+        $this->autoJump();
 
         // Membaca properti yaw dan pitch untuk menghindari peringatan PHPStan
         $currentYaw = $this->yaw;
@@ -112,10 +114,19 @@ class Chicken extends Living {
         }
     }
 
+    private function autoJump() : void{
+        // Deteksi blok di depan dan lompat jika ada penghalang
+        $blockFront = $this->getWorld()->getBlock($this->getPosition()->add($this->motion->x, 0, $this->motion->z));
+        if(!$blockFront->isSolid()){
+            $this->motion->y = 0.42;
+        }
+    }
+
     public function onInteract(Player $player, Vector3 $clickPos) : bool{
         $item = $player->getInventory()->getItemInHand();
         if($item->equals(VanillaItems::WHEAT_SEEDS())){
             $this->heal(new EntityRegainHealthEvent($this, 1, EntityRegainHealthEvent::CAUSE_EATING));
+            $player->getInventory()->getItemInHand()->pop(); // Kurangi jumlah benih di tangan pemain
             return true;
         }
         return parent::onInteract($player, $clickPos);
@@ -144,8 +155,7 @@ class Chicken extends Living {
     private function updateOrientation() : void{
         // Mengatur yaw (putaran horizontal) berdasarkan arah gerakan
         $this->yaw = rad2deg(atan2($this->motion->z, $this->motion->x)) - 90;
-        // Mengatur pitch (putaran vertikal), bisa disesuaikan dengan kebutuhan
-        $this->pitch = 0;
+        $this->setRotation($this->yaw, $this->pitch); // Tambahkan ini untuk mengatur rotasi entitas
     }
 
     public static function spawnRandomly(World $world) : void{
@@ -153,7 +163,6 @@ class Chicken extends Living {
             $x = mt_rand(0, 100);
             $y = mt_rand(60, 80);
             $z = mt_rand(0, 100);
-            $pos = new Vector3($x, $y, $z);
             $location = new Location($x, $y, $z, $world, 0, 0);
             $chicken = new self($location, new CompoundTag());
             $world->addEntity($chicken);
