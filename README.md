@@ -67,7 +67,7 @@ XPocketMP is free, but it requires a lot of time and effort from unpaid voluntee
 You can support development using the following methods:
 
 - [Patreon](https://www.patreon.com/xpocketmp)
-- [Paypal]
+- Paypal: `gameplaytebakgambard@gmail.com`
 
 Thanks for your support!
 
