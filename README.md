@@ -36,7 +36,7 @@ If that's not an option for you, you may be able to add some of XPocketMP's miss
 ## Getting Started
 - [Documentation](http://pmmp.readthedocs.org/)
 - [Installation instructions](https://pmmp.readthedocs.io/en/rtfd/installation.html)
-- [Docker image](https://github.com/pmmp/PocketMine-MP/pkgs/container/pocketmine-mp)
+- [Docker image](https://github.com/xpocketmc/XPocketMP-server/pkgs/container/xpocketmp-server)
 - [Plugin repository](https://poggit.pmmp.io/plugins)
 
 ## Community & Support
@@ -66,9 +66,8 @@ XPocketMP is free, but it requires a lot of time and effort from unpaid voluntee
 
 You can support development using the following methods:
 
-- [Patreon](https://www.patreon.com/pocketminemp)
-- Bitcoin (BTC): `171u8K9e4FtU6j3e5sqNoxKUgEw9qWQdRV`
-- Stellar Lumens (XLM): `GAAC5WZ33HCTE3BFJFZJXONMEIBNHFLBXM2HJVAZHXXPYA3HP5XPPS7T`
+- [Patreon](https://www.patreon.com/xpocketmp)
+- [Paypal]
 
 Thanks for your support!
 
