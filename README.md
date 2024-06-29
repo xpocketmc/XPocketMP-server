@@ -42,6 +42,8 @@ If that's not an option for you, you may be able to add some of XPocketMP's miss
 ## Community & Support
 Join our [Discord](https://discord.gg/bmSAZBG) server to chat with other users and developers.
 
+Join the [WhatsApp](https://whatsapp.com/channel/0029Vadnurk6xCSYTSmEXm1f) channel to notify additional updates and others
+
 You can also post questions on [StackOverflow](https://stackoverflow.com/tags/pocketmine) under the tag `pocketmine`.
 
 ## Developing Plugins
@@ -60,7 +62,7 @@ PocketMine-MP accepts community contributions! The following resources will be u
  * [Contributing Guidelines](CONTRIBUTING.md)
 
 ## Donate
-PocketMine-MP is free, but it requires a lot of time and effort from unpaid volunteers to develop. Donations enable us to keep delivering support for new versions and adding features your players love.
+XPocketMP is free, but it requires a lot of time and effort from unpaid volunteers to develop. Donations enable us to keep delivering support for new versions and adding features your players love.
 
 You can support development using the following methods:
 
