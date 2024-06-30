@@ -17,7 +17,7 @@ use function mt_rand;
 
 class Sheep extends Living
 {
-    public const NETWORK_ID = EntityIds::Sheep;
+    public const NETWORK_ID = EntityIds::SHEEP;
 
     private float $yaw;
     private float $pitch;
