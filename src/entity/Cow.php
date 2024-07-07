@@ -40,7 +40,7 @@ class Cow extends Living
     public function getDrops() : array
     {
         return [
-			VanillaItems::RAW_BEEF()->setCount(mt_rand(1, 3))
+			VanillaItems::RAW_BEEF()->setCount(mt_rand(1, 3)),
 			VanillaItems::LEATHER()->setCount(mt_rand(1, 2))
         ];
     }
