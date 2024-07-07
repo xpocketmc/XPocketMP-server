@@ -6,12 +6,13 @@ namespace pocketmine\entity;
 
 use pocketmine\item\Item;
 use pocketmine\item\ItemIds;
-use pocketmine\entity\Location;
+use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\AddActorPacket;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\player\Player;
 use pocketmine\Server;
+use pocketmine\world\World;
 use pocketmine\scheduler\Task;
 use function mt_rand;
 
@@ -21,10 +22,12 @@ class Cow extends Living
     private const MOVE_SPEED = 0.1;
 
     private ?Player $targetPlayer = null;
+    private World $world;
 
     public function __construct(Location $location, CompoundTag $nbt)
     {
         parent::__construct($location, $nbt);
+        $this->world = $location->getWorld();
         $this->scheduleAI();
     }
 
@@ -52,7 +55,7 @@ class Cow extends Living
         $pk->pitch = $this->pitch;
         $pk->headYaw = $this->yaw;
 
-        $this->server->broadcastPackets($this->getViewers(), [$pk]);
+        Server::getInstance()->broadcastPackets($this->getViewers(), [$pk]);
     }
 
     public function getInitialSizeInfo() : EntitySizeInfo
@@ -103,8 +106,8 @@ class Cow extends Living
 
     private function isBlockInFront() : bool
     {
-        $front = $this->getPosition()->add($this->getDirectionVector()->multiply(1));
-        return !$this->level->getBlock($front)->isSolid();
+        $front = $this->getPosition()->addVector($this->getDirectionVector()->multiply(1));
+        return !$this->world->getBlock($front)->isSolid();
     }
 
     public function jump() : void
@@ -120,15 +123,16 @@ class Cow extends Living
         $this->move($this->motion->x, $this->motion->y, $this->motion->z);
     }
 
-    public function onInteract(Player $player, Item $item) : bool
+    public function onInteract(Player $player, Vector3 $clickPos) : bool
     {
         // Feed the cow
+        $item = $player->getInventory()->getItemInHand();
         if ($item->getId() === ItemIds::WHEAT) {
             $this->feed($player);
             return true;
         }
 
-        return parent::onInteract($player, $item);
+        return parent::onInteract($player, $clickPos);
     }
 
     private function feed(Player $player) : void
@@ -152,7 +156,11 @@ class Cow extends Living
 
     private function followPlayer() : void
     {
-        $directionVector = $this->targetPlayer->getPosition()->subtract($this->getPosition())->normalize();
+        if ($this->targetPlayer === null) {
+            return;
+        }
+        
+        $directionVector = $this->targetPlayer->getPosition()->subtractVector($this->getPosition())->normalize();
         $this->motion->x = $directionVector->x * self::MOVE_SPEED;
         $this->motion->z = $directionVector->z * self::MOVE_SPEED;
         $this->move($this->motion->x, $this->motion->y, $this->motion->z);
