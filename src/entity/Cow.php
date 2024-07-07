@@ -107,7 +107,7 @@ class Cow extends Living
         return !$this->level->getBlock($front)->isSolid();
     }
 
-    private function jump() : void
+    public function jump() : void
     {
         $this->motion->y = 0.5; // Jump strength
     }
