@@ -95,7 +95,7 @@ class Cow extends Living
 
     private function isBlockInFront() : bool
     {
-        $front = $this->getPosition()->add($this->getDirectionVector()->multiply(1));
+        $front = $this->getPosition()->add($this->getDirectionVector()->x, $this->getDirectionVector()->y, $this->getDirectionVector()->z);
         return !$this->world->getBlock($front)->isSolid();
     }
 
@@ -116,7 +116,7 @@ class Cow extends Living
     {
         // Feed the cow
         $item = $player->getInventory()->getItemInHand();
-        if ($item->getId() === VanillaItems::WHEAT()->getId()) {
+        if ($item->getTypeId() === VanillaItems::WHEAT()->getTypeId()) {
             $this->feed($player);
             return true;
         }
