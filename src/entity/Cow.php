@@ -69,9 +69,9 @@ class Cow extends Living
 
     private function scheduleAI() : void
     {
-        Server::getInstance()->getScheduler()->scheduleRepeatingTask(new ClosureTask(function (): void {
-            $this->performAI();
-        }), 20); // 20 ticks = 1 second
+    Server::getInstance()->getAsyncPool()->getScheduler()->scheduleRepeatingTask(new ClosureTask(function (): void {
+        $this->performAI();
+    }), 20); // 20 ticks = 1 second
     }
 
     public function performAI() : void
