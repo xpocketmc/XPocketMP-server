@@ -74,7 +74,8 @@ class AsyncPool{
 		return $this->size;
 	}
 
-	public function getScheduler() : int{
+	public function getScheduler() : Scheduler{
+		return $this->scheduler;
 	}
 
 	/**
