@@ -4,17 +4,15 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
-use pocketmine\item\Item;
-use pocketmine\item\ItemIds;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\AddActorPacket;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\player\Player;
+use pocketmine\scheduler\ClosureTask;
 use pocketmine\Server;
 use pocketmine\world\World;
-use pocketmine\scheduler\Task;
 use function mt_rand;
 
 class Cow extends Living
@@ -25,7 +23,7 @@ class Cow extends Living
     private ?Player $targetPlayer = null;
     private World $world;
 
-    public function __construct(Location $location, CompoundTag $nbt)
+    public function __construct(Location $location, ?CompoundTag $nbt = null)
     {
         parent::__construct($location, $nbt);
         $this->world = $location->getWorld();
@@ -40,8 +38,8 @@ class Cow extends Living
     public function getDrops() : array
     {
         return [
-			VanillaItems::RAW_BEEF()->setCount(mt_rand(1, 3)),
-			VanillaItems::LEATHER()->setCount(mt_rand(1, 2))
+            VanillaItems::RAW_BEEF()->setCount(mt_rand(1, 3)), // Drop 1-3 raw beef
+            VanillaItems::LEATHER()->setCount(mt_rand(0, 2))  // Drop 0-2 leather
         ];
     }
 
@@ -52,11 +50,11 @@ class Cow extends Living
         $pk->actorRuntimeId = $this->getId();
         $pk->position = $this->getPosition();
         $pk->motion = $this->getMotion();
-        $pk->yaw = $this->yaw;
-        $pk->pitch = $this->pitch;
-        $pk->headYaw = $this->yaw;
+        $pk->yaw = $this->location->yaw;
+        $pk->pitch = $this->location->pitch;
+        $pk->headYaw = $this->location->yaw;
 
-        Server::getInstance()->broadcastPackets($this->getViewers(), [$pk]);
+        $player->getNetworkSession()->sendDataPacket($pk);
     }
 
     public function getInitialSizeInfo() : EntitySizeInfo
@@ -71,19 +69,9 @@ class Cow extends Living
 
     private function scheduleAI() : void
     {
-        Server::getInstance()->getScheduler()->scheduleRepeatingTask(new class($this) extends Task {
-            private Cow $cow;
-
-            public function __construct(Cow $cow)
-            {
-                $this->cow = $cow;
-            }
-
-            public function onRun() : void
-            {
-                $this->cow->performAI();
-            }
-        }, 20); // 20 ticks = 1 second
+        Server::getInstance()->getScheduler()->scheduleRepeatingTask(new ClosureTask(function (): void {
+            $this->performAI();
+        }), 20); // 20 ticks = 1 second
     }
 
     public function performAI() : void
@@ -101,13 +89,13 @@ class Cow extends Living
     private function moveRandomly() : void
     {
         $direction = mt_rand(0, 360);
-        $this->yaw = $direction;
+        $this->location->yaw = $direction;
         $this->moveForward(self::MOVE_SPEED);
     }
 
     private function isBlockInFront() : bool
     {
-        $front = $this->getPosition()->addVector($this->getDirectionVector()->multiply(1));
+        $front = $this->getPosition()->add($this->getDirectionVector()->multiply(1));
         return !$this->world->getBlock($front)->isSolid();
     }
 
@@ -128,7 +116,7 @@ class Cow extends Living
     {
         // Feed the cow
         $item = $player->getInventory()->getItemInHand();
-        if ($item->getId() === ItemIds::WHEAT) {
+        if ($item->getId() === VanillaItems::WHEAT()->getId()) {
             $this->feed($player);
             return true;
         }
@@ -160,11 +148,11 @@ class Cow extends Living
         if ($this->targetPlayer === null) {
             return;
         }
-        
+
         $directionVector = $this->targetPlayer->getPosition()->subtractVector($this->getPosition())->normalize();
         $this->motion->x = $directionVector->x * self::MOVE_SPEED;
         $this->motion->z = $directionVector->z * self::MOVE_SPEED;
         $this->move($this->motion->x, $this->motion->y, $this->motion->z);
-        $this->yaw = atan2($this->motion->z, $this->motion->x) * 180 / M_PI - 90;
+        $this->location->yaw = atan2($this->motion->z, $this->motion->x) * 180 / M_PI - 90;
     }
 }
