@@ -7,7 +7,7 @@ use pocketmine\scheduler\Task;
 
 class Scheduler
 {
-    public static function scheduleRepeatingTask(Task $task, int $interval)
+    public static function scheduleRepeatingTask(Task $task, int $interval): void
     {
         Server::getInstance()->getScheduler()->scheduleRepeatingTask($task, $interval);
     }
