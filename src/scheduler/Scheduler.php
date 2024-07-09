@@ -3,7 +3,6 @@
 namespace pocketmine\scheduler;
 
 use pocketmine\Server;
-use pocketmine\scheduler\Task;
 
 class Scheduler
 {
