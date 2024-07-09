@@ -74,10 +74,6 @@ class AsyncPool{
 		return $this->size;
 	}
 
-	public function getScheduler() : Scheduler{
-		return $this->scheduler;
-	}
-
 	/**
 	 * Increases the maximum size of the pool to the specified amount. This does not immediately start new workers.
 	 */
