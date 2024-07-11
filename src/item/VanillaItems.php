@@ -118,7 +118,6 @@ use function strtolower;
  * @method static Item CHEMICAL_TUNGSTEN_CHLORIDE()
  * @method static Item CHEMICAL_WATER()
  * @method static ItemBlockWallOrFloor CHERRY_SIGN()
- * @method static SpawnEgg CHICKEN_SPAWN_EGG()
  * @method static ChorusFruit CHORUS_FRUIT()
  * @method static Item CLAY()
  * @method static Clock CLOCK()
@@ -136,7 +135,6 @@ use function strtolower;
  * @method static Cookie COOKIE()
  * @method static Item COPPER_INGOT()
  * @method static CoralFan CORAL_FAN()
- * @method static SpawnEgg COW_SPAWN_EGG()
  * @method static ItemBlockWallOrFloor CRIMSON_SIGN()
  * @method static Boat DARK_OAK_BOAT()
  * @method static ItemBlockWallOrFloor DARK_OAK_SIGN()
@@ -602,16 +600,6 @@ final class VanillaItems{
 		self::register("villager_spawn_egg", new class(new IID(Ids::VILLAGER_SPAWN_EGG), "Villager Spawn Egg") extends SpawnEgg{
 			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
 				return new Villager(Location::fromObject($pos, $world, $yaw, $pitch));
-			}
-		});
-		self::register("cow_spawn_egg", new class(new IID(Ids::COW_SPAWN_EGG), "Cow Spawn Egg") extends SpawnEgg{
-			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
-				return new Cow(Location::fromObject($pos, $world, $yaw, $pitch));
-			}
-		});
-		self::register("chicken_spawn_egg", new class(new IID(Ids::CHICKEN_SPAWN_EGG), "Chicken Spawn Egg") extends SpawnEgg{
-			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
-				return new Chicken(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
 	}
