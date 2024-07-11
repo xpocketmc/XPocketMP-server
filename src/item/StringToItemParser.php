@@ -1257,7 +1257,6 @@ final class StringToItemParser extends StringToTParser{
 		$result->register("chemical_tungsten_chloride", fn() => Items::CHEMICAL_TUNGSTEN_CHLORIDE());
 		$result->register("chemical_water", fn() => Items::CHEMICAL_WATER());
 		$result->register("chicken", fn() => Items::RAW_CHICKEN());
-		$result->register("chicken_spawn_egg", fn() => Items::CHICKEN_SPAWN_EGG());
 		$result->register("chorus_fruit", fn() => Items::CHORUS_FRUIT());
 		$result->register("chorus_fruit_popped", fn() => Items::POPPED_CHORUS_FRUIT());
 		$result->register("clay", fn() => Items::CLAY());
@@ -1281,7 +1280,6 @@ final class StringToItemParser extends StringToTParser{
 		$result->register("cooked_salmon", fn() => Items::COOKED_SALMON());
 		$result->register("cookie", fn() => Items::COOKIE());
 		$result->register("copper_ingot", fn() => Items::COPPER_INGOT());
-		$result->register("cow_spawn_egg", fn() => Items::COW_SPAWN_EGG());
 		$result->register("dark_oak_boat", fn() => Items::DARK_OAK_BOAT());
 		$result->register("diamond", fn() => Items::DIAMOND());
 		$result->register("diamond_axe", fn() => Items::DIAMOND_AXE());
