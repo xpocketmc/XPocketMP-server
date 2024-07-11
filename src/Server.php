@@ -122,7 +122,6 @@ use pocketmine\world\WorldManager;
 use pocketmine\YmlServerProperties as Yml;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Filesystem\Path;
-use xpocketmc\xpocketmprotocols\Protocol;
 use function array_fill;
 use function array_sum;
 use function base64_encode;
@@ -440,10 +439,6 @@ class Server{
 
 	public function getResourcePackManager() : ResourcePackManager{
 		return $this->resourceManager;
-	}
-
-	public function getxpocketmprotocols() : WorldManager{
-		return $this->worldManager;
 	}
 	
 	public function getWorldManager() : WorldManager{
