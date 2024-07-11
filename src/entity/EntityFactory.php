@@ -161,14 +161,6 @@ final class EntityFactory{
 			return new SplashPotion(Helper::parseLocation($nbt, $world), null, $potionType, $nbt);
 		}, ['ThrownPotion', 'minecraft:potion', 'thrownpotion']);
 
-		$this->register(Chicken::class, function(World $world, CompoundTag $nbt) : Chicken{
-			return new Chicken(Helper::parseLocation($nbt, $world), $nbt);
-		}, ['Chicken', 'minecraft:chicken']);
-
-		$this->register(Cow::class, function(World $world, CompoundTag $nbt) : Cow{
-			return new Cow(Helper::parseLocation($nbt, $world), $nbt);
-		}, ['Cow', 'minecraft:cow']);
-
 		$this->register(Squid::class, function(World $world, CompoundTag $nbt) : Squid{
 			return new Squid(Helper::parseLocation($nbt, $world), $nbt);
 		}, ['Squid', 'minecraft:squid']);
