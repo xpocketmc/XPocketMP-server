@@ -109,6 +109,7 @@ class Item implements \JsonSerializable{
 	 * @see VanillaItems
 	 *
 	 * @param string[] $enchantmentTags
+  
 	 */	
 	public function __construct(
 		private ItemIdentifier $identifier,
