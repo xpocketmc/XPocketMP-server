@@ -188,7 +188,6 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::CHARCOAL, Items::CHARCOAL());
 		$this->map1to1Item(Ids::CHERRY_SIGN, Items::CHERRY_SIGN());
 		$this->map1to1Item(Ids::CHICKEN, Items::RAW_CHICKEN());
-		$this->map1to1Item(Ids::CHICKEN_SPAWN_EGG, Items::CHICKEN_SPAWN_EGG());
 		$this->map1to1Item(Ids::CHORUS_FRUIT, Items::CHORUS_FRUIT());
 		$this->map1to1Item(Ids::CLAY_BALL, Items::CLAY());
 		$this->map1to1Item(Ids::CLOCK, Items::CLOCK());
@@ -206,7 +205,6 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::COOKED_SALMON, Items::COOKED_SALMON());
 		$this->map1to1Item(Ids::COOKIE, Items::COOKIE());
 		$this->map1to1Item(Ids::COPPER_INGOT, Items::COPPER_INGOT());
-		$this->map1to1Item(Ids::COW_SPAWN_EGG, Items::COW_SPAWN_EGG());
 		$this->map1to1Item(Ids::CRIMSON_SIGN, Items::CRIMSON_SIGN());
 		$this->map1to1Item(Ids::DARK_OAK_BOAT, Items::DARK_OAK_BOAT());
 		$this->map1to1Item(Ids::DARK_OAK_SIGN, Items::DARK_OAK_SIGN());
