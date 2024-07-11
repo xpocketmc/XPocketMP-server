@@ -440,7 +440,7 @@ class Server{
 	public function getResourcePackManager() : ResourcePackManager{
 		return $this->resourceManager;
 	}
-	
+
 	public function getWorldManager() : WorldManager{
 		return $this->worldManager;
 	}
