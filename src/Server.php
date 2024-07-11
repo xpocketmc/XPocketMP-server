@@ -260,7 +260,7 @@ class Server{
 	private CraftingManager $craftingManager;
 
 	private ResourcePackManager $resourceManager;
-	
+
 	private WorldManager $worldManager;
 
 	private int $maxPlayers;
