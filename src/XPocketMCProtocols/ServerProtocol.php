@@ -26,7 +26,7 @@ class ServerProtocol {
 	/**
 	 * @generate-create-func
 	 */
-	public static function create(): self{
+	public static function create() : self{
 		return new self;
 	}
 }
