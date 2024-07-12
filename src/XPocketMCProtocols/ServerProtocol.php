@@ -22,5 +22,11 @@ declare(strict_types=1);
 namespace pocketmine\XPocketMCProtocols;
 
 class ServerProtocol {
- //NOOP
+
+	/**
+	 * @generate-create-func
+	 */
+	public static function create(): self{
+		return new self;
+	}
 }
