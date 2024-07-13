@@ -2155,7 +2155,7 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
      * Closes the current viewing form and forms in queue.
 	 */
 	public function closeAllForms() : void{
- 		$this->getNetworkSession()->onCloseAllForms();
+ 		    $this->getNetworkSession()->onCloseAllForms();
 	}
 
 	/**
