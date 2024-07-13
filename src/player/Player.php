@@ -2156,7 +2156,7 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 	 */
 	public function closeAllForms() : void{
  		$this->getNetworkSession()->onCloseAllForms();
- 	}
+	}
 
 	/**
 	 * Transfers a player to another server.
