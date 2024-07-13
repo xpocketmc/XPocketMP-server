@@ -111,8 +111,8 @@ use pocketmine\utils\BinaryDataException;
 use pocketmine\utils\BinaryStream;
 use pocketmine\utils\ObjectSet;
 use pocketmine\utils\TextFormat;
-use xpocketmc\xpocketmprotocols\Protocol;
 use pocketmine\world\Position;
+use pocketmine\XPocketMCProtocols\ServerProtocol;
 use pocketmine\YmlServerProperties;
 use function array_map;
 use function array_values;
@@ -1291,7 +1291,7 @@ class NetworkSession{
 	}
 
 	public function onServerProtocol() : void{
-		$this->sendDataPacket(Protocol::create());
+		$this->sendDataPacket(ServerProtocol::create());
 	}
 
 	public function tick() : void{
