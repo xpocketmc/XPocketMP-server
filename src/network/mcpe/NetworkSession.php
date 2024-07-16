@@ -112,7 +112,6 @@ use pocketmine\utils\BinaryStream;
 use pocketmine\utils\ObjectSet;
 use pocketmine\utils\TextFormat;
 use pocketmine\world\Position;
-use pocketmine\XPocketMCProtocols\ServerProtocol;
 use pocketmine\YmlServerProperties;
 use function array_map;
 use function array_values;
@@ -1288,10 +1287,6 @@ class NetworkSession{
 
 	public function onOpenSignEditor(Vector3 $signPosition, bool $frontSide) : void{
 		$this->sendDataPacket(OpenSignPacket::create(BlockPosition::fromVector3($signPosition), $frontSide));
-	}
-
-	public function onServerProtocol() : void{
-		$this->sendDataPacket(ServerProtocol::create());
 	}
 
 	public function tick() : void{
