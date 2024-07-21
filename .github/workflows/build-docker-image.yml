@@ -25,12 +25,12 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.TOKEN }}
 
-      - name: Clone pmmp/PocketMine-Docker repository
+      - name: Clone xpocketmc/XPocketMC-Docker repository
         uses: actions/checkout@v4
         with:
-          repository: pmmp/PocketMine-Docker
+          repository: xpocketmc/XPocketMC-Docker
           fetch-depth: 1
 
       - name: Get tag names
@@ -56,7 +56,7 @@ jobs:
         uses: docker/build-push-action@v5.3.0
         with:
           push: true
-          context: ./pocketmine-mp
+          context: ./xpocketmp
           tags: |
             ${{ steps.docker-repo-name.outputs.NAME }}:${{ steps.tag-name.outputs.TAG_NAME }}
             ghcr.io/${{ steps.docker-repo-name.outputs.NAME }}:${{ steps.tag-name.outputs.TAG_NAME }}
@@ -69,7 +69,7 @@ jobs:
         uses: docker/build-push-action@v5.3.0
         with:
           push: true
-          context: ./pocketmine-mp
+          context: ./xpocketmp
           tags: |
             ${{ steps.docker-repo-name.outputs.NAME }}:${{ steps.tag-name.outputs.MAJOR }}
             ghcr.io/${{ steps.docker-repo-name.outputs.NAME }}:${{ steps.tag-name.outputs.MAJOR }}
@@ -82,7 +82,7 @@ jobs:
         uses: docker/build-push-action@v5.3.0
         with:
           push: true
-          context: ./pocketmine-mp
+          context: ./xpocketmp
           tags: |
             ${{ steps.docker-repo-name.outputs.NAME }}:${{ steps.tag-name.outputs.MINOR }}
             ghcr.io/${{ steps.docker-repo-name.outputs.NAME }}:${{ steps.tag-name.outputs.MINOR }}
@@ -95,7 +95,7 @@ jobs:
         uses: docker/build-push-action@v5.3.0
         with:
           push: true
-          context: ./pocketmine-mp
+          context: ./xpocketmp
           tags: |
             ${{ steps.docker-repo-name.outputs.NAME }}:latest
             ghcr.io/${{ steps.docker-repo-name.outputs.NAME }}:latest
