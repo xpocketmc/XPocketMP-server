@@ -28,7 +28,7 @@ use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\world\particle\Particle;
 
-class Salmon extends WaterAnimal {
+class Salmon extends Living {
 	public const NETWORK_ID = EntityIds::SALMON; // Pastikan EntityIds::SALMON terdefinisi dengan benar
 
 	private Vector3 $swimDirection;
