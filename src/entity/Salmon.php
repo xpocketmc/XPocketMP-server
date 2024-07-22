@@ -1,134 +1,75 @@
 <?php
 
-declare(strict_types=1);
-
 namespace pocketmine\entity;
 
-use pocketmine\entity\animation\AnimateEntityPacket;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\item\VanillaItems;
-use pocketmine\math\Vector3;
+use pocketmine\item\Item;
 use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\entity\EntitySizeInfo;
-use pocketmine\world\World;
-use function atan2;
-use function mt_rand;
-use function sqrt;
-use const M_PI;
+use pocketmine\math\Vector3;
+use pocketmine\level\particle\BubbleParticle;
 
 class Salmon extends WaterAnimal {
 
-    public static function getNetworkTypeId() : string{ return EntityIds::SALMON; }
+    public const NETWORK_ID = self::SALMON;
 
-    public ?Vector3 $swimDirection = null;
-    public float $swimSpeed = 0.1;
+    public $width = 0.7;
+    public $height = 0.4;
 
-    private int $switchDirectionTicker = 0;
-    private int $reproduceTicker = 0;
+    private $swimDirection;
+    private $changeDirectionTicks = 0;
 
-    protected function getInitialSizeInfo() : EntitySizeInfo{ return new EntitySizeInfo(0.95, 0.95); }
-
-    public function initEntity(CompoundTag $nbt) : void{
+    public function __construct(Level $level, CompoundTag $nbt) {
+        parent::__construct($level, $nbt);
         $this->setMaxHealth(3);
-        parent::initEntity($nbt);
+        $this->setHealth($this->getMaxHealth());
+        $this->swimDirection = new Vector3(0, 0, 0);
     }
 
-    public function getName() : string{
+    public function getName(): string {
         return "Salmon";
     }
 
-    public function attack(EntityDamageEvent $source) : void{
-        parent::attack($source);
-        if($source->isCancelled()){
-            return;
-        }
-
-        if($source instanceof EntityDamageByEntityEvent){
-            $this->swimSpeed = mt_rand(150, 350) / 2000;
-            $e = $source->getDamager();
-            if($e !== null){
-                $this->swimDirection = $this->location->subtractVector($e->location)->normalize();
-            }
-
-            $this->broadcastAnimation();
-        }
+    public function initEntity(): void {
+        parent::initEntity();
+        $this->setGenericFlag(self::DATA_FLAG_IMMOBILE, false);
     }
 
-    private function generateRandomDirection() : Vector3{
-        return new Vector3(mt_rand(-1000, 1000) / 1000, mt_rand(-500, 500) / 1000, mt_rand(-1000, 1000) / 1000);
+    public function getDrops(): array {
+        return [
+            Item::get(Item::RAW_SALMON, 0, 1)
+        ];
     }
 
-    protected function entityBaseTick(int $tickDiff = 1) : bool{
-        if($this->closed){
-            return false;
-        }
+    public function getSpeed(): float {
+        return 1.2;
+    }
 
-        if(++$this->switchDirectionTicker === 100){
-            $this->switchDirectionTicker = 0;
-            if(mt_rand(0, 100) < 50){
-                $this->swimDirection = null;
-            }
-        }
-
-        if(++$this->reproduceTicker === 6000){ // Every 5 minutes
-            $this->reproduceTicker = 0;
-            $this->spawnOffspring();
-        }
-
+    protected function entityBaseTick(int $tickDiff = 1): bool {
         $hasUpdate = parent::entityBaseTick($tickDiff);
 
-        if($this->isAlive()){
-
-            if($this->location->y > 62 && $this->swimDirection !== null){
-                $this->swimDirection = $this->swimDirection->withComponents(null, -0.5, null);
-            }
-
-            $inWater = $this->isUnderwater();
-            $this->setHasGravity(!$inWater);
-            if(!$inWater){
-                $this->swimDirection = null;
-            }elseif($this->swimDirection !== null){
-                if($this->motion->lengthSquared() <= $this->swimDirection->lengthSquared()){
-                    $this->motion = $this->swimDirection->multiply($this->swimSpeed);
-                }
-            }else{
-                $this->swimDirection = $this->generateRandomDirection();
-                $this->swimSpeed = mt_rand(50, 100) / 2000;
-            }
-
-            $f = sqrt(($this->motion->x ** 2) + ($this->motion->z ** 2));
-            $this->setRotation(
-                -atan2($this->motion->x, $this->motion->z) * 180 / M_PI,
-                -atan2($f, $this->motion->y) * 180 / M_PI
-            );
-
-            $this->broadcastAnimation(); // Broadcast animation while moving
+        // Change direction every 100 ticks (5 seconds)
+        if ($this->changeDirectionTicks-- <= 0) {
+            $this->changeSwimDirection();
+            $this->changeDirectionTicks = 100;
         }
+
+        // Move in the current swim direction
+        $this->move($this->swimDirection->x, $this->swimDirection->y, $this->swimDirection->z);
+        
+        // Play bubble particles while moving
+        $this->level->addParticle(new BubbleParticle($this->add(0, 0.5, 0)));
 
         return $hasUpdate;
     }
 
-    public function broadcastAnimation() : void{
-        $packet = new AnimateEntityPacket();
-        $packet->entityRuntimeId = $this->getId();
-        $packet->animation = "minecraft:swim";
-        $this->getWorld()->broadcastPacketToViewers($this->getPosition(), $packet);
+    private function changeSwimDirection(): void {
+        $this->swimDirection = new Vector3(
+            mt_rand(-10, 10) / 10,
+            mt_rand(-5, 5) / 10,
+            mt_rand(-10, 10) / 10
+        );
     }
 
-    private function spawnOffspring() : void{
-        $world = $this->getWorld();
-        if($world instanceof World){
-            $nbt = Entity::createBaseNBT($this->getPosition());
-            $salmon = new Salmon(EntityDataHelper::parseLocation($nbt, $world), $nbt);
-            $salmon->spawnToAll();
-        }
-    }
-
-    public function getDrops() : array{
-        return [
-            VanillaItems::RAW_SALMON()->setCount(mt_rand(1, 3))
-        ];
+    public function updateMovement(): void {
+        parent::updateMovement();
     }
 }
