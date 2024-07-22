@@ -56,7 +56,7 @@ class Salmon extends WaterAnimal {
         return new EntitySizeInfo(0.4, 0.7);
     }
 
-    public function getNetworkTypeId(): string {
+    public static function getNetworkTypeId(): string {
         return "minecraft:salmon";
     }
 
