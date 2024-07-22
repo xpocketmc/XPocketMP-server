@@ -54,10 +54,6 @@ final class VersionInfo{
 		//NOOP
 	}
 
-	private function __dnone(){
-		//NOOP
-	}
-
 	private static ?string $gitHash = null;
 
 	public static function GIT_HASH() : string{
