@@ -13,8 +13,6 @@ use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\entity\EntitySizeInfo;
 use pocketmine\world\World;
-use pocketmine\world\WorldManager;
-use pocketmine\player\Player;
 use function atan2;
 use function mt_rand;
 use function sqrt;
@@ -30,7 +28,7 @@ class Salmon extends WaterAnimal {
     private int $switchDirectionTicker = 0;
     private int $reproduceTicker = 0;
 
-    protected function getInitialSizeInfo() : EntitySizeInfo{ return new EntitySizeInfo(0.75, 0.75); }
+    protected function getInitialSizeInfo() : EntitySizeInfo{ return new EntitySizeInfo(0.95, 0.95); }
 
     public function initEntity(CompoundTag $nbt) : void{
         $this->setMaxHealth(3);
@@ -62,7 +60,7 @@ class Salmon extends WaterAnimal {
         return new Vector3(mt_rand(-1000, 1000) / 1000, mt_rand(-500, 500) / 1000, mt_rand(-1000, 1000) / 1000);
     }
 
-    public function entityBaseTick(int $tickDiff = 1) : bool{
+    protected function entityBaseTick(int $tickDiff = 1) : bool{
         if($this->closed){
             return false;
         }
@@ -112,7 +110,7 @@ class Salmon extends WaterAnimal {
         return $hasUpdate;
     }
 
-    private function broadcastAnimation() : void{
+    public function broadcastAnimation() : void{
         $packet = new AnimateEntityPacket();
         $packet->entityRuntimeId = $this->getId();
         $packet->animation = "minecraft:swim";
