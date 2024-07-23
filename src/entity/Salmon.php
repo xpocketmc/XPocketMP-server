@@ -21,72 +21,77 @@
 
 declare(strict_types=1);
 
+namespace pocketmine\entity;
+
 use pocketmine\entity\animation\BubbleParticleAnimation;
 use pocketmine\entity\utils\RandomSwimDirection;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\world\Location;
 use pocketmine\world\particle\Particle;
+use pocketmine\entity\EntitySizeInfo;
+use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 
-class Salmon extends Living {
-	public const NETWORK_ID = EntityIds::SALMON; // Pastikan EntityIds::SALMON terdefinisi dengan benar
+class Salmon extends WaterAnimal {
+    public const NETWORK_ID = EntityIds::SALMON;
 
-	private Vector3 $swimDirection;
-	private int $changeDirectionTicks = 0;
+    private Vector3 $swimDirection;
+    private int $changeDirectionTicks = 0;
 
-	public function __construct(Location $location, ?CompoundTag $nbt = null) {
-		parent::__construct($location, $nbt);
-		$this->setMaxHealth(3);
-		$this->setHealth($this->getMaxHealth());
-		$this->swimDirection = new Vector3(0, 0, 0);
-	}
+    public function __construct(Location $location, ?CompoundTag $nbt = null) {
+        parent::__construct($location, $nbt);
+        $this->setMaxHealth(3);
+        $this->setHealth($this->getMaxHealth());
+        $this->swimDirection = new Vector3(0, 0, 0);
+    }
 
-	public function getName() : string {
-		return "Salmon";
-	}
+    public function getName() : string {
+        return "Salmon";
+    }
 
-	public function getInitialSizeInfo() : EntitySizeInfo {
-		return new EntitySizeInfo(0.4, 0.7);
-	}
+    public function getInitialSizeInfo() : EntitySizeInfo {
+        return new EntitySizeInfo(0.4, 0.7);
+    }
 
-	public static function getNetworkTypeId() : string {
-		return "minecraft:salmon";
-	}
+    public static function getNetworkTypeId() : string {
+        return "minecraft:salmon";
+    }
 
-	public function initEntity(CompoundTag $nbt) : void {
-		parent::initEntity($nbt);
-		$this->setGenericFlag(Entity::DATA_FLAG_IMMOBILE, false); // Pastikan DATA_FLAG_IMMOBILE terdefinisi di Entity
-	}
+    public function initEntity(CompoundTag $nbt) : void {
+        parent::initEntity($nbt);
+        $this->setGenericFlag(self::DATA_FLAG_IMMOBILE, false);
+    }
 
-	public function getDrops() : array {
-		return [
-			VanillaItems::RAW_SALMON()
-		];
-	}
+    public function getDrops() : array {
+        return [
+            VanillaItems::RAW_SALMON()
+        ];
+    }
 
-	public function getSpeed() : float {
-		return 1.2;
-	}
+    public function getSpeed() : float {
+        return 1.2;
+    }
 
-	protected function entityBaseTick(int $tickDiff = 1) : bool {
-		$hasUpdate = parent::entityBaseTick($tickDiff);
+    protected function entityBaseTick(int $tickDiff = 1) : bool {
+        $hasUpdate = parent::entityBaseTick($tickDiff);
 
-		if ($this->changeDirectionTicks-- <= 0) {
-			$this->changeSwimDirection();
-			$this->changeDirectionTicks = 100;
-		}
+        if ($this->changeDirectionTicks-- <= 0) {
+            $this->changeSwimDirection();
+            $this->changeDirectionTicks = 100;
+        }
 
-		$this->move($this->swimDirection->x, $this->swimDirection->y, $this->swimDirection->z);
-		$this->getWorld()->addParticle($this->getLocation()->add(0, 0.5, 0), new BubbleParticleAnimation()); // BubbleParticleAnimation harus merupakan subclass Particle
+        $this->move($this->swimDirection->x, $this->swimDirection->y, $this->swimDirection->z);
+        $this->getWorld()->addParticle($this->getLocation()->add(0, 0.5, 0), new BubbleParticleAnimation());
 
-		return $hasUpdate;
-	}
+        return $hasUpdate;
+    }
 
-	private function changeSwimDirection() : void {
-		$this->swimDirection = RandomSwimDirection::generate(); // Pastikan RandomSwimDirection::generate terdefinisi
-	}
+    private function changeSwimDirection() : void {
+        $this->swimDirection = RandomSwimDirection::generate();
+    }
 
-	public function updateMovement(bool $teleport = false) : void {
-		parent::updateMovement($teleport);
-	}
+    public function updateMovement(bool $teleport = false) : void {
+        parent::updateMovement($teleport);
+    }
 }
