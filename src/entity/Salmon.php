@@ -28,7 +28,7 @@ use pocketmine\entity\utils\RandomSwimDirection;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\world\Location;
+use pocketmine\world\Location as WorldLocation;
 use pocketmine\world\particle\Particle;
 use pocketmine\entity\EntitySizeInfo;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
@@ -39,7 +39,7 @@ class Salmon extends WaterAnimal {
     private Vector3 $swimDirection;
     private int $changeDirectionTicks = 0;
 
-    public function __construct(Location $location, ?CompoundTag $nbt = null) {
+    public function __construct(WorldLocation $location, ?CompoundTag $nbt = null) {
         parent::__construct($location, $nbt);
         $this->setMaxHealth(3);
         $this->setHealth($this->getMaxHealth());
@@ -82,7 +82,7 @@ class Salmon extends WaterAnimal {
         }
 
         $this->move($this->swimDirection->x, $this->swimDirection->y, $this->swimDirection->z);
-        $this->getWorld()->addParticle($this->getLocation()->add(0, 0.5, 0), new BubbleParticleAnimation());
+        $this->getWorld()->addParticle($this->getLocation()->add(0, 0.5, 0), new \pocketmine\world\particle\BubbleParticle());
 
         return $hasUpdate;
     }
