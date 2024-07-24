@@ -28,17 +28,18 @@ use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\world\Location as WorldLocation;
+use pocketmine\world\Location;
 use pocketmine\entity\EntitySizeInfo;
 use pocketmine\world\particle\BubbleParticle;
 
 class Salmon extends WaterAnimal {
     public const NETWORK_ID = EntityIds::SALMON;
+    public const DATA_FLAG_IMMOBILE = 'DATA_FLAG_IMMOBILE';
 
     private Vector3 $swimDirection;
     private int $changeDirectionTicks = 0;
 
-    public function __construct(WorldLocation $location, ?CompoundTag $nbt = null) {
+    public function __construct(Location $location, ?CompoundTag $nbt = null) {
         parent::__construct($location, $nbt);
         $this->setMaxHealth(3);
         $this->setHealth($this->getMaxHealth());
@@ -92,5 +93,9 @@ class Salmon extends WaterAnimal {
 
     public function updateMovement(bool $teleport = false) : void {
         parent::updateMovement($teleport);
+    }
+
+    private function setGenericFlag(string $flag, bool $value): void {
+        $this->propertyManager->setGenericFlag($flag, $value);
     }
 }
