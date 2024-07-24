@@ -6,7 +6,7 @@
  * |  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
  * | |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
  * |  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
- * |_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
+ * |_|   \___/ \___|_|\_\___|\__|_|  |_|_| |_|\___|     |_|  |_|_|
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -23,15 +23,14 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
-use pocketmine\entity\animation\BubbleParticleAnimation;
 use pocketmine\entity\utils\RandomSwimDirection;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\world\Location as WorldLocation;
-use pocketmine\world\particle\Particle;
-use pocketmine\entity\EntitySizeInfo;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
+use pocketmine\world\Location as WorldLocation;
+use pocketmine\entity\EntitySizeInfo;
+use pocketmine\world\particle\BubbleParticle;
 
 class Salmon extends WaterAnimal {
     public const NETWORK_ID = EntityIds::SALMON;
@@ -82,7 +81,7 @@ class Salmon extends WaterAnimal {
         }
 
         $this->move($this->swimDirection->x, $this->swimDirection->y, $this->swimDirection->z);
-        $this->getWorld()->addParticle($this->getLocation()->add(0, 0.5, 0), new \pocketmine\world\particle\BubbleParticle());
+        $this->getWorld()->addParticle($this->getLocation()->add(0, 0.5, 0), new BubbleParticle());
 
         return $hasUpdate;
     }
