@@ -23,13 +23,13 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
+use pocketmine\entity\EntitySizeInfo;
 use pocketmine\entity\utils\RandomSwimDirection;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\world\Location;
-use pocketmine\entity\EntitySizeInfo;
 use pocketmine\world\particle\BubbleParticle;
 
 class Salmon extends WaterAnimal
@@ -48,12 +48,12 @@ class Salmon extends WaterAnimal
 		$this->swimDirection = new Vector3(0, 0, 0);
 	}
 
-	public function getName(): string
+	public function getName() : string
 	{
 		return "Salmon";
 	}
 
-	public function getInitialSizeInfo(): EntitySizeInfo
+	public function getInitialSizeInfo() : EntitySizeInfo
 	{
 		return new EntitySizeInfo(0.4, 0.7);
 	}
