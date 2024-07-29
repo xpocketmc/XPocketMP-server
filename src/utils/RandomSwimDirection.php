@@ -1,5 +1,3 @@
-<?php
-
 /*
  *
  *  ____            _        _   __  __ _                  __  __ ____
@@ -15,7 +13,6 @@
  *
  * @author PocketMine Team
  * @link http://www.pocketmine.net/
- *
  *
  */
 
