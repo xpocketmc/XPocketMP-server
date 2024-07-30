@@ -25,6 +25,7 @@ namespace pocketmine\entity;
 
 class PropertyManager
 {
+    /** @var array<string, bool> */
     private array $flags = [];
 
     public function setGenericFlag(string $flag, bool $value) : void
