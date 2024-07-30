@@ -1,3 +1,5 @@
+<?php
+
 /*
  *
  *  ____            _        _   __  __ _                  __  __ ____
@@ -18,7 +20,7 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\entity\utils;
+namespace pocketmine\utils;
 
 use pocketmine\math\Vector3;
 use function mt_rand;
