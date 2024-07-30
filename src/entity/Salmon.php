@@ -23,11 +23,11 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
+use pocketmine\entity\utils\RandomSwimDirection;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\utils\RandomSwimDirection;
 use pocketmine\world\Location;
 use pocketmine\world\particle\BubbleParticle;
 
@@ -40,12 +40,13 @@ class Salmon extends WaterAnimal
 	private int $changeDirectionTicks = 0;
 	private $propertyManager; // Define the propertyManager
 
-	public function __construct(Location $location, ?CompoundTag $nbt = null)
+	public function __construct(\pocketmine\entity\Location $location, ?CompoundTag $nbt = null)
 	{
 		parent::__construct($location, $nbt);
 		$this->setMaxHealth(3);
 		$this->setHealth($this->getMaxHealth());
 		$this->swimDirection = new Vector3(0, 0, 0);
+		$this->propertyManager = new PropertyManager(); // Initialize the propertyManager
 	}
 
 	public function getName() : string
