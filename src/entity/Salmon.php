@@ -23,12 +23,11 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
-use pocketmine\entity\utils\RandomSwimDirection;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\world\Location;
+use pocketmine\utils\RandomSwimDirection;
 use pocketmine\world\particle\BubbleParticle;
 
 class Salmon extends WaterAnimal
