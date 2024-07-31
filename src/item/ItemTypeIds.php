@@ -334,7 +334,7 @@ final class ItemTypeIds{
 	public const CAT_SPAWN_EGG = 20294;
 	public const CREEPER_SPAWN_EGG = 20295;
 	public const COD_SPAWN_EGG = 20296;
-	public const SALMON_SPAWN_EGG = 20297
+	public const SALMON_SPAWN_EGG = 20297;
 	public const FIRST_UNUSED_ITEM_ID = 20298;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
