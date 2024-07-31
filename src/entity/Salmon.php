@@ -37,6 +37,7 @@ class Salmon extends WaterAnimal
 
 	private Vector3 $swimDirection;
 	private int $changeDirectionTicks = 0;
+    /** @var PropertyManager */
 	private $propertyManager; // Define the propertyManager
 
 	public function __construct(\pocketmine\entity\Location $location, ?CompoundTag $nbt = null)
