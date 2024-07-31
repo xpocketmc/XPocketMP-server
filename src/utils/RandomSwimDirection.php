@@ -16,6 +16,7 @@
  * @author PocketMine Team
  * @link http://www.pocketmine.net/
  *
+ * 
  */
 
 declare(strict_types=1);
@@ -26,7 +27,7 @@ use pocketmine\math\Vector3;
 use function mt_rand;
 
 class RandomSwimDirection {
-    public static function generate() : Vector3 {
+    public static function generate() : Vector3{
         $x = mt_rand(-100, 100) / 100;
         $y = mt_rand(-100, 100) / 100;
         $z = mt_rand(-100, 100) / 100;
