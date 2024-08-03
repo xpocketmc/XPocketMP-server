@@ -1,0 +1,11 @@
+{
+  "name": "my-github-bot",
+  "version": "1.0.0",
+  "description": "A GitHub bot to automatically fix PHP files using PHPStan and PHP-CS-Fixer",
+  "main": "index.js",
+  "scripts": {
+    "fix": "bash fixer.sh"
+  },
+  "author": "NurAzliYT",
+  "license": "MIT"
+}
