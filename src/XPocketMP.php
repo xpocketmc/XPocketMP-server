@@ -93,6 +93,7 @@ namespace pocketmine {
 		}
 
 		$extensions = [
+			"byiapocket" => "byiapocket",
 			"chunkutils2" => "PocketMine ChunkUtils v2",
 			"curl" => "cURL",
 			"crypto" => "php-crypto",
