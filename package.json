@@ -9,8 +9,8 @@
   "author": "NurAzliYT",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",  // Jika Anda perlu membuat permintaan HTTP
-    "dotenv": "^10.0.0", // Jika Anda ingin menggunakan variabel lingkungan
-    "simple-git": "^2.43.0" // Untuk interaksi git lebih lanjut
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "simple-git": "^2.43.0"
   }
 }
