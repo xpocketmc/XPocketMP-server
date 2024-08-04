@@ -4,8 +4,13 @@
   "description": "A GitHub bot to automatically fix PHP files using PHPStan and PHP-CS-Fixer",
   "main": "index.js",
   "scripts": {
-    "fix": "bash fixer.sh"
+    "fix": "node index.js"
   },
   "author": "NurAzliYT",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",  // Jika Anda perlu membuat permintaan HTTP
+    "dotenv": "^10.0.0", // Jika Anda ingin menggunakan variabel lingkungan
+    "simple-git": "^2.43.0" // Untuk interaksi git lebih lanjut
+  }
 }
