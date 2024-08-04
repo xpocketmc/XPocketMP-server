@@ -4,7 +4,7 @@
   "description": "A GitHub bot to automatically fix PHP files using PHPStan and PHP-CS-Fixer",
   "main": "index.js",
   "scripts": {
-    "fix": "node index.js"
+    "fix": "bash ./fixer"
   },
   "author": "NurAzliYT",
   "license": "MIT",
