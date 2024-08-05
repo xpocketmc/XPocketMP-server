@@ -3,7 +3,7 @@ name: Fix code
 on:
   push:
     branches:
-      - main
+      - stable
 
 jobs:
   build:
