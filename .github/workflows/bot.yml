@@ -17,11 +17,10 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1'
-        extensions: mbstring, xml
-        ini-values: post_max_size=256M, upload_max_filesize=256M
+        extensions: mbstring, xml, pdo_mysql
 
-    - name: Install dependencies
-      run: composer install
+    - name: Install Composer dependencies
+      run: composer install --ignore-platform-reqs
 
     - name: Run phpstan
       run: vendor/bin/phpstan analyse
