@@ -168,7 +168,7 @@ class CrashDump{
 				$this->data->serverDotProperties = preg_replace("#^rcon\\.password=(.*)$#m", "rcon.password=******", $serverDotProperties) ?? throw new AssumptionFailedError("Pattern is valid");
 			}
 			if(($xpocketmpDotYml = @file_get_contents(Path::join($this->server->getDataPath(), "xpocketmp.yml"))) !== false){
-				$this->data->xpocketmpDotYml = $pocketmineDotYml;
+				$this->data->xpocketmpDotYml = $xpocketmpDotYml;
 			}
 		}
 		$extensions = [];
