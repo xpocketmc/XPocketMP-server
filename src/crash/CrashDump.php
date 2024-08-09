@@ -167,8 +167,8 @@ class CrashDump{
 			if(($serverDotProperties = @file_get_contents(Path::join($this->server->getDataPath(), "server.properties"))) !== false){
 				$this->data->serverDotProperties = preg_replace("#^rcon\\.password=(.*)$#m", "rcon.password=******", $serverDotProperties) ?? throw new AssumptionFailedError("Pattern is valid");
 			}
-			if(($pocketmineDotYml = @file_get_contents(Path::join($this->server->getDataPath(), "pocketmine.yml"))) !== false){
-				$this->data->pocketmineDotYml = $pocketmineDotYml;
+			if(($xpocketmpDotYml = @file_get_contents(Path::join($this->server->getDataPath(), "xpocketmp.yml"))) !== false){
+				$this->data->xpocketmpDotYml = $pocketmineDotYml;
 			}
 		}
 		$extensions = [];
