@@ -801,9 +801,9 @@ class Server{
 			$this->pluginPath = realpath($pluginPath) . DIRECTORY_SEPARATOR;
 
 			$this->logger->info("Loading server configuration");
-			$pocketmineYmlPath = Path::join($this->dataPath, "pocketmine.yml");
+			$pocketmineYmlPath = Path::join($this->dataPath, "xpocketmp.yml");
 			if(!file_exists($pocketmineYmlPath)){
-				$content = Filesystem::fileGetContents(Path::join(\pocketmine\RESOURCE_PATH, "pocketmine.yml"));
+				$content = Filesystem::fileGetContents(Path::join(\pocketmine\RESOURCE_PATH, "xpocketmp.yml"));
 				if(VersionInfo::IS_DEVELOPMENT_BUILD){
 					$content = str_replace("preferred-channel: stable", "preferred-channel: beta", $content);
 				}
@@ -811,7 +811,7 @@ class Server{
 			}
 
 			$this->configGroup = new ServerConfigGroup(
-				new Config($pocketmineYmlPath, Config::YAML, []),
+				new Config($xpocketmpYmlPath, Config::YAML, []),
 				new Config(Path::join($this->dataPath, "server.properties"), Config::PROPERTIES, [
 					ServerProperties::MOTD => self::DEFAULT_SERVER_NAME,
 					ServerProperties::SERVER_PORT_IPV4 => self::DEFAULT_PORT_IPV4,
