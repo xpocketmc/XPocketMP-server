@@ -60,7 +60,7 @@ final class CrashDumpData implements \JsonSerializable{
 
 	public string $serverDotProperties = "";
 
-	public string $pocketmineDotYml = "";
+	public string $xpocketmpDotYml = "";
 
 	/**
 	 * @var string[]
@@ -80,8 +80,8 @@ final class CrashDumpData implements \JsonSerializable{
 	public function jsonSerialize() : array{
 		$result = (array) $this;
 		unset($result["serverDotProperties"]);
-		unset($result["pocketmineDotYml"]);
-		$result["pocketmine.yml"] = $this->pocketmineDotYml;
+		unset($result["xpocketmpDotYml"]);
+		$result["xpocketmp.yml"] = $this->xpocketmpDotYml;
 		$result["server.properties"] = $this->serverDotProperties;
 		return $result;
 	}
