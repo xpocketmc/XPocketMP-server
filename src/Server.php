@@ -278,6 +278,7 @@ class Server{
 
 	private string $dataPath;
 	private string $pluginPath;
+	private string $xpocketmpYmlPath;
 
 	private PlayerDataProvider $playerDataProvider;
 
@@ -310,7 +311,7 @@ class Server{
 		return $this->isRunning;
 	}
 
-	public function getPocketMineVersion() : string{
+	public function getXPocketMPVersion() : string{
 		return VersionInfo::VERSION()->getFullVersion(true);
 	}
 
