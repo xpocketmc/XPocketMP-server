@@ -26,10 +26,10 @@ use pocketmine\utils\Utils;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
-$defaultConfig = yaml_parse(Filesystem::fileGetContents(dirname(__DIR__) . '/resources/pocketmine.yml'));
+$defaultConfig = yaml_parse(Filesystem::fileGetContents(dirname(__DIR__) . '/resources/xpocketmp.yml'));
 
 if(!is_array($defaultConfig)){
-	fwrite(STDERR, "Invalid default pocketmine.yml\n");
+	fwrite(STDERR, "Invalid default xpocketmp.yml\n");
 	exit(1);
 }
 
