@@ -39,7 +39,7 @@ final class ServerConfigGroup{
 	private array $propertyCache = [];
 
 	public function __construct(
-		private Config $pocketmineYml,
+		private Config $xpocketmpYml,
 		private Config $serverProperties
 	){}
 
@@ -49,7 +49,7 @@ final class ServerConfigGroup{
 			if(isset($v[$variable])){
 				$this->propertyCache[$variable] = $v[$variable];
 			}else{
-				$this->propertyCache[$variable] = $this->pocketmineYml->getNested($variable);
+				$this->propertyCache[$variable] = $this->xpocketmpYml->getNested($variable);
 			}
 		}
 
@@ -128,8 +128,8 @@ final class ServerConfigGroup{
 		if($this->serverProperties->hasChanged()){
 			$this->serverProperties->save();
 		}
-		if($this->pocketmineYml->hasChanged()){
-			$this->pocketmineYml->save();
+		if($this->xpocketmpYml->hasChanged()){
+			$this->xpocketmpYml->save();
 		}
 	}
 }
