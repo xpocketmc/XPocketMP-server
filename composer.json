@@ -90,7 +90,7 @@
          "@php build/generate-block-serializer-consts.php vendor/pocketmine/bedrock-data/canonical_block_states.nbt",
          "@php build/generate-item-type-names.php vendor/pocketmine/bedrock-data/required_item_list.json",
          "@php build/generate-known-translation-apis.php",
-         "@php build/generate-pocketmine-yml-property-consts.php",
+         "@php build/generate-xpocketmp-yml-property-consts.php",
          "@php build/generate-registry-annotations.php src"
       ]
    }
