@@ -278,8 +278,7 @@ class Server{
 
 	private string $dataPath;
 	private string $pluginPath;
-	private string $xpocketmpYmlPath;
-
+	
 	private PlayerDataProvider $playerDataProvider;
 
 	/**
@@ -808,7 +807,7 @@ class Server{
 				if(VersionInfo::IS_DEVELOPMENT_BUILD){
 					$content = str_replace("preferred-channel: stable", "preferred-channel: beta", $content);
 				}
-				@file_put_contents($pocketmineYmlPath, $content);
+				@file_put_contents($xpocketmpYmlPath, $content);
 			}
 
 			$this->configGroup = new ServerConfigGroup(
