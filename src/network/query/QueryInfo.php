@@ -73,7 +73,7 @@ final class QueryInfo{
 
 		$this->gametype = ($server->getGamemode() === GameMode::SURVIVAL || $server->getGamemode() === GameMode::ADVENTURE) ? "SMP" : "CMP";
 		$this->version = $server->getVersion();
-		$this->server_engine = $server->getName() . " " . $server->getPocketMineVersion();
+		$this->server_engine = $server->getName() . " " . $server->getXPocketMPVersion();
 		$world = $server->getWorldManager()->getDefaultWorld();
 		$this->map = $world === null ? "unknown" : $world->getDisplayName();
 		$this->numPlayers = count($this->players);
