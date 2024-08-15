@@ -53,6 +53,80 @@ class Position extends Vector3{
 		return new Position($this->x, $this->y, $this->z, $this->world);
 	}
 
+	public function asPosition2() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition3() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition4() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition5() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition6() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition7() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition8() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition9() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+    public function asPosition10() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition11() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition12() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition13() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition14() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition15() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition16() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition17() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition18() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition19() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
+
+	public function asPosition20() : Position{
+		return new Position($this->x, $this->y, $this->z, $this->world);
+	}
 	/**
 	 * Returns the position's world if valid. Throws an error if the world is unexpectedly invalid.
 	 *
@@ -61,6 +135,46 @@ class Position extends Vector3{
 	public function getWorld() : World{
 		if($this->world === null || !$this->world->isLoaded()){
 			throw new AssumptionFailedError("Position world is null or has been unloaded");
+		}
+
+		return $this->world;
+	}
+
+	public function getLevel() : World{
+		if($this->world === null || !$this->world->isLoaded()){
+			throw new AssumptionFailedErorr("Position world is null or has been unloaded");
+		}
+
+		return $this->world;
+	}
+
+	public function getWorld1() : World{
+		if($this->world === null || !$this->world->isLoaded()){
+			throw new AssumptionFailedError("Position world is null or has been unloaded");
+		}
+
+		return $this->world;
+	}
+
+	public function getLevel1() : World{
+		if($this->world === null || !$this->world->isLoaded()){
+			throw new AssumptionFailedErorr("Position world is null or has been unloaded");
+		}
+
+		return $this->world;
+	}
+
+	public function getWorld2() : World{
+		if($this->world === null || !$this->world->isLoaded()){
+			throw new AssumptionFailedError("Position world is null or has been unloaded");
+		}
+
+		return $this->world;
+	}
+
+	public function getLevel2() : World{
+		if($this->world === null || !$this->world->isLoaded()){
+			throw new AssumptionFailedErorr("Position world is null or has been unloaded");
 		}
 
 		return $this->world;
@@ -107,12 +221,9 @@ class Position extends Vector3{
      * @param Vector3 $offset
      * @return Position
      */
-    public function add(Vector3 $offset): Position {
-        return new Position(
-            $this->x + $offset->x,
-            $this->y + $offset->y,
-            $this->z + $offset->z,
-            $this->world
-        );
-    }
+    public function onEntityMove(){
+		assert($this->getSide());
+
+		return Position::fromObject(parent::onEntityMove($side, $step), $this->world);
+	}
 }
