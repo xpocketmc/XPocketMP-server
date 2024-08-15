@@ -100,4 +100,19 @@ class Position extends Vector3{
 		}
 		return parent::equals($v);
 	}
+
+    /**
+     * Adds an offset vector to the current position.
+     *
+     * @param Vector3 $offset
+     * @return Position
+     */
+    public function add(Vector3 $offset): Position {
+        return new Position(
+            $this->x + $offset->x,
+            $this->y + $offset->y,
+            $this->z + $offset->z,
+            $this->world
+        );
+    }
 }
