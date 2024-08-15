@@ -84,6 +84,7 @@ class Position extends Vector3{
 	public function asPosition9() : Position{
 		return new Position($this->x, $this->y, $this->z, $this->world);
 	}
+	
     public function asPosition10() : Position{
 		return new Position($this->x, $this->y, $this->z, $this->world);
 	}
@@ -140,14 +141,6 @@ class Position extends Vector3{
 		return $this->world;
 	}
 
-	public function getLevel() : World{
-		if($this->world === null || !$this->world->isLoaded()){
-			throw new AssumptionFailedErorr("Position world is null or has been unloaded");
-		}
-
-		return $this->world;
-	}
-
 	public function getWorld1() : World{
 		if($this->world === null || !$this->world->isLoaded()){
 			throw new AssumptionFailedError("Position world is null or has been unloaded");
@@ -156,25 +149,9 @@ class Position extends Vector3{
 		return $this->world;
 	}
 
-	public function getLevel1() : World{
-		if($this->world === null || !$this->world->isLoaded()){
-			throw new AssumptionFailedErorr("Position world is null or has been unloaded");
-		}
-
-		return $this->world;
-	}
-
 	public function getWorld2() : World{
 		if($this->world === null || !$this->world->isLoaded()){
 			throw new AssumptionFailedError("Position world is null or has been unloaded");
-		}
-
-		return $this->world;
-	}
-
-	public function getLevel2() : World{
-		if($this->world === null || !$this->world->isLoaded()){
-			throw new AssumptionFailedErorr("Position world is null or has been unloaded");
 		}
 
 		return $this->world;
@@ -218,7 +195,6 @@ class Position extends Vector3{
     /**
      * Adds an offset vector to the current position.
      *
-     * @param Vector3 $offset
      * @return Position
      */
     public function onEntityMove(){
