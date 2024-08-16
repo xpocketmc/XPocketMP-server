@@ -96,7 +96,6 @@ final class BlockStateNames{
 	public const MC_FACING_DIRECTION = "minecraft:facing_direction";
 	public const MC_VERTICAL_HALF = "minecraft:vertical_half";
 	public const MOISTURIZED_AMOUNT = "moisturized_amount";
-	public const MONSTER_EGG_STONE_TYPE = "monster_egg_stone_type";
 	public const MULTI_FACE_DIRECTION_BITS = "multi_face_direction_bits";
 	public const OCCUPIED_BIT = "occupied_bit";
 	public const OMINOUS = "ominous";
