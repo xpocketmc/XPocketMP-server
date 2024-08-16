@@ -42,7 +42,6 @@ final class BlockStateNames{
 	public const BIG_DRIPLEAF_HEAD = "big_dripleaf_head";
 	public const BIG_DRIPLEAF_TILT = "big_dripleaf_tilt";
 	public const BITE_COUNTER = "bite_counter";
-	public const BLOCK_LIGHT_LEVEL = "block_light_level";
 	public const BLOOM = "bloom";
 	public const BOOKS_STORED = "books_stored";
 	public const BREWING_STAND_SLOT_A_BIT = "brewing_stand_slot_a_bit";
@@ -61,15 +60,12 @@ final class BlockStateNames{
 	public const CONDITIONAL_BIT = "conditional_bit";
 	public const CORAL_DIRECTION = "coral_direction";
 	public const CORAL_FAN_DIRECTION = "coral_fan_direction";
-	public const CORAL_HANG_TYPE_BIT = "coral_hang_type_bit";
 	public const COVERED_BIT = "covered_bit";
 	public const CRACKED_STATE = "cracked_state";
 	public const CRAFTING = "crafting";
-	public const DAMAGE = "damage";
 	public const DEAD_BIT = "dead_bit";
 	public const DEPRECATED = "deprecated";
 	public const DIRECTION = "direction";
-	public const DIRT_TYPE = "dirt_type";
 	public const DISARMED_BIT = "disarmed_bit";
 	public const DOOR_HINGE_BIT = "door_hinge_bit";
 	public const DRAG_DOWN = "drag_down";
