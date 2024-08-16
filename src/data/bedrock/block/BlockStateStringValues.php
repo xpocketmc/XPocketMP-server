@@ -124,14 +124,6 @@ final class BlockStateStringValues{
 	public const PORTAL_AXIS_X = "x";
 	public const PORTAL_AXIS_Z = "z";
 
-	public const SAND_STONE_TYPE_CUT = "cut";
-	public const SAND_STONE_TYPE_DEFAULT = "default";
-	public const SAND_STONE_TYPE_HEIROGLYPHS = "heiroglyphs";
-	public const SAND_STONE_TYPE_SMOOTH = "smooth";
-
-	public const SAND_TYPE_NORMAL = "normal";
-	public const SAND_TYPE_RED = "red";
-
 	public const SEA_GRASS_TYPE_DEFAULT = "default";
 	public const SEA_GRASS_TYPE_DOUBLE_BOT = "double_bot";
 	public const SEA_GRASS_TYPE_DOUBLE_TOP = "double_top";
