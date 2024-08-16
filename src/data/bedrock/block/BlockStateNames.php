@@ -108,7 +108,6 @@ final class BlockStateNames{
 	public const PILLAR_AXIS = "pillar_axis";
 	public const PORTAL_AXIS = "portal_axis";
 	public const POWERED_BIT = "powered_bit";
-	public const PRISMARINE_BLOCK_TYPE = "prismarine_block_type";
 	public const PROPAGULE_STAGE = "propagule_stage";
 	public const RAIL_DATA_BIT = "rail_data_bit";
 	public const RAIL_DIRECTION = "rail_direction";
@@ -116,18 +115,11 @@ final class BlockStateNames{
 	public const REPEATER_DELAY = "repeater_delay";
 	public const RESPAWN_ANCHOR_CHARGE = "respawn_anchor_charge";
 	public const ROTATION = "rotation";
-	public const SAND_STONE_TYPE = "sand_stone_type";
-	public const SAND_TYPE = "sand_type";
 	public const SCULK_SENSOR_PHASE = "sculk_sensor_phase";
 	public const SEA_GRASS_TYPE = "sea_grass_type";
 	public const SPONGE_TYPE = "sponge_type";
 	public const STABILITY = "stability";
 	public const STABILITY_CHECK = "stability_check";
-	public const STONE_BRICK_TYPE = "stone_brick_type";
-	public const STONE_SLAB_TYPE = "stone_slab_type";
-	public const STONE_SLAB_TYPE_2 = "stone_slab_type_2";
-	public const STONE_SLAB_TYPE_3 = "stone_slab_type_3";
-	public const STONE_SLAB_TYPE_4 = "stone_slab_type_4";
 	public const STRIPPED_BIT = "stripped_bit";
 	public const STRUCTURE_BLOCK_TYPE = "structure_block_type";
 	public const STRUCTURE_VOID_TYPE = "structure_void_type";
