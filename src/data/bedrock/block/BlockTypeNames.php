@@ -837,7 +837,12 @@ final class BlockTypeNames{
 	public const POWERED_COMPARATOR = "minecraft:powered_comparator";
 	public const POWERED_REPEATER = "minecraft:powered_repeater";
 	public const PRISMARINE = "minecraft:prismarine";
+	public const PRISMARINE_BRICK_DOUBLE_SLAB = "minecraft:prismarine_brick_double_slab"
+	public const PRISMARINE_BRICK_SLAB = "minecraft:prismarine_brick_slab";
+	public const PRISMARINE_BRICKS = "minecraft:prismarine_bricks";
 	public const PRISMARINE_BRICKS_STAIRS = "minecraft:prismarine_bricks_stairs";
+	public const PRISMARINE_DOUBLE_SLAB = "minecraft:prismarine_double_slab";
+	public const PRISMARINE_SLAB = "minecraft:prismarine_slab";
 	public const PRISMARINE_STAIRS = "minecraft:prismarine_stairs";
 	public const PUMPKIN = "minecraft:pumpkin";
 	public const PUMPKIN_STEM = "minecraft:pumpkin_stem";
