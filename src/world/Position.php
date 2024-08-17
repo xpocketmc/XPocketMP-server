@@ -191,15 +191,4 @@ class Position extends Vector3{
 		}
 		return parent::equals($v);
 	}
-
-    /**
-     * Adds an offset vector to the current position.
-     *
-     * @return Position
-     */
-    public function onEntityMove(){
-		assert($this->getSide());
-
-		return Position::fromObject(parent::onEntityMove($side, $step), $this->world);
-	}
 }
