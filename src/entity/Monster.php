@@ -38,7 +38,7 @@ abstract class Monster extends Living {
 
     // Fungsi untuk update monster tiap tick
     public function onUpdate(int $currentTick) : bool {
-        $nearestPlayer = $this->getWorld()->getNearestEntity($this, 10, Player::class); // Gunakan getWorld() bukan getLevel()
+        $nearestPlayer = $this->getWorld()->getNearestEntity($this->getPosition(), 10, Player::class);
         if ($nearestPlayer instanceof Player) {
             $this->chasePlayer($nearestPlayer); // Kejar pemain
             $this->attackPlayer($nearestPlayer); // Serang pemain jika jaraknya dekat
