@@ -87,7 +87,7 @@ class Skeleton extends Monster {
     }
 
     // Implementasi method abstract yang diperlukan
-    public function getInitialSizeInfo() : EntitySizeInfo {
+    public static function getInitialSizeInfo() : EntitySizeInfo {
         return new EntitySizeInfo(1.99, 0.6); // Ukuran skeleton (tinggi 1.99, lebar 0.6)
     }
 
