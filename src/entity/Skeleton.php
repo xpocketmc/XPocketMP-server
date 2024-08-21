@@ -6,6 +6,7 @@ use pocketmine\entity\projectile\Arrow;
 use pocketmine\entity\Location;
 use pocketmine\player\Player;
 use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\math\Vector3;
 use pocketmine\world\World;
 
