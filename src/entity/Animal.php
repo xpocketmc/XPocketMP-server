@@ -2,9 +2,6 @@
 
 namespace pocketmine\entity;
 
-use pocketmine\entity\Entity;
-use pocketmine\entity\EntityAgeable;
-use pocketmine\nukkit\entity\EntityCreature;
 use pocketmine\item\VanillaItems;
 use pocketmine\level\format\FullChunk;
 use pocketmine\nbt\tag\CompoundTag;
