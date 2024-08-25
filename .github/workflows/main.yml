@@ -17,3 +17,15 @@ jobs:
     with:
       php: ${{ matrix.php }}
     secrets: inherit
+
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@2.0.0
