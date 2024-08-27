@@ -22,7 +22,7 @@ rm XPocketMP.phar 2> /dev/null
 mkdir "$DATA_DIR"
 mkdir "$PLUGINS_DIR"
 
-cd tests/plugins/DevTools
+cd tests/plugins/DevTools || { echo "Couldn't change directory to $DIR"; exit 1; }
 php -dphar.readonly=0 ./src/ConsoleScript.php --make ./ --relative ./ --out "$PLUGINS_DIR/DevTools.phar"
 cd ../../..
 composer make-server
