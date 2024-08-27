@@ -7,6 +7,9 @@ while getopts "t:" OPTION 2> /dev/null; do
 		t)
 			PM_WORKERS="$OPTARG"
 			;;
+        /?)
+		    break
+	        ;;
 	esac
 done
 
