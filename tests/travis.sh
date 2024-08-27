@@ -48,7 +48,7 @@ if [ "$result" != "" ]; then
 	echo "$result"
 	echo Some tests did not complete successfully, changing build status to failed
 	exit 1
-elif [ $(grep -c "ERROR\|CRITICAL\|EMERGENCY" "$DATA_DIR/server.log") -ne 0 ]; then
+elif [ "$(grep -c "ERROR\|CRITICAL\|EMERGENCY" "$DATA_DIR/server.log")" -ne 0 ]; then
 	echo Server log contains error messages, changing build status to failed
 	exit 1
 else
