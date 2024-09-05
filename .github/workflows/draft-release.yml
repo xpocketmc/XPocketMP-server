@@ -98,7 +98,7 @@ jobs:
           prerelease: ${{ steps.get-pm-version.outputs.PRERELEASE }}
           name: XPocketMP ${{ steps.get-pm-version.outputs.PM_VERSION }}
           tag: ${{ steps.get-pm-version.outputs.PM_VERSION }}
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             **For Minecraft: Bedrock Edition ${{ steps.get-pm-version.outputs.MCPE_VERSION }}**
 
