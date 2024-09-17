@@ -7,7 +7,11 @@ use pocketmine\utils\Utils;
 
 class PocketPlayerUUID {
 
-private Player $pyer;
+protected Player $pyer;
+
+  public function __construct() {
+	  $this->pyer = $pyer;
+  }
 
   public function getPlayerUUID() : bool {
     $pyer->getPlayer;
