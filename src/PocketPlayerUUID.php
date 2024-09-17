@@ -9,7 +9,7 @@ class PocketPlayerUUID {
 
 protected Player $pyer;
 
-  public function __construct() {
+  public function __construct(Player $pyer) {
 	  $this->pyer = $pyer;
   }
 
