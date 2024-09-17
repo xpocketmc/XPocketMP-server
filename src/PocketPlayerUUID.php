@@ -8,10 +8,9 @@ use pocketmine\utils\Utils;
 class PocketPlayerUUID {
 
 private Player $pyer;
-private Utils $utilss;
 
   public function getPlayerUUID() : bool {
-    $this->pyer->getPlayer;
+    $pyer->getPlayer;
   return true;
   }
 }
