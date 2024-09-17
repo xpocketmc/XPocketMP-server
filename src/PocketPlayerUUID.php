@@ -10,7 +10,7 @@ class PocketPlayerUUID {
 private Player $pyer;
 private Utils $utilss;
 
-  public function getPlayerUUID {
+  public function getPlayerUUID() {
     $this->pyer = $utilss->getPlayer;
   return false;
   }
