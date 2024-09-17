@@ -135,16 +135,16 @@ final class Bell extends Transparent{
 		return false;
 	}
 
+	public function onProjectileInteraction(Projectile $projectile) : void{
+		if($projectile instanceof WindCharge) {
+			$this->ring($this->facing);
+		}
+	}
+
 	public function onProjectileHit(Projectile $projectile, RayTraceResult $hitResult) : void{
 		$faceHit = Facing::opposite($projectile->getHorizontalFacing());
 		if($this->isValidFaceToRing($faceHit)){
 			$this->ring($faceHit);
-		}
-	}
-
-	public function onProjectileInteraction(Projectile $projectile) : void{
-		if($projectile instanceof WindCharge) {
-			$this->ring($this->facing);
 		}
 	}
 
