@@ -49,7 +49,6 @@ final class BlockTypeNames{
 	public const ACACIA_WALL_SIGN = "minecraft:acacia_wall_sign";
 	public const ACACIA_WOOD = "minecraft:acacia_wood";
 	public const ACTIVATOR_RAIL = "minecraft:activator_rail";
-	public const ANDESITE_WALL = "minecraft:andesite_wall";
 	public const AIR = "minecraft:air";
 	public const ALLIUM = "minecraft:allium";
 	public const ALLOW = "minecraft:allow";
@@ -60,6 +59,7 @@ final class BlockTypeNames{
 	public const ANDESITE_DOUBLE_SLAB = "minecraft:andesite_double_slab";
 	public const ANDESITE_SLAB = "minecraft:andesite_slab";
 	public const ANDESITE_STAIRS = "minecraft:andesite_stairs";
+	public const ANDESITE_WALL = "minecraft:andesite_wall";
 	public const ANVIL = "minecraft:anvil";
 	public const AZALEA = "minecraft:azalea";
 	public const AZALEA_LEAVES = "minecraft:azalea_leaves";
@@ -193,7 +193,6 @@ final class BlockTypeNames{
 	public const CHAIN = "minecraft:chain";
 	public const CHAIN_COMMAND_BLOCK = "minecraft:chain_command_block";
 	public const CHEMICAL_HEAT = "minecraft:chemical_heat";
-	public const CHEMISTRY_TABLE = "minecraft:chemistry_table";
 	public const CHERRY_BUTTON = "minecraft:cherry_button";
 	public const CHERRY_DOOR = "minecraft:cherry_door";
 	public const CHERRY_DOUBLE_SLAB = "minecraft:cherry_double_slab";
@@ -507,6 +506,7 @@ final class BlockTypeNames{
 	public const ELEMENT_97 = "minecraft:element_97";
 	public const ELEMENT_98 = "minecraft:element_98";
 	public const ELEMENT_99 = "minecraft:element_99";
+	public const ELEMENT_CONSTRUCTOR = "minecraft:element_constructor";
 	public const EMERALD_BLOCK = "minecraft:emerald_block";
 	public const EMERALD_ORE = "minecraft:emerald_ore";
 	public const ENCHANTING_TABLE = "minecraft:enchanting_table";
@@ -519,6 +519,7 @@ final class BlockTypeNames{
 	public const END_STONE = "minecraft:end_stone";
 	public const END_STONE_BRICK_DOUBLE_SLAB = "minecraft:end_stone_brick_double_slab";
 	public const END_STONE_BRICK_SLAB = "minecraft:end_stone_brick_slab";
+	public const END_STONE_BRICK_WALL = "minecraft:end_stone_brick_wall";
 	public const ENDER_CHEST = "minecraft:ender_chest";
 	public const EXPOSED_CHISELED_COPPER = "minecraft:exposed_chiseled_copper";
 	public const EXPOSED_COPPER = "minecraft:exposed_copper";
@@ -561,6 +562,7 @@ final class BlockTypeNames{
 	public const GRANITE_DOUBLE_SLAB = "minecraft:granite_double_slab";
 	public const GRANITE_SLAB = "minecraft:granite_slab";
 	public const GRANITE_STAIRS = "minecraft:granite_stairs";
+	public const GRANITE_WALL = "minecraft:granite_wall";
 	public const GRASS_BLOCK = "minecraft:grass_block";
 	public const GRASS_PATH = "minecraft:grass_path";
 	public const GRAVEL = "minecraft:gravel";
@@ -669,6 +671,7 @@ final class BlockTypeNames{
 	public const JUNGLE_WALL_SIGN = "minecraft:jungle_wall_sign";
 	public const JUNGLE_WOOD = "minecraft:jungle_wood";
 	public const KELP = "minecraft:kelp";
+	public const LAB_TABLE = "minecraft:lab_table";
 	public const LADDER = "minecraft:ladder";
 	public const LANTERN = "minecraft:lantern";
 	public const LAPIS_BLOCK = "minecraft:lapis_block";
@@ -769,6 +772,7 @@ final class BlockTypeNames{
 	public const MANGROVE_TRAPDOOR = "minecraft:mangrove_trapdoor";
 	public const MANGROVE_WALL_SIGN = "minecraft:mangrove_wall_sign";
 	public const MANGROVE_WOOD = "minecraft:mangrove_wood";
+	public const MATERIAL_REDUCER = "minecraft:material_reducer";
 	public const MEDIUM_AMETHYST_BUD = "minecraft:medium_amethyst_bud";
 	public const MELON_BLOCK = "minecraft:melon_block";
 	public const MELON_STEM = "minecraft:melon_stem";
@@ -779,9 +783,11 @@ final class BlockTypeNames{
 	public const MOSSY_COBBLESTONE_DOUBLE_SLAB = "minecraft:mossy_cobblestone_double_slab";
 	public const MOSSY_COBBLESTONE_SLAB = "minecraft:mossy_cobblestone_slab";
 	public const MOSSY_COBBLESTONE_STAIRS = "minecraft:mossy_cobblestone_stairs";
+	public const MOSSY_COBBLESTONE_WALL = "minecraft:mossy_cobblestone_wall";
 	public const MOSSY_STONE_BRICK_DOUBLE_SLAB = "minecraft:mossy_stone_brick_double_slab";
 	public const MOSSY_STONE_BRICK_SLAB = "minecraft:mossy_stone_brick_slab";
 	public const MOSSY_STONE_BRICK_STAIRS = "minecraft:mossy_stone_brick_stairs";
+	public const MOSSY_STONE_BRICK_WALL = "minecraft:mossy_stone_brick_wall";
 	public const MOSSY_STONE_BRICKS = "minecraft:mossy_stone_bricks";
 	public const MOVING_BLOCK = "minecraft:moving_block";
 	public const MUD = "minecraft:mud";
@@ -797,6 +803,7 @@ final class BlockTypeNames{
 	public const NETHER_BRICK_FENCE = "minecraft:nether_brick_fence";
 	public const NETHER_BRICK_SLAB = "minecraft:nether_brick_slab";
 	public const NETHER_BRICK_STAIRS = "minecraft:nether_brick_stairs";
+  public const NETHER_BRICK_WALL = "minecraft:nether_brick_wall";
 	public const NETHER_GOLD_ORE = "minecraft:nether_gold_ore";
 	public const NETHER_SPROUTS = "minecraft:nether_sprouts";
 	public const NETHER_WART = "minecraft:nether_wart";
@@ -918,6 +925,7 @@ final class BlockTypeNames{
 	public const PRISMARINE_DOUBLE_SLAB = "minecraft:prismarine_double_slab";
 	public const PRISMARINE_SLAB = "minecraft:prismarine_slab";
 	public const PRISMARINE_STAIRS = "minecraft:prismarine_stairs";
+	public const PRISMARINE_WALL = "minecraft:prismarine_wall";
 	public const PUMPKIN = "minecraft:pumpkin";
 	public const PUMPKIN_STEM = "minecraft:pumpkin_stem";
 	public const PURPLE_CANDLE = "minecraft:purple_candle";
@@ -935,6 +943,7 @@ final class BlockTypeNames{
 	public const PURPUR_DOUBLE_SLAB = "minecraft:purpur_double_slab";
 	public const PURPUR_SLAB = "minecraft:purpur_slab";
 	public const PURPUR_STAIRS = "minecraft:purpur_stairs";
+	public const PURPUR_PILLAR = "minecraft:purpur_pillar";
 	public const QUARTZ_BLOCK = "minecraft:quartz_block";
 	public const QUARTZ_BRICKS = "minecraft:quartz_bricks";
 	public const QUARTZ_DOUBLE_SLAB = "minecraft:quartz_double_slab";
@@ -958,11 +967,13 @@ final class BlockTypeNames{
 	public const RED_NETHER_BRICK_DOUBLE_SLAB = "minecraft:red_nether_brick_double_slab";
 	public const RED_NETHER_BRICK_SLAB = "minecraft:red_nether_brick_slab";
 	public const RED_NETHER_BRICK_STAIRS = "minecraft:red_nether_brick_stairs";
+	public const RED_NETHER_BRICK_WALL = "minecraft:red_nether_brick_wall";
 	public const RED_SAND = "minecraft:red_sand";
 	public const RED_SANDSTONE = "minecraft:red_sandstone";
 	public const RED_SANDSTONE_DOUBLE_SLAB = "minecraft:red_sandstone_double_slab";
 	public const RED_SANDSTONE_SLAB = "minecraft:red_sandstone_slab";
 	public const RED_SANDSTONE_STAIRS = "minecraft:red_sandstone_stairs";
+	public const RED_SANDSTONE_WALL = "minecraft:red_sandstone_wall";
 	public const RED_SHULKER_BOX = "minecraft:red_shulker_box";
 	public const RED_STAINED_GLASS = "minecraft:red_stained_glass";
 	public const RED_STAINED_GLASS_PANE = "minecraft:red_stained_glass_pane";
@@ -985,6 +996,7 @@ final class BlockTypeNames{
 	public const SANDSTONE_DOUBLE_SLAB = "minecraft:sandstone_double_slab";
 	public const SANDSTONE_SLAB = "minecraft:sandstone_slab";
 	public const SANDSTONE_STAIRS = "minecraft:sandstone_stairs";
+	public const SANDSTONE_WALL = "minecraft:sandstone_wall";
 	public const SCAFFOLDING = "minecraft:scaffolding";
 	public const SCULK = "minecraft:sculk";
 	public const SCULK_CATALYST = "minecraft:sculk_catalyst";
@@ -1055,6 +1067,7 @@ final class BlockTypeNames{
 	public const STONE_BRICK_DOUBLE_SLAB = "minecraft:stone_brick_double_slab";
 	public const STONE_BRICK_SLAB = "minecraft:stone_brick_slab";
 	public const STONE_BRICK_STAIRS = "minecraft:stone_brick_stairs";
+	public const STONE_BRICK_WALL = "minecraft:stone_brick_wall";
 	public const STONE_BRICKS = "minecraft:stone_bricks";
 	public const STONE_BUTTON = "minecraft:stone_button";
 	public const STONE_PRESSURE_PLATE = "minecraft:stone_pressure_plate";
@@ -1116,6 +1129,7 @@ final class BlockTypeNames{
 	public const TUFF_WALL = "minecraft:tuff_wall";
 	public const TURTLE_EGG = "minecraft:turtle_egg";
 	public const TWISTING_VINES = "minecraft:twisting_vines";
+	public const UNDERWATER_TNT = "minecraft:underwater_tnt";
 	public const UNDERWATER_TORCH = "minecraft:underwater_torch";
 	public const UNDYED_SHULKER_BOX = "minecraft:undyed_shulker_box";
 	public const UNKNOWN = "minecraft:unknown";
@@ -1200,6 +1214,7 @@ final class BlockTypeNames{
 	public const WEATHERED_DOUBLE_CUT_COPPER_SLAB = "minecraft:weathered_double_cut_copper_slab";
 	public const WEB = "minecraft:web";
 	public const WEEPING_VINES = "minecraft:weeping_vines";
+	public const WET_SPONGE = "minecraft:wet_sponge";
 	public const WHEAT = "minecraft:wheat";
 	public const WHITE_CANDLE = "minecraft:white_candle";
 	public const WHITE_CANDLE_CAKE = "minecraft:white_candle_cake";
