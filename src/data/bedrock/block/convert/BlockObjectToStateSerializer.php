@@ -1092,7 +1092,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		);
 		$this->mapSlab(Blocks::ANDESITE_SLAB(), Ids::ANDESITE_SLAB, Ids::ANDESITE_DOUBLE_SLAB);
 		$this->map(Blocks::ANDESITE_STAIRS(), fn(Stair $block) => Helper::encodeStairs($block, new Writer(Ids::ANDESITE_STAIRS)));
-		$this->map(Blocks::ANDESITE_WALL(), fn(Wall $block) => Helper::encodeLegacyWall($block, StringValues::WALL_BLOCK_TYPE_ANDESITE));
+		$this->map(Blocks::ANDESITE_WALL(), fn(Wall $block) => Helper::encodeLegacyWall($block, new Writer(Ids::WALL_BLOCK_TYPE_ANDESITE)));
 		$this->map(Blocks::ANVIL(), fn(Anvil $block) : Writer => Writer::create(
 			match($damage = $block->getDamage()){
 				0 => Ids::ANVIL,
@@ -1183,7 +1183,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		});
 		$this->mapSlab(Blocks::BRICK_SLAB(), Ids::BRICK_SLAB, Ids::BRICK_DOUBLE_SLAB);
 		$this->mapStairs(Blocks::BRICK_STAIRS(), Ids::BRICK_STAIRS);
-		$this->map(Blocks::BRICK_WALL(), fn(Wall $block) => Helper::encodeLegacyWall($block, StringValues::WALL_BLOCK_TYPE_BRICK));
+		$this->map(Blocks::BRICK_WALL(), fn(Wall $block) => Helper::encodeLegacyWall(), Ids::BRICK_WALL));
 		$this->map(Blocks::BROWN_MUSHROOM_BLOCK(), fn(BrownMushroomBlock $block) => Helper::encodeMushroomBlock($block, new Writer(Ids::BROWN_MUSHROOM_BLOCK)));
 		$this->map(Blocks::CACTUS(), function(Cactus $block) : Writer{
 			return Writer::create(Ids::CACTUS)
