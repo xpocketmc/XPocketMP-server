@@ -117,6 +117,13 @@ final class BlockStateStringValues{
 	public const SEA_GRASS_TYPE_DEFAULT = "default";
 	public const SEA_GRASS_TYPE_DOUBLE_BOT = "double_bot";
 	public const SEA_GRASS_TYPE_DOUBLE_TOP = "double_top";
+	
+    public const STRUCTURE_BLOCK_TYPE_CORNER = "corner";
+	public const STRUCTURE_BLOCK_TYPE_DATA = "data";
+	public const STRUCTURE_BLOCK_TYPE_EXPORT = "export";
+	public const STRUCTURE_BLOCK_TYPE_INVALID = "invalid";
+	public const STRUCTURE_BLOCK_TYPE_LOAD = "load";
+	public const STRUCTURE_BLOCK_TYPE_SAVE = "save";
 
 	public const TORCH_FACING_DIRECTION_EAST = "east";
 	public const TORCH_FACING_DIRECTION_NORTH = "north";
