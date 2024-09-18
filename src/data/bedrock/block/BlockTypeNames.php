@@ -49,6 +49,7 @@ final class BlockTypeNames{
 	public const ACACIA_WALL_SIGN = "minecraft:acacia_wall_sign";
 	public const ACACIA_WOOD = "minecraft:acacia_wood";
 	public const ACTIVATOR_RAIL = "minecraft:activator_rail";
+	public const ANDESITE_WALL = "minecraft:andesite_wall";
 	public const AIR = "minecraft:air";
 	public const ALLIUM = "minecraft:allium";
 	public const ALLOW = "minecraft:allow";
@@ -154,6 +155,7 @@ final class BlockTypeNames{
 	public const BRICK_DOUBLE_SLAB = "minecraft:brick_double_slab";
 	public const BRICK_SLAB = "minecraft:brick_slab";
 	public const BRICK_STAIRS = "minecraft:brick_stairs";
+	public const BRICK_WALL = "minecraft:brick_wall";
 	public const BROWN_CANDLE = "minecraft:brown_candle";
 	public const BROWN_CANDLE_CAKE = "minecraft:brown_candle_cake";
 	public const BROWN_CARPET = "minecraft:brown_carpet";
@@ -239,10 +241,13 @@ final class BlockTypeNames{
 	public const COBBLESTONE_SLAB = "minecraft:cobblestone_slab";
 	public const COBBLESTONE_WALL = "minecraft:cobblestone_wall";
 	public const COCOA = "minecraft:cocoa";
-	public const COLORED_TORCH_BP = "minecraft:colored_torch_bp";
-	public const COLORED_TORCH_RG = "minecraft:colored_torch_rg";
+	public const COLORED_TORCH_BLUE = "minecraft:colored_torch_blue";
+	public const COLORED_TORCH_GREEN = "minecraft:colored_torch_green";
+	public const COLORED_TORCH_PURPLE = "minecraft:colored_torch_purple";
+	public const COLORED_TORCH_RED = "minecraft:colored_torch_red";
 	public const COMMAND_BLOCK = "minecraft:command_block";
 	public const COMPOSTER = "minecraft:composter";
+	public const COMPOUND_CREATOR = "minecraft:compound_creator";
 	public const CONDUIT = "minecraft:conduit";
 	public const COPPER_BLOCK = "minecraft:copper_block";
 	public const COPPER_BULB = "minecraft:copper_bulb";
@@ -365,6 +370,8 @@ final class BlockTypeNames{
 	public const DEEPSLATE_TILES = "minecraft:deepslate_tiles";
 	public const DENY = "minecraft:deny";
 	public const DEPRECATED_ANVIL = "minecraft:deprecated_anvil";
+	public const DEPRECATED_PURPUR_BLOCK_1 = "minecraft:deprecated_purpur_block_1";
+	public const DEPRECATED_PURPUR_BLOCK_2 = "minecraft:deprecated_purpur_block_2";
 	public const DETECTOR_RAIL = "minecraft:detector_rail";
 	public const DIAMOND_BLOCK = "minecraft:diamond_block";
 	public const DIAMOND_ORE = "minecraft:diamond_ore";
@@ -372,6 +379,7 @@ final class BlockTypeNames{
 	public const DIORITE_DOUBLE_SLAB = "minecraft:diorite_double_slab";
 	public const DIORITE_SLAB = "minecraft:diorite_slab";
 	public const DIORITE_STAIRS = "minecraft:diorite_stairs";
+	public const DIORITE_WALL = "minecraft:diorite_wall";
 	public const DIRT = "minecraft:dirt";
 	public const DIRT_WITH_ROOTS = "minecraft:dirt_with_roots";
 	public const DISPENSER = "minecraft:dispenser";
