@@ -803,7 +803,7 @@ final class BlockTypeNames{
 	public const NETHER_BRICK_FENCE = "minecraft:nether_brick_fence";
 	public const NETHER_BRICK_SLAB = "minecraft:nether_brick_slab";
 	public const NETHER_BRICK_STAIRS = "minecraft:nether_brick_stairs";
-  public const NETHER_BRICK_WALL = "minecraft:nether_brick_wall";
+	public const NETHER_BRICK_WALL = "minecraft:nether_brick_wall";
 	public const NETHER_GOLD_ORE = "minecraft:nether_gold_ore";
 	public const NETHER_SPROUTS = "minecraft:nether_sprouts";
 	public const NETHER_WART = "minecraft:nether_wart";
@@ -941,9 +941,9 @@ final class BlockTypeNames{
 	public const PURPLE_WOOL = "minecraft:purple_wool";
 	public const PURPUR_BLOCK = "minecraft:purpur_block";
 	public const PURPUR_DOUBLE_SLAB = "minecraft:purpur_double_slab";
+	public const PURPUR_PILLAR = "minecraft:purpur_pillar";
 	public const PURPUR_SLAB = "minecraft:purpur_slab";
 	public const PURPUR_STAIRS = "minecraft:purpur_stairs";
-	public const PURPUR_PILLAR = "minecraft:purpur_pillar";
 	public const QUARTZ_BLOCK = "minecraft:quartz_block";
 	public const QUARTZ_BRICKS = "minecraft:quartz_bricks";
 	public const QUARTZ_DOUBLE_SLAB = "minecraft:quartz_double_slab";

@@ -117,7 +117,7 @@ final class BlockStateStringValues{
 	public const SEA_GRASS_TYPE_DEFAULT = "default";
 	public const SEA_GRASS_TYPE_DOUBLE_BOT = "double_bot";
 	public const SEA_GRASS_TYPE_DOUBLE_TOP = "double_top";
-	
+
 	public const STRUCTURE_BLOCK_TYPE_CORNER = "corner";
 	public const STRUCTURE_BLOCK_TYPE_DATA = "data";
 	public const STRUCTURE_BLOCK_TYPE_EXPORT = "export";
