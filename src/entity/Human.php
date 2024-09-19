@@ -178,10 +178,10 @@ class Human extends Living implements ProjectileSource, InventoryHolder{
 		}
 	}
 
-	public function emote(string $emoteId) : void{
+	public function emote(string $emoteId, $emoteLengthTicks = 0) : void{
 		NetworkBroadcastUtils::broadcastEntityEvent(
 			$this->getViewers(),
-			fn(EntityEventBroadcaster $broadcaster, array $recipients) => $broadcaster->onEmote($recipients, $this, $emoteId)
+			fn(EntityEventBroadcaster $broadcaster, array $recipients) => $broadcaster->onEmote($recipients, $this, $emoteId, $emoteLengthTicks)
 		);
 	}
 
