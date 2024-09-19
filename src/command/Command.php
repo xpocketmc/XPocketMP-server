@@ -43,7 +43,6 @@ abstract class Command{
 
 	private string $nextLabel;
 	private string $label;
-	private string $addDisableCommand;
 
 	/** @var string[] */
 	private array $aliases = [];
@@ -70,7 +69,6 @@ abstract class Command{
 		$this->setDescription($description);
 		$this->usageMessage = $usageMessage ?? ("/" . $name);
 		$this->setAliases($aliases);
-		$this->addDisableCommand($addDisableCommand);
 	}
 
 	/**
@@ -244,9 +242,4 @@ abstract class Command{
 	public function __toString() : string{
 		return $this->name;
 	}
-
-    public function addDisableCommand() : void{
-		$this->addDisableCommand = $addDisableCommand;
-	}
-		
 }
