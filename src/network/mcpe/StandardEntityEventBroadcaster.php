@@ -150,4 +150,5 @@ final class StandardEntityEventBroadcaster implements EntityEventBroadcaster{
 			"",
 			EmotePacket::FLAG_SERVER | EmotePacket::FLAG_MUTE_ANNOUNCEMENT
 		));
+	}
 }
