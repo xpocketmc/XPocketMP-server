@@ -44,4 +44,4 @@ jobs:
         run: composer install --ignore-platform-req=*
 
       - name: Run PHPStat
-        run: php vendor/nurazlib/phpstat/src/PhpStat.php
+        run: php run.php
