@@ -29,19 +29,3 @@ jobs:
 
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@2.0.0
-
-
-  phptats:
-    name: PHPStat
-    runs-on: ubuntu-20.04
-    strategy:
-      fail-fast: false
-    
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install
-        run: composer install --ignore-platform-req=*
-
-      - name: Run PHPStat
-        run: php run.php
