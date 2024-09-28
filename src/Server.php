@@ -287,7 +287,7 @@ class Server{
 	 */
 	private array $uniquePlayers = [];
 
-	private int $xpocketmpPropertyCache = [];
+	private array $xpocketmpPropertyCache = [];
 
 	private QueryInfo $queryInfo;
 
@@ -371,7 +371,7 @@ class Server{
 		return max(2, $this->configGroup->getConfigInt(ServerProperties::VIEW_DISTANCE, self::DEFAULT_MAX_VIEW_DISTANCE));
 	}
 
-  public function getXPocketMProperty(string $variable, $defaultValue = null) : int{
+  public function getXPocketMProperty(string $variable, $defaultValue = null) : string{
 		if(!array_key_exists($variable, $this->xpocketmpPropertyCache)){
 			$this->xpocketmpPropertyCache[$variable] = $this->xpocketmpConfig->getNested($variable);
 		}
