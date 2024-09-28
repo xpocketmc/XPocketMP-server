@@ -1151,10 +1151,6 @@ class Server{
 				$default = "world";
 				$this->configGroup->setConfigString(ServerProperties::DEFAULT_WORLD_NAME, "world");
 			}
-			if(trim($netherWorldName) == ""){
-			  $netherWorldName == get
-			  $
-			}
 			if(!$this->worldManager->loadWorld($default, true)){
 				if($this->worldManager->isWorldGenerated($default)){
 					$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_level_defaultError()));
