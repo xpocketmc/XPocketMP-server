@@ -371,7 +371,7 @@ class Server{
 		return max(2, $this->configGroup->getConfigInt(ServerProperties::VIEW_DISTANCE, self::DEFAULT_MAX_VIEW_DISTANCE));
 	}
 
-  public function getXPocketMProperty(string $variable, $defaultValue = null){
+  public function getXPocketMProperty(string $variable, $defaultValue = null) : bool{
 		if(!array_key_exists($variable, $this->xpocketmpPropertyCache)){
 			$this->xpocketmpPropertyCache[$variable] = $this->pocketproxConfig->getNested($variable);
 		}
