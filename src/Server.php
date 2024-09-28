@@ -369,6 +369,13 @@ class Server{
 		return max(2, $this->configGroup->getConfigInt(ServerProperties::VIEW_DISTANCE, self::DEFAULT_MAX_VIEW_DISTANCE));
 	}
 
+  public function getPocketProXProperty(string $variable, $defaultValue = null){
+		if(!array_key_exists($variable, $this->pocketproxPropertyCache)){
+			$this->pocketproxPropertyCache[$variable] = $this->pocketproxConfig->getNested($variable);
+		}
+
+		return $this->pocketproxPropertyCache[$variable] ?? $defaultValue;
+	}
 	/**
 	 * Returns a view distance up to the currently-allowed limit.
 	 */
@@ -1143,6 +1150,10 @@ class Server{
 				$this->logger->warning("level-name cannot be null, using default");
 				$default = "world";
 				$this->configGroup->setConfigString(ServerProperties::DEFAULT_WORLD_NAME, "world");
+			}
+			if(trim($netherWorldName) == ""){
+			  $netherWorldName == get
+			  $
 			}
 			if(!$this->worldManager->loadWorld($default, true)){
 				if($this->worldManager->isWorldGenerated($default)){
