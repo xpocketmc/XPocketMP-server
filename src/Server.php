@@ -287,6 +287,8 @@ class Server{
 	 */
 	private array $uniquePlayers = [];
 
+	private $xpocketmpPropertyCache = [];
+
 	private QueryInfo $queryInfo;
 
 	private ServerConfigGroup $configGroup;
@@ -369,12 +371,12 @@ class Server{
 		return max(2, $this->configGroup->getConfigInt(ServerProperties::VIEW_DISTANCE, self::DEFAULT_MAX_VIEW_DISTANCE));
 	}
 
-  public function getPocketProXProperty(string $variable, $defaultValue = null){
-		if(!array_key_exists($variable, $this->pocketproxPropertyCache)){
-			$this->pocketproxPropertyCache[$variable] = $this->pocketproxConfig->getNested($variable);
+  public function getXPocketMProperty(string $variable, $defaultValue = null){
+		if(!array_key_exists($variable, $this->xpocketmpPropertyCache)){
+			$this->xpocketmpPropertyCache[$variable] = $this->pocketproxConfig->getNested($variable);
 		}
 
-		return $this->pocketproxPropertyCache[$variable] ?? $defaultValue;
+		return $this->xpocketmpPropertyCache[$variable] ?? $defaultValue;
 	}
 	/**
 	 * Returns a view distance up to the currently-allowed limit.
