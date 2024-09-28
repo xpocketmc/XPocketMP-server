@@ -667,6 +667,12 @@ final class KnownTranslationFactory{
 		]);
 	}
 
+	public static function death_attack_flyIntoWall(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::DEATH_ATTACK_FLYINTOWALL, [
+			0 => $param0,
+		]);
+	}
+
 	public static function death_attack_generic(Translatable|string $param0) : Translatable{
 		return new Translatable(KnownTranslationKeys::DEATH_ATTACK_GENERIC, [
 			0 => $param0,
