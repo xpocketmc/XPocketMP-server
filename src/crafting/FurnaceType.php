@@ -36,9 +36,9 @@ use function spl_object_id;
  *  These are retained for backwards compatibility only.
  *
  * @method static FurnaceType BLAST_FURNACE()
+ * @method static FurnaceType CAMPFIRE()
  * @method static FurnaceType FURNACE()
  * @method static FurnaceType SMOKER()
- * @method static FurnaceType CAMPFIRE()
  * @method static FurnaceType SOUL_CAMPFIRE()
  *
  * @phpstan-type TMetadata array{0: int, 1: Sound}
