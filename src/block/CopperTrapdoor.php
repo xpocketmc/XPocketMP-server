@@ -1,5 +1,4 @@
 <?php
-
 /*
  *
  *  ____            _        _   __  __ _                  __  __ ____
@@ -18,14 +17,26 @@
  *
  *
  */
-
 declare(strict_types=1);
 
 namespace pocketmine\block;
 
 use pocketmine\block\utils\CopperTrait;
 use pocketmine\block\utils\ICopper;
+use pocketmine\item\Item;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
 
-class CopperSlab extends Slab implements ICopper{
-	use CopperTrait;
+class CopperTrapdoor extends Trapdoor implements ICopper{
+
+	use CopperTrait{
+		onInteract as onInteractCopper;
+	}
+
+	public function onInteract(Item $item, int $face, Vector3 $clickVector, ?Player $player = null, array &$returnedItems = []) : bool{
+		if ($player !== null && $player->isSneaking() && $this->onInteractCopper($item, $face, $clickVector, $player, $returnedItems)) {
+			return true;
+		}
+		return parent::onInteract($item, $face, $clickVector, $player, $returnedItems);
+	}
 }

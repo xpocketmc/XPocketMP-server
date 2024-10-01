@@ -26,6 +26,8 @@ namespace pocketmine\block;
 use pocketmine\block\utils\CopperTrait;
 use pocketmine\block\utils\ICopper;
 
-class CopperSlab extends Slab implements ICopper{
+class CopperGrate extends Transparent implements ICopper{
 	use CopperTrait;
+
+	//TODO: waterlogging!
 }
