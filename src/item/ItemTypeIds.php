@@ -340,9 +340,9 @@ final class ItemTypeIds{
 	public const COPPER_DOOR = 20299;
 	public const COPPER_TRAPDOOR = 20300;
 	public const CHISELED_COPPER = 20301;
-	public const COPPER_GRATE = 20301;
+	public const COPPER_GRATE = 20302;
 
-	public const FIRST_UNUSED_ITEM_ID = 20302;
+	public const FIRST_UNUSED_ITEM_ID = 20303;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
 
