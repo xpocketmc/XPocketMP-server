@@ -57,8 +57,12 @@ use pocketmine\block\CocoaBlock;
 use pocketmine\block\Concrete;
 use pocketmine\block\ConcretePowder;
 use pocketmine\block\Copper;
+use pocketmine\block\CopperBulb;
+use pocketmine\block\CopperDoor;
+use pocketmine\block\CopperGrate;
 use pocketmine\block\CopperSlab;
 use pocketmine\block\CopperStairs;
+use pocketmine\block\CopperTrapdoor;
 use pocketmine\block\Coral;
 use pocketmine\block\CoralBlock;
 use pocketmine\block\DaylightSensor;
@@ -1226,6 +1230,40 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeLegacyHorizontalFacing($block->getFacing())
 				->writeInt(StateNames::BOOKS_STORED, $flags);
 		});
+		$this->map(Blocks::CHISELED_COPPER(), function(Copper $block) : Writer{
+			$oxidation = $block->getOxidation();
+			return new Writer($block->isWaxed() ?
+				Helper::selectCopperId($oxidation,
+					Ids::WAXED_CHISELED_COPPER,
+					Ids::WAXED_EXPOSED_CHISELED_COPPER,
+					Ids::WAXED_WEATHERED_CHISELED_COPPER,
+					Ids::WAXED_OXIDIZED_CHISELED_COPPER
+				) :
+				Helper::selectCopperId($oxidation,
+					Ids::CHISELED_COPPER,
+					Ids::EXPOSED_CHISELED_COPPER,
+					Ids::WEATHERED_CHISELED_COPPER,
+					Ids::OXIDIZED_CHISELED_COPPER
+				)
+			);
+		});
+		$this->map(Blocks::COPPER_GRATE(), function(CopperGrate $block) : Writer{
+			$oxidation = $block->getOxidation();
+			return new Writer($block->isWaxed() ?
+				Helper::selectCopperId($oxidation,
+					Ids::WAXED_COPPER_GRATE,
+					Ids::WAXED_EXPOSED_COPPER_GRATE,
+					Ids::WAXED_WEATHERED_COPPER_GRATE,
+					Ids::WAXED_OXIDIZED_COPPER_GRATE
+				) :
+				Helper::selectCopperId($oxidation,
+					Ids::COPPER_GRATE,
+					Ids::EXPOSED_COPPER_GRATE,
+					Ids::WEATHERED_COPPER_GRATE,
+					Ids::OXIDIZED_COPPER_GRATE
+				)
+			);
+		});
 		$this->map(Blocks::CHISELED_QUARTZ(), fn(SimplePillar $block) => Helper::encodeQuartz($block->getAxis(), Writer::create(Ids::CHISELED_QUARTZ_BLOCK)));
 		$this->map(Blocks::CHORUS_FLOWER(), function(ChorusFlower $block) : Writer{
 			return Writer::create(Ids::CHORUS_FLOWER)
@@ -1325,6 +1363,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 			return Writer::create($block->isInverted() ? Ids::DAYLIGHT_DETECTOR_INVERTED : Ids::DAYLIGHT_DETECTOR)
 				->writeInt(StateNames::REDSTONE_SIGNAL, $block->getOutputSignalStrength());
 		});
+		
 		$this->map(Blocks::DEEPSLATE(), function(SimplePillar $block) : Writer{
 			return Writer::create(Ids::DEEPSLATE)
 				->writePillarAxis($block->getAxis());
