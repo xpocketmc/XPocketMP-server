@@ -364,6 +364,8 @@ class InventoryManager{
 						FurnaceType::FURNACE => WindowTypes::FURNACE,
 						FurnaceType::BLAST_FURNACE => WindowTypes::BLAST_FURNACE,
 						FurnaceType::SMOKER => WindowTypes::SMOKER,
+					    FurnaceType::CAMPFIRE => WindowTypes::CAMPFIRE,
+					    FurnaceType::SOUL_CAMPFIRE => WindowTypes::SOUL_CAMPFIRE
 					},
 				$inv instanceof EnchantInventory => WindowTypes::ENCHANTMENT,
 				$inv instanceof BrewingStandInventory => WindowTypes::BREWING_STAND,
