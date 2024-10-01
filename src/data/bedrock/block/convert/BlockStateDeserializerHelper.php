@@ -46,13 +46,13 @@ use pocketmine\block\Stair;
 use pocketmine\block\Stem;
 use pocketmine\block\Trapdoor;
 use pocketmine\block\utils\CopperOxidation;
+use pocketmine\block\utils\ICopper;
 use pocketmine\block\utils\SlabType;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\block\Wall;
 use pocketmine\block\WallSign;
 use pocketmine\block\WeightedPressurePlate;
 use pocketmine\block\Wood;
-use pocketmine\block\utils\ICopper;
 use pocketmine\data\bedrock\block\BlockLegacyMetadata;
 use pocketmine\data\bedrock\block\BlockStateDeserializeException;
 use pocketmine\data\bedrock\block\BlockStateNames;
@@ -103,7 +103,7 @@ final class BlockStateDeserializerHelper{
 	 * @phpstan-param TBlock $block
 	 * @phpstan-return TBlock
 	 */
-	public static function decodeCopper(ICopper $block, CopperOxidation $oxidation) : Copper|CopperSlab|CopperStairs{
+	public static function decodeCopper(ICopper $block, CopperOxidation $oxidation) : ICopper{
 		$block->setOxidation($oxidation);
 		$block->setWaxed(false);
 		return $block;
