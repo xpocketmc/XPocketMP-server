@@ -39,3 +39,4 @@ class CopperTrapdoor extends Trapdoor implements ICopper{
 		}
 		return parent::onInteract($item, $face, $clickVector, $player, $returnedItems);
 	}
+}
