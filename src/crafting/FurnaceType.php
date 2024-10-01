@@ -63,8 +63,7 @@ enum FurnaceType{
 			self::FURNACE => [200, new FurnaceSound()],
 			self::BLAST_FURNACE => [100, new BlastFurnaceSound()],
 			self::SMOKER => [100, new SmokerSound()],
-			self::CAMPFIRE => [600, new CampfireSound()],
-			self::SOUL_CAMPFIRE => [600, new CampfireSound()]
+			self::CAMPFIRE, self::SOUL_CAMPFIRE => [600, new CampfireSound()]
 		};
 	}
 
