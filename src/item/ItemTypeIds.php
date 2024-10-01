@@ -336,13 +336,7 @@ final class ItemTypeIds{
 	public const COD_SPAWN_EGG = 20296;
 	public const SALMON_SPAWN_EGG = 20297;
 
-	public const COPPER_BULB = 20298;
-	public const COPPER_DOOR = 20299;
-	public const COPPER_TRAPDOOR = 20300;
-	public const CHISELED_COPPER = 20301;
-	public const COPPER_GRATE = 20302;
-
-	public const FIRST_UNUSED_ITEM_ID = 20303;
+	public const FIRST_UNUSED_ITEM_ID = 20298;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
 
