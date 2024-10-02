@@ -12,6 +12,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install Depends
+        run: npm install
       - name: Send WhatsApp Notification
         uses: KnosTx/whatsapp-notification-action@1.0.0
         with:
