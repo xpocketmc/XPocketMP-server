@@ -1,0 +1,18 @@
+name: Notify WhatsApp on Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify-whatsapp:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Send WhatsApp Notification
+        uses: KnosTx/whatsapp-notification-action@1.0.0
+        with:
+          whatsapp_invite_link: "https://chat.whatsapp.com/<invite_code>"
