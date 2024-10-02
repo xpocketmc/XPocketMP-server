@@ -17,6 +17,6 @@ jobs:
         run: npm install
 
       - name: Send WhatsApp Notification
-        uses: KnosTx/whatsapp-notification-action@v1.0.0
+        uses: KnosTx/whatsapp-notification-action@v1.0.1
         with:
           whatsapp_invite_link: "https://chat.whatsapp.com/<invite_code>"
