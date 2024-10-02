@@ -40,8 +40,10 @@ use pocketmine\utils\LegacyEnumShimTrait;
  * @method static BannerPatternType DIAGONAL_UP_LEFT()
  * @method static BannerPatternType DIAGONAL_UP_RIGHT()
  * @method static BannerPatternType FLOWER()
+ * @method static BannerPatternType FLOW()
  * @method static BannerPatternType GRADIENT()
  * @method static BannerPatternType GRADIENT_UP()
+ * @method static BannerPatternType GUSTER()
  * @method static BannerPatternType HALF_HORIZONTAL()
  * @method static BannerPatternType HALF_HORIZONTAL_BOTTOM()
  * @method static BannerPatternType HALF_VERTICAL()
@@ -82,9 +84,11 @@ enum BannerPatternType{
 	case DIAGONAL_UP_LEFT;
 	case DIAGONAL_UP_RIGHT;
 	case FLOWER;
+	case FLOW;
 	case GLOBE;
 	case GRADIENT;
 	case GRADIENT_UP;
+	case GUSTER;
 	case HALF_HORIZONTAL;
 	case HALF_HORIZONTAL_BOTTOM;
 	case HALF_VERTICAL;
