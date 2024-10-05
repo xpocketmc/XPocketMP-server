@@ -23,19 +23,24 @@ declare(strict_types=1);
 
 namespace pocketmine\inventory\transaction;
 
+use pocketmine\block\Anvil;
+use pocketmine\block\inventory\AnvilInventory;
 use pocketmine\block\utils\AnvilHelper;
 use pocketmine\block\utils\AnvilResult;
+use pocketmine\block\VanillaBlocks;
 use pocketmine\event\player\PlayerUseAnvilEvent;
 use pocketmine\item\Item;
 use pocketmine\item\VanillaItems;
 use pocketmine\player\Player;
 use pocketmine\utils\AssumptionFailedError;
+use pocketmine\world\sound\AnvilBreakSound;
+use pocketmine\world\sound\AnvilUseSound;
 use function count;
+use function mt_rand;
 
 class AnvilTransaction extends InventoryTransaction{
 	private ?Item $baseItem = null;
 	private ?Item $materialItem = null;
-	private ?Item $resultItem = null;
 
 	public function __construct(
 		Player $source,
@@ -59,13 +64,16 @@ class AnvilTransaction extends InventoryTransaction{
 
 	private function validateInputs(Item $base, Item $material, Item $expectedOutput) : ?AnvilResult {
 		$calculAttempt = AnvilHelper::calculateResult($this->source, $base, $material, $this->customName);
-		if($calculAttempt->getResult() === null || !$calculAttempt->getResult()->equalsExact($expectedOutput)){
+		if($calculAttempt === null){
+			return null;
+		}
+		$result = $calculAttempt->getResult();
+		if($result === null || !$result->equalsExact($expectedOutput)){
 			return null;
 		}
 
 		$this->baseItem = $base;
 		$this->materialItem = $material;
-		$this->resultItem = $expectedOutput;
 
 		return $calculAttempt;
 	}
@@ -113,6 +121,26 @@ class AnvilTransaction extends InventoryTransaction{
 		if($this->source->hasFiniteResources()){
 			$this->source->getXpManager()->subtractXpLevels($this->expectedResult->getRepairCost());
 		}
+
+		$inventory = $this->source->getCurrentWindow();
+		if($inventory instanceof AnvilInventory){
+			$world = $inventory->getHolder()->getWorld();
+			if(mt_rand(0, 12) === 0){
+				$anvilBlock = $world->getBlock($inventory->getHolder());
+				if($anvilBlock instanceof Anvil){
+					$newDamage = $anvilBlock->getDamage() + 1;
+					if($newDamage > Anvil::VERY_DAMAGED){
+						$newBlock = VanillaBlocks::AIR();
+						$world->addSound($inventory->getHolder(), new AnvilBreakSound());
+					}else{
+						$newBlock = $anvilBlock->setDamage($newDamage);
+					}
+					$world->setBlock($inventory->getHolder(), $newBlock);
+				}
+
+			}
+			$world->addSound($inventory->getHolder(), new AnvilUseSound());
+		}
 	}
 
 	protected function callExecuteEvent() : bool{
@@ -120,7 +148,9 @@ class AnvilTransaction extends InventoryTransaction{
 			throw new AssumptionFailedError("Expected that baseItem are not null before executing the event");
 		}
 
-		$ev = new PlayerUseAnvilEvent($this->source, $this->baseItem, $this->materialItem, $this->expectedResult->getResult(), $this->customName, $this->expectedResult->getRepairCost());
+		$ev = new PlayerUseAnvilEvent($this->source, $this->baseItem, $this->materialItem, $this->expectedResult->getResult() ?? throw new \AssertionError(
+			"Expected that the expected result is not null"
+		), $this->customName, $this->expectedResult->getRepairCost());
 		$ev->call();
 		return !$ev->isCancelled();
 	}
