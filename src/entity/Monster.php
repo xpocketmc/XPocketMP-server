@@ -26,6 +26,7 @@ namespace pocketmine\entity;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\player\Player;
+use function sqrt;
 
 abstract class Monster extends Living {
 
