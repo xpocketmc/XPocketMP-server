@@ -34,7 +34,7 @@ abstract class AnvilAction{
 
 
 	final public function getXpCost() : int|float {
-		return $this->xpCost;
+		return (int) $this->xpCost;
 	}
 
 	/**
