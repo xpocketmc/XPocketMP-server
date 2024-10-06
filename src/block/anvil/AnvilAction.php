@@ -26,7 +26,7 @@ namespace pocketmine\block\anvil;
 use pocketmine\item\Item;
 
 abstract class AnvilAction{
-	protected $xpCost = 0;
+	protected int|float $xpCost = 0;
 
 	final public function __construct(protected Item $base, protected Item $material, protected ?string $customName){
   //NOOP
