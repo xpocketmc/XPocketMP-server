@@ -34,6 +34,7 @@ use function dirname;
 use function explode;
 use function fclose;
 use function file_get_contents;
+use function file_put_contects
 use function fopen;
 use function fwrite;
 use function strtoupper;
@@ -110,9 +111,6 @@ if ($raw === false) {
     fwrite(STDERR, "Failed to read item type dictionary file\n");
     exit(1);
 }
-
-// Debugging output: Tampilkan data JSON yang dibaca
-file_put_contents('debug_raw.json', $raw);
 
 $dictionary = ItemTypeDictionaryFromDataHelper::loadFromString($raw);
 
