@@ -41,7 +41,7 @@ class PocketPlayerUUID {
 		return $this->pyer->getUniqueId()->toString();
 	}
 
-    public function getPlayerName() : string{
+	public function getPlayerName() : string{
 		return $this->pyer->getName();
 	}
 
