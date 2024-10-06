@@ -27,11 +27,11 @@ use pocketmine\item\Item;
 
 class AnvilResult{
 	public function __construct(
-		private int $repairCost,
+		private int|float $repairCost,
 		private ?Item $result,
 	){}
 
-	public function getRepairCost() : int{
+	public function getRepairCost() : int|float{
 		return $this->repairCost;
 	}
 
