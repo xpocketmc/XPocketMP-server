@@ -278,7 +278,7 @@ class Server{
 
 	private string $dataPath;
 	private string $pluginPath;
-	
+
 	private PlayerDataProvider $playerDataProvider;
 
 	/**

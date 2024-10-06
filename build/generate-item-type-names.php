@@ -107,12 +107,9 @@ if(count($argv) !== 2){
 
 $raw = file_get_contents($argv[1]);
 if ($raw === false) {
-    fwrite(STDERR, "Failed to read item type dictionary file\n");
-    exit(1);
+	fwrite(STDERR, "Failed to read item type dictionary file\n");
+	exit(1);
 }
-
-// Debugging output: Tampilkan data JSON yang dibaca
-file_put_contents('debug_raw.json', $raw);
 
 $dictionary = ItemTypeDictionaryFromDataHelper::loadFromString($raw);
 

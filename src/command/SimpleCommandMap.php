@@ -100,7 +100,7 @@ class SimpleCommandMap implements CommandMap{
 			new DumpMemoryCommand(),
 			new EffectCommand(),
 			new EnchantCommand(),
-		    new ExperienceCommand(),
+			new ExperienceCommand(),
 			new GamemodeCommand(),
 			new GarbageCollectorCommand(),
 			new GiveCommand(),
