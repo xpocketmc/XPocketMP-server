@@ -176,9 +176,6 @@ final class EntityFactory{
 		$this->register(Human::class, function(World $world, CompoundTag $nbt) : Human{
 			return new Human(Helper::parseLocation($nbt, $world), Human::parseSkinNBT($nbt), $nbt);
 		}, ['Human']);
-		$this->register(Salmon::class, function(World $world, CompoundTag $nbt) : Salmon{
-			return new Salmon(Helper::parseLocation($nbt, $world), $nbt);
-		}, ['Salmon']);
 	}
 
 	/**
