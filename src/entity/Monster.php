@@ -23,10 +23,9 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
-use pocketmine\entity\Living;
-use pocketmine\player\Player;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\player\Player;
 
 abstract class Monster extends Living {
 
