@@ -111,7 +111,7 @@ class AnvilTransaction extends InventoryTransaction{
 		}
 
 		if($this->source->hasFiniteResources()){
-			$this->validateFiniteResources($attempt->getRepairCost());
+			$this->validateFiniteResources((int) $attempt->getRepairCost());
 		}
 	}
 
