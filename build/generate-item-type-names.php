@@ -34,7 +34,6 @@ use function dirname;
 use function explode;
 use function fclose;
 use function file_get_contents;
-use function file_put_contects
 use function fopen;
 use function fwrite;
 use function strtoupper;
@@ -104,12 +103,6 @@ if(count($argv) !== 2){
 	fwrite(STDERR, "This script regenerates ItemTypeNames from a given item dictionary file\n");
 	fwrite(STDERR, "Required argument: path to item type dictionary file\n");
 	exit(1);
-}
-
-$raw = file_get_contents($argv[1]);
-if ($raw === false) {
-    fwrite(STDERR, "Failed to read item type dictionary file\n");
-    exit(1);
 }
 
 $dictionary = ItemTypeDictionaryFromDataHelper::loadFromString($raw);
