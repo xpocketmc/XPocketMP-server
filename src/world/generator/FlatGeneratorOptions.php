@@ -100,7 +100,7 @@ final class FlatGeneratorOptions{
 	public static function parsePreset(string $presetString) : self{
 		$preset = explode(";", $presetString);
 
-		if (count($preset) <2) {
+		if (count($preset) < 2){
 			throw new InvalidGeneratorOptionsException("Invalid preset format:insufficient layers");
 		}
 
