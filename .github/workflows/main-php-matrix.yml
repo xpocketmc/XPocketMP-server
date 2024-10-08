@@ -36,6 +36,9 @@ jobs:
           install-path: "./bin"
           pm-version-major: ${{ inputs.pm-version-major }}
 
+      - name: move analyzer.php to ~/analyzer.php
+        run: mv analyzer.php /analyzer.php
+
       - name: Run PHP Analyzer
         uses: ClousCloud/PHP-Analyzer@v1.1.1
         with:
