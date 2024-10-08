@@ -10,7 +10,7 @@
 function check_syntax($file) {
     $output = null;
     $result = null;
-    exec("php -l $file", $output, $result);
+    exec("php -l " . escapeshellarg($file), $output, $result);
     return $result === 0;
 }
 
@@ -26,7 +26,7 @@ function detect_unused_variables($tokens) {
 
     foreach (array_count_values($variables) as $variable => $count) {
         if ($count == 1) {
-            $errors[] = "Warning: Variable '$variable' is declared but never used.";
+            $errors[] = "Error: Variable '$variable' is declared but never used.";
         }
     }
     return $errors;
@@ -49,22 +49,17 @@ function detect_unused_functions($tokens) {
 
     foreach ($functions as $function) {
         if (!in_array($function, $calls)) {
-            $errors[] = "Warning: Function '$function' is declared but never called.";
+            $errors[] = "Error: Function '$function' is declared but never called.";
         }
     }
     return $errors;
-}
-
-function detect_comments($content) {
-    preg_match_all('/\/\/\s*(TODO|FIXME):.*/', $content, $matches);
-    return array_map(fn($match) => "Info: Found comment '$match'", $matches[0]);
 }
 
 function detect_global_variables($tokens) {
     $errors = [];
     foreach ($tokens as $token) {
         if (is_array($token) && $token[0] == T_GLOBAL) {
-            $errors[] = "Warning: Global variable used.";
+            $errors[] = "Error: Global variable used.";
         }
     }
     return $errors;
@@ -73,15 +68,48 @@ function detect_global_variables($tokens) {
 function detect_exit_die($tokens) {
     $errors = [];
     foreach ($tokens as $token) {
-        if (is_array($token) && in_array($token[1], ['exit', 'die'])) {
-            $errors[] = "Warning: Usage of {$token[1]} statement found.";
+        if (is_array($token) && isset($token[1]) && in_array($token[1], ['exit', 'die'])) {
+            $errors[] = "Error: Usage of {$token[1]} statement found.";
+        }
+    }
+    return $errors;
+}
+
+function detect_long_functions($tokens, $max_lines = 190) {
+    $errors = [];
+    $current_function = null;
+    $bracket_count = 0;
+    $line_count = 0;
+
+    foreach ($tokens as $token) {
+        if (is_array($token)) {
+            if ($token[0] == T_FUNCTION) {
+                $current_function = next($tokens)[1];
+                $bracket_count = 0;
+                $line_count = 0;
+            } elseif ($current_function && $token[0] == T_CURLY_OPEN) {
+                $bracket_count++;
+            } elseif ($current_function && $token[0] == T_WHITESPACE) {
+                $line_count += substr_count($token[1], "\n");
+            }
+        } else {
+            if ($current_function && $token == '{') {
+                $bracket_count++;
+            } elseif ($current_function && $token == '}') {
+                $bracket_count--;
+                if ($bracket_count == 0) {
+                    if ($line_count > $max_lines) {
+                        $errors[] = "Error: Function '$current_function' exceeds $max_lines lines.";
+                    }
+                    $current_function = null;
+                }
+            }
         }
     }
     return $errors;
 }
 
 function analyze_file($file) {
-    echo "Analyzing file: $file\n";
     if (!check_syntax($file)) {
         return ["Error: Syntax error found in file $file."];
     }
@@ -91,9 +119,9 @@ function analyze_file($file) {
     $errors = array_merge(
         detect_unused_variables($tokens),
         detect_unused_functions($tokens),
-        detect_comments($content),
         detect_global_variables($tokens),
-        detect_exit_die($tokens)
+        detect_exit_die($tokens),
+        detect_long_functions($tokens)
     );
 
     return $errors;
@@ -108,7 +136,7 @@ function analyze_directory($directory) {
     foreach ($iterator as $file) {
         if ($file->getExtension() === 'php') {
             $errors = array_merge($errors, analyze_file($file->getPathname()));
-            loadingAnimation(); // Menampilkan loading saat menganalisis file
+            loadingAnimation();
         }
     }
 
@@ -116,19 +144,17 @@ function analyze_directory($directory) {
 }
 
 function loadingAnimation() {
-    // Menampilkan loading animation
     echo "\033[0;33mLoading...\033[0m\r";
-    usleep(500000); // Delay setengah detik
+    usleep(100000);
     echo "\033[0;33mLoading...\033[0m\r";
-    usleep(500000); // Delay setengah detik
+    usleep(100000);
     echo "\033[0;33mLoading...\033[0m\r";
-    usleep(500000); // Delay setengah detik
+    usleep(100000);
     echo "\033[0;33mLoading...\033[0m\r";
-    usleep(500000); // Delay setengah detik
-    echo "\033[0;0m\n"; // Reset output
+    usleep(100000);
+    echo "\033[0;0m\n";
 }
 
-// Main script
 if ($argc < 2) {
     echo "Usage: php analyzer.php [directory]\n";
     exit(1);
@@ -140,13 +166,13 @@ if (!is_dir($directory)) {
     exit(1);
 }
 
-// Menganalisis direktori secara rekursif
 $all_errors = analyze_directory($directory);
 
-// Menampilkan hasil analisis
 if (empty($all_errors)) {
-    echo "No issues found.\n";
+    echo "[OK] No errors.\n";
 } else {
+    $error_count = count($all_errors);
+    echo "$error_count error(s) found:\n";
     foreach ($all_errors as $error) {
         echo $error . "\n";
     }
