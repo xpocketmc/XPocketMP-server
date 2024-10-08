@@ -14,24 +14,6 @@ function check_syntax($file) {
     return $result === 0;
 }
 
-function detect_unused_variables($tokens) {
-    $variables = [];
-    $errors = [];
-
-    foreach ($tokens as $token) {
-        if (is_array($token) && $token[0] == T_VARIABLE) {
-            $variables[] = $token[1];
-        }
-    }
-
-    foreach (array_count_values($variables) as $variable => $count) {
-        if ($count == 1) {
-            $errors[] = "Error: Variable '$variable' is declared but never used.";
-        }
-    }
-    return $errors;
-}
-
 function detect_unused_functions($tokens) {
     $functions = [];
     $calls = [];
@@ -40,7 +22,8 @@ function detect_unused_functions($tokens) {
     foreach ($tokens as $token) {
         if (is_array($token)) {
             if ($token[0] == T_FUNCTION) {
-                $functions[] = next($tokens)[1];
+                $function_name = next($tokens);
+                $functions[] = ['name' => $function_name[1], 'line' => $function_name[2]];
             } elseif ($token[0] == T_STRING) {
                 $calls[] = $token[1];
             }
@@ -48,10 +31,11 @@ function detect_unused_functions($tokens) {
     }
 
     foreach ($functions as $function) {
-        if (!in_array($function, $calls)) {
-            $errors[] = "Error: Function '$function' is declared but never called.";
+        if (!in_array($function['name'], $calls)) {
+            $errors[] = $function['line'];
         }
     }
+
     return $errors;
 }
 
@@ -59,7 +43,7 @@ function detect_global_variables($tokens) {
     $errors = [];
     foreach ($tokens as $token) {
         if (is_array($token) && $token[0] == T_GLOBAL) {
-            $errors[] = "Error: Global variable used.";
+            $errors[] = $token[2];
         }
     }
     return $errors;
@@ -69,7 +53,7 @@ function detect_exit_die($tokens) {
     $errors = [];
     foreach ($tokens as $token) {
         if (is_array($token) && isset($token[1]) && in_array($token[1], ['exit', 'die'])) {
-            $errors[] = "Error: Usage of {$token[1]} statement found.";
+            $errors[] = $token[2];
         }
     }
     return $errors;
@@ -80,13 +64,15 @@ function detect_long_functions($tokens, $max_lines = 190) {
     $current_function = null;
     $bracket_count = 0;
     $line_count = 0;
+    $start_line = 0;
 
     foreach ($tokens as $token) {
         if (is_array($token)) {
             if ($token[0] == T_FUNCTION) {
-                $current_function = next($tokens)[1];
+                $current_function = next($tokens);
                 $bracket_count = 0;
                 $line_count = 0;
+                $start_line = $current_function[2];
             } elseif ($current_function && $token[0] == T_CURLY_OPEN) {
                 $bracket_count++;
             } elseif ($current_function && $token[0] == T_WHITESPACE) {
@@ -99,7 +85,7 @@ function detect_long_functions($tokens, $max_lines = 190) {
                 $bracket_count--;
                 if ($bracket_count == 0) {
                     if ($line_count > $max_lines) {
-                        $errors[] = "Error: Function '$current_function' exceeds $max_lines lines.";
+                        $errors[] = $start_line;
                     }
                     $current_function = null;
                 }
@@ -111,13 +97,12 @@ function detect_long_functions($tokens, $max_lines = 190) {
 
 function analyze_file($file) {
     if (!check_syntax($file)) {
-        return ["Error: Syntax error found in file $file."];
+        return ["Syntax error"];
     }
 
     $content = file_get_contents($file);
     $tokens = token_get_all($content);
     $errors = array_merge(
-        detect_unused_variables($tokens),
         detect_unused_functions($tokens),
         detect_global_variables($tokens),
         detect_exit_die($tokens),
@@ -162,7 +147,7 @@ if ($argc < 2) {
 
 $directory = $argv[1];
 if (!is_dir($directory)) {
-    echo "Directory not found: $directory\n";
+    echo "Directory not found\n";
     exit(1);
 }
 
@@ -171,9 +156,7 @@ $all_errors = analyze_directory($directory);
 if (empty($all_errors)) {
     echo "[OK] No errors.\n";
 } else {
-    $error_count = count($all_errors);
-    echo "$error_count error(s) found:\n";
     foreach ($all_errors as $error) {
-        echo $error . "\n";
+        echo "$error\n";
     }
 }
