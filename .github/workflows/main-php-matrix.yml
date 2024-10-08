@@ -38,7 +38,7 @@ jobs:
           pm-version-major: ${{ inputs.pm-version-major }}
 
       - name: Run PHP Analyzer
-        uses: ClousCloud/PHP-Analyzer@v1
+        uses: ClousCloud/PHP-Analyzer@v1.1
         with:
           directory: 'src'
           
