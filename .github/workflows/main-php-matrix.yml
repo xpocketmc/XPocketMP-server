@@ -19,6 +19,30 @@ on:
         type: string
 
 jobs:
+
+  phpanalyzer:
+    name: PHP Analyzer
+    runs-on: ${{ inputs.image }}
+
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: pmmp/setup-php-action@3.1.0
+        with:
+          php-version: ${{ inputs.php }}
+          install-path: "./bin"
+          pm-version-major: ${{ inputs.pm-version-major }}
+
+      - name: Run PHP Analyzer
+        uses: ClousCloud/PHP-Analyzer@v1
+        with:
+          directory: 'src'
+          
+  
   phpstan:
     name: PHPStan analysis
     runs-on: ${{ inputs.image }}
