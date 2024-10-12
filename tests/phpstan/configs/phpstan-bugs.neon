@@ -63,4 +63,5 @@ parameters:
 		- '#^Method pocketmine\\\\block\\\\CopperDoor::onInteractCopper\\(\\) has parameter \$returnedItems with no value type specified in iterable type array\\.$#'
 		- '#^Method pocketmine\\\\block\\\\CopperTrapdoor::onInteractCopper\\(\\) has parameter \$returnedItems with no value type specified in iterable type array\\.$#'
 		- '#^Unsafe foreach on array with key type string they might be casted to int\\.$#'
-    maxExecutionTime: 300
+
+	maxExecutionTime: 300
