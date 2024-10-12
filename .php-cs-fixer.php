@@ -5,6 +5,7 @@ $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__ . '/build')
     ->in(__DIR__ . '/tests')
     ->in(__DIR__ . '/tools')
+    ->notPath('src/network/mcpe/protocol')
     ->notPath('plugins/DevTools')
     ->notName('XPocketMP.php');
 
