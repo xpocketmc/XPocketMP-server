@@ -38,7 +38,7 @@ final class ProtocolInfo{
 	
 	public const MIN_SUPPORTED_PROTOCOL = 0;
 	
-	public const MAX_SUPPORTED_PROTOCOL = 729;a
+	public const MAX_SUPPORTED_PROTOCOL = 729;
 	/** Version number sent to clients in ping responses. */
 	public const MINECRAFT_VERSION_NETWORK = '1.21';
 
