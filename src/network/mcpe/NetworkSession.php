@@ -771,22 +771,23 @@ class NetworkSession{
 			disconnectScreenMessage: KnownTranslationFactory::pocketmine_disconnect_error($disconnectScreenMessage ?? $reason, $errorId),
 		);
 	}
+
 	public function disconnectIncompatibleProtocol(int $protocolVersion) : void{
-	  if ($protocolVersion < ProtocolInfo::MIN_SUPPORTED_PROTOCOL || $protocolVersion > ProtocolInfo::MAX_SUPPORTED_PROTOCOL) {
-	    $this->tryDisconnect(
-	      function() use ($protocolVersion) : void {
-	        $this->sendDataPacket(
-	          PlayStatusPacket::create(
-	            $protocolVersion < ProtocolInfo::MIN_SUPPORTED_PROTOCOL ? 
-	            PlayStatusPacket::LOGIN_FAILED_CLIENT : 
-	              PlayStatusPacket::LOGIN_FAILED_SERVER
-	              ), 
-	              true
-	              );
-	      },
-	      KnownTranslationFactory::pocketmine_disconnect_incompatibleProtocol((string) $protocolVersion)
-	      );
-	  }
+		if ($protocolVersion < ProtocolInfo::MIN_SUPPORTED_PROTOCOL || $protocolVersion > ProtocolInfo::MAX_SUPPORTED_PROTOCOL) {
+			$this->tryDisconnect(
+				function() use ($protocolVersion) : void {
+					$this->sendDataPacket(
+						PlayStatusPacket::create(
+							$protocolVersion < ProtocolInfo::MIN_SUPPORTED_PROTOCOL ? 
+							PlayStatusPacket::LOGIN_FAILED_CLIENT :
+							PlayStatusPacket::LOGIN_FAILED_SERVER
+						), 
+						true
+					);
+				}
+				KnownTranslationFactory::pocketmine_disconnect_incompatibleProtocol((string) $protocolVersion)
+			);
+		}
 	}
 
 	/**
