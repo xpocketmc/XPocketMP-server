@@ -60,6 +60,12 @@ parameters:
 			count: 1
 			path: ../../../src/network/mcpe/protocol/serializer/PacketBatch.php
 
-		- '#^Method pocketmine\\\\block\\\\CopperDoor::onInteractCopper\\(\\) has parameter \$returnedItems with no value type specified in iterable type array\\.$#'
-		- '#^Method pocketmine\\\\block\\\\CopperTrapdoor::onInteractCopper\\(\\) has parameter \$returnedItems with no value type specified in iterable type array\\.$#'
-		- '#^Unsafe foreach on array with key type string they might be casted to int\\.$#'
+		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: ../../../src/AvailableCommandsPacket.php
+
+		-
+			message: "#^Parameter \\#3 \\$packets of static method pocketmine\\\\network\\\\mcpe\\\\protocol\\\\serializer\\\\PacketBatch\\:\\:encodePackets\\(\\) expects array\\<int, pocketmine\\\\network\\\\mcpe\\\\protocol\\\\Packet\\>, array\\<int\\|string, pocketmine\\\\network\\\\mcpe\\\\protocol\\\\Packet\\> given\\.$#"
+			count: 1
+			path: ../../../src/serializer/PacketBatch.php
