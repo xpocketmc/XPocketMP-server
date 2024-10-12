@@ -34,9 +34,9 @@ final class ProtocolInfo{
 	/** Actual Minecraft: PE protocol version */
 	public const CURRENT_PROTOCOL = 729;
 	/** Current Minecraft PE version reported by the server. This is usually the earliest currently supported version. */
-	public const MINECRAFT_VERSION = 'v1.21.30';
+	public const MINECRAFT_VERSION = 'v1.21';
 	
-	public const MIN_SUPPORTED_PROTOCOL = 0;
+	public const MIN_SUPPORTED_PROTOCOL = 685;
 	
 	public const MAX_SUPPORTED_PROTOCOL = 729;
 	/** Version number sent to clients in ping responses. */
