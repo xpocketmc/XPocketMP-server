@@ -785,7 +785,7 @@ class NetworkSession{
 						true
 					);
 				},
-				KnownTranslationFactory::pocketmine_disconnect_incompatibleProtocol((string) $protocolVersion);
+				KnownTranslationFactory::pocketmine_disconnect_incompatibleProtocol((string) $protocolVersion)
 			);
 		}
 	}
