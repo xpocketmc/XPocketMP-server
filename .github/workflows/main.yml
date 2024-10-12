@@ -18,8 +18,8 @@ jobs:
       php: ${{ matrix.php }}
     secrets: inherit
 
-  codestyle:
-    name: Code Style checks
+  shellcheck:
+    name: ShellCheck
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
@@ -27,13 +27,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup PHP and tools
-        uses: shivammathur/setup-php@2.30.4
-        with:
-          php-version: 8.2
-          tools: php-cs-fixer:3.49
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Run PHP-CS-Fixer
-        run: php-cs-fixer fix --dry-run --diff --ansi
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@2.0.0

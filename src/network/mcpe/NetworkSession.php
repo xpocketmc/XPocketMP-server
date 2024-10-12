@@ -54,6 +54,7 @@ use pocketmine\network\mcpe\handler\SessionStartPacketHandler;
 use pocketmine\network\mcpe\handler\SpawnResponsePacketHandler;
 use pocketmine\network\mcpe\protocol\AvailableCommandsPacket;
 use pocketmine\network\mcpe\protocol\ChunkRadiusUpdatedPacket;
+use pocketmine\network\mcpe\protocol\ClientboundCloseFormPacket;
 use pocketmine\network\mcpe\protocol\ClientboundPacket;
 use pocketmine\network\mcpe\protocol\DisconnectPacket;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
@@ -742,7 +743,7 @@ class NetworkSession{
 		}else{
 			$translated = $message;
 		}
-		$this->sendDataPacket(DisconnectPacket::create(0, $translated));
+		$this->sendDataPacket(DisconnectPacket::create(0, $translated, ""));
 	}
 
 	/**
@@ -772,21 +773,30 @@ class NetworkSession{
 	}
 
 	public function disconnectIncompatibleProtocol(int $protocolVersion) : void{
-		$this->tryDisconnect(
-			function() use ($protocolVersion) : void{
-				$this->sendDataPacket(PlayStatusPacket::create($protocolVersion < ProtocolInfo::CURRENT_PROTOCOL ? PlayStatusPacket::LOGIN_FAILED_CLIENT : PlayStatusPacket::LOGIN_FAILED_SERVER), true);
-			},
-			KnownTranslationFactory::pocketmine_disconnect_incompatibleProtocol((string) $protocolVersion)
-		);
+		if ($protocolVersion < ProtocolInfo::MIN_SUPPORTED_PROTOCOL || $protocolVersion > ProtocolInfo::MAX_SUPPORTED_PROTOCOL) {
+			$this->tryDisconnect(
+				function() use ($protocolVersion) : void {
+					$this->sendDataPacket(
+						PlayStatusPacket::create(
+							$protocolVersion < ProtocolInfo::MIN_SUPPORTED_PROTOCOL ? 
+							PlayStatusPacket::LOGIN_FAILED_CLIENT :
+							PlayStatusPacket::LOGIN_FAILED_SERVER
+						), 
+						true
+					);
+				},
+				KnownTranslationFactory::pocketmine_disconnect_incompatibleProtocol((string) $protocolVersion)
+			);
+		}
 	}
 
 	/**
 	 * Instructs the remote client to connect to a different server.
 	 */
-	public function transfer(string $ip, int $port, Translatable|string|null $reason = null) : void{
+	public function transfer(string $ip, int $port, Translatable|string|null $reason = null, bool $reloadWorld = false) : void{
 		$reason ??= KnownTranslationFactory::pocketmine_disconnect_transfer();
-		$this->tryDisconnect(function() use ($ip, $port, $reason) : void{
-			$this->sendDataPacket(TransferPacket::create($ip, $port), true);
+		$this->tryDisconnect(function() use ($ip, $port, $reason, $reloadWorld) : void{
+			$this->sendDataPacket(TransferPacket::create($ip, $port, $reloadWorld), true);
 			if($this->player !== null){
 				$this->player->onPostDisconnect($reason, null);
 			}
@@ -1168,6 +1178,10 @@ class NetworkSession{
 
 	public function onFormSent(int $id, Form $form) : bool{
 		return $this->sendDataPacket(ModalFormRequestPacket::create($id, json_encode($form, JSON_THROW_ON_ERROR)));
+	}
+
+	public function onCloseAllForms() : void{
+		$this->sendDataPacket(ClientboundCloseFormPacket::create());
 	}
 
 	/**

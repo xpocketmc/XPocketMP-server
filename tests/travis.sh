@@ -7,6 +7,9 @@ while getopts "t:" OPTION 2> /dev/null; do
 		t)
 			PM_WORKERS="$OPTARG"
 			;;
+        /?)
+		    break
+	        ;;
 	esac
 done
 
@@ -15,16 +18,16 @@ DATA_DIR="$(pwd)/test_data"
 PLUGINS_DIR="$DATA_DIR/plugins"
 
 rm -rf "$DATA_DIR"
-rm PocketMine-MP.phar 2> /dev/null
+rm XPocketMP.phar 2> /dev/null
 mkdir "$DATA_DIR"
 mkdir "$PLUGINS_DIR"
 
-cd tests/plugins/DevTools
+cd tests/plugins/DevTools || { echo "Couldn't change directory to $DIR"; exit 1; }
 php -dphar.readonly=0 ./src/ConsoleScript.php --make ./ --relative ./ --out "$PLUGINS_DIR/DevTools.phar"
 cd ../../..
 composer make-server
 
-if [ -f PocketMine-MP.phar ]; then
+if [ -f XPocketMP.phar ]; then
 	echo Server phar created successfully.
 else
 	echo Server phar was not created!
@@ -32,7 +35,7 @@ else
 fi
 
 cp -r tests/plugins/TesterPlugin "$PLUGINS_DIR"
-echo -e "stop\n" | php PocketMine-MP.phar --no-wizard --disable-ansi --disable-readline --debug.level=2 --data="$DATA_DIR" --plugins="$PLUGINS_DIR" --anonymous-statistics.enabled=0 --settings.async-workers="$PM_WORKERS" --settings.enable-dev-builds=1
+echo -e "stop\n" | php XPocketMP.phar --no-wizard --disable-ansi --disable-readline --debug.level=2 --data="$DATA_DIR" --plugins="$PLUGINS_DIR" --anonymous-statistics.enabled=0 --settings.async-workers="$PM_WORKERS" --settings.enable-dev-builds=1
 
 output=$(grep '\[TesterPlugin\]' "$DATA_DIR/server.log")
 if [ "$output" == "" ]; then
@@ -45,7 +48,7 @@ if [ "$result" != "" ]; then
 	echo "$result"
 	echo Some tests did not complete successfully, changing build status to failed
 	exit 1
-elif [ $(grep -c "ERROR\|CRITICAL\|EMERGENCY" "$DATA_DIR/server.log") -ne 0 ]; then
+elif [ "$(grep -c "ERROR\|CRITICAL\|EMERGENCY" "$DATA_DIR/server.log")" -ne 0 ]; then
 	echo Server log contains error messages, changing build status to failed
 	exit 1
 else

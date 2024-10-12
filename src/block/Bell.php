@@ -29,6 +29,7 @@ use pocketmine\block\utils\HorizontalFacingTrait;
 use pocketmine\block\utils\SupportType;
 use pocketmine\data\runtime\RuntimeDataDescriber;
 use pocketmine\entity\projectile\Projectile;
+use pocketmine\entity\projectile\WindCharge;
 use pocketmine\item\Item;
 use pocketmine\math\AxisAlignedBB;
 use pocketmine\math\Facing;
@@ -134,6 +135,12 @@ final class Bell extends Transparent{
 		return false;
 	}
 
+	public function onProjectileInteraction(Projectile $projectile) : void{
+		if($projectile instanceof WindCharge) {
+			$this->ring($this->facing);
+		}
+	}
+
 	public function onProjectileHit(Projectile $projectile, RayTraceResult $hitResult) : void{
 		$faceHit = Facing::opposite($projectile->getHorizontalFacing());
 		if($this->isValidFaceToRing($faceHit)){
@@ -148,6 +155,10 @@ final class Bell extends Transparent{
 		if($tile instanceof TileBell){
 			$world->broadcastPacketToViewers($this->position, $tile->createFakeUpdatePacket($faceHit));
 		}
+	}
+
+	public function getDropsForIncompatibleTool(Item $item) : array{
+		return [$this->asItem()];
 	}
 
 	private function isValidFaceToRing(int $faceHit) : bool{

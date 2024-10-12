@@ -19,8 +19,8 @@ on:
         type: string
 
 jobs:
-  phpstan:
-    name: PHPStan analysis
+  phpanalyzer:
+    name: PHP Analyzer
     runs-on: ${{ inputs.image }}
 
     strategy:
@@ -36,22 +36,9 @@ jobs:
           install-path: "./bin"
           pm-version-major: ${{ inputs.pm-version-major }}
 
-      - name: Restore Composer package cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.cache/composer/files
-            ~/.cache/composer/vcs
-          key: "composer-v2-cache-${{ inputs.php }}-${{ hashFiles('./composer.lock') }}"
-          restore-keys: |
-            composer-v2-cache-
-
-      - name: Install Composer dependencies
-        run: composer install --prefer-dist --no-interaction
-
-      - name: Run PHPStan
-        run: ./vendor/bin/phpstan analyze --no-progress --memory-limit=2G
-
+      - name: Run PHP Analyzer
+        run: php analyzer.php ./src
+  
   phpunit:
     name: PHPUnit tests
     runs-on: ${{ inputs.image }}

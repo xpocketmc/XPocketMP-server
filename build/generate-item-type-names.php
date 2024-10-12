@@ -106,10 +106,12 @@ if(count($argv) !== 2){
 }
 
 $raw = file_get_contents($argv[1]);
-if($raw === false){
+if ($raw === false) {
 	fwrite(STDERR, "Failed to read item type dictionary file\n");
 	exit(1);
 }
+
+$dictionary = ItemTypeDictionaryFromDataHelper::loadFromString($raw);
 
 $dictionary = ItemTypeDictionaryFromDataHelper::loadFromString($raw);
 $blockItemIdMap = BlockItemIdMap::getInstance();

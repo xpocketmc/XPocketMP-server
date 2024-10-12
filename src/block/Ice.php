@@ -30,10 +30,6 @@ use pocketmine\player\Player;
 
 class Ice extends Transparent{
 
-	public function getLightFilter() : int{
-		return 2;
-	}
-
 	public function getFrictionFactor() : float{
 		return 0.98;
 	}

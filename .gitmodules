@@ -4,3 +4,6 @@
 [submodule "build/php"]
 	path = build/php
 	url = https://github.com/pmmp/php-build-scripts.git
+[submodule "not-stable"]
+	path = not-stable
+	url = https://github.com/xpocketmc/XPocketMP.git

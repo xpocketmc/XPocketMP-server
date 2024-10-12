@@ -1,13 +1,14 @@
 includes:
+	- tests/phpstan/configs/architectural-issues.neon
+	- tests/phpstan/configs/phpstan-bugs.neon
+	- vendor/phpstan/phpstan-phpunit/extension.neon
+	- vendor/phpstan/phpstan-phpunit/rules.neon
+	- vendor/phpstan/phpstan-strict-rules/rules.neon
 	- tests/phpstan/analyse-for-current-php-version.neon.php
 	- tests/phpstan/configs/actual-problems.neon
 	- tests/phpstan/configs/impossible-generics.neon
 	- tests/phpstan/configs/php-bugs.neon
-	- tests/phpstan/configs/phpstan-bugs.neon
 	- tests/phpstan/configs/spl-fixed-array-sucks.neon
-	- vendor/phpstan/phpstan-phpunit/extension.neon
-	- vendor/phpstan/phpstan-phpunit/rules.neon
-	- vendor/phpstan/phpstan-strict-rules/rules.neon
 
 rules:
 	- pocketmine\phpstan\rules\DeprecatedLegacyEnumAccessRule
@@ -22,19 +23,19 @@ parameters:
 	treatPhpDocTypesAsCertain: false
 	bootstrapFiles:
 		- tests/phpstan/bootstrap.php
+	paths:
+		- build
+		- src
+		- tests/phpunit
+		- tests/phpstan/rules
+		- tests/plugins/TesterPlugin
+		- tools
 	scanDirectories:
 		- build
 		- tests/plugins/TesterPlugin
 		- tools
 	scanFiles:
-		- src/PocketMine.php
-	paths:
-		- build
-		- src
-		- tests/phpstan/rules
-		- tests/phpunit
-		- tests/plugins/TesterPlugin
-		- tools
+		- src/XPocketMP.php
 	excludePaths:
 		analyseAndScan:
 			- build/php

@@ -147,6 +147,7 @@ final class KnownTranslationKeys{
 	public const DEATH_ATTACK_FALL = "death.attack.fall";
 	public const DEATH_ATTACK_FALLINGBLOCK = "death.attack.fallingBlock";
 	public const DEATH_ATTACK_FIREWORKS = "death.attack.fireworks";
+	public const DEATH_ATTACK_FLYINTOWALL = "death.attack.flyIntoWall";
 	public const DEATH_ATTACK_GENERIC = "death.attack.generic";
 	public const DEATH_ATTACK_INFIRE = "death.attack.inFire";
 	public const DEATH_ATTACK_INWALL = "death.attack.inWall";

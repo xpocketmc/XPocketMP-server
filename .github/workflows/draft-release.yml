@@ -47,10 +47,10 @@ jobs:
       - name: Minify BedrockData JSON files
         run: php vendor/pocketmine/bedrock-data/.minify_json.php
 
-      - name: Build PocketMine-MP.phar
+      - name: Build XPocketMP.phar
         run: php -dphar.readonly=0 build/server-phar.php --git ${{ github.sha }} --build ${{ steps.build-number.outputs.BUILD_NUMBER }}
 
-      - name: Get PocketMine-MP release version
+      - name: Get XPocketMP release version
         id: get-pm-version
         run: |
           echo PM_VERSION=$(php -r 'require "vendor/autoload.php"; echo \pocketmine\VersionInfo::BASE_VERSION;') >> $GITHUB_OUTPUT
@@ -76,23 +76,27 @@ jobs:
             ${{ steps.php-binary-url.outputs.PHP_BINARY_URL }} \
             > build_info.json
 
+      - name: Generate core permission doc for doc.pmmp.io
+        run: php tools/generate-permission-doc.php rst
+
       - name: Upload release artifacts
         uses: actions/upload-artifact@v4
         with:
           name: release_artifacts
           path: |
-            ${{ github.workspace }}/PocketMine-MP.phar
+            ${{ github.workspace }}/XPocketMP.phar
             ${{ github.workspace }}/start.*
             ${{ github.workspace }}/build_info.json
+            ${{ github.workspace }}/core-permissions.rst
 
       - name: Create draft release
         uses: ncipollo/release-action@v1.14.0
         with:
-          artifacts: ${{ github.workspace }}/PocketMine-MP.phar,${{ github.workspace }}/start.*,${{ github.workspace }}/build_info.json
+          artifacts: ${{ github.workspace }}/XPocketMP.phar,${{ github.workspace }}/start.*,${{ github.workspace }}/build_info.json,${{ github.workspace }}/core-permissions.rst
           commit: ${{ github.sha }}
           draft: true
           prerelease: ${{ steps.get-pm-version.outputs.PRERELEASE }}
-          name: PocketMine-MP ${{ steps.get-pm-version.outputs.PM_VERSION }}
+          name: XPocketMP ${{ steps.get-pm-version.outputs.PM_VERSION }}
           tag: ${{ steps.get-pm-version.outputs.PM_VERSION }}
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |

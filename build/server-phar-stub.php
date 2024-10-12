@@ -55,7 +55,7 @@ function preparePharCacheDirectory() : string{
 
 	$i = 0;
 	do{
-		$tmpPath = sys_get_temp_dir() . '/PocketMine-MP-phar-cache.' . $i;
+		$tmpPath = sys_get_temp_dir() . '/XPocketMP-phar-cache.' . $i;
 		$i++;
 	}while(is_file($tmpPath));
 	if(!@mkdir($tmpPath) && !is_dir($tmpPath)){
@@ -142,7 +142,7 @@ function lockPharCache(string $lockFilePath) : void{
 }
 
 /**
- * Prepares a decompressed .tar of PocketMine-MP.phar in the system temp directory for loading code from.
+ * Prepares a decompressed .tar of XPocketMP.phar in the system temp directory for loading code from.
  *
  * @return string path to the temporary decompressed phar (actually a .tar)
  */
@@ -160,9 +160,9 @@ function preparePharCache(string $tmpPath, string $pharPath) : string{
 
 $tmpDir = preparePharCacheDirectory();
 cleanupPharCache($tmpDir);
-echo "Preparing PocketMine-MP.phar decompressed cache...\n";
+echo "Preparing XPocketMP.phar decompressed cache...\n";
 $start = hrtime(true);
 $cacheName = preparePharCache($tmpDir, __FILE__);
 echo "Cache ready at $cacheName in " . number_format((hrtime(true) - $start) / 1e9, 2) . "s\n";
 
-require 'phar://' . str_replace(DIRECTORY_SEPARATOR, '/', $cacheName) . '/src/PocketMine.php';
+require 'phar://' . str_replace(DIRECTORY_SEPARATOR, '/', $cacheName) . '/src/XPocketMP.php';

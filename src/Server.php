@@ -310,7 +310,7 @@ class Server{
 		return $this->isRunning;
 	}
 
-	public function getPocketMineVersion() : string{
+	public function getXPocketMPVersion() : string{
 		return VersionInfo::VERSION()->getFullVersion(true);
 	}
 
@@ -801,17 +801,17 @@ class Server{
 			$this->pluginPath = realpath($pluginPath) . DIRECTORY_SEPARATOR;
 
 			$this->logger->info("Loading server configuration");
-			$pocketmineYmlPath = Path::join($this->dataPath, "pocketmine.yml");
-			if(!file_exists($pocketmineYmlPath)){
-				$content = Filesystem::fileGetContents(Path::join(\pocketmine\RESOURCE_PATH, "pocketmine.yml"));
+			$xpocketmpYmlPath = Path::join($this->dataPath, "xpocketmp.yml");
+			if(!file_exists($xpocketmpYmlPath)){
+				$content = Filesystem::fileGetContents(Path::join(\pocketmine\RESOURCE_PATH, "xpocketmp.yml"));
 				if(VersionInfo::IS_DEVELOPMENT_BUILD){
 					$content = str_replace("preferred-channel: stable", "preferred-channel: beta", $content);
 				}
-				@file_put_contents($pocketmineYmlPath, $content);
+				@file_put_contents($xpocketmpYmlPath, $content);
 			}
 
 			$this->configGroup = new ServerConfigGroup(
-				new Config($pocketmineYmlPath, Config::YAML, []),
+				new Config($xpocketmpYmlPath, Config::YAML, []),
 				new Config(Path::join($this->dataPath, "server.properties"), Config::PROPERTIES, [
 					ServerProperties::MOTD => self::DEFAULT_SERVER_NAME,
 					ServerProperties::SERVER_PORT_IPV4 => self::DEFAULT_PORT_IPV4,
@@ -949,7 +949,7 @@ class Server{
 				$this->configGroup->setConfigInt(ServerProperties::DIFFICULTY, World::DIFFICULTY_HARD);
 			}
 
-			@cli_set_process_title($this->getName() . " " . $this->getPocketMineVersion());
+			@cli_set_process_title($this->getName() . " " . $this->getXPocketMPVersion());
 
 			$this->serverID = Utils::getMachineUniqueId($this->getIp() . $this->getPort());
 
@@ -961,7 +961,7 @@ class Server{
 
 			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_info(
 				$this->getName(),
-				(VersionInfo::IS_DEVELOPMENT_BUILD ? TextFormat::YELLOW : "") . $this->getPocketMineVersion() . TextFormat::RESET
+				(VersionInfo::IS_DEVELOPMENT_BUILD ? TextFormat::YELLOW : "") . $this->getXPocketMPVersion() . TextFormat::RESET
 			)));
 			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_license($this->getName())));
 
@@ -1051,7 +1051,7 @@ class Server{
 			$this->configGroup->save();
 
 			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_defaultGameMode($this->getGamemode()->getTranslatableName())));
-			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_donate(TextFormat::AQUA . "https://patreon.com/pocketminemp" . TextFormat::RESET)));
+			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_donate(TextFormat::AQUA . "send money to gameplaytebakgambard@gmail.com in paypal" . TextFormat::RESET)));
 			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_startFinished(strval(round(microtime(true) - $this->startTime, 3)))));
 
 			$forwarder = new BroadcastLoggerForwarder($this, $this->logger, $this->language);
@@ -1635,7 +1635,7 @@ class Server{
 					$postUrlError = "Unknown error";
 					$reply = Internet::postURL($url, [
 						"report" => "yes",
-						"name" => $this->getName() . " " . $this->getPocketMineVersion(),
+						"name" => $this->getName() . " " . $this->getXPocketMPVersion(),
 						"email" => "crash@pocketmine.net",
 						"reportPaste" => base64_encode($dump->getEncodedData())
 					], 10, [], $postUrlError);
@@ -1777,7 +1777,7 @@ class Server{
 		$bandwidthStats = $this->network->getBandwidthTracker();
 
 		echo "\x1b]0;" . $this->getName() . " " .
-			$this->getPocketMineVersion() .
+			$this->getXPocketMPVersion() .
 			" | Online $online/" . $this->maxPlayers .
 			($connecting > 0 ? " (+$connecting connecting)" : "") .
 			" | Memory " . $usage .

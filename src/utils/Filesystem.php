@@ -71,7 +71,7 @@ final class Filesystem{
 		\pocketmine\PATH => self::CLEAN_PATH_SRC_PREFIX
 	];
 
-	public const CLEAN_PATH_SRC_PREFIX = "pmsrc";
+	public const CLEAN_PATH_SRC_PREFIX = "xpocketmpsrc";
 	public const CLEAN_PATH_PLUGINS_PREFIX = "plugins";
 
 	private function __construct(){

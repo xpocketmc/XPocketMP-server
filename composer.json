@@ -1,5 +1,5 @@
 {
-   "name": "pocketmine/pocketmine-mp",
+   "name": "xpocketmc/xpocketmp",
    "description": "A server software for Minecraft: Bedrock Edition written in PHP",
    "type": "project",
    "homepage": "https://pmmp.io",
@@ -32,16 +32,15 @@
       "ext-zlib": ">=1.2.11",
       "composer-runtime-api": "^2.0",
       "adhocore/json-comment": "~1.2.0",
-      "pocketmine/netresearch-jsonmapper": "~v4.4.999",
-      "pocketmine/bedrock-block-upgrade-schema": "~4.1.0+bedrock-1.20.80",
-      "pocketmine/bedrock-data": "~2.10.0+bedrock-1.20.80",
-      "pocketmine/bedrock-item-upgrade-schema": "~1.9.0+bedrock-1.20.80",
-      "pocketmine/bedrock-protocol": "~30.0.0+bedrock-1.20.80",
+      "pocketmine/netresearch-jsonmapper": "~v4.4.999", 
+      "pocketmine/bedrock-block-upgrade-schema": "~4.4.0+bedrock-1.21.30",
+      "pocketmine/bedrock-data": "~2.13.0+bedrock-1.21.30",
+      "pocketmine/bedrock-item-upgrade-schema": "~1.12.0+bedrock-1.21.30",
       "pocketmine/binaryutils": "^0.2.1",
       "pocketmine/callback-validator": "^1.0.2",
       "pocketmine/color": "^0.3.0",
       "pocketmine/errorhandler": "^0.7.0",
-      "pocketmine/locale-data": "~2.19.0",
+      "pocketmine/locale-data": "~2.20.4",
       "pocketmine/log": "^0.4.0",
       "pocketmine/math": "~1.0.0",
       "pocketmine/nbt": "~1.0.0",
@@ -52,10 +51,10 @@
       "symfony/filesystem": "~6.4.0"
    },
    "require-dev": {
-      "phpstan/phpstan": "1.10.67",
+      "phpstan/phpstan": "1.11.11",
       "phpstan/phpstan-phpunit": "^1.1.0",
       "phpstan/phpstan-strict-rules": "^1.2.0",
-      "phpunit/phpunit": "~10.3.0 || ~10.2.0 || ~10.1.0"
+      "phpunit/phpunit": "^10.5.26"
    },
    "autoload": {
       "psr-4": {
@@ -89,7 +88,7 @@
          "@php build/generate-block-serializer-consts.php vendor/pocketmine/bedrock-data/canonical_block_states.nbt",
          "@php build/generate-item-type-names.php vendor/pocketmine/bedrock-data/required_item_list.json",
          "@php build/generate-known-translation-apis.php",
-         "@php build/generate-pocketmine-yml-property-consts.php",
+         "@php build/generate-xpocketmp-yml-property-consts.php",
          "@php build/generate-registry-annotations.php src"
       ]
    }
