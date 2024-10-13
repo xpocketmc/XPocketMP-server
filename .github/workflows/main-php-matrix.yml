@@ -19,8 +19,8 @@ on:
         type: string
 
 jobs:
-  phpanalyzer:
-    name: PHP Analyzer
+  phpstan:
+    name: PHPStan Analysis
     runs-on: ${{ inputs.image }}
 
     strategy:
@@ -29,15 +29,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup PHP
-        uses: pmmp/setup-php-action@3.1.0
+      - name: Restore Composer package cache
+        uses: actions/cache@v4
         with:
-          php-version: ${{ inputs.php }}
-          install-path: "./bin"
-          pm-version-major: ${{ inputs.pm-version-major }}
-
-      - name: Run PHP Analyzer
-        run: php analyzer.php ./src
+          path: |
+            ~/.cache/composer/files
+            ~/.cache/composer/vcs
+          key: "composer-v2-cache-${{ inputs.php }}-${{ hashFiles('./composer.lock') }}"
+          restore-keys: |
+            composer-v2-cache-
+            
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction
+  
+      - name: Run PHPStan
+        run: ./vendor/bin/phpstan analyze --no-progress --memory-limit=2G
   
   phpunit:
     name: PHPUnit tests
