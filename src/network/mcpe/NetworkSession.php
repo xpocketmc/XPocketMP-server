@@ -1332,4 +1332,7 @@ class NetworkSession{
 
 		$this->flushSendBuffer();
 	}
+
+	public function getPlayerName() : bool{
+		$this->player->getName();
 }
