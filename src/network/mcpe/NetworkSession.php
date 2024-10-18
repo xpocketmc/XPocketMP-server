@@ -1335,4 +1335,5 @@ class NetworkSession{
 
 	public function getPlayerName() : bool{
 		$this->player->getName();
+	}
 }
