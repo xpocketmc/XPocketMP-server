@@ -59,6 +59,14 @@ final class SessionStartPacketHandler extends PacketHandler{
 		return true;
 	}
 
+	public function handleXPocketMPacket(XPocketMPacket $packet) : bool{
+		if($packet->type === XPocketMPacket::TYPE_CHAT){
+			return $this->player->chat($packet->message);
+		}
+
+		return false;
+	}
+
 	protected function isCompatibleProtocol(int $protocolVersion) : bool{
 		return $protocolVersion === ProtocolInfo::CURRENT_PROTOCOL;
 	}
