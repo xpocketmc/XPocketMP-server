@@ -773,12 +773,12 @@ class NetworkSession{
 	}
 
 	public function disconnectIncompatibleProtocol(int $protocolVersion) : void{
-		if ($protocolVersion < ProtocolInfo::MIN_SUPPORTED_PROTOCOL || $protocolVersion > ProtocolInfo::MAX_SUPPORTED_PROTOCOL) {
+		if ($protocolVersion < ProtocolInfo::CURRENT_PROTOCOL) {
 			$this->tryDisconnect(
 				function() use ($protocolVersion) : void {
 					$this->sendDataPacket(
 						PlayStatusPacket::create(
-							$protocolVersion < ProtocolInfo::MIN_SUPPORTED_PROTOCOL ? 
+							$protocolVersion < ProtocolInfo::CURRENT_PROTOCOL ? 
 							PlayStatusPacket::LOGIN_FAILED_CLIENT :
 							PlayStatusPacket::LOGIN_FAILED_SERVER
 						), 
