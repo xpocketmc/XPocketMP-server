@@ -25,12 +25,11 @@ namespace pocketmine\network\mcpe\handler;
 
 use pocketmine\network\mcpe\NetworkSession;
 use pocketmine\network\mcpe\protocol\NetworkSettingsPacket;
-use pocketmine\network\mcpe\protocol\PacketHandlerinterface;
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
 use pocketmine\network\mcpe\protocol\RequestNetworkSettingsPacket;
 use pocketmine\network\mcpe\protocol\XPocketMPacket;
 
-final class SessionStartPacketHandler extends PacketHandler implements PacketHandlerInterface {
+final class SessionStartPacketHandler extends PacketHandler {
 
 	/**
 	 * @phpstan-param \Closure() : void $onSuccess
@@ -59,14 +58,6 @@ final class SessionStartPacketHandler extends PacketHandler implements PacketHan
 		($this->onSuccess)();
 
 		return true;
-	}
-
-	public function handleXPocketMPacket(XPocketMPacket $packet) : bool{
-		if($packet->type === XPocketMPacket::TYPE_CHAT){
-			return $this->player->chat($packet->message);
-		}
-
-		return false;
 	}
 
 	protected function isCompatibleProtocol(int $protocolVersion) : bool{
