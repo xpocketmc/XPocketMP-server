@@ -147,14 +147,6 @@ class InGamePacketHandler extends PacketHandler{
 		private NetworkSession $session,
 		private InventoryManager $inventoryManager
 	){}
-
-	public function handleXPocketMPacket(XPocketMPacket $packet) : bool{
-		if($packet->type === XPocketMPacket::TYPE_CHAT){
-			return $this->player->chat($packet->message);
-		}
-
-		return false;
-	}
 	
 	public function handleText(TextPacket $packet) : bool{
 		if($packet->type === TextPacket::TYPE_CHAT){
