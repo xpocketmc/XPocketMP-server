@@ -99,11 +99,6 @@ final class FlatGeneratorOptions{
 	 */
 	public static function parsePreset(string $presetString) : self{
 		$preset = explode(";", $presetString);
-
-		if (count($preset) < 2){
-			throw new InvalidGeneratorOptionsException("Invalid preset format:insufficient layers");
-		}
-
 		$blocks = $preset[1] ?? "";
 		$biomeId = (int) ($preset[2] ?? BiomeIds::PLAINS);
 		$optionsString = $preset[3] ?? "";
@@ -124,7 +119,7 @@ final class FlatGeneratorOptions{
 					}
 				}
 			}
-			$options[$option] = $params;
+			$options[(string) $option] = $params;
 		}
 		return new self($structure, $biomeId, $options);
 	}

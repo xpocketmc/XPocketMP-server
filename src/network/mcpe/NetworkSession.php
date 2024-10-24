@@ -773,21 +773,12 @@ class NetworkSession{
 	}
 
 	public function disconnectIncompatibleProtocol(int $protocolVersion) : void{
-		if ($protocolVersion < ProtocolInfo::CURRENT_PROTOCOL) {
-			$this->tryDisconnect(
-				function() use ($protocolVersion) : void {
-					$this->sendDataPacket(
-						PlayStatusPacket::create(
-							$protocolVersion < ProtocolInfo::CURRENT_PROTOCOL ? 
-							PlayStatusPacket::LOGIN_FAILED_CLIENT :
-							PlayStatusPacket::LOGIN_FAILED_SERVER
-						), 
-						true
-					);
-				},
-				KnownTranslationFactory::pocketmine_disconnect_incompatibleProtocol((string) $protocolVersion)
-			);
-		}
+		$this->tryDisconnect(
+			function() use ($protocolVersion) : void{
+				$this->sendDataPacket(PlayStatusPacket::create($protocolVersion < ProtocolInfo::CURRENT_PROTOCOL ? PlayStatusPacket::LOGIN_FAILED_CLIENT : PlayStatusPacket::LOGIN_FAILED_SERVER), true);
+			},
+			KnownTranslationFactory::pocketmine_disconnect_incompatibleProtocol((string) $protocolVersion)
+		);
 	}
 
 	/**
@@ -1331,9 +1322,5 @@ class NetworkSession{
 		}
 
 		$this->flushSendBuffer();
-	}
-
-	public function getPlayerName() : bool{
-		$this->player->getName();
 	}
 }

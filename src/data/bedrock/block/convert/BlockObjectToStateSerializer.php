@@ -43,7 +43,6 @@ use pocketmine\block\Cactus;
 use pocketmine\block\Cake;
 use pocketmine\block\CakeWithCandle;
 use pocketmine\block\CakeWithDyedCandle;
-use pocketmine\block\Campfire;
 use pocketmine\block\Candle;
 use pocketmine\block\Carpet;
 use pocketmine\block\Carrot;
@@ -58,12 +57,8 @@ use pocketmine\block\CocoaBlock;
 use pocketmine\block\Concrete;
 use pocketmine\block\ConcretePowder;
 use pocketmine\block\Copper;
-use pocketmine\block\CopperBulb;
-use pocketmine\block\CopperDoor;
-use pocketmine\block\CopperGrate;
 use pocketmine\block\CopperSlab;
 use pocketmine\block\CopperStairs;
-use pocketmine\block\CopperTrapdoor;
 use pocketmine\block\Coral;
 use pocketmine\block\CoralBlock;
 use pocketmine\block\DaylightSensor;
@@ -129,7 +124,6 @@ use pocketmine\block\SimplePressurePlate;
 use pocketmine\block\Slab;
 use pocketmine\block\SmallDripleaf;
 use pocketmine\block\SnowLayer;
-use pocketmine\block\SoulCampfire;
 use pocketmine\block\Sponge;
 use pocketmine\block\StainedGlass;
 use pocketmine\block\StainedGlassPane;
@@ -803,8 +797,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapSimple(Blocks::CHISELED_RED_SANDSTONE(), Ids::CHISELED_RED_SANDSTONE);
 		$this->mapSimple(Blocks::CHISELED_SANDSTONE(), Ids::CHISELED_SANDSTONE);
 		$this->mapSimple(Blocks::CHISELED_STONE_BRICKS(), Ids::CHISELED_STONE_BRICKS);
-		$this->mapSimple(Blocks::CHISELED_TUFF(), Ids::CHISELED_TUFF);
-		$this->mapSimple(Blocks::CHISELED_TUFF_BRICKS(), Ids::CHISELED_TUFF_BRICKS);
 		$this->mapSimple(Blocks::CHORUS_PLANT(), Ids::CHORUS_PLANT);
 		$this->mapSimple(Blocks::CLAY(), Ids::CLAY);
 		$this->mapSimple(Blocks::COAL(), Ids::COAL_BLOCK);
@@ -1028,7 +1020,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapSimple(Blocks::POLISHED_DEEPSLATE(), Ids::POLISHED_DEEPSLATE);
 		$this->mapSimple(Blocks::POLISHED_DIORITE(), Ids::POLISHED_DIORITE);
 		$this->mapSimple(Blocks::POLISHED_GRANITE(), Ids::POLISHED_GRANITE);
-		$this->mapSimple(Blocks::POLISHED_TUFF(), Ids::POLISHED_TUFF);
 		$this->mapSimple(Blocks::PRISMARINE(), Ids::PRISMARINE);
 		$this->mapSimple(Blocks::PRISMARINE_BRICKS(), Ids::PRISMARINE_BRICKS);
 		$this->mapSimple(Blocks::QUARTZ_BRICKS(), Ids::QUARTZ_BRICKS);
@@ -1064,7 +1055,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapSimple(Blocks::TINTED_GLASS(), Ids::TINTED_GLASS);
 		$this->mapSimple(Blocks::TORCHFLOWER(), Ids::TORCHFLOWER);
 		$this->mapSimple(Blocks::TUFF(), Ids::TUFF);
-		$this->mapSimple(Blocks::TUFF_BRICKS(), Ids::TUFF_BRICKS);
 		$this->mapSimple(Blocks::WARPED_WART_BLOCK(), Ids::WARPED_WART_BLOCK);
 		$this->mapSimple(Blocks::WARPED_ROOTS(), Ids::WARPED_ROOTS);
 		$this->mapSimple(Blocks::WITHER_ROSE(), Ids::WITHER_ROSE);
@@ -1203,11 +1193,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 			return Writer::create(Ids::CAKE)
 				->writeInt(StateNames::BITE_COUNTER, $block->getBites());
 		});
-		$this->map(Blocks::CAMPFIRE(), function(Campfire $block) : Writer{
-			return Writer::create(Ids::CAMPFIRE)
-				->writeCardinalHorizontalFacing($block->getFacing())
-				->writeBool(StateNames::EXTINGUISHED, !$block->isLit());
-		});
 		$this->map(Blocks::CARROTS(), fn(Carrot $block) => Helper::encodeCrops($block, new Writer(Ids::CARROTS)));
 		$this->map(Blocks::CARVED_PUMPKIN(), function(CarvedPumpkin $block) : Writer{
 			return Writer::create(Ids::CARVED_PUMPKIN)
@@ -1257,40 +1242,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 			return new Writer($block->isWaxed() ?
 				Helper::selectCopperId($oxidation, Ids::WAXED_COPPER, Ids::WAXED_EXPOSED_COPPER, Ids::WAXED_WEATHERED_COPPER, Ids::WAXED_OXIDIZED_COPPER) :
 				Helper::selectCopperId($oxidation, Ids::COPPER_BLOCK, Ids::EXPOSED_COPPER, Ids::WEATHERED_COPPER, Ids::OXIDIZED_COPPER)
-			);
-		});
-		$this->map(Blocks::CHISELED_COPPER(), function(Copper $block) : Writer{
-			$oxidation = $block->getOxidation();
-			return new Writer($block->isWaxed() ?
-				Helper::selectCopperId($oxidation,
-					Ids::WAXED_CHISELED_COPPER,
-					Ids::WAXED_EXPOSED_CHISELED_COPPER,
-					Ids::WAXED_WEATHERED_CHISELED_COPPER,
-					Ids::WAXED_OXIDIZED_CHISELED_COPPER
-				) :
-				Helper::selectCopperId($oxidation,
-					Ids::CHISELED_COPPER,
-					Ids::EXPOSED_CHISELED_COPPER,
-					Ids::WEATHERED_CHISELED_COPPER,
-					Ids::OXIDIZED_CHISELED_COPPER
-				)
-			);
-		});
-		$this->map(Blocks::COPPER_GRATE(), function(CopperGrate $block) : Writer{
-			$oxidation = $block->getOxidation();
-			return new Writer($block->isWaxed() ?
-				Helper::selectCopperId($oxidation,
-					Ids::WAXED_COPPER_GRATE,
-					Ids::WAXED_EXPOSED_COPPER_GRATE,
-					Ids::WAXED_WEATHERED_COPPER_GRATE,
-					Ids::WAXED_OXIDIZED_COPPER_GRATE
-				) :
-				Helper::selectCopperId($oxidation,
-					Ids::COPPER_GRATE,
-					Ids::EXPOSED_COPPER_GRATE,
-					Ids::WEATHERED_COPPER_GRATE,
-					Ids::OXIDIZED_COPPER_GRATE
-				)
 			);
 		});
 		$this->map(Blocks::CUT_COPPER(), function(Copper $block) : Writer{
@@ -1356,67 +1307,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 						Ids::EXPOSED_CUT_COPPER_STAIRS,
 						Ids::WEATHERED_CUT_COPPER_STAIRS,
 						Ids::OXIDIZED_CUT_COPPER_STAIRS
-					)
-				)
-			);
-		});
-		$this->map(Blocks::COPPER_BULB(), function(CopperBulb $block) : Writer{
-			$oxidation = $block->getOxidation();
-			return Writer::create($block->isWaxed() ?
-				Helper::selectCopperId($oxidation,
-					Ids::WAXED_COPPER_BULB,
-					Ids::WAXED_EXPOSED_COPPER_BULB,
-					Ids::WAXED_WEATHERED_COPPER_BULB,
-					Ids::WAXED_OXIDIZED_COPPER_BULB) :
-				Helper::selectCopperId($oxidation,
-					Ids::COPPER_BULB,
-					Ids::EXPOSED_COPPER_BULB,
-					Ids::WEATHERED_COPPER_BULB,
-					Ids::OXIDIZED_COPPER_BULB
-				))
-				->writeBool(StateNames::LIT, $block->isLit())
-				->writeBool(StateNames::POWERED_BIT, $block->isPowered());
-		});
-		$this->map(Blocks::COPPER_DOOR(), function(CopperDoor $block) : Writer{
-			$oxidation = $block->getOxidation();
-			return Helper::encodeDoor(
-				$block,
-				new Writer($block->isWaxed() ?
-					Helper::selectCopperId(
-						$oxidation,
-						Ids::WAXED_COPPER_DOOR,
-						Ids::WAXED_EXPOSED_COPPER_DOOR,
-						Ids::WAXED_WEATHERED_COPPER_DOOR,
-						Ids::WAXED_OXIDIZED_COPPER_DOOR
-					) :
-					Helper::selectCopperId(
-						$oxidation,
-						Ids::COPPER_DOOR,
-						Ids::EXPOSED_COPPER_DOOR,
-						Ids::WEATHERED_COPPER_DOOR,
-						Ids::OXIDIZED_COPPER_DOOR
-					)
-				)
-			);
-		});
-		$this->map(Blocks::COPPER_TRAPDOOR(), function(CopperTrapdoor $block) : Writer{
-			$oxidation = $block->getOxidation();
-			return Helper::encodeTrapdoor(
-				$block,
-				new Writer($block->isWaxed() ?
-					Helper::selectCopperId(
-						$oxidation,
-						Ids::WAXED_COPPER_TRAPDOOR,
-						Ids::WAXED_EXPOSED_COPPER_TRAPDOOR,
-						Ids::WAXED_WEATHERED_COPPER_TRAPDOOR,
-						Ids::WAXED_OXIDIZED_COPPER_TRAPDOOR
-					) :
-					Helper::selectCopperId(
-						$oxidation,
-						Ids::COPPER_TRAPDOOR,
-						Ids::EXPOSED_COPPER_TRAPDOOR,
-						Ids::WEATHERED_COPPER_TRAPDOOR,
-						Ids::OXIDIZED_COPPER_TRAPDOOR
 					)
 				)
 			);
@@ -1666,9 +1556,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapStairs(Blocks::POLISHED_DIORITE_STAIRS(), Ids::POLISHED_DIORITE_STAIRS);
 		$this->mapSlab(Blocks::POLISHED_GRANITE_SLAB(), Ids::POLISHED_GRANITE_SLAB, Ids::POLISHED_GRANITE_DOUBLE_SLAB);
 		$this->mapStairs(Blocks::POLISHED_GRANITE_STAIRS(), Ids::POLISHED_GRANITE_STAIRS);
-		$this->mapSlab(Blocks::POLISHED_TUFF_SLAB(), Ids::POLISHED_TUFF_SLAB, Ids::POLISHED_TUFF_DOUBLE_SLAB);
-		$this->mapStairs(Blocks::POLISHED_TUFF_STAIRS(), Ids::POLISHED_TUFF_STAIRS);
-		$this->map(Blocks::POLISHED_TUFF_WALL(), fn(Wall $block) => Helper::encodeWall($block, new Writer(Ids::POLISHED_TUFF_WALL)));
 		$this->map(Blocks::POTATOES(), fn(Potato $block) => Helper::encodeCrops($block, new Writer(Ids::POTATOES)));
 		$this->map(Blocks::POWERED_RAIL(), function(PoweredRail $block) : Writer{
 			return Writer::create(Ids::GOLDEN_RAIL)
@@ -1758,11 +1645,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeBool(StateNames::COVERED_BIT, false)
 				->writeInt(StateNames::HEIGHT, $block->getLayers() - 1);
 		});
-		$this->map(Blocks::SOUL_CAMPFIRE(), function(SoulCampfire $block) : Writer{
-			return Writer::create(Ids::SOUL_CAMPFIRE)
-				->writeCardinalHorizontalFacing($block->getFacing())
-				->writeBool(StateNames::EXTINGUISHED, !$block->isLit());
-		});
 		$this->map(Blocks::SOUL_FIRE(), function() : Writer{
 			return Writer::create(Ids::SOUL_FIRE)
 				->writeInt(StateNames::AGE, 0); //useless for soul fire, we don't track it
@@ -1822,12 +1704,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeBool(StateNames::POWERED_BIT, $block->isPowered())
 				->writeLegacyHorizontalFacing($block->getFacing());
 		});
-		$this->mapSlab(Blocks::TUFF_BRICK_SLAB(), Ids::TUFF_BRICK_SLAB, Ids::TUFF_BRICK_DOUBLE_SLAB);
-		$this->mapStairs(Blocks::TUFF_BRICK_STAIRS(), Ids::TUFF_BRICK_STAIRS);
-		$this->map(Blocks::TUFF_BRICK_WALL(), fn(Wall $block) => Helper::encodeWall($block, new Writer(Ids::TUFF_BRICK_WALL)));
-		$this->mapSlab(Blocks::TUFF_SLAB(), Ids::TUFF_SLAB, Ids::TUFF_DOUBLE_SLAB);
-		$this->mapStairs(Blocks::TUFF_STAIRS(), Ids::TUFF_STAIRS);
-		$this->map(Blocks::TUFF_WALL(), fn(Wall $block) => Helper::encodeWall($block, new Writer(Ids::TUFF_WALL)));
 		$this->map(Blocks::TWISTING_VINES(), function(NetherVines $block) : Writer{
 			return Writer::create(Ids::TWISTING_VINES)
 				->writeInt(StateNames::TWISTING_VINES_AGE, $block->getAge());

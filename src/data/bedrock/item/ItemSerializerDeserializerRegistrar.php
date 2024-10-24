@@ -25,9 +25,7 @@ namespace pocketmine\data\bedrock\item;
 
 use pocketmine\block\Bed;
 use pocketmine\block\Block;
-use pocketmine\block\CopperDoor;
 use pocketmine\block\MobHead;
-use pocketmine\block\utils\CopperOxidation;
 use pocketmine\block\utils\DyeColor;
 use pocketmine\block\VanillaBlocks as Blocks;
 use pocketmine\data\bedrock\CompoundTypeIds;
@@ -58,7 +56,6 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->register1to1BlockWithMetaMappings();
 		$this->register1to1ItemWithMetaMappings();
 		$this->register1ToNItemMappings();
-		$this->registerMiscBlockMappings();
 		$this->registerMiscItemMappings();
 	}
 
@@ -136,7 +133,6 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Block(Ids::BIRCH_DOOR, Blocks::BIRCH_DOOR());
 		$this->map1to1Block(Ids::BREWING_STAND, Blocks::BREWING_STAND());
 		$this->map1to1Block(Ids::CAKE, Blocks::CAKE());
-		$this->map1to1Block(Ids::CAMPFIRE, Blocks::CAMPFIRE());
 		$this->map1to1Block(Ids::CAULDRON, Blocks::CAULDRON());
 		$this->map1to1Block(Ids::CHAIN, Blocks::CHAIN());
 		$this->map1to1Block(Ids::CHERRY_DOOR, Blocks::CHERRY_DOOR());
@@ -152,7 +148,6 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Block(Ids::MANGROVE_DOOR, Blocks::MANGROVE_DOOR());
 		$this->map1to1Block(Ids::NETHER_WART, Blocks::NETHER_WART());
 		$this->map1to1Block(Ids::REPEATER, Blocks::REDSTONE_REPEATER());
-		$this->map1to1Block(Ids::SOUL_CAMPFIRE, Blocks::SOUL_CAMPFIRE());
 		$this->map1to1Block(Ids::SPRUCE_DOOR, Blocks::SPRUCE_DOOR());
 		$this->map1to1Block(Ids::SUGAR_CANE, Blocks::SUGARCANE());
 		$this->map1to1Block(Ids::WARPED_DOOR, Blocks::WARPED_DOOR());
@@ -354,6 +349,7 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::RIB_ARMOR_TRIM_SMITHING_TEMPLATE, Items::RIB_ARMOR_TRIM_SMITHING_TEMPLATE());
 		$this->map1to1Item(Ids::ROTTEN_FLESH, Items::ROTTEN_FLESH());
 		$this->map1to1Item(Ids::SALMON, Items::RAW_SALMON());
+		$this->map1to1Item(Ids::SALMON_SPAWN_EGG, Items::SALMON_SPAWN_EGG());
 		$this->map1to1Item(Ids::TURTLE_SCUTE, Items::SCUTE());
 		$this->map1to1Item(Ids::SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE, Items::SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE());
 		$this->map1to1Item(Ids::SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE, Items::SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE());
@@ -540,30 +536,5 @@ final class ItemSerializerDeserializerRegistrar{
 			$this->deserializer?->map($id, fn() => Items::DYE()->setColor($color));
 		}
 		$this->serializer?->map(Items::DYE(), fn(Dye $item) => new Data(DyeColorIdMap::getInstance()->toItemId($item->getColor())));
-	}
-
-	/**
-	 * Registers serializers and deserializers for PocketMine-MP blockitems that don't fit any other pattern.
-	 * Ideally we want to get rid of this completely, if possible.
-	 *
-	 * Most of these are single PocketMine-MP blocks which map to multiple IDs depending on their properties, which is
-	 * complex to implement in a generic way.
-	 */
-	private function registerMiscBlockMappings() : void{
-		$copperDoorStateIdMap = [];
-		foreach ([
-			[Ids::COPPER_DOOR, CopperOxidation::NONE, false],
-			[Ids::EXPOSED_COPPER_DOOR, CopperOxidation::EXPOSED, false],
-			[Ids::WEATHERED_COPPER_DOOR, CopperOxidation::WEATHERED, false],
-			[Ids::OXIDIZED_COPPER_DOOR, CopperOxidation::OXIDIZED, false],
-			[Ids::WAXED_COPPER_DOOR, CopperOxidation::NONE, true],
-			[Ids::WAXED_EXPOSED_COPPER_DOOR, CopperOxidation::EXPOSED, true],
-			[Ids::WAXED_WEATHERED_COPPER_DOOR, CopperOxidation::WEATHERED, true],
-			[Ids::WAXED_OXIDIZED_COPPER_DOOR, CopperOxidation::OXIDIZED, true]
-		] as [$id, $oxidation, $waxed]) {
-			$copperDoorStateIdMap[$oxidation->value][$waxed ? 1 : 0] = $id;
-			$this->deserializer?->mapBlock($id, fn() => Blocks::COPPER_DOOR()->setOxidation($oxidation)->setWaxed($waxed));
-		}
-		$this->serializer?->mapBlock(Blocks::COPPER_DOOR(), fn(CopperDoor $block) => new Data($copperDoorStateIdMap[$block->getOxidation()->value][$block->isWaxed() ? 1 : 0]));
 	}
 }

@@ -27,9 +27,8 @@ use pocketmine\network\mcpe\NetworkSession;
 use pocketmine\network\mcpe\protocol\NetworkSettingsPacket;
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
 use pocketmine\network\mcpe\protocol\RequestNetworkSettingsPacket;
-use pocketmine\network\mcpe\protocol\XPocketMPacket;
 
-final class SessionStartPacketHandler extends PacketHandler {
+final class SessionStartPacketHandler extends PacketHandler{
 
 	/**
 	 * @phpstan-param \Closure() : void $onSuccess

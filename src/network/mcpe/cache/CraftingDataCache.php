@@ -130,8 +130,6 @@ final class CraftingDataCache{
 				FurnaceType::FURNACE => FurnaceRecipeBlockName::FURNACE,
 				FurnaceType::BLAST_FURNACE => FurnaceRecipeBlockName::BLAST_FURNACE,
 				FurnaceType::SMOKER => FurnaceRecipeBlockName::SMOKER,
-				FurnaceType::CAMPFIRE => FurnaceRecipeBlockName::CAMPFIRE,
-				FurnaceType::SOUL_CAMPFIRE => FurnaceRecipeBlockName::SOUL_CAMPFIRE
 			};
 			foreach($manager->getFurnaceRecipeManager($furnaceType)->getAll() as $recipe){
 				$input = $converter->coreRecipeIngredientToNet($recipe->getInput())->getDescriptor();

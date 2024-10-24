@@ -27,7 +27,6 @@ use function range;
 
 class RegionLocationTableEntry{
 	private int $firstSector;
-	/** @phpstan-var positive-int */
 	private int $sectorCount;
 	private int $timestamp;
 
@@ -62,9 +61,6 @@ class RegionLocationTableEntry{
 		return range($this->getFirstSector(), $this->getLastSector());
 	}
 
-	/**
-	 * @phpstan-return positive-int
-	 */
 	public function getSectorCount() : int{
 		return $this->sectorCount;
 	}
