@@ -25,16 +25,16 @@ namespace pocketmine\entity;
 
 class PropertyManager
 {
-    /** @var array<string, bool> */
-    private array $flags = [];
+	/** @var array<string, bool> */
+	private array $flags = [];
 
-    public function setGenericFlag(string $flag, bool $value) : void
-    {
-        $this->flags[$flag] = $value;
-    }
+	public function setGenericFlag(string $flag, bool $value) : void
+	{
+		$this->flags[$flag] = $value;
+	}
 
-    public function getGenericFlag(string $flag) : bool
-    {
-        return $this->flags[$flag] ?? false;
-    }
+	public function getGenericFlag(string $flag) : bool
+	{
+		return $this->flags[$flag] ?? false;
+	}
 }

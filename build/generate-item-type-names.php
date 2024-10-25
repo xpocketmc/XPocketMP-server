@@ -34,6 +34,7 @@ use function dirname;
 use function explode;
 use function fclose;
 use function file_get_contents;
+use function file_put_contents;
 use function fopen;
 use function fwrite;
 use function strtoupper;
@@ -107,8 +108,8 @@ if(count($argv) !== 2){
 
 $raw = file_get_contents($argv[1]);
 if ($raw === false) {
-    fwrite(STDERR, "Failed to read item type dictionary file\n");
-    exit(1);
+	fwrite(STDERR, "Failed to read item type dictionary file\n");
+	exit(1);
 }
 
 // Debugging output: Tampilkan data JSON yang dibaca

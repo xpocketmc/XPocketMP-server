@@ -84,8 +84,8 @@ class Position extends Vector3{
 	public function asPosition9() : Position{
 		return new Position($this->x, $this->y, $this->z, $this->world);
 	}
-	
-    public function asPosition10() : Position{
+
+	public function asPosition10() : Position{
 		return new Position($this->x, $this->y, $this->z, $this->world);
 	}
 

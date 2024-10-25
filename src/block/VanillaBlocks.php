@@ -1222,7 +1222,7 @@ final class VanillaBlocks{
 
 		self::registerElements();
 
-    $campfireBreakInfo = new Info(BreakInfo::axe(2.0));
+	$campfireBreakInfo = new Info(BreakInfo::axe(2.0));
 		self::register("campfire", new Campfire(new BID(Ids::CAMPFIRE, TileCampfire::class), "Campfire", $campfireBreakInfo));
 		self::register("soul_campfire", new SoulCampfire(new BID(Ids::SOUL_CAMPFIRE, TileCampfire::class), "Soul Campfire", $campfireBreakInfo));
 
