@@ -23,14 +23,13 @@ declare(strict_types=1);
 
 namespace pocketmine\block;
 
+use pocketmine\block\utils\CopperMaterial;
 use pocketmine\block\utils\CopperTrait;
-use pocketmine\block\utils\ICopper;
 use pocketmine\item\Item;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
 
-class CopperTrapdoor extends Trapdoor implements ICopper{
-
+class CopperTrapdoor extends Trapdoor implements CopperMaterial{
 	use CopperTrait{
 		onInteract as onInteractCopper;
 	}
@@ -39,6 +38,7 @@ class CopperTrapdoor extends Trapdoor implements ICopper{
 		if ($player !== null && $player->isSneaking() && $this->onInteractCopper($item, $face, $clickVector, $player, $returnedItems)) {
 			return true;
 		}
+
 		return parent::onInteract($item, $face, $clickVector, $player, $returnedItems);
 	}
 }

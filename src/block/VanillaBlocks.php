@@ -181,6 +181,7 @@ use function strtolower;
  * @method static Wood CHERRY_WOOD()
  * @method static Chest CHEST()
  * @method static ChiseledBookshelf CHISELED_BOOKSHELF()
+ * @method static Copper CHISELED_COPPER()
  * @method static Opaque CHISELED_DEEPSLATE()
  * @method static Opaque CHISELED_NETHER_BRICKS()
  * @method static Opaque CHISELED_POLISHED_BLACKSTONE()
@@ -188,6 +189,8 @@ use function strtolower;
  * @method static Opaque CHISELED_RED_SANDSTONE()
  * @method static Opaque CHISELED_SANDSTONE()
  * @method static Opaque CHISELED_STONE_BRICKS()
+ * @method static Opaque CHISELED_TUFF()
+ * @method static Opaque CHISELED_TUFF_BRICKS()
  * @method static ChorusFlower CHORUS_FLOWER()
  * @method static ChorusPlant CHORUS_PLANT()
  * @method static Clay CLAY()
@@ -207,7 +210,11 @@ use function strtolower;
  * @method static Concrete CONCRETE()
  * @method static ConcretePowder CONCRETE_POWDER()
  * @method static Copper COPPER()
+ * @method static CopperBulb COPPER_BULB()
+ * @method static CopperDoor COPPER_DOOR()
+ * @method static CopperGrate COPPER_GRATE()
  * @method static CopperOre COPPER_ORE()
+ * @method static CopperTrapdoor COPPER_TRAPDOOR()
  * @method static Coral CORAL()
  * @method static CoralBlock CORAL_BLOCK()
  * @method static FloorCoralFan CORAL_FAN()
@@ -609,6 +616,10 @@ use function strtolower;
  * @method static Opaque POLISHED_GRANITE()
  * @method static Slab POLISHED_GRANITE_SLAB()
  * @method static Stair POLISHED_GRANITE_STAIRS()
+ * @method static Opaque POLISHED_TUFF()
+ * @method static Slab POLISHED_TUFF_SLAB()
+ * @method static Stair POLISHED_TUFF_STAIRS()
+ * @method static Wall POLISHED_TUFF_WALL()
  * @method static Flower POPPY()
  * @method static Potato POTATOES()
  * @method static PotionCauldron POTION_CAULDRON()
@@ -687,7 +698,7 @@ use function strtolower;
  * @method static Slab SMOOTH_STONE_SLAB()
  * @method static Snow SNOW()
  * @method static SnowLayer SNOW_LAYER()
- * @method static Campfire SOUL_CAMPFIRE()
+ * @method static SoulCampfire SOUL_CAMPFIRE()
  * @method static SoulFire SOUL_FIRE()
  * @method static Lantern SOUL_LANTERN()
  * @method static SoulSand SOUL_SAND()
@@ -738,6 +749,13 @@ use function strtolower;
  * @method static Tripwire TRIPWIRE()
  * @method static TripwireHook TRIPWIRE_HOOK()
  * @method static Opaque TUFF()
+ * @method static Opaque TUFF_BRICKS()
+ * @method static Slab TUFF_BRICK_SLAB()
+ * @method static Stair TUFF_BRICK_STAIRS()
+ * @method static Wall TUFF_BRICK_WALL()
+ * @method static Slab TUFF_SLAB()
+ * @method static Stair TUFF_STAIRS()
+ * @method static Wall TUFF_WALL()
  * @method static NetherVines TWISTING_VINES()
  * @method static UnderwaterTorch UNDERWATER_TORCH()
  * @method static Vine VINES()
@@ -829,6 +847,11 @@ final class VanillaBlocks{
 		self::register("brown_mushroom", new BrownMushroom(new BID(Ids::BROWN_MUSHROOM), "Brown Mushroom", new Info(BreakInfo::instant(), [Tags::POTTABLE_PLANTS])));
 		self::register("cactus", new Cactus(new BID(Ids::CACTUS), "Cactus", new Info(new BreakInfo(0.4), [Tags::POTTABLE_PLANTS])));
 		self::register("cake", new Cake(new BID(Ids::CAKE), "Cake", new Info(new BreakInfo(0.5))));
+
+		$campfireBreakInfo = new Info(BreakInfo::axe(2.0));
+		self::register("campfire", new Campfire(new BID(Ids::CAMPFIRE, TileCampfire::class), "Campfire", $campfireBreakInfo));
+		self::register("soul_campfire", new SoulCampfire(new BID(Ids::SOUL_CAMPFIRE, TileCampfire::class), "Soul Campfire", $campfireBreakInfo));
+
 		self::register("carrots", new Carrot(new BID(Ids::CARROTS), "Carrot Block", new Info(BreakInfo::instant())));
 
 		$chestBreakInfo = new Info(BreakInfo::axe(2.5));
@@ -1222,10 +1245,6 @@ final class VanillaBlocks{
 
 		self::registerElements();
 
-	$campfireBreakInfo = new Info(BreakInfo::axe(2.0));
-		self::register("campfire", new Campfire(new BID(Ids::CAMPFIRE, TileCampfire::class), "Campfire", $campfireBreakInfo));
-		self::register("soul_campfire", new SoulCampfire(new BID(Ids::SOUL_CAMPFIRE, TileCampfire::class), "Soul Campfire", $campfireBreakInfo));
-
 		$chemistryTableBreakInfo = new Info(BreakInfo::pickaxe(2.5, ToolTier::WOOD));
 		self::register("compound_creator", new ChemistryTable(new BID(Ids::COMPOUND_CREATOR), "Compound Creator", $chemistryTableBreakInfo));
 		self::register("element_constructor", new ChemistryTable(new BID(Ids::ELEMENT_CONSTRUCTOR), "Element Constructor", $chemistryTableBreakInfo));
@@ -1235,7 +1254,6 @@ final class VanillaBlocks{
 		self::register("chemical_heat", new ChemicalHeat(new BID(Ids::CHEMICAL_HEAT), "Heat Block", $chemistryTableBreakInfo));
 
 		self::registerMushroomBlocks();
-		self::registerTuffBlocks();
 
 		self::register("coral", new Coral(
 			new BID(Ids::CORAL),
@@ -1269,6 +1287,7 @@ final class VanillaBlocks{
 		self::registerBlocksR17();
 		self::registerBlocksR18();
 		self::registerMudBlocks();
+		self::registerTuffBlocks();
 
 		self::registerCraftingTables();
 		self::registerChorusBlocks();
@@ -1576,7 +1595,6 @@ final class VanillaBlocks{
 		self::register("amethyst_cluster", new AmethystCluster(new BID(Ids::AMETHYST_CLUSTER), "Amethyst Cluster", $amethystInfo));
 
 		self::register("calcite", new Opaque(new BID(Ids::CALCITE), "Calcite", new Info(BreakInfo::pickaxe(0.75, ToolTier::WOOD))));
-		self::register("tuff", new Opaque(new BID(Ids::TUFF), "Tuff", new Info(BreakInfo::pickaxe(1.5, ToolTier::WOOD, 30.0))));
 
 		self::register("raw_copper", new Opaque(new BID(Ids::RAW_COPPER), "Raw Copper Block", new Info(BreakInfo::pickaxe(5, ToolTier::STONE, 30.0))));
 		self::register("raw_gold", new Opaque(new BID(Ids::RAW_GOLD), "Raw Gold Block", new Info(BreakInfo::pickaxe(5, ToolTier::IRON, 30.0))));
@@ -1634,7 +1652,8 @@ final class VanillaBlocks{
 		self::register("cut_copper", new Copper(new BID(Ids::CUT_COPPER), "Cut Copper Block", $copperBreakInfo));
 		self::register("cut_copper_slab", new CopperSlab(new BID(Ids::CUT_COPPER_SLAB), "Cut Copper Slab", $copperBreakInfo));
 		self::register("cut_copper_stairs", new CopperStairs(new BID(Ids::CUT_COPPER_STAIRS), "Cut Copper Stairs", $copperBreakInfo));
-self::register("copper_bulb", new CopperBulb(new BID(Ids::COPPER_BULB), "Copper Bulb", $copperBreakInfo));
+		self::register("copper_bulb", new CopperBulb(new BID(Ids::COPPER_BULB), "Copper Bulb", $copperBreakInfo));
+
 		$copperDoorBreakInfo = new Info(BreakInfo::pickaxe(3.0, ToolTier::STONE, 30.0));
 		self::register("copper_door", new CopperDoor(new BID(Ids::COPPER_DOOR), "Copper Door", $copperDoorBreakInfo));
 		self::register("copper_trapdoor", new CopperTrapdoor(new BID(Ids::COPPER_TRAPDOOR), "Copper Trapdoor", $copperDoorBreakInfo));
@@ -1673,6 +1692,27 @@ self::register("copper_bulb", new CopperBulb(new BID(Ids::COPPER_BULB), "Copper 
 		self::register("mud_brick_wall", new Wall(new BID(Ids::MUD_BRICK_WALL), "Mud Brick Wall", $mudBricksBreakInfo));
 	}
 
+	private static function registerTuffBlocks() : void{
+		$tuffBreakInfo = new Info(BreakInfo::pickaxe(1.5, ToolTier::WOOD, 30.0));
+
+		self::register("tuff", new Opaque(new BID(Ids::TUFF), "Tuff", $tuffBreakInfo));
+		self::register("tuff_slab", new Slab(new BID(Ids::TUFF_SLAB), "Tuff", $tuffBreakInfo));
+		self::register("tuff_stairs", new Stair(new BID(Ids::TUFF_STAIRS), "Tuff Stairs", $tuffBreakInfo));
+		self::register("tuff_wall", new Wall(new BID(Ids::TUFF_WALL), "Tuff Wall", $tuffBreakInfo));
+		self::register("chiseled_tuff", new Opaque(new BID(Ids::CHISELED_TUFF), "Chiseled Tuff", $tuffBreakInfo));
+
+		self::register("tuff_bricks", new Opaque(new BID(Ids::TUFF_BRICKS), "Tuff Bricks", $tuffBreakInfo));
+		self::register("tuff_brick_slab", new Slab(new BID(Ids::TUFF_BRICK_SLAB), "Tuff Brick", $tuffBreakInfo));
+		self::register("tuff_brick_stairs", new Stair(new BID(Ids::TUFF_BRICK_STAIRS), "Tuff Brick Stairs", $tuffBreakInfo));
+		self::register("tuff_brick_wall", new Wall(new BID(Ids::TUFF_BRICK_WALL), "Tuff Brick Wall", $tuffBreakInfo));
+		self::register("chiseled_tuff_bricks", new Opaque(new BID(Ids::CHISELED_TUFF_BRICKS), "Chiseled Tuff Bricks", $tuffBreakInfo));
+
+		self::register("polished_tuff", new Opaque(new BID(Ids::POLISHED_TUFF), "Polished Tuff", $tuffBreakInfo));
+		self::register("polished_tuff_slab", new Slab(new BID(Ids::POLISHED_TUFF_SLAB), "Polished Tuff", $tuffBreakInfo));
+		self::register("polished_tuff_stairs", new Stair(new BID(Ids::POLISHED_TUFF_STAIRS), "Polished Tuff Stairs", $tuffBreakInfo));
+		self::register("polished_tuff_wall", new Wall(new BID(Ids::POLISHED_TUFF_WALL), "Polished Tuff Wall", $tuffBreakInfo));
+	}
+
 	private static function registerCauldronBlocks() : void{
 		$cauldronBreakInfo = new Info(BreakInfo::pickaxe(2, ToolTier::WOOD));
 
@@ -1680,22 +1720,5 @@ self::register("copper_bulb", new CopperBulb(new BID(Ids::COPPER_BULB), "Copper 
 		self::register("water_cauldron", new WaterCauldron(new BID(Ids::WATER_CAULDRON, TileCauldron::class), "Water Cauldron", $cauldronBreakInfo));
 		self::register("lava_cauldron", new LavaCauldron(new BID(Ids::LAVA_CAULDRON, TileCauldron::class), "Lava Cauldron", $cauldronBreakInfo));
 		self::register("potion_cauldron", new PotionCauldron(new BID(Ids::POTION_CAULDRON, TileCauldron::class), "Potion Cauldron", $cauldronBreakInfo));
-	}
-	private static function registerTuffBlocks() : void{
-		$tuffBreakInfo = new Info(BreakInfo::pickaxe(1.5, ToolTier::WOOD, 30.0));
-		self::register("tuff", new Opaque(new BID(Ids::TUFF), "Tuff", $tuffBreakInfo));
-		self::register("tuff_slab", new Slab(new BID(Ids::TUFF_SLAB), "Tuff", $tuffBreakInfo));
-		self::register("tuff_stairs", new Stair(new BID(Ids::TUFF_STAIRS), "Tuff Stairs", $tuffBreakInfo));
-		self::register("tuff_wall", new Wall(new BID(Ids::TUFF_WALL), "Tuff Wall", $tuffBreakInfo));
-		self::register("chiseled_tuff", new Opaque(new BID(Ids::CHISELED_TUFF), "Chiseled Tuff", $tuffBreakInfo));
-		self::register("tuff_bricks", new Opaque(new BID(Ids::TUFF_BRICKS), "Tuff Bricks", $tuffBreakInfo));
-		self::register("tuff_brick_slab", new Slab(new BID(Ids::TUFF_BRICK_SLAB), "Tuff Brick", $tuffBreakInfo));
-		self::register("tuff_brick_stairs", new Stair(new BID(Ids::TUFF_BRICK_STAIRS), "Tuff Brick Stairs", $tuffBreakInfo));
-		self::register("tuff_brick_wall", new Wall(new BID(Ids::TUFF_BRICK_WALL), "Tuff Brick Wall", $tuffBreakInfo));
-		self::register("chiseled_tuff_bricks", new Opaque(new BID(Ids::CHISELED_TUFF_BRICKS), "Chiseled Tuff Bricks", $tuffBreakInfo));
-		self::register("polished_tuff", new Opaque(new BID(Ids::POLISHED_TUFF), "Polished Tuff", $tuffBreakInfo));
-		self::register("polished_tuff_slab", new Slab(new BID(Ids::POLISHED_TUFF_SLAB), "Polished Tuff", $tuffBreakInfo));
-		self::register("polished_tuff_stairs", new Stair(new BID(Ids::POLISHED_TUFF_STAIRS), "Polished Tuff Stairs", $tuffBreakInfo));
-		self::register("polished_tuff_wall", new Wall(new BID(Ids::POLISHED_TUFF_WALL), "Polished Tuff Wall", $tuffBreakInfo));
 	}
 }
