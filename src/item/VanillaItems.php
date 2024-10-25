@@ -27,7 +27,6 @@ use pocketmine\block\utils\RecordType;
 use pocketmine\block\VanillaBlocks as Blocks;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Location;
-use pocketmine\entity\Salmon;
 use pocketmine\entity\Squid;
 use pocketmine\entity\Villager;
 use pocketmine\entity\Zombie;
@@ -284,7 +283,6 @@ use function strtolower;
  * @method static Redstone REDSTONE_DUST()
  * @method static Item RIB_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static RottenFlesh ROTTEN_FLESH()
- * @method static SpawnEgg SALMON_SPAWN_EGG()
  * @method static Item SCUTE()
  * @method static Item SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE()
  * @method static Item SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE()
@@ -593,18 +591,13 @@ final class VanillaItems{
 			}
 		});
 		self::register("squid_spawn_egg", new class(new IID(Ids::SQUID_SPAWN_EGG), "Squid Spawn Egg") extends SpawnEgg{
-			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
 				return new Squid(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
 		self::register("villager_spawn_egg", new class(new IID(Ids::VILLAGER_SPAWN_EGG), "Villager Spawn Egg") extends SpawnEgg{
-			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
 				return new Villager(Location::fromObject($pos, $world, $yaw, $pitch));
-			}
-		});
-		self::register("salmon_spawn_egg", new class(new IID(Ids::SALMON_SPAWN_EGG), "Salmon Spawn Egg") extends SpawnEgg{
-			public function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
-				return new Salmon(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
 	}
