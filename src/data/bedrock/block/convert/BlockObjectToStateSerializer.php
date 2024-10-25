@@ -754,16 +754,16 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 			$this->map($block, fn(Sapling $block) => Helper::encodeSapling($block, new Writer($id)));
 		}
 	}
-	
+
 	private function registerMobHeadSerializers() : void{
 	  $this->map(Blocks::MOB_HEAD(), fn(MobHead $block) => Writer::create(match ($block->getMobHeadType()){
-	    MobHeadType::CREEPER => Ids::CREEPER_HEAD,
-	    MobHeadType::DRAGON => Ids::DRAGON_HEAD,
-	    MobHeadType::PIGLIN => Ids::PIGLIN_HEAD,
-	    MobHeadType::PLAYER => Ids::PLAYER_HEAD,
-	    MobHeadType::SKELETON => Ids::SKELETON_SKULL,
-	    MobHeadType::WITHER_SKELETON => Ids::WITHER_SKELETON_SKULL,
-	    MobHeadType::ZOMBIE => Ids::ZOMBIE_HEAD,
+		MobHeadType::CREEPER => Ids::CREEPER_HEAD,
+		MobHeadType::DRAGON => Ids::DRAGON_HEAD,
+		MobHeadType::PIGLIN => Ids::PIGLIN_HEAD,
+		MobHeadType::PLAYER => Ids::PLAYER_HEAD,
+		MobHeadType::SKELETON => Ids::SKELETON_SKULL,
+		MobHeadType::WITHER_SKELETON => Ids::WITHER_SKELETON_SKULL,
+		MobHeadType::ZOMBIE => Ids::ZOMBIE_HEAD,
 	  })->writeFacingWithoutDown($block->getFacing()));
 	}
 
