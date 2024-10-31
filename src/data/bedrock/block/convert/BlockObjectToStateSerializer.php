@@ -627,6 +627,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapSlab(Blocks::CHERRY_SLAB(), Ids::CHERRY_SLAB, Ids::CHERRY_DOUBLE_SLAB);
 		$this->mapStairs(Blocks::CHERRY_STAIRS(), Ids::CHERRY_STAIRS);
 		$this->mapLog(Blocks::CHERRY_WOOD(), Ids::CHERRY_WOOD, Ids::STRIPPED_CHERRY_WOOD);
+
 		$this->map(Blocks::CRIMSON_BUTTON(), fn(Button $block) => Helper::encodeButton($block, new Writer(Ids::CRIMSON_BUTTON)));
 		$this->map(Blocks::CRIMSON_DOOR(), fn(Door $block) => Helper::encodeDoor($block, new Writer(Ids::CRIMSON_DOOR)));
 		$this->map(Blocks::CRIMSON_FENCE_GATE(), fn(FenceGate $block) => Helper::encodeFenceGate($block, new Writer(Ids::CRIMSON_FENCE_GATE)));
@@ -681,7 +682,8 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapSimple(Blocks::MANGROVE_PLANKS(), Ids::MANGROVE_PLANKS);
 		$this->mapSlab(Blocks::MANGROVE_SLAB(), Ids::MANGROVE_SLAB, Ids::MANGROVE_DOUBLE_SLAB);
 		$this->mapStairs(Blocks::MANGROVE_STAIRS(), Ids::MANGROVE_STAIRS);
-		$this->mapSimple(Blocks::MANGROVE_WOOD(), Ids::MANGROVE_WOOD, Ids::STRIPPED_MANGROVE_WOOD);
+		$this->mapLog(Blocks::MANGROVE_WOOD(), Ids::MANGROVE_WOOD, Ids::STRIPPED_MANGROVE_WOOD);
+
 		$this->map(Blocks::OAK_BUTTON(), fn(WoodenButton $block) => Helper::encodeButton($block, new Writer(Ids::WOODEN_BUTTON)));
 		$this->map(Blocks::OAK_DOOR(), fn(WoodenDoor $block) => Helper::encodeDoor($block, new Writer(Ids::WOODEN_DOOR)));
 		$this->map(Blocks::OAK_FENCE_GATE(), fn(FenceGate $block) => Helper::encodeFenceGate($block, new Writer(Ids::FENCE_GATE)));
@@ -756,15 +758,15 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 	}
 
 	private function registerMobHeadSerializers() : void{
-	  $this->map(Blocks::MOB_HEAD(), fn(MobHead $block) => Writer::create(match ($block->getMobHeadType()){
-		MobHeadType::CREEPER => Ids::CREEPER_HEAD,
-		MobHeadType::DRAGON => Ids::DRAGON_HEAD,
-		MobHeadType::PIGLIN => Ids::PIGLIN_HEAD,
-		MobHeadType::PLAYER => Ids::PLAYER_HEAD,
-		MobHeadType::SKELETON => Ids::SKELETON_SKULL,
-		MobHeadType::WITHER_SKELETON => Ids::WITHER_SKELETON_SKULL,
-		MobHeadType::ZOMBIE => Ids::ZOMBIE_HEAD,
-	  })->writeFacingWithoutDown($block->getFacing()));
+		$this->map(Blocks::MOB_HEAD(), fn(MobHead $block) => Writer::create(match ($block->getMobHeadType()){
+			MobHeadType::CREEPER => Ids::CREEPER_HEAD,
+			MobHeadType::DRAGON => Ids::DRAGON_HEAD,
+			MobHeadType::PIGLIN => Ids::PIGLIN_HEAD,
+			MobHeadType::PLAYER => Ids::PLAYER_HEAD,
+			MobHeadType::SKELETON => Ids::SKELETON_SKULL,
+			MobHeadType::WITHER_SKELETON => Ids::WITHER_SKELETON_SKULL,
+			MobHeadType::ZOMBIE => Ids::ZOMBIE_HEAD,
+		})->writeFacingWithoutDown($block->getFacing()));
 	}
 
 	private function registerSimpleSerializers() : void{
@@ -1070,7 +1072,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeBool(StateNames::RAIL_DATA_BIT, $block->isPowered())
 				->writeInt(StateNames::RAIL_DIRECTION, $block->getShape());
 		});
-		$this->map(Blocks::ALL_SIDED_MUSHROOM_STEM(), fn() => Writer::create(Ids::BROWN_MUSHROOM_BLOCK)
+		$this->map(Blocks::ALL_SIDED_MUSHROOM_STEM(), fn() => Writer::create(Ids::MUSHROOM_STEM)
 				->writeInt(StateNames::HUGE_MUSHROOM_BITS, BlockLegacyMetadata::MUSHROOM_BLOCK_ALL_STEM));
 		$this->map(Blocks::AMETHYST_CLUSTER(), fn(AmethystCluster $block) => Writer::create(
 			match($stage = $block->getStage()){
@@ -1486,7 +1488,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->map(Blocks::MUD_BRICK_WALL(), fn(Wall $block) => Helper::encodeWall($block, new Writer(Ids::MUD_BRICK_WALL)));
 		$this->map(Blocks::MUDDY_MANGROVE_ROOTS(), fn(SimplePillar $block) => Writer::create(Ids::MUDDY_MANGROVE_ROOTS)
 				->writePillarAxis($block->getAxis()));
-		$this->map(Blocks::MUSHROOM_STEM(), fn() => Writer::create(Ids::BROWN_MUSHROOM_BLOCK)
+		$this->map(Blocks::MUSHROOM_STEM(), fn() => Writer::create(Ids::MUSHROOM_STEM)
 				->writeInt(StateNames::HUGE_MUSHROOM_BITS, BlockLegacyMetadata::MUSHROOM_BLOCK_STEM));
 		$this->mapSlab(Blocks::NETHER_BRICK_SLAB(), Ids::NETHER_BRICK_SLAB, Ids::NETHER_BRICK_DOUBLE_SLAB);
 		$this->mapStairs(Blocks::NETHER_BRICK_STAIRS(), Ids::NETHER_BRICK_STAIRS);
