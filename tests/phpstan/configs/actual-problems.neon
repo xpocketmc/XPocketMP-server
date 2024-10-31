@@ -270,6 +270,11 @@ parameters:
 			count: 1
 			path: ../../../src/block/Ice.php
 
+		- 
+			message: "#^Match expression does not handle remaining values\\: pocketmine\\\\crafting\\\\FurnaceType\\:\\:CAMPFIRE\\|pocketmine\\\\crafting\\\\FurnaceType\\:\\:SOUL_CAMPFIRE$#"
+			count: 1
+			path: ../../../src/network/mcpe/InventoryManager.php
+
 		-
 			message: "#^Parameter \\#1 \\$x of static method pocketmine\\\\world\\\\World\\:\\:blockHash\\(\\) expects int, float\\|int given\\.$#"
 			count: 1
