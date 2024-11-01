@@ -86,7 +86,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->registerLeavesDeserializers();
 		$this->registerSaplingDeserializers();
 		$this->registerLightDeserializers();
-		$this->registerMobHeadDeserializers()
+		$this->registerMobHeadDeserializers();
 		$this->registerSimpleDeserializers();
 		$this->registerDeserializers();
 	}
