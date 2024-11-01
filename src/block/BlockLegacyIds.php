@@ -17,7 +17,7 @@ class BlockLegacyIds {
   public const ACACIA_LOG = 6;
   public const ACACIA_PLANKS = 7;
   public const ACACIA_PRESSURE_PLATE = 8;
-	public const ACACIA_SAPLING = 09;
+	public const ACACIA_SAPLING = 9;
 	public const ACACIA_SIGN = 10;
 	public const ACACIA_SLAB = 11;
 	public const ACACIA_STAIRS = 12;
