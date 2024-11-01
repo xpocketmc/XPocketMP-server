@@ -1561,10 +1561,6 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 				->setCount($in->readBoundedInt(StateNames::CLUSTER_COUNT, 0, 3) + 1)
 				->setUnderwater(!$in->readBool(StateNames::DEAD_BIT));
 		});
-		$this->map(Ids::SKULL, function(Reader $in) : Block{
-			return Blocks::MOB_HEAD()
-				->setFacing($in->readFacingWithoutDown());
-		});
 		$this->map(Ids::SMOKER, function(Reader $in) : Block{
 			return Blocks::SMOKER()
 				->setFacing($in->readCardinalHorizontalFacing())
