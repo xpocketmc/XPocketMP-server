@@ -9,6 +9,7 @@ on:
 
 jobs:
   bump_version:
+    name: Dump Version
     runs-on: ubuntu-latest
 
     steps:
