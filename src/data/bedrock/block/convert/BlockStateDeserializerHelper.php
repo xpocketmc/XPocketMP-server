@@ -32,6 +32,7 @@ use pocketmine\block\CopperDoor;
 use pocketmine\block\CopperGrate;
 use pocketmine\block\CopperSlab;
 use pocketmine\block\CopperStairs;
+use pocketmine\block\CopperTrapdoor;
 use pocketmine\block\Crops;
 use pocketmine\block\DaylightSensor;
 use pocketmine\block\Door;
