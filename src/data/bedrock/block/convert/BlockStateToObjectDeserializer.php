@@ -45,6 +45,7 @@ use pocketmine\block\utils\DripleafState;
 use pocketmine\block\utils\DyeColor;
 use pocketmine\block\utils\FroglightType;
 use pocketmine\block\utils\LeverFacing;
+use pocketmine\block\utils\MobHeadType;
 use pocketmine\block\VanillaBlocks as Blocks;
 use pocketmine\block\Wood;
 use pocketmine\data\bedrock\block\BlockLegacyMetadata;
@@ -85,6 +86,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->registerLeavesDeserializers();
 		$this->registerSaplingDeserializers();
 		$this->registerLightDeserializers();
+		$this->registerMobHeadDeserializers()
 		$this->registerSimpleDeserializers();
 		$this->registerDeserializers();
 	}
@@ -1785,5 +1787,19 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$block = $this->deserializeFuncs[$id]($reader);
 		$reader->checkUnreadProperties();
 		return $block;
+	}
+
+	private function registerMobHeadDeserializers() : void{
+		foreach([
+			Ids::CREEPER_HEAD => MobHeadType::CREEPER,
+			Ids::DRAGON_HEAD => MobHeadType::DRAGON,
+			Ids::PIGLIN_HEAD => MobHeadType::PIGLIN,
+			Ids::PLAYER_HEAD => MobHeadType::PLAYER,
+			Ids::SKELETON_SKULL => MobHeadType::SKELETON,
+			Ids::WITHER_SKELETON_SKULL => MobHeadType::WITHER_SKELETON,
+			Ids::ZOMBIE_HEAD => MobHeadType::ZOMBIE
+		] as $id => $mobHeadType){
+			$this->map($id, fn(Reader $in) => Blocks::MOB_HEAD()->setMobHeadType($mobHeadType)->setFacing($in->readFacingWithoutDown()));
+		}
 	}
 }
