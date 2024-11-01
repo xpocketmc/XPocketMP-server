@@ -25,7 +25,7 @@ jobs:
         run: |
           # Mengganti nilai BASE_VERSION dengan versi baru yang diberikan
           sed -i "s/BASE_VERSION = \".*\";/BASE_VERSION = \"${{ github.event.inputs.new_version }}\";/g" src/VersionInfo.php
-          sed -i "s/API = \".*\";API = \"${{ github.event.inputs.api }}\";/g" src/VersionInfo.php
+          sed -i "s/API = \".*\";/API = \"${{ github.event.inputs.api }}\";/g" src/VersionInfo.php
       - name: Commit and Push Changes
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
