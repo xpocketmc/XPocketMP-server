@@ -533,10 +533,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->mapSimple(Ids::CHERRY_PLANKS, fn() => Blocks::CHERRY_PLANKS());
 		$this->mapSlab(Ids::CHERRY_SLAB, Ids::CHERRY_DOUBLE_SLAB, fn() => Blocks::CHERRY_SLAB());
 		$this->mapStairs(Ids::CHERRY_STAIRS, fn() => Blocks::CHERRY_STAIRS());
-		$this->map(Ids::CHERRY_WOOD, function(Reader $in){
-			$in->ignored(StateNames::STRIPPED_BIT); //this is also ignored by vanilla
-			return Helper::decodeLog(Blocks::CHERRY_WOOD(), false, $in);
-		});
+		$this->map(Ids::CHERRY_WOOD, fn(Reader $in) => Helper::decodeLog(Blocks::CHERRY_WOOD(), false, $in));
 		$this->map(Ids::STRIPPED_CHERRY_WOOD, fn(Reader $in) => Helper::decodeLog(Blocks::CHERRY_WOOD(), true, $in));
 
 		$this->map(Ids::CRIMSON_BUTTON, fn(Reader $in) => Helper::decodeButton(Blocks::CRIMSON_BUTTON(), $in));
