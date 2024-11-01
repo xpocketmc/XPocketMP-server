@@ -174,6 +174,7 @@ use pocketmine\block\WoodenPressurePlate;
 use pocketmine\block\WoodenStairs;
 use pocketmine\block\WoodenTrapdoor;
 use pocketmine\block\Wool;
+use pocketmine\block\utils\MobHeadType;
 use pocketmine\data\bedrock\block\BlockLegacyMetadata;
 use pocketmine\data\bedrock\block\BlockStateData;
 use pocketmine\data\bedrock\block\BlockStateNames as StateNames;
@@ -211,6 +212,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->registerFlatWoodBlockSerializers();
 		$this->registerLeavesSerializers();
 		$this->registerSaplingSerializers();
+		$this->registerMobHeadSerializers();
 		$this->registerSimpleSerializers();
 		$this->registerSerializers();
 	}
@@ -630,17 +632,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapSimple(Blocks::CHERRY_PLANKS(), Ids::CHERRY_PLANKS);
 		$this->mapSlab(Blocks::CHERRY_SLAB(), Ids::CHERRY_SLAB, Ids::CHERRY_DOUBLE_SLAB);
 		$this->mapStairs(Blocks::CHERRY_STAIRS(), Ids::CHERRY_STAIRS);
-		$this->map(Blocks::CHERRY_WOOD(), function(Wood $block) : Writer{
-			//we can't use the standard method for this because cherry_wood has a useless property attached to it
-			if(!$block->isStripped()){
-				return Writer::create(Ids::CHERRY_WOOD)
-					->writePillarAxis($block->getAxis())
-					->writeBool(StateNames::STRIPPED_BIT, false); //this is useless, but it has to be written
-			}else{
-				return Writer::create(Ids::STRIPPED_CHERRY_WOOD)
-					->writePillarAxis($block->getAxis());
-			}
-		});
+		$this->mapLog(Blocks::CHERRY_WOOD(), Ids::CHERRY_WOOD(), Ids::STRIPPED_CHERRY_WOOD);
 
 		$this->map(Blocks::CRIMSON_BUTTON(), fn(Button $block) => Helper::encodeButton($block, new Writer(Ids::CRIMSON_BUTTON)));
 		$this->map(Blocks::CRIMSON_DOOR(), fn(Door $block) => Helper::encodeDoor($block, new Writer(Ids::CRIMSON_DOOR)));
@@ -696,18 +688,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapSimple(Blocks::MANGROVE_PLANKS(), Ids::MANGROVE_PLANKS);
 		$this->mapSlab(Blocks::MANGROVE_SLAB(), Ids::MANGROVE_SLAB, Ids::MANGROVE_DOUBLE_SLAB);
 		$this->mapStairs(Blocks::MANGROVE_STAIRS(), Ids::MANGROVE_STAIRS);
-		$this->map(Blocks::MANGROVE_WOOD(), function(Wood $block) : Writer{
-			//we can't use the standard method for this because mangrove_wood has a useless property attached to it
-			if(!$block->isStripped()){
-				return Writer::create(Ids::MANGROVE_WOOD)
-					->writePillarAxis($block->getAxis())
-					->writeBool(StateNames::STRIPPED_BIT, false); //this is useless, but it has to be written
-			}else{
-				return Writer::create(Ids::STRIPPED_MANGROVE_WOOD)
-					->writePillarAxis($block->getAxis());
-			}
-		});
-
+		$this->map(Blocks::MANGROVE_WOOD(), Ids::MANGROVE_WOOD(), Ids::STRIPPED_MANGROVE_WOOD);
 		$this->map(Blocks::OAK_BUTTON(), fn(WoodenButton $block) => Helper::encodeButton($block, new Writer(Ids::WOODEN_BUTTON)));
 		$this->map(Blocks::OAK_DOOR(), fn(WoodenDoor $block) => Helper::encodeDoor($block, new Writer(Ids::WOODEN_DOOR)));
 		$this->map(Blocks::OAK_FENCE_GATE(), fn(FenceGate $block) => Helper::encodeFenceGate($block, new Writer(Ids::FENCE_GATE)));
