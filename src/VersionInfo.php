@@ -31,7 +31,7 @@ use function str_repeat;
 
 final class VersionInfo{
 	public const NAME = "XPocketMP";
-	public const BASE_VERSION = "5.22.0";
+	public const BASE_VERSION = "1.2.1-release.alpha.1321";
 	public const IS_DEVELOPMENT_BUILD = false;
 	public const BUILD_CHANNEL = "stable";
 
