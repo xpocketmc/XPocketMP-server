@@ -762,6 +762,18 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		}
 	}
 
+	private function registerMobHeadSerializers() : void{
+		$this->map(Blocks::MOB_HEAD(), fn(MobHead $block) => Writer::create(match ($block->getMobHeadType()){
+			MobHeadType::CREEPER => Ids::CREEPER_HEAD,
+			MobHeadType::DRAGON => Ids::DRAGON_HEAD,
+			MobHeadType::PIGLIN => Ids::PIGLIN_HEAD,
+			MobHeadType::PLAYER => Ids::PLAYER_HEAD,
+			MobHeadType::SKELETON => Ids::SKELETON_SKULL,
+			MobHeadType::WITHER_SKELETON => Ids::WITHER_SKELETON_SKULL,
+			MobHeadType::ZOMBIE => Ids::ZOMBIE_HEAD,
+		})->writeFacingWithoutDown($block->getFacing()));
+	}
+
 	private function registerSimpleSerializers() : void{
 		$this->mapSimple(Blocks::AIR(), Ids::AIR);
 		$this->mapSimple(Blocks::AMETHYST(), Ids::AMETHYST_BLOCK);
@@ -1070,7 +1082,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeInt(StateNames::RAIL_DIRECTION, $block->getShape());
 		});
 		$this->map(Blocks::ALL_SIDED_MUSHROOM_STEM(), fn() => Writer::create(Ids::BROWN_MUSHROOM_BLOCK)
-				->writeInt(StateNames::HUGE_MUSHROOM_BITS, BlockLegacyMetadata::MUSHROOM_BLOCK_ALL_STEM));
+				->writeInt(StateNames::HUGE_MUSHROOM_BITS, BlockLegacyMetadata::MUSHROOM_STEM));
 		$this->map(Blocks::AMETHYST_CLUSTER(), fn(AmethystCluster $block) => Writer::create(
 			match($stage = $block->getStage()){
 				AmethystCluster::STAGE_SMALL_BUD => Ids::SMALL_AMETHYST_BUD,
