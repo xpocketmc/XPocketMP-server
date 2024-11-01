@@ -7,6 +7,9 @@ on:
         description: 'Version to bump to (e.g., 5.21.2)'
         required: true
 
+permissions:
+  contents: write
+
 jobs:
   bump_version:
     name: Dump Version
@@ -23,7 +26,7 @@ jobs:
           
       - name: Commit and Push Changes
         env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           git config --global user.name "XPocketMP-bot"
           git config --global user.email "XPocketMP-bot@users.noreply.github.com"
