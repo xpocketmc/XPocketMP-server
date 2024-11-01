@@ -590,7 +590,6 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->mapSimple(Ids::MANGROVE_PLANKS, fn() => Blocks::MANGROVE_PLANKS());
 		$this->mapSlab(Ids::MANGROVE_SLAB, Ids::MANGROVE_DOUBLE_SLAB, fn() => Blocks::MANGROVE_SLAB());
 		$this->mapStairs(Ids::MANGROVE_STAIRS, fn() => Blocks::MANGROVE_STAIRS());
-		$this->map(Ids::CHERRY_WOOD, fn(Reader $in) => Helper::decodeLog(Blocks::CHERRY_WOOD(), false, $in));
 		$this->map(Ids::STRIPPED_MANGROVE_WOOD, fn(Reader $in) => Helper::decodeLog(Blocks::MANGROVE_WOOD(), true, $in));
 		$this->map(Ids::MUSHROOM_STEM, fn(Reader $in) => match($in->readBoundedInt(StateNames::HUGE_MUSHROOM_BITS, 0, 15)){
 			BlockLegacyMetadata::MUSHROOM_BLOCK_ALL_STEM => Blocks::ALL_SIDED_MUSHROOM_STEM(),
