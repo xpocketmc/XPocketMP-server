@@ -469,14 +469,6 @@ final class ItemSerializerDeserializerRegistrar{
 			},
 			fn(Bed $block) => DyeColorIdMap::getInstance()->toId($block->getColor())
 		);
-		$this->map1to1BlockWithMeta(
-			Ids::SKULL,
-			Blocks::MOB_HEAD(),
-			function(MobHead $block, int $meta) : void{
-				$block->setMobHeadType(MobHeadTypeIdMap::getInstance()->fromId($meta) ?? throw new ItemTypeDeserializeException("Unknown mob head type ID $meta"));
-			},
-			fn(MobHead $block) => MobHeadTypeIdMap::getInstance()->toId($block->getMobHeadType())
-		);
 	}
 
 	/**
@@ -543,10 +535,10 @@ final class ItemSerializerDeserializerRegistrar{
 	}
 
 	/**
-	 * Registers serializers and deserializers for PocketMine-MP blockitems that don't fit any other pattern.
+	 * Registers serializers and deserializers for XPocketMP blockitems that don't fit any other pattern.
 	 * Ideally we want to get rid of this completely, if possible.
 	 *
-	 * Most of these are single PocketMine-MP blocks which map to multiple IDs depending on their properties, which is
+	 * Most of these are single XPocketMP blocks which map to multiple IDs depending on their properties, which is
 	 * complex to implement in a generic way.
 	 */
 	private function registerMiscBlockMappings() : void{
