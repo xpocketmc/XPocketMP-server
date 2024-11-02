@@ -470,7 +470,7 @@ final class ItemTypeNames{
 	public const SILVERFISH_SPAWN_EGG = "minecraft:silverfish_spawn_egg";
 	public const SKELETON_HORSE_SPAWN_EGG = "minecraft:skeleton_horse_spawn_egg";
 	public const SKELETON_SPAWN_EGG = "minecraft:skeleton_spawn_egg";
-	public const SKELETON_SKULL = "minecraft:skeleton_skull";
+	public const SKULL = "minecraft:skull";
 	public const SKULL_BANNER_PATTERN = "minecraft:skull_banner_pattern";
 	public const SKULL_POTTERY_SHERD = "minecraft:skull_pottery_sherd";
 	public const SLIME_BALL = "minecraft:slime_ball";
