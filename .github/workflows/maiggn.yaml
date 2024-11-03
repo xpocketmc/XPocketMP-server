@@ -8,6 +8,9 @@ on:
         required: true
       api:
         description: 'API to bump to (e.g., 5)'
+        required: false
+      dev:
+        description: 'asdd'
 
 permissions:
   contents: write
@@ -26,6 +29,7 @@ jobs:
           # Mengganti nilai BASE_VERSION dengan versi baru yang diberikan
           sed -i "s/BASE_VERSION = \".*\";/BASE_VERSION = \"${{ github.event.inputs.new_version }}\";/g" src/VersionInfo.php
           sed -i "s/API = \".*\";/API = \"${{ github.event.inputs.api }}\";/g" src/VersionInfo.php
+          sed -i "s/IS_DEVELOPMENT_BUILD = \".*\";/IS_DEVELOPMENT_BUILD = \"${{ github.event.inputs.dev }}\";/g" src/VersionInfo.php
       - name: Commit and Push Changes
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
@@ -33,5 +37,5 @@ jobs:
           git config --global user.name "XPocketMP-bot"
           git config --global user.email "XPocketMP-bot@users.noreply.github.com"
           git add src/VersionInfo.php
-          git commit -m "Bump version to ${{ github.event.inputs.new_version }}"
+          git commit -m "${{ github.event.inputs.new_version }} is next"
           git push origin
