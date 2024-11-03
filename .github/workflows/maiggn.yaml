@@ -10,7 +10,8 @@ on:
         description: 'API to bump to (e.g., 5)'
         required: false
       dev:
-        description: 'asdd'
+        description: 'e.g., false or true'
+        required: true
 
 permissions:
   contents: write
