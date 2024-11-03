@@ -650,6 +650,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->map(Ids::DARK_OAK_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::DARK_OAK_LEAVES(), $in));
 		$this->map(Ids::JUNGLE_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::JUNGLE_LEAVES(), $in));
 		$this->map(Ids::MANGROVE_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::MANGROVE_LEAVES(), $in));
+		$this->map(Ids::MANGROVE_WOOD, fn(Reader $in) => Helper::decodeLog(Blocks::MANGROVE_WOOD(), false, $in));
 		$this->map(Ids::OAK_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::OAK_LEAVES(), $in));
 		$this->map(Ids::SPRUCE_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::SPRUCE_LEAVES(), $in));
 	}
