@@ -4,6 +4,10 @@ on:
   push:
     tags: "*"
 
+permissions:
+  contents: true
+  actions: true
+
 jobs:
   draft:
     name: Create GitHub draft release
