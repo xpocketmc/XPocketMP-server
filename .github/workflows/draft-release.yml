@@ -5,8 +5,7 @@ on:
     tags: "*"
 
 permissions:
-  contents: true
-  actions: true
+  contents: write
 
 jobs:
   draft:
