@@ -5,6 +5,9 @@ on:
     types:
       - published
 
+permissions:
+  contents: true
+  actions: true
 jobs:
   build:
     name: Update Docker Hub images
