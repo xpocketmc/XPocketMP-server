@@ -339,111 +339,107 @@ class PluginManager{
 			}
 		}
 	}
-/**
- * @return Plugin[]
- */
-public function loadPlugins(string $path, int &$loadErrorCount = 0) : array{
-    if($this->loadPluginsGuard){
-        throw new \LogicException(__METHOD__ . "() cannot be called from within itself");
-    }
-    $this->loadPluginsGuard = true;
 
-    $triage = new PluginLoadTriage();
-    $this->triagePlugins($path, $triage, $loadErrorCount);
+	/**
+	 * @return Plugin[]
+	 */
+	public function loadPlugins(string $path, int &$loadErrorCount = 0) : array{
+		if($this->loadPluginsGuard){
+			throw new \LogicException(__METHOD__ . "() cannot be called from within itself");
+		}
+		$this->loadPluginsGuard = true;
 
-    $loadedPlugins = [];
+		$triage = new PluginLoadTriage();
+		$this->triagePlugins($path, $triage, $loadErrorCount);
 
-    while(count($triage->plugins) > 0){
-        $loadedThisLoop = 0;
-        foreach(Utils::stringifyKeys($triage->plugins) as $name => $entry){
-            $this->checkDepsForTriage($name, "hard", $triage->dependencies, $loadedPlugins, $triage);
-            $this->checkDepsForTriage($name, "soft", $triage->softDependencies, $loadedPlugins, $triage);
+		$loadedPlugins = [];
 
-            if(!isset($triage->dependencies[$name]) && !isset($triage->softDependencies[$name])){
-                unset($triage->plugins[$name]);
-                $loadedThisLoop++;
+		while(count($triage->plugins) > 0){
+			$loadedThisLoop = 0;
+			foreach(Utils::stringifyKeys($triage->plugins) as $name => $entry){
+				$this->checkDepsForTriage($name, "hard", $triage->dependencies, $loadedPlugins, $triage);
+				$this->checkDepsForTriage($name, "soft", $triage->softDependencies, $loadedPlugins, $triage);
 
-                $oldRegisteredLoaders = $this->fileAssociations;
+				if(!isset($triage->dependencies[$name]) && !isset($triage->softDependencies[$name])){
+					unset($triage->plugins[$name]);
+					$loadedThisLoop++;
 
-                try {
-                    // Muat plugin dan tangani jika terjadi crash
-                    if(($plugin = $this->internalLoadPlugin($entry->getFile(), $entry->getLoader(), $entry->getDescription())) instanceof Plugin){
-                        $loadedPlugins[$name] = $plugin;
-                        $diffLoaders = [];
-                        foreach($this->fileAssociations as $k => $loader){
-                            if(!array_key_exists($k, $oldRegisteredLoaders)){
-                                $diffLoaders[] = $k;
-                            }
-                        }
-                        if(count($diffLoaders) !== 0){
-                            $this->server->getLogger()->debug("Plugin $name registered a new plugin loader during load, scanning for new plugins");
-                            $plugins = $triage->plugins;
-                            $this->triagePlugins($path, $triage, $loadErrorCount, $diffLoaders);
-                            $diffPlugins = array_diff_key($triage->plugins, $plugins);
-                            $this->server->getLogger()->debug("Re-triage found plugins: " . implode(", ", array_keys($diffPlugins)));
-                        }
-                    } else {
-                        $loadErrorCount++;
-                    }
-                } catch (\Throwable $e) {
-                    // Tangani plugin yang crash saat pemuatan
-                    $this->handlePluginCrash($name, $e);
-                    $loadErrorCount++;
-                }
-            }
-        }
+					$oldRegisteredLoaders = $this->fileAssociations;
+					if(($plugin = $this->internalLoadPlugin($entry->getFile(), $entry->getLoader(), $entry->getDescription())) instanceof Plugin){
+						$loadedPlugins[$name] = $plugin;
+						$diffLoaders = [];
+						foreach($this->fileAssociations as $k => $loader){
+							if(!array_key_exists($k, $oldRegisteredLoaders)){
+								$diffLoaders[] = $k;
+							}
+						}
+						if(count($diffLoaders) !== 0){
+							$this->server->getLogger()->debug("Plugin $name registered a new plugin loader during load, scanning for new plugins");
+							$plugins = $triage->plugins;
+							$this->triagePlugins($path, $triage, $loadErrorCount, $diffLoaders);
+							$diffPlugins = array_diff_key($triage->plugins, $plugins);
+							$this->server->getLogger()->debug("Re-triage found plugins: " . implode(", ", array_keys($diffPlugins)));
+						}
+					}else{
+						$loadErrorCount++;
+					}
+				}
+			}
 
-        if($loadedThisLoop === 0){
-            // Tidak ada plugin yang berhasil dimuat pada loop ini
+			if($loadedThisLoop === 0){
+				//No plugins loaded :(
 
-            // Proses soft dependencies untuk menghindari dependency yang tidak bisa di-resolve
-            foreach(Utils::stringifyKeys($triage->plugins) as $name => $file){
-                if(isset($triage->softDependencies[$name]) && !isset($triage->dependencies[$name])){
-                    foreach($triage->softDependencies[$name] as $k => $dependency){
-                        if($this->getPlugin($dependency) === null && !array_key_exists($dependency, $triage->plugins)){
-                            $this->server->getLogger()->debug("Skipping resolution of missing soft dependency \"$dependency\" for plugin \"$name\"");
-                            unset($triage->softDependencies[$name][$k]);
-                        }
-                    }
-                    if(count($triage->softDependencies[$name]) === 0){
-                        unset($triage->softDependencies[$name]);
-                        continue 2; // Kembali ke atas dan coba lagi
-                    }
-                }
-            }
+				//check for skippable soft dependencies first, in case the dependents could resolve hard dependencies
+				foreach(Utils::stringifyKeys($triage->plugins) as $name => $file){
+					if(isset($triage->softDependencies[$name]) && !isset($triage->dependencies[$name])){
+						foreach($triage->softDependencies[$name] as $k => $dependency){
+							if($this->getPlugin($dependency) === null && !array_key_exists($dependency, $triage->plugins)){
+								$this->server->getLogger()->debug("Skipping resolution of missing soft dependency \"$dependency\" for plugin \"$name\"");
+								unset($triage->softDependencies[$name][$k]);
+							}
+						}
+						if(count($triage->softDependencies[$name]) === 0){
+							unset($triage->softDependencies[$name]);
+							continue 2; //go back to the top and try again
+						}
+					}
+				}
 
-            foreach(Utils::stringifyKeys($triage->plugins) as $name => $file){
-                if(isset($triage->dependencies[$name])){
-                    $unknownDependencies = [];
+				foreach(Utils::stringifyKeys($triage->plugins) as $name => $file){
+					if(isset($triage->dependencies[$name])){
+						$unknownDependencies = [];
 
-                    foreach($triage->dependencies[$name] as $k => $dependency){
-                        if($this->getPlugin($dependency) === null && !array_key_exists($dependency, $triage->plugins)){
-                            $unknownDependencies[$dependency] = $dependency;
-                        }
-                    }
+						foreach($triage->dependencies[$name] as $k => $dependency){
+							if($this->getPlugin($dependency) === null && !array_key_exists($dependency, $triage->plugins)){
+								//assume that the plugin is never going to be loaded
+								//by this point all soft dependencies have been ignored if they were able to be, so
+								//there's no chance of this dependency ever being resolved
+								$unknownDependencies[$dependency] = $dependency;
+							}
+						}
 
-                    if(count($unknownDependencies) > 0){
-                        $this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_loadError(
-                            $name,
-                            KnownTranslationFactory::pocketmine_plugin_unknownDependency(implode(", ", $unknownDependencies))
-                        )));
-                        unset($triage->plugins[$name]);
-                        $loadErrorCount++;
-                    }
-                }
-            }
+						if(count($unknownDependencies) > 0){
+							$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_loadError(
+								$name,
+								KnownTranslationFactory::pocketmine_plugin_unknownDependency(implode(", ", $unknownDependencies))
+							)));
+							unset($triage->plugins[$name]);
+							$loadErrorCount++;
+						}
+					}
+				}
 
-            foreach(Utils::stringifyKeys($triage->plugins) as $name => $file){
-                $this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_loadError($name, KnownTranslationFactory::pocketmine_plugin_circularDependency())));
-                $loadErrorCount++;
-            }
-            break;
-        }
-    }
+				foreach(Utils::stringifyKeys($triage->plugins) as $name => $file){
+					$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_loadError($name, KnownTranslationFactory::pocketmine_plugin_circularDependency())));
+					$loadErrorCount++;
+				}
+				break;
+			}
+		}
 
-    $this->loadPluginsGuard = false;
-    return $loadedPlugins;
-}
+		$this->loadPluginsGuard = false;
+		return $loadedPlugins;
+	}
 
 	public function isPluginEnabled(Plugin $plugin) : bool{
 		return isset($this->plugins[$plugin->getDescription()->getName()]) && $plugin->isEnabled();
@@ -507,41 +503,27 @@ public function loadPlugins(string $path, int &$loadErrorCount = 0) : array{
 		}
 	}
 
-	/**
- * Handles a plugin crash by logging the error and disabling the crashed plugin.
- *
- * @param string $pluginName
- * @param \Throwable $e
- */
-private function handlePluginCrash(string $pluginName, \Throwable $e) : void {
-    // Log the error message and stack trace
-    $this->server->getLogger()->error("Plugin '{$pluginName}' encountered a crash: " . $e->getMessage());
-    $this->server->getLogger()->error("Error details: " . $e->getTraceAsString());
+	public function disablePlugin(Plugin $plugin) : void{
+		if($plugin->isEnabled()){
+			$this->server->getLogger()->info($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_disable($plugin->getDescription()->getFullName())));
+			(new PluginDisableEvent($plugin))->call();
 
-    // Disable only the crashed plugin if it is active
-    $plugin = $this->getPlugin($pluginName);
-    if ($plugin !== null && $plugin->isEnabled()) {
-        $this->disablePlugin($plugin);
-        $this->server->getLogger()->info("Plugin '{$pluginName}' has been disabled due to a crash.");
-    }
-}
+			unset($this->enabledPlugins[$plugin->getDescription()->getName()]);
+			foreach(Utils::stringifyKeys($this->pluginDependents) as $dependency => $dependentList){
+				if(isset($this->pluginDependents[$dependency][$plugin->getDescription()->getName()])){
+					if(count($this->pluginDependents[$dependency]) === 1){
+						unset($this->pluginDependents[$dependency]);
+					}else{
+						unset($this->pluginDependents[$dependency][$plugin->getDescription()->getName()]);
+					}
+				}
+			}
 
-/**
- * Disables a single plugin and handles dependent plugins.
- *
- * @param Plugin $plugin
- */
-private function disablePlugin(Plugin $plugin) : void {
-    $name = $plugin->getDescription()->getName();
-    if (isset($this->pluginDependents[$name]) && count($this->pluginDependents[$name]) > 0) {
-        $this->server->getLogger()->debug("Deferring disable of plugin $name due to dependent plugins still enabled: " . implode(", ", array_keys($this->pluginDependents[$name])));
-        return;
-    }
-
-    $plugin->onDisable(); // Assuming onDisable() manages actual shutdown
-    $plugin->setEnabled(false); // Assuming setEnabled() updates status
-    $this->server->getLogger()->info("Disabled plugin: " . $name);
-}
+			$plugin->onEnableStateChange(false);
+			$plugin->getScheduler()->shutdown();
+			HandlerListManager::global()->unregisterAll($plugin);
+		}
+	}
 
 	public function tickSchedulers(int $currentTick) : void{
 		foreach($this->enabledPlugins as $pluginName => $p){
