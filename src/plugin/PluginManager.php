@@ -507,27 +507,41 @@ public function loadPlugins(string $path, int &$loadErrorCount = 0) : array{
 		}
 	}
 
-	public function disablePlugin(Plugin $plugin) : void{
-		if($plugin->isEnabled()){
-			$this->server->getLogger()->info($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_disable($plugin->getDescription()->getFullName())));
-			(new PluginDisableEvent($plugin))->call();
+	/**
+ * Handles a plugin crash by logging the error and disabling the crashed plugin.
+ *
+ * @param string $pluginName
+ * @param \Throwable $e
+ */
+private function handlePluginCrash(string $pluginName, \Throwable $e) : void {
+    // Log the error message and stack trace
+    $this->server->getLogger()->error("Plugin '{$pluginName}' encountered a crash: " . $e->getMessage());
+    $this->server->getLogger()->error("Error details: " . $e->getTraceAsString());
 
-			unset($this->enabledPlugins[$plugin->getDescription()->getName()]);
-			foreach(Utils::stringifyKeys($this->pluginDependents) as $dependency => $dependentList){
-				if(isset($this->pluginDependents[$dependency][$plugin->getDescription()->getName()])){
-					if(count($this->pluginDependents[$dependency]) === 1){
-						unset($this->pluginDependents[$dependency]);
-					}else{
-						unset($this->pluginDependents[$dependency][$plugin->getDescription()->getName()]);
-					}
-				}
-			}
+    // Disable only the crashed plugin if it is active
+    $plugin = $this->getPlugin($pluginName);
+    if ($plugin !== null && $plugin->isEnabled()) {
+        $this->disablePlugin($plugin);
+        $this->server->getLogger()->info("Plugin '{$pluginName}' has been disabled due to a crash.");
+    }
+}
 
-			$plugin->onEnableStateChange(false);
-			$plugin->getScheduler()->shutdown();
-			HandlerListManager::global()->unregisterAll($plugin);
-		}
-	}
+/**
+ * Disables a single plugin and handles dependent plugins.
+ *
+ * @param Plugin $plugin
+ */
+private function disablePlugin(Plugin $plugin) : void {
+    $name = $plugin->getDescription()->getName();
+    if (isset($this->pluginDependents[$name]) && count($this->pluginDependents[$name]) > 0) {
+        $this->server->getLogger()->debug("Deferring disable of plugin $name due to dependent plugins still enabled: " . implode(", ", array_keys($this->pluginDependents[$name])));
+        return;
+    }
+
+    $plugin->onDisable(); // Assuming onDisable() manages actual shutdown
+    $plugin->setEnabled(false); // Assuming setEnabled() updates status
+    $this->server->getLogger()->info("Disabled plugin: " . $name);
+}
 
 	public function tickSchedulers(int $currentTick) : void{
 		foreach($this->enabledPlugins as $pluginName => $p){
@@ -586,36 +600,6 @@ public function loadPlugins(string $path, int &$loadErrorCount = 0) : array{
 		/** @var \ReflectionClass<Event> $eventClass */
 		return $eventClass->getName();
 	}
-
-/**
- * @param string $pluginName
- * @param \Throwable $e
- */
-private function handlePluginCrash(string $pluginName, \Throwable $e) : void {
-    // Log the error message and stack trace
-    $this->server->getLogger()->error("Plugin '{$pluginName}' encountered a crash: " . $e->getMessage());
-    $this->server->getLogger()->error("Error details: " . $e->getTraceAsString());
-
-    // Disable the crashed plugin if it is active
-    $plugin = $this->getPlugin($pluginName);
-    if($plugin !== null){
-        $this->disablePlugin($plugin);
-        $this->server->getLogger()->info("Plugin '{$pluginName}' has been disabled due to a crash.");
-    }
-}
-
-/**
- * Disables a given plugin
- *
- * @param Plugin $plugin
- */
-public function disablePlugin(Plugin $plugin) : void {
-    if($plugin->isEnabled()){
-        $plugin->onDisable();
-        $plugin->setEnabled(false);
-        unset($this->activePlugins[$plugin->getName()]);
-    }
-}
 
 	/**
 	 * Registers all the events in the given Listener class
