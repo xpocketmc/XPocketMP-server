@@ -6,8 +6,8 @@ on:
       - published
 
 permissions:
-  contents: true
-  actions: true
+  contents: write
+
 jobs:
   build:
     name: Update Docker Hub images
