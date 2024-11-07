@@ -150,6 +150,8 @@ jobs:
       - name: Update generated code
         run: composer update-codegen
 
+      - run: generate-item-ids.php
+
       - name: Verify code is unchanged
         run: |
           git diff
