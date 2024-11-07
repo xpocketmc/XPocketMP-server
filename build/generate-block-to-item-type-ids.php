@@ -5,12 +5,12 @@ use pocketmine\nbt\NbtFormatException;
 use pocketmine\nbt\BigEndianNbtSerializer;
 use pocketmine\nbt\tag\CompoundTag;
 
-require_once __DIR__ . '/vendor/autoload.php'; // Pastikan autoload disesuaikan dengan struktur proyek
+require_once __DIR__ . '/../vendor/autoload.php'; // Pastikan autoload disesuaikan dengan struktur proyek
 
 // Path file input dan output
-$jsonInputFile = __DIR__ . '/vendor/pocketmine/bedrock-data/required_item_list.json';
-$nbtInputFile = __DIR__ . '/vendor/pocketmine/bedrock-data/canonical_block_states.nbt';
-$outputFile = __DIR__ . '/src/block/BlocktoItemTypeIds.php';
+$jsonInputFile = __DIR__ . '/../vendor/pocketmine/bedrock-data/required_item_list.json';
+$nbtInputFile = __DIR__ . '/../vendor/pocketmine/bedrock-data/canonical_block_states.nbt';
+$outputFile = __DIR__ . '/../src/block/BlocktoItemTypeIds.php';
 
 // Periksa apakah file JSON ada
 if (!file_exists($jsonInputFile)) {
