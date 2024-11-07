@@ -150,7 +150,7 @@ jobs:
       - name: Update generated code
         run: composer update-codegen
 
-      - run: build/generate-item-ids.php
+      - run: build/generate-block-to-item-type-ids.php
 
       - name: Verify code is unchanged
         run: |
