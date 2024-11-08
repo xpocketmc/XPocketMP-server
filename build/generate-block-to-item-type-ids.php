@@ -16,7 +16,7 @@ if ($requiredItemData === null) {
     die("Gagal menguraikan file JSON.\n");
 }
 
-$output = "<?php\n\nnamespace src\\block;\n\nclass BlocktoItemTypeIds {\n";
+$output = "<?php\n\nnamespace pocketmine\\block;\n\nclass BlocktoItemTypeIds {\n";
 
 foreach ($requiredItemData as $block => $itemType) {
     $constName = strtoupper(str_replace(' ', '_', $block)); // Convert block name to uppercase with underscores
