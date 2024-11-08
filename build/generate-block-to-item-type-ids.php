@@ -23,7 +23,7 @@ $output = "<?php\n\nnamespace pocketmine\\block;\n\nclass BlocktoItemTypeIds {\n
 foreach ($requiredItemData as $block => $itemType) {
     $constName = strtoupper(str_replace(' ', '_', $block)); 
     $output .= "    public const {$constName} = 'minecraft:{$itemType}';\n";
-    $output .= "    public const MAIN = minecraft:main";
+    $output .= "    public const MAIN = 'minecraft:main';\n";
 }
 
 $output .= "}\n";
