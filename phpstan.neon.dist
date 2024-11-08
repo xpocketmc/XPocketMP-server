@@ -23,13 +23,11 @@ parameters:
 	bootstrapFiles:
 		- tests/phpstan/bootstrap.php
 	scanDirectories:
-		- build
 		- tests/plugins/TesterPlugin
 		- tools
 	scanFiles:
 		- src/XPocketMP.php
 	paths:
-		- build
 		- src
 		- tests/phpstan/rules
 		- tests/phpunit
