@@ -21,8 +21,9 @@ if ($requiredItemData === null) {
 $output = "<?php\n\nnamespace pocketmine\\block;\n\nclass BlocktoItemTypeIds {\n";
 
 foreach ($requiredItemData as $block => $itemType) {
-    $constName = strtoupper(str_replace(' ', '_', $block)); // Convert block name to uppercase with underscores
+    $constName = strtoupper(str_replace(' ', '_', $block)); 
     $output .= "    public const {$constName} = 'minecraft:{$itemType}';\n";
+    $output .= "    public const MAIN = minecraft:main";
 }
 
 $output .= "}\n";
