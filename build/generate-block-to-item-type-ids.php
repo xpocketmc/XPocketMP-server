@@ -23,11 +23,7 @@ $requiredItemData = json_decode($jsonData, true);
 // Periksa apakah data JSON berhasil di-decode
 if ($requiredItemData === null) {
     die("Gagal menguraikan file JSON.\n");
-}
-
-// Periksa apakah file NBT ada
-if (!file_exists($nbtInputFile)) {
-    die("File $nbtInputFile tidak ditemukan.\n");
+	exit(1);
 }
 
 // Mulai menulis ke file output
