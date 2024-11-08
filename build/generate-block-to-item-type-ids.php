@@ -1,4 +1,4 @@
-<?php
+p<?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -7,6 +7,7 @@ $outputFile = __DIR__ . '/../src/block/BlocktoItemTypeIds.php';
 
 if (!file_exists($jsonInputFile)) {
     die("File $jsonInputFile tidak ditemukan.\n");
+	exit();
 }
 
 $jsonData = file_get_contents($jsonInputFile);
@@ -14,6 +15,7 @@ $requiredItemData = json_decode($jsonData, true);
 
 if ($requiredItemData === null) {
     die("Gagal menguraikan file JSON.\n");
+	exit(1);
 }
 
 $output = "<?php\n\nnamespace pocketmine\\block;\n\nclass BlocktoItemTypeIds {\n";
