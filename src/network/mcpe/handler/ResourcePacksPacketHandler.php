@@ -105,6 +105,7 @@ class ResourcePacksPacketHandler extends PacketHandler{
 
 			return new ResourcePackInfoEntry(
 			  $packId,
+			  $worldTemplateVersion,
 				$pack->getPackId(),
 				$pack->getPackVersion(),
 				$pack->getPackSize(),
