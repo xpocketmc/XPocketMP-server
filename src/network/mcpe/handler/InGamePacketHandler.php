@@ -162,9 +162,10 @@ class InGamePacketHandler extends PacketHandler{
 		return true;
 	}
 
-	private function resolveOnOffInputFlags(BitSet $inputFlags, int $startFlag, int $stopFlag) : ?bool{
-		$enabled = ($inputFlags & (1 << $startFlag)) !== 0;
-		$disabled = ($inputFlags & (1 << $stopFlag)) !== 0;
+	private function resolveOnOffInputFlags(?BitSet $inputFlags, int $startFlag, int $stopFlag) : ?bool{
+	  $flagsInt = $inputFlags->toInt();
+		$enabled = ($flagsInt & (1 << $startFlag)) !== 0;
+		$disabled = ($flagsInt & (1 << $stopFlag)) !== 0;
 		if($enabled !== $disabled){
 			return $enabled;
 		}
