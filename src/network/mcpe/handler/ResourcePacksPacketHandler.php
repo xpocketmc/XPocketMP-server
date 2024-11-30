@@ -73,6 +73,11 @@ class ResourcePacksPacketHandler extends PacketHandler{
 	private \SplQueue $requestQueue;
 
 	private int $activeRequests = 0;
+	
+	private UuidInterface $packId;
+	
+	private UuidInterface $worldTemplateId,
+	private string $worldTemplateVersion
 
 	/**
 	 * @param ResourcePack[] $resourcePackStack
@@ -88,13 +93,12 @@ class ResourcePacksPacketHandler extends PacketHandler{
 		private array $encryptionKeys,
 		private bool $mustAccept,
 		private \Closure $completionCallback,
-		private UuidInterface $worldTemplateId,
-		private string $worldTemplateVersion
 	){
 		$this->requestQueue = new \SplQueue();
 		foreach($resourcePackStack as $pack){
 			$this->resourcePacksById[$pack->getPackId()] = $pack;
 		}
+		$this->packId = $packId;
 	}
 
 	private function getPackById(string $id) : ?ResourcePack{
