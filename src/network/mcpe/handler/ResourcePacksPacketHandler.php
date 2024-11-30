@@ -99,6 +99,8 @@ class ResourcePacksPacketHandler extends PacketHandler{
 			$this->resourcePacksById[$pack->getPackId()] = $pack;
 		}
 		$this->packId = $packId;
+		$this->worldTemplateId = $worldTemplateId;
+		$this->worldTemplateVersion = $worldTemplateVersion;
 	}
 
 	private function getPackById(string $id) : ?ResourcePack{
@@ -108,7 +110,7 @@ class ResourcePacksPacketHandler extends PacketHandler{
 public function setUp() : void{
 		$resourcePackEntries = array_map(function(ResourcePack $pack) : ResourcePackInfoEntry{
 			return new ResourcePackInfoEntry(
-				$pack->getPackId(),
+				$this->getPackId(),
 				$pack->getPackVersion(),
 				$pack->getPackSize(),
 				$this->encryptionKeys[$pack->getPackId()] ?? "",
@@ -252,5 +254,13 @@ public function setUp() : void{
 					$this->disconnectWithError("Plugin interrupted sending of resource packs");
 				}
 			);
+	}
+
+	public function getWorldTemplateId() : UuidInterface{
+	  return $this->worldTemplateId;
+	}
+
+	public function getWorldTemplateVersion() : string{
+	  return $this->worldTemplateVersion;
 	}
 }
