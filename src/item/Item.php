@@ -82,6 +82,7 @@ class Item implements \JsonSerializable{
 	//TODO: this stuff should be moved to itemstack properties, not mushed in with type properties
 
 	protected string $customName = "";
+	protected string $filteredCustomName = "";
 	/** @var string[] */
 	protected array $lore = [];
 	/** TODO: this needs to die in a fire */
@@ -149,6 +150,10 @@ class Item implements \JsonSerializable{
 
 	public function getCustomName() : string{
 		return $this->customName;
+	}
+	
+	public function getFilteredCustomName() : void{
+	  return $this->filteredCustomName;
 	}
 
 	/**
