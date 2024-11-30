@@ -29,6 +29,7 @@ final class BiomeIds{
 		//NOOP
 	}
 
+
 	public const HELL = 42415;
 
 	public const SOULSAND_VALLEY = 42420;
