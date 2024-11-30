@@ -88,8 +88,8 @@ class ResourcePacksPacketHandler extends PacketHandler{
 		private array $encryptionKeys,
 		private bool $mustAccept,
 		private \Closure $completionCallback,
-		private string $worldTemplateId,
-		private UuidInterface $worldTemplateVersion
+		private UuidInterface $worldTemplateId,
+		private string $worldTemplateVersion
 	){
 		$this->requestQueue = new \SplQueue();
 		foreach($resourcePackStack as $pack){
@@ -107,7 +107,7 @@ public function setUp() : void{
 				$pack->getPackId(),
 				$pack->getPackVersion(),
 				$pack->getPackSize(),
-				$this->encryptionKeys[$pack->getPackId()->toString()] ?? "",
+				$this->encryptionKeys[$pack->getPackId()] ?? "",
 				"",
 				$pack->getPackId(),
 				false

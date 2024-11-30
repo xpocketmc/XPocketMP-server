@@ -148,11 +148,15 @@ class Item implements \JsonSerializable{
 		return $this->customName !== "";
 	}
 
+	public function hasFilteredCustomName() : bool{
+		return $this->filteredCustomName !== "";
+	}
+
 	public function getCustomName() : string{
 		return $this->customName;
 	}
 	
-	public function getFilteredCustomName() : void{
+	public function getFilteredCustomName() : string{
 	  return $this->filteredCustomName;
 	}
 
