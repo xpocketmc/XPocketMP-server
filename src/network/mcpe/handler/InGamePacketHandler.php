@@ -84,6 +84,7 @@ use pocketmine\network\mcpe\protocol\ShowCreditsPacket;
 use pocketmine\network\mcpe\protocol\SpawnExperienceOrbPacket;
 use pocketmine\network\mcpe\protocol\SubClientLoginPacket;
 use pocketmine\network\mcpe\protocol\TextPacket;
+use pocketmine\network\mcpe\protocol\BitSet;
 use pocketmine\network\mcpe\protocol\types\ActorEvent;
 use pocketmine\network\mcpe\protocol\types\BlockPosition;
 use pocketmine\network\mcpe\protocol\types\inventory\ContainerIds;
@@ -135,7 +136,7 @@ class InGamePacketHandler extends PacketHandler{
 	protected ?Vector3 $lastPlayerAuthInputPosition = null;
 	protected ?float $lastPlayerAuthInputYaw = null;
 	protected ?float $lastPlayerAuthInputPitch = null;
-	protected ?int $lastPlayerAuthInputFlags = null;
+	protected ?BitSet $lastPlayerAuthInputFlags = null;
 
 	public bool $forceMoveSync = false;
 
@@ -161,7 +162,7 @@ class InGamePacketHandler extends PacketHandler{
 		return true;
 	}
 
-	private function resolveOnOffInputFlags(int $inputFlags, int $startFlag, int $stopFlag) : ?bool{
+	private function resolveOnOffInputFlags(BitSet $inputFlags, int $startFlag, int $stopFlag) : ?bool{
 		$enabled = ($inputFlags & (1 << $startFlag)) !== 0;
 		$disabled = ($inputFlags & (1 << $stopFlag)) !== 0;
 		if($enabled !== $disabled){
@@ -230,10 +231,10 @@ class InGamePacketHandler extends PacketHandler{
 				$this->player->sendData([$this->player]);
 			}
 
-			if($packet->hasFlag(PlayerAuthInputFlags::START_JUMPING)){
+			if($packet->inputFlags->get(PlayerAuthInputFlags::START_JUMPING)){
 				$this->player->jump();
 			}
-			if($packet->hasFlag(PlayerAuthInputFlags::MISSED_SWING)){
+			if($packet->inputFlags->get(PlayerAuthInputFlags::MISSED_SWING)){
 				$this->player->missSwing();
 			}
 		}
