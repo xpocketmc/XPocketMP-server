@@ -100,9 +100,11 @@ class ResourcePacksPacketHandler extends PacketHandler{
 
 	public function setUp() : void{
 		$resourcePackEntries = array_map(function(ResourcePack $pack) : ResourcePackInfoEntry{
+		  $packId = $this->packId;
 			//TODO: more stuff
 
 			return new ResourcePackInfoEntry(
+			  $packId,
 				$pack->getPackId(),
 				$pack->getPackVersion(),
 				$pack->getPackSize(),
