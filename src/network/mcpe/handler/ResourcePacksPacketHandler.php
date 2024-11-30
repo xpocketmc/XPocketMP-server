@@ -37,6 +37,7 @@ use pocketmine\network\mcpe\protocol\types\resourcepacks\ResourcePackInfoEntry;
 use pocketmine\network\mcpe\protocol\types\resourcepacks\ResourcePackStackEntry;
 use pocketmine\network\mcpe\protocol\types\resourcepacks\ResourcePackType;
 use pocketmine\resourcepacks\ResourcePack;
+use Ramsey\Uuid\UuidInterface;
 use function array_keys;
 use function array_map;
 use function ceil;
@@ -86,7 +87,9 @@ class ResourcePacksPacketHandler extends PacketHandler{
 		private array $resourcePackStack,
 		private array $encryptionKeys,
 		private bool $mustAccept,
-		private \Closure $completionCallback
+		private \Closure $completionCallback,
+		private string $worldTemplateId,
+		private UuidInterface $worldTemplateVersion
 	){
 		$this->requestQueue = new \SplQueue();
 		foreach($resourcePackStack as $pack){
@@ -98,29 +101,25 @@ class ResourcePacksPacketHandler extends PacketHandler{
 		return $this->resourcePacksById[strtolower($id)] ?? null;
 	}
 
-	public function setUp() : void{
+public function setUp() : void{
 		$resourcePackEntries = array_map(function(ResourcePack $pack) : ResourcePackInfoEntry{
-		  $packId = $this->packId;
-			//TODO: more stuff
-
 			return new ResourcePackInfoEntry(
-			  $packId,
-			  $worldTemplateVersion,
 				$pack->getPackId(),
 				$pack->getPackVersion(),
 				$pack->getPackSize(),
-				$this->encryptionKeys[$pack->getPackId()] ?? "",
+				$this->encryptionKeys[$pack->getPackId()->toString()] ?? "",
 				"",
 				$pack->getPackId(),
 				false
 			);
 		}, $this->resourcePackStack);
-		//TODO: support forcing server packs
 		$this->session->sendDataPacket(ResourcePacksInfoPacket::create(
 			resourcePackEntries: $resourcePackEntries,
 			mustAccept: $this->mustAccept,
 			hasAddons: false,
-			hasScripts: false
+			hasScripts: false,
+			worldTemplateId: $this->worldTemplateId,
+			worldTemplateVersion: $this->worldTemplateVersion
 		));
 		$this->session->getLogger()->debug("Waiting for client to accept resource packs");
 	}
