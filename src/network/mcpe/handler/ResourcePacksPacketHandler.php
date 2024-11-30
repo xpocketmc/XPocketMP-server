@@ -76,8 +76,8 @@ class ResourcePacksPacketHandler extends PacketHandler{
 	
 	private UuidInterface $packId;
 	
-	private UuidInterface $worldTemplateId,
-	private string $worldTemplateVersion
+	private UuidInterface $worldTemplateId;
+	private string $worldTemplateVersion;
 
 	/**
 	 * @param ResourcePack[] $resourcePackStack

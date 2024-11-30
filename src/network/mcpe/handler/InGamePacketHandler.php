@@ -166,7 +166,7 @@ class InGamePacketHandler extends PacketHandler{
 	  if($inputFlags === null){
 	    return null;
 	  }
-	  $flagsInt = $inputFlags->toInt();
+	  $flagsInt = $inputFlags;
 		$enabled = ($flagsInt & (1 << $startFlag)) !== 0;
 		$disabled = ($flagsInt & (1 << $stopFlag)) !== 0;
 		if($enabled !== $disabled){
@@ -235,10 +235,10 @@ class InGamePacketHandler extends PacketHandler{
 				$this->player->sendData([$this->player]);
 			}
 
-			if($packet->inputFlags->get(PlayerAuthInputFlags::START_JUMPING)){
+			if($packet->inputFlags->set(PlayerAuthInputFlags::START_JUMPING)){
 				$this->player->jump();
 			}
-			if($packet->inputFlags->get(PlayerAuthInputFlags::MISSED_SWING)){
+			if($packet->inputFlags->set(PlayerAuthInputFlags::MISSED_SWING)){
 				$this->player->missSwing();
 			}
 		}
