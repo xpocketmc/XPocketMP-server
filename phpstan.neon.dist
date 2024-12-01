@@ -1,4 +1,4 @@
-includes:
+upincludes:
 	- tests/phpstan/analyse-for-current-php-version.neon.php
 	- tests/phpstan/configs/actual-problems.neon
 	- tests/phpstan/configs/impossible-generics.neon
@@ -8,7 +8,6 @@ includes:
 	- vendor/phpstan/phpstan-phpunit/extension.neon
 	- vendor/phpstan/phpstan-phpunit/rules.neon
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
-	- vendor/phpstan/phpstan/conf/bleedingEdge.neon
 
 rules:
 	- pocketmine\phpstan\rules\DeprecatedLegacyEnumAccessRule
