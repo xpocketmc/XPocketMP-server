@@ -73,7 +73,7 @@ class TimingsHandler{
 		}
 
 		$result[] = "# Version " . Server::getInstance()->getVersion();
-		$result[] = "# " . Server::getInstance()->getName() . " " . Server::getInstance()->getXPocketMPVersion();
+		$result[] = "# " . Server::getInstance()->getName() . " " . Server::getInstance()->getPocketMineVersion();
 
 		$result[] = "# FormatVersion " . self::FORMAT_VERSION;
 

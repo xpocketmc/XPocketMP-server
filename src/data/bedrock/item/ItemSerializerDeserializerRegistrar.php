@@ -26,7 +26,6 @@ namespace pocketmine\data\bedrock\item;
 use pocketmine\block\Bed;
 use pocketmine\block\Block;
 use pocketmine\block\CopperDoor;
-use pocketmine\block\MobHead;
 use pocketmine\block\utils\CopperOxidation;
 use pocketmine\block\utils\DyeColor;
 use pocketmine\block\VanillaBlocks as Blocks;
@@ -35,7 +34,6 @@ use pocketmine\data\bedrock\DyeColorIdMap;
 use pocketmine\data\bedrock\item\ItemTypeNames as Ids;
 use pocketmine\data\bedrock\item\SavedItemData as Data;
 use pocketmine\data\bedrock\MedicineTypeIdMap;
-use pocketmine\data\bedrock\MobHeadTypeIdMap;
 use pocketmine\data\bedrock\PotionTypeIdMap;
 use pocketmine\data\bedrock\SuspiciousStewTypeIdMap;
 use pocketmine\item\Banner;
@@ -535,10 +533,10 @@ final class ItemSerializerDeserializerRegistrar{
 	}
 
 	/**
-	 * Registers serializers and deserializers for XPocketMP blockitems that don't fit any other pattern.
+	 * Registers serializers and deserializers for PocketMine-MP blockitems that don't fit any other pattern.
 	 * Ideally we want to get rid of this completely, if possible.
 	 *
-	 * Most of these are single XPocketMP blocks which map to multiple IDs depending on their properties, which is
+	 * Most of these are single PocketMine-MP blocks which map to multiple IDs depending on their properties, which is
 	 * complex to implement in a generic way.
 	 */
 	private function registerMiscBlockMappings() : void{

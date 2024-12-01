@@ -590,12 +590,8 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->mapSimple(Ids::MANGROVE_PLANKS, fn() => Blocks::MANGROVE_PLANKS());
 		$this->mapSlab(Ids::MANGROVE_SLAB, Ids::MANGROVE_DOUBLE_SLAB, fn() => Blocks::MANGROVE_SLAB());
 		$this->mapStairs(Ids::MANGROVE_STAIRS, fn() => Blocks::MANGROVE_STAIRS());
+		$this->map(Ids::MANGROVE_WOOD, fn(Reader $in) => Helper::decodeLog(Blocks::MANGROVE_WOOD(), false, $in));
 		$this->map(Ids::STRIPPED_MANGROVE_WOOD, fn(Reader $in) => Helper::decodeLog(Blocks::MANGROVE_WOOD(), true, $in));
-		$this->map(Ids::MUSHROOM_STEM, fn(Reader $in) => match($in->readBoundedInt(StateNames::HUGE_MUSHROOM_BITS, 0, 15)){
-			BlockLegacyMetadata::MUSHROOM_BLOCK_ALL_STEM => Blocks::ALL_SIDED_MUSHROOM_STEM(),
-			BlockLegacyMetadata::MUSHROOM_BLOCK_STEM => Blocks::MUSHROOM_STEM(),
-			default => throw new BlockStateDeserializeException("This state does not exist"),
-		});
 
 		//oak - due to age, many of these don't specify "oak", making for confusing reading
 		$this->map(Ids::WOODEN_BUTTON, fn(Reader $in) => Helper::decodeButton(Blocks::OAK_BUTTON(), $in));
@@ -650,7 +646,6 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->map(Ids::DARK_OAK_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::DARK_OAK_LEAVES(), $in));
 		$this->map(Ids::JUNGLE_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::JUNGLE_LEAVES(), $in));
 		$this->map(Ids::MANGROVE_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::MANGROVE_LEAVES(), $in));
-		$this->map(Ids::MANGROVE_WOOD, fn(Reader $in) => Helper::decodeLog(Blocks::MANGROVE_WOOD(), false, $in));
 		$this->map(Ids::OAK_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::OAK_LEAVES(), $in));
 		$this->map(Ids::SPRUCE_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::SPRUCE_LEAVES(), $in));
 	}
@@ -688,6 +683,20 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 			Ids::LIGHT_BLOCK_15 => 15,
 		] as $id => $level){
 			$this->mapSimple($id, fn() => Blocks::LIGHT()->setLightLevel($level));
+		}
+	}
+
+	private function registerMobHeadDeserializers() : void{
+		foreach([
+			Ids::CREEPER_HEAD => MobHeadType::CREEPER,
+			Ids::DRAGON_HEAD => MobHeadType::DRAGON,
+			Ids::PIGLIN_HEAD => MobHeadType::PIGLIN,
+			Ids::PLAYER_HEAD => MobHeadType::PLAYER,
+			Ids::SKELETON_SKULL => MobHeadType::SKELETON,
+			Ids::WITHER_SKELETON_SKULL => MobHeadType::WITHER_SKELETON,
+			Ids::ZOMBIE_HEAD => MobHeadType::ZOMBIE
+		] as $id => $mobHeadType){
+			$this->map($id, fn(Reader $in) => Blocks::MOB_HEAD()->setMobHeadType($mobHeadType)->setFacing($in->readFacingWithoutDown()));
 		}
 	}
 
@@ -1104,6 +1113,11 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->mapSlab(Ids::BRICK_SLAB, Ids::BRICK_DOUBLE_SLAB, fn() => Blocks::BRICK_SLAB());
 		$this->mapStairs(Ids::BRICK_STAIRS, fn() => Blocks::BRICK_STAIRS());
 		$this->map(Ids::BRICK_WALL, fn(Reader $in) => Helper::decodeWall(Blocks::BRICK_WALL(), $in));
+		$this->map(Ids::MUSHROOM_STEM, fn(Reader $in) => match($in->readBoundedInt(StateNames::HUGE_MUSHROOM_BITS, 0, 15)){
+			BlockLegacyMetadata::MUSHROOM_BLOCK_ALL_STEM => Blocks::ALL_SIDED_MUSHROOM_STEM(),
+			BlockLegacyMetadata::MUSHROOM_BLOCK_STEM => Blocks::MUSHROOM_STEM(),
+			default => throw new BlockStateDeserializeException("This state does not exist"),
+		});
 		$this->map(Ids::BROWN_MUSHROOM_BLOCK, fn(Reader $in) => Helper::decodeMushroomBlock(Blocks::BROWN_MUSHROOM_BLOCK(), $in));
 		$this->map(Ids::CACTUS, function(Reader $in) : Block{
 			return Blocks::CACTUS()
@@ -1782,19 +1796,5 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$block = $this->deserializeFuncs[$id]($reader);
 		$reader->checkUnreadProperties();
 		return $block;
-	}
-
-	private function registerMobHeadDeserializers() : void{
-		foreach([
-			Ids::CREEPER_HEAD => MobHeadType::CREEPER,
-			Ids::DRAGON_HEAD => MobHeadType::DRAGON,
-			Ids::PIGLIN_HEAD => MobHeadType::PIGLIN,
-			Ids::PLAYER_HEAD => MobHeadType::PLAYER,
-			Ids::SKELETON_SKULL => MobHeadType::SKELETON,
-			Ids::WITHER_SKELETON_SKULL => MobHeadType::WITHER_SKELETON,
-			Ids::ZOMBIE_HEAD => MobHeadType::ZOMBIE
-		] as $id => $mobHeadType){
-			$this->map($id, fn(Reader $in) => Blocks::MOB_HEAD()->setMobHeadType($mobHeadType)->setFacing($in->readFacingWithoutDown()));
-		}
 	}
 }
