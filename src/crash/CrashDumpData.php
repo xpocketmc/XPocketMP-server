@@ -43,7 +43,10 @@ final class CrashDumpData implements \JsonSerializable{
 
 	public string $plugin = "";
 
-	/** @var string[] */
+	/**
+	 * @var string[]
+	 * @phpstan-var array<int, string>
+	 */
 	public array $code = [];
 
 	/** @var string[] */
@@ -55,12 +58,15 @@ final class CrashDumpData implements \JsonSerializable{
 	 */
 	public array $plugins = [];
 
-	/** @var string[] */
+	/**
+	 * @var string[]
+	 * @phpstan-var list<string>
+	 */
 	public array $parameters = [];
 
 	public string $serverDotProperties = "";
 
-	public string $xpocketmpDotYml = "";
+	public string $pocketmineDotYml = "";
 
 	/**
 	 * @var string[]
@@ -80,8 +86,8 @@ final class CrashDumpData implements \JsonSerializable{
 	public function jsonSerialize() : array{
 		$result = (array) $this;
 		unset($result["serverDotProperties"]);
-		unset($result["xpocketmpDotYml"]);
-		$result["xpocketmp.yml"] = $this->xpocketmpDotYml;
+		unset($result["pocketmineDotYml"]);
+		$result["pocketmine.yml"] = $this->pocketmineDotYml;
 		$result["server.properties"] = $this->serverDotProperties;
 		return $result;
 	}

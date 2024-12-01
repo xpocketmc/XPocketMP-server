@@ -23,6 +23,7 @@ declare(strict_types=1);
 
 namespace pocketmine\permission;
 
+use pocketmine\utils\Utils;
 use function count;
 use function spl_object_id;
 
@@ -37,9 +38,15 @@ class PermissionManager{
 		return self::$instance;
 	}
 
-	/** @var Permission[] */
+	/**
+	 * @var Permission[]
+	 * @phpstan-var array<string, Permission>
+	 */
 	protected array $permissions = [];
-	/** @var PermissibleInternal[][] */
+	/**
+	 * @var PermissibleInternal[][]
+	 * @phpstan-var array<string, array<int, PermissibleInternal>>
+	 */
 	protected array $permSubs = [];
 
 	public function getPermission(string $name) : ?Permission{
@@ -82,7 +89,7 @@ class PermissionManager{
 	}
 
 	public function unsubscribeFromAllPermissions(PermissibleInternal $permissible) : void{
-		foreach($this->permSubs as $permission => $subs){
+		foreach(Utils::promoteKeys($this->permSubs) as $permission => $subs){
 			if(count($subs) === 1 && isset($subs[spl_object_id($permissible)])){
 				unset($this->permSubs[$permission]);
 			}else{
