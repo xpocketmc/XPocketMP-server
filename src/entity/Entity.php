@@ -102,7 +102,10 @@ abstract class Entity{
 		return self::$entityCount++;
 	}
 
-	/** @var Player[] */
+	/**
+	 * @var Player[]
+	 * @phpstan-var array<int, Player>
+	 */
 	protected array $hasSpawned = [];
 
 	protected int $id;
