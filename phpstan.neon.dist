@@ -1,4 +1,4 @@
-upincludes:
+includes:
 	- tests/phpstan/analyse-for-current-php-version.neon.php
 	- tests/phpstan/configs/actual-problems.neon
 	- tests/phpstan/configs/impossible-generics.neon
