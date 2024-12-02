@@ -3,6 +3,12 @@ name: Update Code
 on:
   pull_request:
   push:
+  workflow_call:
+    inputs:
+      pm-version-major:
+        description: 'PocketMine-MP major version'
+        default: 5
+        type: number
 
 jobs:
   fix:
@@ -22,11 +28,13 @@ jobs:
         private_key: ${{ secrets.APP_PRIVATE_KEY }}  # Private key GitHub App Anda
 
     # Setup PHP
-    - name: Set up PHP
-      uses: shivammathur/setup-php@v2
+    - name: Setup PHP
+      uses: pmmp/setup-php-action@3.2.0
       with:
-        php-version: '8.1'
-
+        php-version: ${{ inputs.php }}
+        install-path: "./bin"
+        pm-version-major: ${{ inputs.pm-version-major }}
+ 
     # Install PHP-CS-Fixer
     - name: Install PHP-CS-Fixer
       run: |
