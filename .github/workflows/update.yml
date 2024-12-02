@@ -39,7 +39,7 @@ jobs:
         php-cs-fixer fix --allow-risky=yes --quiet
 
     - name: UPDATE CODE GEN
-      run: composer update-codegen
+      run: composer install --ignore-platform-req=* && composer update-codegen
 
     # Commit dan push perubahan dengan token aplikasi
     - name: Commit and push changes
