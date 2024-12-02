@@ -91,7 +91,6 @@
          "@php build/generate-known-translation-apis.php",
          "@php build/generate-xpocketmp-yml-property-consts.php",
          "@php build/generate-registry-annotations.php src",
-		 "@php build/generate-block-to-item-type-ids.php"
       ]
    }
 }
