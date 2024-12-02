@@ -1,0 +1,53 @@
+name: Update Code
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout kode sumber dari repositori
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Generate GitHub App token
+    - name: Generate GitHub App Token
+      id: generate_token
+      uses: tibdex/github-app-token@v1
+      with:
+        app_id: ${{ secrets.APP_ID }}          # ID dari GitHub App Anda
+        private_key: ${{ secrets.APP_PRIVATE_KEY }}  # Private key GitHub App Anda
+
+    # Setup PHP
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+
+    # Install PHP-CS-Fixer
+    - name: Install PHP-CS-Fixer
+      run: |
+        wget https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/releases/download/v3.64.0/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
+        chmod +x /usr/local/bin/php-cs-fixer
+
+    # Jalankan PHP-CS-Fixer untuk memperbaiki kode
+    - name: Run PHP-CS-Fixer and Fix Code
+      run: |
+        php-cs-fixer fix --allow-risky=yes --quiet
+
+    - name: UPDATE CODE GEN
+      run: composer update-codegen
+
+    # Commit dan push perubahan dengan token aplikasi
+    - name: Commit and push changes
+      env:
+        GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+      run: |
+        git config --global user.name 'XPocketMP[bot]'
+        git config --global user.email 'xpocketmp[bot]@xpocketmc.xyz'
+        git add .
+        git commit -m "Apply PHP-CS-Fixer changes" || echo "No changes to commit"
+        git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
