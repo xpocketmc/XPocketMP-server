@@ -647,6 +647,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->map(Ids::JUNGLE_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::JUNGLE_LEAVES(), $in));
 		$this->map(Ids::MANGROVE_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::MANGROVE_LEAVES(), $in));
 		$this->map(Ids::OAK_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::OAK_LEAVES(), $in));
+		$this->map(Ids::PALE_OAK_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::PALE_OAK_LEAVES(), $in));
 		$this->map(Ids::SPRUCE_LEAVES, fn(Reader $in) => Helper::decodeLeaves(Blocks::SPRUCE_LEAVES(), $in));
 	}
 
@@ -657,6 +658,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 			Ids::DARK_OAK_SAPLING => fn() => Blocks::DARK_OAK_SAPLING(),
 			Ids::JUNGLE_SAPLING => fn() => Blocks::JUNGLE_SAPLING(),
 			Ids::OAK_SAPLING => fn() => Blocks::OAK_SAPLING(),
+			Ids::PALE_OAK_SAPLING => fn() => Blocks::PALE_OAK_SAPLING(),
 			Ids::SPRUCE_SAPLING => fn() => Blocks::SPRUCE_SAPLING(),
 		] as $id => $getBlock){
 			$this->map($id, fn(Reader $in) => Helper::decodeSapling($getBlock(), $in));
