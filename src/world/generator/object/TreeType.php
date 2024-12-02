@@ -45,6 +45,7 @@ enum TreeType{
 	case JUNGLE;
 	case ACACIA;
 	case DARK_OAK;
+	case PALE_OAK;
 	//TODO: cherry blossom, mangrove, azalea
 	//TODO: do crimson and warped "trees" belong here? I'm not sure if they're actually trees or just fungi
 	//TODO: perhaps huge mushrooms should be here too???
@@ -57,6 +58,7 @@ enum TreeType{
 			self::JUNGLE => "Jungle",
 			self::ACACIA => "Acacia",
 			self::DARK_OAK => "Dark Oak",
+			self::PALE_OAK => "Pale Oak",
 		};
 	}
 }
