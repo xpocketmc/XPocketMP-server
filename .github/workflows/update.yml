@@ -46,7 +46,7 @@ jobs:
     # Commit dan push perubahan dengan token aplikasi
     - name: Commit and push changes
       env:
-        GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+        GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
       run: |
         git config --global user.name 'XPocketMP[bot]'
         git config --global user.email 'xpocketmp[bot]@xpocketmc.xyz'
