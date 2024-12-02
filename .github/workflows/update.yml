@@ -4,11 +4,6 @@ on:
   pull_request:
   push:
   workflow_call:
-    inputs:
-      pm-version-major:
-        description: 'PocketMine-MP major version'
-        default: 5
-        type: number
 
 jobs:
   fix:
@@ -33,7 +28,6 @@ jobs:
       with:
         php-version: 8.2
         install-path: "./bin"
-        pm-version-major: ${{ inputs.pm-version-major }}
  
     # Install PHP-CS-Fixer
     - name: Install PHP-CS-Fixer
