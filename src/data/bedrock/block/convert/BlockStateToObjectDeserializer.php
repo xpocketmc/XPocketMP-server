@@ -552,17 +552,6 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 
 		$this->map(Ids::DARKOAK_STANDING_SIGN, fn(Reader $in) => Helper::decodeFloorSign(Blocks::DARK_OAK_SIGN(), $in));
 		$this->map(Ids::DARKOAK_WALL_SIGN, fn(Reader $in) => Helper::decodeWallSign(Blocks::DARK_OAK_WALL_SIGN(), $in));
-		$this->map(Ids::DARK_OAK_BUTTON, fn(Reader $in) => Helper::decodeButton(Blocks::DARK_OAK_BUTTON(), $in));
-		$this->map(Ids::DARK_OAK_DOOR, fn(Reader $in) => Helper::decodeDoor(Blocks::DARK_OAK_DOOR(), $in));
-		$this->map(Ids::DARK_OAK_FENCE_GATE, fn(Reader $in) => Helper::decodeFenceGate(Blocks::DARK_OAK_FENCE_GATE(), $in));
-		$this->map(Ids::DARK_OAK_PRESSURE_PLATE, fn(Reader $in) => Helper::decodeSimplePressurePlate(Blocks::DARK_OAK_PRESSURE_PLATE(), $in));
-		$this->map(Ids::DARK_OAK_TRAPDOOR, fn(Reader $in) => Helper::decodeTrapdoor(Blocks::DARK_OAK_TRAPDOOR(), $in));
-		$this->mapLog(Ids::DARK_OAK_LOG, Ids::STRIPPED_DARK_OAK_LOG, fn() => Blocks::DARK_OAK_LOG());
-		$this->mapLog(Ids::DARK_OAK_WOOD, Ids::STRIPPED_DARK_OAK_WOOD, fn() => Blocks::DARK_OAK_WOOD());
-		$this->mapSimple(Ids::DARK_OAK_FENCE, fn() => Blocks::DARK_OAK_FENCE());
-		$this->mapSimple(Ids::DARK_OAK_PLANKS, fn() => Blocks::DARK_OAK_PLANKS());
-		$this->mapSlab(Ids::DARK_OAK_SLAB, Ids::DARK_OAK_DOUBLE_SLAB, fn() => Blocks::DARK_OAK_SLAB());
-		$this->mapStairs(Ids::DARK_OAK_STAIRS, fn() => Blocks::DARK_OAK_STAIRS());
 
 		$this->map(Ids::JUNGLE_BUTTON, fn(Reader $in) => Helper::decodeButton(Blocks::JUNGLE_BUTTON(), $in));
 		$this->map(Ids::JUNGLE_DOOR, fn(Reader $in) => Helper::decodeDoor(Blocks::JUNGLE_DOOR(), $in));
@@ -607,6 +596,18 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->mapSimple(Ids::OAK_PLANKS, fn() => Blocks::OAK_PLANKS());
 		$this->mapSlab(Ids::OAK_SLAB, Ids::OAK_DOUBLE_SLAB, fn() => Blocks::OAK_SLAB());
 		$this->mapStairs(Ids::OAK_STAIRS, fn() => Blocks::OAK_STAIRS());
+
+		$this->map(Ids::PALE_OAK_BUTTON, fn(Reader $in) => Helper::decodeButton(Blocks::PALE_OAK_BUTTON(), $in));
+		$this->map(Ids::PALE_OAK_DOOR, fn(Reader $in) => Helper::decodeDoor(Blocks::PALE_OAK_DOOR(), $in));
+		$this->map(Ids::PALE_OAK_FENCE_GATE, fn(Reader $in) => Helper::decodeFenceGate(Blocks::PALE_OAK_FENCE_GATE(), $in));
+		$this->map(Ids::PALE_OAK_PRESSURE_PLATE, fn(Reader $in) => Helper::decodeSimplePressurePlate(Blocks::PALE_OAK_PRESSURE_PLATE(), $in));
+		$this->map(Ids::PALE_OAK_TRAPDOOR, fn(Reader $in) => Helper::decodeTrapdoor(Blocks::PALE_OAK_TRAPDOOR(), $in));
+		$this->mapLog(Ids::PALE_OAK_LOG, Ids::STRIPPED_PALE_OAK_LOG, fn() => Blocks::PALE_OAK_LOG());
+		$this->mapLog(Ids::PALE_OAK_WOOD, Ids::STRIPPED_PALE_OAK_WOOD, fn() => Blocks::PALE_OAK_WOOD());
+		$this->mapSimple(Ids::PALE_OAK_FENCE, fn() => Blocks::PALE_OAK_FENCE());
+		$this->mapSimple(Ids::PALE_OAK_PLANKS, fn() => Blocks::PALE_OAK_PLANKS());
+		$this->mapSlab(Ids::PALE_OAK_SLAB, Ids::PALE_OAK_DOUBLE_SLAB, fn() => Blocks::PALE_OAK_SLAB());
+		$this->mapStairs(Ids::PALE_OAK_STAIRS, fn() => Blocks::PALE_OAK_STAIRS());
 
 		$this->map(Ids::SPRUCE_BUTTON, fn(Reader $in) => Helper::decodeButton(Blocks::SPRUCE_BUTTON(), $in));
 		$this->map(Ids::SPRUCE_DOOR, fn(Reader $in) => Helper::decodeDoor(Blocks::SPRUCE_DOOR(), $in));
