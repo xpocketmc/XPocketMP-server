@@ -255,7 +255,7 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => Ids::CRIMSON_FENCE_GATE,
 			WoodType::WARPED => Ids::WARPED_FENCE_GATE,
 			WoodType::CHERRY => Ids::CHERRY_FENCE_GATE,
-			WoodType::PALE_OAK => Ids::PALE_OAK_FANCE_GATE,
+			WoodType::PALE_OAK => Ids::PALE_OAK_FENCE_GATE,
 		});
 	}
 
