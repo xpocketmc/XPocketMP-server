@@ -777,7 +777,7 @@ final class BlockTypeIds{
 	public const PALE_OAK_SIGN = 10747;
 	public const PALE_OAK_SLAB = 10748;
 	public const PALE_OAK_STAIRS = 10749;
-	public const PALE_OAK_STANDING_SIGN = 10750
+	public const PALE_OAK_STANDING_SIGN = 10750;
 	public const PALE_OAK_TRAPDOOR = 10751;
 	public const PALE_OAK_WALL_SIGN = 10752;
 	public const PALE_OAK_WOOD = 10753;
