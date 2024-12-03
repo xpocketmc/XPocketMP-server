@@ -777,13 +777,14 @@ final class BlockTypeIds{
 	public const PALE_OAK_SIGN = 10747;
 	public const PALE_OAK_SLAB = 10748;
 	public const PALE_OAK_STAIRS = 10749;
-	public const PALE_OAK_TRAPDOOR = 10750;
-	public const PALE_OAK_WALL_SIGN = 10751;
-	public const PALE_OAK_WOOD = 10752;
-	public const STRIPPED_PALE_OAK_LOG = 10753;
-	public const STRIPPED_PALE_OAK_WOOD = 10754;
+	public const PALE_OAK_STANDING_SIGN = 10750
+	public const PALE_OAK_TRAPDOOR = 10751;
+	public const PALE_OAK_WALL_SIGN = 10752;
+	public const PALE_OAK_WOOD = 10753;
+	public const STRIPPED_PALE_OAK_LOG = 10754;
+	public const STRIPPED_PALE_OAK_WOOD = 10755;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10755;
+	public const FIRST_UNUSED_BLOCK_ID = 10756;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 
