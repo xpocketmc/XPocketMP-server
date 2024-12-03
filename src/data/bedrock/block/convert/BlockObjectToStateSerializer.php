@@ -708,9 +708,9 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->map(Blocks::PALE_OAK_DOOR(), fn(WoodenDoor $block) => Helper::encodeDoor($block, new Writer(Ids::PALE_OAK_DOOR)));
 		$this->map(Blocks::PALE_OAK_FENCE_GATE(), fn(FenceGate $block) => Helper::encodeFenceGate($block, new Writer(Ids::PALE_OAK_FENCE_GATE)));
 		$this->map(Blocks::PALE_OAK_PRESSURE_PLATE(), fn(WoodenPressurePlate $block) => Helper::encodeSimplePressurePlate($block, new Writer(Ids::PALE_OAK_PRESSURE_PLATE)));
-		$this->map(Blocks::PALE_OAK_SIGN(), fn(FloorSign $block) => Helper::encodeFloorSign($block, new Writer(Ids::PALEOAK_STANDING_SIGN)));
+		$this->map(Blocks::PALE_OAK_SIGN(), fn(FloorSign $block) => Helper::encodeFloorSign($block, new Writer(Ids::PALE_OAK_STANDING_SIGN)));
 		$this->map(Blocks::PALE_OAK_TRAPDOOR(), fn(WoodenTrapdoor $block) => Helper::encodeTrapdoor($block, new Writer(Ids::PALE_OAK_TRAPDOOR)));
-		$this->map(Blocks::PALE_OAK_WALL_SIGN(), fn(WallSign $block) => Helper::encodeWallSign($block, new Writer(Ids::PALEOAK_WALL_SIGN)));
+		$this->map(Blocks::PALE_OAK_WALL_SIGN(), fn(WallSign $block) => Helper::encodeWallSign($block, new Writer(Ids::PALE_OAK_WALL_SIGN)));
 		$this->mapLog(Blocks::PALE_OAK_LOG(), Ids::PALE_OAK_LOG, Ids::STRIPPED_PALE_OAK_LOG);
 		$this->mapLog(Blocks::PALE_OAK_WOOD(), Ids::PALE_OAK_WOOD, Ids::STRIPPED_PALE_OAK_WOOD);
 		$this->mapSimple(Blocks::PALE_OAK_FENCE(), Ids::PALE_OAK_FENCE);
