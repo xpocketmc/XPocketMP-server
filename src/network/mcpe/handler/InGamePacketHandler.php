@@ -162,7 +162,7 @@ class InGamePacketHandler extends PacketHandler{
 		return true;
 	}
 
-	private function resolveOnOffInputFlags(int $inputFlags, int $startFlag, int $stopFlag) : ?bool{
+	private function resolveOnOffInputFlags(BitSet $inputFlags, int $startFlag, int $stopFlag) : ?bool{
 		$enabled = $inputFlags->get($startFlag);
 		$disabled = $inputFlags->get($stopFlag);
 		if($enabled !== $disabled){
@@ -216,7 +216,10 @@ class InGamePacketHandler extends PacketHandler{
 		if($inputFlags !== $this->lastPlayerAuthInputFlags){
 			$this->lastPlayerAuthInputFlags = $inputFlags;
 
-			$sneaking = $this->resolveOnOffInputFlags($inputFlags, PlayerAuthInputFlags::START_SNEAKING, PlayerAuthInputFlags::STOP_SNEAKING);
+			$sneaking = $inputFlags->get(PlayerAuthInputFlags::SNEAKING);
+			if($this->player->isSneaking() === $sneaking){
+				$sneaking = null;
+			}
 			$sprinting = $this->resolveOnOffInputFlags($inputFlags, PlayerAuthInputFlags::START_SPRINTING, PlayerAuthInputFlags::STOP_SPRINTING);
 			$swimming = $this->resolveOnOffInputFlags($inputFlags, PlayerAuthInputFlags::START_SWIMMING, PlayerAuthInputFlags::STOP_SWIMMING);
 			$gliding = $this->resolveOnOffInputFlags($inputFlags, PlayerAuthInputFlags::START_GLIDING, PlayerAuthInputFlags::STOP_GLIDING);
@@ -230,7 +233,6 @@ class InGamePacketHandler extends PacketHandler{
 			if((bool) $mismatch){
 				$this->player->sendData([$this->player]);
 			}
-
 			if($inputFlags->get(PlayerAuthInputFlags::START_JUMPING)){
 				$this->player->jump();
 			}
