@@ -593,6 +593,7 @@ use function strtolower;
  * @method static WoodenDoor PALE_OAK_DOOR()
  * @method static WoodenFence PALE_OAK_FENCE()
  * @method static FenceGate PALE_OAK_FENCE_GATE()
+ * @method static Leaves PALE_OAK_LEAVES()
  * @method static Wood PALE_OAK_LOG()
  * @method static Planks PALE_OAK_PLANKS()
  * @method static WoodenPressurePlate PALE_OAK_PRESSURE_PLATE()
