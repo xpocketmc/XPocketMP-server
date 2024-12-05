@@ -157,6 +157,7 @@ class Leaves extends Transparent{
 				LeavesType::MANGROVE, //TODO: mangrove propagule
 				LeavesType::AZALEA, LeavesType::FLOWERING_AZALEA => null, //TODO: azalea
 				LeavesType::CHERRY => null, //TODO: cherry
+				LeavesType::PALE_OAK => LeavesType::PALE_OAK_SAPLING(),
 			})?->asItem();
 			if($sapling !== null){
 				$drops[] = $sapling;
