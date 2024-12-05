@@ -247,6 +247,10 @@ class SimpleCommandMap implements CommandMap{
 		return $this->knownCommands;
 	}
 
+	/**
+	 * @template TKeyType of array-key
+	 * @param array<TKeyType, mixed> $array
+	 */
 	public function registerServerAliases() : void{
 		$values = $this->server->getCommandAliases();
 
