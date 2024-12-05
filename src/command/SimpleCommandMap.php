@@ -249,7 +249,7 @@ class SimpleCommandMap implements CommandMap{
 
 	public function registerServerAliases() : void{
 		/**
- 		 * @var array<string, array<string>> $values
+		 * @var array<string, array<string>> $values
 		 */
 		$values = $this->server->getCommandAliases();
 
