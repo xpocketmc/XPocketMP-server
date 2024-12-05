@@ -3,7 +3,7 @@ updates:
 - package-ecosystem: composer
   directory: "/"
   schedule:
-    interval: weekly
+    interval: daily
     time: "10:00"
   open-pull-requests-limit: 10
   ignore:
@@ -16,9 +16,9 @@ updates:
 - package-ecosystem: gitsubmodule
   directory: "/"
   schedule:
-    interval: weekly
+    interval: daily
 
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
-    interval: weekly
+    interval: daily
