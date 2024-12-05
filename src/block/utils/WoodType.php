@@ -68,7 +68,7 @@ enum WoodType{
 			self::CRIMSON => "Crimson",
 			self::WARPED => "Warped",
 			self::CHERRY => "Cherry",
-			self::PALE_OAK => "Pale Oak",
+			self::PALE_OAK => "Pale Oak"
 		};
 	}
 
