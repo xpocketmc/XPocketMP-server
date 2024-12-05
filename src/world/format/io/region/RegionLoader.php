@@ -150,9 +150,17 @@ class RegionLoader{
 		 * doing this in a single call is faster than making two seeks and reads to fetch the chunk.
 		 * this relies on the assumption that the end of the file is always padded to a multiple of 4096 bytes.
 		 */
-		$bytesToRead = $this->locationTable[$index]->getSectorCount() << 12;
-		$payload = fread($this->filePointer, $bytesToRead);
 
+		/**
+		 * @var int<1, max> $sectorCount
+		 */
+		 $sectorCount = $this->locationTable[$index]->getSectorCount();
+		 $bytesToRead = $sectorCount << 12;
+
+		/**
+		 * @var int<1, max> $bytesToRead
+		 */
+		$payload = fread($this->filePointer, $bytesToRead);
 		if($payload === false || strlen($payload) !== $bytesToRead){
 			throw new CorruptedChunkException("Corrupted chunk detected (unexpected EOF, truncated or non-padded chunk found)");
 		}
