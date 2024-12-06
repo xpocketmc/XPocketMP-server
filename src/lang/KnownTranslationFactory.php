@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\lang;
+namespace pocketmine\lang;
 
 /**
- * This class contains factory methods for all the translations known to XPocketMP-MP as per the used version of
+ * This class contains factory methods for all the translations known to PocketMine-MP as per the used version of
  * pmmp/Language.
  * This class is generated automatically, do NOT modify it by hand.
  *
@@ -1130,964 +1130,964 @@ final class KnownTranslationFactory{
 		return new Translatable(KnownTranslationKeys::OP_WHO, []);
 	}
 
-	public static function XPocketMP_command_alias_illegal(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_ALIAS_ILLEGAL, [
+	public static function pocketmine_command_alias_illegal(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_ALIAS_ILLEGAL, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_command_alias_notFound(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_ALIAS_NOTFOUND, [
-			0 => $param0,
-			1 => $param1,
-		]);
-	}
-
-	public static function XPocketMP_command_alias_recursive(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_ALIAS_RECURSIVE, [
+	public static function pocketmine_command_alias_notFound(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_ALIAS_NOTFOUND, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_command_ban_ip_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_BAN_IP_DESCRIPTION, []);
+	public static function pocketmine_command_alias_recursive(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_ALIAS_RECURSIVE, [
+			0 => $param0,
+			1 => $param1,
+		]);
 	}
 
-	public static function XPocketMP_command_ban_player_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_BAN_PLAYER_DESCRIPTION, []);
+	public static function pocketmine_command_ban_ip_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_BAN_IP_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_banlist_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_BANLIST_DESCRIPTION, []);
+	public static function pocketmine_command_ban_player_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_BAN_PLAYER_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_clear_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_CLEAR_DESCRIPTION, []);
+	public static function pocketmine_command_banlist_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_BANLIST_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_clear_usage() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_CLEAR_USAGE, []);
+	public static function pocketmine_command_clear_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_CLEAR_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_defaultgamemode_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_DEFAULTGAMEMODE_DESCRIPTION, []);
+	public static function pocketmine_command_clear_usage() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_CLEAR_USAGE, []);
 	}
 
-	public static function XPocketMP_command_deop_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_DEOP_DESCRIPTION, []);
+	public static function pocketmine_command_defaultgamemode_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_DEFAULTGAMEMODE_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_difficulty_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_DIFFICULTY_DESCRIPTION, []);
+	public static function pocketmine_command_deop_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_DEOP_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_dumpmemory_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_DUMPMEMORY_DESCRIPTION, []);
+	public static function pocketmine_command_difficulty_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_DIFFICULTY_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_effect_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_EFFECT_DESCRIPTION, []);
+	public static function pocketmine_command_dumpmemory_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_DUMPMEMORY_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_enchant_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_ENCHANT_DESCRIPTION, []);
+	public static function pocketmine_command_effect_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_EFFECT_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_error_permission(Translatable|string $commandName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_ERROR_PERMISSION, [
+	public static function pocketmine_command_enchant_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_ENCHANT_DESCRIPTION, []);
+	}
+
+	public static function pocketmine_command_error_permission(Translatable|string $commandName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_ERROR_PERMISSION, [
 			"commandName" => $commandName,
 		]);
 	}
 
-	public static function XPocketMP_command_error_playerNotFound(Translatable|string $playerName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_ERROR_PLAYERNOTFOUND, [
+	public static function pocketmine_command_error_playerNotFound(Translatable|string $playerName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_ERROR_PLAYERNOTFOUND, [
 			"playerName" => $playerName,
 		]);
 	}
 
-	public static function XPocketMP_command_exception(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_EXCEPTION, [
+	public static function pocketmine_command_exception(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_EXCEPTION, [
 			0 => $param0,
 			1 => $param1,
 			2 => $param2,
 		]);
 	}
 
-	public static function XPocketMP_command_gamemode_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_GAMEMODE_DESCRIPTION, []);
+	public static function pocketmine_command_gamemode_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_GAMEMODE_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_gamemode_failure(Translatable|string $playerName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_GAMEMODE_FAILURE, [
+	public static function pocketmine_command_gamemode_failure(Translatable|string $playerName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_GAMEMODE_FAILURE, [
 			"playerName" => $playerName,
 		]);
 	}
 
-	public static function XPocketMP_command_gamemode_unknown(Translatable|string $gameModeName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_GAMEMODE_UNKNOWN, [
+	public static function pocketmine_command_gamemode_unknown(Translatable|string $gameModeName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_GAMEMODE_UNKNOWN, [
 			"gameModeName" => $gameModeName,
 		]);
 	}
 
-	public static function XPocketMP_command_gc_chunks(Translatable|string $chunksCollected) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_GC_CHUNKS, [
+	public static function pocketmine_command_gc_chunks(Translatable|string $chunksCollected) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_GC_CHUNKS, [
 			"chunksCollected" => $chunksCollected,
 		]);
 	}
 
-	public static function XPocketMP_command_gc_cycles(Translatable|string $cyclesCollected) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_GC_CYCLES, [
+	public static function pocketmine_command_gc_cycles(Translatable|string $cyclesCollected) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_GC_CYCLES, [
 			"cyclesCollected" => $cyclesCollected,
 		]);
 	}
 
-	public static function XPocketMP_command_gc_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_GC_DESCRIPTION, []);
+	public static function pocketmine_command_gc_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_GC_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_gc_entities(Translatable|string $entitiesCollected) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_GC_ENTITIES, [
+	public static function pocketmine_command_gc_entities(Translatable|string $entitiesCollected) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_GC_ENTITIES, [
 			"entitiesCollected" => $entitiesCollected,
 		]);
 	}
 
-	public static function XPocketMP_command_gc_header() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_GC_HEADER, []);
+	public static function pocketmine_command_gc_header() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_GC_HEADER, []);
 	}
 
-	public static function XPocketMP_command_gc_memoryFreed(Translatable|string $memoryFreed) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_GC_MEMORYFREED, [
+	public static function pocketmine_command_gc_memoryFreed(Translatable|string $memoryFreed) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_GC_MEMORYFREED, [
 			"memoryFreed" => $memoryFreed,
 		]);
 	}
 
-	public static function XPocketMP_command_give_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_GIVE_DESCRIPTION, []);
+	public static function pocketmine_command_give_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_GIVE_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_give_usage() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_GIVE_USAGE, []);
+	public static function pocketmine_command_give_usage() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_GIVE_USAGE, []);
 	}
 
-	public static function XPocketMP_command_help_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_HELP_DESCRIPTION, []);
+	public static function pocketmine_command_help_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_HELP_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_help_specificCommand_aliases(Translatable|string $aliasList) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_HELP_SPECIFICCOMMAND_ALIASES, [
+	public static function pocketmine_command_help_specificCommand_aliases(Translatable|string $aliasList) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_HELP_SPECIFICCOMMAND_ALIASES, [
 			"aliasList" => $aliasList,
 		]);
 	}
 
-	public static function XPocketMP_command_help_specificCommand_description(Translatable|string $description) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_HELP_SPECIFICCOMMAND_DESCRIPTION, [
+	public static function pocketmine_command_help_specificCommand_description(Translatable|string $description) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_HELP_SPECIFICCOMMAND_DESCRIPTION, [
 			"description" => $description,
 		]);
 	}
 
-	public static function XPocketMP_command_help_specificCommand_header(Translatable|string $commandName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_HELP_SPECIFICCOMMAND_HEADER, [
+	public static function pocketmine_command_help_specificCommand_header(Translatable|string $commandName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_HELP_SPECIFICCOMMAND_HEADER, [
 			"commandName" => $commandName,
 		]);
 	}
 
-	public static function XPocketMP_command_help_specificCommand_usage(Translatable|string $usage) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_HELP_SPECIFICCOMMAND_USAGE, [
+	public static function pocketmine_command_help_specificCommand_usage(Translatable|string $usage) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_HELP_SPECIFICCOMMAND_USAGE, [
 			"usage" => $usage,
 		]);
 	}
 
-	public static function XPocketMP_command_kick_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_KICK_DESCRIPTION, []);
+	public static function pocketmine_command_kick_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_KICK_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_kill_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_KILL_DESCRIPTION, []);
+	public static function pocketmine_command_kill_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_KILL_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_kill_usage() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_KILL_USAGE, []);
+	public static function pocketmine_command_kill_usage() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_KILL_USAGE, []);
 	}
 
-	public static function XPocketMP_command_list_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_LIST_DESCRIPTION, []);
+	public static function pocketmine_command_list_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_LIST_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_me_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_ME_DESCRIPTION, []);
+	public static function pocketmine_command_me_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_ME_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_notFound(Translatable|string $commandName, Translatable|string $helpCommand) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_NOTFOUND, [
+	public static function pocketmine_command_notFound(Translatable|string $commandName, Translatable|string $helpCommand) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_NOTFOUND, [
 			"commandName" => $commandName,
 			"helpCommand" => $helpCommand,
 		]);
 	}
 
-	public static function XPocketMP_command_op_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_OP_DESCRIPTION, []);
+	public static function pocketmine_command_op_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_OP_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_particle_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_PARTICLE_DESCRIPTION, []);
+	public static function pocketmine_command_particle_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_PARTICLE_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_particle_usage() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_PARTICLE_USAGE, []);
+	public static function pocketmine_command_particle_usage() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_PARTICLE_USAGE, []);
 	}
 
-	public static function XPocketMP_command_plugins_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_PLUGINS_DESCRIPTION, []);
+	public static function pocketmine_command_plugins_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_PLUGINS_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_plugins_success(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_PLUGINS_SUCCESS, [
+	public static function pocketmine_command_plugins_success(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_PLUGINS_SUCCESS, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_command_save_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_SAVE_DESCRIPTION, []);
+	public static function pocketmine_command_save_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_SAVE_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_saveoff_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_SAVEOFF_DESCRIPTION, []);
+	public static function pocketmine_command_saveoff_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_SAVEOFF_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_saveon_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_SAVEON_DESCRIPTION, []);
+	public static function pocketmine_command_saveon_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_SAVEON_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_say_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_SAY_DESCRIPTION, []);
+	public static function pocketmine_command_say_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_SAY_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_seed_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_SEED_DESCRIPTION, []);
+	public static function pocketmine_command_seed_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_SEED_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_setworldspawn_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_SETWORLDSPAWN_DESCRIPTION, []);
+	public static function pocketmine_command_setworldspawn_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_SETWORLDSPAWN_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_spawnpoint_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_SPAWNPOINT_DESCRIPTION, []);
+	public static function pocketmine_command_spawnpoint_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_SPAWNPOINT_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_status_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_STATUS_DESCRIPTION, []);
+	public static function pocketmine_command_status_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_STATUS_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_stop_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_STOP_DESCRIPTION, []);
+	public static function pocketmine_command_stop_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_STOP_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_tell_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TELL_DESCRIPTION, []);
+	public static function pocketmine_command_tell_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TELL_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_time_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIME_DESCRIPTION, []);
+	public static function pocketmine_command_time_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIME_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_time_usage() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIME_USAGE, []);
+	public static function pocketmine_command_time_usage() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIME_USAGE, []);
 	}
 
-	public static function XPocketMP_command_timings_alreadyEnabled() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIMINGS_ALREADYENABLED, []);
+	public static function pocketmine_command_timings_alreadyEnabled() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIMINGS_ALREADYENABLED, []);
 	}
 
-	public static function XPocketMP_command_timings_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIMINGS_DESCRIPTION, []);
+	public static function pocketmine_command_timings_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIMINGS_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_timings_disable() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIMINGS_DISABLE, []);
+	public static function pocketmine_command_timings_disable() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIMINGS_DISABLE, []);
 	}
 
-	public static function XPocketMP_command_timings_enable() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIMINGS_ENABLE, []);
+	public static function pocketmine_command_timings_enable() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIMINGS_ENABLE, []);
 	}
 
-	public static function XPocketMP_command_timings_pasteError() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIMINGS_PASTEERROR, []);
+	public static function pocketmine_command_timings_pasteError() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIMINGS_PASTEERROR, []);
 	}
 
-	public static function XPocketMP_command_timings_reset() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIMINGS_RESET, []);
+	public static function pocketmine_command_timings_reset() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIMINGS_RESET, []);
 	}
 
-	public static function XPocketMP_command_timings_timingsDisabled() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIMINGS_TIMINGSDISABLED, []);
+	public static function pocketmine_command_timings_timingsDisabled() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIMINGS_TIMINGSDISABLED, []);
 	}
 
-	public static function XPocketMP_command_timings_timingsRead(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIMINGS_TIMINGSREAD, [
+	public static function pocketmine_command_timings_timingsRead(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIMINGS_TIMINGSREAD, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_command_timings_timingsUpload(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIMINGS_TIMINGSUPLOAD, [
+	public static function pocketmine_command_timings_timingsUpload(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIMINGS_TIMINGSUPLOAD, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_command_timings_timingsWrite(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIMINGS_TIMINGSWRITE, [
+	public static function pocketmine_command_timings_timingsWrite(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIMINGS_TIMINGSWRITE, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_command_timings_usage() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TIMINGS_USAGE, []);
+	public static function pocketmine_command_timings_usage() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TIMINGS_USAGE, []);
 	}
 
-	public static function XPocketMP_command_title_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TITLE_DESCRIPTION, []);
+	public static function pocketmine_command_title_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TITLE_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_tp_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TP_DESCRIPTION, []);
+	public static function pocketmine_command_tp_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TP_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_transferserver_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TRANSFERSERVER_DESCRIPTION, []);
+	public static function pocketmine_command_transferserver_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TRANSFERSERVER_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_transferserver_usage() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_TRANSFERSERVER_USAGE, []);
+	public static function pocketmine_command_transferserver_usage() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_TRANSFERSERVER_USAGE, []);
 	}
 
-	public static function XPocketMP_command_unban_ip_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_UNBAN_IP_DESCRIPTION, []);
+	public static function pocketmine_command_unban_ip_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_UNBAN_IP_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_unban_player_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_UNBAN_PLAYER_DESCRIPTION, []);
+	public static function pocketmine_command_unban_player_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_UNBAN_PLAYER_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_userDefined_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_USERDEFINED_DESCRIPTION, []);
+	public static function pocketmine_command_userDefined_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_USERDEFINED_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_version_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_VERSION_DESCRIPTION, []);
+	public static function pocketmine_command_version_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_VERSION_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_command_version_minecraftVersion(Translatable|string $minecraftVersion, Translatable|string $minecraftProtocolVersion) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_VERSION_MINECRAFTVERSION, [
+	public static function pocketmine_command_version_minecraftVersion(Translatable|string $minecraftVersion, Translatable|string $minecraftProtocolVersion) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_VERSION_MINECRAFTVERSION, [
 			"minecraftVersion" => $minecraftVersion,
 			"minecraftProtocolVersion" => $minecraftProtocolVersion,
 		]);
 	}
 
-	public static function XPocketMP_command_version_noSuchPlugin() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_VERSION_NOSUCHPLUGIN, []);
+	public static function pocketmine_command_version_noSuchPlugin() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_VERSION_NOSUCHPLUGIN, []);
 	}
 
-	public static function XPocketMP_command_version_operatingSystem(Translatable|string $operatingSystemName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_VERSION_OPERATINGSYSTEM, [
+	public static function pocketmine_command_version_operatingSystem(Translatable|string $operatingSystemName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_VERSION_OPERATINGSYSTEM, [
 			"operatingSystemName" => $operatingSystemName,
 		]);
 	}
 
-	public static function XPocketMP_command_version_phpJitDisabled() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_VERSION_PHPJITDISABLED, []);
+	public static function pocketmine_command_version_phpJitDisabled() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_VERSION_PHPJITDISABLED, []);
 	}
 
-	public static function XPocketMP_command_version_phpJitEnabled(Translatable|string $extraJitInfo) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_VERSION_PHPJITENABLED, [
+	public static function pocketmine_command_version_phpJitEnabled(Translatable|string $extraJitInfo) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_VERSION_PHPJITENABLED, [
 			"extraJitInfo" => $extraJitInfo,
 		]);
 	}
 
-	public static function XPocketMP_command_version_phpJitNotSupported() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_VERSION_PHPJITNOTSUPPORTED, []);
+	public static function pocketmine_command_version_phpJitNotSupported() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_VERSION_PHPJITNOTSUPPORTED, []);
 	}
 
-	public static function XPocketMP_command_version_phpJitStatus(Translatable|string $jitStatus) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_VERSION_PHPJITSTATUS, [
+	public static function pocketmine_command_version_phpJitStatus(Translatable|string $jitStatus) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_VERSION_PHPJITSTATUS, [
 			"jitStatus" => $jitStatus,
 		]);
 	}
 
-	public static function XPocketMP_command_version_phpVersion(Translatable|string $phpVersion) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_VERSION_PHPVERSION, [
+	public static function pocketmine_command_version_phpVersion(Translatable|string $phpVersion) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_VERSION_PHPVERSION, [
 			"phpVersion" => $phpVersion,
 		]);
 	}
 
-	public static function XPocketMP_command_version_serverSoftwareName(Translatable|string $serverSoftwareName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_VERSION_SERVERSOFTWARENAME, [
+	public static function pocketmine_command_version_serverSoftwareName(Translatable|string $serverSoftwareName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_VERSION_SERVERSOFTWARENAME, [
 			"serverSoftwareName" => $serverSoftwareName,
 		]);
 	}
 
-	public static function XPocketMP_command_version_serverSoftwareVersion(Translatable|string $serverSoftwareVersion, Translatable|string $serverGitHash) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_VERSION_SERVERSOFTWAREVERSION, [
+	public static function pocketmine_command_version_serverSoftwareVersion(Translatable|string $serverSoftwareVersion, Translatable|string $serverGitHash) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_VERSION_SERVERSOFTWAREVERSION, [
 			"serverSoftwareVersion" => $serverSoftwareVersion,
 			"serverGitHash" => $serverGitHash,
 		]);
 	}
 
-	public static function XPocketMP_command_version_usage() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_VERSION_USAGE, []);
+	public static function pocketmine_command_version_usage() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_VERSION_USAGE, []);
 	}
 
-	public static function XPocketMP_command_whitelist_description() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_COMMAND_WHITELIST_DESCRIPTION, []);
+	public static function pocketmine_command_whitelist_description() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_COMMAND_WHITELIST_DESCRIPTION, []);
 	}
 
-	public static function XPocketMP_crash_archive(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_CRASH_ARCHIVE, [
+	public static function pocketmine_crash_archive(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_CRASH_ARCHIVE, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_crash_create() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_CRASH_CREATE, []);
+	public static function pocketmine_crash_create() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_CRASH_CREATE, []);
 	}
 
-	public static function XPocketMP_crash_error(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_CRASH_ERROR, [
+	public static function pocketmine_crash_error(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_CRASH_ERROR, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_crash_submit(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_CRASH_SUBMIT, [
+	public static function pocketmine_crash_submit(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_CRASH_SUBMIT, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_data_playerCorrupted(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DATA_PLAYERCORRUPTED, [
+	public static function pocketmine_data_playerCorrupted(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DATA_PLAYERCORRUPTED, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_data_playerNotFound(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DATA_PLAYERNOTFOUND, [
+	public static function pocketmine_data_playerNotFound(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DATA_PLAYERNOTFOUND, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_data_playerOld(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DATA_PLAYEROLD, [
+	public static function pocketmine_data_playerOld(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DATA_PLAYEROLD, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_data_saveError(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DATA_SAVEERROR, [
+	public static function pocketmine_data_saveError(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DATA_SAVEERROR, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_debug_enable() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DEBUG_ENABLE, []);
+	public static function pocketmine_debug_enable() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DEBUG_ENABLE, []);
 	}
 
-	public static function XPocketMP_disconnect_ban(Translatable|string $reason) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_BAN, [
+	public static function pocketmine_disconnect_ban(Translatable|string $reason) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_BAN, [
 			"reason" => $reason,
 		]);
 	}
 
-	public static function XPocketMP_disconnect_ban_hardcore() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_BAN_HARDCORE, []);
+	public static function pocketmine_disconnect_ban_hardcore() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_BAN_HARDCORE, []);
 	}
 
-	public static function XPocketMP_disconnect_ban_ip() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_BAN_IP, []);
+	public static function pocketmine_disconnect_ban_ip() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_BAN_IP, []);
 	}
 
-	public static function XPocketMP_disconnect_ban_noReason() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_BAN_NOREASON, []);
+	public static function pocketmine_disconnect_ban_noReason() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_BAN_NOREASON, []);
 	}
 
-	public static function XPocketMP_disconnect_clientDisconnect() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_CLIENTDISCONNECT, []);
+	public static function pocketmine_disconnect_clientDisconnect() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_CLIENTDISCONNECT, []);
 	}
 
-	public static function XPocketMP_disconnect_clientReconnect() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_CLIENTRECONNECT, []);
+	public static function pocketmine_disconnect_clientReconnect() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_CLIENTRECONNECT, []);
 	}
 
-	public static function XPocketMP_disconnect_error(Translatable|string $error, Translatable|string $errorId) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_ERROR, [
+	public static function pocketmine_disconnect_error(Translatable|string $error, Translatable|string $errorId) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_ERROR, [
 			"error" => $error,
 			"errorId" => $errorId,
 		]);
 	}
 
-	public static function XPocketMP_disconnect_error_authentication() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_ERROR_AUTHENTICATION, []);
+	public static function pocketmine_disconnect_error_authentication() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_ERROR_AUTHENTICATION, []);
 	}
 
-	public static function XPocketMP_disconnect_error_badPacket() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_ERROR_BADPACKET, []);
+	public static function pocketmine_disconnect_error_badPacket() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_ERROR_BADPACKET, []);
 	}
 
-	public static function XPocketMP_disconnect_error_internal() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_ERROR_INTERNAL, []);
+	public static function pocketmine_disconnect_error_internal() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_ERROR_INTERNAL, []);
 	}
 
-	public static function XPocketMP_disconnect_error_loginTimeout() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_ERROR_LOGINTIMEOUT, []);
+	public static function pocketmine_disconnect_error_loginTimeout() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_ERROR_LOGINTIMEOUT, []);
 	}
 
-	public static function XPocketMP_disconnect_error_respawn() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_ERROR_RESPAWN, []);
+	public static function pocketmine_disconnect_error_respawn() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_ERROR_RESPAWN, []);
 	}
 
-	public static function XPocketMP_disconnect_error_timeout() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_ERROR_TIMEOUT, []);
+	public static function pocketmine_disconnect_error_timeout() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_ERROR_TIMEOUT, []);
 	}
 
-	public static function XPocketMP_disconnect_incompatibleProtocol(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_INCOMPATIBLEPROTOCOL, [
+	public static function pocketmine_disconnect_incompatibleProtocol(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_INCOMPATIBLEPROTOCOL, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_disconnect_invalidSession(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_INVALIDSESSION, [
+	public static function pocketmine_disconnect_invalidSession(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_INVALIDSESSION, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_disconnect_invalidSession_badSignature() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_INVALIDSESSION_BADSIGNATURE, []);
+	public static function pocketmine_disconnect_invalidSession_badSignature() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_INVALIDSESSION_BADSIGNATURE, []);
 	}
 
-	public static function XPocketMP_disconnect_invalidSession_missingKey() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_INVALIDSESSION_MISSINGKEY, []);
+	public static function pocketmine_disconnect_invalidSession_missingKey() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_INVALIDSESSION_MISSINGKEY, []);
 	}
 
-	public static function XPocketMP_disconnect_invalidSession_tooEarly() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_INVALIDSESSION_TOOEARLY, []);
+	public static function pocketmine_disconnect_invalidSession_tooEarly() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_INVALIDSESSION_TOOEARLY, []);
 	}
 
-	public static function XPocketMP_disconnect_invalidSession_tooLate() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_INVALIDSESSION_TOOLATE, []);
+	public static function pocketmine_disconnect_invalidSession_tooLate() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_INVALIDSESSION_TOOLATE, []);
 	}
 
-	public static function XPocketMP_disconnect_kick(Translatable|string $reason) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_KICK, [
+	public static function pocketmine_disconnect_kick(Translatable|string $reason) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_KICK, [
 			"reason" => $reason,
 		]);
 	}
 
-	public static function XPocketMP_disconnect_kick_noReason() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_KICK_NOREASON, []);
+	public static function pocketmine_disconnect_kick_noReason() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_KICK_NOREASON, []);
 	}
 
-	public static function XPocketMP_disconnect_transfer() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_TRANSFER, []);
+	public static function pocketmine_disconnect_transfer() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_TRANSFER, []);
 	}
 
-	public static function XPocketMP_disconnect_whitelisted() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_WHITELISTED, []);
+	public static function pocketmine_disconnect_whitelisted() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_WHITELISTED, []);
 	}
 
-	public static function XPocketMP_disconnect_xblImpersonation() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_DISCONNECT_XBLIMPERSONATION, []);
+	public static function pocketmine_disconnect_xblImpersonation() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_DISCONNECT_XBLIMPERSONATION, []);
 	}
 
-	public static function XPocketMP_level_ambiguousFormat(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_AMBIGUOUSFORMAT, [
+	public static function pocketmine_level_ambiguousFormat(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_AMBIGUOUSFORMAT, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_level_backgroundGeneration(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_BACKGROUNDGENERATION, [
+	public static function pocketmine_level_backgroundGeneration(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_BACKGROUNDGENERATION, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_level_badDefaultFormat(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_BADDEFAULTFORMAT, [
+	public static function pocketmine_level_badDefaultFormat(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_BADDEFAULTFORMAT, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_level_conversion_finish(Translatable|string $worldName, Translatable|string $backupPath) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_CONVERSION_FINISH, [
+	public static function pocketmine_level_conversion_finish(Translatable|string $worldName, Translatable|string $backupPath) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_CONVERSION_FINISH, [
 			"worldName" => $worldName,
 			"backupPath" => $backupPath,
 		]);
 	}
 
-	public static function XPocketMP_level_conversion_start(Translatable|string $worldName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_CONVERSION_START, [
+	public static function pocketmine_level_conversion_start(Translatable|string $worldName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_CONVERSION_START, [
 			"worldName" => $worldName,
 		]);
 	}
 
-	public static function XPocketMP_level_corrupted(Translatable|string $details) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_CORRUPTED, [
+	public static function pocketmine_level_corrupted(Translatable|string $details) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_CORRUPTED, [
 			"details" => $details,
 		]);
 	}
 
-	public static function XPocketMP_level_defaultError() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_DEFAULTERROR, []);
+	public static function pocketmine_level_defaultError() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_DEFAULTERROR, []);
 	}
 
-	public static function XPocketMP_level_generationError(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_GENERATIONERROR, [
+	public static function pocketmine_level_generationError(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_GENERATIONERROR, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_level_invalidGeneratorOptions(Translatable|string $preset, Translatable|string $generatorName, Translatable|string $details) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_INVALIDGENERATOROPTIONS, [
+	public static function pocketmine_level_invalidGeneratorOptions(Translatable|string $preset, Translatable|string $generatorName, Translatable|string $details) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_INVALIDGENERATOROPTIONS, [
 			"preset" => $preset,
 			"generatorName" => $generatorName,
 			"details" => $details,
 		]);
 	}
 
-	public static function XPocketMP_level_loadError(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_LOADERROR, [
+	public static function pocketmine_level_loadError(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_LOADERROR, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_level_notFound(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_NOTFOUND, [
+	public static function pocketmine_level_notFound(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_NOTFOUND, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_level_preparing(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_PREPARING, [
+	public static function pocketmine_level_preparing(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_PREPARING, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_level_spawnTerrainGenerationProgress(Translatable|string $done, Translatable|string $total, Translatable|string $percentageDone) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_SPAWNTERRAINGENERATIONPROGRESS, [
+	public static function pocketmine_level_spawnTerrainGenerationProgress(Translatable|string $done, Translatable|string $total, Translatable|string $percentageDone) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_SPAWNTERRAINGENERATIONPROGRESS, [
 			"done" => $done,
 			"total" => $total,
 			"percentageDone" => $percentageDone,
 		]);
 	}
 
-	public static function XPocketMP_level_unknownFormat() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_UNKNOWNFORMAT, []);
+	public static function pocketmine_level_unknownFormat() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_UNKNOWNFORMAT, []);
 	}
 
-	public static function XPocketMP_level_unknownGenerator(Translatable|string $generatorName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_UNKNOWNGENERATOR, [
+	public static function pocketmine_level_unknownGenerator(Translatable|string $generatorName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_UNKNOWNGENERATOR, [
 			"generatorName" => $generatorName,
 		]);
 	}
 
-	public static function XPocketMP_level_unloading(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_UNLOADING, [
+	public static function pocketmine_level_unloading(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_UNLOADING, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_level_unsupportedFormat(Translatable|string $details) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_LEVEL_UNSUPPORTEDFORMAT, [
+	public static function pocketmine_level_unsupportedFormat(Translatable|string $details) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_LEVEL_UNSUPPORTEDFORMAT, [
 			"details" => $details,
 		]);
 	}
 
-	public static function XPocketMP_network_session_close(Translatable|string $reason) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_NETWORK_SESSION_CLOSE, [
+	public static function pocketmine_network_session_close(Translatable|string $reason) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_NETWORK_SESSION_CLOSE, [
 			"reason" => $reason,
 		]);
 	}
 
-	public static function XPocketMP_network_session_open() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_NETWORK_SESSION_OPEN, []);
+	public static function pocketmine_network_session_open() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_NETWORK_SESSION_OPEN, []);
 	}
 
-	public static function XPocketMP_network_session_playerName(Translatable|string $playerName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_NETWORK_SESSION_PLAYERNAME, [
+	public static function pocketmine_network_session_playerName(Translatable|string $playerName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_NETWORK_SESSION_PLAYERNAME, [
 			"playerName" => $playerName,
 		]);
 	}
 
-	public static function XPocketMP_permission_broadcast_admin() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_BROADCAST_ADMIN, []);
+	public static function pocketmine_permission_broadcast_admin() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_BROADCAST_ADMIN, []);
 	}
 
-	public static function XPocketMP_permission_broadcast_user() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_BROADCAST_USER, []);
+	public static function pocketmine_permission_broadcast_user() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_BROADCAST_USER, []);
 	}
 
-	public static function XPocketMP_permission_command_ban_ip() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_BAN_IP, []);
+	public static function pocketmine_permission_command_ban_ip() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_BAN_IP, []);
 	}
 
-	public static function XPocketMP_permission_command_ban_list() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_BAN_LIST, []);
+	public static function pocketmine_permission_command_ban_list() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_BAN_LIST, []);
 	}
 
-	public static function XPocketMP_permission_command_ban_player() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_BAN_PLAYER, []);
+	public static function pocketmine_permission_command_ban_player() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_BAN_PLAYER, []);
 	}
 
-	public static function XPocketMP_permission_command_clear_other() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_CLEAR_OTHER, []);
+	public static function pocketmine_permission_command_clear_other() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_CLEAR_OTHER, []);
 	}
 
-	public static function XPocketMP_permission_command_clear_self() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_CLEAR_SELF, []);
+	public static function pocketmine_permission_command_clear_self() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_CLEAR_SELF, []);
 	}
 
-	public static function XPocketMP_permission_command_defaultgamemode() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_DEFAULTGAMEMODE, []);
+	public static function pocketmine_permission_command_defaultgamemode() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_DEFAULTGAMEMODE, []);
 	}
 
-	public static function XPocketMP_permission_command_difficulty() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_DIFFICULTY, []);
+	public static function pocketmine_permission_command_difficulty() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_DIFFICULTY, []);
 	}
 
-	public static function XPocketMP_permission_command_dumpmemory() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_DUMPMEMORY, []);
+	public static function pocketmine_permission_command_dumpmemory() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_DUMPMEMORY, []);
 	}
 
-	public static function XPocketMP_permission_command_effect_other() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_EFFECT_OTHER, []);
+	public static function pocketmine_permission_command_effect_other() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_EFFECT_OTHER, []);
 	}
 
-	public static function XPocketMP_permission_command_effect_self() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_EFFECT_SELF, []);
+	public static function pocketmine_permission_command_effect_self() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_EFFECT_SELF, []);
 	}
 
-	public static function XPocketMP_permission_command_enchant_other() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_ENCHANT_OTHER, []);
+	public static function pocketmine_permission_command_enchant_other() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_ENCHANT_OTHER, []);
 	}
 
-	public static function XPocketMP_permission_command_enchant_self() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_ENCHANT_SELF, []);
+	public static function pocketmine_permission_command_enchant_self() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_ENCHANT_SELF, []);
 	}
 
-	public static function XPocketMP_permission_command_gamemode_other() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_GAMEMODE_OTHER, []);
+	public static function pocketmine_permission_command_gamemode_other() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_GAMEMODE_OTHER, []);
 	}
 
-	public static function XPocketMP_permission_command_gamemode_self() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_GAMEMODE_SELF, []);
+	public static function pocketmine_permission_command_gamemode_self() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_GAMEMODE_SELF, []);
 	}
 
-	public static function XPocketMP_permission_command_gc() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_GC, []);
+	public static function pocketmine_permission_command_gc() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_GC, []);
 	}
 
-	public static function XPocketMP_permission_command_give_other() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_GIVE_OTHER, []);
+	public static function pocketmine_permission_command_give_other() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_GIVE_OTHER, []);
 	}
 
-	public static function XPocketMP_permission_command_give_self() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_GIVE_SELF, []);
+	public static function pocketmine_permission_command_give_self() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_GIVE_SELF, []);
 	}
 
-	public static function XPocketMP_permission_command_help() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_HELP, []);
+	public static function pocketmine_permission_command_help() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_HELP, []);
 	}
 
-	public static function XPocketMP_permission_command_kick() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_KICK, []);
+	public static function pocketmine_permission_command_kick() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_KICK, []);
 	}
 
-	public static function XPocketMP_permission_command_kill_other() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_KILL_OTHER, []);
+	public static function pocketmine_permission_command_kill_other() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_KILL_OTHER, []);
 	}
 
-	public static function XPocketMP_permission_command_kill_self() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_KILL_SELF, []);
+	public static function pocketmine_permission_command_kill_self() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_KILL_SELF, []);
 	}
 
-	public static function XPocketMP_permission_command_list() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_LIST, []);
+	public static function pocketmine_permission_command_list() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_LIST, []);
 	}
 
-	public static function XPocketMP_permission_command_me() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_ME, []);
+	public static function pocketmine_permission_command_me() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_ME, []);
 	}
 
-	public static function XPocketMP_permission_command_op_give() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_OP_GIVE, []);
+	public static function pocketmine_permission_command_op_give() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_OP_GIVE, []);
 	}
 
-	public static function XPocketMP_permission_command_op_take() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_OP_TAKE, []);
+	public static function pocketmine_permission_command_op_take() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_OP_TAKE, []);
 	}
 
-	public static function XPocketMP_permission_command_particle() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_PARTICLE, []);
+	public static function pocketmine_permission_command_particle() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_PARTICLE, []);
 	}
 
-	public static function XPocketMP_permission_command_plugins() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_PLUGINS, []);
+	public static function pocketmine_permission_command_plugins() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_PLUGINS, []);
 	}
 
-	public static function XPocketMP_permission_command_save_disable() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_SAVE_DISABLE, []);
+	public static function pocketmine_permission_command_save_disable() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_SAVE_DISABLE, []);
 	}
 
-	public static function XPocketMP_permission_command_save_enable() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_SAVE_ENABLE, []);
+	public static function pocketmine_permission_command_save_enable() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_SAVE_ENABLE, []);
 	}
 
-	public static function XPocketMP_permission_command_save_perform() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_SAVE_PERFORM, []);
+	public static function pocketmine_permission_command_save_perform() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_SAVE_PERFORM, []);
 	}
 
-	public static function XPocketMP_permission_command_say() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_SAY, []);
+	public static function pocketmine_permission_command_say() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_SAY, []);
 	}
 
-	public static function XPocketMP_permission_command_seed() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_SEED, []);
+	public static function pocketmine_permission_command_seed() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_SEED, []);
 	}
 
-	public static function XPocketMP_permission_command_setworldspawn() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_SETWORLDSPAWN, []);
+	public static function pocketmine_permission_command_setworldspawn() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_SETWORLDSPAWN, []);
 	}
 
-	public static function XPocketMP_permission_command_spawnpoint_other() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_SPAWNPOINT_OTHER, []);
+	public static function pocketmine_permission_command_spawnpoint_other() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_SPAWNPOINT_OTHER, []);
 	}
 
-	public static function XPocketMP_permission_command_spawnpoint_self() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_SPAWNPOINT_SELF, []);
+	public static function pocketmine_permission_command_spawnpoint_self() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_SPAWNPOINT_SELF, []);
 	}
 
-	public static function XPocketMP_permission_command_status() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_STATUS, []);
+	public static function pocketmine_permission_command_status() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_STATUS, []);
 	}
 
-	public static function XPocketMP_permission_command_stop() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_STOP, []);
+	public static function pocketmine_permission_command_stop() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_STOP, []);
 	}
 
-	public static function XPocketMP_permission_command_teleport_other() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_TELEPORT_OTHER, []);
+	public static function pocketmine_permission_command_teleport_other() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_TELEPORT_OTHER, []);
 	}
 
-	public static function XPocketMP_permission_command_teleport_self() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_TELEPORT_SELF, []);
+	public static function pocketmine_permission_command_teleport_self() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_TELEPORT_SELF, []);
 	}
 
-	public static function XPocketMP_permission_command_tell() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_TELL, []);
+	public static function pocketmine_permission_command_tell() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_TELL, []);
 	}
 
-	public static function XPocketMP_permission_command_time_add() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_TIME_ADD, []);
+	public static function pocketmine_permission_command_time_add() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_TIME_ADD, []);
 	}
 
-	public static function XPocketMP_permission_command_time_query() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_TIME_QUERY, []);
+	public static function pocketmine_permission_command_time_query() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_TIME_QUERY, []);
 	}
 
-	public static function XPocketMP_permission_command_time_set() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_TIME_SET, []);
+	public static function pocketmine_permission_command_time_set() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_TIME_SET, []);
 	}
 
-	public static function XPocketMP_permission_command_time_start() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_TIME_START, []);
+	public static function pocketmine_permission_command_time_start() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_TIME_START, []);
 	}
 
-	public static function XPocketMP_permission_command_time_stop() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_TIME_STOP, []);
+	public static function pocketmine_permission_command_time_stop() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_TIME_STOP, []);
 	}
 
-	public static function XPocketMP_permission_command_timings() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_TIMINGS, []);
+	public static function pocketmine_permission_command_timings() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_TIMINGS, []);
 	}
 
-	public static function XPocketMP_permission_command_title_other() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_TITLE_OTHER, []);
+	public static function pocketmine_permission_command_title_other() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_TITLE_OTHER, []);
 	}
 
-	public static function XPocketMP_permission_command_title_self() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_TITLE_SELF, []);
+	public static function pocketmine_permission_command_title_self() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_TITLE_SELF, []);
 	}
 
-	public static function XPocketMP_permission_command_transferserver() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_TRANSFERSERVER, []);
+	public static function pocketmine_permission_command_transferserver() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_TRANSFERSERVER, []);
 	}
 
-	public static function XPocketMP_permission_command_unban_ip() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_UNBAN_IP, []);
+	public static function pocketmine_permission_command_unban_ip() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_UNBAN_IP, []);
 	}
 
-	public static function XPocketMP_permission_command_unban_player() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_UNBAN_PLAYER, []);
+	public static function pocketmine_permission_command_unban_player() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_UNBAN_PLAYER, []);
 	}
 
-	public static function XPocketMP_permission_command_version() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_VERSION, []);
+	public static function pocketmine_permission_command_version() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_VERSION, []);
 	}
 
-	public static function XPocketMP_permission_command_whitelist_add() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_WHITELIST_ADD, []);
+	public static function pocketmine_permission_command_whitelist_add() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_WHITELIST_ADD, []);
 	}
 
-	public static function XPocketMP_permission_command_whitelist_disable() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_WHITELIST_DISABLE, []);
+	public static function pocketmine_permission_command_whitelist_disable() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_WHITELIST_DISABLE, []);
 	}
 
-	public static function XPocketMP_permission_command_whitelist_enable() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_WHITELIST_ENABLE, []);
+	public static function pocketmine_permission_command_whitelist_enable() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_WHITELIST_ENABLE, []);
 	}
 
-	public static function XPocketMP_permission_command_whitelist_list() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_WHITELIST_LIST, []);
+	public static function pocketmine_permission_command_whitelist_list() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_WHITELIST_LIST, []);
 	}
 
-	public static function XPocketMP_permission_command_whitelist_reload() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_WHITELIST_RELOAD, []);
+	public static function pocketmine_permission_command_whitelist_reload() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_WHITELIST_RELOAD, []);
 	}
 
-	public static function XPocketMP_permission_command_whitelist_remove() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_COMMAND_WHITELIST_REMOVE, []);
+	public static function pocketmine_permission_command_whitelist_remove() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_COMMAND_WHITELIST_REMOVE, []);
 	}
 
-	public static function XPocketMP_permission_group_console() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_GROUP_CONSOLE, []);
+	public static function pocketmine_permission_group_console() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_GROUP_CONSOLE, []);
 	}
 
-	public static function XPocketMP_permission_group_operator() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_GROUP_OPERATOR, []);
+	public static function pocketmine_permission_group_operator() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_GROUP_OPERATOR, []);
 	}
 
-	public static function XPocketMP_permission_group_user() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PERMISSION_GROUP_USER, []);
+	public static function pocketmine_permission_group_user() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PERMISSION_GROUP_USER, []);
 	}
 
-	public static function XPocketMP_player_invalidEntity(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLAYER_INVALIDENTITY, [
+	public static function pocketmine_player_invalidEntity(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLAYER_INVALIDENTITY, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_player_invalidMove(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLAYER_INVALIDMOVE, [
+	public static function pocketmine_player_invalidMove(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLAYER_INVALIDMOVE, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_player_logIn(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2, Translatable|string $param3, Translatable|string $param4, Translatable|string $param5, Translatable|string $param6, Translatable|string $param7) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLAYER_LOGIN, [
+	public static function pocketmine_player_logIn(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2, Translatable|string $param3, Translatable|string $param4, Translatable|string $param5, Translatable|string $param6, Translatable|string $param7) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLAYER_LOGIN, [
 			0 => $param0,
 			1 => $param1,
 			2 => $param2,
@@ -2099,8 +2099,8 @@ final class KnownTranslationFactory{
 		]);
 	}
 
-	public static function XPocketMP_player_logOut(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2, Translatable|string $param3) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLAYER_LOGOUT, [
+	public static function pocketmine_player_logOut(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2, Translatable|string $param3) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLAYER_LOGOUT, [
 			0 => $param0,
 			1 => $param1,
 			2 => $param2,
@@ -2108,305 +2108,305 @@ final class KnownTranslationFactory{
 		]);
 	}
 
-	public static function XPocketMP_plugin_aliasError(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_ALIASERROR, [
+	public static function pocketmine_plugin_aliasError(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_ALIASERROR, [
 			0 => $param0,
 			1 => $param1,
 			2 => $param2,
 		]);
 	}
 
-	public static function XPocketMP_plugin_ambiguousMinAPI(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_AMBIGUOUSMINAPI, [
+	public static function pocketmine_plugin_ambiguousMinAPI(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_AMBIGUOUSMINAPI, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_plugin_badDataFolder(Translatable|string $dataFolder) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_BADDATAFOLDER, [
+	public static function pocketmine_plugin_badDataFolder(Translatable|string $dataFolder) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_BADDATAFOLDER, [
 			"dataFolder" => $dataFolder,
 		]);
 	}
 
-	public static function XPocketMP_plugin_circularDependency() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_CIRCULARDEPENDENCY, []);
+	public static function pocketmine_plugin_circularDependency() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_CIRCULARDEPENDENCY, []);
 	}
 
-	public static function XPocketMP_plugin_commandError(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_COMMANDERROR, [
+	public static function pocketmine_plugin_commandError(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_COMMANDERROR, [
 			0 => $param0,
 			1 => $param1,
 			2 => $param2,
 		]);
 	}
 
-	public static function XPocketMP_plugin_deprecatedEvent(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_DEPRECATEDEVENT, [
+	public static function pocketmine_plugin_deprecatedEvent(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_DEPRECATEDEVENT, [
 			0 => $param0,
 			1 => $param1,
 			2 => $param2,
 		]);
 	}
 
-	public static function XPocketMP_plugin_disable(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_DISABLE, [
+	public static function pocketmine_plugin_disable(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_DISABLE, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_plugin_disallowedByBlacklist() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_DISALLOWEDBYBLACKLIST, []);
+	public static function pocketmine_plugin_disallowedByBlacklist() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_DISALLOWEDBYBLACKLIST, []);
 	}
 
-	public static function XPocketMP_plugin_disallowedByWhitelist() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_DISALLOWEDBYWHITELIST, []);
+	public static function pocketmine_plugin_disallowedByWhitelist() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_DISALLOWEDBYWHITELIST, []);
 	}
 
-	public static function XPocketMP_plugin_duplicateError(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_DUPLICATEERROR, [
+	public static function pocketmine_plugin_duplicateError(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_DUPLICATEERROR, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_plugin_duplicatePermissionError(Translatable|string $permissionName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_DUPLICATEPERMISSIONERROR, [
+	public static function pocketmine_plugin_duplicatePermissionError(Translatable|string $permissionName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_DUPLICATEPERMISSIONERROR, [
 			"permissionName" => $permissionName,
 		]);
 	}
 
-	public static function XPocketMP_plugin_emptyExtensionVersionConstraint(Translatable|string $constraintIndex, Translatable|string $extensionName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_EMPTYEXTENSIONVERSIONCONSTRAINT, [
+	public static function pocketmine_plugin_emptyExtensionVersionConstraint(Translatable|string $constraintIndex, Translatable|string $extensionName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_EMPTYEXTENSIONVERSIONCONSTRAINT, [
 			"constraintIndex" => $constraintIndex,
 			"extensionName" => $extensionName,
 		]);
 	}
 
-	public static function XPocketMP_plugin_enable(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_ENABLE, [
+	public static function pocketmine_plugin_enable(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_ENABLE, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_plugin_enableError(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_ENABLEERROR, [
+	public static function pocketmine_plugin_enableError(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_ENABLEERROR, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_plugin_extensionNotLoaded(Translatable|string $extensionName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_EXTENSIONNOTLOADED, [
+	public static function pocketmine_plugin_extensionNotLoaded(Translatable|string $extensionName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_EXTENSIONNOTLOADED, [
 			"extensionName" => $extensionName,
 		]);
 	}
 
-	public static function XPocketMP_plugin_genericLoadError(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_GENERICLOADERROR, [
+	public static function pocketmine_plugin_genericLoadError(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_GENERICLOADERROR, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_plugin_incompatibleAPI(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_INCOMPATIBLEAPI, [
+	public static function pocketmine_plugin_incompatibleAPI(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_INCOMPATIBLEAPI, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_plugin_incompatibleExtensionVersion(Translatable|string $extensionVersion, Translatable|string $extensionName, Translatable|string $pluginRequirement) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_INCOMPATIBLEEXTENSIONVERSION, [
+	public static function pocketmine_plugin_incompatibleExtensionVersion(Translatable|string $extensionVersion, Translatable|string $extensionName, Translatable|string $pluginRequirement) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_INCOMPATIBLEEXTENSIONVERSION, [
 			"extensionVersion" => $extensionVersion,
 			"extensionName" => $extensionName,
 			"pluginRequirement" => $pluginRequirement,
 		]);
 	}
 
-	public static function XPocketMP_plugin_incompatibleOS(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_INCOMPATIBLEOS, [
+	public static function pocketmine_plugin_incompatibleOS(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_INCOMPATIBLEOS, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_plugin_incompatiblePhpVersion(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_INCOMPATIBLEPHPVERSION, [
+	public static function pocketmine_plugin_incompatiblePhpVersion(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_INCOMPATIBLEPHPVERSION, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_plugin_incompatibleProtocol(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_INCOMPATIBLEPROTOCOL, [
+	public static function pocketmine_plugin_incompatibleProtocol(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_INCOMPATIBLEPROTOCOL, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_plugin_invalidAPI(Translatable|string $apiVersion) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_INVALIDAPI, [
+	public static function pocketmine_plugin_invalidAPI(Translatable|string $apiVersion) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_INVALIDAPI, [
 			"apiVersion" => $apiVersion,
 		]);
 	}
 
-	public static function XPocketMP_plugin_invalidExtensionVersionConstraint(Translatable|string $versionConstraint, Translatable|string $extensionName) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_INVALIDEXTENSIONVERSIONCONSTRAINT, [
+	public static function pocketmine_plugin_invalidExtensionVersionConstraint(Translatable|string $versionConstraint, Translatable|string $extensionName) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_INVALIDEXTENSIONVERSIONCONSTRAINT, [
 			"versionConstraint" => $versionConstraint,
 			"extensionName" => $extensionName,
 		]);
 	}
 
-	public static function XPocketMP_plugin_invalidManifest(Translatable|string $details) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_INVALIDMANIFEST, [
+	public static function pocketmine_plugin_invalidManifest(Translatable|string $details) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_INVALIDMANIFEST, [
 			"details" => $details,
 		]);
 	}
 
-	public static function XPocketMP_plugin_load(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_LOAD, [
+	public static function pocketmine_plugin_load(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_LOAD, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_plugin_loadError(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_LOADERROR, [
+	public static function pocketmine_plugin_loadError(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_LOADERROR, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_plugin_mainClassAbstract() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_MAINCLASSABSTRACT, []);
+	public static function pocketmine_plugin_mainClassAbstract() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_MAINCLASSABSTRACT, []);
 	}
 
-	public static function XPocketMP_plugin_mainClassNotFound() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_MAINCLASSNOTFOUND, []);
+	public static function pocketmine_plugin_mainClassNotFound() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_MAINCLASSNOTFOUND, []);
 	}
 
-	public static function XPocketMP_plugin_mainClassWrongType(Translatable|string $pluginInterface) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_MAINCLASSWRONGTYPE, [
+	public static function pocketmine_plugin_mainClassWrongType(Translatable|string $pluginInterface) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_MAINCLASSWRONGTYPE, [
 			"pluginInterface" => $pluginInterface,
 		]);
 	}
 
-	public static function XPocketMP_plugin_restrictedName() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_RESTRICTEDNAME, []);
+	public static function pocketmine_plugin_restrictedName() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_RESTRICTEDNAME, []);
 	}
 
-	public static function XPocketMP_plugin_someEnableErrors() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_SOMEENABLEERRORS, []);
+	public static function pocketmine_plugin_someEnableErrors() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_SOMEENABLEERRORS, []);
 	}
 
-	public static function XPocketMP_plugin_someLoadErrors() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_SOMELOADERRORS, []);
+	public static function pocketmine_plugin_someLoadErrors() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_SOMELOADERRORS, []);
 	}
 
-	public static function XPocketMP_plugin_spacesDiscouraged(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_SPACESDISCOURAGED, [
+	public static function pocketmine_plugin_spacesDiscouraged(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_SPACESDISCOURAGED, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_plugin_suicide() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_SUICIDE, []);
+	public static function pocketmine_plugin_suicide() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_SUICIDE, []);
 	}
 
-	public static function XPocketMP_plugin_unknownDependency(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGIN_UNKNOWNDEPENDENCY, [
+	public static function pocketmine_plugin_unknownDependency(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGIN_UNKNOWNDEPENDENCY, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_save_start() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SAVE_START, []);
+	public static function pocketmine_save_start() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SAVE_START, []);
 	}
 
-	public static function XPocketMP_save_success(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SAVE_SUCCESS, [
+	public static function pocketmine_save_success(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SAVE_SUCCESS, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_server_auth_disabled() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_AUTH_DISABLED, []);
+	public static function pocketmine_server_auth_disabled() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_AUTH_DISABLED, []);
 	}
 
-	public static function XPocketMP_server_auth_enabled() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_AUTH_ENABLED, []);
+	public static function pocketmine_server_auth_enabled() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_AUTH_ENABLED, []);
 	}
 
-	public static function XPocketMP_server_authProperty_disabled() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_AUTHPROPERTY_DISABLED, []);
+	public static function pocketmine_server_authProperty_disabled() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_AUTHPROPERTY_DISABLED, []);
 	}
 
-	public static function XPocketMP_server_authProperty_enabled() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_AUTHPROPERTY_ENABLED, []);
+	public static function pocketmine_server_authProperty_enabled() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_AUTHPROPERTY_ENABLED, []);
 	}
 
-	public static function XPocketMP_server_authWarning() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_AUTHWARNING, []);
+	public static function pocketmine_server_authWarning() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_AUTHWARNING, []);
 	}
 
-	public static function XPocketMP_server_defaultGameMode(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_DEFAULTGAMEMODE, [
+	public static function pocketmine_server_defaultGameMode(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_DEFAULTGAMEMODE, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_server_devBuild_error1(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_DEVBUILD_ERROR1, [
+	public static function pocketmine_server_devBuild_error1(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_DEVBUILD_ERROR1, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_server_devBuild_error2() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_DEVBUILD_ERROR2, []);
+	public static function pocketmine_server_devBuild_error2() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_DEVBUILD_ERROR2, []);
 	}
 
-	public static function XPocketMP_server_devBuild_error3() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_DEVBUILD_ERROR3, []);
+	public static function pocketmine_server_devBuild_error3() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_DEVBUILD_ERROR3, []);
 	}
 
-	public static function XPocketMP_server_devBuild_error4(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_DEVBUILD_ERROR4, [
+	public static function pocketmine_server_devBuild_error4(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_DEVBUILD_ERROR4, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_server_devBuild_error5(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_DEVBUILD_ERROR5, [
+	public static function pocketmine_server_devBuild_error5(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_DEVBUILD_ERROR5, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_server_devBuild_warning1(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_DEVBUILD_WARNING1, [
+	public static function pocketmine_server_devBuild_warning1(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_DEVBUILD_WARNING1, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_server_devBuild_warning2() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_DEVBUILD_WARNING2, []);
+	public static function pocketmine_server_devBuild_warning2() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_DEVBUILD_WARNING2, []);
 	}
 
-	public static function XPocketMP_server_devBuild_warning3() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_DEVBUILD_WARNING3, []);
+	public static function pocketmine_server_devBuild_warning3() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_DEVBUILD_WARNING3, []);
 	}
 
-	public static function XPocketMP_server_donate(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_DONATE, [
+	public static function pocketmine_server_donate(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_DONATE, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_server_forcingShutdown() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_FORCINGSHUTDOWN, []);
+	public static function pocketmine_server_forcingShutdown() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_FORCINGSHUTDOWN, []);
 	}
 
-	public static function XPocketMP_server_info(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_INFO, [
+	public static function pocketmine_server_info(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_INFO, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_server_info_extended(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2, Translatable|string $param3) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_INFO_EXTENDED, [
+	public static function pocketmine_server_info_extended(Translatable|string $param0, Translatable|string $param1, Translatable|string $param2, Translatable|string $param3) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_INFO_EXTENDED, [
 			0 => $param0,
 			1 => $param1,
 			2 => $param2,
@@ -2414,76 +2414,76 @@ final class KnownTranslationFactory{
 		]);
 	}
 
-	public static function XPocketMP_server_license(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_LICENSE, [
+	public static function pocketmine_server_license(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_LICENSE, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_server_networkStart(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_NETWORKSTART, [
+	public static function pocketmine_server_networkStart(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_NETWORKSTART, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_server_networkStartFailed(Translatable|string $ipAddress, Translatable|string $port, Translatable|string $errorMessage) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_NETWORKSTARTFAILED, [
+	public static function pocketmine_server_networkStartFailed(Translatable|string $ipAddress, Translatable|string $port, Translatable|string $errorMessage) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_NETWORKSTARTFAILED, [
 			"ipAddress" => $ipAddress,
 			"port" => $port,
 			"errorMessage" => $errorMessage,
 		]);
 	}
 
-	public static function XPocketMP_server_obsolete_warning1(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_OBSOLETE_WARNING1, [
+	public static function pocketmine_server_obsolete_warning1(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_OBSOLETE_WARNING1, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_server_obsolete_warning2(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_OBSOLETE_WARNING2, [
+	public static function pocketmine_server_obsolete_warning2(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_OBSOLETE_WARNING2, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_server_obsolete_warning3(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_OBSOLETE_WARNING3, [
+	public static function pocketmine_server_obsolete_warning3(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_OBSOLETE_WARNING3, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_server_query_running(Translatable|string $param0, Translatable|string $param1) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_QUERY_RUNNING, [
+	public static function pocketmine_server_query_running(Translatable|string $param0, Translatable|string $param1) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_QUERY_RUNNING, [
 			0 => $param0,
 			1 => $param1,
 		]);
 	}
 
-	public static function XPocketMP_server_start(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_START, [
+	public static function pocketmine_server_start(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_START, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_server_startFinished(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_STARTFINISHED, [
+	public static function pocketmine_server_startFinished(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_STARTFINISHED, [
 			0 => $param0,
 		]);
 	}
 
-	public static function XPocketMP_server_tickOverload() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_SERVER_TICKOVERLOAD, []);
+	public static function pocketmine_server_tickOverload() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_SERVER_TICKOVERLOAD, []);
 	}
 
-	public static function XPocketMP_plugins() : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_PLUGINS, []);
+	public static function pocketmine_plugins() : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_PLUGINS, []);
 	}
 
-	public static function XPocketMP_will_start(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::XPocketMP_WILL_START, [
+	public static function pocketmine_will_start(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::POCKETMINE_WILL_START, [
 			0 => $param0,
 		]);
 	}
@@ -2654,8 +2654,8 @@ final class KnownTranslationFactory{
 		return new Translatable(KnownTranslationKeys::VIEW_DISTANCE, []);
 	}
 
-	public static function welcome_to_XPocketMP(Translatable|string $param0) : Translatable{
-		return new Translatable(KnownTranslationKeys::WELCOME_TO_XPocketMP, [
+	public static function welcome_to_pocketmine(Translatable|string $param0) : Translatable{
+		return new Translatable(KnownTranslationKeys::WELCOME_TO_POCKETMINE, [
 			0 => $param0,
 		]);
 	}

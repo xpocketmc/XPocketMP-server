@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\runtime;
+namespace pocketmine\data\runtime;
 
-use XPocketMPlock\utils\BrewingStandSlot;
-use XPocketMPlock\utils\RailConnectionInfo;
-use XPocketMPlock\utils\WallConnectionType;
-use XPocketMP\math\Axis;
-use XPocketMP\math\Facing;
-use XPocketMP\utils\AssumptionFailedError;
+use pocketmine\block\utils\BrewingStandSlot;
+use pocketmine\block\utils\RailConnectionInfo;
+use pocketmine\block\utils\WallConnectionType;
+use pocketmine\math\Axis;
+use pocketmine\math\Facing;
+use pocketmine\utils\AssumptionFailedError;
 use function get_class;
 use function intdiv;
 use function log;

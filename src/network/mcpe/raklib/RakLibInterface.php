@@ -13,35 +13,35 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\raklib;
+namespace pocketmine\network\mcpe\raklib;
 
 use pmmp\thread\ThreadSafeArray;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\network\AdvancedNetworkInterface;
-use XPocketMP\network\mcpe\compression\ZlibCompressor;
-use XPocketMP\network\mcpe\convert\TypeConverter;
-use XPocketMP\network\mcpe\EntityEventBroadcaster;
-use XPocketMP\network\mcpe\NetworkSession;
-use XPocketMP\network\mcpe\PacketBroadcaster;
-use XPocketMP\network\mcpe\protocol\PacketPool;
-use XPocketMP\network\mcpe\protocol\ProtocolInfo;
-use XPocketMP\network\Network;
-use XPocketMP\network\NetworkInterfaceStartException;
-use XPocketMP\network\PacketHandlingException;
-use XPocketMP\player\GameMode;
-use XPocketMP\Server;
-use XPocketMP\thread\ThreadCrashException;
-use XPocketMP\timings\Timings;
-use XPocketMP\utils\Utils;
-use XPocketMP\YmlServerProperties;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\network\AdvancedNetworkInterface;
+use pocketmine\network\mcpe\compression\ZlibCompressor;
+use pocketmine\network\mcpe\convert\TypeConverter;
+use pocketmine\network\mcpe\EntityEventBroadcaster;
+use pocketmine\network\mcpe\NetworkSession;
+use pocketmine\network\mcpe\PacketBroadcaster;
+use pocketmine\network\mcpe\protocol\PacketPool;
+use pocketmine\network\mcpe\protocol\ProtocolInfo;
+use pocketmine\network\Network;
+use pocketmine\network\NetworkInterfaceStartException;
+use pocketmine\network\PacketHandlingException;
+use pocketmine\player\GameMode;
+use pocketmine\Server;
+use pocketmine\thread\ThreadCrashException;
+use pocketmine\timings\Timings;
+use pocketmine\utils\Utils;
+use pocketmine\YmlServerProperties;
 use raklib\generic\DisconnectReason;
 use raklib\generic\SocketException;
 use raklib\protocol\EncapsulatedPacket;
@@ -163,9 +163,9 @@ class RakLibInterface implements ServerEventListener, AdvancedNetworkInterface{
 			$session = $this->sessions[$sessionId];
 			unset($this->sessions[$sessionId]);
 			$session->onClientDisconnect(match($reason){
-				DisconnectReason::CLIENT_DISCONNECT => KnownTranslationFactory::XPocketMP_disconnect_clientDisconnect(),
-				DisconnectReason::PEER_TIMEOUT => KnownTranslationFactory::XPocketMP_disconnect_error_timeout(),
-				DisconnectReason::CLIENT_RECONNECT => KnownTranslationFactory::XPocketMP_disconnect_clientReconnect(),
+				DisconnectReason::CLIENT_DISCONNECT => KnownTranslationFactory::pocketmine_disconnect_clientDisconnect(),
+				DisconnectReason::PEER_TIMEOUT => KnownTranslationFactory::pocketmine_disconnect_error_timeout(),
+				DisconnectReason::CLIENT_RECONNECT => KnownTranslationFactory::pocketmine_disconnect_clientReconnect(),
 				default => "Unknown RakLib disconnect reason (ID $reason)"
 			});
 		}
@@ -217,7 +217,7 @@ class RakLibInterface implements ServerEventListener, AdvancedNetworkInterface{
 
 				$session->disconnectWithError(
 					reason: "Bad packet: " . $e->getMessage(),
-					disconnectScreenMessage: KnownTranslationFactory::XPocketMP_disconnect_error_badPacket()
+					disconnectScreenMessage: KnownTranslationFactory::pocketmine_disconnect_error_badPacket()
 				);
 				//intentionally doesn't use logException, we don't want spammy packet error traces to appear in release mode
 				$logger->debug(implode("\n", Utils::printableExceptionInfo($e)));

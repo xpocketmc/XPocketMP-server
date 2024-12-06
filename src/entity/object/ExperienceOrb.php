@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity\object;
+namespace pocketmine\entity\object;
 
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\EntitySizeInfo;
-use XPocketMP\entity\Human;
-use XPocketMP\entity\Location;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataCollection;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataProperties;
-use XPocketMP\player\Player;
+use pocketmine\entity\Entity;
+use pocketmine\entity\EntitySizeInfo;
+use pocketmine\entity\Human;
+use pocketmine\entity\Location;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use pocketmine\player\Player;
 use function max;
 use function sqrt;
 

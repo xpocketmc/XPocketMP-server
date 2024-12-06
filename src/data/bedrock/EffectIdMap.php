@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock;
+namespace pocketmine\data\bedrock;
 
-use XPocketMP\entity\effect\Effect;
-use XPocketMP\entity\effect\VanillaEffects;
-use XPocketMP\utils\SingletonTrait;
+use pocketmine\entity\effect\Effect;
+use pocketmine\entity\effect\VanillaEffects;
+use pocketmine\utils\SingletonTrait;
 
 final class EffectIdMap{
 	use SingletonTrait;

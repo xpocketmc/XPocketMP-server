@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\StaticSupportTrait;
-use XPocketMP\entity\effect\EffectInstance;
-use XPocketMP\entity\effect\VanillaEffects;
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\Living;
-use XPocketMP\math\Facing;
+use pocketmine\block\utils\StaticSupportTrait;
+use pocketmine\entity\effect\EffectInstance;
+use pocketmine\entity\effect\VanillaEffects;
+use pocketmine\entity\Entity;
+use pocketmine\entity\Living;
+use pocketmine\math\Facing;
 
 class WitherRose extends Flowable{
 	use StaticSupportTrait;

@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -24,10 +24,10 @@ declare(strict_types=1);
 /**
  * Entity related Events, like spawn, inventory, attack...
  */
-namespace XPocketMP\event\entity;
+namespace pocketmine\event\entity;
 
-use XPocketMP\entity\Entity;
-use XPocketMP\event\Event;
+use pocketmine\entity\Entity;
+use pocketmine\event\Event;
 
 /**
  * @phpstan-template TEntity of Entity

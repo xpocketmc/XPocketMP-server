@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\inventory;
+namespace pocketmine\inventory;
 
 use PHPUnit\Framework\TestCase;
-use xpocketmp\item\Item;
-use xpocketmp\item\VanillaItems;
+use pocketmine\item\Item;
+use pocketmine\item\VanillaItems;
 
 class BaseInventoryTest extends TestCase{
 

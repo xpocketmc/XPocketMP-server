@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -24,10 +24,10 @@ declare(strict_types=1);
 /**
  * Events related Plugin enable / disable events
  */
-namespace XPocketMP\event\plugin;
+namespace pocketmine\event\plugin;
 
-use XPocketMP\event\Event;
-use XPocketMP\plugin\Plugin;
+use pocketmine\event\Event;
+use pocketmine\plugin\Plugin;
 
 abstract class PluginEvent extends Event{
 	public function __construct(private Plugin $plugin){}

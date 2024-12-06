@@ -13,26 +13,26 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMP\command\Command;
-use XPocketMP\command\CommandSender;
-use XPocketMP\command\utils\InvalidCommandSyntaxException;
-use XPocketMP\entity\Location;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\DefaultPermissionNames;
-use XPocketMP\player\Player;
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\utils\TextFormat;
-use XPocketMP\world\World;
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
+use pocketmine\command\utils\InvalidCommandSyntaxException;
+use pocketmine\entity\Location;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\DefaultPermissionNames;
+use pocketmine\player\Player;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\TextFormat;
+use pocketmine\world\World;
 use function array_shift;
 use function count;
 use function round;
@@ -42,7 +42,7 @@ class TeleportCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"tp",
-			KnownTranslationFactory::XPocketMP_command_tp_description(),
+			KnownTranslationFactory::pocketmine_command_tp_description(),
 			KnownTranslationFactory::commands_tp_usage(),
 			["teleport"]
 		);

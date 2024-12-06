@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\block;
+namespace pocketmine\block;
 
 use PHPUnit\Framework\TestCase;
-use xpocketmp\utils\AssumptionFailedError;
-use xpocketmp\utils\Filesystem;
-use xpocketmp\utils\Utils;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\Filesystem;
+use pocketmine\utils\Utils;
 use function implode;
 use function is_array;
 use function is_int;

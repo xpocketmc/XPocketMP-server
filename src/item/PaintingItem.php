@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item;
+namespace pocketmine\item;
 
-use XPocketMPlock\Block;
-use XPocketMP\entity\Location;
-use XPocketMP\entity\object\Painting;
-use XPocketMP\entity\object\PaintingMotive;
-use XPocketMP\math\Axis;
-use XPocketMP\math\Facing;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\world\sound\PaintingPlaceSound;
+use pocketmine\block\Block;
+use pocketmine\entity\Location;
+use pocketmine\entity\object\Painting;
+use pocketmine\entity\object\PaintingMotive;
+use pocketmine\math\Axis;
+use pocketmine\math\Facing;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\sound\PaintingPlaceSound;
 use function array_rand;
 use function count;
 

@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMP\command\CommandSender;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\DefaultPermissionNames;
-use XPocketMP\utils\TextFormat;
+use pocketmine\command\CommandSender;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\DefaultPermissionNames;
+use pocketmine\utils\TextFormat;
 use function count;
 use function memory_get_usage;
 use function number_format;
@@ -37,7 +37,7 @@ class GarbageCollectorCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"gc",
-			KnownTranslationFactory::XPocketMP_command_gc_description()
+			KnownTranslationFactory::pocketmine_command_gc_description()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_GC);
 	}
@@ -59,12 +59,12 @@ class GarbageCollectorCommand extends VanillaCommand{
 
 		$cyclesCollected = $sender->getServer()->getMemoryManager()->triggerGarbageCollector();
 
-		$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_gc_header()->format(TextFormat::GREEN . "---- " . TextFormat::RESET, TextFormat::GREEN . " ----" . TextFormat::RESET));
-		$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_gc_chunks(TextFormat::RED . number_format($chunksCollected))->prefix(TextFormat::GOLD));
-		$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_gc_entities(TextFormat::RED . number_format($entitiesCollected))->prefix(TextFormat::GOLD));
+		$sender->sendMessage(KnownTranslationFactory::pocketmine_command_gc_header()->format(TextFormat::GREEN . "---- " . TextFormat::RESET, TextFormat::GREEN . " ----" . TextFormat::RESET));
+		$sender->sendMessage(KnownTranslationFactory::pocketmine_command_gc_chunks(TextFormat::RED . number_format($chunksCollected))->prefix(TextFormat::GOLD));
+		$sender->sendMessage(KnownTranslationFactory::pocketmine_command_gc_entities(TextFormat::RED . number_format($entitiesCollected))->prefix(TextFormat::GOLD));
 
-		$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_gc_cycles(TextFormat::RED . number_format($cyclesCollected))->prefix(TextFormat::GOLD));
-		$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_gc_memoryFreed(TextFormat::RED . number_format(round((($memory - memory_get_usage()) / 1024) / 1024, 2), 2))->prefix(TextFormat::GOLD));
+		$sender->sendMessage(KnownTranslationFactory::pocketmine_command_gc_cycles(TextFormat::RED . number_format($cyclesCollected))->prefix(TextFormat::GOLD));
+		$sender->sendMessage(KnownTranslationFactory::pocketmine_command_gc_memoryFreed(TextFormat::RED . number_format(round((($memory - memory_get_usage()) / 1024) / 1024, 2), 2))->prefix(TextFormat::GOLD));
 		return true;
 	}
 }

@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\data\bedrock\item;
+namespace pocketmine\data\bedrock\item;
 
 use PHPUnit\Framework\TestCase;
-use xpocketmp\block\RuntimeBlockStateRegistry;
-use xpocketmp\item\VanillaItems;
-use xpocketmp\world\format\io\GlobalBlockStateHandlers;
+use pocketmine\block\RuntimeBlockStateRegistry;
+use pocketmine\item\VanillaItems;
+use pocketmine\world\format\io\GlobalBlockStateHandlers;
 
 final class ItemSerializerDeserializerTest extends TestCase{
 

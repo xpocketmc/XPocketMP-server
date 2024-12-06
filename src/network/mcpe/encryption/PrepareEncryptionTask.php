@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\encryption;
+namespace pocketmine\network\mcpe\encryption;
 
-use XPocketMP\network\mcpe\JwtUtils;
-use XPocketMP\scheduler\AsyncTask;
-use XPocketMP\utils\AssumptionFailedError;
+use pocketmine\network\mcpe\JwtUtils;
+use pocketmine\scheduler\AsyncTask;
+use pocketmine\utils\AssumptionFailedError;
 use function igbinary_serialize;
 use function igbinary_unserialize;
 use function openssl_error_string;

@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\player;
+namespace pocketmine\event\player;
 
-use XPocketMP\entity\Entity;
-use XPocketMP\event\Cancellable;
-use XPocketMP\event\CancellableTrait;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
+use pocketmine\entity\Entity;
+use pocketmine\event\Cancellable;
+use pocketmine\event\CancellableTrait;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
 
 /**
  * Called when a player interacts with an entity (e.g. shearing a sheep, naming a mob using a nametag).

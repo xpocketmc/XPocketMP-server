@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\inventory\transaction;
+namespace pocketmine\inventory\transaction;
 
-use XPocketMP\inventory\BaseInventory;
-use XPocketMP\inventory\Inventory;
-use XPocketMP\inventory\transaction\action\SlotChangeAction;
-use XPocketMP\item\Item;
-use XPocketMP\item\VanillaItems;
+use pocketmine\inventory\BaseInventory;
+use pocketmine\inventory\Inventory;
+use pocketmine\inventory\transaction\action\SlotChangeAction;
+use pocketmine\item\Item;
+use pocketmine\item\VanillaItems;
 
 /**
  * This class facilitates generating SlotChangeActions to build an inventory transaction.

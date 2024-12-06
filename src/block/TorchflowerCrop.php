@@ -13,26 +13,26 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\BlockEventHelper;
-use XPocketMPlock\utils\CropGrowthHelper;
-use XPocketMPlock\utils\StaticSupportTrait;
-use XPocketMP\data\runtime\RuntimeDataDescriber;
-use XPocketMP\item\Fertilizer;
-use XPocketMP\item\Item;
-use XPocketMP\item\VanillaItems;
-use XPocketMP\math\Facing;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
+use pocketmine\block\utils\BlockEventHelper;
+use pocketmine\block\utils\CropGrowthHelper;
+use pocketmine\block\utils\StaticSupportTrait;
+use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\item\Fertilizer;
+use pocketmine\item\Item;
+use pocketmine\item\VanillaItems;
+use pocketmine\math\Facing;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
 
 final class TorchflowerCrop extends Flowable{
 	use StaticSupportTrait;

@@ -13,28 +13,28 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\format\io;
+namespace pocketmine\world\format\io;
 
-use XPocketMP\data\bedrock\item\BlockItemIdMap;
-use XPocketMP\data\bedrock\item\ItemDeserializer;
-use XPocketMP\data\bedrock\item\ItemSerializer;
-use XPocketMP\data\bedrock\item\upgrade\ItemDataUpgrader;
-use XPocketMP\data\bedrock\item\upgrade\ItemIdMetaUpgrader;
-use XPocketMP\data\bedrock\item\upgrade\ItemIdMetaUpgradeSchemaUtils;
-use XPocketMP\data\bedrock\item\upgrade\LegacyItemIdToStringIdMap;
-use XPocketMP\data\bedrock\item\upgrade\R12ItemIdToBlockIdMap;
-use XPocketMP\network\mcpe\convert\TypeConverter;
+use pocketmine\data\bedrock\item\BlockItemIdMap;
+use pocketmine\data\bedrock\item\ItemDeserializer;
+use pocketmine\data\bedrock\item\ItemSerializer;
+use pocketmine\data\bedrock\item\upgrade\ItemDataUpgrader;
+use pocketmine\data\bedrock\item\upgrade\ItemIdMetaUpgrader;
+use pocketmine\data\bedrock\item\upgrade\ItemIdMetaUpgradeSchemaUtils;
+use pocketmine\data\bedrock\item\upgrade\LegacyItemIdToStringIdMap;
+use pocketmine\data\bedrock\item\upgrade\R12ItemIdToBlockIdMap;
+use pocketmine\network\mcpe\convert\TypeConverter;
 use Symfony\Component\Filesystem\Path;
 use const PHP_INT_MAX;
-use const XPocketMP\BEDROCK_ITEM_UPGRADE_SCHEMA_PATH;
+use const pocketmine\BEDROCK_ITEM_UPGRADE_SCHEMA_PATH;
 
 final class GlobalItemDataHandlers{
 	private static ?ItemSerializer $itemSerializer = null;

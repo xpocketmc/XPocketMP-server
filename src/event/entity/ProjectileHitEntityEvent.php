@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\entity;
+namespace pocketmine\event\entity;
 
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\projectile\Projectile;
-use XPocketMP\math\RayTraceResult;
+use pocketmine\entity\Entity;
+use pocketmine\entity\projectile\Projectile;
+use pocketmine\math\RayTraceResult;
 
 class ProjectileHitEntityEvent extends ProjectileHitEvent{
 	public function __construct(

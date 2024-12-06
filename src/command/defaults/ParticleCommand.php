@@ -13,58 +13,58 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMPlock\BlockTypeIds;
-use XPocketMP\color\Color;
-use XPocketMP\command\CommandSender;
-use XPocketMP\command\utils\InvalidCommandSyntaxException;
-use XPocketMP\item\StringToItemParser;
-use XPocketMP\item\VanillaItems;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\math\Vector3;
-use XPocketMP\permission\DefaultPermissionNames;
-use XPocketMP\player\Player;
-use XPocketMP\utils\Random;
-use XPocketMP\utils\TextFormat;
-use XPocketMP\world\particle\AngryVillagerParticle;
-use XPocketMP\world\particle\BlockForceFieldParticle;
-use XPocketMP\world\particle\BubbleParticle;
-use XPocketMP\world\particle\CriticalParticle;
-use XPocketMP\world\particle\DustParticle;
-use XPocketMP\world\particle\EnchantmentTableParticle;
-use XPocketMP\world\particle\EnchantParticle;
-use XPocketMP\world\particle\EntityFlameParticle;
-use XPocketMP\world\particle\ExplodeParticle;
-use XPocketMP\world\particle\FlameParticle;
-use XPocketMP\world\particle\HappyVillagerParticle;
-use XPocketMP\world\particle\HeartParticle;
-use XPocketMP\world\particle\HugeExplodeParticle;
-use XPocketMP\world\particle\HugeExplodeSeedParticle;
-use XPocketMP\world\particle\InkParticle;
-use XPocketMP\world\particle\InstantEnchantParticle;
-use XPocketMP\world\particle\ItemBreakParticle;
-use XPocketMP\world\particle\LavaDripParticle;
-use XPocketMP\world\particle\LavaParticle;
-use XPocketMP\world\particle\Particle;
-use XPocketMP\world\particle\PortalParticle;
-use XPocketMP\world\particle\RainSplashParticle;
-use XPocketMP\world\particle\RedstoneParticle;
-use XPocketMP\world\particle\SmokeParticle;
-use XPocketMP\world\particle\SplashParticle;
-use XPocketMP\world\particle\SporeParticle;
-use XPocketMP\world\particle\TerrainParticle;
-use XPocketMP\world\particle\WaterDripParticle;
-use XPocketMP\world\particle\WaterParticle;
-use XPocketMP\world\World;
+use pocketmine\block\BlockTypeIds;
+use pocketmine\color\Color;
+use pocketmine\command\CommandSender;
+use pocketmine\command\utils\InvalidCommandSyntaxException;
+use pocketmine\item\StringToItemParser;
+use pocketmine\item\VanillaItems;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\math\Vector3;
+use pocketmine\permission\DefaultPermissionNames;
+use pocketmine\player\Player;
+use pocketmine\utils\Random;
+use pocketmine\utils\TextFormat;
+use pocketmine\world\particle\AngryVillagerParticle;
+use pocketmine\world\particle\BlockForceFieldParticle;
+use pocketmine\world\particle\BubbleParticle;
+use pocketmine\world\particle\CriticalParticle;
+use pocketmine\world\particle\DustParticle;
+use pocketmine\world\particle\EnchantmentTableParticle;
+use pocketmine\world\particle\EnchantParticle;
+use pocketmine\world\particle\EntityFlameParticle;
+use pocketmine\world\particle\ExplodeParticle;
+use pocketmine\world\particle\FlameParticle;
+use pocketmine\world\particle\HappyVillagerParticle;
+use pocketmine\world\particle\HeartParticle;
+use pocketmine\world\particle\HugeExplodeParticle;
+use pocketmine\world\particle\HugeExplodeSeedParticle;
+use pocketmine\world\particle\InkParticle;
+use pocketmine\world\particle\InstantEnchantParticle;
+use pocketmine\world\particle\ItemBreakParticle;
+use pocketmine\world\particle\LavaDripParticle;
+use pocketmine\world\particle\LavaParticle;
+use pocketmine\world\particle\Particle;
+use pocketmine\world\particle\PortalParticle;
+use pocketmine\world\particle\RainSplashParticle;
+use pocketmine\world\particle\RedstoneParticle;
+use pocketmine\world\particle\SmokeParticle;
+use pocketmine\world\particle\SplashParticle;
+use pocketmine\world\particle\SporeParticle;
+use pocketmine\world\particle\TerrainParticle;
+use pocketmine\world\particle\WaterDripParticle;
+use pocketmine\world\particle\WaterParticle;
+use pocketmine\world\World;
 use function count;
 use function explode;
 use function max;
@@ -77,8 +77,8 @@ class ParticleCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"particle",
-			KnownTranslationFactory::XPocketMP_command_particle_description(),
-			KnownTranslationFactory::XPocketMP_command_particle_usage()
+			KnownTranslationFactory::pocketmine_command_particle_description(),
+			KnownTranslationFactory::pocketmine_command_particle_usage()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_PARTICLE);
 	}

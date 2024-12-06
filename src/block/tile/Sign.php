@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMPlock\utils\SignText;
-use XPocketMP\color\Color;
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\tag\ByteTag;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\IntTag;
-use XPocketMP\nbt\tag\StringTag;
-use XPocketMP\utils\Binary;
-use XPocketMP\world\World;
+use pocketmine\block\utils\SignText;
+use pocketmine\color\Color;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\tag\ByteTag;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\IntTag;
+use pocketmine\nbt\tag\StringTag;
+use pocketmine\utils\Binary;
+use pocketmine\world\World;
 use function array_pad;
 use function array_slice;
 use function explode;
@@ -41,7 +41,7 @@ use function sprintf;
 
 /**
  * @deprecated
- * @see \XPocketMPlock\BaseSign
+ * @see \pocketmine\block\BaseSign
  */
 class Sign extends Spawnable{
 	public const TAG_TEXT_BLOB = "Text";

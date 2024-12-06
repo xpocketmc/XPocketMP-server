@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\biome;
+namespace pocketmine\world\biome;
 
-use XPocketMP\world\generator\object\TreeType;
-use XPocketMP\world\generator\populator\TallGrass;
-use XPocketMP\world\generator\populator\Tree;
+use pocketmine\world\generator\object\TreeType;
+use pocketmine\world\generator\populator\TallGrass;
+use pocketmine\world\generator\populator\Tree;
 
 class TaigaBiome extends SnowyBiome{
 

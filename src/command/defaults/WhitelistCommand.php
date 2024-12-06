@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMP\command\Command;
-use XPocketMP\command\CommandSender;
-use XPocketMP\command\utils\InvalidCommandSyntaxException;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\DefaultPermissionNames;
-use XPocketMP\player\Player;
-use XPocketMP\Server;
-use XPocketMP\ServerProperties;
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
+use pocketmine\command\utils\InvalidCommandSyntaxException;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\DefaultPermissionNames;
+use pocketmine\player\Player;
+use pocketmine\Server;
+use pocketmine\ServerProperties;
 use function count;
 use function implode;
 use function sort;
@@ -42,7 +42,7 @@ class WhitelistCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"whitelist",
-			KnownTranslationFactory::XPocketMP_command_whitelist_description(),
+			KnownTranslationFactory::pocketmine_command_whitelist_description(),
 			KnownTranslationFactory::commands_whitelist_usage()
 		);
 		$this->setPermissions([
@@ -123,7 +123,7 @@ class WhitelistCommand extends VanillaCommand{
 						$server = $sender->getServer();
 						$server->removeWhitelist($args[1]);
 						if(!$server->isWhitelisted($args[1])){
-							$server->getPlayerExact($args[1])?->kick(KnownTranslationFactory::XPocketMP_disconnect_kick(KnownTranslationFactory::XPocketMP_disconnect_whitelisted()));
+							$server->getPlayerExact($args[1])?->kick(KnownTranslationFactory::pocketmine_disconnect_kick(KnownTranslationFactory::pocketmine_disconnect_whitelisted()));
 						}
 						Command::broadcastCommandMessage($sender, KnownTranslationFactory::commands_whitelist_remove_success($args[1]));
 					}
@@ -136,7 +136,7 @@ class WhitelistCommand extends VanillaCommand{
 	}
 
 	private function kickNonWhitelistedPlayers(Server $server) : void{
-		$message = KnownTranslationFactory::XPocketMP_disconnect_kick(KnownTranslationFactory::XPocketMP_disconnect_whitelisted());
+		$message = KnownTranslationFactory::pocketmine_disconnect_kick(KnownTranslationFactory::pocketmine_disconnect_whitelisted());
 		foreach($server->getOnlinePlayers() as $player){
 			if(!$server->isWhitelisted($player->getName())){
 				$player->kick($message);

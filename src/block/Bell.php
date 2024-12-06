@@ -13,30 +13,30 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\tile\Bell as TileBell;
-use XPocketMPlock\utils\BellAttachmentType;
-use XPocketMPlock\utils\HorizontalFacingTrait;
-use XPocketMPlock\utils\SupportType;
-use XPocketMP\data\runtime\RuntimeDataDescriber;
-use XPocketMP\entity\projectile\Projectile;
-use XPocketMP\item\Item;
-use XPocketMP\math\AxisAlignedBB;
-use XPocketMP\math\Facing;
-use XPocketMP\math\RayTraceResult;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\world\BlockTransaction;
-use XPocketMP\world\sound\BellRingSound;
+use pocketmine\block\tile\Bell as TileBell;
+use pocketmine\block\utils\BellAttachmentType;
+use pocketmine\block\utils\HorizontalFacingTrait;
+use pocketmine\block\utils\SupportType;
+use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\entity\projectile\Projectile;
+use pocketmine\item\Item;
+use pocketmine\math\AxisAlignedBB;
+use pocketmine\math\Facing;
+use pocketmine\math\RayTraceResult;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\BlockTransaction;
+use pocketmine\world\sound\BellRingSound;
 
 final class Bell extends Transparent{
 	use HorizontalFacingTrait;

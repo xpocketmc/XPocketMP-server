@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\entity;
+namespace pocketmine\event\entity;
 
-use XPocketMPlock\Block;
-use XPocketMP\entity\Living;
-use XPocketMP\event\Cancellable;
-use XPocketMP\event\CancellableTrait;
+use pocketmine\block\Block;
+use pocketmine\entity\Living;
+use pocketmine\event\Cancellable;
+use pocketmine\event\CancellableTrait;
 
 /**
  * @phpstan-extends EntityEvent<Living>

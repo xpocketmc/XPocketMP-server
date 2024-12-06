@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\lang;
+namespace pocketmine\lang;
 
-use XPocketMP\utils\Utils;
+use pocketmine\utils\Utils;
 use Symfony\Component\Filesystem\Path;
 use function array_filter;
 use function array_map;
@@ -56,7 +56,7 @@ class Language{
 	 */
 	public static function getLanguageList(string $path = "") : array{
 		if($path === ""){
-			$path = \XPocketMP\LOCALE_DATA_PATH;
+			$path = \pocketmine\LOCALE_DATA_PATH;
 		}
 
 		if(is_dir($path)){
@@ -107,7 +107,7 @@ class Language{
 		$this->langName = strtolower($lang);
 
 		if($path === null){
-			$path = \XPocketMP\LOCALE_DATA_PATH;
+			$path = \pocketmine\LOCALE_DATA_PATH;
 		}
 
 		$this->lang = self::loadLang($path, $this->langName);

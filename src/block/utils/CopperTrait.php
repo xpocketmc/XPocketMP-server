@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\utils;
+namespace pocketmine\block\utils;
 
-use XPocketMP\data\runtime\RuntimeDataDescriber;
-use XPocketMP\item\Axe;
-use XPocketMP\item\Item;
-use XPocketMP\item\ItemTypeIds;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\world\sound\CopperWaxApplySound;
-use XPocketMP\world\sound\CopperWaxRemoveSound;
-use XPocketMP\world\sound\ScrapeSound;
+use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\item\Axe;
+use pocketmine\item\Item;
+use pocketmine\item\ItemTypeIds;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\sound\CopperWaxApplySound;
+use pocketmine\world\sound\CopperWaxRemoveSound;
+use pocketmine\world\sound\ScrapeSound;
 
 trait CopperTrait{
 	private CopperOxidation $oxidation = CopperOxidation::NONE;

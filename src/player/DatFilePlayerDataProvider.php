@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\player;
+namespace pocketmine\player;
 
-use XPocketMP\errorhandler\ErrorToExceptionHandler;
-use XPocketMP\nbt\BigEndianNbtSerializer;
-use XPocketMP\nbt\NbtDataException;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\TreeRoot;
-use XPocketMP\utils\Filesystem;
-use XPocketMP\utils\Utils;
+use pocketmine\errorhandler\ErrorToExceptionHandler;
+use pocketmine\nbt\BigEndianNbtSerializer;
+use pocketmine\nbt\NbtDataException;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\TreeRoot;
+use pocketmine\utils\Filesystem;
+use pocketmine\utils\Utils;
 use Symfony\Component\Filesystem\Path;
 use function file_exists;
 use function rename;

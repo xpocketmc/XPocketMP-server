@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\sound;
+namespace pocketmine\world\sound;
 
-use XPocketMPlock\Block;
-use XPocketMP\math\Vector3;
-use XPocketMP\network\mcpe\convert\TypeConverter;
-use XPocketMP\network\mcpe\protocol\LevelSoundEventPacket;
-use XPocketMP\network\mcpe\protocol\types\LevelSoundEvent;
+use pocketmine\block\Block;
+use pocketmine\math\Vector3;
+use pocketmine\network\mcpe\convert\TypeConverter;
+use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
+use pocketmine\network\mcpe\protocol\types\LevelSoundEvent;
 
 /**
  * Played when a player attacks a block in survival, attempting to break it.

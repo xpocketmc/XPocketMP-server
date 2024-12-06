@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock\block\upgrade;
+namespace pocketmine\data\bedrock\block\upgrade;
 
-use XPocketMP\nbt\tag\Tag;
+use pocketmine\nbt\tag\Tag;
 
 final class BlockStateUpgradeSchemaValueRemap{
 

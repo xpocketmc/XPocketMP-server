@@ -13,109 +13,109 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe;
+namespace pocketmine\network\mcpe;
 
-use XPocketMP\entity\effect\EffectInstance;
-use XPocketMP\event\player\PlayerDuplicateLoginEvent;
-use XPocketMP\event\player\PlayerResourcePackOfferEvent;
-use XPocketMP\event\server\DataPacketDecodeEvent;
-use XPocketMP\event\server\DataPacketReceiveEvent;
-use XPocketMP\event\server\DataPacketSendEvent;
-use XPocketMPorm\Form;
-use XPocketMP\item\Item;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\lang\Translatable;
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\StringTag;
-use XPocketMP\network\mcpe\cache\ChunkCache;
-use XPocketMP\network\mcpe\compression\CompressBatchPromise;
-use XPocketMP\network\mcpe\compression\Compressor;
-use XPocketMP\network\mcpe\compression\DecompressionException;
-use XPocketMP\network\mcpe\convert\TypeConverter;
-use XPocketMP\network\mcpe\encryption\DecryptionException;
-use XPocketMP\network\mcpe\encryption\EncryptionContext;
-use XPocketMP\network\mcpe\encryption\PrepareEncryptionTask;
-use XPocketMP\network\mcpe\handler\DeathPacketHandler;
-use XPocketMP\network\mcpe\handler\HandshakePacketHandler;
-use XPocketMP\network\mcpe\handler\InGamePacketHandler;
-use XPocketMP\network\mcpe\handler\LoginPacketHandler;
-use XPocketMP\network\mcpe\handler\PacketHandler;
-use XPocketMP\network\mcpe\handler\PreSpawnPacketHandler;
-use XPocketMP\network\mcpe\handler\ResourcePacksPacketHandler;
-use XPocketMP\network\mcpe\handler\SessionStartPacketHandler;
-use XPocketMP\network\mcpe\handler\SpawnResponsePacketHandler;
-use XPocketMP\network\mcpe\protocol\AvailableCommandsPacket;
-use XPocketMP\network\mcpe\protocol\ChunkRadiusUpdatedPacket;
-use XPocketMP\network\mcpe\protocol\ClientboundCloseFormPacket;
-use XPocketMP\network\mcpe\protocol\ClientboundPacket;
-use XPocketMP\network\mcpe\protocol\DisconnectPacket;
-use XPocketMP\network\mcpe\protocol\ModalFormRequestPacket;
-use XPocketMP\network\mcpe\protocol\MovePlayerPacket;
-use XPocketMP\network\mcpe\protocol\NetworkChunkPublisherUpdatePacket;
-use XPocketMP\network\mcpe\protocol\OpenSignPacket;
-use XPocketMP\network\mcpe\protocol\Packet;
-use XPocketMP\network\mcpe\protocol\PacketDecodeException;
-use XPocketMP\network\mcpe\protocol\PacketPool;
-use XPocketMP\network\mcpe\protocol\PlayerListPacket;
-use XPocketMP\network\mcpe\protocol\PlayerStartItemCooldownPacket;
-use XPocketMP\network\mcpe\protocol\PlayStatusPacket;
-use XPocketMP\network\mcpe\protocol\ProtocolInfo;
-use XPocketMP\network\mcpe\protocol\serializer\PacketBatch;
-use XPocketMP\network\mcpe\protocol\serializer\PacketSerializer;
-use XPocketMP\network\mcpe\protocol\ServerboundPacket;
-use XPocketMP\network\mcpe\protocol\ServerToClientHandshakePacket;
-use XPocketMP\network\mcpe\protocol\SetDifficultyPacket;
-use XPocketMP\network\mcpe\protocol\SetPlayerGameTypePacket;
-use XPocketMP\network\mcpe\protocol\SetSpawnPositionPacket;
-use XPocketMP\network\mcpe\protocol\SetTimePacket;
-use XPocketMP\network\mcpe\protocol\SetTitlePacket;
-use XPocketMP\network\mcpe\protocol\TextPacket;
-use XPocketMP\network\mcpe\protocol\ToastRequestPacket;
-use XPocketMP\network\mcpe\protocol\TransferPacket;
-use XPocketMP\network\mcpe\protocol\types\AbilitiesData;
-use XPocketMP\network\mcpe\protocol\types\AbilitiesLayer;
-use XPocketMP\network\mcpe\protocol\types\BlockPosition;
-use XPocketMP\network\mcpe\protocol\types\command\CommandData;
-use XPocketMP\network\mcpe\protocol\types\command\CommandEnum;
-use XPocketMP\network\mcpe\protocol\types\command\CommandOverload;
-use XPocketMP\network\mcpe\protocol\types\command\CommandParameter;
-use XPocketMP\network\mcpe\protocol\types\command\CommandPermissions;
-use XPocketMP\network\mcpe\protocol\types\CompressionAlgorithm;
-use XPocketMP\network\mcpe\protocol\types\DimensionIds;
-use XPocketMP\network\mcpe\protocol\types\PlayerListEntry;
-use XPocketMP\network\mcpe\protocol\types\PlayerPermissions;
-use XPocketMP\network\mcpe\protocol\UpdateAbilitiesPacket;
-use XPocketMP\network\mcpe\protocol\UpdateAdventureSettingsPacket;
-use XPocketMP\network\NetworkSessionManager;
-use XPocketMP\network\PacketHandlingException;
-use XPocketMP\permission\DefaultPermissionNames;
-use XPocketMP\permission\DefaultPermissions;
-use XPocketMP\player\GameMode;
-use XPocketMP\player\Player;
-use XPocketMP\player\PlayerInfo;
-use XPocketMP\player\UsedChunkStatus;
-use XPocketMP\player\XboxLivePlayerInfo;
-use XPocketMP\promise\Promise;
-use XPocketMP\promise\PromiseResolver;
-use XPocketMP\Server;
-use XPocketMP\timings\Timings;
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\utils\BinaryDataException;
-use XPocketMP\utils\BinaryStream;
-use XPocketMP\utils\ObjectSet;
-use XPocketMP\utils\TextFormat;
-use XPocketMP\world\format\io\GlobalItemDataHandlers;
-use XPocketMP\world\Position;
-use XPocketMP\YmlServerProperties;
+use pocketmine\entity\effect\EffectInstance;
+use pocketmine\event\player\PlayerDuplicateLoginEvent;
+use pocketmine\event\player\PlayerResourcePackOfferEvent;
+use pocketmine\event\server\DataPacketDecodeEvent;
+use pocketmine\event\server\DataPacketReceiveEvent;
+use pocketmine\event\server\DataPacketSendEvent;
+use pocketmine\form\Form;
+use pocketmine\item\Item;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\lang\Translatable;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\StringTag;
+use pocketmine\network\mcpe\cache\ChunkCache;
+use pocketmine\network\mcpe\compression\CompressBatchPromise;
+use pocketmine\network\mcpe\compression\Compressor;
+use pocketmine\network\mcpe\compression\DecompressionException;
+use pocketmine\network\mcpe\convert\TypeConverter;
+use pocketmine\network\mcpe\encryption\DecryptionException;
+use pocketmine\network\mcpe\encryption\EncryptionContext;
+use pocketmine\network\mcpe\encryption\PrepareEncryptionTask;
+use pocketmine\network\mcpe\handler\DeathPacketHandler;
+use pocketmine\network\mcpe\handler\HandshakePacketHandler;
+use pocketmine\network\mcpe\handler\InGamePacketHandler;
+use pocketmine\network\mcpe\handler\LoginPacketHandler;
+use pocketmine\network\mcpe\handler\PacketHandler;
+use pocketmine\network\mcpe\handler\PreSpawnPacketHandler;
+use pocketmine\network\mcpe\handler\ResourcePacksPacketHandler;
+use pocketmine\network\mcpe\handler\SessionStartPacketHandler;
+use pocketmine\network\mcpe\handler\SpawnResponsePacketHandler;
+use pocketmine\network\mcpe\protocol\AvailableCommandsPacket;
+use pocketmine\network\mcpe\protocol\ChunkRadiusUpdatedPacket;
+use pocketmine\network\mcpe\protocol\ClientboundCloseFormPacket;
+use pocketmine\network\mcpe\protocol\ClientboundPacket;
+use pocketmine\network\mcpe\protocol\DisconnectPacket;
+use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
+use pocketmine\network\mcpe\protocol\MovePlayerPacket;
+use pocketmine\network\mcpe\protocol\NetworkChunkPublisherUpdatePacket;
+use pocketmine\network\mcpe\protocol\OpenSignPacket;
+use pocketmine\network\mcpe\protocol\Packet;
+use pocketmine\network\mcpe\protocol\PacketDecodeException;
+use pocketmine\network\mcpe\protocol\PacketPool;
+use pocketmine\network\mcpe\protocol\PlayerListPacket;
+use pocketmine\network\mcpe\protocol\PlayerStartItemCooldownPacket;
+use pocketmine\network\mcpe\protocol\PlayStatusPacket;
+use pocketmine\network\mcpe\protocol\ProtocolInfo;
+use pocketmine\network\mcpe\protocol\serializer\PacketBatch;
+use pocketmine\network\mcpe\protocol\serializer\PacketSerializer;
+use pocketmine\network\mcpe\protocol\ServerboundPacket;
+use pocketmine\network\mcpe\protocol\ServerToClientHandshakePacket;
+use pocketmine\network\mcpe\protocol\SetDifficultyPacket;
+use pocketmine\network\mcpe\protocol\SetPlayerGameTypePacket;
+use pocketmine\network\mcpe\protocol\SetSpawnPositionPacket;
+use pocketmine\network\mcpe\protocol\SetTimePacket;
+use pocketmine\network\mcpe\protocol\SetTitlePacket;
+use pocketmine\network\mcpe\protocol\TextPacket;
+use pocketmine\network\mcpe\protocol\ToastRequestPacket;
+use pocketmine\network\mcpe\protocol\TransferPacket;
+use pocketmine\network\mcpe\protocol\types\AbilitiesData;
+use pocketmine\network\mcpe\protocol\types\AbilitiesLayer;
+use pocketmine\network\mcpe\protocol\types\BlockPosition;
+use pocketmine\network\mcpe\protocol\types\command\CommandData;
+use pocketmine\network\mcpe\protocol\types\command\CommandEnum;
+use pocketmine\network\mcpe\protocol\types\command\CommandOverload;
+use pocketmine\network\mcpe\protocol\types\command\CommandParameter;
+use pocketmine\network\mcpe\protocol\types\command\CommandPermissions;
+use pocketmine\network\mcpe\protocol\types\CompressionAlgorithm;
+use pocketmine\network\mcpe\protocol\types\DimensionIds;
+use pocketmine\network\mcpe\protocol\types\PlayerListEntry;
+use pocketmine\network\mcpe\protocol\types\PlayerPermissions;
+use pocketmine\network\mcpe\protocol\UpdateAbilitiesPacket;
+use pocketmine\network\mcpe\protocol\UpdateAdventureSettingsPacket;
+use pocketmine\network\NetworkSessionManager;
+use pocketmine\network\PacketHandlingException;
+use pocketmine\permission\DefaultPermissionNames;
+use pocketmine\permission\DefaultPermissions;
+use pocketmine\player\GameMode;
+use pocketmine\player\Player;
+use pocketmine\player\PlayerInfo;
+use pocketmine\player\UsedChunkStatus;
+use pocketmine\player\XboxLivePlayerInfo;
+use pocketmine\promise\Promise;
+use pocketmine\promise\PromiseResolver;
+use pocketmine\Server;
+use pocketmine\timings\Timings;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\BinaryDataException;
+use pocketmine\utils\BinaryStream;
+use pocketmine\utils\ObjectSet;
+use pocketmine\utils\TextFormat;
+use pocketmine\world\format\io\GlobalItemDataHandlers;
+use pocketmine\world\Position;
+use pocketmine\YmlServerProperties;
 use function array_map;
 use function array_values;
 use function base64_encode;
@@ -219,7 +219,7 @@ class NetworkSession{
 		));
 
 		$this->manager->add($this);
-		$this->logger->info($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_network_session_open()));
+		$this->logger->info($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_network_session_open()));
 	}
 
 	private function getLogPrefix() : string{
@@ -239,7 +239,7 @@ class NetworkSession{
 			$this,
 			function(PlayerInfo $info) : void{
 				$this->info = $info;
-				$this->logger->info($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_network_session_playerName(TextFormat::AQUA . $info->getUsername() . TextFormat::RESET)));
+				$this->logger->info($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_network_session_playerName(TextFormat::AQUA . $info->getUsername() . TextFormat::RESET)));
 				$this->logger->setPrefix($this->getLogPrefix());
 				$this->manager->markLoginReceived($this);
 			},
@@ -254,7 +254,7 @@ class NetworkSession{
 				//TODO: this should never actually occur... right?
 				$this->disconnectWithError(
 					reason: "Failed to create player",
-					disconnectScreenMessage: KnownTranslationFactory::XPocketMP_disconnect_error_internal()
+					disconnectScreenMessage: KnownTranslationFactory::pocketmine_disconnect_error_internal()
 				);
 			}
 		);
@@ -728,7 +728,7 @@ class NetworkSession{
 				$resolver->reject();
 			}
 
-			$this->logger->info($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_network_session_close($reason)));
+			$this->logger->info($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_network_session_close($reason)));
 		}
 	}
 
@@ -770,8 +770,8 @@ class NetworkSession{
 		$errorId = implode("-", str_split(bin2hex(random_bytes(6)), 4));
 
 		$this->disconnect(
-			reason: KnownTranslationFactory::XPocketMP_disconnect_error($reason, $errorId)->prefix(TextFormat::RED),
-			disconnectScreenMessage: KnownTranslationFactory::XPocketMP_disconnect_error($disconnectScreenMessage ?? $reason, $errorId),
+			reason: KnownTranslationFactory::pocketmine_disconnect_error($reason, $errorId)->prefix(TextFormat::RED),
+			disconnectScreenMessage: KnownTranslationFactory::pocketmine_disconnect_error($disconnectScreenMessage ?? $reason, $errorId),
 		);
 	}
 
@@ -780,7 +780,7 @@ class NetworkSession{
 			function() use ($protocolVersion) : void{
 				$this->sendDataPacket(PlayStatusPacket::create($protocolVersion < ProtocolInfo::CURRENT_PROTOCOL ? PlayStatusPacket::LOGIN_FAILED_CLIENT : PlayStatusPacket::LOGIN_FAILED_SERVER), true);
 			},
-			KnownTranslationFactory::XPocketMP_disconnect_incompatibleProtocol((string) $protocolVersion)
+			KnownTranslationFactory::pocketmine_disconnect_incompatibleProtocol((string) $protocolVersion)
 		);
 	}
 
@@ -788,7 +788,7 @@ class NetworkSession{
 	 * Instructs the remote client to connect to a different server.
 	 */
 	public function transfer(string $ip, int $port, Translatable|string|null $reason = null) : void{
-		$reason ??= KnownTranslationFactory::XPocketMP_disconnect_transfer();
+		$reason ??= KnownTranslationFactory::pocketmine_disconnect_transfer();
 		$this->tryDisconnect(function() use ($ip, $port, $reason) : void{
 			$this->sendDataPacket(TransferPacket::create($ip, $port, false), true);
 			if($this->player !== null){
@@ -832,8 +832,8 @@ class NetworkSession{
 
 		if($error !== null){
 			$this->disconnectWithError(
-				reason: KnownTranslationFactory::XPocketMP_disconnect_invalidSession($error),
-				disconnectScreenMessage: KnownTranslationFactory::XPocketMP_disconnect_error_authentication()
+				reason: KnownTranslationFactory::pocketmine_disconnect_invalidSession($error),
+				disconnectScreenMessage: KnownTranslationFactory::pocketmine_disconnect_error_authentication()
 			);
 
 			return;
@@ -1135,7 +1135,7 @@ class NetworkSession{
 		//we can't send nested translations to the client, so make sure they are always pre-translated by the server
 		$language = $this->player->getLanguage();
 		$parameters = array_map(fn(string|Translatable $p) => $p instanceof Translatable ? $language->translate($p) : $p, $message->getParameters());
-		return [$language->translateString($message->getText(), $parameters, "XPocketMP."), $parameters];
+		return [$language->translateString($message->getText(), $parameters, "pocketmine."), $parameters];
 	}
 
 	public function onChatMessage(Translatable|string $message) : void{
@@ -1307,7 +1307,7 @@ class NetworkSession{
 
 		if($this->info === null){
 			if(time() >= $this->connectTime + 10){
-				$this->disconnectWithError(KnownTranslationFactory::XPocketMP_disconnect_error_loginTimeout());
+				$this->disconnectWithError(KnownTranslationFactory::pocketmine_disconnect_error_loginTimeout());
 			}
 
 			return;

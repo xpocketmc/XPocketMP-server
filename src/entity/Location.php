@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity;
+namespace pocketmine\entity;
 
-use XPocketMP\math\Vector3;
-use XPocketMP\world\Position;
-use XPocketMP\world\World;
+use pocketmine\math\Vector3;
+use pocketmine\world\Position;
+use pocketmine\world\World;
 
 class Location extends Position{
 

@@ -13,32 +13,32 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\format\io\region;
+namespace pocketmine\world\format\io\region;
 
-use XPocketMPlock\Block;
-use XPocketMP\data\bedrock\BiomeIds;
-use XPocketMP\nbt\BigEndianNbtSerializer;
-use XPocketMP\nbt\NbtDataException;
-use XPocketMP\nbt\tag\ByteArrayTag;
-use XPocketMP\nbt\tag\ByteTag;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\IntArrayTag;
-use XPocketMP\nbt\tag\ListTag;
-use XPocketMP\world\format\Chunk;
-use XPocketMP\world\format\io\ChunkData;
-use XPocketMP\world\format\io\ChunkUtils;
-use XPocketMP\world\format\io\exception\CorruptedChunkException;
-use XPocketMP\world\format\io\LoadedChunkData;
-use XPocketMP\world\format\PalettedBlockArray;
-use XPocketMP\world\format\SubChunk;
+use pocketmine\block\Block;
+use pocketmine\data\bedrock\BiomeIds;
+use pocketmine\nbt\BigEndianNbtSerializer;
+use pocketmine\nbt\NbtDataException;
+use pocketmine\nbt\tag\ByteArrayTag;
+use pocketmine\nbt\tag\ByteTag;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\IntArrayTag;
+use pocketmine\nbt\tag\ListTag;
+use pocketmine\world\format\Chunk;
+use pocketmine\world\format\io\ChunkData;
+use pocketmine\world\format\io\ChunkUtils;
+use pocketmine\world\format\io\exception\CorruptedChunkException;
+use pocketmine\world\format\io\LoadedChunkData;
+use pocketmine\world\format\PalettedBlockArray;
+use pocketmine\world\format\SubChunk;
 use function strlen;
 use function zlib_decode;
 

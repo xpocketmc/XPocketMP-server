@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world;
+namespace pocketmine\world;
 
-use XPocketMP\math\Vector3;
-use XPocketMP\utils\Limits;
-use XPocketMP\utils\Utils;
-use XPocketMP\world\generator\Generator;
-use XPocketMP\world\generator\normal\Normal;
+use pocketmine\math\Vector3;
+use pocketmine\utils\Limits;
+use pocketmine\utils\Utils;
+use pocketmine\world\generator\Generator;
+use pocketmine\world\generator\normal\Normal;
 use function random_int;
 
 /**

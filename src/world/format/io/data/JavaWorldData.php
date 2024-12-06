@@ -13,28 +13,28 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\format\io\data;
+namespace pocketmine\world\format\io\data;
 
-use XPocketMP\nbt\BigEndianNbtSerializer;
-use XPocketMP\nbt\NbtDataException;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\StringTag;
-use XPocketMP\nbt\TreeRoot;
-use XPocketMP\utils\Filesystem;
-use XPocketMP\utils\Utils;
-use XPocketMP\VersionInfo;
-use XPocketMP\world\format\io\exception\CorruptedWorldException;
-use XPocketMP\world\generator\GeneratorManager;
-use XPocketMP\world\World;
-use XPocketMP\world\WorldCreationOptions;
+use pocketmine\nbt\BigEndianNbtSerializer;
+use pocketmine\nbt\NbtDataException;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\StringTag;
+use pocketmine\nbt\TreeRoot;
+use pocketmine\utils\Filesystem;
+use pocketmine\utils\Utils;
+use pocketmine\VersionInfo;
+use pocketmine\world\format\io\exception\CorruptedWorldException;
+use pocketmine\world\generator\GeneratorManager;
+use pocketmine\world\World;
+use pocketmine\world\WorldCreationOptions;
 use Symfony\Component\Filesystem\Path;
 use function ceil;
 use function file_put_contents;

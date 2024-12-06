@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\inventory\transaction;
+namespace pocketmine\inventory\transaction;
 
-use XPocketMP\crafting\CraftingManager;
-use XPocketMP\crafting\CraftingRecipe;
-use XPocketMP\crafting\RecipeIngredient;
-use XPocketMP\event\inventory\CraftItemEvent;
-use XPocketMP\item\Item;
-use XPocketMP\player\Player;
-use XPocketMP\utils\Utils;
+use pocketmine\crafting\CraftingManager;
+use pocketmine\crafting\CraftingRecipe;
+use pocketmine\crafting\RecipeIngredient;
+use pocketmine\event\inventory\CraftItemEvent;
+use pocketmine\item\Item;
+use pocketmine\player\Player;
+use pocketmine\utils\Utils;
 use function array_fill_keys;
 use function array_keys;
 use function array_pop;

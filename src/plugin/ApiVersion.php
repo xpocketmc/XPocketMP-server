@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\plugin;
+namespace pocketmine\plugin;
 
-use XPocketMP\utils\VersionString;
+use pocketmine\utils\VersionString;
 use function array_map;
 use function array_push;
 use function count;

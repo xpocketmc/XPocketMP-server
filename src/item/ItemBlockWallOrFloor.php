@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item;
+namespace pocketmine\item;
 
-use XPocketMPlock\Block;
-use XPocketMPlock\RuntimeBlockStateRegistry;
-use XPocketMP\math\Axis;
-use XPocketMP\math\Facing;
+use pocketmine\block\Block;
+use pocketmine\block\RuntimeBlockStateRegistry;
+use pocketmine\math\Axis;
+use pocketmine\math\Facing;
 
 class ItemBlockWallOrFloor extends Item{
 	private int $floorVariant;

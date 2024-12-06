@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock\item\upgrade;
+namespace pocketmine\data\bedrock\item\upgrade;
 
-use XPocketMP\data\bedrock\item\upgrade\model\ItemIdMetaUpgradeSchemaModel;
-use XPocketMP\utils\Filesystem;
+use pocketmine\data\bedrock\item\upgrade\model\ItemIdMetaUpgradeSchemaModel;
+use pocketmine\utils\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use function gettype;
 use function is_object;

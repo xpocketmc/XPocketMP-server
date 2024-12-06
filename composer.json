@@ -32,22 +32,22 @@
       "ext-zlib": ">=1.2.11",
       "composer-runtime-api": "^2.0",
       "adhocore/json-comment": "~1.2.0",
-      "xpocketmp/netresearch-jsonmapper": "~v4.4.999",
-   	  "xpocketmp/bedrock-block-upgrade-schema": "~4.5.0+bedrock-1.21.40",
-      "xpocketmp/bedrock-data": "~2.15.0+bedrock-1.21.50",
-      "xpocketmp/bedrock-item-upgrade-schema": "~1.14.0+bedrock-1.21.50",
-      "xpocketmp/bedrock-protocol": "^35.0.0+1.21.50",
-      "xpocketmp/binaryutils": "^0.2.1",
-      "xpocketmp/callback-validator": "^1.0.2",
-      "xpocketmp/color": "^0.3.0",
-      "xpocketmp/errorhandler": "^0.7.0",
-      "xpocketmp/locale-data": "~2.20.3",
-      "xpocketmp/log": "^0.4.0",
-      "xpocketmp/math": "~1.0.0",
-      "xpocketmp/nbt": "~1.0.0",
-      "xpocketmp/raklib": "~1.1.0",
-      "xpocketmp/raklib-ipc": "~1.0.0",
-      "xpocketmp/snooze": "^0.5.0",
+      "pocketmine/netresearch-jsonmapper": "~v4.4.999",
+   	  "pocketmine/bedrock-block-upgrade-schema": "~4.5.0+bedrock-1.21.40",
+      "pocketmine/bedrock-data": "~2.15.0+bedrock-1.21.50",
+      "pocketmine/bedrock-item-upgrade-schema": "~1.14.0+bedrock-1.21.50",
+      "pocketmine/bedrock-protocol": "^35.0.0+1.21.50",
+      "pocketmine/binaryutils": "^0.2.1",
+      "pocketmine/callback-validator": "^1.0.2",
+      "pocketmine/color": "^0.3.0",
+      "pocketmine/errorhandler": "^0.7.0",
+      "pocketmine/locale-data": "~2.20.3",
+      "pocketmine/log": "^0.4.0",
+      "pocketmine/math": "~1.0.0",
+      "pocketmine/nbt": "~1.0.0",
+      "pocketmine/raklib": "~1.1.0",
+      "pocketmine/raklib-ipc": "~1.0.0",
+      "pocketmine/snooze": "^0.5.0",
       "ramsey/uuid": "~4.7.0",
       "symfony/filesystem": "~6.4.0"
    },
@@ -59,7 +59,7 @@
    },
    "autoload": {
       "psr-4": {
-         "xpocketmp\\": "src/"
+         "pocketmine\\": "src/"
       },
       "files": [
          "src/CoreConstants.php"
@@ -67,8 +67,8 @@
    },
    "autoload-dev": {
       "psr-4": {
-         "xpocketmp\\": "tests/phpunit/",
-         "xpocketmp\\phpstan\\rules\\": "tests/phpstan/rules"
+         "pocketmine\\": "tests/phpunit/",
+         "pocketmine\\phpstan\\rules\\": "tests/phpstan/rules"
       }
    },
    "config": {
@@ -86,8 +86,8 @@
       "update-codegen": [
          "@php build/generate-bedrockdata-path-consts.php",
          "@php build/generate-biome-ids.php",
-         "@php build/generate-block-serializer-consts.php vendor/xpocketmp/bedrock-data/canonical_block_states.nbt",
-         "@php build/generate-item-type-names.php vendor/xpocketmp/bedrock-data/required_item_list.json",
+         "@php build/generate-block-serializer-consts.php vendor/pocketmine/bedrock-data/canonical_block_states.nbt",
+         "@php build/generate-item-type-names.php vendor/pocketmine/bedrock-data/required_item_list.json",
          "@php build/generate-known-translation-apis.php",
          "@php build/generate-xpocketmp-yml-property-consts.php",
          "@php build/generate-registry-annotations.php src"

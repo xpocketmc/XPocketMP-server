@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\player\chat;
+namespace pocketmine\player\chat;
 
-use XPocketMP\lang\Translatable;
+use pocketmine\lang\Translatable;
 
 /**
  * Formats chat messages for broadcasting. Used in PlayerChatEvent.

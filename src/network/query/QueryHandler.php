@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -25,14 +25,14 @@ declare(strict_types=1);
  * Implementation of the UT3 Query Protocol (GameSpot)
  * Source: http://wiki.unrealadmin.org/UT3_query_protocol
  */
-namespace XPocketMP\network\query;
+namespace pocketmine\network\query;
 
-use XPocketMP\network\AdvancedNetworkInterface;
-use XPocketMP\network\RawPacketHandler;
-use XPocketMP\Server;
-use XPocketMP\utils\Binary;
-use XPocketMP\utils\BinaryDataException;
-use XPocketMP\utils\BinaryStream;
+use pocketmine\network\AdvancedNetworkInterface;
+use pocketmine\network\RawPacketHandler;
+use pocketmine\Server;
+use pocketmine\utils\Binary;
+use pocketmine\utils\BinaryDataException;
+use pocketmine\utils\BinaryStream;
 use function chr;
 use function hash;
 use function random_bytes;

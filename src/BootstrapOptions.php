@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP;
+namespace pocketmine;
 
 /**
- * Constants for all the command-line options that XPocketMP-MP supports.
- * Other options not listed here can be used to override server.properties and xpocketmp.yml values temporarily.
+ * Constants for all the command-line options that PocketMine-MP supports.
+ * Other options not listed here can be used to override server.properties and pocketmine.yml values temporarily.
  *
  * @internal
  */

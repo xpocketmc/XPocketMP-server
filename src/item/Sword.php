@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item;
+namespace pocketmine\item;
 
-use XPocketMPlock\Block;
-use XPocketMPlock\BlockToolType;
-use XPocketMP\entity\Entity;
+use pocketmine\block\Block;
+use pocketmine\block\BlockToolType;
+use pocketmine\entity\Entity;
 
 class Sword extends TieredTool{
 

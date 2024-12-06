@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\convert;
+namespace pocketmine\network\mcpe\convert;
 
-use XPocketMP\entity\InvalidSkinException;
-use XPocketMP\entity\Skin;
-use XPocketMP\network\mcpe\protocol\types\skin\SkinData;
+use pocketmine\entity\InvalidSkinException;
+use pocketmine\entity\Skin;
+use pocketmine\network\mcpe\protocol\types\skin\SkinData;
 
 /**
  * Used to convert new skin data to the skin entity or old skin entity to skin data.

@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\console;
+namespace pocketmine\console;
 
 use pmmp\thread\Thread as NativeThread;
 use pmmp\thread\ThreadSafeArray;
-use XPocketMP\utils\Process;
+use pocketmine\utils\Process;
 use function cli_set_process_title;
 use function count;
 use function dirname;
@@ -39,7 +39,7 @@ if(count($argv) !== 2){
 	die("Please provide a server to connect to");
 }
 
-@cli_set_process_title('XPocketMP-MP Console Reader');
+@cli_set_process_title('PocketMine-MP Console Reader');
 $errCode = null;
 $errMessage = null;
 $socket = stream_socket_client($argv[1], $errCode, $errMessage, 15.0);

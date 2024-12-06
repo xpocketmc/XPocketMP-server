@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\utils;
+namespace pocketmine\block\utils;
 
-use XPocketMPlock\Block;
-use XPocketMP\event\block\BlockDeathEvent;
-use XPocketMP\event\block\BlockFormEvent;
-use XPocketMP\event\block\BlockGrowEvent;
-use XPocketMP\event\block\BlockMeltEvent;
-use XPocketMP\event\block\BlockSpreadEvent;
-use XPocketMP\player\Player;
+use pocketmine\block\Block;
+use pocketmine\event\block\BlockDeathEvent;
+use pocketmine\event\block\BlockFormEvent;
+use pocketmine\event\block\BlockGrowEvent;
+use pocketmine\event\block\BlockMeltEvent;
+use pocketmine\event\block\BlockSpreadEvent;
+use pocketmine\player\Player;
 
 /**
  * Helper class to call block changing events and apply the results to the world.

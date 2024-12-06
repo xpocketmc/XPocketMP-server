@@ -13,29 +13,29 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\convert;
+namespace pocketmine\network\mcpe\convert;
 
-use XPocketMP\data\bedrock\item\BlockItemIdMap;
-use XPocketMP\data\bedrock\item\ItemDeserializer;
-use XPocketMP\data\bedrock\item\ItemSerializer;
-use XPocketMP\data\bedrock\item\ItemTypeDeserializeException;
-use XPocketMP\data\bedrock\item\ItemTypeSerializeException;
-use XPocketMP\data\bedrock\item\SavedItemData;
-use XPocketMP\item\Item;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\network\mcpe\protocol\serializer\ItemTypeDictionary;
-use XPocketMP\utils\AssumptionFailedError;
+use pocketmine\data\bedrock\item\BlockItemIdMap;
+use pocketmine\data\bedrock\item\ItemDeserializer;
+use pocketmine\data\bedrock\item\ItemSerializer;
+use pocketmine\data\bedrock\item\ItemTypeDeserializeException;
+use pocketmine\data\bedrock\item\ItemTypeSerializeException;
+use pocketmine\data\bedrock\item\SavedItemData;
+use pocketmine\item\Item;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\network\mcpe\protocol\serializer\ItemTypeDictionary;
+use pocketmine\utils\AssumptionFailedError;
 
 /**
- * This class handles translation between network item ID+metadata to XPocketMP-MP internal ID+metadata and vice versa.
+ * This class handles translation between network item ID+metadata to PocketMine-MP internal ID+metadata and vice versa.
  */
 final class ItemTranslator{
 	public const NO_BLOCK_RUNTIME_ID = 0; //this is technically a valid block runtime ID, but is used to represent "no block" (derp mojang)

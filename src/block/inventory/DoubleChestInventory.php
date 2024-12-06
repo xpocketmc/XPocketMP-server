@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\inventory;
+namespace pocketmine\block\inventory;
 
-use XPocketMP\inventory\BaseInventory;
-use XPocketMP\inventory\InventoryHolder;
-use XPocketMP\item\Item;
-use XPocketMP\world\sound\ChestCloseSound;
-use XPocketMP\world\sound\ChestOpenSound;
-use XPocketMP\world\sound\Sound;
+use pocketmine\inventory\BaseInventory;
+use pocketmine\inventory\InventoryHolder;
+use pocketmine\item\Item;
+use pocketmine\world\sound\ChestCloseSound;
+use pocketmine\world\sound\ChestOpenSound;
+use pocketmine\world\sound\Sound;
 
 class DoubleChestInventory extends BaseInventory implements BlockInventory, InventoryHolder{
 	use AnimatedBlockInventoryTrait;

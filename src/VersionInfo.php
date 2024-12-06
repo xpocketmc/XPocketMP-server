@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP;
+namespace pocketmine;
 
-use XPocketMP\utils\Git;
-use XPocketMP\utils\VersionString;
+use pocketmine\utils\Git;
+use pocketmine\utils\VersionString;
 use function is_array;
 use function is_int;
 use function str_repeat;
@@ -37,7 +37,7 @@ final class VersionInfo{
 	public const BUILD_CHANNEL = "stable";
 
 	/**
-	 * XPocketMP-MP-specific version ID for world data. Used to determine what fixes need to be applied to old world
+	 * PocketMine-MP-specific version ID for world data. Used to determine what fixes need to be applied to old world
 	 * data (e.g. stuff saved wrongly by past versions).
 	 * This version supplements the Minecraft vanilla world version.
 	 *
@@ -62,7 +62,7 @@ final class VersionInfo{
 			$gitHash = str_repeat("00", 20);
 
 			if(\Phar::running(true) === ""){
-				$gitHash = Git::getRepositoryStatePretty(\XPocketMP\PATH);
+				$gitHash = Git::getRepositoryStatePretty(\pocketmine\PATH);
 			}else{
 				$pharPath = \Phar::running(false);
 				$phar = \Phar::isValidPharFilename($pharPath) ? new \Phar($pharPath) : new \PharData($pharPath);

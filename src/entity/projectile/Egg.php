@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity\projectile;
+namespace pocketmine\entity\projectile;
 
-use XPocketMP\event\entity\ProjectileHitEvent;
-use XPocketMP\item\VanillaItems;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
-use XPocketMP\world\particle\ItemBreakParticle;
+use pocketmine\event\entity\ProjectileHitEvent;
+use pocketmine\item\VanillaItems;
+use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
+use pocketmine\world\particle\ItemBreakParticle;
 
 class Egg extends Throwable{
 	public static function getNetworkTypeId() : string{ return EntityIds::EGG; }

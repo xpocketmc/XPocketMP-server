@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\player;
+namespace pocketmine\event\player;
 
-use XPocketMPlock\inventory\EnchantInventory;
-use XPocketMP\event\Cancellable;
-use XPocketMP\event\CancellableTrait;
-use XPocketMP\event\Event;
-use XPocketMP\item\enchantment\EnchantingOption;
-use XPocketMP\player\Player;
-use XPocketMP\utils\Utils;
+use pocketmine\block\inventory\EnchantInventory;
+use pocketmine\event\Cancellable;
+use pocketmine\event\CancellableTrait;
+use pocketmine\event\Event;
+use pocketmine\item\enchantment\EnchantingOption;
+use pocketmine\player\Player;
+use pocketmine\utils\Utils;
 use function count;
 
 /**

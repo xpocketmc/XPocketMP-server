@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock;
+namespace pocketmine\data\bedrock;
 
-use XPocketMP\item\enchantment\Enchantment;
-use XPocketMP\item\enchantment\VanillaEnchantments;
-use XPocketMP\utils\SingletonTrait;
+use pocketmine\item\enchantment\Enchantment;
+use pocketmine\item\enchantment\VanillaEnchantments;
+use pocketmine\utils\SingletonTrait;
 
 /**
  * Handles translation of internal enchantment types to and from Minecraft: Bedrock IDs.

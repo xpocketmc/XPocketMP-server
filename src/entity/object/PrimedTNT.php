@@ -13,29 +13,29 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity\object;
+namespace pocketmine\entity\object;
 
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\EntitySizeInfo;
-use XPocketMP\entity\Explosive;
-use XPocketMP\event\entity\EntityDamageEvent;
-use XPocketMP\event\entity\EntityPreExplodeEvent;
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataCollection;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataFlags;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataProperties;
-use XPocketMP\world\Explosion;
-use XPocketMP\world\Position;
+use pocketmine\entity\Entity;
+use pocketmine\entity\EntitySizeInfo;
+use pocketmine\entity\Explosive;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityPreExplodeEvent;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use pocketmine\world\Explosion;
+use pocketmine\world\Position;
 
 class PrimedTNT extends Entity implements Explosive{
 

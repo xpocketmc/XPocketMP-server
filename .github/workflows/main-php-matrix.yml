@@ -10,7 +10,7 @@ on:
 
       #these are parameterized to ease updating
       pm-version-major:
-        description: 'xpocketmp-MP major version'
+        description: 'PocketMine-MP major version'
         default: 5
         type: number
       image:

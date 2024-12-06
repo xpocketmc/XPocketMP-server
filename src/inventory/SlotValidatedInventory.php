@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\inventory;
+namespace pocketmine\inventory;
 
-use XPocketMP\inventory\transaction\action\validator\SlotValidator;
-use XPocketMP\utils\ObjectSet;
+use pocketmine\inventory\transaction\action\validator\SlotValidator;
+use pocketmine\utils\ObjectSet;
 
 /**
  * A "slot validated inventory" has validators which may restrict items

@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\crafting;
+namespace pocketmine\crafting;
 
-use XPocketMP\item\Item;
-use XPocketMP\nbt\LittleEndianNbtSerializer;
-use XPocketMP\nbt\TreeRoot;
-use XPocketMP\utils\BinaryStream;
-use XPocketMP\utils\DestructorCallbackTrait;
-use XPocketMP\utils\ObjectSet;
+use pocketmine\item\Item;
+use pocketmine\nbt\LittleEndianNbtSerializer;
+use pocketmine\nbt\TreeRoot;
+use pocketmine\utils\BinaryStream;
+use pocketmine\utils\DestructorCallbackTrait;
+use pocketmine\utils\ObjectSet;
 use function spl_object_id;
 use function usort;
 

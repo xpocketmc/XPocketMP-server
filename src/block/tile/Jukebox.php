@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMP\item\Item;
-use XPocketMP\item\Record;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\network\mcpe\convert\TypeConverter;
-use XPocketMP\world\sound\RecordStopSound;
+use pocketmine\item\Item;
+use pocketmine\item\Record;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\network\mcpe\convert\TypeConverter;
+use pocketmine\world\sound\RecordStopSound;
 
 class Jukebox extends Spawnable{
 	private const TAG_RECORD = "RecordItem"; //Item CompoundTag

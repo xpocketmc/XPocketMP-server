@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\StaticSupportTrait;
-use XPocketMPlock\utils\SupportType;
-use XPocketMP\entity\Entity;
-use XPocketMP\event\block\PressurePlateUpdateEvent;
-use XPocketMP\math\Axis;
-use XPocketMP\math\AxisAlignedBB;
-use XPocketMP\math\Facing;
-use XPocketMP\world\sound\PressurePlateActivateSound;
-use XPocketMP\world\sound\PressurePlateDeactivateSound;
+use pocketmine\block\utils\StaticSupportTrait;
+use pocketmine\block\utils\SupportType;
+use pocketmine\entity\Entity;
+use pocketmine\event\block\PressurePlateUpdateEvent;
+use pocketmine\math\Axis;
+use pocketmine\math\AxisAlignedBB;
+use pocketmine\math\Facing;
+use pocketmine\world\sound\PressurePlateActivateSound;
+use pocketmine\world\sound\PressurePlateDeactivateSound;
 use function count;
 
 abstract class PressurePlate extends Transparent{

@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\utils;
+namespace pocketmine\utils;
 
-use XPocketMP\errorhandler\ErrorToExceptionHandler;
+use pocketmine\errorhandler\ErrorToExceptionHandler;
 use Symfony\Component\Filesystem\Path;
 use function copy;
 use function dirname;
@@ -68,7 +68,7 @@ final class Filesystem{
 	 * @phpstan-var array<string, string>
 	 */
 	private static array $cleanedPaths = [
-		\XPocketMP\PATH => self::CLEAN_PATH_SRC_PREFIX
+		\pocketmine\PATH => self::CLEAN_PATH_SRC_PREFIX
 	];
 
 	public const CLEAN_PATH_SRC_PREFIX = "pmsrc";

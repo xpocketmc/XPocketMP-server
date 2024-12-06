@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\scheduler;
+namespace pocketmine\scheduler;
 
 use PHPUnit\Framework\TestCase;
 use pmmp\thread\ThreadSafeArray;
-use xpocketmp\promise\PromiseResolver;
-use xpocketmp\snooze\SleeperHandler;
-use xpocketmp\thread\ThreadSafeClassLoader;
-use xpocketmp\utils\MainLogger;
+use pocketmine\promise\PromiseResolver;
+use pocketmine\snooze\SleeperHandler;
+use pocketmine\thread\ThreadSafeClassLoader;
+use pocketmine\utils\MainLogger;
 use function define;
 use function dirname;
 use function microtime;
@@ -42,7 +42,7 @@ class AsyncPoolTest extends TestCase{
 	private $mainLogger;
 
 	public function setUp() : void{
-		@define('xpocketmp\\COMPOSER_AUTOLOADER_PATH', dirname(__DIR__, 3) . '/vendor/autoload.php');
+		@define('pocketmine\\COMPOSER_AUTOLOADER_PATH', dirname(__DIR__, 3) . '/vendor/autoload.php');
 		$this->mainLogger = new MainLogger(null, false, "Main", new \DateTimeZone('UTC'));
 		$this->pool = new AsyncPool(2, 1024, new ThreadSafeClassLoader(), $this->mainLogger, new SleeperHandler());
 	}

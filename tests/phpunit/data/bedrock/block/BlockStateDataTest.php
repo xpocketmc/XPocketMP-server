@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -24,12 +24,12 @@ declare(strict_types=1);
 namespace phpunit\data\bedrock\block;
 
 use PHPUnit\Framework\TestCase;
-use xpocketmp\data\bedrock\block\BlockStateData;
-use xpocketmp\data\bedrock\block\upgrade\BlockStateUpgradeSchemaUtils;
+use pocketmine\data\bedrock\block\BlockStateData;
+use pocketmine\data\bedrock\block\upgrade\BlockStateUpgradeSchemaUtils;
 use Symfony\Component\Filesystem\Path;
 use function sprintf;
 use const PHP_INT_MAX;
-use const xpocketmp\BEDROCK_BLOCK_UPGRADE_SCHEMA_PATH;
+use const pocketmine\BEDROCK_BLOCK_UPGRADE_SCHEMA_PATH;
 
 final class BlockStateDataTest extends TestCase{
 

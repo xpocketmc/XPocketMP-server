@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -23,6 +23,6 @@ declare(strict_types=1);
 
 namespace pmmp\TesterPlugin\event;
 
-class ParentEvent extends \xpocketmp\event\Event{
+class ParentEvent extends \pocketmine\event\Event{
 
 }

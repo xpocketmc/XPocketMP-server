@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -25,9 +25,9 @@ declare(strict_types=1);
  * Permission related classes
  */
 
-namespace XPocketMP\permission;
+namespace pocketmine\permission;
 
-use XPocketMP\lang\Translatable;
+use pocketmine\lang\Translatable;
 
 /**
  * Represents a permission

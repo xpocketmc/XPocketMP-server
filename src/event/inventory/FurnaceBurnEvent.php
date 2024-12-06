@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\inventory;
+namespace pocketmine\event\inventory;
 
-use XPocketMPlock\tile\Furnace;
-use XPocketMP\event\block\BlockEvent;
-use XPocketMP\event\Cancellable;
-use XPocketMP\event\CancellableTrait;
-use XPocketMP\item\Item;
+use pocketmine\block\tile\Furnace;
+use pocketmine\event\block\BlockEvent;
+use pocketmine\event\Cancellable;
+use pocketmine\event\CancellableTrait;
+use pocketmine\item\Item;
 
 /**
  * Called when a furnace is about to consume a new fuel item.

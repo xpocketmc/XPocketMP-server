@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\plugin;
+namespace pocketmine\plugin;
 
-use XPocketMP\command\Command;
-use XPocketMP\command\CommandExecutor;
-use XPocketMP\command\CommandSender;
-use XPocketMP\command\PluginCommand;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\scheduler\TaskScheduler;
-use XPocketMP\Server;
-use XPocketMP\utils\Config;
-use XPocketMP\utils\Utils;
+use pocketmine\command\Command;
+use pocketmine\command\CommandExecutor;
+use pocketmine\command\CommandSender;
+use pocketmine\command\PluginCommand;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\scheduler\TaskScheduler;
+use pocketmine\Server;
+use pocketmine\utils\Config;
+use pocketmine\utils\Utils;
 use Symfony\Component\Filesystem\Path;
 use function copy;
 use function count;
@@ -147,7 +147,7 @@ abstract class PluginBase implements Plugin, CommandExecutor{
 
 		foreach(Utils::stringifyKeys($this->description->getCommands()) as $key => $data){
 			if(str_contains($key, ":")){
-				$this->logger->error($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_commandError($key, $this->description->getFullName(), ":")));
+				$this->logger->error($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_commandError($key, $this->description->getFullName(), ":")));
 				continue;
 			}
 
@@ -163,7 +163,7 @@ abstract class PluginBase implements Plugin, CommandExecutor{
 			$aliasList = [];
 			foreach($data->getAliases() as $alias){
 				if(str_contains($alias, ":")){
-					$this->logger->error($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_aliasError($alias, $this->description->getFullName(), ":")));
+					$this->logger->error($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_aliasError($alias, $this->description->getFullName(), ":")));
 					continue;
 				}
 				$aliasList[] = $alias;

@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\player;
+namespace pocketmine\player;
 
-use XPocketMPlock\Block;
-use XPocketMP\entity\animation\ArmSwingAnimation;
-use XPocketMP\math\Facing;
-use XPocketMP\math\Vector3;
-use XPocketMP\network\mcpe\protocol\LevelEventPacket;
-use XPocketMP\network\mcpe\protocol\types\LevelEvent;
-use XPocketMP\world\particle\BlockPunchParticle;
-use XPocketMP\world\sound\BlockPunchSound;
+use pocketmine\block\Block;
+use pocketmine\entity\animation\ArmSwingAnimation;
+use pocketmine\math\Facing;
+use pocketmine\math\Vector3;
+use pocketmine\network\mcpe\protocol\LevelEventPacket;
+use pocketmine\network\mcpe\protocol\types\LevelEvent;
+use pocketmine\world\particle\BlockPunchParticle;
+use pocketmine\world\sound\BlockPunchSound;
 use function abs;
 
 final class SurvivalBlockBreakHandler{
@@ -65,7 +65,7 @@ final class SurvivalBlockBreakHandler{
 		if(!$this->block->getBreakInfo()->isBreakable()){
 			return 0.0;
 		}
-		//TODO: improve this to take stuff like swimming, ladders, enchanted tools into account, fix wrong tool break time calculations for bad tools (pmmp/XPocketMP-MP#211)
+		//TODO: improve this to take stuff like swimming, ladders, enchanted tools into account, fix wrong tool break time calculations for bad tools (pmmp/PocketMine-MP#211)
 		$breakTimePerTick = $this->block->getBreakInfo()->getBreakTime($this->player->getInventory()->getItemInHand()) * 20;
 
 		if($breakTimePerTick > 0){

@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -23,11 +23,11 @@ declare(strict_types=1);
 
 namespace pmmp\TesterPlugin;
 
-use xpocketmp\event\Listener;
-use xpocketmp\event\server\CommandEvent;
-use xpocketmp\plugin\PluginBase;
-use xpocketmp\scheduler\CancelTaskException;
-use xpocketmp\scheduler\ClosureTask;
+use pocketmine\event\Listener;
+use pocketmine\event\server\CommandEvent;
+use pocketmine\plugin\PluginBase;
+use pocketmine\scheduler\CancelTaskException;
+use pocketmine\scheduler\ClosureTask;
 use function array_shift;
 
 class Main extends PluginBase implements Listener{

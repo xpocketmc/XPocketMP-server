@@ -13,47 +13,47 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock\block\convert;
+namespace pocketmine\data\bedrock\block\convert;
 
-use XPocketMPlock\Button;
-use XPocketMPlock\Candle;
-use XPocketMPlock\ChemistryTable;
-use XPocketMPlock\Crops;
-use XPocketMPlock\Door;
-use XPocketMPlock\DoublePlant;
-use XPocketMPlock\FenceGate;
-use XPocketMPlock\FloorSign;
-use XPocketMPlock\Furnace;
-use XPocketMPlock\ItemFrame;
-use XPocketMPlock\Leaves;
-use XPocketMPlock\Liquid;
-use XPocketMPlock\RedMushroomBlock;
-use XPocketMPlock\Sapling;
-use XPocketMPlock\SimplePressurePlate;
-use XPocketMPlock\Slab;
-use XPocketMPlock\Stair;
-use XPocketMPlock\Stem;
-use XPocketMPlock\Torch;
-use XPocketMPlock\Trapdoor;
-use XPocketMPlock\utils\CopperOxidation;
-use XPocketMPlock\utils\SlabType;
-use XPocketMPlock\Wall;
-use XPocketMPlock\WallSign;
-use XPocketMPlock\Wood;
-use XPocketMP\data\bedrock\block\BlockStateNames;
-use XPocketMP\data\bedrock\block\BlockStateNames as StateNames;
-use XPocketMP\data\bedrock\block\BlockTypeNames as Ids;
-use XPocketMP\data\bedrock\block\convert\BlockStateWriter as Writer;
-use XPocketMP\data\bedrock\MushroomBlockTypeIdMap;
-use XPocketMP\math\Facing;
+use pocketmine\block\Button;
+use pocketmine\block\Candle;
+use pocketmine\block\ChemistryTable;
+use pocketmine\block\Crops;
+use pocketmine\block\Door;
+use pocketmine\block\DoublePlant;
+use pocketmine\block\FenceGate;
+use pocketmine\block\FloorSign;
+use pocketmine\block\Furnace;
+use pocketmine\block\ItemFrame;
+use pocketmine\block\Leaves;
+use pocketmine\block\Liquid;
+use pocketmine\block\RedMushroomBlock;
+use pocketmine\block\Sapling;
+use pocketmine\block\SimplePressurePlate;
+use pocketmine\block\Slab;
+use pocketmine\block\Stair;
+use pocketmine\block\Stem;
+use pocketmine\block\Torch;
+use pocketmine\block\Trapdoor;
+use pocketmine\block\utils\CopperOxidation;
+use pocketmine\block\utils\SlabType;
+use pocketmine\block\Wall;
+use pocketmine\block\WallSign;
+use pocketmine\block\Wood;
+use pocketmine\data\bedrock\block\BlockStateNames;
+use pocketmine\data\bedrock\block\BlockStateNames as StateNames;
+use pocketmine\data\bedrock\block\BlockTypeNames as Ids;
+use pocketmine\data\bedrock\block\convert\BlockStateWriter as Writer;
+use pocketmine\data\bedrock\MushroomBlockTypeIdMap;
+use pocketmine\math\Facing;
 
 final class BlockStateSerializerHelper{
 	public static function encodeButton(Button $block, Writer $out) : Writer{

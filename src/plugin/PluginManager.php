@@ -13,33 +13,33 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\plugin;
+namespace pocketmine\plugin;
 
-use XPocketMP\event\Cancellable;
-use XPocketMP\event\Event;
-use XPocketMP\event\EventPriority;
-use XPocketMP\event\HandlerListManager;
-use XPocketMP\event\Listener;
-use XPocketMP\event\ListenerMethodTags;
-use XPocketMP\event\plugin\PluginDisableEvent;
-use XPocketMP\event\plugin\PluginEnableEvent;
-use XPocketMP\event\RegisteredListener;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\DefaultPermissions;
-use XPocketMP\permission\PermissionManager;
-use XPocketMP\permission\PermissionParser;
-use XPocketMP\Server;
-use XPocketMP\timings\Timings;
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\utils\Utils;
+use pocketmine\event\Cancellable;
+use pocketmine\event\Event;
+use pocketmine\event\EventPriority;
+use pocketmine\event\HandlerListManager;
+use pocketmine\event\Listener;
+use pocketmine\event\ListenerMethodTags;
+use pocketmine\event\plugin\PluginDisableEvent;
+use pocketmine\event\plugin\PluginEnableEvent;
+use pocketmine\event\RegisteredListener;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\DefaultPermissions;
+use pocketmine\permission\PermissionManager;
+use pocketmine\permission\PermissionParser;
+use pocketmine\Server;
+use pocketmine\timings\Timings;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\Utils;
 use Symfony\Component\Filesystem\Path;
 use function array_diff_key;
 use function array_key_exists;
@@ -135,13 +135,13 @@ class PluginManager{
 
 	private function internalLoadPlugin(string $path, PluginLoader $loader, PluginDescription $description) : ?Plugin{
 		$language = $this->server->getLanguage();
-		$this->server->getLogger()->info($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_load($description->getFullName())));
+		$this->server->getLogger()->info($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_load($description->getFullName())));
 
 		$dataFolder = $this->getDataDirectory($path, $description->getName());
 		if(file_exists($dataFolder) && !is_dir($dataFolder)){
-			$this->server->getLogger()->critical($language->translate(KnownTranslationFactory::XPocketMP_plugin_loadError(
+			$this->server->getLogger()->critical($language->translate(KnownTranslationFactory::pocketmine_plugin_loadError(
 				$description->getName(),
-				KnownTranslationFactory::XPocketMP_plugin_badDataFolder($dataFolder)
+				KnownTranslationFactory::pocketmine_plugin_badDataFolder($dataFolder)
 			)));
 			return null;
 		}
@@ -154,24 +154,24 @@ class PluginManager{
 
 		$mainClass = $description->getMain();
 		if(!class_exists($mainClass, true)){
-			$this->server->getLogger()->critical($language->translate(KnownTranslationFactory::XPocketMP_plugin_loadError(
+			$this->server->getLogger()->critical($language->translate(KnownTranslationFactory::pocketmine_plugin_loadError(
 				$description->getName(),
-				KnownTranslationFactory::XPocketMP_plugin_mainClassNotFound()
+				KnownTranslationFactory::pocketmine_plugin_mainClassNotFound()
 			)));
 			return null;
 		}
 		if(!is_a($mainClass, Plugin::class, true)){
-			$this->server->getLogger()->critical($language->translate(KnownTranslationFactory::XPocketMP_plugin_loadError(
+			$this->server->getLogger()->critical($language->translate(KnownTranslationFactory::pocketmine_plugin_loadError(
 				$description->getName(),
-				KnownTranslationFactory::XPocketMP_plugin_mainClassWrongType(Plugin::class)
+				KnownTranslationFactory::pocketmine_plugin_mainClassWrongType(Plugin::class)
 			)));
 			return null;
 		}
 		$reflect = new \ReflectionClass($mainClass); //this shouldn't throw; we already checked that it exists
 		if(!$reflect->isInstantiable()){
-			$this->server->getLogger()->critical($language->translate(KnownTranslationFactory::XPocketMP_plugin_loadError(
+			$this->server->getLogger()->critical($language->translate(KnownTranslationFactory::pocketmine_plugin_loadError(
 				$description->getName(),
-				KnownTranslationFactory::XPocketMP_plugin_mainClassAbstract()
+				KnownTranslationFactory::pocketmine_plugin_mainClassAbstract()
 			)));
 			return null;
 		}
@@ -180,9 +180,9 @@ class PluginManager{
 		foreach($description->getPermissions() as $permsGroup){
 			foreach($permsGroup as $perm){
 				if($permManager->getPermission($perm->getName()) !== null){
-					$this->server->getLogger()->critical($language->translate(KnownTranslationFactory::XPocketMP_plugin_loadError(
+					$this->server->getLogger()->critical($language->translate(KnownTranslationFactory::pocketmine_plugin_loadError(
 						$description->getName(),
-						KnownTranslationFactory::XPocketMP_plugin_duplicatePermissionError($perm->getName())
+						KnownTranslationFactory::pocketmine_plugin_duplicatePermissionError($perm->getName())
 					)));
 					return null;
 				}
@@ -262,14 +262,14 @@ class PluginManager{
 				try{
 					$description = $loader->getPluginDescription($file);
 				}catch(PluginDescriptionParseException $e){
-					$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_loadError(
+					$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_loadError(
 						$file,
-						KnownTranslationFactory::XPocketMP_plugin_invalidManifest($e->getMessage())
+						KnownTranslationFactory::pocketmine_plugin_invalidManifest($e->getMessage())
 					)));
 					$loadErrorCount++;
 					continue;
 				}catch(\RuntimeException $e){ //TODO: more specific exception handling
-					$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_loadError($file, $e->getMessage())));
+					$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_loadError($file, $e->getMessage())));
 					$this->server->getLogger()->logException($e);
 					$loadErrorCount++;
 					continue;
@@ -281,9 +281,9 @@ class PluginManager{
 				$name = $description->getName();
 
 				if($this->graylist !== null && !$this->graylist->isAllowed($name)){
-					$this->server->getLogger()->notice($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_loadError(
+					$this->server->getLogger()->notice($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_loadError(
 						$name,
-						$this->graylist->isWhitelist() ? KnownTranslationFactory::XPocketMP_plugin_disallowedByWhitelist() : KnownTranslationFactory::XPocketMP_plugin_disallowedByBlacklist()
+						$this->graylist->isWhitelist() ? KnownTranslationFactory::pocketmine_plugin_disallowedByWhitelist() : KnownTranslationFactory::pocketmine_plugin_disallowedByBlacklist()
 					)));
 					//this does NOT increment loadErrorCount, because using the graylist to prevent a plugin from
 					//loading is not considered accidental; this is the same as if the plugin were manually removed
@@ -292,19 +292,19 @@ class PluginManager{
 				}
 
 				if(($loadabilityError = $loadabilityChecker->check($description)) !== null){
-					$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_loadError($name, $loadabilityError)));
+					$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_loadError($name, $loadabilityError)));
 					$loadErrorCount++;
 					continue;
 				}
 
 				if(isset($triage->plugins[$name]) || $this->getPlugin($name) instanceof Plugin){
-					$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_duplicateError($name)));
+					$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_duplicateError($name)));
 					$loadErrorCount++;
 					continue;
 				}
 
 				if(str_contains($name, " ")){
-					$this->server->getLogger()->warning($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_spacesDiscouraged($name)));
+					$this->server->getLogger()->warning($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_spacesDiscouraged($name)));
 				}
 
 				$triage->plugins[$name] = new PluginLoadTriageEntry($file, $loader, $description);
@@ -426,9 +426,9 @@ class PluginManager{
 						}
 
 						if(count($unknownDependencies) > 0){
-							$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_loadError(
+							$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_loadError(
 								$name,
-								KnownTranslationFactory::XPocketMP_plugin_unknownDependency(implode(", ", $unknownDependencies))
+								KnownTranslationFactory::pocketmine_plugin_unknownDependency(implode(", ", $unknownDependencies))
 							)));
 							unset($triage->plugins[$name]);
 							$loadErrorCount++;
@@ -437,7 +437,7 @@ class PluginManager{
 				}
 
 				foreach(Utils::stringifyKeys($triage->plugins) as $name => $file){
-					$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_loadError($name, KnownTranslationFactory::XPocketMP_plugin_circularDependency())));
+					$this->server->getLogger()->critical($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_loadError($name, KnownTranslationFactory::pocketmine_plugin_circularDependency())));
 					$loadErrorCount++;
 				}
 				break;
@@ -454,7 +454,7 @@ class PluginManager{
 
 	public function enablePlugin(Plugin $plugin) : bool{
 		if(!$plugin->isEnabled()){
-			$this->server->getLogger()->info($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_enable($plugin->getDescription()->getFullName())));
+			$this->server->getLogger()->info($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_enable($plugin->getDescription()->getFullName())));
 
 			$plugin->getScheduler()->setEnabled(true);
 			try{
@@ -480,9 +480,9 @@ class PluginManager{
 				return true;
 			}else{
 				$this->server->getLogger()->critical($this->server->getLanguage()->translate(
-					KnownTranslationFactory::XPocketMP_plugin_enableError(
+					KnownTranslationFactory::pocketmine_plugin_enableError(
 						$plugin->getName(),
-						KnownTranslationFactory::XPocketMP_plugin_suicide()
+						KnownTranslationFactory::pocketmine_plugin_suicide()
 					)
 				));
 
@@ -512,7 +512,7 @@ class PluginManager{
 
 	public function disablePlugin(Plugin $plugin) : void{
 		if($plugin->isEnabled()){
-			$this->server->getLogger()->info($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_plugin_disable($plugin->getDescription()->getFullName())));
+			$this->server->getLogger()->info($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_plugin_disable($plugin->getDescription()->getFullName())));
 			(new PluginDisableEvent($plugin))->call();
 
 			unset($this->enabledPlugins[$plugin->getDescription()->getName()]);

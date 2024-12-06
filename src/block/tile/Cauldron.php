@@ -13,31 +13,31 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMPlock\Block;
-use XPocketMPlock\FillableCauldron;
-use XPocketMP\color\Color;
-use XPocketMP\data\bedrock\block\BlockStateNames;
-use XPocketMP\data\bedrock\PotionTypeIdMap;
-use XPocketMP\data\SavedDataLoadingException;
-use XPocketMP\item\Item;
-use XPocketMP\item\ItemTypeIds;
-use XPocketMP\item\Potion;
-use XPocketMP\item\SplashPotion;
-use XPocketMP\item\VanillaItems;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\IntTag;
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\utils\Binary;
+use pocketmine\block\Block;
+use pocketmine\block\FillableCauldron;
+use pocketmine\color\Color;
+use pocketmine\data\bedrock\block\BlockStateNames;
+use pocketmine\data\bedrock\PotionTypeIdMap;
+use pocketmine\data\SavedDataLoadingException;
+use pocketmine\item\Item;
+use pocketmine\item\ItemTypeIds;
+use pocketmine\item\Potion;
+use pocketmine\item\SplashPotion;
+use pocketmine\item\VanillaItems;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\IntTag;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\Binary;
 
 final class Cauldron extends Spawnable{
 

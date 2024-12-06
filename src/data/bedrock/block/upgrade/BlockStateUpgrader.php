@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock\block\upgrade;
+namespace pocketmine\data\bedrock\block\upgrade;
 
-use XPocketMP\data\bedrock\block\BlockStateData;
-use XPocketMP\nbt\tag\ByteTag;
-use XPocketMP\nbt\tag\IntTag;
-use XPocketMP\nbt\tag\StringTag;
-use XPocketMP\nbt\tag\Tag;
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\utils\Utils;
+use pocketmine\data\bedrock\block\BlockStateData;
+use pocketmine\nbt\tag\ByteTag;
+use pocketmine\nbt\tag\IntTag;
+use pocketmine\nbt\tag\StringTag;
+use pocketmine\nbt\tag\Tag;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\Utils;
 use function count;
 use function get_class;
 use function is_string;

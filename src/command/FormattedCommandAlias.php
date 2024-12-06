@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command;
+namespace pocketmine\command;
 
-use XPocketMP\command\utils\CommandStringHelper;
-use XPocketMP\command\utils\InvalidCommandSyntaxException;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\timings\Timings;
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\utils\TextFormat;
+use pocketmine\command\utils\CommandStringHelper;
+use pocketmine\command\utils\InvalidCommandSyntaxException;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\timings\Timings;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\TextFormat;
 use function array_shift;
 use function count;
 use function implode;
@@ -53,7 +53,7 @@ class FormattedCommandAlias extends Command{
 		string $alias,
 		private array $formatStrings
 	){
-		parent::__construct($alias, KnownTranslationFactory::XPocketMP_command_userDefined_description());
+		parent::__construct($alias, KnownTranslationFactory::pocketmine_command_userDefined_description());
 	}
 
 	public function execute(CommandSender $sender, string $commandLabel, array $args){
@@ -107,7 +107,7 @@ class FormattedCommandAlias extends Command{
 					$timings->stopTiming();
 				}
 			}else{
-				$sender->sendMessage($sender->getLanguage()->translate(KnownTranslationFactory::XPocketMP_command_notFound($commandLabel, "/help")->prefix(TextFormat::RED)));
+				$sender->sendMessage($sender->getLanguage()->translate(KnownTranslationFactory::pocketmine_command_notFound($commandLabel, "/help")->prefix(TextFormat::RED)));
 
 				//to match the behaviour of SimpleCommandMap::dispatch()
 				//this shouldn't normally happen, but might happen if the command was unregistered or modified after

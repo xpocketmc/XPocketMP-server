@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\generator\noise;
+namespace pocketmine\world\generator\noise;
 
-use XPocketMP\utils\Random;
+use pocketmine\utils\Random;
 use const M_SQRT3;
 
 /**

@@ -2,7 +2,7 @@ p<?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$jsonInputFile = __DIR__ . '/../vendor/xpocketmp/bedrock-data/required_item_list.json';
+$jsonInputFile = __DIR__ . '/../vendor/pocketmine/bedrock-data/required_item_list.json';
 $outputFile = __DIR__ . '/../src/block/BlocktoItemTypeIds.php';
 
 if (!file_exists($jsonInputFile)) {
@@ -18,7 +18,7 @@ if ($requiredItemData === null) {
 	exit(1);
 }
 
-$output = "<?php\n\nnamespace xpocketmp\\block;\n\nclass BlocktoItemTypeIds {\n";
+$output = "<?php\n\nnamespace pocketmine\\block;\n\nclass BlocktoItemTypeIds {\n";
 
 foreach ($requiredItemData as $block => $itemType) {
 	$constName = strtoupper(str_replace(' ', '_', $block));

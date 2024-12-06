@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\generator\object;
+namespace pocketmine\world\generator\object;
 
-use XPocketMPlock\VanillaBlocks;
-use XPocketMP\utils\Random;
-use XPocketMP\world\BlockTransaction;
-use XPocketMP\world\ChunkManager;
+use pocketmine\block\VanillaBlocks;
+use pocketmine\utils\Random;
+use pocketmine\world\BlockTransaction;
+use pocketmine\world\ChunkManager;
 
 class BirchTree extends Tree{
 	public function __construct(

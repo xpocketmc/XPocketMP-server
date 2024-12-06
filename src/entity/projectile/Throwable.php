@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity\projectile;
+namespace pocketmine\entity\projectile;
 
-use XPocketMPlock\Block;
-use XPocketMP\entity\EntitySizeInfo;
-use XPocketMP\math\RayTraceResult;
+use pocketmine\block\Block;
+use pocketmine\entity\EntitySizeInfo;
+use pocketmine\math\RayTraceResult;
 
 abstract class Throwable extends Projectile{
 

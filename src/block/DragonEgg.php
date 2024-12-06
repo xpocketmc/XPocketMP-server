@@ -13,26 +13,26 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\Fallable;
-use XPocketMPlock\utils\FallableTrait;
-use XPocketMPlock\utils\SupportType;
-use XPocketMP\event\block\BlockTeleportEvent;
-use XPocketMP\item\Item;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\GameMode;
-use XPocketMP\player\Player;
-use XPocketMP\world\particle\DragonEggTeleportParticle;
-use XPocketMP\world\World;
+use pocketmine\block\utils\Fallable;
+use pocketmine\block\utils\FallableTrait;
+use pocketmine\block\utils\SupportType;
+use pocketmine\event\block\BlockTeleportEvent;
+use pocketmine\item\Item;
+use pocketmine\math\Vector3;
+use pocketmine\player\GameMode;
+use pocketmine\player\Player;
+use pocketmine\world\particle\DragonEggTeleportParticle;
+use pocketmine\world\World;
 use function max;
 use function min;
 use function mt_rand;

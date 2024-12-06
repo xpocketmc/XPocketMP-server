@@ -13,30 +13,30 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMPlock\Furnace as BlockFurnace;
-use XPocketMPlock\inventory\FurnaceInventory;
-use XPocketMP\crafting\FurnaceRecipe;
-use XPocketMP\crafting\FurnaceType;
-use XPocketMP\event\inventory\FurnaceBurnEvent;
-use XPocketMP\event\inventory\FurnaceSmeltEvent;
-use XPocketMP\inventory\CallbackInventoryListener;
-use XPocketMP\inventory\Inventory;
-use XPocketMP\item\Item;
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\network\mcpe\protocol\ContainerSetDataPacket;
-use XPocketMP\player\Player;
-use XPocketMP\world\World;
+use pocketmine\block\Furnace as BlockFurnace;
+use pocketmine\block\inventory\FurnaceInventory;
+use pocketmine\crafting\FurnaceRecipe;
+use pocketmine\crafting\FurnaceType;
+use pocketmine\event\inventory\FurnaceBurnEvent;
+use pocketmine\event\inventory\FurnaceSmeltEvent;
+use pocketmine\inventory\CallbackInventoryListener;
+use pocketmine\inventory\Inventory;
+use pocketmine\item\Item;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\network\mcpe\protocol\ContainerSetDataPacket;
+use pocketmine\player\Player;
+use pocketmine\world\World;
 use function array_map;
 use function max;
 

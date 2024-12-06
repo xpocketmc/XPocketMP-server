@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\generator;
+namespace pocketmine\world\generator;
 
-use XPocketMP\utils\SingletonTrait;
-use XPocketMP\utils\Utils;
-use XPocketMP\world\generator\hell\Nether;
-use XPocketMP\world\generator\normal\Normal;
+use pocketmine\utils\SingletonTrait;
+use pocketmine\utils\Utils;
+use pocketmine\world\generator\hell\Nether;
+use pocketmine\world\generator\normal\Normal;
 use function array_keys;
 use function strtolower;
 
@@ -58,7 +58,7 @@ final class GeneratorManager{
 	}
 
 	/**
-	 * @param string   $class           Fully qualified name of class that extends \XPocketMP\world\generator\Generator
+	 * @param string   $class           Fully qualified name of class that extends \pocketmine\world\generator\Generator
 	 * @param string   $name            Alias for this generator type that can be written in configs
 	 * @param \Closure $presetValidator Callback to validate generator options for new worlds
 	 * @param bool     $overwrite       Whether to force overwriting any existing registered generator with the same name
@@ -115,7 +115,7 @@ final class GeneratorManager{
 	/**
 	 * Returns the registered name of the given Generator class.
 	 *
-	 * @param string $class Fully qualified name of class that extends \XPocketMP\world\generator\Generator
+	 * @param string $class Fully qualified name of class that extends \pocketmine\world\generator\Generator
 	 * @phpstan-param class-string<Generator> $class
 	 *
 	 * @throws \InvalidArgumentException if the class type cannot be matched to a known alias

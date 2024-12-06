@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\console;
+namespace pocketmine\console;
 
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\utils\Utils;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\Utils;
 use Symfony\Component\Filesystem\Path;
 use function base64_encode;
 use function fgets;

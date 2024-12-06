@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\generator;
+namespace pocketmine\world\generator;
 
-use XPocketMP\scheduler\AsyncTask;
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\world\format\Chunk;
-use XPocketMP\world\format\io\FastChunkSerializer;
-use XPocketMP\world\SimpleChunkManager;
-use XPocketMP\world\World;
+use pocketmine\scheduler\AsyncTask;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\world\format\Chunk;
+use pocketmine\world\format\io\FastChunkSerializer;
+use pocketmine\world\SimpleChunkManager;
+use pocketmine\world\World;
 use function array_map;
 use function igbinary_serialize;
 use function igbinary_unserialize;

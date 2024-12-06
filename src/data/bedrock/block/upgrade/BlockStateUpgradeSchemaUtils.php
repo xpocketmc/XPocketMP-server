@@ -13,27 +13,27 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock\block\upgrade;
+namespace pocketmine\data\bedrock\block\upgrade;
 
-use XPocketMP\data\bedrock\block\upgrade\model\BlockStateUpgradeSchemaModel;
-use XPocketMP\data\bedrock\block\upgrade\model\BlockStateUpgradeSchemaModelBlockRemap;
-use XPocketMP\data\bedrock\block\upgrade\model\BlockStateUpgradeSchemaModelFlattenInfo;
-use XPocketMP\data\bedrock\block\upgrade\model\BlockStateUpgradeSchemaModelTag;
-use XPocketMP\data\bedrock\block\upgrade\model\BlockStateUpgradeSchemaModelValueRemap;
-use XPocketMP\nbt\tag\ByteTag;
-use XPocketMP\nbt\tag\IntTag;
-use XPocketMP\nbt\tag\StringTag;
-use XPocketMP\nbt\tag\Tag;
-use XPocketMP\utils\Filesystem;
-use XPocketMP\utils\Utils;
+use pocketmine\data\bedrock\block\upgrade\model\BlockStateUpgradeSchemaModel;
+use pocketmine\data\bedrock\block\upgrade\model\BlockStateUpgradeSchemaModelBlockRemap;
+use pocketmine\data\bedrock\block\upgrade\model\BlockStateUpgradeSchemaModelFlattenInfo;
+use pocketmine\data\bedrock\block\upgrade\model\BlockStateUpgradeSchemaModelTag;
+use pocketmine\data\bedrock\block\upgrade\model\BlockStateUpgradeSchemaModelValueRemap;
+use pocketmine\nbt\tag\ByteTag;
+use pocketmine\nbt\tag\IntTag;
+use pocketmine\nbt\tag\StringTag;
+use pocketmine\nbt\tag\Tag;
+use pocketmine\utils\Filesystem;
+use pocketmine\utils\Utils;
 use Symfony\Component\Filesystem\Path;
 use function array_key_last;
 use function array_map;

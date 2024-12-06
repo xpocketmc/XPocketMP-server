@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item\enchantment;
+namespace pocketmine\item\enchantment;
 
-use XPocketMP\item\enchantment\IncompatibleEnchantmentGroups as Groups;
-use XPocketMP\item\enchantment\VanillaEnchantments as Enchantments;
-use XPocketMP\utils\SingletonTrait;
+use pocketmine\item\enchantment\IncompatibleEnchantmentGroups as Groups;
+use pocketmine\item\enchantment\VanillaEnchantments as Enchantments;
+use pocketmine\utils\SingletonTrait;
 use function array_intersect_key;
 use function count;
 use function spl_object_id;

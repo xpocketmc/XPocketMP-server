@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\stats;
+namespace pocketmine\stats;
 
-use XPocketMP\network\mcpe\protocol\ProtocolInfo;
-use XPocketMP\player\Player;
-use XPocketMP\scheduler\AsyncTask;
-use XPocketMP\Server;
-use XPocketMP\utils\Internet;
-use XPocketMP\utils\Process;
-use XPocketMP\utils\Utils;
-use XPocketMP\VersionInfo;
-use XPocketMP\YmlServerProperties;
+use pocketmine\network\mcpe\protocol\ProtocolInfo;
+use pocketmine\player\Player;
+use pocketmine\scheduler\AsyncTask;
+use pocketmine\Server;
+use pocketmine\utils\Internet;
+use pocketmine\utils\Process;
+use pocketmine\utils\Utils;
+use pocketmine\VersionInfo;
+use pocketmine\YmlServerProperties;
 use Ramsey\Uuid\Uuid;
 use function array_map;
 use function array_values;
@@ -58,7 +58,7 @@ class SendUsageTask extends AsyncTask{
 	 * @phpstan-param array<string, string> $playerList
 	 */
 	public function __construct(Server $server, int $type, array $playerList = []){
-		$endpoint = "http://" . $server->getConfigGroup()->getPropertyString(YmlServerProperties::ANONYMOUS_STATISTICS_HOST, "stats.xpocketmc.xyz") . "/";
+		$endpoint = "http://" . $server->getConfigGroup()->getPropertyString(YmlServerProperties::ANONYMOUS_STATISTICS_HOST, "stats.pocketmine.net") . "/";
 
 		$data = [];
 		$data["uniqueServerId"] = $server->getServerUniqueId()->toString();

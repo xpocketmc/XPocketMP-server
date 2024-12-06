@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -24,47 +24,47 @@ declare(strict_types=1);
 /**
  * All the entity classes
  */
-namespace XPocketMP\entity;
+namespace pocketmine\entity;
 
-use XPocketMPlock\Block;
-use XPocketMPlock\Water;
-use XPocketMP\entity\animation\Animation;
-use XPocketMP\event\entity\EntityDamageEvent;
-use XPocketMP\event\entity\EntityDespawnEvent;
-use XPocketMP\event\entity\EntityMotionEvent;
-use XPocketMP\event\entity\EntityRegainHealthEvent;
-use XPocketMP\event\entity\EntitySpawnEvent;
-use XPocketMP\event\entity\EntityTeleportEvent;
-use XPocketMP\math\AxisAlignedBB;
-use XPocketMP\math\Facing;
-use XPocketMP\math\Vector2;
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\DoubleTag;
-use XPocketMP\nbt\tag\FloatTag;
-use XPocketMP\nbt\tag\ListTag;
-use XPocketMP\nbt\tag\StringTag;
-use XPocketMP\network\mcpe\EntityEventBroadcaster;
-use XPocketMP\network\mcpe\NetworkBroadcastUtils;
-use XPocketMP\network\mcpe\protocol\AddActorPacket;
-use XPocketMP\network\mcpe\protocol\MoveActorAbsolutePacket;
-use XPocketMP\network\mcpe\protocol\SetActorMotionPacket;
-use XPocketMP\network\mcpe\protocol\types\entity\Attribute as NetworkAttribute;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataCollection;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataFlags;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataProperties;
-use XPocketMP\network\mcpe\protocol\types\entity\MetadataProperty;
-use XPocketMP\network\mcpe\protocol\types\entity\PropertySyncData;
-use XPocketMP\player\Player;
-use XPocketMP\Server;
-use XPocketMP\timings\Timings;
-use XPocketMP\timings\TimingsHandler;
-use XPocketMP\utils\Utils;
-use XPocketMP\VersionInfo;
-use XPocketMP\world\format\Chunk;
-use XPocketMP\world\Position;
-use XPocketMP\world\sound\Sound;
-use XPocketMP\world\World;
+use pocketmine\block\Block;
+use pocketmine\block\Water;
+use pocketmine\entity\animation\Animation;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityDespawnEvent;
+use pocketmine\event\entity\EntityMotionEvent;
+use pocketmine\event\entity\EntityRegainHealthEvent;
+use pocketmine\event\entity\EntitySpawnEvent;
+use pocketmine\event\entity\EntityTeleportEvent;
+use pocketmine\math\AxisAlignedBB;
+use pocketmine\math\Facing;
+use pocketmine\math\Vector2;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\DoubleTag;
+use pocketmine\nbt\tag\FloatTag;
+use pocketmine\nbt\tag\ListTag;
+use pocketmine\nbt\tag\StringTag;
+use pocketmine\network\mcpe\EntityEventBroadcaster;
+use pocketmine\network\mcpe\NetworkBroadcastUtils;
+use pocketmine\network\mcpe\protocol\AddActorPacket;
+use pocketmine\network\mcpe\protocol\MoveActorAbsolutePacket;
+use pocketmine\network\mcpe\protocol\SetActorMotionPacket;
+use pocketmine\network\mcpe\protocol\types\entity\Attribute as NetworkAttribute;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use pocketmine\network\mcpe\protocol\types\entity\MetadataProperty;
+use pocketmine\network\mcpe\protocol\types\entity\PropertySyncData;
+use pocketmine\player\Player;
+use pocketmine\Server;
+use pocketmine\timings\Timings;
+use pocketmine\timings\TimingsHandler;
+use pocketmine\utils\Utils;
+use pocketmine\VersionInfo;
+use pocketmine\world\format\Chunk;
+use pocketmine\world\Position;
+use pocketmine\world\sound\Sound;
+use pocketmine\world\World;
 use function abs;
 use function array_map;
 use function assert;
@@ -796,7 +796,7 @@ abstract class Entity{
 				//breaks player teleporting (observers see the player rubberband back to the pre-teleport position while
 				//the teleported player sees themselves at the correct position), and does nothing whatsoever for
 				//non-player entities (movement is still interpolated). Both of these are client bugs.
-				//See https://github.com/pmmp/XPocketMP-MP/issues/4394
+				//See https://github.com/pmmp/PocketMine-MP/issues/4394
 				($this->onGround ? MoveActorAbsolutePacket::FLAG_GROUND : 0)
 			)
 		)]);

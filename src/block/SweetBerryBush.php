@@ -13,30 +13,30 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\AgeableTrait;
-use XPocketMPlock\utils\BlockEventHelper;
-use XPocketMPlock\utils\FortuneDropHelper;
-use XPocketMPlock\utils\StaticSupportTrait;
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\Living;
-use XPocketMP\event\entity\EntityDamageByBlockEvent;
-use XPocketMP\item\Fertilizer;
-use XPocketMP\item\Item;
-use XPocketMP\item\VanillaItems;
-use XPocketMP\math\Facing;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\world\sound\SweetBerriesPickSound;
+use pocketmine\block\utils\AgeableTrait;
+use pocketmine\block\utils\BlockEventHelper;
+use pocketmine\block\utils\FortuneDropHelper;
+use pocketmine\block\utils\StaticSupportTrait;
+use pocketmine\entity\Entity;
+use pocketmine\entity\Living;
+use pocketmine\event\entity\EntityDamageByBlockEvent;
+use pocketmine\item\Fertilizer;
+use pocketmine\item\Item;
+use pocketmine\item\VanillaItems;
+use pocketmine\math\Facing;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\sound\SweetBerriesPickSound;
 use function mt_rand;
 
 class SweetBerryBush extends Flowable{

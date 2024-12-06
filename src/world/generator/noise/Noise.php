@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -24,7 +24,7 @@ declare(strict_types=1);
 /**
  * Different noise generators for world generation
  */
-namespace XPocketMP\world\generator\noise;
+namespace pocketmine\world\generator\noise;
 
 use function array_fill;
 use function assert;

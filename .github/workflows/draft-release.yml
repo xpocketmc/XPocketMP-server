@@ -48,7 +48,7 @@ jobs:
           echo BUILD_NUMBER=$BUILD_NUMBER >> $GITHUB_OUTPUT
 
       - name: Minify BedrockData JSON files
-        run: php vendor/xpocketmp/bedrock-data/.minify_json.php
+        run: php vendor/pocketmine/bedrock-data/.minify_json.php
 
       - name: Build XPocketMP.phar
         run: php -dphar.readonly=0 build/server-phar.php --git ${{ github.sha }} --build ${{ steps.build-number.outputs.BUILD_NUMBER }}
@@ -56,12 +56,12 @@ jobs:
       - name: Get XPocketMP release version
         id: get-pm-version
         run: |
-          echo PM_VERSION=$(php -r 'require "vendor/autoload.php"; echo \xpocketmp\VersionInfo::BASE_VERSION;') >> $GITHUB_OUTPUT
-          echo MCPE_VERSION=$(php -r 'require "vendor/autoload.php"; echo \xpocketmp\network\mcpe\protocol\ProtocolInfo::MINECRAFT_VERSION_NETWORK;') >> $GITHUB_OUTPUT
-          echo PM_VERSION_SHORT=$(php -r 'require "vendor/autoload.php"; $v = explode(".", \xpocketmp\VersionInfo::BASE_VERSION); array_pop($v); echo implode(".", $v);') >> $GITHUB_OUTPUT
-          echo PM_VERSION_MD=$(php -r 'require "vendor/autoload.php"; echo str_replace(".", "", \xpocketmp\VersionInfo::BASE_VERSION);') >> $GITHUB_OUTPUT
-          echo CHANGELOG_SUFFIX=$(php -r 'require "vendor/autoload.php"; echo \xpocketmp\VersionInfo::BUILD_CHANNEL === "stable" ? "" : "-" . \xpocketmp\VersionInfo::BUILD_CHANNEL;') >> $GITHUB_OUTPUT
-          echo PRERELEASE=$(php -r 'require "vendor/autoload.php"; echo \xpocketmp\VersionInfo::BUILD_CHANNEL === "stable" ? "false" : "true";') >> $GITHUB_OUTPUT
+          echo PM_VERSION=$(php -r 'require "vendor/autoload.php"; echo \pocketmine\VersionInfo::BASE_VERSION;') >> $GITHUB_OUTPUT
+          echo MCPE_VERSION=$(php -r 'require "vendor/autoload.php"; echo \pocketmine\network\mcpe\protocol\ProtocolInfo::MINECRAFT_VERSION_NETWORK;') >> $GITHUB_OUTPUT
+          echo PM_VERSION_SHORT=$(php -r 'require "vendor/autoload.php"; $v = explode(".", \pocketmine\VersionInfo::BASE_VERSION); array_pop($v); echo implode(".", $v);') >> $GITHUB_OUTPUT
+          echo PM_VERSION_MD=$(php -r 'require "vendor/autoload.php"; echo str_replace(".", "", \pocketmine\VersionInfo::BASE_VERSION);') >> $GITHUB_OUTPUT
+          echo CHANGELOG_SUFFIX=$(php -r 'require "vendor/autoload.php"; echo \pocketmine\VersionInfo::BUILD_CHANNEL === "stable" ? "" : "-" . \pocketmine\VersionInfo::BUILD_CHANNEL;') >> $GITHUB_OUTPUT
+          echo PRERELEASE=$(php -r 'require "vendor/autoload.php"; echo \pocketmine\VersionInfo::BUILD_CHANNEL === "stable" ? "false" : "true";') >> $GITHUB_OUTPUT
 
       - name: Generate PHP binary download URL
         id: php-binary-url

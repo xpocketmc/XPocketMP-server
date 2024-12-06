@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item;
+namespace pocketmine\item;
 
-use XPocketMP\entity\Location;
-use XPocketMP\entity\projectile\Arrow as ArrowEntity;
-use XPocketMP\entity\projectile\Projectile;
-use XPocketMP\event\entity\EntityShootBowEvent;
-use XPocketMP\event\entity\ProjectileLaunchEvent;
-use XPocketMP\item\enchantment\VanillaEnchantments;
-use XPocketMP\player\Player;
-use XPocketMP\world\sound\BowShootSound;
+use pocketmine\entity\Location;
+use pocketmine\entity\projectile\Arrow as ArrowEntity;
+use pocketmine\entity\projectile\Projectile;
+use pocketmine\event\entity\EntityShootBowEvent;
+use pocketmine\event\entity\ProjectileLaunchEvent;
+use pocketmine\item\enchantment\VanillaEnchantments;
+use pocketmine\player\Player;
+use pocketmine\world\sound\BowShootSound;
 use function intdiv;
 use function min;
 

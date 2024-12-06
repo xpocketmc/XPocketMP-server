@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\format\io;
+namespace pocketmine\world\format\io;
 
-use XPocketMP\data\bedrock\block\BlockStateDeserializeException;
-use XPocketMP\data\bedrock\block\BlockStateDeserializer;
-use XPocketMP\data\bedrock\block\BlockStateSerializer;
-use XPocketMP\data\bedrock\block\upgrade\BlockDataUpgrader;
-use XPocketMP\world\format\io\exception\CorruptedWorldException;
-use XPocketMP\world\format\io\exception\UnsupportedWorldFormatException;
-use XPocketMP\world\format\PalettedBlockArray;
-use XPocketMP\world\WorldException;
+use pocketmine\data\bedrock\block\BlockStateDeserializeException;
+use pocketmine\data\bedrock\block\BlockStateDeserializer;
+use pocketmine\data\bedrock\block\BlockStateSerializer;
+use pocketmine\data\bedrock\block\upgrade\BlockDataUpgrader;
+use pocketmine\world\format\io\exception\CorruptedWorldException;
+use pocketmine\world\format\io\exception\UnsupportedWorldFormatException;
+use pocketmine\world\format\PalettedBlockArray;
+use pocketmine\world\WorldException;
 use function count;
 use function file_exists;
 use function implode;

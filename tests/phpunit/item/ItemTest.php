@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\item;
+namespace pocketmine\item;
 
 use PHPUnit\Framework\TestCase;
-use xpocketmp\block\VanillaBlocks;
-use xpocketmp\item\enchantment\EnchantmentInstance;
-use xpocketmp\item\enchantment\VanillaEnchantments;
+use pocketmine\block\VanillaBlocks;
+use pocketmine\item\enchantment\EnchantmentInstance;
+use pocketmine\item\enchantment\VanillaEnchantments;
 
 class ItemTest extends TestCase{
 

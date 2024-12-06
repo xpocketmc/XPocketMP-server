@@ -13,61 +13,61 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity;
+namespace pocketmine\entity;
 
-use XPocketMP\data\bedrock\item\SavedItemStackData;
-use XPocketMP\data\SavedDataLoadingException;
-use XPocketMP\entity\animation\TotemUseAnimation;
-use XPocketMP\entity\effect\EffectInstance;
-use XPocketMP\entity\effect\VanillaEffects;
-use XPocketMP\entity\projectile\ProjectileSource;
-use XPocketMP\event\entity\EntityDamageEvent;
-use XPocketMP\event\player\PlayerExhaustEvent;
-use XPocketMP\inventory\CallbackInventoryListener;
-use XPocketMP\inventory\Inventory;
-use XPocketMP\inventory\InventoryHolder;
-use XPocketMP\inventory\PlayerEnderInventory;
-use XPocketMP\inventory\PlayerInventory;
-use XPocketMP\inventory\PlayerOffHandInventory;
-use XPocketMP\item\enchantment\EnchantingHelper;
-use XPocketMP\item\enchantment\VanillaEnchantments;
-use XPocketMP\item\Item;
-use XPocketMP\item\Totem;
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\NBT;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\IntTag;
-use XPocketMP\nbt\tag\ListTag;
-use XPocketMP\nbt\tag\StringTag;
-use XPocketMP\network\mcpe\convert\TypeConverter;
-use XPocketMP\network\mcpe\EntityEventBroadcaster;
-use XPocketMP\network\mcpe\NetworkBroadcastUtils;
-use XPocketMP\network\mcpe\protocol\AddPlayerPacket;
-use XPocketMP\network\mcpe\protocol\PlayerListPacket;
-use XPocketMP\network\mcpe\protocol\PlayerSkinPacket;
-use XPocketMP\network\mcpe\protocol\types\AbilitiesData;
-use XPocketMP\network\mcpe\protocol\types\AbilitiesLayer;
-use XPocketMP\network\mcpe\protocol\types\command\CommandPermissions;
-use XPocketMP\network\mcpe\protocol\types\DeviceOS;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataProperties;
-use XPocketMP\network\mcpe\protocol\types\entity\PropertySyncData;
-use XPocketMP\network\mcpe\protocol\types\entity\StringMetadataProperty;
-use XPocketMP\network\mcpe\protocol\types\GameMode;
-use XPocketMP\network\mcpe\protocol\types\inventory\ItemStackWrapper;
-use XPocketMP\network\mcpe\protocol\types\PlayerListEntry;
-use XPocketMP\network\mcpe\protocol\types\PlayerPermissions;
-use XPocketMP\network\mcpe\protocol\UpdateAbilitiesPacket;
-use XPocketMP\player\Player;
-use XPocketMP\world\sound\TotemUseSound;
+use pocketmine\data\bedrock\item\SavedItemStackData;
+use pocketmine\data\SavedDataLoadingException;
+use pocketmine\entity\animation\TotemUseAnimation;
+use pocketmine\entity\effect\EffectInstance;
+use pocketmine\entity\effect\VanillaEffects;
+use pocketmine\entity\projectile\ProjectileSource;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\player\PlayerExhaustEvent;
+use pocketmine\inventory\CallbackInventoryListener;
+use pocketmine\inventory\Inventory;
+use pocketmine\inventory\InventoryHolder;
+use pocketmine\inventory\PlayerEnderInventory;
+use pocketmine\inventory\PlayerInventory;
+use pocketmine\inventory\PlayerOffHandInventory;
+use pocketmine\item\enchantment\EnchantingHelper;
+use pocketmine\item\enchantment\VanillaEnchantments;
+use pocketmine\item\Item;
+use pocketmine\item\Totem;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\NBT;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\IntTag;
+use pocketmine\nbt\tag\ListTag;
+use pocketmine\nbt\tag\StringTag;
+use pocketmine\network\mcpe\convert\TypeConverter;
+use pocketmine\network\mcpe\EntityEventBroadcaster;
+use pocketmine\network\mcpe\NetworkBroadcastUtils;
+use pocketmine\network\mcpe\protocol\AddPlayerPacket;
+use pocketmine\network\mcpe\protocol\PlayerListPacket;
+use pocketmine\network\mcpe\protocol\PlayerSkinPacket;
+use pocketmine\network\mcpe\protocol\types\AbilitiesData;
+use pocketmine\network\mcpe\protocol\types\AbilitiesLayer;
+use pocketmine\network\mcpe\protocol\types\command\CommandPermissions;
+use pocketmine\network\mcpe\protocol\types\DeviceOS;
+use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use pocketmine\network\mcpe\protocol\types\entity\PropertySyncData;
+use pocketmine\network\mcpe\protocol\types\entity\StringMetadataProperty;
+use pocketmine\network\mcpe\protocol\types\GameMode;
+use pocketmine\network\mcpe\protocol\types\inventory\ItemStackWrapper;
+use pocketmine\network\mcpe\protocol\types\PlayerListEntry;
+use pocketmine\network\mcpe\protocol\types\PlayerPermissions;
+use pocketmine\network\mcpe\protocol\UpdateAbilitiesPacket;
+use pocketmine\player\Player;
+use pocketmine\world\sound\TotemUseSound;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use function array_fill;

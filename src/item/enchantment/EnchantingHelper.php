@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item\enchantment;
+namespace pocketmine\item\enchantment;
 
-use XPocketMPlock\BlockTypeIds;
-use XPocketMP\item\enchantment\AvailableEnchantmentRegistry as EnchantmentRegistry;
-use XPocketMP\item\Item;
-use XPocketMP\item\ItemTypeIds;
-use XPocketMP\item\VanillaItems as Items;
-use XPocketMP\utils\Limits;
-use XPocketMP\utils\Random;
-use XPocketMP\world\Position;
+use pocketmine\block\BlockTypeIds;
+use pocketmine\item\enchantment\AvailableEnchantmentRegistry as EnchantmentRegistry;
+use pocketmine\item\Item;
+use pocketmine\item\ItemTypeIds;
+use pocketmine\item\VanillaItems as Items;
+use pocketmine\utils\Limits;
+use pocketmine\utils\Random;
+use pocketmine\world\Position;
 use function abs;
 use function array_filter;
 use function chr;

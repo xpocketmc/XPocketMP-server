@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -24,11 +24,11 @@ declare(strict_types=1);
 /**
  * Network-related classes
  */
-namespace XPocketMP\network;
+namespace pocketmine\network;
 
-use XPocketMP\event\server\NetworkInterfaceRegisterEvent;
-use XPocketMP\event\server\NetworkInterfaceUnregisterEvent;
-use XPocketMP\utils\Utils;
+use pocketmine\event\server\NetworkInterfaceRegisterEvent;
+use pocketmine\event\server\NetworkInterfaceUnregisterEvent;
+use pocketmine\utils\Utils;
 use function base64_encode;
 use function get_class;
 use function preg_match;

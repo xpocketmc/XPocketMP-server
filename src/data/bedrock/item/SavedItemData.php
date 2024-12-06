@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock\item;
+namespace pocketmine\data\bedrock\item;
 
-use XPocketMP\data\bedrock\block\BlockStateData;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\VersionInfo;
+use pocketmine\data\bedrock\block\BlockStateData;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\VersionInfo;
 
 final class SavedItemData{
 

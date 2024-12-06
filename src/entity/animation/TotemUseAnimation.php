@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity\animation;
+namespace pocketmine\entity\animation;
 
-use XPocketMP\entity\Human;
-use XPocketMP\network\mcpe\protocol\ActorEventPacket;
-use XPocketMP\network\mcpe\protocol\types\ActorEvent;
+use pocketmine\entity\Human;
+use pocketmine\network\mcpe\protocol\ActorEventPacket;
+use pocketmine\network\mcpe\protocol\types\ActorEvent;
 
 final class TotemUseAnimation implements Animation{
 

@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\format\io;
+namespace pocketmine\world\format\io;
 
-use XPocketMP\utils\Filesystem;
-use XPocketMP\world\format\Chunk;
-use XPocketMP\world\generator\GeneratorManager;
-use XPocketMP\world\generator\normal\Normal;
-use XPocketMP\world\WorldCreationOptions;
+use pocketmine\utils\Filesystem;
+use pocketmine\world\format\Chunk;
+use pocketmine\world\generator\GeneratorManager;
+use pocketmine\world\generator\normal\Normal;
+use pocketmine\world\WorldCreationOptions;
 use Symfony\Component\Filesystem\Path;
 use function basename;
 use function crc32;

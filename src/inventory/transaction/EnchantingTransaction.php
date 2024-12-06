@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\inventory\transaction;
+namespace pocketmine\inventory\transaction;
 
-use XPocketMP\event\player\PlayerItemEnchantEvent;
-use XPocketMP\item\enchantment\EnchantingHelper;
-use XPocketMP\item\enchantment\EnchantingOption;
-use XPocketMP\item\Item;
-use XPocketMP\item\ItemTypeIds;
-use XPocketMP\player\Player;
-use XPocketMP\utils\AssumptionFailedError;
+use pocketmine\event\player\PlayerItemEnchantEvent;
+use pocketmine\item\enchantment\EnchantingHelper;
+use pocketmine\item\enchantment\EnchantingOption;
+use pocketmine\item\Item;
+use pocketmine\item\ItemTypeIds;
+use pocketmine\player\Player;
+use pocketmine\utils\AssumptionFailedError;
 use function count;
 use function min;
 

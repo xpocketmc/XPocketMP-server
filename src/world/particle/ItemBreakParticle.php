@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\particle;
+namespace pocketmine\world\particle;
 
-use XPocketMP\item\Item;
-use XPocketMP\math\Vector3;
-use XPocketMP\network\mcpe\convert\TypeConverter;
-use XPocketMP\network\mcpe\protocol\LevelEventPacket;
-use XPocketMP\network\mcpe\protocol\types\ParticleIds;
+use pocketmine\item\Item;
+use pocketmine\math\Vector3;
+use pocketmine\network\mcpe\convert\TypeConverter;
+use pocketmine\network\mcpe\protocol\LevelEventPacket;
+use pocketmine\network\mcpe\protocol\types\ParticleIds;
 
 class ItemBreakParticle implements Particle{
 	public function __construct(private Item $item){}

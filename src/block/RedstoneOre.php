@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\FortuneDropHelper;
-use XPocketMPlock\utils\LightableTrait;
-use XPocketMP\item\Item;
-use XPocketMP\item\VanillaItems;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
+use pocketmine\block\utils\FortuneDropHelper;
+use pocketmine\block\utils\LightableTrait;
+use pocketmine\item\Item;
+use pocketmine\item\VanillaItems;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
 use function mt_rand;
 
 class RedstoneOre extends Opaque{

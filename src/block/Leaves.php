@@ -13,28 +13,28 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\FortuneDropHelper;
-use XPocketMPlock\utils\LeavesType;
-use XPocketMPlock\utils\SupportType;
-use XPocketMP\data\runtime\RuntimeDataDescriber;
-use XPocketMP\event\block\LeavesDecayEvent;
-use XPocketMP\item\Item;
-use XPocketMP\item\VanillaItems;
-use XPocketMP\math\Facing;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\world\BlockTransaction;
-use XPocketMP\world\World;
+use pocketmine\block\utils\FortuneDropHelper;
+use pocketmine\block\utils\LeavesType;
+use pocketmine\block\utils\SupportType;
+use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\event\block\LeavesDecayEvent;
+use pocketmine\item\Item;
+use pocketmine\item\VanillaItems;
+use pocketmine\math\Facing;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\BlockTransaction;
+use pocketmine\world\World;
 use function mt_rand;
 
 class Leaves extends Transparent{

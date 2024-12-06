@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\DripleafState;
-use XPocketMP\data\runtime\RuntimeDataDescriber;
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\projectile\Projectile;
-use XPocketMP\math\AxisAlignedBB;
-use XPocketMP\math\Facing;
-use XPocketMP\math\RayTraceResult;
-use XPocketMP\world\sound\DripleafTiltDownSound;
-use XPocketMP\world\sound\DripleafTiltUpSound;
+use pocketmine\block\utils\DripleafState;
+use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\entity\Entity;
+use pocketmine\entity\projectile\Projectile;
+use pocketmine\math\AxisAlignedBB;
+use pocketmine\math\Facing;
+use pocketmine\math\RayTraceResult;
+use pocketmine\world\sound\DripleafTiltDownSound;
+use pocketmine\world\sound\DripleafTiltUpSound;
 
 class BigDripleafHead extends BaseBigDripleaf{
 

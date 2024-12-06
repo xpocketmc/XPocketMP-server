@@ -13,30 +13,30 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\utils;
+namespace pocketmine\utils;
 
 use PHPUnit\Framework\TestCase;
-use xpocketmp\utils\fixtures\TestAbstractClass;
-use xpocketmp\utils\fixtures\TestInstantiableClass;
-use xpocketmp\utils\fixtures\TestInterface;
-use xpocketmp\utils\fixtures\TestSubclassOfInstantiableClass;
-use xpocketmp\utils\fixtures\TestTrait;
+use pocketmine\utils\fixtures\TestAbstractClass;
+use pocketmine\utils\fixtures\TestInstantiableClass;
+use pocketmine\utils\fixtures\TestInterface;
+use pocketmine\utils\fixtures\TestSubclassOfInstantiableClass;
+use pocketmine\utils\fixtures\TestTrait;
 use function define;
 use function defined;
 
 class UtilsTest extends TestCase{
 
 	public function setUp() : void{
-		if(!defined('xpocketmp\PATH')){
-			define('xpocketmp\PATH', 'dummy');
+		if(!defined('pocketmine\PATH')){
+			define('pocketmine\PATH', 'dummy');
 		}
 	}
 

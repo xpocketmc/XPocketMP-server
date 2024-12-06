@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\format\io\region;
+namespace pocketmine\world\format\io\region;
 
-use XPocketMP\nbt\NBT;
-use XPocketMP\nbt\tag\ByteArrayTag;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\ListTag;
-use XPocketMP\world\format\io\BaseWorldProvider;
-use XPocketMP\world\format\io\data\JavaWorldData;
-use XPocketMP\world\format\io\exception\CorruptedChunkException;
-use XPocketMP\world\format\io\LoadedChunkData;
-use XPocketMP\world\format\io\WorldData;
+use pocketmine\nbt\NBT;
+use pocketmine\nbt\tag\ByteArrayTag;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\ListTag;
+use pocketmine\world\format\io\BaseWorldProvider;
+use pocketmine\world\format\io\data\JavaWorldData;
+use pocketmine\world\format\io\exception\CorruptedChunkException;
+use pocketmine\world\format\io\LoadedChunkData;
+use pocketmine\world\format\io\WorldData;
 use Symfony\Component\Filesystem\Path;
 use function assert;
 use function file_exists;

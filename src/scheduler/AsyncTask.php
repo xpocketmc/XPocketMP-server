@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\scheduler;
+namespace pocketmine\scheduler;
 
 use pmmp\thread\Runnable;
 use pmmp\thread\ThreadSafe;
 use pmmp\thread\ThreadSafeArray;
-use XPocketMP\thread\NonThreadSafeValue;
+use pocketmine\thread\NonThreadSafeValue;
 use function array_key_exists;
 use function igbinary_serialize;
 use function igbinary_unserialize;

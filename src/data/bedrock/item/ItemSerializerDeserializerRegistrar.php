@@ -13,37 +13,37 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock\item;
+namespace pocketmine\data\bedrock\item;
 
-use XPocketMPlock\Bed;
-use XPocketMPlock\Block;
-use XPocketMPlock\CopperDoor;
-use XPocketMPlock\utils\CopperOxidation;
-use XPocketMPlock\utils\DyeColor;
-use XPocketMPlock\VanillaBlocks as Blocks;
-use XPocketMP\data\bedrock\CompoundTypeIds;
-use XPocketMP\data\bedrock\DyeColorIdMap;
-use XPocketMP\data\bedrock\item\ItemTypeNames as Ids;
-use XPocketMP\data\bedrock\item\SavedItemData as Data;
-use XPocketMP\data\bedrock\MedicineTypeIdMap;
-use XPocketMP\data\bedrock\PotionTypeIdMap;
-use XPocketMP\data\bedrock\SuspiciousStewTypeIdMap;
-use XPocketMP\item\Banner;
-use XPocketMP\item\Dye;
-use XPocketMP\item\Item;
-use XPocketMP\item\Medicine;
-use XPocketMP\item\Potion;
-use XPocketMP\item\SplashPotion;
-use XPocketMP\item\SuspiciousStew;
-use XPocketMP\item\VanillaItems as Items;
+use pocketmine\block\Bed;
+use pocketmine\block\Block;
+use pocketmine\block\CopperDoor;
+use pocketmine\block\utils\CopperOxidation;
+use pocketmine\block\utils\DyeColor;
+use pocketmine\block\VanillaBlocks as Blocks;
+use pocketmine\data\bedrock\CompoundTypeIds;
+use pocketmine\data\bedrock\DyeColorIdMap;
+use pocketmine\data\bedrock\item\ItemTypeNames as Ids;
+use pocketmine\data\bedrock\item\SavedItemData as Data;
+use pocketmine\data\bedrock\MedicineTypeIdMap;
+use pocketmine\data\bedrock\PotionTypeIdMap;
+use pocketmine\data\bedrock\SuspiciousStewTypeIdMap;
+use pocketmine\item\Banner;
+use pocketmine\item\Dye;
+use pocketmine\item\Item;
+use pocketmine\item\Medicine;
+use pocketmine\item\Potion;
+use pocketmine\item\SplashPotion;
+use pocketmine\item\SuspiciousStew;
+use pocketmine\item\VanillaItems as Items;
 
 final class ItemSerializerDeserializerRegistrar{
 
@@ -125,7 +125,7 @@ final class ItemSerializerDeserializerRegistrar{
 	}
 
 	/**
-	 * Registers mappings for item IDs which directly correspond to XPocketMP-MP blockitems.
+	 * Registers mappings for item IDs which directly correspond to PocketMine-MP blockitems.
 	 * Mappings here are only necessary when the item has a dedicated item ID; in these cases, the blockstate is not
 	 * included in the itemstack, and the item ID may be different from the block ID.
 	 */
@@ -158,7 +158,7 @@ final class ItemSerializerDeserializerRegistrar{
 	}
 
 	/**
-	 * Registers mappings for item IDs which directly correspond to XPocketMP-MP items.
+	 * Registers mappings for item IDs which directly correspond to PocketMine-MP items.
 	 */
 	private function register1to1ItemMappings() : void{
 		$this->map1to1Item(Ids::ACACIA_BOAT, Items::ACACIA_BOAT());
@@ -401,7 +401,7 @@ final class ItemSerializerDeserializerRegistrar{
 	}
 
 	/**
-	 * Registers mappings for item IDs which map to different XPocketMP-MP item types, depending on their meta
+	 * Registers mappings for item IDs which map to different PocketMine-MP item types, depending on their meta
 	 * values.
 	 * This can only be used if the target item type doesn't require any additional properties, since the items are
 	 * indexed by their base type ID.
@@ -521,7 +521,7 @@ final class ItemSerializerDeserializerRegistrar{
 	 * Registers serializers and deserializers for items that don't fit any other pattern.
 	 * Ideally we want to get rid of this completely, if possible.
 	 *
-	 * Most of these are single XPocketMP-MP items which map to multiple IDs depending on their properties, which is
+	 * Most of these are single PocketMine-MP items which map to multiple IDs depending on their properties, which is
 	 * complex to implement in a generic way.
 	 */
 	private function registerMiscItemMappings() : void{
@@ -533,10 +533,10 @@ final class ItemSerializerDeserializerRegistrar{
 	}
 
 	/**
-	 * Registers serializers and deserializers for XPocketMP-MP blockitems that don't fit any other pattern.
+	 * Registers serializers and deserializers for PocketMine-MP blockitems that don't fit any other pattern.
 	 * Ideally we want to get rid of this completely, if possible.
 	 *
-	 * Most of these are single XPocketMP-MP blocks which map to multiple IDs depending on their properties, which is
+	 * Most of these are single PocketMine-MP blocks which map to multiple IDs depending on their properties, which is
 	 * complex to implement in a generic way.
 	 */
 	private function registerMiscBlockMappings() : void{

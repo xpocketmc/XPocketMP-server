@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\biome;
+namespace pocketmine\world\biome;
 
-use XPocketMPlock\VanillaBlocks;
+use pocketmine\block\VanillaBlocks;
 
 abstract class SnowyBiome extends Biome{
 

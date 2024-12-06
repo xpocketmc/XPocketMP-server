@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMP\command\Command;
-use XPocketMP\command\CommandSender;
-use XPocketMP\command\utils\InvalidCommandSyntaxException;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\DefaultPermissionNames;
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
+use pocketmine\command\utils\InvalidCommandSyntaxException;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\DefaultPermissionNames;
 use function count;
 use function inet_pton;
 
@@ -36,7 +36,7 @@ class PardonIpCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"pardon-ip",
-			KnownTranslationFactory::XPocketMP_command_unban_ip_description(),
+			KnownTranslationFactory::pocketmine_command_unban_ip_description(),
 			KnownTranslationFactory::commands_unbanip_usage(),
 			["unban-ip"]
 		);

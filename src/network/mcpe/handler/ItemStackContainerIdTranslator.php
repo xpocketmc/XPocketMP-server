@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\handler;
+namespace pocketmine\network\mcpe\handler;
 
-use XPocketMP\network\mcpe\protocol\types\inventory\ContainerIds;
-use XPocketMP\network\mcpe\protocol\types\inventory\ContainerUIIds;
-use XPocketMP\network\PacketHandlingException;
+use pocketmine\network\mcpe\protocol\types\inventory\ContainerIds;
+use pocketmine\network\mcpe\protocol\types\inventory\ContainerUIIds;
+use pocketmine\network\PacketHandlingException;
 
 final class ItemStackContainerIdTranslator{
 

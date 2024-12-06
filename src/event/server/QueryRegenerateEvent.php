@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\server;
+namespace pocketmine\event\server;
 
-use XPocketMP\network\query\QueryInfo;
+use pocketmine\network\query\QueryInfo;
 
 class QueryRegenerateEvent extends ServerEvent{
 	public function __construct(private QueryInfo $queryInfo){}

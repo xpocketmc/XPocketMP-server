@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item;
+namespace pocketmine\item;
 
-use XPocketMPlock\Block;
-use XPocketMP\entity\Entity;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\world\World;
+use pocketmine\block\Block;
+use pocketmine\entity\Entity;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\World;
 use function lcg_value;
 
 abstract class SpawnEgg extends Item{

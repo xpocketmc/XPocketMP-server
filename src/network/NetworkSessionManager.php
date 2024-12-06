@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network;
+namespace pocketmine\network;
 
-use XPocketMP\lang\Translatable;
-use XPocketMP\network\mcpe\NetworkSession;
+use pocketmine\lang\Translatable;
+use pocketmine\network\mcpe\NetworkSession;
 use function count;
 use function spl_object_id;
 

@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity\utils;
+namespace pocketmine\entity\utils;
 
-use XPocketMP\math\Math;
-use XPocketMP\utils\AssumptionFailedError;
+use pocketmine\math\Math;
+use pocketmine\utils\AssumptionFailedError;
 use function count;
 use function max;
 

@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\raklib;
+namespace pocketmine\network\mcpe\raklib;
 
-use XPocketMP\network\mcpe\PacketSender;
+use pocketmine\network\mcpe\PacketSender;
 
 class RakLibPacketSender implements PacketSender{
 	private bool $closed = false;

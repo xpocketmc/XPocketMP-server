@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\inventory;
+namespace pocketmine\block\inventory;
 
-use XPocketMP\event\player\PlayerEnchantingOptionsRequestEvent;
-use XPocketMP\inventory\SimpleInventory;
-use XPocketMP\inventory\TemporaryInventory;
-use XPocketMP\item\enchantment\EnchantingHelper as Helper;
-use XPocketMP\item\enchantment\EnchantingOption;
-use XPocketMP\item\Item;
-use XPocketMP\world\Position;
+use pocketmine\event\player\PlayerEnchantingOptionsRequestEvent;
+use pocketmine\inventory\SimpleInventory;
+use pocketmine\inventory\TemporaryInventory;
+use pocketmine\item\enchantment\EnchantingHelper as Helper;
+use pocketmine\item\enchantment\EnchantingOption;
+use pocketmine\item\Item;
+use pocketmine\world\Position;
 use function array_values;
 use function count;
 

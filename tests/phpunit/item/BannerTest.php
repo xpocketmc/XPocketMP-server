@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\item;
+namespace pocketmine\item;
 
 use PHPUnit\Framework\TestCase;
-use xpocketmp\block\utils\BannerPatternLayer;
-use xpocketmp\block\utils\BannerPatternType;
-use xpocketmp\block\utils\DyeColor;
-use xpocketmp\block\VanillaBlocks;
+use pocketmine\block\utils\BannerPatternLayer;
+use pocketmine\block\utils\BannerPatternType;
+use pocketmine\block\utils\DyeColor;
+use pocketmine\block\VanillaBlocks;
 use function assert;
 
 final class BannerTest extends TestCase{

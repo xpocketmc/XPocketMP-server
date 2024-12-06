@@ -8,7 +8,7 @@ while getopts "p:f:l" OPTION 2> /dev/null; do
 			PHP_BINARY="$OPTARG"
 			;;
 		f)
-			xpocketmp_FILE="$OPTARG"
+			POCKETMINE_FILE="$OPTARG"
 			;;
 		l)
 			DO_LOOP="yes"
@@ -32,9 +32,9 @@ if [ "$PHP_BINARY" == "" ]; then
 	fi
 fi
 
-if [ "$xpocketmp_FILE" == "" ]; then
+if [ "$POCKETMINE_FILE" == "" ]; then
 	if [ -f ./XPocketMP.phar ]; then
-		xpocketmp_FILE="./XPocketMP.phar"
+		POCKETMINE_FILE="./XPocketMP.phar"
 	else
 		echo "XPocketMP.phar not found"
 		echo "Downloads can be found at https://github.com/xpocketmc/XPocketMP-server/releases"
@@ -51,12 +51,12 @@ if [ "$DO_LOOP" == "yes" ]; then
 		if [ ${LOOPS} -gt 0 ]; then
 			echo "Restarted $LOOPS times"
 		fi
-		"$PHP_BINARY" "$xpocketmp_FILE" "$@"
+		"$PHP_BINARY" "$POCKETMINE_FILE" "$@"
 		echo "To escape the loop, press CTRL+C now. Otherwise, wait 5 seconds for the server to restart."
 		echo ""
 		sleep 5
 		((LOOPS++))
 	done
 else
-	exec "$PHP_BINARY" "$xpocketmp_FILE" "$@"
+	exec "$PHP_BINARY" "$POCKETMINE_FILE" "$@"
 fi

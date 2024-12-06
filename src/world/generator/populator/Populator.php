@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -25,10 +25,10 @@ declare(strict_types=1);
  * All the Object populator classes
  */
 
-namespace XPocketMP\world\generator\populator;
+namespace pocketmine\world\generator\populator;
 
-use XPocketMP\utils\Random;
-use XPocketMP\world\ChunkManager;
+use pocketmine\utils\Random;
+use pocketmine\world\ChunkManager;
 
 interface Populator{
 

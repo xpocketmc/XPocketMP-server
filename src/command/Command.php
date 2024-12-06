@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -24,15 +24,15 @@ declare(strict_types=1);
 /**
  * Command handling related classes
  */
-namespace XPocketMP\command;
+namespace pocketmine\command;
 
-use XPocketMP\command\utils\CommandException;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\lang\Translatable;
-use XPocketMP\permission\PermissionManager;
-use XPocketMP\Server;
-use XPocketMP\utils\BroadcastLoggerForwarder;
-use XPocketMP\utils\TextFormat;
+use pocketmine\command\utils\CommandException;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\lang\Translatable;
+use pocketmine\permission\PermissionManager;
+use pocketmine\Server;
+use pocketmine\utils\BroadcastLoggerForwarder;
+use pocketmine\utils\TextFormat;
 use function explode;
 use function implode;
 use function str_replace;
@@ -120,7 +120,7 @@ abstract class Command{
 		}
 
 		if($this->permissionMessage === null){
-			$target->sendMessage(KnownTranslationFactory::XPocketMP_command_error_permission($this->name)->prefix(TextFormat::RED));
+			$target->sendMessage(KnownTranslationFactory::pocketmine_command_error_permission($this->name)->prefix(TextFormat::RED));
 		}elseif($this->permissionMessage !== ""){
 			$target->sendMessage(str_replace("<permission>", $permission ?? implode(";", $this->permission), $this->permissionMessage));
 		}

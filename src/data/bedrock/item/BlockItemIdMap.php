@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock\item;
+namespace pocketmine\data\bedrock\item;
 
-use XPocketMP\data\bedrock\BedrockDataFiles;
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\utils\Filesystem;
-use XPocketMP\utils\SingletonTrait;
+use pocketmine\data\bedrock\BedrockDataFiles;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\Filesystem;
+use pocketmine\utils\SingletonTrait;
 use function array_flip;
 use function is_array;
 use function json_decode;
