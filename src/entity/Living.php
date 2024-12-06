@@ -13,56 +13,56 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity;
+namespace pocketmine\entity;
 
-use XPocketMPlock\Block;
-use XPocketMPlock\BlockTypeIds;
-use XPocketMP\data\bedrock\EffectIdMap;
-use XPocketMP\entity\animation\DeathAnimation;
-use XPocketMP\entity\animation\HurtAnimation;
-use XPocketMP\entity\animation\RespawnAnimation;
-use XPocketMP\entity\effect\EffectInstance;
-use XPocketMP\entity\effect\EffectManager;
-use XPocketMP\entity\effect\VanillaEffects;
-use XPocketMP\event\entity\EntityDamageByChildEntityEvent;
-use XPocketMP\event\entity\EntityDamageByEntityEvent;
-use XPocketMP\event\entity\EntityDamageEvent;
-use XPocketMP\event\entity\EntityDeathEvent;
-use XPocketMP\inventory\ArmorInventory;
-use XPocketMP\inventory\CallbackInventoryListener;
-use XPocketMP\inventory\Inventory;
-use XPocketMP\item\Armor;
-use XPocketMP\item\Durable;
-use XPocketMP\item\enchantment\Enchantment;
-use XPocketMP\item\enchantment\VanillaEnchantments;
-use XPocketMP\item\Item;
-use XPocketMP\math\Vector3;
-use XPocketMP\math\VoxelRayTrace;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\FloatTag;
-use XPocketMP\nbt\tag\ListTag;
-use XPocketMP\nbt\tag\ShortTag;
-use XPocketMP\network\mcpe\EntityEventBroadcaster;
-use XPocketMP\network\mcpe\NetworkBroadcastUtils;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataCollection;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataFlags;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataProperties;
-use XPocketMP\player\Player;
-use XPocketMP\timings\Timings;
-use XPocketMP\utils\Binary;
-use XPocketMP\world\sound\BurpSound;
-use XPocketMP\world\sound\EntityLandSound;
-use XPocketMP\world\sound\EntityLongFallSound;
-use XPocketMP\world\sound\EntityShortFallSound;
-use XPocketMP\world\sound\ItemBreakSound;
+use pocketmine\block\Block;
+use pocketmine\block\BlockTypeIds;
+use pocketmine\data\bedrock\EffectIdMap;
+use pocketmine\entity\animation\DeathAnimation;
+use pocketmine\entity\animation\HurtAnimation;
+use pocketmine\entity\animation\RespawnAnimation;
+use pocketmine\entity\effect\EffectInstance;
+use pocketmine\entity\effect\EffectManager;
+use pocketmine\entity\effect\VanillaEffects;
+use pocketmine\event\entity\EntityDamageByChildEntityEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityDeathEvent;
+use pocketmine\inventory\ArmorInventory;
+use pocketmine\inventory\CallbackInventoryListener;
+use pocketmine\inventory\Inventory;
+use pocketmine\item\Armor;
+use pocketmine\item\Durable;
+use pocketmine\item\enchantment\Enchantment;
+use pocketmine\item\enchantment\VanillaEnchantments;
+use pocketmine\item\Item;
+use pocketmine\math\Vector3;
+use pocketmine\math\VoxelRayTrace;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\FloatTag;
+use pocketmine\nbt\tag\ListTag;
+use pocketmine\nbt\tag\ShortTag;
+use pocketmine\network\mcpe\EntityEventBroadcaster;
+use pocketmine\network\mcpe\NetworkBroadcastUtils;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use pocketmine\player\Player;
+use pocketmine\timings\Timings;
+use pocketmine\utils\Binary;
+use pocketmine\world\sound\BurpSound;
+use pocketmine\world\sound\EntityLandSound;
+use pocketmine\world\sound\EntityLongFallSound;
+use pocketmine\world\sound\EntityShortFallSound;
+use pocketmine\world\sound\ItemBreakSound;
 use function array_shift;
 use function atan2;
 use function ceil;
@@ -157,7 +157,7 @@ abstract class Living extends Entity{
 		if(($healFTag = $nbt->getTag(self::TAG_LEGACY_HEALTH)) instanceof FloatTag){
 			$health = $healFTag->getValue();
 		}elseif(($healthTag = $nbt->getTag(self::TAG_HEALTH)) instanceof ShortTag){
-			$health = $healthTag->getValue(); //Older versions of XPocketMP-MP incorrectly saved this as a short instead of a float
+			$health = $healthTag->getValue(); //Older versions of PocketMine-MP incorrectly saved this as a short instead of a float
 		}elseif($healthTag instanceof FloatTag){
 			$health = $healthTag->getValue();
 		}

@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP;
+namespace pocketmine;
 
-use XPocketMP\utils\Config;
+use pocketmine\utils\Config;
 use function array_key_exists;
 use function getopt;
 use function is_bool;
@@ -39,7 +39,7 @@ final class ServerConfigGroup{
 	private array $propertyCache = [];
 
 	public function __construct(
-		private Config $XPocketMPYml,
+		private Config $xpocketmpYml,
 		private Config $serverProperties
 	){}
 
@@ -49,7 +49,7 @@ final class ServerConfigGroup{
 			if(isset($v[$variable])){
 				$this->propertyCache[$variable] = $v[$variable];
 			}else{
-				$this->propertyCache[$variable] = $this->XPocketMPYml->getNested($variable);
+				$this->propertyCache[$variable] = $this->xpocketmpYml->getNested($variable);
 			}
 		}
 
@@ -128,8 +128,8 @@ final class ServerConfigGroup{
 		if($this->serverProperties->hasChanged()){
 			$this->serverProperties->save();
 		}
-		if($this->XPocketMPYml->hasChanged()){
-			$this->XPocketMPYml->save();
+		if($this->xpocketmpYml->hasChanged()){
+			$this->xpocketmpYml->save();
 		}
 	}
 }

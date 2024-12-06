@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -25,10 +25,10 @@ declare(strict_types=1);
  * Task scheduling related classes
  */
 
-namespace XPocketMP\scheduler;
+namespace pocketmine\scheduler;
 
-use XPocketMP\utils\ObjectSet;
-use XPocketMP\utils\ReversePriorityQueue;
+use pocketmine\utils\ObjectSet;
+use pocketmine\utils\ReversePriorityQueue;
 
 class TaskScheduler{
 	private bool $enabled = true;

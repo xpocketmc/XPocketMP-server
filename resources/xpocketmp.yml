@@ -152,7 +152,7 @@ auto-report:
 anonymous-statistics:
   #Sends anonymous statistics for data aggregation, plugin usage tracking
   enabled: false #TODO: re-enable this when we have a new stats host
-  host: stats.xpocketmp.net
+  host: stats.pocketmine.net
 
 auto-updater:
   enabled: true
@@ -179,16 +179,16 @@ console:
 aliases:
   ##This section allows you to add, remove or remap command aliases.
   ##A single alias can call one or more other commands (or aliases).
-  ##Aliases defined here will override any command aliases declared by plugins or xpocketmp-MP itself.
+  ##Aliases defined here will override any command aliases declared by plugins or PocketMine-MP itself.
 
-  ##To remove an alias, set it to [], like so (note that prefixed aliases like "xpocketmp:stop" will remain and can't
+  ##To remove an alias, set it to [], like so (note that prefixed aliases like "pocketmine:stop" will remain and can't
   ##be removed):
   #stop: []
 
   ##Commands are not removed, only their aliases. You can still refer to a command using its full (prefixed)
-  ##name, even if all its aliases are overwritten. The full name is usually something like "xpocketmp:commandname" or
+  ##name, even if all its aliases are overwritten. The full name is usually something like "pocketmine:commandname" or
   ##"pluginname:commandname".
-  #abort: [xpocketmp:stop]
+  #abort: [pocketmine:stop]
 
   ##To add an alias, list the command(s) that it calls:
   #showtheversion: [version]

@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMP\data\bedrock\item\SavedItemStackData;
-use XPocketMP\data\SavedDataLoadingException;
-use XPocketMP\inventory\Inventory;
-use XPocketMP\item\Item;
-use XPocketMP\nbt\NBT;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\ListTag;
-use XPocketMP\nbt\tag\StringTag;
-use XPocketMP\world\Position;
+use pocketmine\data\bedrock\item\SavedItemStackData;
+use pocketmine\data\SavedDataLoadingException;
+use pocketmine\inventory\Inventory;
+use pocketmine\item\Item;
+use pocketmine\nbt\NBT;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\ListTag;
+use pocketmine\nbt\tag\StringTag;
+use pocketmine\world\Position;
 
 /**
  * This trait implements most methods in the {@link Container} interface. It should only be used by Tiles.

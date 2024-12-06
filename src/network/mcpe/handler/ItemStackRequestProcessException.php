@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\handler;
+namespace pocketmine\network\mcpe\handler;
 
 /**
  * Thrown when an error occurs during processing of an ItemStackRequest.

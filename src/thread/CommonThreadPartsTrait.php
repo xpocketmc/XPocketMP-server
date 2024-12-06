@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\thread;
+namespace pocketmine\thread;
 
 use pmmp\thread\Thread as NativeThread;
 use pmmp\thread\ThreadSafeArray;
-use XPocketMP\crash\CrashDump;
-use XPocketMP\errorhandler\ErrorToExceptionHandler;
-use XPocketMP\Server;
+use pocketmine\crash\CrashDump;
+use pocketmine\errorhandler\ErrorToExceptionHandler;
+use pocketmine\Server;
 use function error_get_last;
 use function error_reporting;
 use function implode;
@@ -57,7 +57,7 @@ trait CommonThreadPartsTrait{
 	 * @param ThreadSafeClassLoader[] $autoloaders
 	 */
 	public function setClassLoaders(?array $autoloaders = null) : void{
-		$this->composerAutoloaderPath = \XPocketMP\COMPOSER_AUTOLOADER_PATH;
+		$this->composerAutoloaderPath = \pocketmine\COMPOSER_AUTOLOADER_PATH;
 
 		if($autoloaders === null){
 			$autoloaders = [Server::getInstance()->getLoader()];

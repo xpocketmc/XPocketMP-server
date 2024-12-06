@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock\block;
+namespace pocketmine\data\bedrock\block;
 
-use XPocketMP\nbt\NbtException;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\Tag;
-use XPocketMP\utils\Utils;
-use XPocketMP\VersionInfo;
+use pocketmine\nbt\NbtException;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\Tag;
+use pocketmine\utils\Utils;
+use pocketmine\VersionInfo;
 use function array_keys;
 use function count;
 use function implode;

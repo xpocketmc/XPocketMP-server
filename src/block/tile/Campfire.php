@@ -13,26 +13,26 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMPlock\Campfire as BlockCampfire;
-use XPocketMPlock\inventory\CampfireInventory;
-use XPocketMP\inventory\CallbackInventoryListener;
-use XPocketMP\inventory\Inventory;
-use XPocketMP\item\Item;
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\IntTag;
-use XPocketMP\network\mcpe\convert\TypeConverter;
-use XPocketMP\world\World;
+use pocketmine\block\Campfire as BlockCampfire;
+use pocketmine\block\inventory\CampfireInventory;
+use pocketmine\inventory\CallbackInventoryListener;
+use pocketmine\inventory\Inventory;
+use pocketmine\item\Item;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\IntTag;
+use pocketmine\network\mcpe\convert\TypeConverter;
+use pocketmine\world\World;
 
 class Campfire extends Spawnable implements Container{
 	use ContainerTrait;

@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP;
+namespace pocketmine;
 
-use XPocketMP\snooze\SleeperHandler;
-use XPocketMP\snooze\SleeperHandlerEntry;
-use XPocketMP\timings\TimingsHandler;
-use XPocketMP\utils\Utils;
+use pocketmine\snooze\SleeperHandler;
+use pocketmine\snooze\SleeperHandlerEntry;
+use pocketmine\timings\TimingsHandler;
+use pocketmine\utils\Utils;
 use function hrtime;
 
 /**

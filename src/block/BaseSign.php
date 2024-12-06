@@ -13,34 +13,34 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\tile\Sign as TileSign;
-use XPocketMPlock\utils\DyeColor;
-use XPocketMPlock\utils\SignText;
-use XPocketMPlock\utils\SupportType;
-use XPocketMPlock\utils\WoodType;
-use XPocketMPlock\utils\WoodTypeTrait;
-use XPocketMP\color\Color;
-use XPocketMP\event\block\SignChangeEvent;
-use XPocketMP\item\Dye;
-use XPocketMP\item\Item;
-use XPocketMP\item\ItemTypeIds;
-use XPocketMP\math\AxisAlignedBB;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\utils\TextFormat;
-use XPocketMP\world\BlockTransaction;
-use XPocketMP\world\sound\DyeUseSound;
-use XPocketMP\world\sound\InkSacUseSound;
+use pocketmine\block\tile\Sign as TileSign;
+use pocketmine\block\utils\DyeColor;
+use pocketmine\block\utils\SignText;
+use pocketmine\block\utils\SupportType;
+use pocketmine\block\utils\WoodType;
+use pocketmine\block\utils\WoodTypeTrait;
+use pocketmine\color\Color;
+use pocketmine\event\block\SignChangeEvent;
+use pocketmine\item\Dye;
+use pocketmine\item\Item;
+use pocketmine\item\ItemTypeIds;
+use pocketmine\math\AxisAlignedBB;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\utils\TextFormat;
+use pocketmine\world\BlockTransaction;
+use pocketmine\world\sound\DyeUseSound;
+use pocketmine\world\sound\InkSacUseSound;
 use function array_map;
 use function assert;
 use function strlen;

@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock\item;
+namespace pocketmine\data\bedrock\item;
 
-use XPocketMPlock\Block;
-use XPocketMPlock\VanillaBlocks as Blocks;
-use XPocketMP\data\bedrock\block\BlockStateSerializeException;
-use XPocketMP\data\bedrock\block\BlockStateSerializer;
-use XPocketMP\data\bedrock\item\SavedItemData as Data;
-use XPocketMP\item\CoralFan;
-use XPocketMP\item\Item;
-use XPocketMP\item\ItemBlock;
-use XPocketMP\item\VanillaItems as Items;
+use pocketmine\block\Block;
+use pocketmine\block\VanillaBlocks as Blocks;
+use pocketmine\data\bedrock\block\BlockStateSerializeException;
+use pocketmine\data\bedrock\block\BlockStateSerializer;
+use pocketmine\data\bedrock\item\SavedItemData as Data;
+use pocketmine\item\CoralFan;
+use pocketmine\item\Item;
+use pocketmine\item\ItemBlock;
+use pocketmine\item\VanillaItems as Items;
 use function get_class;
 
 final class ItemSerializer{

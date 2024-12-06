@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\crafting;
+namespace pocketmine\crafting;
 
-use XPocketMP\item\Item;
-use XPocketMP\utils\Utils;
+use pocketmine\item\Item;
+use pocketmine\utils\Utils;
 use function array_values;
 use function count;
 use function implode;

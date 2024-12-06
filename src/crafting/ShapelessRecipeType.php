@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\crafting;
+namespace pocketmine\crafting;
 
-use XPocketMP\utils\LegacyEnumShimTrait;
+use pocketmine\utils\LegacyEnumShimTrait;
 
 /**
  * TODO: These tags need to be removed once we get rid of LegacyEnumShimTrait (PM6)

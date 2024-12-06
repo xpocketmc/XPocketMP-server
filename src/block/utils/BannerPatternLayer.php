@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\utils;
+namespace pocketmine\block\utils;
 
-use XPocketMPlock\BaseBanner;
+use pocketmine\block\BaseBanner;
 
 /**
  * Contains information about a pattern layer on a banner.

@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMP\command\CommandSender;
-use XPocketMP\command\utils\InvalidCommandSyntaxException;
-use XPocketMP\item\enchantment\EnchantingHelper;
-use XPocketMP\item\enchantment\EnchantmentInstance;
-use XPocketMP\item\enchantment\StringToEnchantmentParser;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\DefaultPermissionNames;
+use pocketmine\command\CommandSender;
+use pocketmine\command\utils\InvalidCommandSyntaxException;
+use pocketmine\item\enchantment\EnchantingHelper;
+use pocketmine\item\enchantment\EnchantmentInstance;
+use pocketmine\item\enchantment\StringToEnchantmentParser;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\DefaultPermissionNames;
 use function count;
 
 class EnchantCommand extends VanillaCommand{
@@ -37,7 +37,7 @@ class EnchantCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"enchant",
-			KnownTranslationFactory::XPocketMP_command_enchant_description(),
+			KnownTranslationFactory::pocketmine_command_enchant_description(),
 			KnownTranslationFactory::commands_enchant_usage()
 		);
 		$this->setPermissions([

@@ -13,29 +13,29 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\serializer;
+namespace pocketmine\network\mcpe\serializer;
 
-use XPocketMPlock\tile\Spawnable;
-use XPocketMP\data\bedrock\BiomeIds;
-use XPocketMP\data\bedrock\LegacyBiomeIdToStringIdMap;
-use XPocketMP\nbt\TreeRoot;
-use XPocketMP\network\mcpe\convert\BlockTranslator;
-use XPocketMP\network\mcpe\protocol\serializer\NetworkNbtSerializer;
-use XPocketMP\network\mcpe\protocol\serializer\PacketSerializer;
-use XPocketMP\network\mcpe\protocol\types\DimensionIds;
-use XPocketMP\utils\Binary;
-use XPocketMP\utils\BinaryStream;
-use XPocketMP\world\format\Chunk;
-use XPocketMP\world\format\PalettedBlockArray;
-use XPocketMP\world\format\SubChunk;
+use pocketmine\block\tile\Spawnable;
+use pocketmine\data\bedrock\BiomeIds;
+use pocketmine\data\bedrock\LegacyBiomeIdToStringIdMap;
+use pocketmine\nbt\TreeRoot;
+use pocketmine\network\mcpe\convert\BlockTranslator;
+use pocketmine\network\mcpe\protocol\serializer\NetworkNbtSerializer;
+use pocketmine\network\mcpe\protocol\serializer\PacketSerializer;
+use pocketmine\network\mcpe\protocol\types\DimensionIds;
+use pocketmine\utils\Binary;
+use pocketmine\utils\BinaryStream;
+use pocketmine\world\format\Chunk;
+use pocketmine\world\format\PalettedBlockArray;
+use pocketmine\world\format\SubChunk;
 use function count;
 
 final class ChunkSerializer{

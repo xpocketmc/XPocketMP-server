@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\inventory;
+namespace pocketmine\event\inventory;
 
-use XPocketMP\inventory\Inventory;
-use XPocketMP\player\Player;
+use pocketmine\inventory\Inventory;
+use pocketmine\player\Player;
 
 class InventoryCloseEvent extends InventoryEvent{
 	public function __construct(

@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\server;
+namespace pocketmine\event\server;
 
-use XPocketMP\command\CommandSender;
-use XPocketMP\event\Cancellable;
-use XPocketMP\event\CancellableTrait;
+use pocketmine\command\CommandSender;
+use pocketmine\event\Cancellable;
+use pocketmine\event\CancellableTrait;
 
 /**
  * Called when any CommandSender runs a command, before it is parsed.

@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item\enchantment;
+namespace pocketmine\item\enchantment;
 
-use XPocketMP\item\enchantment\ItemEnchantmentTagRegistry as TagRegistry;
-use XPocketMP\item\enchantment\ItemEnchantmentTags as Tags;
-use XPocketMP\item\enchantment\VanillaEnchantments as Enchantments;
-use XPocketMP\item\Item;
-use XPocketMP\utils\SingletonTrait;
+use pocketmine\item\enchantment\ItemEnchantmentTagRegistry as TagRegistry;
+use pocketmine\item\enchantment\ItemEnchantmentTags as Tags;
+use pocketmine\item\enchantment\VanillaEnchantments as Enchantments;
+use pocketmine\item\Item;
+use pocketmine\utils\SingletonTrait;
 use function array_filter;
 use function array_values;
 use function count;

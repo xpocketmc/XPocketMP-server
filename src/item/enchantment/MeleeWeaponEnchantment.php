@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item\enchantment;
+namespace pocketmine\item\enchantment;
 
-use XPocketMP\entity\Entity;
+use pocketmine\entity\Entity;
 
 /**
  * Classes extending this class can be applied to weapons and activate when used by a mob to attack another mob in melee

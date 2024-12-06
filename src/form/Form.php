@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPorm;
+namespace pocketmine\form;
 
-use XPocketMP\player\Player;
+use pocketmine\player\Player;
 
 /**
  * Form implementations must implement this interface to be able to utilize the Player form-sending mechanism.

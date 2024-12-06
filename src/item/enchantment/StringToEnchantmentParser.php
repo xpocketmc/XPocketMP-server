@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item\enchantment;
+namespace pocketmine\item\enchantment;
 
-use XPocketMP\utils\SingletonTrait;
-use XPocketMP\utils\StringToTParser;
+use pocketmine\utils\SingletonTrait;
+use pocketmine\utils\StringToTParser;
 
 /**
  * Handles parsing enchantments from strings. This is used to interpret names in the /enchant command.

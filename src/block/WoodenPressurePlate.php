@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\WoodType;
-use XPocketMPlock\utils\WoodTypeTrait;
+use pocketmine\block\utils\WoodType;
+use pocketmine\block\utils\WoodTypeTrait;
 
 class WoodenPressurePlate extends SimplePressurePlate{
 	use WoodTypeTrait;

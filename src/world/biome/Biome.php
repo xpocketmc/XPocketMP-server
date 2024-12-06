@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\biome;
+namespace pocketmine\world\biome;
 
-use XPocketMPlock\Block;
-use XPocketMP\utils\Random;
-use XPocketMP\world\ChunkManager;
-use XPocketMP\world\generator\populator\Populator;
+use pocketmine\block\Block;
+use pocketmine\utils\Random;
+use pocketmine\world\ChunkManager;
+use pocketmine\world\generator\populator\Populator;
 
 abstract class Biome{
 

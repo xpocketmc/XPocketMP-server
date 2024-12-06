@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\sound;
+namespace pocketmine\world\sound;
 
-use XPocketMPlock\utils\RecordType;
-use XPocketMP\math\Vector3;
-use XPocketMP\network\mcpe\protocol\LevelSoundEventPacket;
+use pocketmine\block\utils\RecordType;
+use pocketmine\math\Vector3;
+use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
 
 class RecordSound implements Sound{
 	public function __construct(private RecordType $recordType){}

@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\runtime;
+namespace pocketmine\data\runtime;
 
-use XPocketMPlock\utils\BrewingStandSlot;
-use XPocketMPlock\utils\WallConnectionType;
-use XPocketMP\math\Facing;
+use pocketmine\block\utils\BrewingStandSlot;
+use pocketmine\block\utils\WallConnectionType;
+use pocketmine\math\Facing;
 
 /**
  * Interface implemented by {@link RuntimeDataReader}, {@link RuntimeDataWriter} and {@link RuntimeDataSizeCalculator}.

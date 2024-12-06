@@ -13,26 +13,26 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMPlock\Block;
-use XPocketMP\nbt\tag\ByteTag;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\IntTag;
-use XPocketMP\nbt\tag\StringTag;
-use XPocketMP\network\mcpe\protocol\types\CacheableNbt;
+use pocketmine\block\Block;
+use pocketmine\nbt\tag\ByteTag;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\IntTag;
+use pocketmine\nbt\tag\StringTag;
+use pocketmine\network\mcpe\protocol\types\CacheableNbt;
 use function get_class;
 
 abstract class Spawnable extends Tile{
-	/** @phpstan-var CacheableNbt<\XPocketMP\nbt\tag\CompoundTag>|null */
+	/** @phpstan-var CacheableNbt<\pocketmine\nbt\tag\CompoundTag>|null */
 	private ?CacheableNbt $spawnCompoundCache = null;
 
 	/**
@@ -73,7 +73,7 @@ abstract class Spawnable extends Tile{
 	 * Returns encoded NBT (varint, little-endian) used to spawn this tile to clients. Uses cache where possible,
 	 * populates cache if it is null.
 	 *
-	 * @phpstan-return CacheableNbt<\XPocketMP\nbt\tag\CompoundTag>
+	 * @phpstan-return CacheableNbt<\pocketmine\nbt\tag\CompoundTag>
 	 */
 	final public function getSerializedSpawnCompound() : CacheableNbt{
 		if($this->spawnCompoundCache === null){

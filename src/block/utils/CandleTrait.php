@@ -13,28 +13,28 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\utils;
+namespace pocketmine\block\utils;
 
-use XPocketMPlock\Block;
-use XPocketMP\entity\projectile\Projectile;
-use XPocketMP\item\Durable;
-use XPocketMP\item\enchantment\VanillaEnchantments;
-use XPocketMP\item\Item;
-use XPocketMP\item\ItemTypeIds;
-use XPocketMP\math\RayTraceResult;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\world\sound\BlazeShootSound;
-use XPocketMP\world\sound\FireExtinguishSound;
-use XPocketMP\world\sound\FlintSteelSound;
+use pocketmine\block\Block;
+use pocketmine\entity\projectile\Projectile;
+use pocketmine\item\Durable;
+use pocketmine\item\enchantment\VanillaEnchantments;
+use pocketmine\item\Item;
+use pocketmine\item\ItemTypeIds;
+use pocketmine\math\RayTraceResult;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\sound\BlazeShootSound;
+use pocketmine\world\sound\FireExtinguishSound;
+use pocketmine\world\sound\FlintSteelSound;
 
 trait CandleTrait{
 	use LightableTrait;

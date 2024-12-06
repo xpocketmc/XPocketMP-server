@@ -13,29 +13,29 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\tile\Cauldron as TileCauldron;
-use XPocketMP\entity\Entity;
-use XPocketMP\event\entity\EntityCombustByBlockEvent;
-use XPocketMP\event\entity\EntityDamageByBlockEvent;
-use XPocketMP\event\entity\EntityDamageEvent;
-use XPocketMP\item\Item;
-use XPocketMP\item\ItemTypeIds;
-use XPocketMP\item\VanillaItems;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\world\sound\CauldronEmptyLavaSound;
-use XPocketMP\world\sound\CauldronFillLavaSound;
-use XPocketMP\world\sound\Sound;
+use pocketmine\block\tile\Cauldron as TileCauldron;
+use pocketmine\entity\Entity;
+use pocketmine\event\entity\EntityCombustByBlockEvent;
+use pocketmine\event\entity\EntityDamageByBlockEvent;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\item\Item;
+use pocketmine\item\ItemTypeIds;
+use pocketmine\item\VanillaItems;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\sound\CauldronEmptyLavaSound;
+use pocketmine\world\sound\CauldronFillLavaSound;
+use pocketmine\world\sound\Sound;
 use function assert;
 
 final class LavaCauldron extends FillableCauldron{

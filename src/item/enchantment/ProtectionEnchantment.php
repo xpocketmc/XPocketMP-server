@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item\enchantment;
+namespace pocketmine\item\enchantment;
 
-use XPocketMP\event\entity\EntityDamageEvent;
-use XPocketMP\lang\Translatable;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\lang\Translatable;
 use function array_flip;
 use function floor;
 

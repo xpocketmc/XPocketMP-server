@@ -13,29 +13,29 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\StaticSupportTrait;
-use XPocketMPlock\utils\SupportType;
-use XPocketMP\data\runtime\RuntimeDataDescriber;
-use XPocketMP\event\block\StructureGrowEvent;
-use XPocketMP\item\Bamboo as ItemBamboo;
-use XPocketMP\item\Fertilizer;
-use XPocketMP\item\Item;
-use XPocketMP\item\VanillaItems;
-use XPocketMP\math\AxisAlignedBB;
-use XPocketMP\math\Facing;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\world\BlockTransaction;
+use pocketmine\block\utils\StaticSupportTrait;
+use pocketmine\block\utils\SupportType;
+use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\event\block\StructureGrowEvent;
+use pocketmine\item\Bamboo as ItemBamboo;
+use pocketmine\item\Fertilizer;
+use pocketmine\item\Item;
+use pocketmine\item\VanillaItems;
+use pocketmine\math\AxisAlignedBB;
+use pocketmine\math\Facing;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\BlockTransaction;
 use function count;
 use function gmp_add;
 use function gmp_and;

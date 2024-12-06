@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -24,10 +24,10 @@ declare(strict_types=1);
 /**
  * World related events
  */
-namespace XPocketMP\event\world;
+namespace pocketmine\event\world;
 
-use XPocketMP\event\Event;
-use XPocketMP\world\World;
+use pocketmine\event\Event;
+use pocketmine\world\World;
 
 abstract class WorldEvent extends Event{
 	public function __construct(private World $world){}

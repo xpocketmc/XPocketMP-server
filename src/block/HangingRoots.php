@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\StaticSupportTrait;
-use XPocketMP\item\enchantment\VanillaEnchantments;
-use XPocketMP\item\Item;
-use XPocketMP\math\Facing;
+use pocketmine\block\utils\StaticSupportTrait;
+use pocketmine\item\enchantment\VanillaEnchantments;
+use pocketmine\item\Item;
+use pocketmine\math\Facing;
 
 final class HangingRoots extends Flowable{
 	use StaticSupportTrait;

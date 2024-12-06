@@ -13,53 +13,53 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock\block\convert;
+namespace pocketmine\data\bedrock\block\convert;
 
-use XPocketMPlock\Block;
-use XPocketMPlock\Button;
-use XPocketMPlock\Candle;
-use XPocketMPlock\Crops;
-use XPocketMPlock\DaylightSensor;
-use XPocketMPlock\Door;
-use XPocketMPlock\DoublePlant;
-use XPocketMPlock\FenceGate;
-use XPocketMPlock\FloorCoralFan;
-use XPocketMPlock\FloorSign;
-use XPocketMPlock\ItemFrame;
-use XPocketMPlock\Leaves;
-use XPocketMPlock\Liquid;
-use XPocketMPlock\RedMushroomBlock;
-use XPocketMPlock\RedstoneComparator;
-use XPocketMPlock\RedstoneRepeater;
-use XPocketMPlock\Sapling;
-use XPocketMPlock\SimplePressurePlate;
-use XPocketMPlock\Slab;
-use XPocketMPlock\Stair;
-use XPocketMPlock\Stem;
-use XPocketMPlock\Trapdoor;
-use XPocketMPlock\utils\CopperMaterial;
-use XPocketMPlock\utils\CopperOxidation;
-use XPocketMPlock\utils\SlabType;
-use XPocketMPlock\Wall;
-use XPocketMPlock\WallSign;
-use XPocketMPlock\WeightedPressurePlate;
-use XPocketMPlock\Wood;
-use XPocketMP\data\bedrock\block\BlockLegacyMetadata;
-use XPocketMP\data\bedrock\block\BlockStateDeserializeException;
-use XPocketMP\data\bedrock\block\BlockStateNames;
-use XPocketMP\data\bedrock\block\BlockStateNames as StateNames;
-use XPocketMP\data\bedrock\MushroomBlockTypeIdMap;
-use XPocketMP\math\Axis;
-use XPocketMP\math\Facing;
-use XPocketMP\utils\AssumptionFailedError;
+use pocketmine\block\Block;
+use pocketmine\block\Button;
+use pocketmine\block\Candle;
+use pocketmine\block\Crops;
+use pocketmine\block\DaylightSensor;
+use pocketmine\block\Door;
+use pocketmine\block\DoublePlant;
+use pocketmine\block\FenceGate;
+use pocketmine\block\FloorCoralFan;
+use pocketmine\block\FloorSign;
+use pocketmine\block\ItemFrame;
+use pocketmine\block\Leaves;
+use pocketmine\block\Liquid;
+use pocketmine\block\RedMushroomBlock;
+use pocketmine\block\RedstoneComparator;
+use pocketmine\block\RedstoneRepeater;
+use pocketmine\block\Sapling;
+use pocketmine\block\SimplePressurePlate;
+use pocketmine\block\Slab;
+use pocketmine\block\Stair;
+use pocketmine\block\Stem;
+use pocketmine\block\Trapdoor;
+use pocketmine\block\utils\CopperMaterial;
+use pocketmine\block\utils\CopperOxidation;
+use pocketmine\block\utils\SlabType;
+use pocketmine\block\Wall;
+use pocketmine\block\WallSign;
+use pocketmine\block\WeightedPressurePlate;
+use pocketmine\block\Wood;
+use pocketmine\data\bedrock\block\BlockLegacyMetadata;
+use pocketmine\data\bedrock\block\BlockStateDeserializeException;
+use pocketmine\data\bedrock\block\BlockStateNames;
+use pocketmine\data\bedrock\block\BlockStateNames as StateNames;
+use pocketmine\data\bedrock\MushroomBlockTypeIdMap;
+use pocketmine\math\Axis;
+use pocketmine\math\Facing;
+use pocketmine\utils\AssumptionFailedError;
 
 final class BlockStateDeserializerHelper{
 

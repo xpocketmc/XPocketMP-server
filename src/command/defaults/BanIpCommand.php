@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMP\command\Command;
-use XPocketMP\command\CommandSender;
-use XPocketMP\command\utils\InvalidCommandSyntaxException;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\DefaultPermissionNames;
-use XPocketMP\player\Player;
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
+use pocketmine\command\utils\InvalidCommandSyntaxException;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\DefaultPermissionNames;
+use pocketmine\player\Player;
 use function array_shift;
 use function count;
 use function implode;
@@ -39,7 +39,7 @@ class BanIpCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"ban-ip",
-			KnownTranslationFactory::XPocketMP_command_ban_ip_description(),
+			KnownTranslationFactory::pocketmine_command_ban_ip_description(),
 			KnownTranslationFactory::commands_banip_usage()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_BAN_IP);
@@ -78,7 +78,7 @@ class BanIpCommand extends VanillaCommand{
 
 		foreach($sender->getServer()->getOnlinePlayers() as $player){
 			if($player->getNetworkSession()->getIp() === $ip){
-				$player->kick(KnownTranslationFactory::XPocketMP_disconnect_ban($reason !== "" ? $reason : KnownTranslationFactory::XPocketMP_disconnect_ban_ip()));
+				$player->kick(KnownTranslationFactory::pocketmine_disconnect_ban($reason !== "" ? $reason : KnownTranslationFactory::pocketmine_disconnect_ban_ip()));
 			}
 		}
 

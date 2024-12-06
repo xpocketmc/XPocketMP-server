@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item\enchantment;
+namespace pocketmine\item\enchantment;
 
-use XPocketMP\item\enchantment\ItemEnchantmentTags as Tags;
-use XPocketMP\utils\SingletonTrait;
-use XPocketMP\utils\Utils;
+use pocketmine\item\enchantment\ItemEnchantmentTags as Tags;
+use pocketmine\utils\SingletonTrait;
+use pocketmine\utils\Utils;
 use function array_diff;
 use function array_intersect;
 use function array_merge;

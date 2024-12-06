@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\player;
+namespace pocketmine\event\player;
 
-use XPocketMP\event\Cancellable;
-use XPocketMP\event\CancellableTrait;
-use XPocketMP\event\Event;
-use XPocketMP\lang\Translatable;
-use XPocketMP\network\mcpe\NetworkSession;
+use pocketmine\event\Cancellable;
+use pocketmine\event\CancellableTrait;
+use pocketmine\event\Event;
+use pocketmine\lang\Translatable;
+use pocketmine\network\mcpe\NetworkSession;
 
 /**
  * Called when a player connects with a username or UUID that is already used by another player on the server.

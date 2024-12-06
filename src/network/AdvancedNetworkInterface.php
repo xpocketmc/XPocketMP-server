@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -24,7 +24,7 @@ declare(strict_types=1);
 /**
  * Network-related classes
  */
-namespace XPocketMP\network;
+namespace pocketmine\network;
 
 /**
  * Advanced network interfaces have some additional capabilities, such as being able to ban addresses and process raw

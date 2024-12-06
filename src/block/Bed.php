@@ -13,33 +13,33 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\tile\Bed as TileBed;
-use XPocketMPlock\utils\ColoredTrait;
-use XPocketMPlock\utils\DyeColor;
-use XPocketMPlock\utils\HorizontalFacingTrait;
-use XPocketMPlock\utils\SupportType;
-use XPocketMP\data\runtime\RuntimeDataDescriber;
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\Living;
-use XPocketMP\item\Item;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\math\AxisAlignedBB;
-use XPocketMP\math\Facing;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\utils\TextFormat;
-use XPocketMP\world\BlockTransaction;
-use XPocketMP\world\World;
+use pocketmine\block\tile\Bed as TileBed;
+use pocketmine\block\utils\ColoredTrait;
+use pocketmine\block\utils\DyeColor;
+use pocketmine\block\utils\HorizontalFacingTrait;
+use pocketmine\block\utils\SupportType;
+use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\entity\Entity;
+use pocketmine\entity\Living;
+use pocketmine\item\Item;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\math\AxisAlignedBB;
+use pocketmine\math\Facing;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\utils\TextFormat;
+use pocketmine\world\BlockTransaction;
+use pocketmine\world\World;
 
 class Bed extends Transparent{
 	use ColoredTrait;

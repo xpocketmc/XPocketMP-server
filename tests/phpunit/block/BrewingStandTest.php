@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\block;
+namespace pocketmine\block;
 
 use PHPUnit\Framework\TestCase;
-use xpocketmp\block\utils\BrewingStandSlot;
+use pocketmine\block\utils\BrewingStandSlot;
 use function count;
 
 class BrewingStandTest extends TestCase{

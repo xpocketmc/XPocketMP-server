@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMPlock\inventory\ShulkerBoxInventory;
-use XPocketMP\item\Item;
-use XPocketMP\math\Facing;
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\world\World;
+use pocketmine\block\inventory\ShulkerBoxInventory;
+use pocketmine\item\Item;
+use pocketmine\math\Facing;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\world\World;
 
 class ShulkerBox extends Spawnable implements Container, Nameable{
 	use NameableTrait {

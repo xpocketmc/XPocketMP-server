@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\utils;
+namespace pocketmine\command\utils;
 
-use XPocketMP\utils\AssumptionFailedError;
+use pocketmine\utils\AssumptionFailedError;
 use function preg_last_error_msg;
 use function preg_match_all;
 use function preg_replace;

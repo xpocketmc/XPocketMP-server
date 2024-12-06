@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\FacesOppositePlacingPlayerTrait;
-use XPocketMP\item\Item;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
+use pocketmine\block\utils\FacesOppositePlacingPlayerTrait;
+use pocketmine\item\Item;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
 
 final class ChemistryTable extends Opaque{
 	use FacesOppositePlacingPlayerTrait;

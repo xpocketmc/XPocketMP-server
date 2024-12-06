@@ -13,59 +13,59 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\BlockBreakInfo as BreakInfo;
-use XPocketMPlock\BlockIdentifier as BID;
-use XPocketMPlock\BlockToolType as ToolType;
-use XPocketMPlock\BlockTypeIds as Ids;
-use XPocketMPlock\BlockTypeInfo as Info;
-use XPocketMPlock\BlockTypeTags as Tags;
-use XPocketMPlock\tile\Banner as TileBanner;
-use XPocketMPlock\tile\Barrel as TileBarrel;
-use XPocketMPlock\tile\Beacon as TileBeacon;
-use XPocketMPlock\tile\Bed as TileBed;
-use XPocketMPlock\tile\Bell as TileBell;
-use XPocketMPlock\tile\BlastFurnace as TileBlastFurnace;
-use XPocketMPlock\tile\BrewingStand as TileBrewingStand;
-use XPocketMPlock\tile\Campfire as TileCampfire;
-use XPocketMPlock\tile\Cauldron as TileCauldron;
-use XPocketMPlock\tile\Chest as TileChest;
-use XPocketMPlock\tile\ChiseledBookshelf as TileChiseledBookshelf;
-use XPocketMPlock\tile\Comparator as TileComparator;
-use XPocketMPlock\tile\DaylightSensor as TileDaylightSensor;
-use XPocketMPlock\tile\EnchantTable as TileEnchantingTable;
-use XPocketMPlock\tile\EnderChest as TileEnderChest;
-use XPocketMPlock\tile\FlowerPot as TileFlowerPot;
-use XPocketMPlock\tile\GlowingItemFrame as TileGlowingItemFrame;
-use XPocketMPlock\tile\Hopper as TileHopper;
-use XPocketMPlock\tile\ItemFrame as TileItemFrame;
-use XPocketMPlock\tile\Jukebox as TileJukebox;
-use XPocketMPlock\tile\Lectern as TileLectern;
-use XPocketMPlock\tile\MobHead as TileMobHead;
-use XPocketMPlock\tile\MonsterSpawner as TileMonsterSpawner;
-use XPocketMPlock\tile\NormalFurnace as TileNormalFurnace;
-use XPocketMPlock\tile\Note as TileNote;
-use XPocketMPlock\tile\ShulkerBox as TileShulkerBox;
-use XPocketMPlock\tile\Smoker as TileSmoker;
-use XPocketMPlock\utils\AmethystTrait;
-use XPocketMPlock\utils\LeavesType;
-use XPocketMPlock\utils\SaplingType;
-use XPocketMPlock\utils\WoodType;
-use XPocketMP\crafting\FurnaceType;
-use XPocketMP\item\enchantment\ItemEnchantmentTags as EnchantmentTags;
-use XPocketMP\item\Item;
-use XPocketMP\item\ToolTier;
-use XPocketMP\math\Facing;
-use XPocketMP\utils\CloningRegistryTrait;
+use pocketmine\block\BlockBreakInfo as BreakInfo;
+use pocketmine\block\BlockIdentifier as BID;
+use pocketmine\block\BlockToolType as ToolType;
+use pocketmine\block\BlockTypeIds as Ids;
+use pocketmine\block\BlockTypeInfo as Info;
+use pocketmine\block\BlockTypeTags as Tags;
+use pocketmine\block\tile\Banner as TileBanner;
+use pocketmine\block\tile\Barrel as TileBarrel;
+use pocketmine\block\tile\Beacon as TileBeacon;
+use pocketmine\block\tile\Bed as TileBed;
+use pocketmine\block\tile\Bell as TileBell;
+use pocketmine\block\tile\BlastFurnace as TileBlastFurnace;
+use pocketmine\block\tile\BrewingStand as TileBrewingStand;
+use pocketmine\block\tile\Campfire as TileCampfire;
+use pocketmine\block\tile\Cauldron as TileCauldron;
+use pocketmine\block\tile\Chest as TileChest;
+use pocketmine\block\tile\ChiseledBookshelf as TileChiseledBookshelf;
+use pocketmine\block\tile\Comparator as TileComparator;
+use pocketmine\block\tile\DaylightSensor as TileDaylightSensor;
+use pocketmine\block\tile\EnchantTable as TileEnchantingTable;
+use pocketmine\block\tile\EnderChest as TileEnderChest;
+use pocketmine\block\tile\FlowerPot as TileFlowerPot;
+use pocketmine\block\tile\GlowingItemFrame as TileGlowingItemFrame;
+use pocketmine\block\tile\Hopper as TileHopper;
+use pocketmine\block\tile\ItemFrame as TileItemFrame;
+use pocketmine\block\tile\Jukebox as TileJukebox;
+use pocketmine\block\tile\Lectern as TileLectern;
+use pocketmine\block\tile\MobHead as TileMobHead;
+use pocketmine\block\tile\MonsterSpawner as TileMonsterSpawner;
+use pocketmine\block\tile\NormalFurnace as TileNormalFurnace;
+use pocketmine\block\tile\Note as TileNote;
+use pocketmine\block\tile\ShulkerBox as TileShulkerBox;
+use pocketmine\block\tile\Smoker as TileSmoker;
+use pocketmine\block\utils\AmethystTrait;
+use pocketmine\block\utils\LeavesType;
+use pocketmine\block\utils\SaplingType;
+use pocketmine\block\utils\WoodType;
+use pocketmine\crafting\FurnaceType;
+use pocketmine\item\enchantment\ItemEnchantmentTags as EnchantmentTags;
+use pocketmine\item\Item;
+use pocketmine\item\ToolTier;
+use pocketmine\math\Facing;
+use pocketmine\utils\CloningRegistryTrait;
 use function mb_strtolower;
 use function strtolower;
 

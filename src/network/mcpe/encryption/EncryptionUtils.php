@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\encryption;
+namespace pocketmine\network\mcpe\encryption;
 
-use XPocketMP\network\mcpe\JwtUtils;
-use XPocketMP\utils\Utils;
+use pocketmine\network\mcpe\JwtUtils;
+use pocketmine\utils\Utils;
 use function base64_encode;
 use function bin2hex;
 use function gmp_init;

@@ -13,129 +13,129 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\player;
+namespace pocketmine\player;
 
-use XPocketMPlock\BaseSign;
-use XPocketMPlock\Bed;
-use XPocketMPlock\BlockTypeTags;
-use XPocketMPlock\UnknownBlock;
-use XPocketMPlock\VanillaBlocks;
-use XPocketMP\command\CommandSender;
-use XPocketMP\crafting\CraftingGrid;
-use XPocketMP\data\java\GameModeIdMap;
-use XPocketMP\entity\animation\Animation;
-use XPocketMP\entity\animation\ArmSwingAnimation;
-use XPocketMP\entity\animation\CriticalHitAnimation;
-use XPocketMP\entity\Attribute;
-use XPocketMP\entity\effect\VanillaEffects;
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\Human;
-use XPocketMP\entity\Living;
-use XPocketMP\entity\Location;
-use XPocketMP\entity\object\ItemEntity;
-use XPocketMP\entity\projectile\Arrow;
-use XPocketMP\entity\Skin;
-use XPocketMP\event\entity\EntityDamageByEntityEvent;
-use XPocketMP\event\entity\EntityDamageEvent;
-use XPocketMP\event\inventory\InventoryCloseEvent;
-use XPocketMP\event\inventory\InventoryOpenEvent;
-use XPocketMP\event\player\PlayerBedEnterEvent;
-use XPocketMP\event\player\PlayerBedLeaveEvent;
-use XPocketMP\event\player\PlayerBlockPickEvent;
-use XPocketMP\event\player\PlayerChangeSkinEvent;
-use XPocketMP\event\player\PlayerChatEvent;
-use XPocketMP\event\player\PlayerDeathEvent;
-use XPocketMP\event\player\PlayerDisplayNameChangeEvent;
-use XPocketMP\event\player\PlayerDropItemEvent;
-use XPocketMP\event\player\PlayerEmoteEvent;
-use XPocketMP\event\player\PlayerEntityInteractEvent;
-use XPocketMP\event\player\PlayerExhaustEvent;
-use XPocketMP\event\player\PlayerGameModeChangeEvent;
-use XPocketMP\event\player\PlayerInteractEvent;
-use XPocketMP\event\player\PlayerItemConsumeEvent;
-use XPocketMP\event\player\PlayerItemHeldEvent;
-use XPocketMP\event\player\PlayerItemUseEvent;
-use XPocketMP\event\player\PlayerJoinEvent;
-use XPocketMP\event\player\PlayerJumpEvent;
-use XPocketMP\event\player\PlayerKickEvent;
-use XPocketMP\event\player\PlayerMissSwingEvent;
-use XPocketMP\event\player\PlayerMoveEvent;
-use XPocketMP\event\player\PlayerPostChunkSendEvent;
-use XPocketMP\event\player\PlayerQuitEvent;
-use XPocketMP\event\player\PlayerRespawnEvent;
-use XPocketMP\event\player\PlayerToggleFlightEvent;
-use XPocketMP\event\player\PlayerToggleGlideEvent;
-use XPocketMP\event\player\PlayerToggleSneakEvent;
-use XPocketMP\event\player\PlayerToggleSprintEvent;
-use XPocketMP\event\player\PlayerToggleSwimEvent;
-use XPocketMP\event\player\PlayerTransferEvent;
-use XPocketMP\event\player\PlayerViewDistanceChangeEvent;
-use XPocketMPorm\Form;
-use XPocketMPorm\FormValidationException;
-use XPocketMP\inventory\CallbackInventoryListener;
-use XPocketMP\inventory\CreativeInventory;
-use XPocketMP\inventory\Inventory;
-use XPocketMP\inventory\PlayerCraftingInventory;
-use XPocketMP\inventory\PlayerCursorInventory;
-use XPocketMP\inventory\TemporaryInventory;
-use XPocketMP\inventory\transaction\action\DropItemAction;
-use XPocketMP\inventory\transaction\InventoryTransaction;
-use XPocketMP\inventory\transaction\TransactionBuilder;
-use XPocketMP\inventory\transaction\TransactionCancelledException;
-use XPocketMP\inventory\transaction\TransactionValidationException;
-use XPocketMP\item\ConsumableItem;
-use XPocketMP\item\Durable;
-use XPocketMP\item\enchantment\EnchantmentInstance;
-use XPocketMP\item\enchantment\MeleeWeaponEnchantment;
-use XPocketMP\item\Item;
-use XPocketMP\item\ItemUseResult;
-use XPocketMP\item\Releasable;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\lang\Language;
-use XPocketMP\lang\Translatable;
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\IntTag;
-use XPocketMP\network\mcpe\NetworkSession;
-use XPocketMP\network\mcpe\protocol\AnimatePacket;
-use XPocketMP\network\mcpe\protocol\MovePlayerPacket;
-use XPocketMP\network\mcpe\protocol\SetActorMotionPacket;
-use XPocketMP\network\mcpe\protocol\types\BlockPosition;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataCollection;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataFlags;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataProperties;
-use XPocketMP\network\mcpe\protocol\types\entity\PlayerMetadataFlags;
-use XPocketMP\permission\DefaultPermissionNames;
-use XPocketMP\permission\DefaultPermissions;
-use XPocketMP\permission\PermissibleBase;
-use XPocketMP\permission\PermissibleDelegateTrait;
-use XPocketMP\player\chat\StandardChatFormatter;
-use XPocketMP\Server;
-use XPocketMP\ServerProperties;
-use XPocketMP\timings\Timings;
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\utils\TextFormat;
-use XPocketMP\world\ChunkListener;
-use XPocketMP\world\ChunkListenerNoOpTrait;
-use XPocketMP\world\ChunkLoader;
-use XPocketMP\world\ChunkTicker;
-use XPocketMP\world\format\Chunk;
-use XPocketMP\world\Position;
-use XPocketMP\world\sound\EntityAttackNoDamageSound;
-use XPocketMP\world\sound\EntityAttackSound;
-use XPocketMP\world\sound\FireExtinguishSound;
-use XPocketMP\world\sound\ItemBreakSound;
-use XPocketMP\world\sound\Sound;
-use XPocketMP\world\World;
-use XPocketMP\YmlServerProperties;
+use pocketmine\block\BaseSign;
+use pocketmine\block\Bed;
+use pocketmine\block\BlockTypeTags;
+use pocketmine\block\UnknownBlock;
+use pocketmine\block\VanillaBlocks;
+use pocketmine\command\CommandSender;
+use pocketmine\crafting\CraftingGrid;
+use pocketmine\data\java\GameModeIdMap;
+use pocketmine\entity\animation\Animation;
+use pocketmine\entity\animation\ArmSwingAnimation;
+use pocketmine\entity\animation\CriticalHitAnimation;
+use pocketmine\entity\Attribute;
+use pocketmine\entity\effect\VanillaEffects;
+use pocketmine\entity\Entity;
+use pocketmine\entity\Human;
+use pocketmine\entity\Living;
+use pocketmine\entity\Location;
+use pocketmine\entity\object\ItemEntity;
+use pocketmine\entity\projectile\Arrow;
+use pocketmine\entity\Skin;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\inventory\InventoryCloseEvent;
+use pocketmine\event\inventory\InventoryOpenEvent;
+use pocketmine\event\player\PlayerBedEnterEvent;
+use pocketmine\event\player\PlayerBedLeaveEvent;
+use pocketmine\event\player\PlayerBlockPickEvent;
+use pocketmine\event\player\PlayerChangeSkinEvent;
+use pocketmine\event\player\PlayerChatEvent;
+use pocketmine\event\player\PlayerDeathEvent;
+use pocketmine\event\player\PlayerDisplayNameChangeEvent;
+use pocketmine\event\player\PlayerDropItemEvent;
+use pocketmine\event\player\PlayerEmoteEvent;
+use pocketmine\event\player\PlayerEntityInteractEvent;
+use pocketmine\event\player\PlayerExhaustEvent;
+use pocketmine\event\player\PlayerGameModeChangeEvent;
+use pocketmine\event\player\PlayerInteractEvent;
+use pocketmine\event\player\PlayerItemConsumeEvent;
+use pocketmine\event\player\PlayerItemHeldEvent;
+use pocketmine\event\player\PlayerItemUseEvent;
+use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerJumpEvent;
+use pocketmine\event\player\PlayerKickEvent;
+use pocketmine\event\player\PlayerMissSwingEvent;
+use pocketmine\event\player\PlayerMoveEvent;
+use pocketmine\event\player\PlayerPostChunkSendEvent;
+use pocketmine\event\player\PlayerQuitEvent;
+use pocketmine\event\player\PlayerRespawnEvent;
+use pocketmine\event\player\PlayerToggleFlightEvent;
+use pocketmine\event\player\PlayerToggleGlideEvent;
+use pocketmine\event\player\PlayerToggleSneakEvent;
+use pocketmine\event\player\PlayerToggleSprintEvent;
+use pocketmine\event\player\PlayerToggleSwimEvent;
+use pocketmine\event\player\PlayerTransferEvent;
+use pocketmine\event\player\PlayerViewDistanceChangeEvent;
+use pocketmine\form\Form;
+use pocketmine\form\FormValidationException;
+use pocketmine\inventory\CallbackInventoryListener;
+use pocketmine\inventory\CreativeInventory;
+use pocketmine\inventory\Inventory;
+use pocketmine\inventory\PlayerCraftingInventory;
+use pocketmine\inventory\PlayerCursorInventory;
+use pocketmine\inventory\TemporaryInventory;
+use pocketmine\inventory\transaction\action\DropItemAction;
+use pocketmine\inventory\transaction\InventoryTransaction;
+use pocketmine\inventory\transaction\TransactionBuilder;
+use pocketmine\inventory\transaction\TransactionCancelledException;
+use pocketmine\inventory\transaction\TransactionValidationException;
+use pocketmine\item\ConsumableItem;
+use pocketmine\item\Durable;
+use pocketmine\item\enchantment\EnchantmentInstance;
+use pocketmine\item\enchantment\MeleeWeaponEnchantment;
+use pocketmine\item\Item;
+use pocketmine\item\ItemUseResult;
+use pocketmine\item\Releasable;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\lang\Language;
+use pocketmine\lang\Translatable;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\IntTag;
+use pocketmine\network\mcpe\NetworkSession;
+use pocketmine\network\mcpe\protocol\AnimatePacket;
+use pocketmine\network\mcpe\protocol\MovePlayerPacket;
+use pocketmine\network\mcpe\protocol\SetActorMotionPacket;
+use pocketmine\network\mcpe\protocol\types\BlockPosition;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use pocketmine\network\mcpe\protocol\types\entity\PlayerMetadataFlags;
+use pocketmine\permission\DefaultPermissionNames;
+use pocketmine\permission\DefaultPermissions;
+use pocketmine\permission\PermissibleBase;
+use pocketmine\permission\PermissibleDelegateTrait;
+use pocketmine\player\chat\StandardChatFormatter;
+use pocketmine\Server;
+use pocketmine\ServerProperties;
+use pocketmine\timings\Timings;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\TextFormat;
+use pocketmine\world\ChunkListener;
+use pocketmine\world\ChunkListenerNoOpTrait;
+use pocketmine\world\ChunkLoader;
+use pocketmine\world\ChunkTicker;
+use pocketmine\world\format\Chunk;
+use pocketmine\world\Position;
+use pocketmine\world\sound\EntityAttackNoDamageSound;
+use pocketmine\world\sound\EntityAttackSound;
+use pocketmine\world\sound\FireExtinguishSound;
+use pocketmine\world\sound\ItemBreakSound;
+use pocketmine\world\sound\Sound;
+use pocketmine\world\World;
+use pocketmine\YmlServerProperties;
 use Ramsey\Uuid\UuidInterface;
 use function abs;
 use function array_filter;
@@ -2173,7 +2173,7 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 	 * @return bool if transfer was successful.
 	 */
 	public function transfer(string $address, int $port = 19132, Translatable|string|null $message = null) : bool{
-		$ev = new PlayerTransferEvent($this, $address, $port, $message ?? KnownTranslationFactory::XPocketMP_disconnect_transfer());
+		$ev = new PlayerTransferEvent($this, $address, $port, $message ?? KnownTranslationFactory::pocketmine_disconnect_transfer());
 		$ev->call();
 		if(!$ev->isCancelled()){
 			$this->getNetworkSession()->transfer($ev->getAddress(), $ev->getPort(), $ev->getMessage());
@@ -2398,7 +2398,7 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 
 	public function respawn() : void{
 		if($this->server->isHardcore()){
-			if($this->kick(KnownTranslationFactory::XPocketMP_disconnect_ban(KnownTranslationFactory::XPocketMP_disconnect_ban_hardcore()))){ //this allows plugins to prevent the ban by cancelling PlayerKickEvent
+			if($this->kick(KnownTranslationFactory::pocketmine_disconnect_ban(KnownTranslationFactory::pocketmine_disconnect_ban_hardcore()))){ //this allows plugins to prevent the ban by cancelling PlayerKickEvent
 				$this->server->getNameBans()->addBan($this->getName(), "Died in hardcore mode");
 			}
 			return;
@@ -2454,7 +2454,7 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 			},
 			function() : void{
 				if($this->isConnected()){
-					$this->getNetworkSession()->disconnectWithError(KnownTranslationFactory::XPocketMP_disconnect_error_respawn());
+					$this->getNetworkSession()->disconnectWithError(KnownTranslationFactory::pocketmine_disconnect_error_respawn());
 				}
 			}
 		);

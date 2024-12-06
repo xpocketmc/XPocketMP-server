@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\inventory\transaction\action;
+namespace pocketmine\inventory\transaction\action;
 
-use XPocketMP\inventory\Inventory;
-use XPocketMP\inventory\SlotValidatedInventory;
-use XPocketMP\inventory\transaction\InventoryTransaction;
-use XPocketMP\inventory\transaction\TransactionValidationException;
-use XPocketMP\item\Item;
-use XPocketMP\player\Player;
+use pocketmine\inventory\Inventory;
+use pocketmine\inventory\SlotValidatedInventory;
+use pocketmine\inventory\transaction\InventoryTransaction;
+use pocketmine\inventory\transaction\TransactionValidationException;
+use pocketmine\item\Item;
+use pocketmine\player\Player;
 
 /**
  * Represents an action causing a change in an inventory slot.

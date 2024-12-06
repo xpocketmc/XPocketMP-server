@@ -13,30 +13,30 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item;
+namespace pocketmine\item;
 
-use XPocketMPlock\AmethystCluster;
-use XPocketMPlock\Block;
-use XPocketMPlock\Light;
-use XPocketMPlock\utils\CopperOxidation;
-use XPocketMPlock\utils\CoralType;
-use XPocketMPlock\utils\DirtType;
-use XPocketMPlock\utils\DyeColor;
-use XPocketMPlock\utils\FroglightType;
-use XPocketMPlock\utils\MobHeadType;
-use XPocketMPlock\utils\SlabType;
-use XPocketMPlock\VanillaBlocks as Blocks;
-use XPocketMP\item\VanillaItems as Items;
-use XPocketMP\utils\SingletonTrait;
-use XPocketMP\utils\StringToTParser;
+use pocketmine\block\AmethystCluster;
+use pocketmine\block\Block;
+use pocketmine\block\Light;
+use pocketmine\block\utils\CopperOxidation;
+use pocketmine\block\utils\CoralType;
+use pocketmine\block\utils\DirtType;
+use pocketmine\block\utils\DyeColor;
+use pocketmine\block\utils\FroglightType;
+use pocketmine\block\utils\MobHeadType;
+use pocketmine\block\utils\SlabType;
+use pocketmine\block\VanillaBlocks as Blocks;
+use pocketmine\item\VanillaItems as Items;
+use pocketmine\utils\SingletonTrait;
+use pocketmine\utils\StringToTParser;
 use function array_keys;
 use function strtolower;
 

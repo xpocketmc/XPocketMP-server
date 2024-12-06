@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity;
+namespace pocketmine\entity;
 
 use Ahc\Json\Comment as CommentedJsonDecoder;
-use XPocketMP\utils\Limits;
+use pocketmine\utils\Limits;
 use function implode;
 use function in_array;
 use function json_encode;

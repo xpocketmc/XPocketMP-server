@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\generator\biome;
+namespace pocketmine\world\generator\biome;
 
-use XPocketMP\utils\Random;
-use XPocketMP\world\biome\Biome;
-use XPocketMP\world\biome\BiomeRegistry;
-use XPocketMP\world\biome\UnknownBiome;
-use XPocketMP\world\generator\noise\Simplex;
+use pocketmine\utils\Random;
+use pocketmine\world\biome\Biome;
+use pocketmine\world\biome\BiomeRegistry;
+use pocketmine\world\biome\UnknownBiome;
+use pocketmine\world\generator\noise\Simplex;
 
 abstract class BiomeSelector{
 	private Simplex $temperature;

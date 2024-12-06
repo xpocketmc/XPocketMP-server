@@ -13,37 +13,37 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe;
+namespace pocketmine\network\mcpe;
 
-use XPocketMP\data\bedrock\EffectIdMap;
-use XPocketMP\entity\Attribute;
-use XPocketMP\entity\effect\EffectInstance;
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\Human;
-use XPocketMP\entity\Living;
-use XPocketMP\network\mcpe\convert\TypeConverter;
-use XPocketMP\network\mcpe\protocol\ClientboundPacket;
-use XPocketMP\network\mcpe\protocol\EmotePacket;
-use XPocketMP\network\mcpe\protocol\MobArmorEquipmentPacket;
-use XPocketMP\network\mcpe\protocol\MobEffectPacket;
-use XPocketMP\network\mcpe\protocol\MobEquipmentPacket;
-use XPocketMP\network\mcpe\protocol\RemoveActorPacket;
-use XPocketMP\network\mcpe\protocol\SetActorDataPacket;
-use XPocketMP\network\mcpe\protocol\TakeItemActorPacket;
-use XPocketMP\network\mcpe\protocol\types\entity\PropertySyncData;
-use XPocketMP\network\mcpe\protocol\types\entity\UpdateAttribute;
-use XPocketMP\network\mcpe\protocol\types\inventory\ContainerIds;
-use XPocketMP\network\mcpe\protocol\types\inventory\ItemStack;
-use XPocketMP\network\mcpe\protocol\types\inventory\ItemStackWrapper;
-use XPocketMP\network\mcpe\protocol\UpdateAttributesPacket;
+use pocketmine\data\bedrock\EffectIdMap;
+use pocketmine\entity\Attribute;
+use pocketmine\entity\effect\EffectInstance;
+use pocketmine\entity\Entity;
+use pocketmine\entity\Human;
+use pocketmine\entity\Living;
+use pocketmine\network\mcpe\convert\TypeConverter;
+use pocketmine\network\mcpe\protocol\ClientboundPacket;
+use pocketmine\network\mcpe\protocol\EmotePacket;
+use pocketmine\network\mcpe\protocol\MobArmorEquipmentPacket;
+use pocketmine\network\mcpe\protocol\MobEffectPacket;
+use pocketmine\network\mcpe\protocol\MobEquipmentPacket;
+use pocketmine\network\mcpe\protocol\RemoveActorPacket;
+use pocketmine\network\mcpe\protocol\SetActorDataPacket;
+use pocketmine\network\mcpe\protocol\TakeItemActorPacket;
+use pocketmine\network\mcpe\protocol\types\entity\PropertySyncData;
+use pocketmine\network\mcpe\protocol\types\entity\UpdateAttribute;
+use pocketmine\network\mcpe\protocol\types\inventory\ContainerIds;
+use pocketmine\network\mcpe\protocol\types\inventory\ItemStack;
+use pocketmine\network\mcpe\protocol\types\inventory\ItemStackWrapper;
+use pocketmine\network\mcpe\protocol\UpdateAttributesPacket;
 use function array_map;
 use function count;
 use function ksort;

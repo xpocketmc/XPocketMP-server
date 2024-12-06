@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\SupportType;
-use XPocketMP\math\Axis;
-use XPocketMP\math\AxisAlignedBB;
-use XPocketMP\math\Facing;
+use pocketmine\block\utils\SupportType;
+use pocketmine\math\Axis;
+use pocketmine\math\AxisAlignedBB;
+use pocketmine\math\Facing;
 use function count;
 
 class Fence extends Transparent{

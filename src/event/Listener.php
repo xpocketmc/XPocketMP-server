@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event;
+namespace pocketmine\event;
 
-use XPocketMP\plugin\PluginManager;
+use pocketmine\plugin\PluginManager;
 
 /**
  * Classes implementing this interface can be registered to receive called Events.

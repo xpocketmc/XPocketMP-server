@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMP\math\Facing;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\network\mcpe\protocol\BlockActorDataPacket;
-use XPocketMP\network\mcpe\protocol\types\BlockPosition;
-use XPocketMP\network\mcpe\protocol\types\CacheableNbt;
-use XPocketMP\utils\AssumptionFailedError;
+use pocketmine\math\Facing;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\network\mcpe\protocol\BlockActorDataPacket;
+use pocketmine\network\mcpe\protocol\types\BlockPosition;
+use pocketmine\network\mcpe\protocol\types\CacheableNbt;
+use pocketmine\utils\AssumptionFailedError;
 
 final class Bell extends Spawnable{
 	public const TAG_DIRECTION = "Direction"; //TAG_Int

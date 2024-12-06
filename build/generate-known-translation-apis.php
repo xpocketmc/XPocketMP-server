@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\build\generate_known_translation_apis;
+namespace pocketmine\build\generate_known_translation_apis;
 
-use xpocketmp\lang\Translatable;
-use xpocketmp\utils\Utils;
+use pocketmine\lang\Translatable;
+use pocketmine\utils\Utils;
 use Symfony\Component\Filesystem\Path;
 use function array_map;
 use function count;
@@ -71,15 +71,15 @@ const SHARED_HEADER = <<<'HEADER'
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\lang;
+namespace pocketmine\lang;
 
 
 HEADER;
@@ -94,7 +94,7 @@ function generate_known_translation_keys(array $languageDefinitions) : void{
 	echo SHARED_HEADER;
 	echo <<<'HEADER'
 /**
- * This class contains constants for all the translations known to xpocketmp-MP as per the used version of pmmp/Language.
+ * This class contains constants for all the translations known to PocketMine-MP as per the used version of pmmp/Language.
  * This class is generated automatically, do NOT modify it by hand.
  *
  * @internal
@@ -127,7 +127,7 @@ function generate_known_translation_factory(array $languageDefinitions) : void{
 	echo SHARED_HEADER;
 	echo <<<'HEADER'
 /**
- * This class contains factory methods for all the translations known to xpocketmp-MP as per the used version of
+ * This class contains factory methods for all the translations known to PocketMine-MP as per the used version of
  * pmmp/Language.
  * This class is generated automatically, do NOT modify it by hand.
  *
@@ -183,7 +183,7 @@ HEADER;
 	echo "Done generating KnownTranslationFactory.\n";
 }
 
-$lang = parse_ini_file(Path::join(\xpocketmp\LOCALE_DATA_PATH, "eng.ini"), false, INI_SCANNER_RAW);
+$lang = parse_ini_file(Path::join(\pocketmine\LOCALE_DATA_PATH, "eng.ini"), false, INI_SCANNER_RAW);
 if($lang === false){
 	fwrite(STDERR, "Missing language files!\n");
 	exit(1);

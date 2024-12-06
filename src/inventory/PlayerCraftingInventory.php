@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\inventory;
+namespace pocketmine\inventory;
 
-use XPocketMP\crafting\CraftingGrid;
-use XPocketMP\player\Player;
+use pocketmine\crafting\CraftingGrid;
+use pocketmine\player\Player;
 
 final class PlayerCraftingInventory extends CraftingGrid implements TemporaryInventory{
 

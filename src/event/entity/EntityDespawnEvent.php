@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\entity;
+namespace pocketmine\event\entity;
 
-use XPocketMP\entity\Entity;
+use pocketmine\entity\Entity;
 
 /**
  * Called when an entity is removed from the world. This could be for a variety of reasons, including chunks being

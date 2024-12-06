@@ -13,30 +13,30 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMP\data\runtime\RuntimeDataDescriber;
-use XPocketMP\entity\Location;
-use XPocketMP\entity\object\PrimedTNT;
-use XPocketMP\entity\projectile\Projectile;
-use XPocketMP\item\Durable;
-use XPocketMP\item\enchantment\VanillaEnchantments;
-use XPocketMP\item\FlintSteel;
-use XPocketMP\item\Item;
-use XPocketMP\item\ItemTypeIds;
-use XPocketMP\math\RayTraceResult;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\utils\Random;
-use XPocketMP\world\sound\IgniteSound;
+use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\entity\Location;
+use pocketmine\entity\object\PrimedTNT;
+use pocketmine\entity\projectile\Projectile;
+use pocketmine\item\Durable;
+use pocketmine\item\enchantment\VanillaEnchantments;
+use pocketmine\item\FlintSteel;
+use pocketmine\item\Item;
+use pocketmine\item\ItemTypeIds;
+use pocketmine\math\RayTraceResult;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\utils\Random;
+use pocketmine\world\sound\IgniteSound;
 use function cos;
 use function sin;
 use const M_PI;

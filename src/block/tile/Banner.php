@@ -13,27 +13,27 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMPlock\utils\BannerPatternLayer;
-use XPocketMPlock\utils\DyeColor;
-use XPocketMP\data\bedrock\BannerPatternTypeIdMap;
-use XPocketMP\data\bedrock\DyeColorIdMap;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\IntTag;
-use XPocketMP\nbt\tag\ListTag;
+use pocketmine\block\utils\BannerPatternLayer;
+use pocketmine\block\utils\DyeColor;
+use pocketmine\data\bedrock\BannerPatternTypeIdMap;
+use pocketmine\data\bedrock\DyeColorIdMap;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\IntTag;
+use pocketmine\nbt\tag\ListTag;
 
 /**
  * @deprecated
- * @see \XPocketMPlock\BaseBanner
+ * @see \pocketmine\block\BaseBanner
  */
 class Banner extends Spawnable{
 

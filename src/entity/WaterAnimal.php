@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity;
+namespace pocketmine\entity;
 
-use XPocketMP\event\entity\EntityDamageEvent;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataCollection;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataFlags;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
 
 abstract class WaterAnimal extends Living implements Ageable{
 	protected bool $baby = false;

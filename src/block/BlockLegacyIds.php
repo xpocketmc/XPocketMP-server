@@ -1,8 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-namespace XPocketMPlock;
-=======
 /*
  *
  *  ____            _        _   __  __ _                  __  __ ____
@@ -25,7 +22,6 @@ namespace XPocketMPlock;
 declare(strict_types=1);
 
 namespace pocketmine\block;
->>>>>>> e184ad232a076fdd6dbd0423dda76d58fd0189f6
 
 class BlockLegacyIds {
 

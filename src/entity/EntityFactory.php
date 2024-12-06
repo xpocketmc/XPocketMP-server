@@ -13,49 +13,49 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity;
+namespace pocketmine\entity;
 
 use DaveRandom\CallbackValidator\CallbackType;
 use DaveRandom\CallbackValidator\ParameterType;
 use DaveRandom\CallbackValidator\ReturnType;
-use XPocketMPlock\RuntimeBlockStateRegistry;
-use XPocketMP\data\bedrock\LegacyEntityIdToStringIdMap;
-use XPocketMP\data\bedrock\PotionTypeIdMap;
-use XPocketMP\data\bedrock\PotionTypeIds;
-use XPocketMP\data\SavedDataLoadingException;
-use XPocketMP\entity\EntityDataHelper as Helper;
-use XPocketMP\entity\object\ExperienceOrb;
-use XPocketMP\entity\object\FallingBlock;
-use XPocketMP\entity\object\ItemEntity;
-use XPocketMP\entity\object\Painting;
-use XPocketMP\entity\object\PaintingMotive;
-use XPocketMP\entity\object\PrimedTNT;
-use XPocketMP\entity\projectile\Arrow;
-use XPocketMP\entity\projectile\Egg;
-use XPocketMP\entity\projectile\EnderPearl;
-use XPocketMP\entity\projectile\ExperienceBottle;
-use XPocketMP\entity\projectile\Snowball;
-use XPocketMP\entity\projectile\SplashPotion;
-use XPocketMP\item\Item;
-use XPocketMP\math\Facing;
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\NbtException;
-use XPocketMP\nbt\tag\ByteTag;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\IntTag;
-use XPocketMP\nbt\tag\ShortTag;
-use XPocketMP\nbt\tag\StringTag;
-use XPocketMP\utils\SingletonTrait;
-use XPocketMP\utils\Utils;
-use XPocketMP\world\World;
+use pocketmine\block\RuntimeBlockStateRegistry;
+use pocketmine\data\bedrock\LegacyEntityIdToStringIdMap;
+use pocketmine\data\bedrock\PotionTypeIdMap;
+use pocketmine\data\bedrock\PotionTypeIds;
+use pocketmine\data\SavedDataLoadingException;
+use pocketmine\entity\EntityDataHelper as Helper;
+use pocketmine\entity\object\ExperienceOrb;
+use pocketmine\entity\object\FallingBlock;
+use pocketmine\entity\object\ItemEntity;
+use pocketmine\entity\object\Painting;
+use pocketmine\entity\object\PaintingMotive;
+use pocketmine\entity\object\PrimedTNT;
+use pocketmine\entity\projectile\Arrow;
+use pocketmine\entity\projectile\Egg;
+use pocketmine\entity\projectile\EnderPearl;
+use pocketmine\entity\projectile\ExperienceBottle;
+use pocketmine\entity\projectile\Snowball;
+use pocketmine\entity\projectile\SplashPotion;
+use pocketmine\item\Item;
+use pocketmine\math\Facing;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\NbtException;
+use pocketmine\nbt\tag\ByteTag;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\IntTag;
+use pocketmine\nbt\tag\ShortTag;
+use pocketmine\nbt\tag\StringTag;
+use pocketmine\utils\SingletonTrait;
+use pocketmine\utils\Utils;
+use pocketmine\world\World;
 use function count;
 use function reset;
 

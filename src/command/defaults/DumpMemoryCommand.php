@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMP\command\CommandSender;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\DefaultPermissionNames;
+use pocketmine\command\CommandSender;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\DefaultPermissionNames;
 use Symfony\Component\Filesystem\Path;
 use function date;
 
@@ -34,7 +34,7 @@ class DumpMemoryCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"dumpmemory",
-			KnownTranslationFactory::XPocketMP_command_dumpmemory_description(),
+			KnownTranslationFactory::pocketmine_command_dumpmemory_description(),
 			"/dumpmemory [path]"
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_DUMPMEMORY);

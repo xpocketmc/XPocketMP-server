@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\build\generate_bedrockdata_path_consts;
+namespace pocketmine\build\generate_bedrockdata_path_consts;
 
 use Symfony\Component\Filesystem\Path;
 use function dirname;
@@ -33,7 +33,7 @@ use function scandir;
 use function str_replace;
 use function strtoupper;
 use const PHP_EOL;
-use const xpocketmp\BEDROCK_DATA_PATH;
+use const pocketmine\BEDROCK_DATA_PATH;
 use const SCANDIR_SORT_ASCENDING;
 use const STDERR;
 
@@ -97,17 +97,17 @@ fwrite($output, <<<'HEADER'
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\data\bedrock;
+namespace pocketmine\data\bedrock;
 
-use const xpocketmp\BEDROCK_DATA_PATH;
+use const pocketmine\BEDROCK_DATA_PATH;
 
 final class BedrockDataFiles{
 	private function __construct(){

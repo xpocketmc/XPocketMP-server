@@ -13,38 +13,38 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\handler;
+namespace pocketmine\network\mcpe\handler;
 
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\network\mcpe\cache\CraftingDataCache;
-use XPocketMP\network\mcpe\cache\StaticPacketCache;
-use XPocketMP\network\mcpe\InventoryManager;
-use XPocketMP\network\mcpe\NetworkSession;
-use XPocketMP\network\mcpe\protocol\PlayerAuthInputPacket;
-use XPocketMP\network\mcpe\protocol\RequestChunkRadiusPacket;
-use XPocketMP\network\mcpe\protocol\StartGamePacket;
-use XPocketMP\network\mcpe\protocol\types\BlockPosition;
-use XPocketMP\network\mcpe\protocol\types\BoolGameRule;
-use XPocketMP\network\mcpe\protocol\types\CacheableNbt;
-use XPocketMP\network\mcpe\protocol\types\DimensionIds;
-use XPocketMP\network\mcpe\protocol\types\Experiments;
-use XPocketMP\network\mcpe\protocol\types\LevelSettings;
-use XPocketMP\network\mcpe\protocol\types\NetworkPermissions;
-use XPocketMP\network\mcpe\protocol\types\PlayerMovementSettings;
-use XPocketMP\network\mcpe\protocol\types\ServerAuthMovementMode;
-use XPocketMP\network\mcpe\protocol\types\SpawnSettings;
-use XPocketMP\player\Player;
-use XPocketMP\Server;
-use XPocketMP\timings\Timings;
-use XPocketMP\VersionInfo;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\network\mcpe\cache\CraftingDataCache;
+use pocketmine\network\mcpe\cache\StaticPacketCache;
+use pocketmine\network\mcpe\InventoryManager;
+use pocketmine\network\mcpe\NetworkSession;
+use pocketmine\network\mcpe\protocol\PlayerAuthInputPacket;
+use pocketmine\network\mcpe\protocol\RequestChunkRadiusPacket;
+use pocketmine\network\mcpe\protocol\StartGamePacket;
+use pocketmine\network\mcpe\protocol\types\BlockPosition;
+use pocketmine\network\mcpe\protocol\types\BoolGameRule;
+use pocketmine\network\mcpe\protocol\types\CacheableNbt;
+use pocketmine\network\mcpe\protocol\types\DimensionIds;
+use pocketmine\network\mcpe\protocol\types\Experiments;
+use pocketmine\network\mcpe\protocol\types\LevelSettings;
+use pocketmine\network\mcpe\protocol\types\NetworkPermissions;
+use pocketmine\network\mcpe\protocol\types\PlayerMovementSettings;
+use pocketmine\network\mcpe\protocol\types\ServerAuthMovementMode;
+use pocketmine\network\mcpe\protocol\types\SpawnSettings;
+use pocketmine\player\Player;
+use pocketmine\Server;
+use pocketmine\timings\Timings;
+use pocketmine\VersionInfo;
 use Ramsey\Uuid\Uuid;
 use function sprintf;
 

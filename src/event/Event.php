@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -24,9 +24,9 @@ declare(strict_types=1);
 /**
  * Event related classes
  */
-namespace XPocketMP\event;
+namespace pocketmine\event;
 
-use XPocketMP\timings\Timings;
+use pocketmine\timings\Timings;
 use function count;
 use function get_class;
 

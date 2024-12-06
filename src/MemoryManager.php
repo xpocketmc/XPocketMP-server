@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP;
+namespace pocketmine;
 
-use XPocketMP\event\server\LowMemoryEvent;
-use XPocketMP\network\mcpe\cache\ChunkCache;
-use XPocketMP\scheduler\DumpWorkerMemoryTask;
-use XPocketMP\scheduler\GarbageCollectionTask;
-use XPocketMP\timings\Timings;
-use XPocketMP\utils\Process;
-use XPocketMP\utils\Utils;
-use XPocketMP\YmlServerProperties as Yml;
+use pocketmine\event\server\LowMemoryEvent;
+use pocketmine\network\mcpe\cache\ChunkCache;
+use pocketmine\scheduler\DumpWorkerMemoryTask;
+use pocketmine\scheduler\GarbageCollectionTask;
+use pocketmine\timings\Timings;
+use pocketmine\utils\Process;
+use pocketmine\utils\Utils;
+use pocketmine\YmlServerProperties as Yml;
 use Symfony\Component\Filesystem\Path;
 use function arsort;
 use function count;

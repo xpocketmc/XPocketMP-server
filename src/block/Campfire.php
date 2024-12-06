@@ -13,48 +13,48 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\inventory\CampfireInventory;
-use XPocketMPlock\tile\Campfire as TileCampfire;
-use XPocketMPlock\utils\HorizontalFacingTrait;
-use XPocketMPlock\utils\LightableTrait;
-use XPocketMPlock\utils\SupportType;
-use XPocketMP\crafting\FurnaceRecipe;
-use XPocketMP\crafting\FurnaceType;
-use XPocketMP\data\runtime\RuntimeDataDescriber;
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\Living;
-use XPocketMP\entity\projectile\Projectile;
-use XPocketMP\entity\projectile\SplashPotion;
-use XPocketMP\event\block\CampfireCookEvent;
-use XPocketMP\event\entity\EntityDamageByBlockEvent;
-use XPocketMP\event\entity\EntityDamageEvent;
-use XPocketMP\item\Durable;
-use XPocketMP\item\enchantment\VanillaEnchantments;
-use XPocketMP\item\Item;
-use XPocketMP\item\ItemTypeIds;
-use XPocketMP\item\PotionType;
-use XPocketMP\item\Shovel;
-use XPocketMP\item\VanillaItems;
-use XPocketMP\math\AxisAlignedBB;
-use XPocketMP\math\Facing;
-use XPocketMP\math\RayTraceResult;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\world\BlockTransaction;
-use XPocketMP\world\sound\BlazeShootSound;
-use XPocketMP\world\sound\FireExtinguishSound;
-use XPocketMP\world\sound\FlintSteelSound;
-use XPocketMP\world\sound\ItemFrameAddItemSound;
+use pocketmine\block\inventory\CampfireInventory;
+use pocketmine\block\tile\Campfire as TileCampfire;
+use pocketmine\block\utils\HorizontalFacingTrait;
+use pocketmine\block\utils\LightableTrait;
+use pocketmine\block\utils\SupportType;
+use pocketmine\crafting\FurnaceRecipe;
+use pocketmine\crafting\FurnaceType;
+use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\entity\Entity;
+use pocketmine\entity\Living;
+use pocketmine\entity\projectile\Projectile;
+use pocketmine\entity\projectile\SplashPotion;
+use pocketmine\event\block\CampfireCookEvent;
+use pocketmine\event\entity\EntityDamageByBlockEvent;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\item\Durable;
+use pocketmine\item\enchantment\VanillaEnchantments;
+use pocketmine\item\Item;
+use pocketmine\item\ItemTypeIds;
+use pocketmine\item\PotionType;
+use pocketmine\item\Shovel;
+use pocketmine\item\VanillaItems;
+use pocketmine\math\AxisAlignedBB;
+use pocketmine\math\Facing;
+use pocketmine\math\RayTraceResult;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\BlockTransaction;
+use pocketmine\world\sound\BlazeShootSound;
+use pocketmine\world\sound\FireExtinguishSound;
+use pocketmine\world\sound\FlintSteelSound;
+use pocketmine\world\sound\ItemFrameAddItemSound;
 use function count;
 use function min;
 use function mt_rand;

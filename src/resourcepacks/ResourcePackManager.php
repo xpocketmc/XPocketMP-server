@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\resourcepacks;
+namespace pocketmine\resourcepacks;
 
-use XPocketMP\utils\Config;
-use XPocketMP\utils\Filesystem;
-use XPocketMP\utils\Utils;
+use pocketmine\utils\Config;
+use pocketmine\utils\Filesystem;
+use pocketmine\utils\Utils;
 use Symfony\Component\Filesystem\Path;
 use function array_keys;
 use function copy;
@@ -74,7 +74,7 @@ class ResourcePackManager{
 
 		$resourcePacksYml = Path::join($this->path, "resource_packs.yml");
 		if(!file_exists($resourcePacksYml)){
-			copy(Path::join(\XPocketMP\RESOURCE_PATH, "resource_packs.yml"), $resourcePacksYml);
+			copy(Path::join(\pocketmine\RESOURCE_PATH, "resource_packs.yml"), $resourcePacksYml);
 		}
 
 		$resourcePacksConfig = new Config($resourcePacksYml, Config::YAML, []);
@@ -217,7 +217,7 @@ class ResourcePackManager{
 
 	/**
 	 * Sets the encryption key to use for decrypting the specified resource pack. The pack will **NOT** be decrypted by
-	 * XPocketMP-MP; the key is simply passed to the client to allow it to decrypt the pack after downloading it.
+	 * PocketMine-MP; the key is simply passed to the client to allow it to decrypt the pack after downloading it.
 	 */
 	public function setPackEncryptionKey(string $id, ?string $key) : void{
 		$id = strtolower($id);

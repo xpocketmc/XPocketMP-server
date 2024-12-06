@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item;
+namespace pocketmine\item;
 
-use XPocketMP\data\bedrock\item\ItemDeserializer;
-use XPocketMP\data\bedrock\item\ItemTypeDeserializeException;
-use XPocketMP\data\bedrock\item\upgrade\ItemDataUpgrader;
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\utils\Filesystem;
-use XPocketMP\utils\SingletonTrait;
-use XPocketMP\utils\Utils;
-use XPocketMP\world\format\io\GlobalItemDataHandlers;
+use pocketmine\data\bedrock\item\ItemDeserializer;
+use pocketmine\data\bedrock\item\ItemTypeDeserializeException;
+use pocketmine\data\bedrock\item\upgrade\ItemDataUpgrader;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\Filesystem;
+use pocketmine\utils\SingletonTrait;
+use pocketmine\utils\Utils;
+use pocketmine\world\format\io\GlobalItemDataHandlers;
 use Symfony\Component\Filesystem\Path;
 use function explode;
 use function is_array;
@@ -51,7 +51,7 @@ use function trim;
  * item IDs (e.g. "351"), you should prefer the newer StringToItemParser, which is much more user-friendly, more
  * flexible, and also supports registering custom aliases for any item in any state.
  *
- * WARNING: This class does NOT support items added during or after XPocketMP-MP 5.0.0. Use StringToItemParser for
+ * WARNING: This class does NOT support items added during or after PocketMine-MP 5.0.0. Use StringToItemParser for
  * modern items.
  */
 final class LegacyStringToItemParser{
@@ -63,7 +63,7 @@ final class LegacyStringToItemParser{
 			GlobalItemDataHandlers::getDeserializer()
 		);
 
-		$mappingsRaw = Filesystem::fileGetContents(Path::join(\XPocketMP\RESOURCE_PATH, 'item_from_string_bc_map.json'));
+		$mappingsRaw = Filesystem::fileGetContents(Path::join(\pocketmine\RESOURCE_PATH, 'item_from_string_bc_map.json'));
 
 		$mappings = json_decode($mappingsRaw, true);
 		if(!is_array($mappings)) throw new AssumptionFailedError("Invalid mappings format, expected array");

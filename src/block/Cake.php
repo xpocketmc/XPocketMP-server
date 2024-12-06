@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMP\data\runtime\RuntimeDataDescriber;
-use XPocketMP\item\Item;
-use XPocketMP\item\ItemBlock;
-use XPocketMP\math\AxisAlignedBB;
-use XPocketMP\math\Facing;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
+use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\item\Item;
+use pocketmine\item\ItemBlock;
+use pocketmine\math\AxisAlignedBB;
+use pocketmine\math\Facing;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
 
 class Cake extends BaseCake{
 	public const MAX_BITES = 6;

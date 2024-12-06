@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\phpstan\rules;
+namespace pocketmine\phpstan\rules;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\BinaryOp;
@@ -34,7 +34,7 @@ use PHPStan\Type\ObjectType;
 use PHPStan\Type\Type;
 use PHPStan\Type\UnionType;
 use PHPStan\Type\VerbosityLevel;
-use xpocketmp\utils\EnumTrait;
+use pocketmine\utils\EnumTrait;
 use function sprintf;
 
 /**

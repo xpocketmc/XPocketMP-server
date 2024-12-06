@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\inventory\transaction;
+namespace pocketmine\inventory\transaction;
 
-use XPocketMP\inventory\Inventory;
-use XPocketMP\inventory\transaction\action\InventoryAction;
+use pocketmine\inventory\Inventory;
+use pocketmine\inventory\transaction\action\InventoryAction;
 use function spl_object_id;
 
 final class TransactionBuilder{

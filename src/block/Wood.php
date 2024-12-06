@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\PillarRotationTrait;
-use XPocketMPlock\utils\WoodTypeTrait;
-use XPocketMP\data\runtime\RuntimeDataDescriber;
-use XPocketMP\item\Axe;
-use XPocketMP\item\Item;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\world\sound\ItemUseOnBlockSound;
+use pocketmine\block\utils\PillarRotationTrait;
+use pocketmine\block\utils\WoodTypeTrait;
+use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\item\Axe;
+use pocketmine\item\Item;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\sound\ItemUseOnBlockSound;
 
 class Wood extends Opaque{
 	use PillarRotationTrait;

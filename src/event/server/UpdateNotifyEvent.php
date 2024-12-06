@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\server;
+namespace pocketmine\event\server;
 
-use XPocketMP\updater\UpdateChecker;
+use pocketmine\updater\UpdateChecker;
 
 /**
- * Called when the update checker receives notification of an available XPocketMP-MP update.
+ * Called when the update checker receives notification of an available PocketMine-MP update.
  * Plugins may use this event to perform actions when an update notification is received.
  */
 class UpdateNotifyEvent extends ServerEvent{

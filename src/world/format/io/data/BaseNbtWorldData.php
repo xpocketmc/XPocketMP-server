@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\format\io\data;
+namespace pocketmine\world\format\io\data;
 
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\IntTag;
-use XPocketMP\world\format\io\exception\CorruptedWorldException;
-use XPocketMP\world\format\io\exception\UnsupportedWorldFormatException;
-use XPocketMP\world\format\io\WorldData;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\IntTag;
+use pocketmine\world\format\io\exception\CorruptedWorldException;
+use pocketmine\world\format\io\exception\UnsupportedWorldFormatException;
+use pocketmine\world\format\io\WorldData;
 use function file_exists;
 
 abstract class BaseNbtWorldData implements WorldData{
@@ -75,7 +75,7 @@ abstract class BaseNbtWorldData implements WorldData{
 	abstract protected function fix() : void;
 
 	/**
-	 * Hack to fix worlds broken previously by older versions of XPocketMP-MP which incorrectly saved classpaths of
+	 * Hack to fix worlds broken previously by older versions of PocketMine-MP which incorrectly saved classpaths of
 	 * generators into level.dat on imported (not generated) worlds.
 	 *
 	 * This should only have affected leveldb worlds as far as I know, because PC format worlds include the
@@ -96,10 +96,10 @@ abstract class BaseNbtWorldData implements WorldData{
 		//THESE ARE DELIBERATELY HARDCODED, DO NOT CHANGE!
 		switch($className){
 			/** @noinspection ClassConstantCanBeUsedInspection */
-			case 'XPocketMP\level\generator\normal\Normal':
+			case 'pocketmine\level\generator\normal\Normal':
 				return "normal";
 			/** @noinspection ClassConstantCanBeUsedInspection */
-			case 'XPocketMP\level\generator\Flat':
+			case 'pocketmine\level\generator\Flat':
 				return "flat";
 		}
 

@@ -13,34 +13,34 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world;
+namespace pocketmine\world;
 
-use XPocketMPlock\Block;
-use XPocketMPlock\RuntimeBlockStateRegistry;
-use XPocketMPlock\TNT;
-use XPocketMPlock\VanillaBlocks;
-use XPocketMP\entity\Entity;
-use XPocketMP\event\entity\EntityDamageByBlockEvent;
-use XPocketMP\event\entity\EntityDamageByEntityEvent;
-use XPocketMP\event\entity\EntityDamageEvent;
-use XPocketMP\event\entity\EntityExplodeEvent;
-use XPocketMP\item\VanillaItems;
-use XPocketMP\math\AxisAlignedBB;
-use XPocketMP\math\Vector3;
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\world\format\SubChunk;
-use XPocketMP\world\particle\HugeExplodeSeedParticle;
-use XPocketMP\world\sound\ExplodeSound;
-use XPocketMP\world\utils\SubChunkExplorer;
-use XPocketMP\world\utils\SubChunkExplorerStatus;
+use pocketmine\block\Block;
+use pocketmine\block\RuntimeBlockStateRegistry;
+use pocketmine\block\TNT;
+use pocketmine\block\VanillaBlocks;
+use pocketmine\entity\Entity;
+use pocketmine\event\entity\EntityDamageByBlockEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityExplodeEvent;
+use pocketmine\item\VanillaItems;
+use pocketmine\math\AxisAlignedBB;
+use pocketmine\math\Vector3;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\world\format\SubChunk;
+use pocketmine\world\particle\HugeExplodeSeedParticle;
+use pocketmine\world\sound\ExplodeSound;
+use pocketmine\world\utils\SubChunkExplorer;
+use pocketmine\world\utils\SubChunkExplorerStatus;
 use function ceil;
 use function floor;
 use function min;

@@ -1,6 +1,6 @@
 ---
 name: Crash
-about: Report a crash in xpocketmp-MP (not plugins)
+about: Report a crash in PocketMine-MP (not plugins)
 title: Server crashed
 labels: ''
 assignees: ''

@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMP\command\Command;
-use XPocketMP\command\CommandSender;
-use XPocketMP\command\utils\InvalidCommandSyntaxException;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\DefaultPermissionNames;
-use XPocketMP\player\GameMode;
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
+use pocketmine\command\utils\InvalidCommandSyntaxException;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\DefaultPermissionNames;
+use pocketmine\player\GameMode;
 use function count;
 
 class GamemodeCommand extends VanillaCommand{
@@ -36,7 +36,7 @@ class GamemodeCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"gamemode",
-			KnownTranslationFactory::XPocketMP_command_gamemode_description(),
+			KnownTranslationFactory::pocketmine_command_gamemode_description(),
 			KnownTranslationFactory::commands_gamemode_usage()
 		);
 		$this->setPermissions([
@@ -52,7 +52,7 @@ class GamemodeCommand extends VanillaCommand{
 
 		$gameMode = GameMode::fromString($args[0]);
 		if($gameMode === null){
-			$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_gamemode_unknown($args[0]));
+			$sender->sendMessage(KnownTranslationFactory::pocketmine_command_gamemode_unknown($args[0]));
 			return true;
 		}
 
@@ -62,13 +62,13 @@ class GamemodeCommand extends VanillaCommand{
 		}
 
 		if($target->getGamemode() === $gameMode){
-			$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_gamemode_failure($target->getName()));
+			$sender->sendMessage(KnownTranslationFactory::pocketmine_command_gamemode_failure($target->getName()));
 			return true;
 		}
 
 		$target->setGamemode($gameMode);
 		if($gameMode !== $target->getGamemode()){
-			$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_gamemode_failure($target->getName()));
+			$sender->sendMessage(KnownTranslationFactory::pocketmine_command_gamemode_failure($target->getName()));
 		}else{
 			if($target === $sender){
 				Command::broadcastCommandMessage($sender, KnownTranslationFactory::commands_gamemode_success_self($gameMode->getTranslatableName()));

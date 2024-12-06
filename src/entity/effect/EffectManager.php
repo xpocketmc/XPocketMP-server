@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity\effect;
+namespace pocketmine\entity\effect;
 
-use XPocketMP\color\Color;
-use XPocketMP\entity\Living;
-use XPocketMP\event\entity\EntityEffectAddEvent;
-use XPocketMP\event\entity\EntityEffectRemoveEvent;
-use XPocketMP\utils\ObjectSet;
+use pocketmine\color\Color;
+use pocketmine\entity\Living;
+use pocketmine\event\entity\EntityEffectAddEvent;
+use pocketmine\event\entity\EntityEffectRemoveEvent;
+use pocketmine\utils\ObjectSet;
 use function abs;
 use function count;
 use function spl_object_id;

@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\player;
+namespace pocketmine\event\player;
 
-use XPocketMP\event\Event;
-use XPocketMP\network\mcpe\NetworkSession;
-use XPocketMP\player\Player;
-use XPocketMP\utils\Utils;
+use pocketmine\event\Event;
+use pocketmine\network\mcpe\NetworkSession;
+use pocketmine\player\Player;
+use pocketmine\utils\Utils;
 use function is_a;
 
 /**

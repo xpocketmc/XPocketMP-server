@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\scheduler;
+namespace pocketmine\scheduler;
 
 use pmmp\thread\Thread as NativeThread;
-use XPocketMP\snooze\SleeperHandlerEntry;
-use XPocketMP\snooze\SleeperNotifier;
-use XPocketMP\thread\log\ThreadSafeLogger;
-use XPocketMP\thread\Worker;
-use XPocketMP\utils\AssumptionFailedError;
+use pocketmine\snooze\SleeperHandlerEntry;
+use pocketmine\snooze\SleeperNotifier;
+use pocketmine\thread\log\ThreadSafeLogger;
+use pocketmine\thread\Worker;
+use pocketmine\utils\AssumptionFailedError;
 use function gc_enable;
 use function ini_set;
 

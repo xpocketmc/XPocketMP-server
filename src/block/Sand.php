@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock;
+namespace pocketmine\block;
 
-use XPocketMPlock\utils\Fallable;
-use XPocketMPlock\utils\FallableTrait;
+use pocketmine\block\utils\Fallable;
+use pocketmine\block\utils\FallableTrait;
 
 class Sand extends Opaque implements Fallable{
 	use FallableTrait;

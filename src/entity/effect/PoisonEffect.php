@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity\effect;
+namespace pocketmine\entity\effect;
 
-use XPocketMP\color\Color;
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\Living;
-use XPocketMP\event\entity\EntityDamageEvent;
-use XPocketMP\lang\Translatable;
+use pocketmine\color\Color;
+use pocketmine\entity\Entity;
+use pocketmine\entity\Living;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\lang\Translatable;
 
 class PoisonEffect extends Effect{
 	private bool $fatal;

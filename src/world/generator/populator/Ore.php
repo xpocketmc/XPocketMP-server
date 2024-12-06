@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\generator\populator;
+namespace pocketmine\world\generator\populator;
 
-use XPocketMP\utils\Random;
-use XPocketMP\world\ChunkManager;
-use XPocketMP\world\format\Chunk;
-use XPocketMP\world\generator\object\Ore as ObjectOre;
-use XPocketMP\world\generator\object\OreType;
+use pocketmine\utils\Random;
+use pocketmine\world\ChunkManager;
+use pocketmine\world\format\Chunk;
+use pocketmine\world\generator\object\Ore as ObjectOre;
+use pocketmine\world\generator\object\OreType;
 
 class Ore implements Populator{
 	/** @var OreType[] */

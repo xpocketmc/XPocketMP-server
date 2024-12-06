@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\utils;
+namespace pocketmine\utils;
 
-use XPocketMP\thread\Thread;
+use pocketmine\thread\Thread;
 use function count;
 use function exec;
 use function fclose;

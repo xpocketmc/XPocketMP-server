@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world;
+namespace pocketmine\world;
 
-use XPocketMP\math\Vector3;
-use XPocketMP\utils\AssumptionFailedError;
+use pocketmine\math\Vector3;
+use pocketmine\utils\AssumptionFailedError;
 use function assert;
 
 class Position extends Vector3{

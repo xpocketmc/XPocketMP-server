@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMP\item\Item;
-use XPocketMP\item\WritableBookBase;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\network\mcpe\convert\TypeConverter;
+use pocketmine\item\Item;
+use pocketmine\item\WritableBookBase;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\network\mcpe\convert\TypeConverter;
 use function count;
 
 /**
  * @deprecated
- * @see \XPocketMPlock\Lectern
+ * @see \pocketmine\block\Lectern
  */
 class Lectern extends Spawnable{
 	public const TAG_HAS_BOOK = "hasBook";

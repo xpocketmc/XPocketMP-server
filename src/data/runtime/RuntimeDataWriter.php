@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\runtime;
+namespace pocketmine\data\runtime;
 
-use XPocketMPlock\utils\BrewingStandSlot;
-use XPocketMPlock\utils\WallConnectionType;
-use XPocketMP\math\Axis;
-use XPocketMP\math\Facing;
+use pocketmine\block\utils\BrewingStandSlot;
+use pocketmine\block\utils\WallConnectionType;
+use pocketmine\math\Axis;
+use pocketmine\math\Facing;
 use function array_flip;
 use function log;
 use function spl_object_id;

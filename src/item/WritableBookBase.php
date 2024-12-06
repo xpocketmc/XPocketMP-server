@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item;
+namespace pocketmine\item;
 
-use XPocketMP\nbt\NBT;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\nbt\tag\ListTag;
-use XPocketMP\nbt\tag\StringTag;
+use pocketmine\nbt\NBT;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\ListTag;
+use pocketmine\nbt\tag\StringTag;
 use function array_push;
 use function array_slice;
 use function array_values;

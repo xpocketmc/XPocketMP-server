@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMP\data\SavedDataLoadingException;
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\NbtException;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\utils\SingletonTrait;
-use XPocketMP\utils\Utils;
-use XPocketMP\world\World;
+use pocketmine\data\SavedDataLoadingException;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\NbtException;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\utils\SingletonTrait;
+use pocketmine\utils\Utils;
+use pocketmine\world\World;
 use function assert;
 use function in_array;
 use function is_a;

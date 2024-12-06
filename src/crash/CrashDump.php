@@ -13,28 +13,28 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\crash;
+namespace pocketmine\crash;
 
 use Composer\InstalledVersions;
-use XPocketMP\errorhandler\ErrorTypeToStringMap;
-use XPocketMP\network\mcpe\protocol\ProtocolInfo;
-use XPocketMP\plugin\PluginBase;
-use XPocketMP\plugin\PluginManager;
-use XPocketMP\Server;
-use XPocketMP\thread\ThreadCrashInfoFrame;
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\utils\Filesystem;
-use XPocketMP\utils\Utils;
-use XPocketMP\VersionInfo;
-use XPocketMP\YmlServerProperties;
+use pocketmine\errorhandler\ErrorTypeToStringMap;
+use pocketmine\network\mcpe\protocol\ProtocolInfo;
+use pocketmine\plugin\PluginBase;
+use pocketmine\plugin\PluginManager;
+use pocketmine\Server;
+use pocketmine\thread\ThreadCrashInfoFrame;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\Filesystem;
+use pocketmine\utils\Utils;
+use pocketmine\VersionInfo;
+use pocketmine\YmlServerProperties;
 use Symfony\Component\Filesystem\Path;
 use function array_map;
 use function base64_encode;
@@ -167,8 +167,8 @@ class CrashDump{
 			if(($serverDotProperties = @file_get_contents(Path::join($this->server->getDataPath(), "server.properties"))) !== false){
 				$this->data->serverDotProperties = preg_replace("#^rcon\\.password=(.*)$#m", "rcon.password=******", $serverDotProperties) ?? throw new AssumptionFailedError("Pattern is valid");
 			}
-			if(($XPocketMPDotYml = @file_get_contents(Path::join($this->server->getDataPath(), "xpocketmp.yml"))) !== false){
-				$this->data->XPocketMPDotYml = $XPocketMPDotYml;
+			if(($pocketmineDotYml = @file_get_contents(Path::join($this->server->getDataPath(), "pocketmine.yml"))) !== false){
+				$this->data->pocketmineDotYml = $pocketmineDotYml;
 			}
 		}
 		$extensions = [];

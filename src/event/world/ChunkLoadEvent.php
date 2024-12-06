@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\world;
+namespace pocketmine\event\world;
 
-use XPocketMP\world\format\Chunk;
-use XPocketMP\world\World;
+use pocketmine\world\format\Chunk;
+use pocketmine\world\World;
 
 /**
  * Called when a Chunk is loaded or newly created by the world generator.

@@ -13,31 +13,31 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item;
+namespace pocketmine\item;
 
-use XPocketMPlock\utils\RecordType;
-use XPocketMPlock\VanillaBlocks as Blocks;
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\Location;
-use XPocketMP\entity\Squid;
-use XPocketMP\entity\Villager;
-use XPocketMP\entity\Zombie;
-use XPocketMP\inventory\ArmorInventory;
-use XPocketMP\item\enchantment\ItemEnchantmentTags as EnchantmentTags;
-use XPocketMP\item\ItemIdentifier as IID;
-use XPocketMP\item\ItemTypeIds as Ids;
-use XPocketMP\item\VanillaArmorMaterials as ArmorMaterials;
-use XPocketMP\math\Vector3;
-use XPocketMP\utils\CloningRegistryTrait;
-use XPocketMP\world\World;
+use pocketmine\block\utils\RecordType;
+use pocketmine\block\VanillaBlocks as Blocks;
+use pocketmine\entity\Entity;
+use pocketmine\entity\Location;
+use pocketmine\entity\Squid;
+use pocketmine\entity\Villager;
+use pocketmine\entity\Zombie;
+use pocketmine\inventory\ArmorInventory;
+use pocketmine\item\enchantment\ItemEnchantmentTags as EnchantmentTags;
+use pocketmine\item\ItemIdentifier as IID;
+use pocketmine\item\ItemTypeIds as Ids;
+use pocketmine\item\VanillaArmorMaterials as ArmorMaterials;
+use pocketmine\math\Vector3;
+use pocketmine\utils\CloningRegistryTrait;
+use pocketmine\world\World;
 use function strtolower;
 
 /**

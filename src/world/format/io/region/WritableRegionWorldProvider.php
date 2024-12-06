@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\format\io\region;
+namespace pocketmine\world\format\io\region;
 
-use XPocketMP\world\format\io\ChunkData;
-use XPocketMP\world\format\io\data\JavaWorldData;
-use XPocketMP\world\format\io\WritableWorldProvider;
-use XPocketMP\world\WorldCreationOptions;
+use pocketmine\world\format\io\ChunkData;
+use pocketmine\world\format\io\data\JavaWorldData;
+use pocketmine\world\format\io\WritableWorldProvider;
+use pocketmine\world\WorldCreationOptions;
 use Symfony\Component\Filesystem\Path;
 use function file_exists;
 use function mkdir;

@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -25,13 +25,13 @@ declare(strict_types=1);
  * Various Utilities used around the code
  */
 
-namespace XPocketMP\utils;
+namespace pocketmine\utils;
 
 use DaveRandom\CallbackValidator\CallbackType;
-use XPocketMP\entity\Location;
-use XPocketMP\errorhandler\ErrorTypeToStringMap;
-use XPocketMP\math\Vector3;
-use XPocketMP\thread\ThreadCrashInfoFrame;
+use pocketmine\entity\Location;
+use pocketmine\errorhandler\ErrorTypeToStringMap;
+use pocketmine\math\Vector3;
+use pocketmine\thread\ThreadCrashInfoFrame;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use function array_combine;

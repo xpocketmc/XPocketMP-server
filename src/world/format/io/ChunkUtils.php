@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\format\io;
+namespace pocketmine\world\format\io;
 
-use XPocketMP\world\format\PalettedBlockArray;
+use pocketmine\world\format\PalettedBlockArray;
 use function chr;
 use function ord;
 use function str_repeat;

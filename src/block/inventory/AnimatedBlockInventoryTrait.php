@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\inventory;
+namespace pocketmine\block\inventory;
 
-use XPocketMP\player\Player;
-use XPocketMP\world\sound\Sound;
+use pocketmine\player\Player;
+use pocketmine\world\sound\Sound;
 use function count;
 
 trait AnimatedBlockInventoryTrait{

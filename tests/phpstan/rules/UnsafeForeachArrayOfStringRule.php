@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\phpstan\rules;
+namespace pocketmine\phpstan\rules;
 
 use PhpParser\Node;
 use PhpParser\Node\Stmt\Foreach_;
@@ -34,7 +34,7 @@ use PHPStan\Type\StringType;
 use PHPStan\Type\Type;
 use PHPStan\Type\TypeTraverser;
 use PHPStan\Type\VerbosityLevel;
-use xpocketmp\utils\Utils;
+use pocketmine\utils\Utils;
 use function sprintf;
 
 /**

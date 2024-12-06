@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\auth;
+namespace pocketmine\network\mcpe\auth;
 
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\lang\Translatable;
-use XPocketMP\network\mcpe\JwtException;
-use XPocketMP\network\mcpe\JwtUtils;
-use XPocketMP\network\mcpe\protocol\types\login\JwtChainLinkBody;
-use XPocketMP\network\mcpe\protocol\types\login\JwtHeader;
-use XPocketMP\scheduler\AsyncTask;
-use XPocketMP\thread\NonThreadSafeValue;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\lang\Translatable;
+use pocketmine\network\mcpe\JwtException;
+use pocketmine\network\mcpe\JwtUtils;
+use pocketmine\network\mcpe\protocol\types\login\JwtChainLinkBody;
+use pocketmine\network\mcpe\protocol\types\login\JwtHeader;
+use pocketmine\scheduler\AsyncTask;
+use pocketmine\thread\NonThreadSafeValue;
 use function base64_decode;
 use function igbinary_serialize;
 use function igbinary_unserialize;
@@ -141,11 +141,11 @@ class ProcessLoginTask extends AsyncTask{
 
 		if($currentPublicKey === null){
 			if(!$first){
-				throw new VerifyLoginException("Missing JWT public key", KnownTranslationFactory::XPocketMP_disconnect_invalidSession_missingKey());
+				throw new VerifyLoginException("Missing JWT public key", KnownTranslationFactory::pocketmine_disconnect_invalidSession_missingKey());
 			}
 		}elseif($headerDerKey !== $currentPublicKey){
 			//Fast path: if the header key doesn't match what we expected, the signature isn't going to validate anyway
-			throw new VerifyLoginException("Invalid JWT signature", KnownTranslationFactory::XPocketMP_disconnect_invalidSession_badSignature());
+			throw new VerifyLoginException("Invalid JWT signature", KnownTranslationFactory::pocketmine_disconnect_invalidSession_badSignature());
 		}
 
 		try{
@@ -155,7 +155,7 @@ class ProcessLoginTask extends AsyncTask{
 		}
 		try{
 			if(!JwtUtils::verify($jwt, $signingKeyOpenSSL)){
-				throw new VerifyLoginException("Invalid JWT signature", KnownTranslationFactory::XPocketMP_disconnect_invalidSession_badSignature());
+				throw new VerifyLoginException("Invalid JWT signature", KnownTranslationFactory::pocketmine_disconnect_invalidSession_badSignature());
 			}
 		}catch(JwtException $e){
 			throw new VerifyLoginException($e->getMessage(), null, 0, $e);
@@ -180,11 +180,11 @@ class ProcessLoginTask extends AsyncTask{
 
 		$time = time();
 		if(isset($claims->nbf) && $claims->nbf > $time + self::CLOCK_DRIFT_MAX){
-			throw new VerifyLoginException("JWT not yet valid", KnownTranslationFactory::XPocketMP_disconnect_invalidSession_tooEarly());
+			throw new VerifyLoginException("JWT not yet valid", KnownTranslationFactory::pocketmine_disconnect_invalidSession_tooEarly());
 		}
 
 		if(isset($claims->exp) && $claims->exp < $time - self::CLOCK_DRIFT_MAX){
-			throw new VerifyLoginException("JWT expired", KnownTranslationFactory::XPocketMP_disconnect_invalidSession_tooLate());
+			throw new VerifyLoginException("JWT expired", KnownTranslationFactory::pocketmine_disconnect_invalidSession_tooLate());
 		}
 
 		if(isset($claims->identityPublicKey)){

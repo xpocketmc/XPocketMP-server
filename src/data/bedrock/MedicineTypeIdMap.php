@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\data\bedrock;
+namespace pocketmine\data\bedrock;
 
-use XPocketMP\item\MedicineType;
-use XPocketMP\utils\SingletonTrait;
+use pocketmine\item\MedicineType;
+use pocketmine\utils\SingletonTrait;
 
 final class MedicineTypeIdMap{
 	use SingletonTrait;

@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\biome;
+namespace pocketmine\world\biome;
 
-use XPocketMP\data\bedrock\BiomeIds;
-use XPocketMP\utils\SingletonTrait;
-use XPocketMP\world\generator\object\TreeType;
+use pocketmine\data\bedrock\BiomeIds;
+use pocketmine\utils\SingletonTrait;
+use pocketmine\world\generator\object\TreeType;
 
 final class BiomeRegistry{
 	use SingletonTrait;

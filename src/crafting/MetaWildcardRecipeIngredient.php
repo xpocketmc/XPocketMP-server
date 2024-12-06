@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\crafting;
+namespace pocketmine\crafting;
 
-use XPocketMP\item\Item;
-use XPocketMP\world\format\io\GlobalItemDataHandlers;
+use pocketmine\item\Item;
+use pocketmine\world\format\io\GlobalItemDataHandlers;
 
 /**
  * Recipe ingredient that matches items by their Minecraft ID only. This is used for things like the crafting table

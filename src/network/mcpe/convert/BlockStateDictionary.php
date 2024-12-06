@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\convert;
+namespace pocketmine\network\mcpe\convert;
 
-use XPocketMP\data\bedrock\block\BlockStateData;
-use XPocketMP\data\bedrock\block\BlockTypeNames;
-use XPocketMP\nbt\NbtDataException;
-use XPocketMP\nbt\TreeRoot;
-use XPocketMP\network\mcpe\protocol\serializer\NetworkNbtSerializer;
-use XPocketMP\utils\Utils;
+use pocketmine\data\bedrock\block\BlockStateData;
+use pocketmine\data\bedrock\block\BlockTypeNames;
+use pocketmine\nbt\NbtDataException;
+use pocketmine\nbt\TreeRoot;
+use pocketmine\network\mcpe\protocol\serializer\NetworkNbtSerializer;
+use pocketmine\utils\Utils;
 use function array_key_first;
 use function array_map;
 use function count;

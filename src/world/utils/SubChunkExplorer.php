@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\utils;
+namespace pocketmine\world\utils;
 
-use XPocketMP\world\ChunkManager;
-use XPocketMP\world\format\Chunk;
-use XPocketMP\world\format\SubChunk;
+use pocketmine\world\ChunkManager;
+use pocketmine\world\format\Chunk;
+use pocketmine\world\format\SubChunk;
 
 class SubChunkExplorer{
 	public ?Chunk $currentChunk = null;

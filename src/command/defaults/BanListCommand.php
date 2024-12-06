@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMP\command\CommandSender;
-use XPocketMP\command\utils\InvalidCommandSyntaxException;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\BanEntry;
-use XPocketMP\permission\DefaultPermissionNames;
+use pocketmine\command\CommandSender;
+use pocketmine\command\utils\InvalidCommandSyntaxException;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\BanEntry;
+use pocketmine\permission\DefaultPermissionNames;
 use function array_map;
 use function count;
 use function implode;
@@ -40,7 +40,7 @@ class BanListCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"banlist",
-			KnownTranslationFactory::XPocketMP_command_banlist_description(),
+			KnownTranslationFactory::pocketmine_command_banlist_description(),
 			KnownTranslationFactory::commands_banlist_usage()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_BAN_LIST);

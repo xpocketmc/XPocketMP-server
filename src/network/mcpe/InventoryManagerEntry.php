@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe;
+namespace pocketmine\network\mcpe;
 
-use XPocketMP\inventory\Inventory;
-use XPocketMP\network\mcpe\protocol\types\inventory\ItemStack;
+use pocketmine\inventory\Inventory;
+use pocketmine\network\mcpe\protocol\types\inventory\ItemStack;
 
 final class InventoryManagerEntry{
 	/**

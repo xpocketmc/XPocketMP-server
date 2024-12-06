@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\build\generate_block_serializer_consts;
+namespace pocketmine\build\generate_block_serializer_consts;
 
-use xpocketmp\data\bedrock\block\BlockStateData;
-use xpocketmp\data\bedrock\block\BlockStateNames;
-use xpocketmp\data\bedrock\block\BlockStateStringValues;
-use xpocketmp\data\bedrock\block\BlockTypeNames;
-use xpocketmp\errorhandler\ErrorToExceptionHandler;
-use xpocketmp\nbt\NbtException;
-use xpocketmp\network\mcpe\convert\BlockStateDictionary;
-use xpocketmp\utils\AssumptionFailedError;
-use xpocketmp\utils\Utils;
+use pocketmine\data\bedrock\block\BlockStateData;
+use pocketmine\data\bedrock\block\BlockStateNames;
+use pocketmine\data\bedrock\block\BlockStateStringValues;
+use pocketmine\data\bedrock\block\BlockTypeNames;
+use pocketmine\errorhandler\ErrorToExceptionHandler;
+use pocketmine\nbt\NbtException;
+use pocketmine\network\mcpe\convert\BlockStateDictionary;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\Utils;
 use function array_values;
 use function asort;
 use function count;
@@ -115,8 +115,8 @@ function generateClassHeader(string $className) : string{
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */

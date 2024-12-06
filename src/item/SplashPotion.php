@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\item;
+namespace pocketmine\item;
 
-use XPocketMP\data\runtime\RuntimeDataDescriber;
-use XPocketMP\entity\Location;
-use XPocketMP\entity\projectile\SplashPotion as SplashPotionEntity;
-use XPocketMP\entity\projectile\Throwable;
-use XPocketMP\player\Player;
+use pocketmine\data\runtime\RuntimeDataDescriber;
+use pocketmine\entity\Location;
+use pocketmine\entity\projectile\SplashPotion as SplashPotionEntity;
+use pocketmine\entity\projectile\Throwable;
+use pocketmine\player\Player;
 
 class SplashPotion extends ProjectileItem{
 

@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\generator\object;
+namespace pocketmine\world\generator\object;
 
-use XPocketMPlock\Block;
+use pocketmine\block\Block;
 
 class OreType{
 	public function __construct(

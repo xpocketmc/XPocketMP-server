@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\event\player;
+namespace pocketmine\event\player;
 
-use XPocketMP\entity\Human;
-use XPocketMP\event\Cancellable;
-use XPocketMP\event\CancellableTrait;
-use XPocketMP\event\entity\EntityEvent;
+use pocketmine\entity\Human;
+use pocketmine\event\Cancellable;
+use pocketmine\event\CancellableTrait;
+use pocketmine\event\entity\EntityEvent;
 
 /**
  * Called when a player gains or loses XP levels and/or progress.

@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -24,11 +24,11 @@
  */
 declare(strict_types=1);
 
-namespace XPocketMP\world\format;
+namespace pocketmine\world\format;
 
-use XPocketMPlock\Block;
-use XPocketMPlock\tile\Tile;
-use XPocketMP\data\bedrock\BiomeIds;
+use pocketmine\block\Block;
+use pocketmine\block\tile\Tile;
+use pocketmine\data\bedrock\BiomeIds;
 use function array_map;
 
 class Chunk{

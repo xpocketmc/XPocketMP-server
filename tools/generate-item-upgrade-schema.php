@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -27,10 +27,10 @@ declare(strict_types=1);
  * - A full item mapping table from a current version (e.g. r16_to_current_block_map.json)
  * - A directory containing schemas for previous versions' incremental updates
  */
-namespace xpocketmp\tools\generate_item_upgrade_schema;
+namespace pocketmine\tools\generate_item_upgrade_schema;
 
-use xpocketmp\errorhandler\ErrorToExceptionHandler;
-use xpocketmp\utils\Filesystem;
+use pocketmine\errorhandler\ErrorToExceptionHandler;
+use pocketmine\utils\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use function count;
 use function dirname;

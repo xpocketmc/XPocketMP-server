@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\utils;
+namespace pocketmine\block\utils;
 
-use XPocketMPlock\Block;
-use XPocketMP\item\Item;
-use XPocketMP\math\Facing;
-use XPocketMP\math\Vector3;
-use XPocketMP\player\Player;
-use XPocketMP\world\BlockTransaction;
+use pocketmine\block\Block;
+use pocketmine\item\Item;
+use pocketmine\math\Facing;
+use pocketmine\math\Vector3;
+use pocketmine\player\Player;
+use pocketmine\world\BlockTransaction;
 
 trait FacesOppositePlacingPlayerTrait{
 	use HorizontalFacingTrait;

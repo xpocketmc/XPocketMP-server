@@ -13,34 +13,34 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\network\mcpe\handler;
+namespace pocketmine\network\mcpe\handler;
 
-use XPocketMP\entity\InvalidSkinException;
-use XPocketMP\event\player\PlayerPreLoginEvent;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\lang\Translatable;
-use XPocketMP\network\mcpe\auth\ProcessLoginTask;
-use XPocketMP\network\mcpe\JwtException;
-use XPocketMP\network\mcpe\JwtUtils;
-use XPocketMP\network\mcpe\NetworkSession;
-use XPocketMP\network\mcpe\protocol\LoginPacket;
-use XPocketMP\network\mcpe\protocol\types\login\AuthenticationData;
-use XPocketMP\network\mcpe\protocol\types\login\ClientData;
-use XPocketMP\network\mcpe\protocol\types\login\ClientDataToSkinDataHelper;
-use XPocketMP\network\mcpe\protocol\types\login\JwtChain;
-use XPocketMP\network\PacketHandlingException;
-use XPocketMP\player\Player;
-use XPocketMP\player\PlayerInfo;
-use XPocketMP\player\XboxLivePlayerInfo;
-use XPocketMP\Server;
+use pocketmine\entity\InvalidSkinException;
+use pocketmine\event\player\PlayerPreLoginEvent;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\lang\Translatable;
+use pocketmine\network\mcpe\auth\ProcessLoginTask;
+use pocketmine\network\mcpe\JwtException;
+use pocketmine\network\mcpe\JwtUtils;
+use pocketmine\network\mcpe\NetworkSession;
+use pocketmine\network\mcpe\protocol\LoginPacket;
+use pocketmine\network\mcpe\protocol\types\login\AuthenticationData;
+use pocketmine\network\mcpe\protocol\types\login\ClientData;
+use pocketmine\network\mcpe\protocol\types\login\ClientDataToSkinDataHelper;
+use pocketmine\network\mcpe\protocol\types\login\JwtChain;
+use pocketmine\network\PacketHandlingException;
+use pocketmine\player\Player;
+use pocketmine\player\PlayerInfo;
+use pocketmine\player\XboxLivePlayerInfo;
+use pocketmine\Server;
 use Ramsey\Uuid\Uuid;
 use function is_array;
 
@@ -118,16 +118,16 @@ class LoginPacketHandler extends PacketHandler{
 			$ev->setKickFlag(PlayerPreLoginEvent::KICK_FLAG_SERVER_FULL, KnownTranslationFactory::disconnectionScreen_serverFull());
 		}
 		if(!$this->server->isWhitelisted($playerInfo->getUsername())){
-			$ev->setKickFlag(PlayerPreLoginEvent::KICK_FLAG_SERVER_WHITELISTED, KnownTranslationFactory::XPocketMP_disconnect_whitelisted());
+			$ev->setKickFlag(PlayerPreLoginEvent::KICK_FLAG_SERVER_WHITELISTED, KnownTranslationFactory::pocketmine_disconnect_whitelisted());
 		}
 
 		$banMessage = null;
 		if(($banEntry = $this->server->getNameBans()->getEntry($playerInfo->getUsername())) !== null){
 			$banReason = $banEntry->getReason();
-			$banMessage = $banReason === "" ? KnownTranslationFactory::XPocketMP_disconnect_ban_noReason() : KnownTranslationFactory::XPocketMP_disconnect_ban($banReason);
+			$banMessage = $banReason === "" ? KnownTranslationFactory::pocketmine_disconnect_ban_noReason() : KnownTranslationFactory::pocketmine_disconnect_ban($banReason);
 		}elseif(($banEntry = $this->server->getIPBans()->getEntry($this->session->getIp())) !== null){
 			$banReason = $banEntry->getReason();
-			$banMessage = KnownTranslationFactory::XPocketMP_disconnect_ban($banReason !== "" ? $banReason : KnownTranslationFactory::XPocketMP_disconnect_ban_ip());
+			$banMessage = KnownTranslationFactory::pocketmine_disconnect_ban($banReason !== "" ? $banReason : KnownTranslationFactory::pocketmine_disconnect_ban_ip());
 		}
 		if($banMessage !== null){
 			$ev->setKickFlag(PlayerPreLoginEvent::KICK_FLAG_BANNED, $banMessage);

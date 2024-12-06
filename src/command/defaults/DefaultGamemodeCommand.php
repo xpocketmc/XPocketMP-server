@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMP\command\CommandSender;
-use XPocketMP\command\utils\InvalidCommandSyntaxException;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\DefaultPermissionNames;
-use XPocketMP\player\GameMode;
-use XPocketMP\ServerProperties;
+use pocketmine\command\CommandSender;
+use pocketmine\command\utils\InvalidCommandSyntaxException;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\DefaultPermissionNames;
+use pocketmine\player\GameMode;
+use pocketmine\ServerProperties;
 use function count;
 
 class DefaultGamemodeCommand extends VanillaCommand{
@@ -36,7 +36,7 @@ class DefaultGamemodeCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"defaultgamemode",
-			KnownTranslationFactory::XPocketMP_command_defaultgamemode_description(),
+			KnownTranslationFactory::pocketmine_command_defaultgamemode_description(),
 			KnownTranslationFactory::commands_defaultgamemode_usage()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_DEFAULTGAMEMODE);
@@ -49,7 +49,7 @@ class DefaultGamemodeCommand extends VanillaCommand{
 
 		$gameMode = GameMode::fromString($args[0]);
 		if($gameMode === null){
-			$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_gamemode_unknown($args[0]));
+			$sender->sendMessage(KnownTranslationFactory::pocketmine_command_gamemode_unknown($args[0]));
 			return true;
 		}
 

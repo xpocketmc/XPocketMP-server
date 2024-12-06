@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\world\format\io\region;
+namespace pocketmine\world\format\io\region;
 
-use XPocketMP\utils\AssumptionFailedError;
-use XPocketMP\utils\Binary;
-use XPocketMP\utils\BinaryDataException;
-use XPocketMP\utils\BinaryStream;
-use XPocketMP\world\format\ChunkException;
-use XPocketMP\world\format\io\exception\CorruptedChunkException;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\Binary;
+use pocketmine\utils\BinaryDataException;
+use pocketmine\utils\BinaryStream;
+use pocketmine\world\format\ChunkException;
+use pocketmine\world\format\io\exception\CorruptedChunkException;
 use function assert;
 use function ceil;
 use function chr;

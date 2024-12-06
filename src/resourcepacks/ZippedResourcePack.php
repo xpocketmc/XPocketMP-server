@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\resourcepacks;
+namespace pocketmine\resourcepacks;
 
 use Ahc\Json\Comment as CommentedJsonDecoder;
-use XPocketMP\resourcepacks\json\Manifest;
-use XPocketMP\utils\Utils;
+use pocketmine\resourcepacks\json\Manifest;
+use pocketmine\utils\Utils;
 use function assert;
 use function fclose;
 use function feof;

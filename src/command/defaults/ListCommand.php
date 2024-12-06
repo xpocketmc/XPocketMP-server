@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMP\command\CommandSender;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\DefaultPermissionNames;
-use XPocketMP\player\Player;
+use pocketmine\command\CommandSender;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\DefaultPermissionNames;
+use pocketmine\player\Player;
 use function array_filter;
 use function array_map;
 use function count;
@@ -39,7 +39,7 @@ class ListCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"list",
-			KnownTranslationFactory::XPocketMP_command_list_description()
+			KnownTranslationFactory::pocketmine_command_list_description()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_LIST);
 	}

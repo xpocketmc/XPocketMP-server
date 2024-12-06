@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command\defaults;
+namespace pocketmine\command\defaults;
 
-use XPocketMP\command\CommandSender;
-use XPocketMP\command\utils\InvalidCommandSyntaxException;
-use XPocketMP\console\ConsoleCommandSender;
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\permission\DefaultPermissionNames;
-use XPocketMP\player\Player;
-use XPocketMP\utils\TextFormat;
+use pocketmine\command\CommandSender;
+use pocketmine\command\utils\InvalidCommandSyntaxException;
+use pocketmine\console\ConsoleCommandSender;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\permission\DefaultPermissionNames;
+use pocketmine\player\Player;
+use pocketmine\utils\TextFormat;
 use function count;
 use function implode;
 
@@ -38,7 +38,7 @@ class SayCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"say",
-			KnownTranslationFactory::XPocketMP_command_say_description(),
+			KnownTranslationFactory::pocketmine_command_say_description(),
 			KnownTranslationFactory::commands_say_usage()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_SAY);

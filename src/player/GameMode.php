@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\player;
+namespace pocketmine\player;
 
-use XPocketMP\lang\KnownTranslationFactory;
-use XPocketMP\lang\Translatable;
-use XPocketMP\utils\LegacyEnumShimTrait;
+use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\lang\Translatable;
+use pocketmine\utils\LegacyEnumShimTrait;
 use function mb_strtolower;
 use function spl_object_id;
 

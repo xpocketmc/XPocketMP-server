@@ -13,67 +13,67 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author xpocketmp Team
- * @link http://www.xpocketmp.net/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace xpocketmp\tools\generate_bedrock_data_from_packets;
+namespace pocketmine\tools\generate_bedrock_data_from_packets;
 
-use xpocketmp\crafting\json\FurnaceRecipeData;
-use xpocketmp\crafting\json\ItemStackData;
-use xpocketmp\crafting\json\PotionContainerChangeRecipeData;
-use xpocketmp\crafting\json\PotionTypeRecipeData;
-use xpocketmp\crafting\json\RecipeIngredientData;
-use xpocketmp\crafting\json\ShapedRecipeData;
-use xpocketmp\crafting\json\ShapelessRecipeData;
-use xpocketmp\crafting\json\SmithingTransformRecipeData;
-use xpocketmp\crafting\json\SmithingTrimRecipeData;
-use xpocketmp\data\bedrock\block\BlockStateData;
-use xpocketmp\data\bedrock\item\BlockItemIdMap;
-use xpocketmp\data\bedrock\item\ItemTypeNames;
-use xpocketmp\nbt\LittleEndianNbtSerializer;
-use xpocketmp\nbt\NBT;
-use xpocketmp\nbt\tag\CompoundTag;
-use xpocketmp\nbt\tag\ListTag;
-use xpocketmp\nbt\TreeRoot;
-use xpocketmp\network\mcpe\convert\BlockStateDictionary;
-use xpocketmp\network\mcpe\convert\BlockTranslator;
-use xpocketmp\network\mcpe\convert\ItemTranslator;
-use xpocketmp\network\mcpe\handler\PacketHandler;
-use xpocketmp\network\mcpe\protocol\AvailableActorIdentifiersPacket;
-use xpocketmp\network\mcpe\protocol\BiomeDefinitionListPacket;
-use xpocketmp\network\mcpe\protocol\CraftingDataPacket;
-use xpocketmp\network\mcpe\protocol\CreativeContentPacket;
-use xpocketmp\network\mcpe\protocol\PacketPool;
-use xpocketmp\network\mcpe\protocol\serializer\ItemTypeDictionary;
-use xpocketmp\network\mcpe\protocol\serializer\PacketSerializer;
-use xpocketmp\network\mcpe\protocol\StartGamePacket;
-use xpocketmp\network\mcpe\protocol\types\CacheableNbt;
-use xpocketmp\network\mcpe\protocol\types\inventory\CreativeContentEntry;
-use xpocketmp\network\mcpe\protocol\types\inventory\ItemStack;
-use xpocketmp\network\mcpe\protocol\types\inventory\ItemStackExtraData;
-use xpocketmp\network\mcpe\protocol\types\inventory\ItemStackExtraDataShield;
-use xpocketmp\network\mcpe\protocol\types\recipe\ComplexAliasItemDescriptor;
-use xpocketmp\network\mcpe\protocol\types\recipe\FurnaceRecipe;
-use xpocketmp\network\mcpe\protocol\types\recipe\IntIdMetaItemDescriptor;
-use xpocketmp\network\mcpe\protocol\types\recipe\MolangItemDescriptor;
-use xpocketmp\network\mcpe\protocol\types\recipe\MultiRecipe;
-use xpocketmp\network\mcpe\protocol\types\recipe\RecipeIngredient;
-use xpocketmp\network\mcpe\protocol\types\recipe\ShapedRecipe;
-use xpocketmp\network\mcpe\protocol\types\recipe\ShapelessRecipe;
-use xpocketmp\network\mcpe\protocol\types\recipe\SmithingTransformRecipe;
-use xpocketmp\network\mcpe\protocol\types\recipe\SmithingTrimRecipe;
-use xpocketmp\network\mcpe\protocol\types\recipe\StringIdMetaItemDescriptor;
-use xpocketmp\network\mcpe\protocol\types\recipe\TagItemDescriptor;
-use xpocketmp\network\PacketHandlingException;
-use xpocketmp\utils\AssumptionFailedError;
-use xpocketmp\utils\Filesystem;
-use xpocketmp\utils\Utils;
-use xpocketmp\world\format\io\GlobalBlockStateHandlers;
+use pocketmine\crafting\json\FurnaceRecipeData;
+use pocketmine\crafting\json\ItemStackData;
+use pocketmine\crafting\json\PotionContainerChangeRecipeData;
+use pocketmine\crafting\json\PotionTypeRecipeData;
+use pocketmine\crafting\json\RecipeIngredientData;
+use pocketmine\crafting\json\ShapedRecipeData;
+use pocketmine\crafting\json\ShapelessRecipeData;
+use pocketmine\crafting\json\SmithingTransformRecipeData;
+use pocketmine\crafting\json\SmithingTrimRecipeData;
+use pocketmine\data\bedrock\block\BlockStateData;
+use pocketmine\data\bedrock\item\BlockItemIdMap;
+use pocketmine\data\bedrock\item\ItemTypeNames;
+use pocketmine\nbt\LittleEndianNbtSerializer;
+use pocketmine\nbt\NBT;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\nbt\tag\ListTag;
+use pocketmine\nbt\TreeRoot;
+use pocketmine\network\mcpe\convert\BlockStateDictionary;
+use pocketmine\network\mcpe\convert\BlockTranslator;
+use pocketmine\network\mcpe\convert\ItemTranslator;
+use pocketmine\network\mcpe\handler\PacketHandler;
+use pocketmine\network\mcpe\protocol\AvailableActorIdentifiersPacket;
+use pocketmine\network\mcpe\protocol\BiomeDefinitionListPacket;
+use pocketmine\network\mcpe\protocol\CraftingDataPacket;
+use pocketmine\network\mcpe\protocol\CreativeContentPacket;
+use pocketmine\network\mcpe\protocol\PacketPool;
+use pocketmine\network\mcpe\protocol\serializer\ItemTypeDictionary;
+use pocketmine\network\mcpe\protocol\serializer\PacketSerializer;
+use pocketmine\network\mcpe\protocol\StartGamePacket;
+use pocketmine\network\mcpe\protocol\types\CacheableNbt;
+use pocketmine\network\mcpe\protocol\types\inventory\CreativeContentEntry;
+use pocketmine\network\mcpe\protocol\types\inventory\ItemStack;
+use pocketmine\network\mcpe\protocol\types\inventory\ItemStackExtraData;
+use pocketmine\network\mcpe\protocol\types\inventory\ItemStackExtraDataShield;
+use pocketmine\network\mcpe\protocol\types\recipe\ComplexAliasItemDescriptor;
+use pocketmine\network\mcpe\protocol\types\recipe\FurnaceRecipe;
+use pocketmine\network\mcpe\protocol\types\recipe\IntIdMetaItemDescriptor;
+use pocketmine\network\mcpe\protocol\types\recipe\MolangItemDescriptor;
+use pocketmine\network\mcpe\protocol\types\recipe\MultiRecipe;
+use pocketmine\network\mcpe\protocol\types\recipe\RecipeIngredient;
+use pocketmine\network\mcpe\protocol\types\recipe\ShapedRecipe;
+use pocketmine\network\mcpe\protocol\types\recipe\ShapelessRecipe;
+use pocketmine\network\mcpe\protocol\types\recipe\SmithingTransformRecipe;
+use pocketmine\network\mcpe\protocol\types\recipe\SmithingTrimRecipe;
+use pocketmine\network\mcpe\protocol\types\recipe\StringIdMetaItemDescriptor;
+use pocketmine\network\mcpe\protocol\types\recipe\TagItemDescriptor;
+use pocketmine\network\PacketHandlingException;
+use pocketmine\utils\AssumptionFailedError;
+use pocketmine\utils\Filesystem;
+use pocketmine\utils\Utils;
+use pocketmine\world\format\io\GlobalBlockStateHandlers;
 use Ramsey\Uuid\Exception\InvalidArgumentException;
 use Symfony\Component\Filesystem\Path;
 use function array_map;

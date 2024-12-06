@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMPlock\tile;
+namespace pocketmine\block\tile;
 
-use XPocketMPlock\inventory\HopperInventory;
-use XPocketMP\math\Vector3;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\world\World;
+use pocketmine\block\inventory\HopperInventory;
+use pocketmine\math\Vector3;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\world\World;
 
 class Hopper extends Spawnable implements Container, Nameable{
 

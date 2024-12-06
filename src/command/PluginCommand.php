@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\command;
+namespace pocketmine\command;
 
-use XPocketMP\command\utils\InvalidCommandSyntaxException;
-use XPocketMP\plugin\Plugin;
-use XPocketMP\plugin\PluginOwned;
+use pocketmine\command\utils\InvalidCommandSyntaxException;
+use pocketmine\plugin\Plugin;
+use pocketmine\plugin\PluginOwned;
 
 final class PluginCommand extends Command implements PluginOwned{
 	public function __construct(

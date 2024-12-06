@@ -13,29 +13,29 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP {
+namespace pocketmine {
 
 	use Composer\InstalledVersions;
-	use XPocketMP\errorhandler\ErrorToExceptionHandler;
-	use XPocketMP\network\mcpe\protocol\ProtocolInfo;
-	use XPocketMP\thread\ThreadManager;
-	use XPocketMP\thread\ThreadSafeClassLoader;
-	use XPocketMP\utils\Filesystem;
-	use XPocketMP\utils\MainLogger;
-	use XPocketMP\utils\Process;
-	use XPocketMP\utils\ServerKiller;
-	use XPocketMP\utils\Terminal;
-	use XPocketMP\utils\Timezone;
-	use XPocketMP\utils\Utils;
-	use XPocketMP\wizard\SetupWizard;
+	use pocketmine\errorhandler\ErrorToExceptionHandler;
+	use pocketmine\network\mcpe\protocol\ProtocolInfo;
+	use pocketmine\thread\ThreadManager;
+	use pocketmine\thread\ThreadSafeClassLoader;
+	use pocketmine\utils\Filesystem;
+	use pocketmine\utils\MainLogger;
+	use pocketmine\utils\Process;
+	use pocketmine\utils\ServerKiller;
+	use pocketmine\utils\Terminal;
+	use pocketmine\utils\Timezone;
+	use pocketmine\utils\Utils;
+	use pocketmine\wizard\SetupWizard;
 	use Symfony\Component\Filesystem\Path;
 	use function count;
 	use function defined;
@@ -113,7 +113,7 @@ use const ZEND_DEBUG_BUILD;
 		}
 
 		$extensions = [
-			"chunkutils2" => "XPocketMP ChunkUtils v2",
+			"chunkutils2" => "PocketMine ChunkUtils v2",
 			"curl" => "cURL",
 			"crypto" => "php-crypto",
 			"ctype" => "ctype",
@@ -175,8 +175,8 @@ use const ZEND_DEBUG_BUILD;
 			}
 		}
 
-		if(extension_loaded("XPocketMP")){
-			$messages[] = "The native XPocketMP extension is no longer supported.";
+		if(extension_loaded("pocketmine")){
+			$messages[] = "The native PocketMine extension is no longer supported.";
 		}
 
 		if(!defined('AF_INET6')){
@@ -281,7 +281,7 @@ JIT_WARNING
 		}
 		require_once($bootstrap);
 
-		$composerGitHash = InstalledVersions::getReference('xpocketmc/XPocketMP');
+		$composerGitHash = InstalledVersions::getReference('xpocketmc/xpocketmp');
 		if($composerGitHash !== null){
 			//we can't verify dependency versions if we were installed without using git
 			$currentGitHash = explode("-", VersionInfo::GIT_HASH())[0];
@@ -395,5 +395,5 @@ JIT_WARNING
 		exit($exitCode);
 	}
 
-	\XPocketMP\server();
+	\pocketmine\server();
 }

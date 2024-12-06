@@ -13,37 +13,37 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author XPocketMP Team
- * @link http://www.xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace XPocketMP\entity\projectile;
+namespace pocketmine\entity\projectile;
 
-use XPocketMPlock\BlockTypeTags;
-use XPocketMPlock\VanillaBlocks;
-use XPocketMP\color\Color;
-use XPocketMP\data\bedrock\PotionTypeIdMap;
-use XPocketMP\entity\effect\EffectInstance;
-use XPocketMP\entity\effect\InstantEffect;
-use XPocketMP\entity\Entity;
-use XPocketMP\entity\Living;
-use XPocketMP\entity\Location;
-use XPocketMP\event\entity\ProjectileHitBlockEvent;
-use XPocketMP\event\entity\ProjectileHitEntityEvent;
-use XPocketMP\event\entity\ProjectileHitEvent;
-use XPocketMP\item\Potion;
-use XPocketMP\item\PotionType;
-use XPocketMP\nbt\tag\CompoundTag;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataCollection;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataFlags;
-use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataProperties;
-use XPocketMP\world\particle\PotionSplashParticle;
-use XPocketMP\world\sound\PotionSplashSound;
+use pocketmine\block\BlockTypeTags;
+use pocketmine\block\VanillaBlocks;
+use pocketmine\color\Color;
+use pocketmine\data\bedrock\PotionTypeIdMap;
+use pocketmine\entity\effect\EffectInstance;
+use pocketmine\entity\effect\InstantEffect;
+use pocketmine\entity\Entity;
+use pocketmine\entity\Living;
+use pocketmine\entity\Location;
+use pocketmine\event\entity\ProjectileHitBlockEvent;
+use pocketmine\event\entity\ProjectileHitEntityEvent;
+use pocketmine\event\entity\ProjectileHitEvent;
+use pocketmine\item\Potion;
+use pocketmine\item\PotionType;
+use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use pocketmine\world\particle\PotionSplashParticle;
+use pocketmine\world\sound\PotionSplashSound;
 use function count;
 use function round;
 use function sqrt;
