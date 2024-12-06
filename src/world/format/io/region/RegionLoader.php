@@ -153,13 +153,13 @@ class RegionLoader{
 
 		/**
 		 * @var int<1, max> $sectorCount
-		 */
+ 		 */
 		 $sectorCount = $this->locationTable[$index]->getSectorCount();
 		 $bytesToRead = $sectorCount << 12;
 
 		/**
 		 * @var int<1, max> $bytesToRead
-		 */
+ 		 */
 		$payload = fread($this->filePointer, $bytesToRead);
 		if($payload === false || strlen($payload) !== $bytesToRead){
 			throw new CorruptedChunkException("Corrupted chunk detected (unexpected EOF, truncated or non-padded chunk found)");

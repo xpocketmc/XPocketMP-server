@@ -58,7 +58,6 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => Ids::CRIMSON_PLANKS,
 			WoodType::WARPED => Ids::WARPED_PLANKS,
 			WoodType::CHERRY => Ids::CHERRY_PLANKS,
-			WoodType::PALE_OAK => Ids::PALE_OAK_PLANKS,
 		});
 	}
 
@@ -74,7 +73,6 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => Ids::CRIMSON_FENCE,
 			WoodType::WARPED => Ids::WARPED_FENCE,
 			WoodType::CHERRY => Ids::CHERRY_FENCE,
-			WoodType::PALE_OAK => Ids::PALE_OAK_FENCE,
 		});
 	}
 
@@ -90,7 +88,6 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => Ids::CRIMSON_SLAB,
 			WoodType::WARPED => Ids::WARPED_SLAB,
 			WoodType::CHERRY => Ids::CHERRY_SLAB,
-			WoodType::PALE_OAK => Ids::PALE_OAK_SLAB,
 		});
 	}
 
@@ -106,7 +103,6 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => Ids::CRIMSON_STEM,
 			WoodType::WARPED => Ids::WARPED_STEM,
 			WoodType::CHERRY => Ids::CHERRY_LOG,
-			WoodType::PALE_OAK => Ids::PALE_OAK_LOG,
 		});
 	}
 
@@ -122,7 +118,6 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => Ids::CRIMSON_HYPHAE,
 			WoodType::WARPED => Ids::WARPED_HYPHAE,
 			WoodType::CHERRY => Ids::CHERRY_WOOD,
-			WoodType::PALE_OAK => Ids::PALE_OAK_WOOD,
 		});
 	}
 
@@ -138,7 +133,6 @@ final class WoodLikeBlockIdHelper{
 			LeavesType::AZALEA => Ids::AZALEA_LEAVES,
 			LeavesType::FLOWERING_AZALEA => Ids::FLOWERING_AZALEA_LEAVES,
 			LeavesType::CHERRY => Ids::CHERRY_LEAVES,
-			LeavesType::PALE_OAK => Ids::PALE_OAK_LEAVES,
 		});
 	}
 
@@ -150,7 +144,6 @@ final class WoodLikeBlockIdHelper{
 			SaplingType::JUNGLE => Ids::JUNGLE_SAPLING,
 			SaplingType::ACACIA => Ids::ACACIA_SAPLING,
 			SaplingType::DARK_OAK => Ids::DARK_OAK_SAPLING,
-			SaplingType::PALE_OAK => Ids::PALE_OAK_SAPLING,
 		});
 	}
 
@@ -175,7 +168,6 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => $make(Ids::CRIMSON_SIGN, Ids::CRIMSON_WALL_SIGN, fn() => VanillaItems::CRIMSON_SIGN()),
 			WoodType::WARPED => $make(Ids::WARPED_SIGN, Ids::WARPED_WALL_SIGN, fn() => VanillaItems::WARPED_SIGN()),
 			WoodType::CHERRY => $make(Ids::CHERRY_SIGN, Ids::CHERRY_WALL_SIGN, fn() => VanillaItems::CHERRY_SIGN()),
-			WoodType::PALE_OAK => $make(Ids::PALE_OAK_SIGN, Ids::PALE_OAK_WALL_SIGN, fn() => VanillaItems::PALE_OAK_SIGN()),
 		};
 	}
 
@@ -191,7 +183,6 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => Ids::CRIMSON_TRAPDOOR,
 			WoodType::WARPED => Ids::WARPED_TRAPDOOR,
 			WoodType::CHERRY => Ids::CHERRY_TRAPDOOR,
-			WoodType::PALE_OAK => Ids::PALE_OAK_TRAPDOOR,
 		});
 	}
 
@@ -207,7 +198,6 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => Ids::CRIMSON_BUTTON,
 			WoodType::WARPED => Ids::WARPED_BUTTON,
 			WoodType::CHERRY => Ids::CHERRY_BUTTON,
-			WoodType::PALE_OAK => Ids::PALE_OAK_BUTTON,
 		});
 	}
 
@@ -223,7 +213,6 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => Ids::CRIMSON_PRESSURE_PLATE,
 			WoodType::WARPED => Ids::WARPED_PRESSURE_PLATE,
 			WoodType::CHERRY => Ids::CHERRY_PRESSURE_PLATE,
-			WoodType::PALE_OAK => Ids::PALE_OAK_PRESSURE_PLATE,
 		});
 	}
 
@@ -239,7 +228,6 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => Ids::CRIMSON_DOOR,
 			WoodType::WARPED => Ids::WARPED_DOOR,
 			WoodType::CHERRY => Ids::CHERRY_DOOR,
-			WoodType::PALE_OAK => Ids::PALE_OAK_DOOR,
 		});
 	}
 
@@ -255,7 +243,6 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => Ids::CRIMSON_FENCE_GATE,
 			WoodType::WARPED => Ids::WARPED_FENCE_GATE,
 			WoodType::CHERRY => Ids::CHERRY_FENCE_GATE,
-			WoodType::PALE_OAK => Ids::PALE_OAK_FENCE_GATE,
 		});
 	}
 
@@ -271,7 +258,6 @@ final class WoodLikeBlockIdHelper{
 			WoodType::CRIMSON => Ids::CRIMSON_STAIRS,
 			WoodType::WARPED => Ids::WARPED_STAIRS,
 			WoodType::CHERRY => Ids::CHERRY_STAIRS,
-			WoodType::PALE_OAK => Ids::PALE_OAK_STAIRS,
 		});
 	}
 }
