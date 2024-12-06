@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item;
+namespace XPocketMP\item;
 
-use pocketmine\block\tile\Banner as TileBanner;
-use pocketmine\block\utils\BannerPatternLayer;
-use pocketmine\block\utils\DyeColor;
-use pocketmine\data\bedrock\BannerPatternTypeIdMap;
-use pocketmine\data\bedrock\DyeColorIdMap;
-use pocketmine\data\runtime\RuntimeDataDescriber;
-use pocketmine\nbt\NBT;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\ListTag;
+use XPocketMPlock\tile\Banner as TileBanner;
+use XPocketMPlock\utils\BannerPatternLayer;
+use XPocketMPlock\utils\DyeColor;
+use XPocketMP\data\bedrock\BannerPatternTypeIdMap;
+use XPocketMP\data\bedrock\DyeColorIdMap;
+use XPocketMP\data\runtime\RuntimeDataDescriber;
+use XPocketMP\nbt\NBT;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\tag\ListTag;
 use function count;
 
 class Banner extends ItemBlockWallOrFloor{

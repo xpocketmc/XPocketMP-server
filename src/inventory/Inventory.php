@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -24,11 +24,11 @@ declare(strict_types=1);
 /**
  * Handles the creation of virtual inventories or mapped to an InventoryHolder
  */
-namespace pocketmine\inventory;
+namespace XPocketMP\inventory;
 
-use pocketmine\item\Item;
-use pocketmine\player\Player;
-use pocketmine\utils\ObjectSet;
+use XPocketMP\item\Item;
+use XPocketMP\player\Player;
+use XPocketMP\utils\ObjectSet;
 
 interface Inventory{
 	public const MAX_STACK = 64;

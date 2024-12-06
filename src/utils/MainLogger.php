@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\utils;
+namespace XPocketMP\utils;
 
 use pmmp\thread\Thread as NativeThread;
-use pocketmine\thread\log\AttachableThreadSafeLogger;
-use pocketmine\thread\log\ThreadSafeLoggerAttachment;
-use pocketmine\thread\Thread;
-use pocketmine\thread\Worker;
+use XPocketMP\thread\log\AttachableThreadSafeLogger;
+use XPocketMP\thread\log\ThreadSafeLoggerAttachment;
+use XPocketMP\thread\Thread;
+use XPocketMP\thread\Worker;
 use function implode;
 use function sprintf;
 use const PHP_EOL;

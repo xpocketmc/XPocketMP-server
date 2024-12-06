@@ -13,44 +13,44 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\convert;
+namespace XPocketMP\network\mcpe\convert;
 
-use pocketmine\block\VanillaBlocks;
-use pocketmine\crafting\ExactRecipeIngredient;
-use pocketmine\crafting\MetaWildcardRecipeIngredient;
-use pocketmine\crafting\RecipeIngredient;
-use pocketmine\crafting\TagWildcardRecipeIngredient;
-use pocketmine\data\bedrock\BedrockDataFiles;
-use pocketmine\data\bedrock\item\BlockItemIdMap;
-use pocketmine\data\bedrock\item\ItemTypeNames;
-use pocketmine\item\Item;
-use pocketmine\item\VanillaItems;
-use pocketmine\nbt\NbtException;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\network\mcpe\protocol\serializer\ItemTypeDictionary;
-use pocketmine\network\mcpe\protocol\serializer\PacketSerializer;
-use pocketmine\network\mcpe\protocol\types\GameMode as ProtocolGameMode;
-use pocketmine\network\mcpe\protocol\types\inventory\ItemStack;
-use pocketmine\network\mcpe\protocol\types\inventory\ItemStackExtraData;
-use pocketmine\network\mcpe\protocol\types\inventory\ItemStackExtraDataShield;
-use pocketmine\network\mcpe\protocol\types\recipe\IntIdMetaItemDescriptor;
-use pocketmine\network\mcpe\protocol\types\recipe\RecipeIngredient as ProtocolRecipeIngredient;
-use pocketmine\network\mcpe\protocol\types\recipe\StringIdMetaItemDescriptor;
-use pocketmine\network\mcpe\protocol\types\recipe\TagItemDescriptor;
-use pocketmine\player\GameMode;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\utils\Filesystem;
-use pocketmine\utils\SingletonTrait;
-use pocketmine\world\format\io\GlobalBlockStateHandlers;
-use pocketmine\world\format\io\GlobalItemDataHandlers;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\crafting\ExactRecipeIngredient;
+use XPocketMP\crafting\MetaWildcardRecipeIngredient;
+use XPocketMP\crafting\RecipeIngredient;
+use XPocketMP\crafting\TagWildcardRecipeIngredient;
+use XPocketMP\data\bedrock\BedrockDataFiles;
+use XPocketMP\data\bedrock\item\BlockItemIdMap;
+use XPocketMP\data\bedrock\item\ItemTypeNames;
+use XPocketMP\item\Item;
+use XPocketMP\item\VanillaItems;
+use XPocketMP\nbt\NbtException;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\network\mcpe\protocol\serializer\ItemTypeDictionary;
+use XPocketMP\network\mcpe\protocol\serializer\PacketSerializer;
+use XPocketMP\network\mcpe\protocol\types\GameMode as ProtocolGameMode;
+use XPocketMP\network\mcpe\protocol\types\inventory\ItemStack;
+use XPocketMP\network\mcpe\protocol\types\inventory\ItemStackExtraData;
+use XPocketMP\network\mcpe\protocol\types\inventory\ItemStackExtraDataShield;
+use XPocketMP\network\mcpe\protocol\types\recipe\IntIdMetaItemDescriptor;
+use XPocketMP\network\mcpe\protocol\types\recipe\RecipeIngredient as ProtocolRecipeIngredient;
+use XPocketMP\network\mcpe\protocol\types\recipe\StringIdMetaItemDescriptor;
+use XPocketMP\network\mcpe\protocol\types\recipe\TagItemDescriptor;
+use XPocketMP\player\GameMode;
+use XPocketMP\utils\AssumptionFailedError;
+use XPocketMP\utils\Filesystem;
+use XPocketMP\utils\SingletonTrait;
+use XPocketMP\world\format\io\GlobalBlockStateHandlers;
+use XPocketMP\world\format\io\GlobalItemDataHandlers;
 use function get_class;
 
 class TypeConverter{

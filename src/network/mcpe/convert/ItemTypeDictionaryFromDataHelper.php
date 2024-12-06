@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\convert;
+namespace XPocketMP\network\mcpe\convert;
 
-use pocketmine\network\mcpe\protocol\serializer\ItemTypeDictionary;
-use pocketmine\network\mcpe\protocol\types\ItemTypeEntry;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\utils\Utils;
+use XPocketMP\network\mcpe\protocol\serializer\ItemTypeDictionary;
+use XPocketMP\network\mcpe\protocol\types\ItemTypeEntry;
+use XPocketMP\utils\AssumptionFailedError;
+use XPocketMP\utils\Utils;
 use function is_array;
 use function is_bool;
 use function is_int;

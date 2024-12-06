@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\convert;
+namespace XPocketMP\network\mcpe\convert;
 
 /**
  * Thrown by TypeConverter if a problem occurred during converting of network types to PM core types (e.g. invalid item

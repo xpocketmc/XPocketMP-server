@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity;
+namespace XPocketMP\entity;
 
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\event\entity\EntityRegainHealthEvent;
-use pocketmine\event\player\PlayerExhaustEvent;
-use pocketmine\world\World;
+use XPocketMP\event\entity\EntityDamageEvent;
+use XPocketMP\event\entity\EntityRegainHealthEvent;
+use XPocketMP\event\player\PlayerExhaustEvent;
+use XPocketMP\world\World;
 use function max;
 use function min;
 

@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\player;
+namespace XPocketMP\event\player;
 
-use pocketmine\event\Event;
-use pocketmine\lang\Translatable;
-use pocketmine\player\PlayerInfo;
+use XPocketMP\event\Event;
+use XPocketMP\lang\Translatable;
+use XPocketMP\player\PlayerInfo;
 use function array_keys;
 use function count;
 

@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -24,7 +24,7 @@ declare(strict_types=1);
 /**
  * Network-related classes
  */
-namespace pocketmine\network;
+namespace XPocketMP\network;
 
 /**
  * Network interfaces are transport layers which can be used to transmit packets between the server and clients.

@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\format\io\region;
+namespace xpocketmp\world\format\io\region;
 
 use PHPUnit\Framework\TestCase;
 use function sprintf;

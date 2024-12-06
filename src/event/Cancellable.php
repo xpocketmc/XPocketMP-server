@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event;
+namespace XPocketMP\event;
 
 /**
  * This interface is implemented by an Event subclass if and only if it can be cancelled.

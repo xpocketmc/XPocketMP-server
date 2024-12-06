@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\runtime;
+namespace XPocketMP\data\runtime;
 
 /**
  * Provides backwards-compatible shims for the old codegen'd enum describer methods.
@@ -31,59 +31,59 @@ namespace pocketmine\data\runtime;
 trait LegacyRuntimeEnumDescriberTrait{
 	abstract protected function enum(\UnitEnum &$case) : void;
 
-	public function bellAttachmentType(\pocketmine\block\utils\BellAttachmentType &$value) : void{
+	public function bellAttachmentType(\XPocketMPlock\utils\BellAttachmentType &$value) : void{
 		$this->enum($value);
 	}
 
-	public function copperOxidation(\pocketmine\block\utils\CopperOxidation &$value) : void{
+	public function copperOxidation(\XPocketMPlock\utils\CopperOxidation &$value) : void{
 		$this->enum($value);
 	}
 
-	public function coralType(\pocketmine\block\utils\CoralType &$value) : void{
+	public function coralType(\XPocketMPlock\utils\CoralType &$value) : void{
 		$this->enum($value);
 	}
 
-	public function dirtType(\pocketmine\block\utils\DirtType &$value) : void{
+	public function dirtType(\XPocketMPlock\utils\DirtType &$value) : void{
 		$this->enum($value);
 	}
 
-	public function dripleafState(\pocketmine\block\utils\DripleafState &$value) : void{
+	public function dripleafState(\XPocketMPlock\utils\DripleafState &$value) : void{
 		$this->enum($value);
 	}
 
-	public function dyeColor(\pocketmine\block\utils\DyeColor &$value) : void{
+	public function dyeColor(\XPocketMPlock\utils\DyeColor &$value) : void{
 		$this->enum($value);
 	}
 
-	public function froglightType(\pocketmine\block\utils\FroglightType &$value) : void{
+	public function froglightType(\XPocketMPlock\utils\FroglightType &$value) : void{
 		$this->enum($value);
 	}
 
-	public function leverFacing(\pocketmine\block\utils\LeverFacing &$value) : void{
+	public function leverFacing(\XPocketMPlock\utils\LeverFacing &$value) : void{
 		$this->enum($value);
 	}
 
-	public function medicineType(\pocketmine\item\MedicineType &$value) : void{
+	public function medicineType(\XPocketMP\item\MedicineType &$value) : void{
 		$this->enum($value);
 	}
 
-	public function mobHeadType(\pocketmine\block\utils\MobHeadType &$value) : void{
+	public function mobHeadType(\XPocketMPlock\utils\MobHeadType &$value) : void{
 		$this->enum($value);
 	}
 
-	public function mushroomBlockType(\pocketmine\block\utils\MushroomBlockType &$value) : void{
+	public function mushroomBlockType(\XPocketMPlock\utils\MushroomBlockType &$value) : void{
 		$this->enum($value);
 	}
 
-	public function potionType(\pocketmine\item\PotionType &$value) : void{
+	public function potionType(\XPocketMP\item\PotionType &$value) : void{
 		$this->enum($value);
 	}
 
-	public function slabType(\pocketmine\block\utils\SlabType &$value) : void{
+	public function slabType(\XPocketMPlock\utils\SlabType &$value) : void{
 		$this->enum($value);
 	}
 
-	public function suspiciousStewType(\pocketmine\item\SuspiciousStewType &$value) : void{
+	public function suspiciousStewType(\XPocketMP\item\SuspiciousStewType &$value) : void{
 		$this->enum($value);
 	}
 }

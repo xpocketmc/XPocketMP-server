@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\inventory\transaction\action\validator;
+namespace XPocketMP\inventory\transaction\action\validator;
 
-use pocketmine\inventory\Inventory;
-use pocketmine\inventory\transaction\TransactionValidationException;
-use pocketmine\item\Item;
+use XPocketMP\inventory\Inventory;
+use XPocketMP\inventory\transaction\TransactionValidationException;
+use XPocketMP\item\Item;
 
 /**
  * Validates a slot placement in an inventory.

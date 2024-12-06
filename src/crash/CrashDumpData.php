@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\crash;
+namespace XPocketMP\crash;
 
 final class CrashDumpData implements \JsonSerializable{
 
@@ -66,7 +66,7 @@ final class CrashDumpData implements \JsonSerializable{
 
 	public string $serverDotProperties = "";
 
-	public string $pocketmineDotYml = "";
+	public string $XPocketMPDotYml = "";
 
 	/**
 	 * @var string[]
@@ -86,8 +86,8 @@ final class CrashDumpData implements \JsonSerializable{
 	public function jsonSerialize() : array{
 		$result = (array) $this;
 		unset($result["serverDotProperties"]);
-		unset($result["pocketmineDotYml"]);
-		$result["pocketmine.yml"] = $this->pocketmineDotYml;
+		unset($result["XPocketMPDotYml"]);
+		$result["xpocketmp.yml"] = $this->XPocketMPDotYml;
 		$result["server.properties"] = $this->serverDotProperties;
 		return $result;
 	}

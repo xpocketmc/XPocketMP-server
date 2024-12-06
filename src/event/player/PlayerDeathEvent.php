@@ -13,27 +13,27 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\player;
+namespace XPocketMP\event\player;
 
-use pocketmine\block\BlockTypeIds;
-use pocketmine\entity\Living;
-use pocketmine\entity\object\FallingBlock;
-use pocketmine\event\entity\EntityDamageByBlockEvent;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\event\entity\EntityDeathEvent;
-use pocketmine\item\Item;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\lang\Translatable;
-use pocketmine\player\Player;
+use XPocketMPlock\BlockTypeIds;
+use XPocketMP\entity\Living;
+use XPocketMP\entity\object\FallingBlock;
+use XPocketMP\event\entity\EntityDamageByBlockEvent;
+use XPocketMP\event\entity\EntityDamageByEntityEvent;
+use XPocketMP\event\entity\EntityDamageEvent;
+use XPocketMP\event\entity\EntityDeathEvent;
+use XPocketMP\item\Item;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\lang\Translatable;
+use XPocketMP\player\Player;
 
 class PlayerDeathEvent extends EntityDeathEvent{
 	protected Player $player;

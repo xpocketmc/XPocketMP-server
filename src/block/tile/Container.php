@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\tile;
+namespace XPocketMPlock\tile;
 
-use pocketmine\inventory\Inventory;
-use pocketmine\inventory\InventoryHolder;
+use XPocketMP\inventory\Inventory;
+use XPocketMP\inventory\InventoryHolder;
 
 interface Container extends InventoryHolder{
 	public const TAG_ITEMS = "Items";

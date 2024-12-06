@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\entity\Entity;
-use pocketmine\entity\Living;
-use pocketmine\event\entity\EntityDamageByBlockEvent;
-use pocketmine\event\entity\EntityDamageEvent;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\Living;
+use XPocketMP\event\entity\EntityDamageByBlockEvent;
+use XPocketMP\event\entity\EntityDamageEvent;
 
 class Magma extends Opaque{
 

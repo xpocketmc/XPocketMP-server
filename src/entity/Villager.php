@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity;
+namespace XPocketMP\entity;
 
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataCollection;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataFlags;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataProperties;
 
 class Villager extends Living implements Ageable{
 	public const PROFESSION_FARMER = 0;

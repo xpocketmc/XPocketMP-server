@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity\effect;
+namespace XPocketMP\entity\effect;
 
-use pocketmine\entity\Entity;
-use pocketmine\entity\Human;
-use pocketmine\entity\Living;
-use pocketmine\event\player\PlayerExhaustEvent;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\Human;
+use XPocketMP\entity\Living;
+use XPocketMP\event\player\PlayerExhaustEvent;
 
 class HungerEffect extends Effect{
 

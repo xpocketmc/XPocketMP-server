@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\tools\decode_crashdump;
+namespace xpocketmp\tools\decode_crashdump;
 
 use function array_pop;
 use function array_slice;

@@ -13,44 +13,44 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\format\io\leveldb;
+namespace XPocketMP\world\format\io\leveldb;
 
-use pocketmine\block\Block;
-use pocketmine\data\bedrock\BiomeIds;
-use pocketmine\data\bedrock\block\BlockStateDeserializeException;
-use pocketmine\data\bedrock\block\convert\UnsupportedBlockStateException;
-use pocketmine\nbt\LittleEndianNbtSerializer;
-use pocketmine\nbt\NBT;
-use pocketmine\nbt\NbtDataException;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\TreeRoot;
-use pocketmine\utils\Binary;
-use pocketmine\utils\BinaryDataException;
-use pocketmine\utils\BinaryStream;
-use pocketmine\VersionInfo;
-use pocketmine\world\format\Chunk;
-use pocketmine\world\format\io\BaseWorldProvider;
-use pocketmine\world\format\io\ChunkData;
-use pocketmine\world\format\io\ChunkUtils;
-use pocketmine\world\format\io\data\BedrockWorldData;
-use pocketmine\world\format\io\exception\CorruptedChunkException;
-use pocketmine\world\format\io\exception\CorruptedWorldException;
-use pocketmine\world\format\io\exception\UnsupportedWorldFormatException;
-use pocketmine\world\format\io\GlobalBlockStateHandlers;
-use pocketmine\world\format\io\LoadedChunkData;
-use pocketmine\world\format\io\WorldData;
-use pocketmine\world\format\io\WritableWorldProvider;
-use pocketmine\world\format\PalettedBlockArray;
-use pocketmine\world\format\SubChunk;
-use pocketmine\world\WorldCreationOptions;
+use XPocketMPlock\Block;
+use XPocketMP\data\bedrock\BiomeIds;
+use XPocketMP\data\bedrock\block\BlockStateDeserializeException;
+use XPocketMP\data\bedrock\block\convert\UnsupportedBlockStateException;
+use XPocketMP\nbt\LittleEndianNbtSerializer;
+use XPocketMP\nbt\NBT;
+use XPocketMP\nbt\NbtDataException;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\TreeRoot;
+use XPocketMP\utils\Binary;
+use XPocketMP\utils\BinaryDataException;
+use XPocketMP\utils\BinaryStream;
+use XPocketMP\VersionInfo;
+use XPocketMP\world\format\Chunk;
+use XPocketMP\world\format\io\BaseWorldProvider;
+use XPocketMP\world\format\io\ChunkData;
+use XPocketMP\world\format\io\ChunkUtils;
+use XPocketMP\world\format\io\data\BedrockWorldData;
+use XPocketMP\world\format\io\exception\CorruptedChunkException;
+use XPocketMP\world\format\io\exception\CorruptedWorldException;
+use XPocketMP\world\format\io\exception\UnsupportedWorldFormatException;
+use XPocketMP\world\format\io\GlobalBlockStateHandlers;
+use XPocketMP\world\format\io\LoadedChunkData;
+use XPocketMP\world\format\io\WorldData;
+use XPocketMP\world\format\io\WritableWorldProvider;
+use XPocketMP\world\format\PalettedBlockArray;
+use XPocketMP\world\format\SubChunk;
+use XPocketMP\world\WorldCreationOptions;
 use Symfony\Component\Filesystem\Path;
 use function array_map;
 use function array_values;
@@ -169,7 +169,7 @@ class LevelDB extends BaseWorldProvider implements WritableWorldProvider{
 			 *
 			 * References:
 			 * - https://github.com/Refaltor77/CustomItemAPI/issues/68
-			 * - https://github.com/pmmp/PocketMine-MP/issues/5911
+			 * - https://github.com/pmmp/XPocketMP-MP/issues/5911
 			 */
 			$offset = $stream->getOffset();
 			$byte1 = $stream->getByte();

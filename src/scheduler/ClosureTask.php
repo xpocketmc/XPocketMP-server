@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\scheduler;
+namespace XPocketMP\scheduler;
 
 use DaveRandom\CallbackValidator\CallbackType;
 use DaveRandom\CallbackValidator\ReturnType;
-use pocketmine\utils\Utils;
+use XPocketMP\utils\Utils;
 
 /**
  * Task implementation which allows closures to be called by a scheduler.

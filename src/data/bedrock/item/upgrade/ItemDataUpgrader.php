@@ -13,31 +13,31 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\item\upgrade;
+namespace XPocketMP\data\bedrock\item\upgrade;
 
-use pocketmine\data\bedrock\block\BlockStateDeserializeException;
-use pocketmine\data\bedrock\block\upgrade\BlockDataUpgrader;
-use pocketmine\data\bedrock\item\BlockItemIdMap;
-use pocketmine\data\bedrock\item\SavedItemData;
-use pocketmine\data\bedrock\item\SavedItemStackData;
-use pocketmine\data\SavedDataLoadingException;
-use pocketmine\nbt\NBT;
-use pocketmine\nbt\NbtException;
-use pocketmine\nbt\tag\ByteTag;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\ListTag;
-use pocketmine\nbt\tag\ShortTag;
-use pocketmine\nbt\tag\StringTag;
-use pocketmine\network\mcpe\convert\BlockStateDictionary;
-use pocketmine\utils\Binary;
+use XPocketMP\data\bedrock\block\BlockStateDeserializeException;
+use XPocketMP\data\bedrock\block\upgrade\BlockDataUpgrader;
+use XPocketMP\data\bedrock\item\BlockItemIdMap;
+use XPocketMP\data\bedrock\item\SavedItemData;
+use XPocketMP\data\bedrock\item\SavedItemStackData;
+use XPocketMP\data\SavedDataLoadingException;
+use XPocketMP\nbt\NBT;
+use XPocketMP\nbt\NbtException;
+use XPocketMP\nbt\tag\ByteTag;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\tag\ListTag;
+use XPocketMP\nbt\tag\ShortTag;
+use XPocketMP\nbt\tag\StringTag;
+use XPocketMP\network\mcpe\convert\BlockStateDictionary;
+use XPocketMP\utils\Binary;
 use function assert;
 
 final class ItemDataUpgrader{
@@ -56,7 +56,7 @@ final class ItemDataUpgrader{
 	 * This function replaces the legacy ItemFactory::get().
 	 *
 	 * Unlike ItemFactory::get(), it returns a SavedItemStackData which you can do with as you please.
-	 * If you want to deserialize it into a PocketMine-MP itemstack, pass it to the ItemDeserializer.
+	 * If you want to deserialize it into a XPocketMP-MP itemstack, pass it to the ItemDeserializer.
 	 *
 	 * @see ItemDataUpgrader::upgradeItemTypeDataInt()
 	 */

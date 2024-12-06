@@ -13,27 +13,27 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\tile;
+namespace XPocketMPlock\tile;
 
-use pocketmine\item\Item;
-use pocketmine\item\VanillaItems;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\FloatTag;
-use pocketmine\network\mcpe\convert\TypeConverter;
-use pocketmine\world\World;
+use XPocketMP\item\Item;
+use XPocketMP\item\VanillaItems;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\tag\FloatTag;
+use XPocketMP\network\mcpe\convert\TypeConverter;
+use XPocketMP\world\World;
 
 /**
  * @deprecated
- * @see \pocketmine\block\ItemFrame
+ * @see \XPocketMPlock\ItemFrame
  */
 class ItemFrame extends Spawnable{
 	public const TAG_ITEM_ROTATION = "ItemRotation";

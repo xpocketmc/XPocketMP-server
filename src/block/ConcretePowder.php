@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\BlockEventHelper;
-use pocketmine\block\utils\ColoredTrait;
-use pocketmine\block\utils\Fallable;
-use pocketmine\block\utils\FallableTrait;
-use pocketmine\math\Facing;
+use XPocketMPlock\utils\BlockEventHelper;
+use XPocketMPlock\utils\ColoredTrait;
+use XPocketMPlock\utils\Fallable;
+use XPocketMPlock\utils\FallableTrait;
+use XPocketMP\math\Facing;
 
 class ConcretePowder extends Opaque implements Fallable{
 	use ColoredTrait;

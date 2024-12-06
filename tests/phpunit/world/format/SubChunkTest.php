@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\format;
+namespace xpocketmp\world\format;
 
 use PHPUnit\Framework\TestCase;
-use pocketmine\data\bedrock\BiomeIds;
+use xpocketmp\data\bedrock\BiomeIds;
 
 class SubChunkTest extends TestCase{
 

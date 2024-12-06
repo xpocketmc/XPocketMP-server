@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\convert;
+namespace XPocketMP\network\mcpe\convert;
 
-use pocketmine\data\bedrock\block\BlockStateData;
-use pocketmine\nbt\LittleEndianNbtSerializer;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\Tag;
-use pocketmine\nbt\TreeRoot;
-use pocketmine\utils\Utils;
+use XPocketMP\data\bedrock\block\BlockStateData;
+use XPocketMP\nbt\LittleEndianNbtSerializer;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\tag\Tag;
+use XPocketMP\nbt\TreeRoot;
+use XPocketMP\utils\Utils;
 use function count;
 use function ksort;
 use const SORT_STRING;

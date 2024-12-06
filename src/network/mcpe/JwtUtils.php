@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe;
+namespace XPocketMP\network\mcpe;
 
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\utils\BinaryStream;
-use pocketmine\utils\Utils;
+use XPocketMP\utils\AssumptionFailedError;
+use XPocketMP\utils\BinaryStream;
+use XPocketMP\utils\Utils;
 use function base64_decode;
 use function base64_encode;
 use function bin2hex;

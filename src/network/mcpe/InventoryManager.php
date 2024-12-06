@@ -13,57 +13,57 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe;
+namespace XPocketMP\network\mcpe;
 
-use pocketmine\block\inventory\AnvilInventory;
-use pocketmine\block\inventory\BlockInventory;
-use pocketmine\block\inventory\BrewingStandInventory;
-use pocketmine\block\inventory\CartographyTableInventory;
-use pocketmine\block\inventory\CraftingTableInventory;
-use pocketmine\block\inventory\EnchantInventory;
-use pocketmine\block\inventory\FurnaceInventory;
-use pocketmine\block\inventory\HopperInventory;
-use pocketmine\block\inventory\LoomInventory;
-use pocketmine\block\inventory\SmithingTableInventory;
-use pocketmine\block\inventory\StonecutterInventory;
-use pocketmine\crafting\FurnaceType;
-use pocketmine\data\bedrock\EnchantmentIdMap;
-use pocketmine\inventory\Inventory;
-use pocketmine\inventory\transaction\action\SlotChangeAction;
-use pocketmine\inventory\transaction\InventoryTransaction;
-use pocketmine\item\enchantment\EnchantingOption;
-use pocketmine\item\enchantment\EnchantmentInstance;
-use pocketmine\network\mcpe\cache\CreativeInventoryCache;
-use pocketmine\network\mcpe\protocol\ClientboundPacket;
-use pocketmine\network\mcpe\protocol\ContainerClosePacket;
-use pocketmine\network\mcpe\protocol\ContainerOpenPacket;
-use pocketmine\network\mcpe\protocol\ContainerSetDataPacket;
-use pocketmine\network\mcpe\protocol\InventoryContentPacket;
-use pocketmine\network\mcpe\protocol\InventorySlotPacket;
-use pocketmine\network\mcpe\protocol\MobEquipmentPacket;
-use pocketmine\network\mcpe\protocol\PlayerEnchantOptionsPacket;
-use pocketmine\network\mcpe\protocol\types\BlockPosition;
-use pocketmine\network\mcpe\protocol\types\Enchant;
-use pocketmine\network\mcpe\protocol\types\EnchantOption as ProtocolEnchantOption;
-use pocketmine\network\mcpe\protocol\types\inventory\ContainerIds;
-use pocketmine\network\mcpe\protocol\types\inventory\FullContainerName;
-use pocketmine\network\mcpe\protocol\types\inventory\ItemStack;
-use pocketmine\network\mcpe\protocol\types\inventory\ItemStackWrapper;
-use pocketmine\network\mcpe\protocol\types\inventory\NetworkInventoryAction;
-use pocketmine\network\mcpe\protocol\types\inventory\UIInventorySlotOffset;
-use pocketmine\network\mcpe\protocol\types\inventory\WindowTypes;
-use pocketmine\network\PacketHandlingException;
-use pocketmine\player\Player;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\utils\ObjectSet;
+use XPocketMPlock\inventory\AnvilInventory;
+use XPocketMPlock\inventory\BlockInventory;
+use XPocketMPlock\inventory\BrewingStandInventory;
+use XPocketMPlock\inventory\CartographyTableInventory;
+use XPocketMPlock\inventory\CraftingTableInventory;
+use XPocketMPlock\inventory\EnchantInventory;
+use XPocketMPlock\inventory\FurnaceInventory;
+use XPocketMPlock\inventory\HopperInventory;
+use XPocketMPlock\inventory\LoomInventory;
+use XPocketMPlock\inventory\SmithingTableInventory;
+use XPocketMPlock\inventory\StonecutterInventory;
+use XPocketMP\crafting\FurnaceType;
+use XPocketMP\data\bedrock\EnchantmentIdMap;
+use XPocketMP\inventory\Inventory;
+use XPocketMP\inventory\transaction\action\SlotChangeAction;
+use XPocketMP\inventory\transaction\InventoryTransaction;
+use XPocketMP\item\enchantment\EnchantingOption;
+use XPocketMP\item\enchantment\EnchantmentInstance;
+use XPocketMP\network\mcpe\cache\CreativeInventoryCache;
+use XPocketMP\network\mcpe\protocol\ClientboundPacket;
+use XPocketMP\network\mcpe\protocol\ContainerClosePacket;
+use XPocketMP\network\mcpe\protocol\ContainerOpenPacket;
+use XPocketMP\network\mcpe\protocol\ContainerSetDataPacket;
+use XPocketMP\network\mcpe\protocol\InventoryContentPacket;
+use XPocketMP\network\mcpe\protocol\InventorySlotPacket;
+use XPocketMP\network\mcpe\protocol\MobEquipmentPacket;
+use XPocketMP\network\mcpe\protocol\PlayerEnchantOptionsPacket;
+use XPocketMP\network\mcpe\protocol\types\BlockPosition;
+use XPocketMP\network\mcpe\protocol\types\Enchant;
+use XPocketMP\network\mcpe\protocol\types\EnchantOption as ProtocolEnchantOption;
+use XPocketMP\network\mcpe\protocol\types\inventory\ContainerIds;
+use XPocketMP\network\mcpe\protocol\types\inventory\FullContainerName;
+use XPocketMP\network\mcpe\protocol\types\inventory\ItemStack;
+use XPocketMP\network\mcpe\protocol\types\inventory\ItemStackWrapper;
+use XPocketMP\network\mcpe\protocol\types\inventory\NetworkInventoryAction;
+use XPocketMP\network\mcpe\protocol\types\inventory\UIInventorySlotOffset;
+use XPocketMP\network\mcpe\protocol\types\inventory\WindowTypes;
+use XPocketMP\network\PacketHandlingException;
+use XPocketMP\player\Player;
+use XPocketMP\utils\AssumptionFailedError;
+use XPocketMP\utils\ObjectSet;
 use function array_fill_keys;
 use function array_keys;
 use function array_map;

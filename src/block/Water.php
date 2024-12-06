@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\entity\Entity;
-use pocketmine\world\sound\BucketEmptyWaterSound;
-use pocketmine\world\sound\BucketFillWaterSound;
-use pocketmine\world\sound\Sound;
+use XPocketMP\entity\Entity;
+use XPocketMP\world\sound\BucketEmptyWaterSound;
+use XPocketMP\world\sound\BucketFillWaterSound;
+use XPocketMP\world\sound\Sound;
 
 class Water extends Liquid{
 

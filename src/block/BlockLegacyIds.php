@@ -1,6 +1,6 @@
 <?php
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
 class BlockLegacyIds {
 

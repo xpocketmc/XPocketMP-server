@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\cache;
+namespace XPocketMP\network\mcpe\cache;
 
-use pocketmine\inventory\CreativeInventory;
-use pocketmine\network\mcpe\convert\TypeConverter;
-use pocketmine\network\mcpe\protocol\CreativeContentPacket;
-use pocketmine\network\mcpe\protocol\types\inventory\CreativeContentEntry;
-use pocketmine\utils\SingletonTrait;
+use XPocketMP\inventory\CreativeInventory;
+use XPocketMP\network\mcpe\convert\TypeConverter;
+use XPocketMP\network\mcpe\protocol\CreativeContentPacket;
+use XPocketMP\network\mcpe\protocol\types\inventory\CreativeContentEntry;
+use XPocketMP\utils\SingletonTrait;
 use function spl_object_id;
 
 final class CreativeInventoryCache{

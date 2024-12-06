@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world;
+namespace XPocketMP\world;
 
-use pocketmine\block\Block;
-use pocketmine\block\RuntimeBlockStateRegistry;
-use pocketmine\block\VanillaBlocks;
-use pocketmine\utils\Limits;
-use pocketmine\world\format\Chunk;
+use XPocketMPlock\Block;
+use XPocketMPlock\RuntimeBlockStateRegistry;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\utils\Limits;
+use XPocketMP\world\format\Chunk;
 
 class SimpleChunkManager implements ChunkManager{
 

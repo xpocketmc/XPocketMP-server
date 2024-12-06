@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world;
+namespace XPocketMP\world;
 
-use pocketmine\utils\NotCloneable;
-use pocketmine\utils\NotSerializable;
+use XPocketMP\utils\NotCloneable;
+use XPocketMP\utils\NotSerializable;
 
 /**
  * Represents a unique lock ID for use with World chunk locking.

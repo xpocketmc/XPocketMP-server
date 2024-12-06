@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\inventory;
+namespace XPocketMPlock\inventory;
 
-use pocketmine\inventory\SimpleInventory;
-use pocketmine\network\mcpe\protocol\BlockEventPacket;
-use pocketmine\network\mcpe\protocol\types\BlockPosition;
-use pocketmine\world\Position;
-use pocketmine\world\sound\ChestCloseSound;
-use pocketmine\world\sound\ChestOpenSound;
-use pocketmine\world\sound\Sound;
+use XPocketMP\inventory\SimpleInventory;
+use XPocketMP\network\mcpe\protocol\BlockEventPacket;
+use XPocketMP\network\mcpe\protocol\types\BlockPosition;
+use XPocketMP\world\Position;
+use XPocketMP\world\sound\ChestCloseSound;
+use XPocketMP\world\sound\ChestOpenSound;
+use XPocketMP\world\sound\Sound;
 
 class ChestInventory extends SimpleInventory implements BlockInventory{
 	use AnimatedBlockInventoryTrait;

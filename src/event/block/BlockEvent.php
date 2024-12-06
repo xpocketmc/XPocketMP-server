@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -24,10 +24,10 @@ declare(strict_types=1);
 /**
  * Block related events
  */
-namespace pocketmine\event\block;
+namespace XPocketMP\event\block;
 
-use pocketmine\block\Block;
-use pocketmine\event\Event;
+use XPocketMPlock\Block;
+use XPocketMP\event\Event;
 
 abstract class BlockEvent extends Event{
 	public function __construct(

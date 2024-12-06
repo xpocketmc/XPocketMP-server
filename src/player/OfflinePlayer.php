@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\player;
+namespace XPocketMP\player;
 
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\LongTag;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\tag\LongTag;
 
 class OfflinePlayer implements IPlayer{
 	public function __construct(

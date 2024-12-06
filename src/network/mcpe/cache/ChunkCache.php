@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\cache;
+namespace XPocketMP\network\mcpe\cache;
 
-use pocketmine\math\Vector3;
-use pocketmine\network\mcpe\ChunkRequestTask;
-use pocketmine\network\mcpe\compression\CompressBatchPromise;
-use pocketmine\network\mcpe\compression\Compressor;
-use pocketmine\network\mcpe\protocol\types\DimensionIds;
-use pocketmine\world\ChunkListener;
-use pocketmine\world\ChunkListenerNoOpTrait;
-use pocketmine\world\format\Chunk;
-use pocketmine\world\World;
+use XPocketMP\math\Vector3;
+use XPocketMP\network\mcpe\ChunkRequestTask;
+use XPocketMP\network\mcpe\compression\CompressBatchPromise;
+use XPocketMP\network\mcpe\compression\Compressor;
+use XPocketMP\network\mcpe\protocol\types\DimensionIds;
+use XPocketMP\world\ChunkListener;
+use XPocketMP\world\ChunkListenerNoOpTrait;
+use XPocketMP\world\format\Chunk;
+use XPocketMP\world\World;
 use function spl_object_id;
 use function strlen;
 

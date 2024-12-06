@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\crafting;
+namespace XPocketMP\crafting;
 
-use pocketmine\data\bedrock\ItemTagToIdMap;
-use pocketmine\item\Item;
-use pocketmine\world\format\io\GlobalItemDataHandlers;
+use XPocketMP\data\bedrock\ItemTagToIdMap;
+use XPocketMP\item\Item;
+use XPocketMP\world\format\io\GlobalItemDataHandlers;
 
 /**
  * Recipe ingredient that matches items whose ID falls within a specific set. This is used for magic meta value

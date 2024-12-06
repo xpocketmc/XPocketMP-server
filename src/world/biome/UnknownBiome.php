@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\biome;
+namespace XPocketMP\world\biome;
 
 /**
- * Polyfill class for biomes that are unknown to PocketMine-MP
+ * Polyfill class for biomes that are unknown to XPocketMP-MP
  */
 class UnknownBiome extends Biome{
 

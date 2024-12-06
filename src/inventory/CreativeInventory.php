@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\inventory;
+namespace XPocketMP\inventory;
 
-use pocketmine\crafting\CraftingManagerFromDataHelper;
-use pocketmine\crafting\json\ItemStackData;
-use pocketmine\data\bedrock\BedrockDataFiles;
-use pocketmine\item\Item;
-use pocketmine\utils\DestructorCallbackTrait;
-use pocketmine\utils\ObjectSet;
-use pocketmine\utils\SingletonTrait;
-use pocketmine\utils\Utils;
+use XPocketMP\crafting\CraftingManagerFromDataHelper;
+use XPocketMP\crafting\json\ItemStackData;
+use XPocketMP\data\bedrock\BedrockDataFiles;
+use XPocketMP\item\Item;
+use XPocketMP\utils\DestructorCallbackTrait;
+use XPocketMP\utils\ObjectSet;
+use XPocketMP\utils\SingletonTrait;
+use XPocketMP\utils\Utils;
 
 final class CreativeInventory{
 	use SingletonTrait;

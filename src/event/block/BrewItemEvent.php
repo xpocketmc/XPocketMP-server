@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\block;
+namespace XPocketMP\event\block;
 
-use pocketmine\block\tile\BrewingStand;
-use pocketmine\crafting\BrewingRecipe;
-use pocketmine\event\Cancellable;
-use pocketmine\event\CancellableTrait;
-use pocketmine\item\Item;
+use XPocketMPlock\tile\BrewingStand;
+use XPocketMP\crafting\BrewingRecipe;
+use XPocketMP\event\Cancellable;
+use XPocketMP\event\CancellableTrait;
+use XPocketMP\item\Item;
 
 class BrewItemEvent extends BlockEvent implements Cancellable{
 	use CancellableTrait;

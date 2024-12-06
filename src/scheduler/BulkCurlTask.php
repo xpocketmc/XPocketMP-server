@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\scheduler;
+namespace XPocketMP\scheduler;
 
-use pocketmine\utils\Internet;
-use pocketmine\utils\InternetException;
-use pocketmine\utils\InternetRequestResult;
+use XPocketMP\utils\Internet;
+use XPocketMP\utils\InternetException;
+use XPocketMP\utils\InternetRequestResult;
 use function igbinary_serialize;
 use function igbinary_unserialize;
 

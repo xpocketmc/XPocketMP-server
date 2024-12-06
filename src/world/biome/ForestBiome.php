@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\biome;
+namespace XPocketMP\world\biome;
 
-use pocketmine\world\generator\object\TreeType;
-use pocketmine\world\generator\populator\TallGrass;
-use pocketmine\world\generator\populator\Tree;
+use XPocketMP\world\generator\object\TreeType;
+use XPocketMP\world\generator\populator\TallGrass;
+use XPocketMP\world\generator\populator\Tree;
 
 class ForestBiome extends GrassyBiome{
 	private TreeType $type;

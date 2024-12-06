@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -24,31 +24,31 @@ declare(strict_types=1);
 /**
  * All the Item classes
  */
-namespace pocketmine\item;
+namespace XPocketMP\item;
 
-use pocketmine\block\Block;
-use pocketmine\block\BlockBreakInfo;
-use pocketmine\block\BlockToolType;
-use pocketmine\block\VanillaBlocks;
-use pocketmine\data\bedrock\EnchantmentIdMap;
-use pocketmine\data\bedrock\item\ItemTypeDeserializeException;
-use pocketmine\data\runtime\RuntimeDataDescriber;
-use pocketmine\data\runtime\RuntimeDataWriter;
-use pocketmine\data\SavedDataLoadingException;
-use pocketmine\entity\Entity;
-use pocketmine\entity\Living;
-use pocketmine\item\enchantment\EnchantmentInstance;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\LittleEndianNbtSerializer;
-use pocketmine\nbt\NBT;
-use pocketmine\nbt\NbtException;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\ListTag;
-use pocketmine\nbt\tag\StringTag;
-use pocketmine\nbt\TreeRoot;
-use pocketmine\player\Player;
-use pocketmine\utils\Utils;
-use pocketmine\world\format\io\GlobalItemDataHandlers;
+use XPocketMPlock\Block;
+use XPocketMPlock\BlockBreakInfo;
+use XPocketMPlock\BlockToolType;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\data\bedrock\EnchantmentIdMap;
+use XPocketMP\data\bedrock\item\ItemTypeDeserializeException;
+use XPocketMP\data\runtime\RuntimeDataDescriber;
+use XPocketMP\data\runtime\RuntimeDataWriter;
+use XPocketMP\data\SavedDataLoadingException;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\Living;
+use XPocketMP\item\enchantment\EnchantmentInstance;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\LittleEndianNbtSerializer;
+use XPocketMP\nbt\NBT;
+use XPocketMP\nbt\NbtException;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\tag\ListTag;
+use XPocketMP\nbt\tag\StringTag;
+use XPocketMP\nbt\TreeRoot;
+use XPocketMP\player\Player;
+use XPocketMP\utils\Utils;
+use XPocketMP\world\format\io\GlobalItemDataHandlers;
 use function base64_decode;
 use function base64_encode;
 use function count;
@@ -705,7 +705,7 @@ class Item implements \JsonSerializable{
 	}
 
 	/**
-	 * Deserializes item JSON data produced by json_encode()ing Item instances in older versions of PocketMine-MP.
+	 * Deserializes item JSON data produced by json_encode()ing Item instances in older versions of XPocketMP-MP.
 	 * This method exists solely to allow upgrading old JSON data stored by plugins.
 	 *
 	 * @param mixed[] $data

@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\utils;
+namespace XPocketMPlock\utils;
 
-use pocketmine\utils\LegacyEnumShimTrait;
-use pocketmine\world\generator\object\TreeType;
+use XPocketMP\utils\LegacyEnumShimTrait;
+use XPocketMP\world\generator\object\TreeType;
 
 /**
  * TODO: These tags need to be removed once we get rid of LegacyEnumShimTrait (PM6)

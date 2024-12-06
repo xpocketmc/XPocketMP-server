@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\block;
+namespace XPocketMP\event\block;
 
-use pocketmine\block\tile\BrewingStand;
-use pocketmine\event\Cancellable;
-use pocketmine\event\CancellableTrait;
+use XPocketMPlock\tile\BrewingStand;
+use XPocketMP\event\Cancellable;
+use XPocketMP\event\CancellableTrait;
 
 /**
  * Called when a brewing stand consumes a new fuel item.

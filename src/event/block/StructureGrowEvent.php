@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\block;
+namespace XPocketMP\event\block;
 
-use pocketmine\block\Block;
-use pocketmine\event\Cancellable;
-use pocketmine\event\CancellableTrait;
-use pocketmine\player\Player;
-use pocketmine\world\BlockTransaction;
+use XPocketMPlock\Block;
+use XPocketMP\event\Cancellable;
+use XPocketMP\event\CancellableTrait;
+use XPocketMP\player\Player;
+use XPocketMP\world\BlockTransaction;
 
 /**
  * Called when structures such as Saplings or Bamboo grow.

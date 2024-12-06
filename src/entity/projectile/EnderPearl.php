@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity\projectile;
+namespace XPocketMP\entity\projectile;
 
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\event\entity\ProjectileHitEvent;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\world\particle\EndermanTeleportParticle;
-use pocketmine\world\sound\EndermanTeleportSound;
+use XPocketMP\event\entity\EntityDamageEvent;
+use XPocketMP\event\entity\ProjectileHitEvent;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
+use XPocketMP\world\particle\EndermanTeleportParticle;
+use XPocketMP\world\sound\EndermanTeleportSound;
 
 class EnderPearl extends Throwable{
 	public static function getNetworkTypeId() : string{ return EntityIds::ENDER_PEARL; }

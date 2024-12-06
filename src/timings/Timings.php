@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\timings;
+namespace XPocketMP\timings;
 
-use pocketmine\block\tile\Tile;
-use pocketmine\entity\Entity;
-use pocketmine\event\Event;
-use pocketmine\network\mcpe\protocol\ClientboundPacket;
-use pocketmine\network\mcpe\protocol\ServerboundPacket;
-use pocketmine\player\Player;
-use pocketmine\scheduler\AsyncTask;
-use pocketmine\scheduler\TaskHandler;
+use XPocketMPlock\tile\Tile;
+use XPocketMP\entity\Entity;
+use XPocketMP\event\Event;
+use XPocketMP\network\mcpe\protocol\ClientboundPacket;
+use XPocketMP\network\mcpe\protocol\ServerboundPacket;
+use XPocketMP\player\Player;
+use XPocketMP\scheduler\AsyncTask;
+use XPocketMP\scheduler\TaskHandler;
 use function get_class;
 use function str_starts_with;
 
@@ -227,7 +227,7 @@ abstract class Timings{
 				//a name it can identify. However, we also want to make it obvious if this is a custom Player class.
 				$displayName = $entity::class !== Player::class ? "Player (" . $entity::class . ")" : "Player";
 			}else{
-				$displayName = self::shortenCoreClassName($entity::class, "pocketmine\\entity\\");
+				$displayName = self::shortenCoreClassName($entity::class, "XPocketMP\\entity\\");
 			}
 			self::$entityTypeTimingMap[$entity::class] = new TimingsHandler("Entity Tick - " . $displayName);
 		}
@@ -239,7 +239,7 @@ abstract class Timings{
 		self::init();
 		if(!isset(self::$tileEntityTypeTimingMap[$tile::class])){
 			self::$tileEntityTypeTimingMap[$tile::class] = new TimingsHandler(
-				"Block Entity Tick - " . self::shortenCoreClassName($tile::class, "pocketmine\\block\\tile\\")
+				"Block Entity Tick - " . self::shortenCoreClassName($tile::class, "XPocketMP\\block\\tile\\")
 			);
 		}
 
@@ -294,7 +294,7 @@ abstract class Timings{
 	public static function getEventTimings(Event $event) : TimingsHandler{
 		$eventClass = get_class($event);
 		if(!isset(self::$events[$eventClass])){
-			self::$events[$eventClass] = new TimingsHandler(self::shortenCoreClassName($eventClass, "pocketmine\\event\\"), group: "Events");
+			self::$events[$eventClass] = new TimingsHandler(self::shortenCoreClassName($eventClass, "XPocketMP\\event\\"), group: "Events");
 		}
 
 		return self::$events[$eventClass];
@@ -305,7 +305,7 @@ abstract class Timings{
 	 */
 	public static function getEventHandlerTimings(string $event, string $handlerName, string $group) : TimingsHandler{
 		if(!isset(self::$eventHandlers[$event][$handlerName])){
-			self::$eventHandlers[$event][$handlerName] = new TimingsHandler($handlerName . "(" . self::shortenCoreClassName($event, "pocketmine\\event\\") . ")", group: $group);
+			self::$eventHandlers[$event][$handlerName] = new TimingsHandler($handlerName . "(" . self::shortenCoreClassName($event, "XPocketMP\\event\\") . ")", group: $group);
 		}
 
 		return self::$eventHandlers[$event][$handlerName];
@@ -316,7 +316,7 @@ abstract class Timings{
 		if(!isset(self::$asyncTaskProgressUpdate[$taskClass])){
 			self::init();
 			self::$asyncTaskProgressUpdate[$taskClass] = new TimingsHandler(
-				"AsyncTask - " . self::shortenCoreClassName($taskClass, "pocketmine\\") . " - Progress Updates",
+				"AsyncTask - " . self::shortenCoreClassName($taskClass, "XPocketMP\\") . " - Progress Updates",
 				self::$asyncTaskProgressUpdateParent,
 				$group
 			);
@@ -330,7 +330,7 @@ abstract class Timings{
 		if(!isset(self::$asyncTaskCompletion[$taskClass])){
 			self::init();
 			self::$asyncTaskCompletion[$taskClass] = new TimingsHandler(
-				"AsyncTask - " . self::shortenCoreClassName($taskClass, "pocketmine\\") . " - Completion Handler",
+				"AsyncTask - " . self::shortenCoreClassName($taskClass, "XPocketMP\\") . " - Completion Handler",
 				self::$asyncTaskCompletionParent,
 				$group
 			);
@@ -344,7 +344,7 @@ abstract class Timings{
 		if(!isset(self::$asyncTaskError[$taskClass])){
 			self::init();
 			self::$asyncTaskError[$taskClass] = new TimingsHandler(
-				"AsyncTask - " . self::shortenCoreClassName($taskClass, "pocketmine\\") . " - Error Handler",
+				"AsyncTask - " . self::shortenCoreClassName($taskClass, "XPocketMP\\") . " - Error Handler",
 				self::$asyncTaskErrorParent,
 				$group
 			);

@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event;
+namespace XPocketMP\event;
 
-use pocketmine\plugin\Plugin;
-use pocketmine\timings\TimingsHandler;
+use XPocketMP\plugin\Plugin;
+use XPocketMP\timings\TimingsHandler;
 use function in_array;
 
 class RegisteredListener{

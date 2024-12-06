@@ -13,16 +13,16 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-use pocketmine\network\mcpe\protocol\ProtocolInfo;
-use pocketmine\VersionInfo;
+use xpocketmp\network\mcpe\protocol\ProtocolInfo;
+use xpocketmp\VersionInfo;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 

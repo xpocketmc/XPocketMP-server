@@ -8,7 +8,7 @@ updates:
   open-pull-requests-limit: 10
   ignore:
     #only allow patch updates for locale-data - this has to be updated manually due to codegen
-    - dependency-name: pocketmine/locale-data
+    - dependency-name: xpocketmp/locale-data
       update-types:
         - "version-update:semver-major"
         - "version-update:semver-minor"

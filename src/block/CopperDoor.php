@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\CopperMaterial;
-use pocketmine\block\utils\CopperTrait;
-use pocketmine\item\Item;
-use pocketmine\math\Facing;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
+use XPocketMPlock\utils\CopperMaterial;
+use XPocketMPlock\utils\CopperTrait;
+use XPocketMP\item\Item;
+use XPocketMP\math\Facing;
+use XPocketMP\math\Vector3;
+use XPocketMP\player\Player;
 
 class CopperDoor extends Door implements CopperMaterial{
 	use CopperTrait{

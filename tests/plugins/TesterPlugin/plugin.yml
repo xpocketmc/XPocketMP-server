@@ -5,4 +5,4 @@ version: 0.1.0
 api: [5.0.0]
 load: POSTWORLD
 author: pmmp
-description: Plugin used to run tests on PocketMine-MP
+description: Plugin used to run tests on xpocketmp-MP

@@ -13,37 +13,37 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\tile\Cauldron as TileCauldron;
-use pocketmine\block\utils\DyeColor;
-use pocketmine\color\Color;
-use pocketmine\entity\Entity;
-use pocketmine\item\Armor;
-use pocketmine\item\Banner;
-use pocketmine\item\Dye;
-use pocketmine\item\Item;
-use pocketmine\item\ItemTypeIds;
-use pocketmine\item\Potion;
-use pocketmine\item\PotionType;
-use pocketmine\item\SplashPotion;
-use pocketmine\item\VanillaItems;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
-use pocketmine\world\sound\CauldronAddDyeSound;
-use pocketmine\world\sound\CauldronCleanItemSound;
-use pocketmine\world\sound\CauldronDyeItemSound;
-use pocketmine\world\sound\CauldronEmptyWaterSound;
-use pocketmine\world\sound\CauldronFillWaterSound;
-use pocketmine\world\sound\Sound;
+use XPocketMPlock\tile\Cauldron as TileCauldron;
+use XPocketMPlock\utils\DyeColor;
+use XPocketMP\color\Color;
+use XPocketMP\entity\Entity;
+use XPocketMP\item\Armor;
+use XPocketMP\item\Banner;
+use XPocketMP\item\Dye;
+use XPocketMP\item\Item;
+use XPocketMP\item\ItemTypeIds;
+use XPocketMP\item\Potion;
+use XPocketMP\item\PotionType;
+use XPocketMP\item\SplashPotion;
+use XPocketMP\item\VanillaItems;
+use XPocketMP\math\Vector3;
+use XPocketMP\player\Player;
+use XPocketMP\world\sound\CauldronAddDyeSound;
+use XPocketMP\world\sound\CauldronCleanItemSound;
+use XPocketMP\world\sound\CauldronDyeItemSound;
+use XPocketMP\world\sound\CauldronEmptyWaterSound;
+use XPocketMP\world\sound\CauldronFillWaterSound;
+use XPocketMP\world\sound\Sound;
 use function array_pop;
 use function assert;
 use function count;

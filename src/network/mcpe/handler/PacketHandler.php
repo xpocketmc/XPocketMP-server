@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\handler;
+namespace XPocketMP\network\mcpe\handler;
 
-use pocketmine\network\mcpe\protocol\PacketHandlerDefaultImplTrait;
-use pocketmine\network\mcpe\protocol\PacketHandlerInterface;
+use XPocketMP\network\mcpe\protocol\PacketHandlerDefaultImplTrait;
+use XPocketMP\network\mcpe\protocol\PacketHandlerInterface;
 
 /**
  * Handlers are attached to sessions to handle packets received from their associated clients. A handler

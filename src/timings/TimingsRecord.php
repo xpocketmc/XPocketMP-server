@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\timings;
+namespace XPocketMP\timings;
 
-use pocketmine\Server;
-use pocketmine\utils\AssumptionFailedError;
+use XPocketMP\Server;
+use XPocketMP\utils\AssumptionFailedError;
 use function floor;
 use function spl_object_id;
 

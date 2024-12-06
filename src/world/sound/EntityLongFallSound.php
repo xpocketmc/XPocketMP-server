@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\sound;
+namespace XPocketMP\world\sound;
 
-use pocketmine\entity\Entity;
-use pocketmine\math\Vector3;
-use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
-use pocketmine\network\mcpe\protocol\types\LevelSoundEvent;
+use XPocketMP\entity\Entity;
+use XPocketMP\math\Vector3;
+use XPocketMP\network\mcpe\protocol\LevelSoundEventPacket;
+use XPocketMP\network\mcpe\protocol\types\LevelSoundEvent;
 
 /**
  * Played when an entity hits ground after falling a long distance (damage).

@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\ColoredTrait;
-use pocketmine\block\utils\DyeColor;
+use XPocketMPlock\utils\ColoredTrait;
+use XPocketMPlock\utils\DyeColor;
 
 class CakeWithDyedCandle extends CakeWithCandle{
 	use ColoredTrait;

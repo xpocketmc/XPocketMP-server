@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\player;
+namespace XPocketMP\player;
 
-use pocketmine\world\World;
+use XPocketMP\world\World;
 use const M_SQRT2;
 
 //TODO: turn this into an interface?

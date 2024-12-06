@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\handler;
+namespace XPocketMP\network\mcpe\handler;
 
-use pocketmine\lang\Translatable;
-use pocketmine\network\mcpe\InventoryManager;
-use pocketmine\network\mcpe\NetworkSession;
-use pocketmine\network\mcpe\protocol\ContainerClosePacket;
-use pocketmine\network\mcpe\protocol\DeathInfoPacket;
-use pocketmine\network\mcpe\protocol\PlayerActionPacket;
-use pocketmine\network\mcpe\protocol\RespawnPacket;
-use pocketmine\network\mcpe\protocol\types\PlayerAction;
-use pocketmine\player\Player;
+use XPocketMP\lang\Translatable;
+use XPocketMP\network\mcpe\InventoryManager;
+use XPocketMP\network\mcpe\NetworkSession;
+use XPocketMP\network\mcpe\protocol\ContainerClosePacket;
+use XPocketMP\network\mcpe\protocol\DeathInfoPacket;
+use XPocketMP\network\mcpe\protocol\PlayerActionPacket;
+use XPocketMP\network\mcpe\protocol\RespawnPacket;
+use XPocketMP\network\mcpe\protocol\types\PlayerAction;
+use XPocketMP\player\Player;
 
 class DeathPacketHandler extends PacketHandler{
 	public function __construct(

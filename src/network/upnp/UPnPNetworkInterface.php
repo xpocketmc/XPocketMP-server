@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\upnp;
+namespace XPocketMP\network\upnp;
 
-use pocketmine\network\NetworkInterface;
-use pocketmine\utils\Internet;
-use pocketmine\utils\InternetException;
+use XPocketMP\network\NetworkInterface;
+use XPocketMP\utils\Internet;
+use XPocketMP\utils\InternetException;
 
 final class UPnPNetworkInterface implements NetworkInterface{
 	private ?string $serviceURL = null;

@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -53,10 +53,10 @@ declare(strict_types=1);
 /**
  * UPnP port forwarding support.
  */
-namespace pocketmine\network\upnp;
+namespace XPocketMP\network\upnp;
 
-use pocketmine\utils\Internet;
-use pocketmine\utils\Utils;
+use XPocketMP\utils\Internet;
+use XPocketMP\utils\Utils;
 use function count;
 use function libxml_use_internal_errors;
 use function parse_url;
@@ -201,7 +201,7 @@ class UPnP{
 				'<NewInternalPort>' . $internalPort . '</NewInternalPort>' .
 				'<NewInternalClient>' . $internalIP . '</NewInternalClient>' .
 				'<NewEnabled>1</NewEnabled>' .
-				'<NewPortMappingDescription>PocketMine-MP</NewPortMappingDescription>' .
+				'<NewPortMappingDescription>XPocketMP-MP</NewPortMappingDescription>' .
 				'<NewLeaseDuration>0</NewLeaseDuration>' .
 			'</u:AddPortMapping>';
 

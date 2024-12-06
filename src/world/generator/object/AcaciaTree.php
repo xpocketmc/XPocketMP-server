@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\generator\object;
+namespace XPocketMP\world\generator\object;
 
-use pocketmine\block\VanillaBlocks;
-use pocketmine\math\Facing;
-use pocketmine\math\Vector3;
-use pocketmine\utils\Random;
-use pocketmine\world\BlockTransaction;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\math\Facing;
+use XPocketMP\math\Vector3;
+use XPocketMP\utils\Random;
+use XPocketMP\world\BlockTransaction;
 use function abs;
 use function array_rand;
 

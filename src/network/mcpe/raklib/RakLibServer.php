@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\raklib;
+namespace XPocketMP\network\mcpe\raklib;
 
 use pmmp\thread\Thread as NativeThread;
 use pmmp\thread\ThreadSafeArray;
-use pocketmine\snooze\SleeperHandlerEntry;
-use pocketmine\thread\log\ThreadSafeLogger;
-use pocketmine\thread\NonThreadSafeValue;
-use pocketmine\thread\Thread;
-use pocketmine\thread\ThreadCrashException;
+use XPocketMP\snooze\SleeperHandlerEntry;
+use XPocketMP\thread\log\ThreadSafeLogger;
+use XPocketMP\thread\NonThreadSafeValue;
+use XPocketMP\thread\Thread;
+use XPocketMP\thread\ThreadCrashException;
 use raklib\generic\SocketException;
 use raklib\server\ipc\RakLibToUserThreadMessageSender;
 use raklib\server\ipc\UserToRakLibThreadMessageReceiver;
@@ -61,7 +61,7 @@ class RakLibServer extends Thread{
 		protected int $protocolVersion,
 		protected SleeperHandlerEntry $sleeperEntry
 	){
-		$this->mainPath = \pocketmine\PATH;
+		$this->mainPath = \XPocketMP\PATH;
 		$this->address = new NonThreadSafeValue($address);
 	}
 

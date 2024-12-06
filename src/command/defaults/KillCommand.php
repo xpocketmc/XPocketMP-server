@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\command\utils\InvalidCommandSyntaxException;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\permission\DefaultPermissionNames;
+use XPocketMP\command\Command;
+use XPocketMP\command\CommandSender;
+use XPocketMP\command\utils\InvalidCommandSyntaxException;
+use XPocketMP\event\entity\EntityDamageEvent;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\permission\DefaultPermissionNames;
 use function count;
 
 class KillCommand extends VanillaCommand{
@@ -36,8 +36,8 @@ class KillCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"kill",
-			KnownTranslationFactory::pocketmine_command_kill_description(),
-			KnownTranslationFactory::pocketmine_command_kill_usage(),
+			KnownTranslationFactory::XPocketMP_command_kill_description(),
+			KnownTranslationFactory::XPocketMP_command_kill_usage(),
 			["suicide"]
 		);
 		$this->setPermissions([DefaultPermissionNames::COMMAND_KILL_SELF, DefaultPermissionNames::COMMAND_KILL_OTHER]);

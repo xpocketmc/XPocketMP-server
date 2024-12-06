@@ -13,26 +13,26 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\inventory;
+namespace XPocketMPlock\inventory;
 
-use pocketmine\block\BlockTypeIds;
-use pocketmine\inventory\SimpleInventory;
-use pocketmine\item\Item;
-use pocketmine\item\ItemTypeIds;
-use pocketmine\network\mcpe\protocol\BlockEventPacket;
-use pocketmine\network\mcpe\protocol\types\BlockPosition;
-use pocketmine\world\Position;
-use pocketmine\world\sound\ShulkerBoxCloseSound;
-use pocketmine\world\sound\ShulkerBoxOpenSound;
-use pocketmine\world\sound\Sound;
+use XPocketMPlock\BlockTypeIds;
+use XPocketMP\inventory\SimpleInventory;
+use XPocketMP\item\Item;
+use XPocketMP\item\ItemTypeIds;
+use XPocketMP\network\mcpe\protocol\BlockEventPacket;
+use XPocketMP\network\mcpe\protocol\types\BlockPosition;
+use XPocketMP\world\Position;
+use XPocketMP\world\sound\ShulkerBoxCloseSound;
+use XPocketMP\world\sound\ShulkerBoxOpenSound;
+use XPocketMP\world\sound\Sound;
 
 class ShulkerBoxInventory extends SimpleInventory implements BlockInventory{
 	use AnimatedBlockInventoryTrait;

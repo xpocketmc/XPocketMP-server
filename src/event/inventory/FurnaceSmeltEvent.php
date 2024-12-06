@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\inventory;
+namespace XPocketMP\event\inventory;
 
-use pocketmine\block\tile\Furnace;
-use pocketmine\event\block\BlockEvent;
-use pocketmine\event\Cancellable;
-use pocketmine\event\CancellableTrait;
-use pocketmine\item\Item;
+use XPocketMPlock\tile\Furnace;
+use XPocketMP\event\block\BlockEvent;
+use XPocketMP\event\Cancellable;
+use XPocketMP\event\CancellableTrait;
+use XPocketMP\item\Item;
 
 class FurnaceSmeltEvent extends BlockEvent implements Cancellable{
 	use CancellableTrait;

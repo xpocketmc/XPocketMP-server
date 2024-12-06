@@ -13,27 +13,27 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\permission\DefaultPermissionNames;
+use XPocketMP\command\Command;
+use XPocketMP\command\CommandSender;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\permission\DefaultPermissionNames;
 
 class StopCommand extends VanillaCommand{
 
 	public function __construct(){
 		parent::__construct(
 			"stop",
-			KnownTranslationFactory::pocketmine_command_stop_description()
+			KnownTranslationFactory::XPocketMP_command_stop_description()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_STOP);
 	}

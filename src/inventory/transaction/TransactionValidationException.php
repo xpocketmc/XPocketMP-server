@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\inventory\transaction;
+namespace XPocketMP\inventory\transaction;
 
 /**
  * Thrown when a transaction cannot proceed due to preconditions not being met (e.g. transaction doesn't balance).

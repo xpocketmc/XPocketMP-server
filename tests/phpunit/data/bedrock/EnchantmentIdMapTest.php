@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock;
+namespace xpocketmp\data\bedrock;
 
 use PHPUnit\Framework\TestCase;
-use pocketmine\item\enchantment\VanillaEnchantments;
+use xpocketmp\item\enchantment\VanillaEnchantments;
 
 class EnchantmentIdMapTest extends TestCase{
 

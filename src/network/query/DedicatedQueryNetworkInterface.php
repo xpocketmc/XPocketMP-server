@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\query;
+namespace XPocketMP\network\query;
 
-use pocketmine\network\AdvancedNetworkInterface;
-use pocketmine\network\Network;
+use XPocketMP\network\AdvancedNetworkInterface;
+use XPocketMP\network\Network;
 use function preg_match;
 use function socket_bind;
 use function socket_close;

@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe;
+namespace XPocketMP\network\mcpe;
 
-use pocketmine\network\mcpe\protocol\ClientboundPacket;
-use pocketmine\player\Player;
-use pocketmine\timings\Timings;
+use XPocketMP\network\mcpe\protocol\ClientboundPacket;
+use XPocketMP\player\Player;
+use XPocketMP\timings\Timings;
 use function count;
 use function spl_object_id;
 

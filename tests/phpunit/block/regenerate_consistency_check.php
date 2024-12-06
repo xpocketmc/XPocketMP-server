@@ -13,16 +13,16 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-use pocketmine\block\BlockTest;
-use pocketmine\block\RuntimeBlockStateRegistry;
+use xpocketmp\block\BlockTest;
+use xpocketmp\block\RuntimeBlockStateRegistry;
 
 require dirname(__DIR__, 3) . '/vendor/autoload.php';
 

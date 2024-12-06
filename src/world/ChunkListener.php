@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world;
+namespace XPocketMP\world;
 
-use pocketmine\math\Vector3;
-use pocketmine\world\format\Chunk;
+use XPocketMP\math\Vector3;
+use XPocketMP\world\format\Chunk;
 
 /**
  * This interface allows you to listen for events occurring on or in specific chunks. This will receive events for any

@@ -13,31 +13,31 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity\object;
+namespace XPocketMP\entity\object;
 
-use pocketmine\block\VanillaBlocks;
-use pocketmine\entity\Entity;
-use pocketmine\entity\EntitySizeInfo;
-use pocketmine\entity\Location;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
-use pocketmine\item\VanillaItems;
-use pocketmine\math\AxisAlignedBB;
-use pocketmine\math\Facing;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\network\mcpe\protocol\AddPaintingPacket;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\player\Player;
-use pocketmine\world\particle\BlockBreakParticle;
-use pocketmine\world\World;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\EntitySizeInfo;
+use XPocketMP\entity\Location;
+use XPocketMP\event\entity\EntityDamageByEntityEvent;
+use XPocketMP\item\VanillaItems;
+use XPocketMP\math\AxisAlignedBB;
+use XPocketMP\math\Facing;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\network\mcpe\protocol\AddPaintingPacket;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
+use XPocketMP\player\Player;
+use XPocketMP\world\particle\BlockBreakParticle;
+use XPocketMP\world\World;
 use function ceil;
 
 class Painting extends Entity{

@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item;
+namespace XPocketMP\item;
 
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\utils\Limits;
-use pocketmine\utils\Utils;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\utils\Limits;
+use XPocketMP\utils\Utils;
 use function sprintf;
 use function strlen;
 

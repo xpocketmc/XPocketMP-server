@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity;
+namespace XPocketMP\entity;
 
-use pocketmine\item\VanillaItems;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\utils\RandomSwimDirection;
-use pocketmine\world\particle\BubbleParticle;
+use XPocketMP\item\VanillaItems;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
+use XPocketMP\utils\RandomSwimDirection;
+use XPocketMP\world\particle\BubbleParticle;
 use function error_log;
 
 class Salmon extends WaterAnimal

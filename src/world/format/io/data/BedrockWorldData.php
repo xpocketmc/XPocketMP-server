@@ -13,33 +13,33 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\format\io\data;
+namespace XPocketMP\world\format\io\data;
 
-use pocketmine\nbt\LittleEndianNbtSerializer;
-use pocketmine\nbt\NbtDataException;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\IntTag;
-use pocketmine\nbt\tag\ListTag;
-use pocketmine\nbt\tag\StringTag;
-use pocketmine\nbt\TreeRoot;
-use pocketmine\utils\Binary;
-use pocketmine\utils\Filesystem;
-use pocketmine\utils\Limits;
-use pocketmine\VersionInfo;
-use pocketmine\world\format\io\exception\CorruptedWorldException;
-use pocketmine\world\format\io\exception\UnsupportedWorldFormatException;
-use pocketmine\world\generator\Flat;
-use pocketmine\world\generator\GeneratorManager;
-use pocketmine\world\World;
-use pocketmine\world\WorldCreationOptions;
+use XPocketMP\nbt\LittleEndianNbtSerializer;
+use XPocketMP\nbt\NbtDataException;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\tag\IntTag;
+use XPocketMP\nbt\tag\ListTag;
+use XPocketMP\nbt\tag\StringTag;
+use XPocketMP\nbt\TreeRoot;
+use XPocketMP\utils\Binary;
+use XPocketMP\utils\Filesystem;
+use XPocketMP\utils\Limits;
+use XPocketMP\VersionInfo;
+use XPocketMP\world\format\io\exception\CorruptedWorldException;
+use XPocketMP\world\format\io\exception\UnsupportedWorldFormatException;
+use XPocketMP\world\generator\Flat;
+use XPocketMP\world\generator\GeneratorManager;
+use XPocketMP\world\World;
+use XPocketMP\world\WorldCreationOptions;
 use Symfony\Component\Filesystem\Path;
 use function array_map;
 use function file_put_contents;
@@ -129,7 +129,7 @@ class BedrockWorldData extends BaseNbtWorldData{
 			->setByte(self::TAG_COMMANDS_ENABLED, 1)
 			->setTag(self::TAG_LAST_OPENED_WITH_VERSION, new ListTag(array_map(fn(int $v) => new IntTag($v), self::CURRENT_CLIENT_VERSION_TARGET)))
 
-			//Additional PocketMine-MP fields
+			//Additional XPocketMP-MP fields
 			->setString(self::TAG_GENERATOR_NAME, GeneratorManager::getInstance()->getGeneratorName($options->getGeneratorClass()))
 			->setString(self::TAG_GENERATOR_OPTIONS, $options->getGeneratorOptions());
 
@@ -184,7 +184,7 @@ class BedrockWorldData extends BaseNbtWorldData{
 						$this->compoundTag->setString(self::TAG_GENERATOR_OPTIONS, "2;7,3,3,2;1");
 						break;
 					case self::GENERATOR_INFINITE:
-						//TODO: add a null generator which does not generate missing chunks (to allow importing back to MCPE and generating more normal terrain without PocketMine messing things up)
+						//TODO: add a null generator which does not generate missing chunks (to allow importing back to MCPE and generating more normal terrain without XPocketMP messing things up)
 						$this->compoundTag->setString(self::TAG_GENERATOR_NAME, "default");
 						$this->compoundTag->setString(self::TAG_GENERATOR_OPTIONS, "");
 						break;

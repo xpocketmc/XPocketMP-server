@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\tools\simulate_chunk_selector;
+namespace xpocketmp\tools\simulate_chunk_selector;
 
-use pocketmine\player\ChunkSelector;
-use pocketmine\utils\Utils;
-use pocketmine\world\format\Chunk;
-use pocketmine\world\World;
+use xpocketmp\player\ChunkSelector;
+use xpocketmp\utils\Utils;
+use xpocketmp\world\format\Chunk;
+use xpocketmp\world\World;
 use Symfony\Component\Filesystem\Path;
 use function count;
 use function dirname;

@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\tools\ping_server;
+namespace xpocketmp\tools\ping_server;
 
-use pocketmine\utils\Utils;
+use xpocketmp\utils\Utils;
 use raklib\protocol\MessageIdentifiers;
 use raklib\protocol\PacketSerializer;
 use raklib\protocol\UnconnectedPing;

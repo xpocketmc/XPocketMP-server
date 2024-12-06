@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\BlockBreakInfo as BreakInfo;
-use pocketmine\block\BlockIdentifier as BID;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\utils\SingletonTrait;
-use pocketmine\world\light\LightUpdate;
+use XPocketMPlock\BlockBreakInfo as BreakInfo;
+use XPocketMPlock\BlockIdentifier as BID;
+use XPocketMP\utils\AssumptionFailedError;
+use XPocketMP\utils\SingletonTrait;
+use XPocketMP\world\light\LightUpdate;
 use function min;
 
 /**

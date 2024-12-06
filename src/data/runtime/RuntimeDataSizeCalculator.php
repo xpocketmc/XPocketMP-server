@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\runtime;
+namespace XPocketMP\data\runtime;
 
-use pocketmine\block\utils\BrewingStandSlot;
-use pocketmine\math\Facing;
+use XPocketMPlock\utils\BrewingStandSlot;
+use XPocketMP\math\Facing;
 use function count;
 use function log;
 

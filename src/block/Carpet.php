@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\ColoredTrait;
-use pocketmine\block\utils\StaticSupportTrait;
-use pocketmine\math\AxisAlignedBB;
-use pocketmine\math\Facing;
+use XPocketMPlock\utils\ColoredTrait;
+use XPocketMPlock\utils\StaticSupportTrait;
+use XPocketMP\math\AxisAlignedBB;
+use XPocketMP\math\Facing;
 
 class Carpet extends Flowable{
 	use ColoredTrait;

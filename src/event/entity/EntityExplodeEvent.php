@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\entity;
+namespace XPocketMP\event\entity;
 
-use pocketmine\block\Block;
-use pocketmine\entity\Entity;
-use pocketmine\event\Cancellable;
-use pocketmine\event\CancellableTrait;
-use pocketmine\utils\Utils;
-use pocketmine\world\Position;
+use XPocketMPlock\Block;
+use XPocketMP\entity\Entity;
+use XPocketMP\event\Cancellable;
+use XPocketMP\event\CancellableTrait;
+use XPocketMP\utils\Utils;
+use XPocketMP\world\Position;
 
 /**
  * Called when an entity explodes, after the explosion's impact has been calculated.

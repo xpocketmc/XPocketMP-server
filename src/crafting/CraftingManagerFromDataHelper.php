@@ -13,35 +13,35 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\crafting;
+namespace XPocketMP\crafting;
 
-use pocketmine\crafting\json\FurnaceRecipeData;
-use pocketmine\crafting\json\ItemStackData;
-use pocketmine\crafting\json\PotionContainerChangeRecipeData;
-use pocketmine\crafting\json\PotionTypeRecipeData;
-use pocketmine\crafting\json\RecipeIngredientData;
-use pocketmine\crafting\json\ShapedRecipeData;
-use pocketmine\crafting\json\ShapelessRecipeData;
-use pocketmine\data\bedrock\block\BlockStateData;
-use pocketmine\data\bedrock\item\BlockItemIdMap;
-use pocketmine\data\bedrock\item\ItemTypeDeserializeException;
-use pocketmine\data\bedrock\item\SavedItemData;
-use pocketmine\data\bedrock\item\SavedItemStackData;
-use pocketmine\data\SavedDataLoadingException;
-use pocketmine\errorhandler\ErrorToExceptionHandler;
-use pocketmine\item\Item;
-use pocketmine\nbt\LittleEndianNbtSerializer;
-use pocketmine\utils\Filesystem;
-use pocketmine\utils\Utils;
-use pocketmine\world\format\io\GlobalItemDataHandlers;
+use XPocketMP\crafting\json\FurnaceRecipeData;
+use XPocketMP\crafting\json\ItemStackData;
+use XPocketMP\crafting\json\PotionContainerChangeRecipeData;
+use XPocketMP\crafting\json\PotionTypeRecipeData;
+use XPocketMP\crafting\json\RecipeIngredientData;
+use XPocketMP\crafting\json\ShapedRecipeData;
+use XPocketMP\crafting\json\ShapelessRecipeData;
+use XPocketMP\data\bedrock\block\BlockStateData;
+use XPocketMP\data\bedrock\item\BlockItemIdMap;
+use XPocketMP\data\bedrock\item\ItemTypeDeserializeException;
+use XPocketMP\data\bedrock\item\SavedItemData;
+use XPocketMP\data\bedrock\item\SavedItemStackData;
+use XPocketMP\data\SavedDataLoadingException;
+use XPocketMP\errorhandler\ErrorToExceptionHandler;
+use XPocketMP\item\Item;
+use XPocketMP\nbt\LittleEndianNbtSerializer;
+use XPocketMP\utils\Filesystem;
+use XPocketMP\utils\Utils;
+use XPocketMP\world\format\io\GlobalItemDataHandlers;
 use Symfony\Component\Filesystem\Path;
 use function base64_decode;
 use function get_debug_type;

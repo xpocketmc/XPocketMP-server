@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\CommandSender;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\permission\DefaultPermissionNames;
-use pocketmine\utils\Process;
-use pocketmine\utils\TextFormat;
+use XPocketMP\command\CommandSender;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\permission\DefaultPermissionNames;
+use XPocketMP\utils\Process;
+use XPocketMP\utils\TextFormat;
 use function count;
 use function floor;
 use function microtime;
@@ -39,7 +39,7 @@ class StatusCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"status",
-			KnownTranslationFactory::pocketmine_command_status_description()
+			KnownTranslationFactory::XPocketMP_command_status_description()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_STATUS);
 	}

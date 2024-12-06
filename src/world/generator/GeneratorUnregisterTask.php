@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\generator;
+namespace XPocketMP\world\generator;
 
-use pocketmine\scheduler\AsyncTask;
-use pocketmine\world\World;
+use XPocketMP\scheduler\AsyncTask;
+use XPocketMP\world\World;
 
 class GeneratorUnregisterTask extends AsyncTask{
 	public int $worldId;

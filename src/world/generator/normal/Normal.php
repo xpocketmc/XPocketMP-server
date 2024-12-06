@@ -13,32 +13,32 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\generator\normal;
+namespace XPocketMP\world\generator\normal;
 
-use pocketmine\block\VanillaBlocks;
-use pocketmine\data\bedrock\BiomeIds;
-use pocketmine\world\biome\Biome;
-use pocketmine\world\biome\BiomeRegistry;
-use pocketmine\world\ChunkManager;
-use pocketmine\world\format\Chunk;
-use pocketmine\world\generator\biome\BiomeSelector;
-use pocketmine\world\generator\Gaussian;
-use pocketmine\world\generator\Generator;
-use pocketmine\world\generator\InvalidGeneratorOptionsException;
-use pocketmine\world\generator\noise\Simplex;
-use pocketmine\world\generator\object\OreType;
-use pocketmine\world\generator\populator\GroundCover;
-use pocketmine\world\generator\populator\Ore;
-use pocketmine\world\generator\populator\Populator;
-use pocketmine\world\World;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\data\bedrock\BiomeIds;
+use XPocketMP\world\biome\Biome;
+use XPocketMP\world\biome\BiomeRegistry;
+use XPocketMP\world\ChunkManager;
+use XPocketMP\world\format\Chunk;
+use XPocketMP\world\generator\biome\BiomeSelector;
+use XPocketMP\world\generator\Gaussian;
+use XPocketMP\world\generator\Generator;
+use XPocketMP\world\generator\InvalidGeneratorOptionsException;
+use XPocketMP\world\generator\noise\Simplex;
+use XPocketMP\world\generator\object\OreType;
+use XPocketMP\world\generator\populator\GroundCover;
+use XPocketMP\world\generator\populator\Ore;
+use XPocketMP\world\generator\populator\Populator;
+use XPocketMP\world\World;
 
 class Normal extends Generator{
 

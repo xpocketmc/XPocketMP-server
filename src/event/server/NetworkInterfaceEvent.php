@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\server;
+namespace XPocketMP\event\server;
 
-use pocketmine\network\NetworkInterface;
+use XPocketMP\network\NetworkInterface;
 
 class NetworkInterfaceEvent extends ServerEvent{
 	public function __construct(

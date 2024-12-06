@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item;
+namespace XPocketMP\item;
 
-use pocketmine\utils\RegistryTrait;
-use pocketmine\world\sound\ArmorEquipChainSound;
-use pocketmine\world\sound\ArmorEquipDiamondSound;
-use pocketmine\world\sound\ArmorEquipGenericSound;
-use pocketmine\world\sound\ArmorEquipGoldSound;
-use pocketmine\world\sound\ArmorEquipIronSound;
-use pocketmine\world\sound\ArmorEquipLeatherSound;
-use pocketmine\world\sound\ArmorEquipNetheriteSound;
+use XPocketMP\utils\RegistryTrait;
+use XPocketMP\world\sound\ArmorEquipChainSound;
+use XPocketMP\world\sound\ArmorEquipDiamondSound;
+use XPocketMP\world\sound\ArmorEquipGenericSound;
+use XPocketMP\world\sound\ArmorEquipGoldSound;
+use XPocketMP\world\sound\ArmorEquipIronSound;
+use XPocketMP\world\sound\ArmorEquipLeatherSound;
+use XPocketMP\world\sound\ArmorEquipNetheriteSound;
 
 /**
  * This doc-block is generated automatically, do not modify it manually.

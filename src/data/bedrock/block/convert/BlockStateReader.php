@@ -13,30 +13,30 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\block\convert;
+namespace XPocketMP\data\bedrock\block\convert;
 
-use pocketmine\block\utils\BellAttachmentType;
-use pocketmine\block\utils\SlabType;
-use pocketmine\block\utils\WallConnectionType;
-use pocketmine\data\bedrock\block\BlockLegacyMetadata;
-use pocketmine\data\bedrock\block\BlockStateData;
-use pocketmine\data\bedrock\block\BlockStateDeserializeException;
-use pocketmine\data\bedrock\block\BlockStateNames;
-use pocketmine\data\bedrock\block\BlockStateStringValues as StringValues;
-use pocketmine\math\Axis;
-use pocketmine\math\Facing;
-use pocketmine\nbt\tag\ByteTag;
-use pocketmine\nbt\tag\IntTag;
-use pocketmine\nbt\tag\StringTag;
-use pocketmine\nbt\tag\Tag;
+use XPocketMPlock\utils\BellAttachmentType;
+use XPocketMPlock\utils\SlabType;
+use XPocketMPlock\utils\WallConnectionType;
+use XPocketMP\data\bedrock\block\BlockLegacyMetadata;
+use XPocketMP\data\bedrock\block\BlockStateData;
+use XPocketMP\data\bedrock\block\BlockStateDeserializeException;
+use XPocketMP\data\bedrock\block\BlockStateNames;
+use XPocketMP\data\bedrock\block\BlockStateStringValues as StringValues;
+use XPocketMP\math\Axis;
+use XPocketMP\math\Facing;
+use XPocketMP\nbt\tag\ByteTag;
+use XPocketMP\nbt\tag\IntTag;
+use XPocketMP\nbt\tag\StringTag;
+use XPocketMP\nbt\tag\Tag;
 use function array_keys;
 use function count;
 use function get_class;

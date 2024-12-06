@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item;
+namespace XPocketMP\item;
 
-use pocketmine\entity\effect\EffectInstance;
-use pocketmine\entity\effect\VanillaEffects;
-use pocketmine\entity\Human;
-use pocketmine\entity\Living;
+use XPocketMP\entity\effect\EffectInstance;
+use XPocketMP\entity\effect\VanillaEffects;
+use XPocketMP\entity\Human;
+use XPocketMP\entity\Living;
 
 class TurtleHelmet extends Armor{
 

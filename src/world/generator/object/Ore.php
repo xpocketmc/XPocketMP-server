@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\generator\object;
+namespace XPocketMP\world\generator\object;
 
-use pocketmine\math\VectorMath;
-use pocketmine\utils\Random;
-use pocketmine\world\ChunkManager;
+use XPocketMP\math\VectorMath;
+use XPocketMP\utils\Random;
+use XPocketMP\world\ChunkManager;
 use function sin;
 use const M_PI;
 

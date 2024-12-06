@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\player;
+namespace XPocketMP\event\player;
 
-use pocketmine\event\Cancellable;
-use pocketmine\event\CancellableTrait;
-use pocketmine\item\Item;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
+use XPocketMP\event\Cancellable;
+use XPocketMP\event\CancellableTrait;
+use XPocketMP\item\Item;
+use XPocketMP\math\Vector3;
+use XPocketMP\player\Player;
 
 /**
  * Called when a player uses its held item, for example when throwing a projectile.

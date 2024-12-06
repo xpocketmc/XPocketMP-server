@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\utils;
+namespace XPocketMP\utils;
 
-use pocketmine\command\CommandSender;
-use pocketmine\lang\Language;
-use pocketmine\lang\Translatable;
-use pocketmine\permission\PermissibleBase;
-use pocketmine\permission\PermissibleDelegateTrait;
-use pocketmine\Server;
+use XPocketMP\command\CommandSender;
+use XPocketMP\lang\Language;
+use XPocketMP\lang\Translatable;
+use XPocketMP\permission\PermissibleBase;
+use XPocketMP\permission\PermissibleDelegateTrait;
+use XPocketMP\Server;
 use const PHP_INT_MAX;
 
 /**

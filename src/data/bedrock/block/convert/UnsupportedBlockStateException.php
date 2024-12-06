@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\block\convert;
+namespace XPocketMP\data\bedrock\block\convert;
 
-use pocketmine\data\bedrock\block\BlockStateDeserializeException;
+use XPocketMP\data\bedrock\block\BlockStateDeserializeException;
 
 final class UnsupportedBlockStateException extends BlockStateDeserializeException{
 

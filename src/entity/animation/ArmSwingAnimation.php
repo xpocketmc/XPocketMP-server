@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity\animation;
+namespace XPocketMP\entity\animation;
 
-use pocketmine\entity\Living;
-use pocketmine\network\mcpe\protocol\ActorEventPacket;
-use pocketmine\network\mcpe\protocol\types\ActorEvent;
+use XPocketMP\entity\Living;
+use XPocketMP\network\mcpe\protocol\ActorEventPacket;
+use XPocketMP\network\mcpe\protocol\types\ActorEvent;
 
 final class ArmSwingAnimation implements Animation{
 

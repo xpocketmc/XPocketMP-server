@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\format\io\region;
+namespace XPocketMP\world\format\io\region;
 
-use pocketmine\block\Block;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\world\format\PalettedBlockArray;
-use pocketmine\world\format\SubChunk;
+use XPocketMPlock\Block;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\world\format\PalettedBlockArray;
+use XPocketMP\world\format\SubChunk;
 
 class Anvil extends RegionWorldProvider{
 	use LegacyAnvilChunkTrait;

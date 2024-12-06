@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -24,36 +24,36 @@ declare(strict_types=1);
 /**
  * All Block classes are in here
  */
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\tile\Spawnable;
-use pocketmine\block\tile\Tile;
-use pocketmine\block\utils\SupportType;
-use pocketmine\data\runtime\InvalidSerializedRuntimeDataException;
-use pocketmine\data\runtime\RuntimeDataDescriber;
-use pocketmine\data\runtime\RuntimeDataReader;
-use pocketmine\data\runtime\RuntimeDataSizeCalculator;
-use pocketmine\data\runtime\RuntimeDataWriter;
-use pocketmine\entity\Entity;
-use pocketmine\entity\projectile\Projectile;
-use pocketmine\item\enchantment\AvailableEnchantmentRegistry;
-use pocketmine\item\enchantment\ItemEnchantmentTagRegistry;
-use pocketmine\item\enchantment\ItemEnchantmentTags;
-use pocketmine\item\enchantment\VanillaEnchantments;
-use pocketmine\item\Item;
-use pocketmine\item\ItemBlock;
-use pocketmine\math\AxisAlignedBB;
-use pocketmine\math\Facing;
-use pocketmine\math\RayTraceResult;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\player\Player;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\utils\Binary;
-use pocketmine\world\BlockTransaction;
-use pocketmine\world\format\Chunk;
-use pocketmine\world\Position;
-use pocketmine\world\World;
+use XPocketMPlock\tile\Spawnable;
+use XPocketMPlock\tile\Tile;
+use XPocketMPlock\utils\SupportType;
+use XPocketMP\data\runtime\InvalidSerializedRuntimeDataException;
+use XPocketMP\data\runtime\RuntimeDataDescriber;
+use XPocketMP\data\runtime\RuntimeDataReader;
+use XPocketMP\data\runtime\RuntimeDataSizeCalculator;
+use XPocketMP\data\runtime\RuntimeDataWriter;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\projectile\Projectile;
+use XPocketMP\item\enchantment\AvailableEnchantmentRegistry;
+use XPocketMP\item\enchantment\ItemEnchantmentTagRegistry;
+use XPocketMP\item\enchantment\ItemEnchantmentTags;
+use XPocketMP\item\enchantment\VanillaEnchantments;
+use XPocketMP\item\Item;
+use XPocketMP\item\ItemBlock;
+use XPocketMP\math\AxisAlignedBB;
+use XPocketMP\math\Facing;
+use XPocketMP\math\RayTraceResult;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\player\Player;
+use XPocketMP\utils\AssumptionFailedError;
+use XPocketMP\utils\Binary;
+use XPocketMP\world\BlockTransaction;
+use XPocketMP\world\format\Chunk;
+use XPocketMP\world\Position;
+use XPocketMP\world\World;
 use function count;
 use function get_class;
 use function hash;

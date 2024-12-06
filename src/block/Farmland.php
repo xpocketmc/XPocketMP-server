@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\data\runtime\RuntimeDataDescriber;
-use pocketmine\entity\Entity;
-use pocketmine\entity\Living;
-use pocketmine\event\block\FarmlandHydrationChangeEvent;
-use pocketmine\event\entity\EntityTrampleFarmlandEvent;
-use pocketmine\item\Item;
-use pocketmine\math\AxisAlignedBB;
-use pocketmine\math\Facing;
+use XPocketMP\data\runtime\RuntimeDataDescriber;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\Living;
+use XPocketMP\event\block\FarmlandHydrationChangeEvent;
+use XPocketMP\event\entity\EntityTrampleFarmlandEvent;
+use XPocketMP\item\Item;
+use XPocketMP\math\AxisAlignedBB;
+use XPocketMP\math\Facing;
 use function intdiv;
 use function lcg_value;
 
@@ -58,7 +58,7 @@ class Farmland extends Transparent{
 	 * will be recorded if water is found, otherwise it will be set to unknown and future searches will search the full
 	 * 9x2x9 volume again.
 	 *
-	 * This property is not exposed to the API or saved on disk. It is only used by PocketMine-MP at runtime as a cache.
+	 * This property is not exposed to the API or saved on disk. It is only used by XPocketMP-MP at runtime as a cache.
 	 */
 	private int $waterPositionIndex = self::WATER_POSITION_INDEX_UNKNOWN;
 

@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\player;
+namespace XPocketMP\event\player;
 
-use pocketmine\player\Player;
-use pocketmine\utils\Utils;
-use pocketmine\world\Position;
+use XPocketMP\player\Player;
+use XPocketMP\utils\Utils;
+use XPocketMP\world\Position;
 
 /**
  * Called when a player is respawned

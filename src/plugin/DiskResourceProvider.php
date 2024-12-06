@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\plugin;
+namespace XPocketMP\plugin;
 
-use pocketmine\utils\AssumptionFailedError;
+use XPocketMP\utils\AssumptionFailedError;
 use function file_exists;
 use function fopen;
 use function is_dir;

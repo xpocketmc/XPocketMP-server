@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\updater;
+namespace XPocketMP\updater;
 
-use pocketmine\event\server\UpdateNotifyEvent;
-use pocketmine\Server;
-use pocketmine\utils\VersionString;
-use pocketmine\VersionInfo;
-use pocketmine\YmlServerProperties;
+use XPocketMP\event\server\UpdateNotifyEvent;
+use XPocketMP\Server;
+use XPocketMP\utils\VersionString;
+use XPocketMP\VersionInfo;
+use XPocketMP\YmlServerProperties;
 use function date;
 use function strtolower;
 use function ucfirst;
@@ -100,14 +100,14 @@ class UpdateChecker{
 	protected function showChannelSuggestionStable() : void{
 		$this->printConsoleMessage([
 			"You're running a Stable build, but you're receiving update notifications for " . ucfirst($this->getChannel()) . " builds.",
-			"To get notified about new Stable builds only, change 'preferred-channel' in your pocketmine.yml to 'stable'."
+			"To get notified about new Stable builds only, change 'preferred-channel' in your xpocketmp.yml to 'stable'."
 		]);
 	}
 
 	protected function showChannelSuggestionBeta() : void{
 		$this->printConsoleMessage([
 			"You're running a Beta build, but you're receiving update notifications for Stable builds.",
-			"To get notified about new Beta or Development builds, change 'preferred-channel' in your pocketmine.yml to 'beta' or 'development'."
+			"To get notified about new Beta or Development builds, change 'preferred-channel' in your xpocketmp.yml to 'beta' or 'development'."
 		]);
 	}
 

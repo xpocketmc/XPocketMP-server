@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\entity;
+namespace XPocketMP\event\entity;
 
-use pocketmine\entity\Entity;
-use pocketmine\event\Cancellable;
-use pocketmine\event\CancellableTrait;
-use pocketmine\inventory\Inventory;
-use pocketmine\item\Item;
+use XPocketMP\entity\Entity;
+use XPocketMP\event\Cancellable;
+use XPocketMP\event\CancellableTrait;
+use XPocketMP\inventory\Inventory;
+use XPocketMP\item\Item;
 
 /**
  * Called when an entity picks up an item, arrow, etc.

@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -24,10 +24,10 @@ declare(strict_types=1);
 /**
  * Plugin related classes
  */
-namespace pocketmine\plugin;
+namespace XPocketMP\plugin;
 
-use pocketmine\scheduler\TaskScheduler;
-use pocketmine\Server;
+use XPocketMP\scheduler\TaskScheduler;
+use XPocketMP\Server;
 
 /**
  * It is recommended to use PluginBase for the actual plugin

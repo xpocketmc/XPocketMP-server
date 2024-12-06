@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\inventory;
+namespace XPocketMPlock\inventory;
 
-use pocketmine\block\Barrel;
-use pocketmine\inventory\SimpleInventory;
-use pocketmine\world\Position;
-use pocketmine\world\sound\BarrelCloseSound;
-use pocketmine\world\sound\BarrelOpenSound;
-use pocketmine\world\sound\Sound;
+use XPocketMPlock\Barrel;
+use XPocketMP\inventory\SimpleInventory;
+use XPocketMP\world\Position;
+use XPocketMP\world\sound\BarrelCloseSound;
+use XPocketMP\world\sound\BarrelOpenSound;
+use XPocketMP\world\sound\Sound;
 
 class BarrelInventory extends SimpleInventory implements BlockInventory{
 	use AnimatedBlockInventoryTrait;

@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\inventory;
+namespace XPocketMPlock\inventory;
 
-use pocketmine\crafting\FurnaceType;
-use pocketmine\inventory\SimpleInventory;
-use pocketmine\item\Item;
-use pocketmine\world\Position;
+use XPocketMP\crafting\FurnaceType;
+use XPocketMP\inventory\SimpleInventory;
+use XPocketMP\item\Item;
+use XPocketMP\world\Position;
 
 class FurnaceInventory extends SimpleInventory implements BlockInventory{
 	use BlockInventoryTrait;

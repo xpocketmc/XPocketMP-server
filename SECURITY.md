@@ -9,7 +9,7 @@ GitHub is public and anyone can see the issues you post on the issue tracker, in
 
 **Contact us** by sending an email to [**security@pmmp.io**](mailto:security@pmmp.io). Include the following information:
 
-- Version of PocketMine-MP
+- Version of xpocketmp-MP
 - Detailed description of the vulnerability (e.g. how to exploit it, what the effects are)
 - Your GitHub username, if you wish to be credited for reporting the problem in the security advisory
 

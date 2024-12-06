@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\item;
+namespace XPocketMP\data\bedrock\item;
 
-use pocketmine\block\Block;
-use pocketmine\block\RuntimeBlockStateRegistry;
-use pocketmine\data\bedrock\block\BlockStateDeserializeException;
-use pocketmine\data\bedrock\block\BlockStateDeserializer;
-use pocketmine\data\bedrock\block\convert\UnsupportedBlockStateException;
-use pocketmine\data\bedrock\item\SavedItemData as Data;
-use pocketmine\item\Durable;
-use pocketmine\item\Item;
-use pocketmine\nbt\NbtException;
+use XPocketMPlock\Block;
+use XPocketMPlock\RuntimeBlockStateRegistry;
+use XPocketMP\data\bedrock\block\BlockStateDeserializeException;
+use XPocketMP\data\bedrock\block\BlockStateDeserializer;
+use XPocketMP\data\bedrock\block\convert\UnsupportedBlockStateException;
+use XPocketMP\data\bedrock\item\SavedItemData as Data;
+use XPocketMP\item\Durable;
+use XPocketMP\item\Item;
+use XPocketMP\nbt\NbtException;
 use function min;
 
 final class ItemDeserializer{

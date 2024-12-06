@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock;
+namespace XPocketMP\data\bedrock;
 
-use pocketmine\block\utils\DyeColor;
-use pocketmine\data\bedrock\item\ItemTypeNames;
-use pocketmine\utils\SingletonTrait;
+use XPocketMPlock\utils\DyeColor;
+use XPocketMP\data\bedrock\item\ItemTypeNames;
+use XPocketMP\utils\SingletonTrait;
 use function spl_object_id;
 
 final class DyeColorIdMap{

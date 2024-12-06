@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\entity;
+namespace XPocketMP\event\entity;
 
-use pocketmine\entity\projectile\Projectile;
-use pocketmine\math\RayTraceResult;
+use XPocketMP\entity\projectile\Projectile;
+use XPocketMP\math\RayTraceResult;
 
 /**
  * @allowHandle

@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\block\upgrade;
+namespace XPocketMP\data\bedrock\block\upgrade;
 
-use pocketmine\data\bedrock\block\BlockStateData;
-use pocketmine\data\bedrock\block\BlockStateDeserializeException;
-use pocketmine\nbt\LittleEndianNbtSerializer;
-use pocketmine\utils\BinaryDataException;
-use pocketmine\utils\BinaryStream;
+use XPocketMP\data\bedrock\block\BlockStateData;
+use XPocketMP\data\bedrock\block\BlockStateDeserializeException;
+use XPocketMP\nbt\LittleEndianNbtSerializer;
+use XPocketMP\utils\BinaryDataException;
+use XPocketMP\utils\BinaryStream;
 
 /**
  * Handles translating legacy 1.12 block ID/meta into modern blockstates.
@@ -72,7 +72,7 @@ final class BlockIdMetaUpgrader{
 
 	/**
 	 * Adds a mapping of legacy block ID and meta to modern blockstate data. This may be needed for upgrading data from
-	 * stored custom blocks from older versions of PocketMine-MP.
+	 * stored custom blocks from older versions of XPocketMP-MP.
 	 */
 	public function addIdMetaToStateMapping(string $stringId, int $meta, BlockStateData $stateData) : void{
 		if(isset($this->mappingTable[$stringId][$meta])){

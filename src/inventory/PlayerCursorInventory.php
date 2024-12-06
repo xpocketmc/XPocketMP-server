@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\inventory;
+namespace XPocketMP\inventory;
 
-use pocketmine\player\Player;
+use XPocketMP\player\Player;
 
 class PlayerCursorInventory extends SimpleInventory implements TemporaryInventory{
 	public function __construct(

@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\scheduler;
+namespace xpocketmp\scheduler;
 
 use pmmp\thread\ThreadSafeArray;
-use pocketmine\promise\PromiseResolver;
+use xpocketmp\promise\PromiseResolver;
 
 class ThreadSafeResultAsyncTask extends AsyncTask{
 	private const TLS_KEY_PROMISE = "promise";

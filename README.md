@@ -10,7 +10,7 @@
 	<a href="https://github.com/xpocketmc/XPocketMP-server/releases/latest"><img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/xpocketmc/XPocketMP-server"></a>
 	<a href="https://discord.gg/bmSAZBG"><img src="https://img.shields.io/discord/1253659229189963796?label=discord&color=7289DA&logo=discord" alt="Discord" /></a>
 	<br>
-	<a href="https://github.com/pmmp/PocketMine-MP/releases"><img alt="GitHub all releases" src="https://img.shields.io/github/downloads/xpocketmc/XPocketMP-server/total?label=downloads%40total"></a>
+	<a href="https://github.com/pmmp/xpocketmp-MP/releases"><img alt="GitHub all releases" src="https://img.shields.io/github/downloads/xpocketmc/XPocketMP-server/total?label=downloads%40total"></a>
 	<a href="https://github.com/xpocketmc/XPocketMP-server/releases/latest"><img alt="GitHub release (latest by SemVer)" src="https://img.shields.io/github/downloads/xpocketmc/XPocketMP-server/latest/total?sort=semver"></a>
 </p>
 
@@ -29,7 +29,7 @@ If you're looking to create a Minecraft: Bedrock server with **custom functional
 **It is poorly suited to hosting vanilla survival servers.**
 It doesn't have many features from the vanilla game, such as vanilla world generation, redstone, mob AI, and various other things.
 
-If you just want to play **vanilla survival multiplayer**, consider using the [official Minecraft: Bedrock server software](https://minecraft.net/download/server/bedrock) instead of PocketMine-MP.
+If you just want to play **vanilla survival multiplayer**, consider using the [official Minecraft: Bedrock server software](https://minecraft.net/download/server/bedrock) instead of xpocketmp-MP.
 
 If that's not an option for you, you may be able to add some of XPocketMP's missing features using plugins from [Poggit](https://poggit.pmmp.io/plugins), or write plugins to implement them yourself.
 
@@ -44,21 +44,21 @@ Join our [Discord](https://discord.gg/bmSAZBG) server to chat with other users a
 
 Join the [WhatsApp](https://whatsapp.com/channel/0029Vadnurk6xCSYTSmEXm1f) channel to notify additional updates and others
 
-You can also post questions on [StackOverflow](https://stackoverflow.com/tags/pocketmine) under the tag `pocketmine`.
+You can also post questions on [StackOverflow](https://stackoverflow.com/tags/xpocketmp) under the tag `xpocketmp`.
 
 ## Developing Plugins
 If you want to write your own plugins, the following resources may be useful.
 Don't forget you can always ask our community if you need help.
 
- * [Developer documentation](https://devdoc.pmmp.io) - General documentation for PocketMine-MP plugin developers
+ * [Developer documentation](https://devdoc.pmmp.io) - General documentation for xpocketmp-MP plugin developers
  * [Latest release API documentation](https://apidoc.pmmp.io) - Doxygen API documentation generated for each release
  * [Latest bleeding-edge API documentation](https://apidoc-dev.pmmp.io) - Doxygen API documentation generated weekly from `major-next` branch
  * [DevTools](https://github.com/pmmp/DevTools/) - Development tools plugin for creating plugins
  * [ExamplePlugin](https://github.com/pmmp/ExamplePlugin/) - Example plugin demonstrating some basic API features
 
-## Contributing to PocketMine-MP
-PocketMine-MP accepts community contributions! The following resources will be useful if you want to contribute to PocketMine-MP.
- * [Building and running PocketMine-MP from source](BUILDING.md)
+## Contributing to xpocketmp-MP
+xpocketmp-MP accepts community contributions! The following resources will be useful if you want to contribute to xpocketmp-MP.
+ * [Building and running xpocketmp-MP from source](BUILDING.md)
  * [Contributing Guidelines](CONTRIBUTING.md)
 
 ## Donate
@@ -74,4 +74,4 @@ Thanks for your support!
 ## Licensing information
 This project is licensed under LGPL-3.0. Please see the [LICENSE](/LICENSE) file for details.
 
-pmmp/PocketMine are not affiliated with Mojang. All brands and trademarks belong to their respective owners. PocketMine-MP is not a Mojang-approved software, nor is it associated with Mojang.
+pmmp/xpocketmp are not affiliated with Mojang. All brands and trademarks belong to their respective owners. xpocketmp-MP is not a Mojang-approved software, nor is it associated with Mojang.

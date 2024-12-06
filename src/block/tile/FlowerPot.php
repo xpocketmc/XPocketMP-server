@@ -13,32 +13,32 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\tile;
+namespace XPocketMPlock\tile;
 
-use pocketmine\block\Air;
-use pocketmine\block\Block;
-use pocketmine\block\RuntimeBlockStateRegistry;
-use pocketmine\data\bedrock\block\BlockStateDeserializeException;
-use pocketmine\data\bedrock\block\BlockStateNames;
-use pocketmine\data\SavedDataLoadingException;
-use pocketmine\nbt\tag\ByteTag;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\IntTag;
-use pocketmine\nbt\tag\ShortTag;
-use pocketmine\network\mcpe\convert\TypeConverter;
-use pocketmine\world\format\io\GlobalBlockStateHandlers;
+use XPocketMPlock\Air;
+use XPocketMPlock\Block;
+use XPocketMPlock\RuntimeBlockStateRegistry;
+use XPocketMP\data\bedrock\block\BlockStateDeserializeException;
+use XPocketMP\data\bedrock\block\BlockStateNames;
+use XPocketMP\data\SavedDataLoadingException;
+use XPocketMP\nbt\tag\ByteTag;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\tag\IntTag;
+use XPocketMP\nbt\tag\ShortTag;
+use XPocketMP\network\mcpe\convert\TypeConverter;
+use XPocketMP\world\format\io\GlobalBlockStateHandlers;
 
 /**
  * @deprecated
- * @see \pocketmine\block\FlowerPot
+ * @see \XPocketMPlock\FlowerPot
  */
 class FlowerPot extends Spawnable{
 	private const TAG_ITEM = "item";

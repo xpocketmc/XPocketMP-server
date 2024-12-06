@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\utils;
+namespace XPocketMPlock\utils;
 
-use pocketmine\block\Block;
-use pocketmine\block\VanillaBlocks;
-use pocketmine\entity\Location;
-use pocketmine\entity\object\FallingBlock;
-use pocketmine\math\Facing;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\world\Position;
-use pocketmine\world\sound\Sound;
+use XPocketMPlock\Block;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\entity\Location;
+use XPocketMP\entity\object\FallingBlock;
+use XPocketMP\math\Facing;
+use XPocketMP\utils\AssumptionFailedError;
+use XPocketMP\world\Position;
+use XPocketMP\world\sound\Sound;
 
 /**
  * This trait handles falling behaviour for blocks that need them.

@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\AmethystTrait;
-use pocketmine\block\utils\BlockEventHelper;
-use pocketmine\item\Item;
-use pocketmine\math\Facing;
+use XPocketMPlock\utils\AmethystTrait;
+use XPocketMPlock\utils\BlockEventHelper;
+use XPocketMP\item\Item;
+use XPocketMP\math\Facing;
 use function array_rand;
 use function mt_rand;
 

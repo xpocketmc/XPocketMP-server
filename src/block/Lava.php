@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\entity\Entity;
-use pocketmine\event\entity\EntityCombustByBlockEvent;
-use pocketmine\event\entity\EntityDamageByBlockEvent;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\math\Facing;
-use pocketmine\world\sound\BucketEmptyLavaSound;
-use pocketmine\world\sound\BucketFillLavaSound;
-use pocketmine\world\sound\Sound;
+use XPocketMP\entity\Entity;
+use XPocketMP\event\entity\EntityCombustByBlockEvent;
+use XPocketMP\event\entity\EntityDamageByBlockEvent;
+use XPocketMP\event\entity\EntityDamageEvent;
+use XPocketMP\math\Facing;
+use XPocketMP\world\sound\BucketEmptyLavaSound;
+use XPocketMP\world\sound\BucketFillLavaSound;
+use XPocketMP\world\sound\Sound;
 
 class Lava extends Liquid{
 

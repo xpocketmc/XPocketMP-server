@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity;
+namespace XPocketMP\entity;
 
-use pocketmine\entity\utils\ExperienceUtils;
-use pocketmine\event\player\PlayerExperienceChangeEvent;
-use pocketmine\item\Durable;
-use pocketmine\item\enchantment\VanillaEnchantments;
-use pocketmine\utils\Limits;
-use pocketmine\world\sound\XpCollectSound;
-use pocketmine\world\sound\XpLevelUpSound;
+use XPocketMP\entity\utils\ExperienceUtils;
+use XPocketMP\event\player\PlayerExperienceChangeEvent;
+use XPocketMP\item\Durable;
+use XPocketMP\item\enchantment\VanillaEnchantments;
+use XPocketMP\utils\Limits;
+use XPocketMP\world\sound\XpCollectSound;
+use XPocketMP\world\sound\XpLevelUpSound;
 use function array_rand;
 use function ceil;
 use function count;

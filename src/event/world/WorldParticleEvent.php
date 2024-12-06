@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\world;
+namespace XPocketMP\event\world;
 
-use pocketmine\event\Cancellable;
-use pocketmine\event\CancellableTrait;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
-use pocketmine\world\particle\Particle;
-use pocketmine\world\World;
+use XPocketMP\event\Cancellable;
+use XPocketMP\event\CancellableTrait;
+use XPocketMP\math\Vector3;
+use XPocketMP\player\Player;
+use XPocketMP\world\particle\Particle;
+use XPocketMP\world\World;
 
 class WorldParticleEvent extends WorldEvent implements Cancellable{
 	use CancellableTrait;

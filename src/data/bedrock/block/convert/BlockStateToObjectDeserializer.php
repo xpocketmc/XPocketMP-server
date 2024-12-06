@@ -13,52 +13,52 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\block\convert;
+namespace XPocketMP\data\bedrock\block\convert;
 
-use pocketmine\block\AmethystCluster;
-use pocketmine\block\Anvil;
-use pocketmine\block\Bamboo;
-use pocketmine\block\Block;
-use pocketmine\block\CaveVines;
-use pocketmine\block\ChorusFlower;
-use pocketmine\block\DoublePitcherCrop;
-use pocketmine\block\Opaque;
-use pocketmine\block\PinkPetals;
-use pocketmine\block\PitcherCrop;
-use pocketmine\block\Slab;
-use pocketmine\block\Stair;
-use pocketmine\block\SweetBerryBush;
-use pocketmine\block\utils\BrewingStandSlot;
-use pocketmine\block\utils\ChiseledBookshelfSlot;
-use pocketmine\block\utils\CopperOxidation;
-use pocketmine\block\utils\CoralType;
-use pocketmine\block\utils\DirtType;
-use pocketmine\block\utils\DripleafState;
-use pocketmine\block\utils\DyeColor;
-use pocketmine\block\utils\FroglightType;
-use pocketmine\block\utils\LeverFacing;
-use pocketmine\block\utils\MobHeadType;
-use pocketmine\block\VanillaBlocks as Blocks;
-use pocketmine\block\Wood;
-use pocketmine\data\bedrock\block\BlockLegacyMetadata;
-use pocketmine\data\bedrock\block\BlockStateData;
-use pocketmine\data\bedrock\block\BlockStateDeserializeException;
-use pocketmine\data\bedrock\block\BlockStateDeserializer;
-use pocketmine\data\bedrock\block\BlockStateNames as StateNames;
-use pocketmine\data\bedrock\block\BlockStateStringValues as StringValues;
-use pocketmine\data\bedrock\block\BlockTypeNames as Ids;
-use pocketmine\data\bedrock\block\convert\BlockStateDeserializerHelper as Helper;
-use pocketmine\data\bedrock\block\convert\BlockStateReader as Reader;
-use pocketmine\math\Axis;
-use pocketmine\math\Facing;
+use XPocketMPlock\AmethystCluster;
+use XPocketMPlock\Anvil;
+use XPocketMPlock\Bamboo;
+use XPocketMPlock\Block;
+use XPocketMPlock\CaveVines;
+use XPocketMPlock\ChorusFlower;
+use XPocketMPlock\DoublePitcherCrop;
+use XPocketMPlock\Opaque;
+use XPocketMPlock\PinkPetals;
+use XPocketMPlock\PitcherCrop;
+use XPocketMPlock\Slab;
+use XPocketMPlock\Stair;
+use XPocketMPlock\SweetBerryBush;
+use XPocketMPlock\utils\BrewingStandSlot;
+use XPocketMPlock\utils\ChiseledBookshelfSlot;
+use XPocketMPlock\utils\CopperOxidation;
+use XPocketMPlock\utils\CoralType;
+use XPocketMPlock\utils\DirtType;
+use XPocketMPlock\utils\DripleafState;
+use XPocketMPlock\utils\DyeColor;
+use XPocketMPlock\utils\FroglightType;
+use XPocketMPlock\utils\LeverFacing;
+use XPocketMPlock\utils\MobHeadType;
+use XPocketMPlock\VanillaBlocks as Blocks;
+use XPocketMPlock\Wood;
+use XPocketMP\data\bedrock\block\BlockLegacyMetadata;
+use XPocketMP\data\bedrock\block\BlockStateData;
+use XPocketMP\data\bedrock\block\BlockStateDeserializeException;
+use XPocketMP\data\bedrock\block\BlockStateDeserializer;
+use XPocketMP\data\bedrock\block\BlockStateNames as StateNames;
+use XPocketMP\data\bedrock\block\BlockStateStringValues as StringValues;
+use XPocketMP\data\bedrock\block\BlockTypeNames as Ids;
+use XPocketMP\data\bedrock\block\convert\BlockStateDeserializerHelper as Helper;
+use XPocketMP\data\bedrock\block\convert\BlockStateReader as Reader;
+use XPocketMP\math\Axis;
+use XPocketMP\math\Facing;
 use function array_key_exists;
 use function count;
 use function min;

@@ -13,30 +13,30 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\handler;
+namespace XPocketMP\network\mcpe\handler;
 
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\network\mcpe\NetworkSession;
-use pocketmine\network\mcpe\protocol\ProtocolInfo;
-use pocketmine\network\mcpe\protocol\ResourcePackChunkDataPacket;
-use pocketmine\network\mcpe\protocol\ResourcePackChunkRequestPacket;
-use pocketmine\network\mcpe\protocol\ResourcePackClientResponsePacket;
-use pocketmine\network\mcpe\protocol\ResourcePackDataInfoPacket;
-use pocketmine\network\mcpe\protocol\ResourcePacksInfoPacket;
-use pocketmine\network\mcpe\protocol\ResourcePackStackPacket;
-use pocketmine\network\mcpe\protocol\types\Experiments;
-use pocketmine\network\mcpe\protocol\types\resourcepacks\ResourcePackInfoEntry;
-use pocketmine\network\mcpe\protocol\types\resourcepacks\ResourcePackStackEntry;
-use pocketmine\network\mcpe\protocol\types\resourcepacks\ResourcePackType;
-use pocketmine\resourcepacks\ResourcePack;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\network\mcpe\NetworkSession;
+use XPocketMP\network\mcpe\protocol\ProtocolInfo;
+use XPocketMP\network\mcpe\protocol\ResourcePackChunkDataPacket;
+use XPocketMP\network\mcpe\protocol\ResourcePackChunkRequestPacket;
+use XPocketMP\network\mcpe\protocol\ResourcePackClientResponsePacket;
+use XPocketMP\network\mcpe\protocol\ResourcePackDataInfoPacket;
+use XPocketMP\network\mcpe\protocol\ResourcePacksInfoPacket;
+use XPocketMP\network\mcpe\protocol\ResourcePackStackPacket;
+use XPocketMP\network\mcpe\protocol\types\Experiments;
+use XPocketMP\network\mcpe\protocol\types\resourcepacks\ResourcePackInfoEntry;
+use XPocketMP\network\mcpe\protocol\types\resourcepacks\ResourcePackStackEntry;
+use XPocketMP\network\mcpe\protocol\types\resourcepacks\ResourcePackType;
+use XPocketMP\resourcepacks\ResourcePack;
 use Ramsey\Uuid\Uuid;
 use function array_keys;
 use function array_map;

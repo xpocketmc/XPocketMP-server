@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\query;
+namespace XPocketMP\network\query;
 
-use pocketmine\player\GameMode;
-use pocketmine\player\Player;
-use pocketmine\plugin\Plugin;
-use pocketmine\Server;
-use pocketmine\utils\Binary;
-use pocketmine\utils\Utils;
-use pocketmine\YmlServerProperties;
+use XPocketMP\player\GameMode;
+use XPocketMP\player\Player;
+use XPocketMP\plugin\Plugin;
+use XPocketMP\Server;
+use XPocketMP\utils\Binary;
+use XPocketMP\utils\Utils;
+use XPocketMP\YmlServerProperties;
 use function array_map;
 use function chr;
 use function count;

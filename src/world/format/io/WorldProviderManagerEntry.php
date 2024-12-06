@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\format\io;
+namespace XPocketMP\world\format\io;
 
-use pocketmine\world\format\io\exception\CorruptedWorldException;
-use pocketmine\world\format\io\exception\UnsupportedWorldFormatException;
+use XPocketMP\world\format\io\exception\CorruptedWorldException;
+use XPocketMP\world\format\io\exception\UnsupportedWorldFormatException;
 
 /**
  * @phpstan-type IsValid \Closure(string $path) : bool

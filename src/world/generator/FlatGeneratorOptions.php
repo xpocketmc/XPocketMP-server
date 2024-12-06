@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\generator;
+namespace XPocketMP\world\generator;
 
-use pocketmine\data\bedrock\BiomeIds;
-use pocketmine\item\LegacyStringToItemParser;
-use pocketmine\item\LegacyStringToItemParserException;
+use XPocketMP\data\bedrock\BiomeIds;
+use XPocketMP\item\LegacyStringToItemParser;
+use XPocketMP\item\LegacyStringToItemParserException;
 use function array_map;
 use function count;
 use function explode;

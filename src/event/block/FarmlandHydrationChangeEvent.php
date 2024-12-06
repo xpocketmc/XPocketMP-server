@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\block;
+namespace XPocketMP\event\block;
 
-use pocketmine\block\Block;
-use pocketmine\block\Farmland;
-use pocketmine\event\Cancellable;
-use pocketmine\event\CancellableTrait;
+use XPocketMPlock\Block;
+use XPocketMPlock\Farmland;
+use XPocketMP\event\Cancellable;
+use XPocketMP\event\CancellableTrait;
 
 /**
  * Called when farmland hydration is updated.

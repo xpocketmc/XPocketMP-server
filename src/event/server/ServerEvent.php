@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -24,9 +24,9 @@ declare(strict_types=1);
 /**
  * Events related to the server core, like networking, stop, console commands
  */
-namespace pocketmine\event\server;
+namespace XPocketMP\event\server;
 
-use pocketmine\event\Event;
+use XPocketMP\event\Event;
 
 abstract class ServerEvent extends Event{
 

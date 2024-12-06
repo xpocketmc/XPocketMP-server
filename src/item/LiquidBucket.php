@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item;
+namespace XPocketMP\item;
 
-use pocketmine\block\Block;
-use pocketmine\block\Lava;
-use pocketmine\block\Liquid;
-use pocketmine\event\player\PlayerBucketEmptyEvent;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
+use XPocketMPlock\Block;
+use XPocketMPlock\Lava;
+use XPocketMPlock\Liquid;
+use XPocketMP\event\player\PlayerBucketEmptyEvent;
+use XPocketMP\math\Vector3;
+use XPocketMP\player\Player;
 
 class LiquidBucket extends Item{
 	private Liquid $liquid;

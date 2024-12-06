@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\compression;
+namespace XPocketMP\network\mcpe\compression;
 
-use pocketmine\scheduler\AsyncTask;
-use pocketmine\thread\NonThreadSafeValue;
+use XPocketMP\scheduler\AsyncTask;
+use XPocketMP\thread\NonThreadSafeValue;
 use function chr;
 
 class CompressBatchTask extends AsyncTask{

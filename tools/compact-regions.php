@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\tools\compact_regions;
+namespace xpocketmp\tools\compact_regions;
 
-use pocketmine\world\format\io\exception\CorruptedChunkException;
-use pocketmine\world\format\io\region\CorruptedRegionException;
-use pocketmine\world\format\io\region\RegionLoader;
+use xpocketmp\world\format\io\exception\CorruptedChunkException;
+use xpocketmp\world\format\io\region\CorruptedRegionException;
+use xpocketmp\world\format\io\region\RegionLoader;
 use function array_sum;
 use function arsort;
 use function clearstatcache;
@@ -177,6 +177,6 @@ function main(array $argv) : int{
 	return 0;
 }
 
-if(!defined('pocketmine\_PHPSTAN_ANALYSIS')){
+if(!defined('xpocketmp\_PHPSTAN_ANALYSIS')){
 	exit(main($argv));
 }

@@ -13,64 +13,64 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command;
+namespace XPocketMP\command;
 
-use pocketmine\command\defaults\BanCommand;
-use pocketmine\command\defaults\BanIpCommand;
-use pocketmine\command\defaults\BanListCommand;
-use pocketmine\command\defaults\ClearCommand;
-use pocketmine\command\defaults\DefaultGamemodeCommand;
-use pocketmine\command\defaults\DeopCommand;
-use pocketmine\command\defaults\DifficultyCommand;
-use pocketmine\command\defaults\DumpMemoryCommand;
-use pocketmine\command\defaults\EffectCommand;
-use pocketmine\command\defaults\EnchantCommand;
-use pocketmine\command\defaults\GamemodeCommand;
-use pocketmine\command\defaults\GarbageCollectorCommand;
-use pocketmine\command\defaults\GiveCommand;
-use pocketmine\command\defaults\HelpCommand;
-use pocketmine\command\defaults\KickCommand;
-use pocketmine\command\defaults\KillCommand;
-use pocketmine\command\defaults\ListCommand;
-use pocketmine\command\defaults\MeCommand;
-use pocketmine\command\defaults\OpCommand;
-use pocketmine\command\defaults\PardonCommand;
-use pocketmine\command\defaults\PardonIpCommand;
-use pocketmine\command\defaults\ParticleCommand;
-use pocketmine\command\defaults\PluginsCommand;
-use pocketmine\command\defaults\SaveCommand;
-use pocketmine\command\defaults\SaveOffCommand;
-use pocketmine\command\defaults\SaveOnCommand;
-use pocketmine\command\defaults\SayCommand;
-use pocketmine\command\defaults\SeedCommand;
-use pocketmine\command\defaults\SetWorldSpawnCommand;
-use pocketmine\command\defaults\SpawnpointCommand;
-use pocketmine\command\defaults\StatusCommand;
-use pocketmine\command\defaults\StopCommand;
-use pocketmine\command\defaults\TeleportCommand;
-use pocketmine\command\defaults\TellCommand;
-use pocketmine\command\defaults\TimeCommand;
-use pocketmine\command\defaults\TimingsCommand;
-use pocketmine\command\defaults\TitleCommand;
-use pocketmine\command\defaults\TransferServerCommand;
-use pocketmine\command\defaults\VanillaCommand;
-use pocketmine\command\defaults\VersionCommand;
-use pocketmine\command\defaults\WhitelistCommand;
-use pocketmine\command\utils\CommandStringHelper;
-use pocketmine\command\utils\InvalidCommandSyntaxException;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\Server;
-use pocketmine\timings\Timings;
-use pocketmine\utils\TextFormat;
-use pocketmine\utils\Utils;
+use XPocketMP\command\defaults\BanCommand;
+use XPocketMP\command\defaults\BanIpCommand;
+use XPocketMP\command\defaults\BanListCommand;
+use XPocketMP\command\defaults\ClearCommand;
+use XPocketMP\command\defaults\DefaultGamemodeCommand;
+use XPocketMP\command\defaults\DeopCommand;
+use XPocketMP\command\defaults\DifficultyCommand;
+use XPocketMP\command\defaults\DumpMemoryCommand;
+use XPocketMP\command\defaults\EffectCommand;
+use XPocketMP\command\defaults\EnchantCommand;
+use XPocketMP\command\defaults\GamemodeCommand;
+use XPocketMP\command\defaults\GarbageCollectorCommand;
+use XPocketMP\command\defaults\GiveCommand;
+use XPocketMP\command\defaults\HelpCommand;
+use XPocketMP\command\defaults\KickCommand;
+use XPocketMP\command\defaults\KillCommand;
+use XPocketMP\command\defaults\ListCommand;
+use XPocketMP\command\defaults\MeCommand;
+use XPocketMP\command\defaults\OpCommand;
+use XPocketMP\command\defaults\PardonCommand;
+use XPocketMP\command\defaults\PardonIpCommand;
+use XPocketMP\command\defaults\ParticleCommand;
+use XPocketMP\command\defaults\PluginsCommand;
+use XPocketMP\command\defaults\SaveCommand;
+use XPocketMP\command\defaults\SaveOffCommand;
+use XPocketMP\command\defaults\SaveOnCommand;
+use XPocketMP\command\defaults\SayCommand;
+use XPocketMP\command\defaults\SeedCommand;
+use XPocketMP\command\defaults\SetWorldSpawnCommand;
+use XPocketMP\command\defaults\SpawnpointCommand;
+use XPocketMP\command\defaults\StatusCommand;
+use XPocketMP\command\defaults\StopCommand;
+use XPocketMP\command\defaults\TeleportCommand;
+use XPocketMP\command\defaults\TellCommand;
+use XPocketMP\command\defaults\TimeCommand;
+use XPocketMP\command\defaults\TimingsCommand;
+use XPocketMP\command\defaults\TitleCommand;
+use XPocketMP\command\defaults\TransferServerCommand;
+use XPocketMP\command\defaults\VanillaCommand;
+use XPocketMP\command\defaults\VersionCommand;
+use XPocketMP\command\defaults\WhitelistCommand;
+use XPocketMP\command\utils\CommandStringHelper;
+use XPocketMP\command\utils\InvalidCommandSyntaxException;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\Server;
+use XPocketMP\timings\Timings;
+use XPocketMP\utils\TextFormat;
+use XPocketMP\utils\Utils;
 use function array_shift;
 use function count;
 use function implode;
@@ -92,7 +92,7 @@ class SimpleCommandMap implements CommandMap{
 	}
 
 	private function setDefaultCommands() : void{
-		$this->registerAll("pocketmine", [
+		$this->registerAll("XPocketMP", [
 			new BanCommand(),
 			new BanIpCommand(),
 			new BanListCommand(),
@@ -223,7 +223,7 @@ class SimpleCommandMap implements CommandMap{
 			return true;
 		}
 
-		$sender->sendMessage(KnownTranslationFactory::pocketmine_command_notFound($sentCommandLabel ?? "", "/help")->prefix(TextFormat::RED));
+		$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_notFound($sentCommandLabel ?? "", "/help")->prefix(TextFormat::RED));
 		return false;
 	}
 
@@ -255,7 +255,7 @@ class SimpleCommandMap implements CommandMap{
 
 		foreach(Utils::stringifyKeys($values) as $alias => $commandStrings){
 			if(str_contains($alias, ":")){
-				$this->server->getLogger()->warning($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_command_alias_illegal($alias)));
+				$this->server->getLogger()->warning($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_command_alias_illegal($alias)));
 				continue;
 			}
 
@@ -278,12 +278,12 @@ class SimpleCommandMap implements CommandMap{
 			}
 
 			if(count($recursive) > 0){
-				$this->server->getLogger()->warning($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_command_alias_recursive($alias, implode(", ", $recursive))));
+				$this->server->getLogger()->warning($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_command_alias_recursive($alias, implode(", ", $recursive))));
 				continue;
 			}
 
 			if(count($bad) > 0){
-				$this->server->getLogger()->warning($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_command_alias_notFound($alias, implode(", ", $bad))));
+				$this->server->getLogger()->warning($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_command_alias_notFound($alias, implode(", ", $bad))));
 				continue;
 			}
 

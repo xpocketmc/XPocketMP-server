@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\tools\convert_world;
+namespace xpocketmp\tools\convert_world;
 
-use pocketmine\world\format\io\FormatConverter;
-use pocketmine\world\format\io\WorldProviderManager;
-use pocketmine\world\format\io\WorldProviderManagerEntry;
-use pocketmine\world\format\io\WritableWorldProviderManagerEntry;
+use xpocketmp\world\format\io\FormatConverter;
+use xpocketmp\world\format\io\WorldProviderManager;
+use xpocketmp\world\format\io\WorldProviderManagerEntry;
+use xpocketmp\world\format\io\WritableWorldProviderManagerEntry;
 use function array_filter;
 use function array_key_exists;
 use function array_keys;

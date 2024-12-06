@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\SupportType;
-use pocketmine\math\AxisAlignedBB;
-use pocketmine\math\Vector3;
+use XPocketMPlock\utils\SupportType;
+use XPocketMP\math\AxisAlignedBB;
+use XPocketMP\math\Vector3;
 
 /**
  * "Flowable" blocks are destroyed if water flows into the same space as the block. These blocks usually don't have any

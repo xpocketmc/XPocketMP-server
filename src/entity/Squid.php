@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity;
+namespace XPocketMP\entity;
 
-use pocketmine\entity\animation\SquidInkCloudAnimation;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\item\VanillaItems;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
+use XPocketMP\entity\animation\SquidInkCloudAnimation;
+use XPocketMP\event\entity\EntityDamageByEntityEvent;
+use XPocketMP\event\entity\EntityDamageEvent;
+use XPocketMP\item\VanillaItems;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
 use function atan2;
 use function mt_rand;
 use function sqrt;
