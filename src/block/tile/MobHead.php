@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\tile;
+namespace XPocketMPlock\tile;
 
-use pocketmine\block\utils\MobHeadType;
-use pocketmine\data\bedrock\MobHeadTypeIdMap;
-use pocketmine\data\SavedDataLoadingException;
-use pocketmine\nbt\tag\ByteTag;
-use pocketmine\nbt\tag\CompoundTag;
+use XPocketMPlock\utils\MobHeadType;
+use XPocketMP\data\bedrock\MobHeadTypeIdMap;
+use XPocketMP\data\SavedDataLoadingException;
+use XPocketMP\nbt\tag\ByteTag;
+use XPocketMP\nbt\tag\CompoundTag;
 
 /**
  * @deprecated
- * @see \pocketmine\block\MobHead
+ * @see \XPocketMPlock\MobHead
  */
 class MobHead extends Spawnable{
 

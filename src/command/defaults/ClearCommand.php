@@ -13,27 +13,27 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\command\utils\InvalidCommandSyntaxException;
-use pocketmine\inventory\Inventory;
-use pocketmine\item\Item;
-use pocketmine\item\LegacyStringToItemParser;
-use pocketmine\item\LegacyStringToItemParserException;
-use pocketmine\item\StringToItemParser;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\permission\DefaultPermissionNames;
-use pocketmine\utils\TextFormat;
+use XPocketMP\command\Command;
+use XPocketMP\command\CommandSender;
+use XPocketMP\command\utils\InvalidCommandSyntaxException;
+use XPocketMP\inventory\Inventory;
+use XPocketMP\item\Item;
+use XPocketMP\item\LegacyStringToItemParser;
+use XPocketMP\item\LegacyStringToItemParserException;
+use XPocketMP\item\StringToItemParser;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\permission\DefaultPermissionNames;
+use XPocketMP\utils\TextFormat;
 use function count;
 use function min;
 
@@ -42,8 +42,8 @@ class ClearCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"clear",
-			KnownTranslationFactory::pocketmine_command_clear_description(),
-			KnownTranslationFactory::pocketmine_command_clear_usage()
+			KnownTranslationFactory::XPocketMP_command_clear_description(),
+			KnownTranslationFactory::XPocketMP_command_clear_usage()
 		);
 		$this->setPermissions([DefaultPermissionNames::COMMAND_CLEAR_SELF, DefaultPermissionNames::COMMAND_CLEAR_OTHER]);
 	}

@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\light;
+namespace XPocketMP\world\light;
 
-use pocketmine\block\RuntimeBlockStateRegistry;
-use pocketmine\scheduler\AsyncTask;
-use pocketmine\world\format\Chunk;
-use pocketmine\world\format\io\FastChunkSerializer;
-use pocketmine\world\format\LightArray;
-use pocketmine\world\SimpleChunkManager;
-use pocketmine\world\utils\SubChunkExplorer;
-use pocketmine\world\World;
+use XPocketMPlock\RuntimeBlockStateRegistry;
+use XPocketMP\scheduler\AsyncTask;
+use XPocketMP\world\format\Chunk;
+use XPocketMP\world\format\io\FastChunkSerializer;
+use XPocketMP\world\format\LightArray;
+use XPocketMP\world\SimpleChunkManager;
+use XPocketMP\world\utils\SubChunkExplorer;
+use XPocketMP\world\World;
 use function igbinary_serialize;
 use function igbinary_unserialize;
 

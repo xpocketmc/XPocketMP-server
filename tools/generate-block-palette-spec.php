@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\tools\generate_block_palette_spec;
+namespace xpocketmp\tools\generate_block_palette_spec;
 
-use pocketmine\nbt\NbtException;
-use pocketmine\nbt\tag\ByteTag;
-use pocketmine\nbt\tag\IntTag;
-use pocketmine\nbt\tag\StringTag;
-use pocketmine\network\mcpe\convert\BlockStateDictionary;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\utils\Filesystem;
-use pocketmine\utils\Utils;
+use xpocketmp\nbt\NbtException;
+use xpocketmp\nbt\tag\ByteTag;
+use xpocketmp\nbt\tag\IntTag;
+use xpocketmp\nbt\tag\StringTag;
+use xpocketmp\network\mcpe\convert\BlockStateDictionary;
+use xpocketmp\utils\AssumptionFailedError;
+use xpocketmp\utils\Filesystem;
+use xpocketmp\utils\Utils;
 use function array_values;
 use function count;
 use function dirname;

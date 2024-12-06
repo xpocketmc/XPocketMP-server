@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\command\utils\InvalidCommandSyntaxException;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\permission\DefaultPermissionNames;
-use pocketmine\player\Player;
-use pocketmine\world\Position;
-use pocketmine\world\World;
+use XPocketMP\command\Command;
+use XPocketMP\command\CommandSender;
+use XPocketMP\command\utils\InvalidCommandSyntaxException;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\permission\DefaultPermissionNames;
+use XPocketMP\player\Player;
+use XPocketMP\world\Position;
+use XPocketMP\world\World;
 use function count;
 use function round;
 
@@ -39,7 +39,7 @@ class SpawnpointCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"spawnpoint",
-			KnownTranslationFactory::pocketmine_command_spawnpoint_description(),
+			KnownTranslationFactory::XPocketMP_command_spawnpoint_description(),
 			KnownTranslationFactory::commands_spawnpoint_usage()
 		);
 		$this->setPermissions([

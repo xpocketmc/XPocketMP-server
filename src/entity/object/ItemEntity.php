@@ -13,34 +13,34 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity\object;
+namespace XPocketMP\entity\object;
 
-use pocketmine\entity\animation\ItemEntityStackSizeChangeAnimation;
-use pocketmine\entity\Entity;
-use pocketmine\entity\EntitySizeInfo;
-use pocketmine\entity\Location;
-use pocketmine\event\entity\EntityItemPickupEvent;
-use pocketmine\event\entity\ItemDespawnEvent;
-use pocketmine\event\entity\ItemMergeEvent;
-use pocketmine\event\entity\ItemSpawnEvent;
-use pocketmine\item\Item;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\network\mcpe\EntityEventBroadcaster;
-use pocketmine\network\mcpe\NetworkBroadcastUtils;
-use pocketmine\network\mcpe\protocol\AddItemActorPacket;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\network\mcpe\protocol\types\inventory\ItemStackWrapper;
-use pocketmine\player\Player;
-use pocketmine\timings\Timings;
+use XPocketMP\entity\animation\ItemEntityStackSizeChangeAnimation;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\EntitySizeInfo;
+use XPocketMP\entity\Location;
+use XPocketMP\event\entity\EntityItemPickupEvent;
+use XPocketMP\event\entity\ItemDespawnEvent;
+use XPocketMP\event\entity\ItemMergeEvent;
+use XPocketMP\event\entity\ItemSpawnEvent;
+use XPocketMP\item\Item;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\network\mcpe\EntityEventBroadcaster;
+use XPocketMP\network\mcpe\NetworkBroadcastUtils;
+use XPocketMP\network\mcpe\protocol\AddItemActorPacket;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
+use XPocketMP\network\mcpe\protocol\types\inventory\ItemStackWrapper;
+use XPocketMP\player\Player;
+use XPocketMP\timings\Timings;
 use function max;
 
 class ItemEntity extends Entity{

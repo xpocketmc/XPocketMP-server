@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\thread;
+namespace XPocketMP\thread;
 
 use pmmp\thread\Thread as NativeThread;
-use pocketmine\scheduler\AsyncTask;
+use XPocketMP\scheduler\AsyncTask;
 
 /**
- * Specialized Thread class aimed at PocketMine-MP-related usages. It handles setting up autoloading and error handling.
+ * Specialized Thread class aimed at XPocketMP-MP-related usages. It handles setting up autoloading and error handling.
  *
  * Note: You probably don't need a thread unless you're doing something in it that's expected to last a long time (or
  * indefinitely).

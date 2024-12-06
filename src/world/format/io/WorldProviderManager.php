@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\format\io;
+namespace XPocketMP\world\format\io;
 
-use pocketmine\utils\Utils;
-use pocketmine\world\format\io\leveldb\LevelDB;
-use pocketmine\world\format\io\region\Anvil;
-use pocketmine\world\format\io\region\McRegion;
-use pocketmine\world\format\io\region\PMAnvil;
+use XPocketMP\utils\Utils;
+use XPocketMP\world\format\io\leveldb\LevelDB;
+use XPocketMP\world\format\io\region\Anvil;
+use XPocketMP\world\format\io\region\McRegion;
+use XPocketMP\world\format\io\region\PMAnvil;
 use function strtolower;
 use function trim;
 

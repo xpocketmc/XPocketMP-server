@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\crafting;
+namespace XPocketMP\crafting;
 
-use pocketmine\inventory\SimpleInventory;
-use pocketmine\item\Item;
+use XPocketMP\inventory\SimpleInventory;
+use XPocketMP\item\Item;
 use function max;
 use function min;
 use const PHP_INT_MAX;

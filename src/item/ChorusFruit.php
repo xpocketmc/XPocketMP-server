@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item;
+namespace XPocketMP\item;
 
-use pocketmine\block\Liquid;
-use pocketmine\entity\Living;
-use pocketmine\math\Vector3;
-use pocketmine\world\sound\EndermanTeleportSound;
+use XPocketMPlock\Liquid;
+use XPocketMP\entity\Living;
+use XPocketMP\math\Vector3;
+use XPocketMP\world\sound\EndermanTeleportSound;
 use function min;
 use function mt_rand;
 

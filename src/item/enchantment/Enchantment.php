@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item\enchantment;
+namespace XPocketMP\item\enchantment;
 
 use DaveRandom\CallbackValidator\CallbackType;
 use DaveRandom\CallbackValidator\ParameterType;
 use DaveRandom\CallbackValidator\ReturnType;
-use pocketmine\lang\Translatable;
-use pocketmine\utils\NotCloneable;
-use pocketmine\utils\NotSerializable;
-use pocketmine\utils\Utils;
+use XPocketMP\lang\Translatable;
+use XPocketMP\utils\NotCloneable;
+use XPocketMP\utils\NotSerializable;
+use XPocketMP\utils\Utils;
 
 /**
  * Manages enchantment type data.

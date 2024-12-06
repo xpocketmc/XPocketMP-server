@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity\animation;
+namespace XPocketMP\entity\animation;
 
-use pocketmine\network\mcpe\protocol\ClientboundPacket;
+use XPocketMP\network\mcpe\protocol\ClientboundPacket;
 
 /**
  * Represents an animation such as an arm swing, or other visual effect done by entities.

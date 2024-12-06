@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\format\io;
+namespace XPocketMP\world\format\io;
 
-use pocketmine\utils\Binary;
-use pocketmine\utils\BinaryStream;
-use pocketmine\world\format\Chunk;
-use pocketmine\world\format\PalettedBlockArray;
-use pocketmine\world\format\SubChunk;
+use XPocketMP\utils\Binary;
+use XPocketMP\utils\BinaryStream;
+use XPocketMP\world\format\Chunk;
+use XPocketMP\world\format\PalettedBlockArray;
+use XPocketMP\world\format\SubChunk;
 use function array_values;
 use function count;
 use function pack;

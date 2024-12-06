@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\generator\object;
+namespace XPocketMP\world\generator\object;
 
-use pocketmine\block\VanillaBlocks;
-use pocketmine\utils\Random;
-use pocketmine\world\BlockTransaction;
-use pocketmine\world\ChunkManager;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\utils\Random;
+use XPocketMP\world\BlockTransaction;
+use XPocketMP\world\ChunkManager;
 use function abs;
 
 class SpruceTree extends Tree{

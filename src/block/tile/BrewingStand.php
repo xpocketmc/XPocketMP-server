@@ -13,30 +13,30 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\tile;
+namespace XPocketMPlock\tile;
 
-use pocketmine\block\inventory\BrewingStandInventory;
-use pocketmine\crafting\BrewingRecipe;
-use pocketmine\event\block\BrewingFuelUseEvent;
-use pocketmine\event\block\BrewItemEvent;
-use pocketmine\inventory\CallbackInventoryListener;
-use pocketmine\inventory\Inventory;
-use pocketmine\item\Item;
-use pocketmine\item\VanillaItems;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\network\mcpe\protocol\ContainerSetDataPacket;
-use pocketmine\player\Player;
-use pocketmine\world\sound\PotionFinishBrewingSound;
-use pocketmine\world\World;
+use XPocketMPlock\inventory\BrewingStandInventory;
+use XPocketMP\crafting\BrewingRecipe;
+use XPocketMP\event\block\BrewingFuelUseEvent;
+use XPocketMP\event\block\BrewItemEvent;
+use XPocketMP\inventory\CallbackInventoryListener;
+use XPocketMP\inventory\Inventory;
+use XPocketMP\item\Item;
+use XPocketMP\item\VanillaItems;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\network\mcpe\protocol\ContainerSetDataPacket;
+use XPocketMP\player\Player;
+use XPocketMP\world\sound\PotionFinishBrewingSound;
+use XPocketMP\world\World;
 use function array_map;
 use function count;
 

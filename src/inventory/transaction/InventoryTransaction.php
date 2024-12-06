@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\inventory\transaction;
+namespace XPocketMP\inventory\transaction;
 
-use pocketmine\event\inventory\InventoryTransactionEvent;
-use pocketmine\inventory\Inventory;
-use pocketmine\inventory\transaction\action\InventoryAction;
-use pocketmine\inventory\transaction\action\SlotChangeAction;
-use pocketmine\item\Item;
-use pocketmine\player\Player;
-use pocketmine\utils\Utils;
+use XPocketMP\event\inventory\InventoryTransactionEvent;
+use XPocketMP\inventory\Inventory;
+use XPocketMP\inventory\transaction\action\InventoryAction;
+use XPocketMP\inventory\transaction\action\SlotChangeAction;
+use XPocketMP\item\Item;
+use XPocketMP\player\Player;
+use XPocketMP\utils\Utils;
 use function array_keys;
 use function array_values;
 use function assert;

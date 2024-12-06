@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\tile\Jukebox as JukeboxTile;
-use pocketmine\item\Item;
-use pocketmine\item\Record;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
-use pocketmine\world\sound\RecordSound;
-use pocketmine\world\sound\RecordStopSound;
+use XPocketMPlock\tile\Jukebox as JukeboxTile;
+use XPocketMP\item\Item;
+use XPocketMP\item\Record;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\math\Vector3;
+use XPocketMP\player\Player;
+use XPocketMP\world\sound\RecordSound;
+use XPocketMP\world\sound\RecordStopSound;
 
 class Jukebox extends Opaque{
 

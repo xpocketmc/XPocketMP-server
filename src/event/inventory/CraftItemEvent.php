@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\inventory;
+namespace XPocketMP\event\inventory;
 
-use pocketmine\crafting\CraftingRecipe;
-use pocketmine\event\Cancellable;
-use pocketmine\event\CancellableTrait;
-use pocketmine\event\Event;
-use pocketmine\inventory\transaction\CraftingTransaction;
-use pocketmine\item\Item;
-use pocketmine\player\Player;
-use pocketmine\utils\Utils;
+use XPocketMP\crafting\CraftingRecipe;
+use XPocketMP\event\Cancellable;
+use XPocketMP\event\CancellableTrait;
+use XPocketMP\event\Event;
+use XPocketMP\inventory\transaction\CraftingTransaction;
+use XPocketMP\item\Item;
+use XPocketMP\player\Player;
+use XPocketMP\utils\Utils;
 
 class CraftItemEvent extends Event implements Cancellable{
 	use CancellableTrait;

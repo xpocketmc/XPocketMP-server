@@ -13,33 +13,33 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity\projectile;
+namespace XPocketMP\entity\projectile;
 
-use pocketmine\block\Block;
-use pocketmine\entity\animation\ArrowShakeAnimation;
-use pocketmine\entity\Entity;
-use pocketmine\entity\EntitySizeInfo;
-use pocketmine\entity\Location;
-use pocketmine\event\entity\EntityItemPickupEvent;
-use pocketmine\event\entity\ProjectileHitEvent;
-use pocketmine\item\VanillaItems;
-use pocketmine\math\RayTraceResult;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\network\mcpe\EntityEventBroadcaster;
-use pocketmine\network\mcpe\NetworkBroadcastUtils;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
-use pocketmine\player\Player;
-use pocketmine\world\sound\ArrowHitSound;
+use XPocketMPlock\Block;
+use XPocketMP\entity\animation\ArrowShakeAnimation;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\EntitySizeInfo;
+use XPocketMP\entity\Location;
+use XPocketMP\event\entity\EntityItemPickupEvent;
+use XPocketMP\event\entity\ProjectileHitEvent;
+use XPocketMP\item\VanillaItems;
+use XPocketMP\math\RayTraceResult;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\network\mcpe\EntityEventBroadcaster;
+use XPocketMP\network\mcpe\NetworkBroadcastUtils;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataCollection;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataFlags;
+use XPocketMP\player\Player;
+use XPocketMP\world\sound\ArrowHitSound;
 use function ceil;
 use function mt_rand;
 use function sqrt;

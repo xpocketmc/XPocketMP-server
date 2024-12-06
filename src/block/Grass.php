@@ -13,28 +13,28 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\BlockEventHelper;
-use pocketmine\block\utils\DirtType;
-use pocketmine\item\Fertilizer;
-use pocketmine\item\Hoe;
-use pocketmine\item\Item;
-use pocketmine\item\Shovel;
-use pocketmine\math\Facing;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
-use pocketmine\utils\Random;
-use pocketmine\world\generator\object\TallGrass as TallGrassObject;
-use pocketmine\world\sound\ItemUseOnBlockSound;
+use XPocketMPlock\utils\BlockEventHelper;
+use XPocketMPlock\utils\DirtType;
+use XPocketMP\item\Fertilizer;
+use XPocketMP\item\Hoe;
+use XPocketMP\item\Item;
+use XPocketMP\item\Shovel;
+use XPocketMP\math\Facing;
+use XPocketMP\math\Vector3;
+use XPocketMP\player\Player;
+use XPocketMP\utils\Random;
+use XPocketMP\world\generator\object\TallGrass as TallGrassObject;
+use XPocketMP\world\sound\ItemUseOnBlockSound;
 use function mt_rand;
 
 class Grass extends Opaque{

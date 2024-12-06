@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\StaticSupportTrait;
-use pocketmine\block\utils\SupportType;
-use pocketmine\math\Facing;
+use XPocketMPlock\utils\StaticSupportTrait;
+use XPocketMPlock\utils\SupportType;
+use XPocketMP\math\Facing;
 
 final class SporeBlossom extends Flowable{
 	use StaticSupportTrait;

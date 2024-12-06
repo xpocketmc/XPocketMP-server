@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\handler;
+namespace XPocketMP\network\mcpe\handler;
 
-use pocketmine\network\mcpe\NetworkSession;
-use pocketmine\network\mcpe\protocol\NetworkSettingsPacket;
-use pocketmine\network\mcpe\protocol\ProtocolInfo;
-use pocketmine\network\mcpe\protocol\RequestNetworkSettingsPacket;
+use XPocketMP\network\mcpe\NetworkSession;
+use XPocketMP\network\mcpe\protocol\NetworkSettingsPacket;
+use XPocketMP\network\mcpe\protocol\ProtocolInfo;
+use XPocketMP\network\mcpe\protocol\RequestNetworkSettingsPacket;
 
 final class SessionStartPacketHandler extends PacketHandler{
 

@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\tile\ShulkerBox as TileShulkerBox;
-use pocketmine\block\utils\AnyFacingTrait;
-use pocketmine\block\utils\SupportType;
-use pocketmine\data\runtime\RuntimeDataDescriber;
-use pocketmine\item\Item;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
-use pocketmine\world\BlockTransaction;
+use XPocketMPlock\tile\ShulkerBox as TileShulkerBox;
+use XPocketMPlock\utils\AnyFacingTrait;
+use XPocketMPlock\utils\SupportType;
+use XPocketMP\data\runtime\RuntimeDataDescriber;
+use XPocketMP\item\Item;
+use XPocketMP\math\Vector3;
+use XPocketMP\player\Player;
+use XPocketMP\world\BlockTransaction;
 
 class ShulkerBox extends Opaque{
 	use AnyFacingTrait;

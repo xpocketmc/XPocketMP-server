@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\handler;
+namespace XPocketMP\network\mcpe\handler;
 
-use pocketmine\inventory\Inventory;
-use pocketmine\item\Durable;
-use pocketmine\network\mcpe\InventoryManager;
-use pocketmine\network\mcpe\protocol\types\inventory\ContainerUIIds;
-use pocketmine\network\mcpe\protocol\types\inventory\FullContainerName;
-use pocketmine\network\mcpe\protocol\types\inventory\stackresponse\ItemStackResponse;
-use pocketmine\network\mcpe\protocol\types\inventory\stackresponse\ItemStackResponseContainerInfo;
-use pocketmine\network\mcpe\protocol\types\inventory\stackresponse\ItemStackResponseSlotInfo;
-use pocketmine\utils\AssumptionFailedError;
+use XPocketMP\inventory\Inventory;
+use XPocketMP\item\Durable;
+use XPocketMP\network\mcpe\InventoryManager;
+use XPocketMP\network\mcpe\protocol\types\inventory\ContainerUIIds;
+use XPocketMP\network\mcpe\protocol\types\inventory\FullContainerName;
+use XPocketMP\network\mcpe\protocol\types\inventory\stackresponse\ItemStackResponse;
+use XPocketMP\network\mcpe\protocol\types\inventory\stackresponse\ItemStackResponseContainerInfo;
+use XPocketMP\network\mcpe\protocol\types\inventory\stackresponse\ItemStackResponseSlotInfo;
+use XPocketMP\utils\AssumptionFailedError;
 
 final class ItemStackResponseBuilder{
 

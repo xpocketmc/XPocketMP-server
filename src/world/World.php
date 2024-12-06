@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -24,87 +24,87 @@ declare(strict_types=1);
 /**
  * All World related classes are here, like Generators, Populators, Noise, ...
  */
-namespace pocketmine\world;
+namespace XPocketMP\world;
 
-use pocketmine\block\Air;
-use pocketmine\block\Block;
-use pocketmine\block\BlockTypeIds;
-use pocketmine\block\RuntimeBlockStateRegistry;
-use pocketmine\block\tile\Spawnable;
-use pocketmine\block\tile\Tile;
-use pocketmine\block\tile\TileFactory;
-use pocketmine\block\UnknownBlock;
-use pocketmine\block\VanillaBlocks;
-use pocketmine\data\bedrock\BiomeIds;
-use pocketmine\data\bedrock\block\BlockStateData;
-use pocketmine\data\bedrock\block\BlockStateDeserializeException;
-use pocketmine\data\SavedDataLoadingException;
-use pocketmine\entity\Entity;
-use pocketmine\entity\EntityFactory;
-use pocketmine\entity\Location;
-use pocketmine\entity\object\ExperienceOrb;
-use pocketmine\entity\object\ItemEntity;
-use pocketmine\event\block\BlockBreakEvent;
-use pocketmine\event\block\BlockPlaceEvent;
-use pocketmine\event\block\BlockUpdateEvent;
-use pocketmine\event\player\PlayerInteractEvent;
-use pocketmine\event\world\ChunkLoadEvent;
-use pocketmine\event\world\ChunkPopulateEvent;
-use pocketmine\event\world\ChunkUnloadEvent;
-use pocketmine\event\world\SpawnChangeEvent;
-use pocketmine\event\world\WorldDifficultyChangeEvent;
-use pocketmine\event\world\WorldDisplayNameChangeEvent;
-use pocketmine\event\world\WorldParticleEvent;
-use pocketmine\event\world\WorldSaveEvent;
-use pocketmine\event\world\WorldSoundEvent;
-use pocketmine\item\Item;
-use pocketmine\item\ItemUseResult;
-use pocketmine\item\LegacyStringToItemParser;
-use pocketmine\item\StringToItemParser;
-use pocketmine\item\VanillaItems;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\math\AxisAlignedBB;
-use pocketmine\math\Facing;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\tag\IntTag;
-use pocketmine\nbt\tag\StringTag;
-use pocketmine\network\mcpe\convert\TypeConverter;
-use pocketmine\network\mcpe\NetworkBroadcastUtils;
-use pocketmine\network\mcpe\protocol\BlockActorDataPacket;
-use pocketmine\network\mcpe\protocol\ClientboundPacket;
-use pocketmine\network\mcpe\protocol\types\BlockPosition;
-use pocketmine\network\mcpe\protocol\UpdateBlockPacket;
-use pocketmine\player\Player;
-use pocketmine\promise\Promise;
-use pocketmine\promise\PromiseResolver;
-use pocketmine\scheduler\AsyncPool;
-use pocketmine\Server;
-use pocketmine\ServerConfigGroup;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\utils\Limits;
-use pocketmine\utils\ReversePriorityQueue;
-use pocketmine\world\biome\Biome;
-use pocketmine\world\biome\BiomeRegistry;
-use pocketmine\world\format\Chunk;
-use pocketmine\world\format\io\ChunkData;
-use pocketmine\world\format\io\exception\CorruptedChunkException;
-use pocketmine\world\format\io\GlobalBlockStateHandlers;
-use pocketmine\world\format\io\WritableWorldProvider;
-use pocketmine\world\format\LightArray;
-use pocketmine\world\format\SubChunk;
-use pocketmine\world\generator\GeneratorManager;
-use pocketmine\world\generator\GeneratorRegisterTask;
-use pocketmine\world\generator\GeneratorUnregisterTask;
-use pocketmine\world\generator\PopulationTask;
-use pocketmine\world\light\BlockLightUpdate;
-use pocketmine\world\light\LightPopulationTask;
-use pocketmine\world\light\SkyLightUpdate;
-use pocketmine\world\particle\BlockBreakParticle;
-use pocketmine\world\particle\Particle;
-use pocketmine\world\sound\BlockPlaceSound;
-use pocketmine\world\sound\Sound;
-use pocketmine\world\utils\SubChunkExplorer;
-use pocketmine\YmlServerProperties;
+use XPocketMPlock\Air;
+use XPocketMPlock\Block;
+use XPocketMPlock\BlockTypeIds;
+use XPocketMPlock\RuntimeBlockStateRegistry;
+use XPocketMPlock\tile\Spawnable;
+use XPocketMPlock\tile\Tile;
+use XPocketMPlock\tile\TileFactory;
+use XPocketMPlock\UnknownBlock;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\data\bedrock\BiomeIds;
+use XPocketMP\data\bedrock\block\BlockStateData;
+use XPocketMP\data\bedrock\block\BlockStateDeserializeException;
+use XPocketMP\data\SavedDataLoadingException;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\EntityFactory;
+use XPocketMP\entity\Location;
+use XPocketMP\entity\object\ExperienceOrb;
+use XPocketMP\entity\object\ItemEntity;
+use XPocketMP\event\block\BlockBreakEvent;
+use XPocketMP\event\block\BlockPlaceEvent;
+use XPocketMP\event\block\BlockUpdateEvent;
+use XPocketMP\event\player\PlayerInteractEvent;
+use XPocketMP\event\world\ChunkLoadEvent;
+use XPocketMP\event\world\ChunkPopulateEvent;
+use XPocketMP\event\world\ChunkUnloadEvent;
+use XPocketMP\event\world\SpawnChangeEvent;
+use XPocketMP\event\world\WorldDifficultyChangeEvent;
+use XPocketMP\event\world\WorldDisplayNameChangeEvent;
+use XPocketMP\event\world\WorldParticleEvent;
+use XPocketMP\event\world\WorldSaveEvent;
+use XPocketMP\event\world\WorldSoundEvent;
+use XPocketMP\item\Item;
+use XPocketMP\item\ItemUseResult;
+use XPocketMP\item\LegacyStringToItemParser;
+use XPocketMP\item\StringToItemParser;
+use XPocketMP\item\VanillaItems;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\math\AxisAlignedBB;
+use XPocketMP\math\Facing;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\tag\IntTag;
+use XPocketMP\nbt\tag\StringTag;
+use XPocketMP\network\mcpe\convert\TypeConverter;
+use XPocketMP\network\mcpe\NetworkBroadcastUtils;
+use XPocketMP\network\mcpe\protocol\BlockActorDataPacket;
+use XPocketMP\network\mcpe\protocol\ClientboundPacket;
+use XPocketMP\network\mcpe\protocol\types\BlockPosition;
+use XPocketMP\network\mcpe\protocol\UpdateBlockPacket;
+use XPocketMP\player\Player;
+use XPocketMP\promise\Promise;
+use XPocketMP\promise\PromiseResolver;
+use XPocketMP\scheduler\AsyncPool;
+use XPocketMP\Server;
+use XPocketMP\ServerConfigGroup;
+use XPocketMP\utils\AssumptionFailedError;
+use XPocketMP\utils\Limits;
+use XPocketMP\utils\ReversePriorityQueue;
+use XPocketMP\world\biome\Biome;
+use XPocketMP\world\biome\BiomeRegistry;
+use XPocketMP\world\format\Chunk;
+use XPocketMP\world\format\io\ChunkData;
+use XPocketMP\world\format\io\exception\CorruptedChunkException;
+use XPocketMP\world\format\io\GlobalBlockStateHandlers;
+use XPocketMP\world\format\io\WritableWorldProvider;
+use XPocketMP\world\format\LightArray;
+use XPocketMP\world\format\SubChunk;
+use XPocketMP\world\generator\GeneratorManager;
+use XPocketMP\world\generator\GeneratorRegisterTask;
+use XPocketMP\world\generator\GeneratorUnregisterTask;
+use XPocketMP\world\generator\PopulationTask;
+use XPocketMP\world\light\BlockLightUpdate;
+use XPocketMP\world\light\LightPopulationTask;
+use XPocketMP\world\light\SkyLightUpdate;
+use XPocketMP\world\particle\BlockBreakParticle;
+use XPocketMP\world\particle\Particle;
+use XPocketMP\world\sound\BlockPlaceSound;
+use XPocketMP\world\sound\Sound;
+use XPocketMP\world\utils\SubChunkExplorer;
+use XPocketMP\YmlServerProperties;
 use function abs;
 use function array_filter;
 use function array_key_exists;
@@ -355,7 +355,7 @@ class World implements ChunkManager{
 
 	private bool $doingTick = false;
 
-	/** @phpstan-var class-string<\pocketmine\world\generator\Generator> */
+	/** @phpstan-var class-string<\XPocketMP\world\generator\Generator> */
 	private string $generator;
 
 	private bool $unloaded = false;
@@ -486,7 +486,7 @@ class World implements ChunkManager{
 		$this->minY = $this->provider->getWorldMinY();
 		$this->maxY = $this->provider->getWorldMaxY();
 
-		$this->server->getLogger()->info($this->server->getLanguage()->translate(KnownTranslationFactory::pocketmine_level_preparing($this->displayName)));
+		$this->server->getLogger()->info($this->server->getLanguage()->translate(KnownTranslationFactory::XPocketMP_level_preparing($this->displayName)));
 		$generator = GeneratorManager::getInstance()->getGenerator($this->provider->getWorldData()->getGenerator()) ??
 			throw new AssumptionFailedError("WorldManager should already have checked that the generator exists");
 		$generator->validateGeneratorOptions($this->provider->getWorldData()->getGeneratorOptions());
@@ -517,7 +517,7 @@ class World implements ChunkManager{
 		$this->chunkTickRadius = min($this->server->getViewDistance(), max(0, $cfg->getPropertyInt(YmlServerProperties::CHUNK_TICKING_TICK_RADIUS, 4)));
 		if($cfg->getPropertyInt("chunk-ticking.per-tick", 40) <= 0){
 			//TODO: this needs l10n
-			$this->logger->warning("\"chunk-ticking.per-tick\" setting is deprecated, but you've used it to disable chunk ticking. Set \"chunk-ticking.tick-radius\" to 0 in \"pocketmine.yml\" instead.");
+			$this->logger->warning("\"chunk-ticking.per-tick\" setting is deprecated, but you've used it to disable chunk ticking. Set \"chunk-ticking.tick-radius\" to 0 in \"xpocketmp.yml\" instead.");
 			$this->chunkTickRadius = 0;
 		}
 		$this->tickedBlocksPerSubchunkPerTick = $cfg->getPropertyInt(YmlServerProperties::CHUNK_TICKING_BLOCKS_PER_SUBCHUNK_PER_TICK, self::DEFAULT_TICKED_BLOCKS_PER_SUBCHUNK_PER_TICK);

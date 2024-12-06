@@ -13,26 +13,26 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item;
+namespace XPocketMP\item;
 
-use pocketmine\color\Color;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\inventory\ArmorInventory;
-use pocketmine\item\enchantment\ProtectionEnchantment;
-use pocketmine\item\enchantment\VanillaEnchantments;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\IntTag;
-use pocketmine\player\Player;
-use pocketmine\utils\Binary;
+use XPocketMP\color\Color;
+use XPocketMP\event\entity\EntityDamageEvent;
+use XPocketMP\inventory\ArmorInventory;
+use XPocketMP\item\enchantment\ProtectionEnchantment;
+use XPocketMP\item\enchantment\VanillaEnchantments;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\tag\IntTag;
+use XPocketMP\player\Player;
+use XPocketMP\utils\Binary;
 use function lcg_value;
 use function mt_rand;
 

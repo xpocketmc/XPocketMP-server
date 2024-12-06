@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\biome;
+namespace XPocketMP\world\biome;
 
-use pocketmine\block\VanillaBlocks;
-use pocketmine\world\generator\object\OreType;
-use pocketmine\world\generator\populator\Ore;
-use pocketmine\world\generator\populator\TallGrass;
-use pocketmine\world\generator\populator\Tree;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\world\generator\object\OreType;
+use XPocketMP\world\generator\populator\Ore;
+use XPocketMP\world\generator\populator\TallGrass;
+use XPocketMP\world\generator\populator\Tree;
 
 class MountainsBiome extends GrassyBiome{
 

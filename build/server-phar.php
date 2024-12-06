@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\build\server_phar;
+namespace xpocketmp\build\server_phar;
 
-use pocketmine\utils\Filesystem;
-use pocketmine\utils\Git;
+use xpocketmp\utils\Filesystem;
+use xpocketmp\utils\Git;
 use Symfony\Component\Filesystem\Path;
 use function array_map;
 use function count;

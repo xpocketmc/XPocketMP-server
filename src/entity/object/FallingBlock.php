@@ -13,38 +13,38 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity\object;
+namespace XPocketMP\entity\object;
 
-use pocketmine\block\Block;
-use pocketmine\block\RuntimeBlockStateRegistry;
-use pocketmine\block\utils\Fallable;
-use pocketmine\data\bedrock\block\BlockStateDeserializeException;
-use pocketmine\data\SavedDataLoadingException;
-use pocketmine\entity\Entity;
-use pocketmine\entity\EntitySizeInfo;
-use pocketmine\entity\Living;
-use pocketmine\entity\Location;
-use pocketmine\event\entity\EntityBlockChangeEvent;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\tag\ByteTag;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\IntTag;
-use pocketmine\network\mcpe\convert\TypeConverter;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
-use pocketmine\world\format\io\GlobalBlockStateHandlers;
-use pocketmine\world\sound\BlockBreakSound;
+use XPocketMPlock\Block;
+use XPocketMPlock\RuntimeBlockStateRegistry;
+use XPocketMPlock\utils\Fallable;
+use XPocketMP\data\bedrock\block\BlockStateDeserializeException;
+use XPocketMP\data\SavedDataLoadingException;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\EntitySizeInfo;
+use XPocketMP\entity\Living;
+use XPocketMP\entity\Location;
+use XPocketMP\event\entity\EntityBlockChangeEvent;
+use XPocketMP\event\entity\EntityDamageByEntityEvent;
+use XPocketMP\event\entity\EntityDamageEvent;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\tag\ByteTag;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\tag\IntTag;
+use XPocketMP\network\mcpe\convert\TypeConverter;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataCollection;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use XPocketMP\world\format\io\GlobalBlockStateHandlers;
+use XPocketMP\world\sound\BlockBreakSound;
 use function abs;
 use function min;
 use function round;

@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\generator\populator;
+namespace XPocketMP\world\generator\populator;
 
-use pocketmine\block\BlockTypeIds;
-use pocketmine\block\Liquid;
-use pocketmine\block\RuntimeBlockStateRegistry;
-use pocketmine\utils\Random;
-use pocketmine\world\biome\BiomeRegistry;
-use pocketmine\world\ChunkManager;
-use pocketmine\world\format\Chunk;
+use XPocketMPlock\BlockTypeIds;
+use XPocketMPlock\Liquid;
+use XPocketMPlock\RuntimeBlockStateRegistry;
+use XPocketMP\utils\Random;
+use XPocketMP\world\biome\BiomeRegistry;
+use XPocketMP\world\ChunkManager;
+use XPocketMP\world\format\Chunk;
 use function count;
 use function min;
 

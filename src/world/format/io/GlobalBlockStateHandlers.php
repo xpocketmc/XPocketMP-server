@@ -13,29 +13,29 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\format\io;
+namespace XPocketMP\world\format\io;
 
-use pocketmine\data\bedrock\block\BlockStateData;
-use pocketmine\data\bedrock\block\BlockTypeNames;
-use pocketmine\data\bedrock\block\convert\BlockObjectToStateSerializer;
-use pocketmine\data\bedrock\block\convert\BlockStateToObjectDeserializer;
-use pocketmine\data\bedrock\block\upgrade\BlockDataUpgrader;
-use pocketmine\data\bedrock\block\upgrade\BlockIdMetaUpgrader;
-use pocketmine\data\bedrock\block\upgrade\BlockStateUpgrader;
-use pocketmine\data\bedrock\block\upgrade\BlockStateUpgradeSchemaUtils;
-use pocketmine\data\bedrock\block\upgrade\LegacyBlockIdToStringIdMap;
-use pocketmine\utils\Filesystem;
+use XPocketMP\data\bedrock\block\BlockStateData;
+use XPocketMP\data\bedrock\block\BlockTypeNames;
+use XPocketMP\data\bedrock\block\convert\BlockObjectToStateSerializer;
+use XPocketMP\data\bedrock\block\convert\BlockStateToObjectDeserializer;
+use XPocketMP\data\bedrock\block\upgrade\BlockDataUpgrader;
+use XPocketMP\data\bedrock\block\upgrade\BlockIdMetaUpgrader;
+use XPocketMP\data\bedrock\block\upgrade\BlockStateUpgrader;
+use XPocketMP\data\bedrock\block\upgrade\BlockStateUpgradeSchemaUtils;
+use XPocketMP\data\bedrock\block\upgrade\LegacyBlockIdToStringIdMap;
+use XPocketMP\utils\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use const PHP_INT_MAX;
-use const pocketmine\BEDROCK_BLOCK_UPGRADE_SCHEMA_PATH;
+use const XPocketMP\BEDROCK_BLOCK_UPGRADE_SCHEMA_PATH;
 
 /**
  * Provides global access to blockstate serializers for all world providers.

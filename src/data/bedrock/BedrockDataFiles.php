@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock;
+namespace XPocketMP\data\bedrock;
 
-use const pocketmine\BEDROCK_DATA_PATH;
+use const XPocketMP\BEDROCK_DATA_PATH;
 
 final class BedrockDataFiles{
 	private function __construct(){

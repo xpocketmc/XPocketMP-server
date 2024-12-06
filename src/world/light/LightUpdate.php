@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\light;
+namespace XPocketMP\world\light;
 
-use pocketmine\math\Facing;
-use pocketmine\world\format\LightArray;
-use pocketmine\world\format\SubChunk;
-use pocketmine\world\utils\SubChunkExplorer;
-use pocketmine\world\utils\SubChunkExplorerStatus;
-use pocketmine\world\World;
+use XPocketMP\math\Facing;
+use XPocketMP\world\format\LightArray;
+use XPocketMP\world\format\SubChunk;
+use XPocketMP\world\utils\SubChunkExplorer;
+use XPocketMP\world\utils\SubChunkExplorerStatus;
+use XPocketMP\world\World;
 use function assert;
 use function max;
 

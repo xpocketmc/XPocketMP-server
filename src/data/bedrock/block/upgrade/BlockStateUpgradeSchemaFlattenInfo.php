@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\block\upgrade;
+namespace XPocketMP\data\bedrock\block\upgrade;
 
-use pocketmine\nbt\tag\ByteTag;
-use pocketmine\nbt\tag\IntTag;
-use pocketmine\nbt\tag\StringTag;
+use XPocketMP\nbt\tag\ByteTag;
+use XPocketMP\nbt\tag\IntTag;
+use XPocketMP\nbt\tag\StringTag;
 use function ksort;
 use const SORT_STRING;
 

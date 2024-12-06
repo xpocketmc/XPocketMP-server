@@ -13,27 +13,27 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\LeverFacing;
-use pocketmine\data\runtime\RuntimeDataDescriber;
-use pocketmine\item\Item;
-use pocketmine\math\Axis;
-use pocketmine\math\Facing;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\world\BlockTransaction;
-use pocketmine\world\sound\RedstonePowerOffSound;
-use pocketmine\world\sound\RedstonePowerOnSound;
+use XPocketMPlock\utils\LeverFacing;
+use XPocketMP\data\runtime\RuntimeDataDescriber;
+use XPocketMP\item\Item;
+use XPocketMP\math\Axis;
+use XPocketMP\math\Facing;
+use XPocketMP\math\Vector3;
+use XPocketMP\player\Player;
+use XPocketMP\utils\AssumptionFailedError;
+use XPocketMP\world\BlockTransaction;
+use XPocketMP\world\sound\RedstonePowerOffSound;
+use XPocketMP\world\sound\RedstonePowerOnSound;
 
 class Lever extends Flowable{
 	protected LeverFacing $facing = LeverFacing::UP_AXIS_X;

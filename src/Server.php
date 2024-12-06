@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -22,104 +22,104 @@
 declare(strict_types=1);
 
 /**
- * PocketMine-MP is the Minecraft: PE multiplayer server software
- * Homepage: http://www.pocketmine.net/
+ * XPocketMP-MP is the Minecraft: PE multiplayer server software
+ * Homepage: http://www.xpocketmc.xyz/
  */
-namespace pocketmine;
+namespace XPocketMP;
 
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\command\SimpleCommandMap;
-use pocketmine\console\ConsoleCommandSender;
-use pocketmine\console\ConsoleReaderChildProcessDaemon;
-use pocketmine\crafting\CraftingManager;
-use pocketmine\crafting\CraftingManagerFromDataHelper;
-use pocketmine\crash\CrashDump;
-use pocketmine\crash\CrashDumpRenderer;
-use pocketmine\entity\EntityDataHelper;
-use pocketmine\entity\Location;
-use pocketmine\event\HandlerListManager;
-use pocketmine\event\player\PlayerCreationEvent;
-use pocketmine\event\player\PlayerDataSaveEvent;
-use pocketmine\event\player\PlayerLoginEvent;
-use pocketmine\event\server\CommandEvent;
-use pocketmine\event\server\QueryRegenerateEvent;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\lang\Language;
-use pocketmine\lang\LanguageNotFoundException;
-use pocketmine\lang\Translatable;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\network\mcpe\compression\CompressBatchPromise;
-use pocketmine\network\mcpe\compression\CompressBatchTask;
-use pocketmine\network\mcpe\compression\Compressor;
-use pocketmine\network\mcpe\compression\ZlibCompressor;
-use pocketmine\network\mcpe\convert\TypeConverter;
-use pocketmine\network\mcpe\encryption\EncryptionContext;
-use pocketmine\network\mcpe\EntityEventBroadcaster;
-use pocketmine\network\mcpe\NetworkSession;
-use pocketmine\network\mcpe\PacketBroadcaster;
-use pocketmine\network\mcpe\protocol\ProtocolInfo;
-use pocketmine\network\mcpe\protocol\types\CompressionAlgorithm;
-use pocketmine\network\mcpe\raklib\RakLibInterface;
-use pocketmine\network\mcpe\StandardEntityEventBroadcaster;
-use pocketmine\network\mcpe\StandardPacketBroadcaster;
-use pocketmine\network\Network;
-use pocketmine\network\NetworkInterfaceStartException;
-use pocketmine\network\query\DedicatedQueryNetworkInterface;
-use pocketmine\network\query\QueryHandler;
-use pocketmine\network\query\QueryInfo;
-use pocketmine\network\upnp\UPnPNetworkInterface;
-use pocketmine\permission\BanList;
-use pocketmine\permission\DefaultPermissions;
-use pocketmine\player\DatFilePlayerDataProvider;
-use pocketmine\player\GameMode;
-use pocketmine\player\OfflinePlayer;
-use pocketmine\player\Player;
-use pocketmine\player\PlayerDataLoadException;
-use pocketmine\player\PlayerDataProvider;
-use pocketmine\player\PlayerDataSaveException;
-use pocketmine\player\PlayerInfo;
-use pocketmine\plugin\PharPluginLoader;
-use pocketmine\plugin\PluginEnableOrder;
-use pocketmine\plugin\PluginGraylist;
-use pocketmine\plugin\PluginManager;
-use pocketmine\plugin\PluginOwned;
-use pocketmine\plugin\ScriptPluginLoader;
-use pocketmine\promise\Promise;
-use pocketmine\promise\PromiseResolver;
-use pocketmine\resourcepacks\ResourcePackManager;
-use pocketmine\scheduler\AsyncPool;
-use pocketmine\snooze\SleeperHandler;
-use pocketmine\stats\SendUsageTask;
-use pocketmine\thread\log\AttachableThreadSafeLogger;
-use pocketmine\thread\ThreadCrashException;
-use pocketmine\thread\ThreadSafeClassLoader;
-use pocketmine\timings\Timings;
-use pocketmine\timings\TimingsHandler;
-use pocketmine\updater\UpdateChecker;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\utils\BroadcastLoggerForwarder;
-use pocketmine\utils\Config;
-use pocketmine\utils\Filesystem;
-use pocketmine\utils\Internet;
-use pocketmine\utils\MainLogger;
-use pocketmine\utils\NotCloneable;
-use pocketmine\utils\NotSerializable;
-use pocketmine\utils\Process;
-use pocketmine\utils\SignalHandler;
-use pocketmine\utils\Terminal;
-use pocketmine\utils\TextFormat;
-use pocketmine\utils\Utils;
-use pocketmine\world\format\io\WorldProviderManager;
-use pocketmine\world\format\io\WritableWorldProviderManagerEntry;
-use pocketmine\world\generator\Generator;
-use pocketmine\world\generator\GeneratorManager;
-use pocketmine\world\generator\InvalidGeneratorOptionsException;
-use pocketmine\world\Position;
-use pocketmine\world\World;
-use pocketmine\world\WorldCreationOptions;
-use pocketmine\world\WorldManager;
-use pocketmine\YmlServerProperties as Yml;
+use XPocketMP\command\Command;
+use XPocketMP\command\CommandSender;
+use XPocketMP\command\SimpleCommandMap;
+use XPocketMP\console\ConsoleCommandSender;
+use XPocketMP\console\ConsoleReaderChildProcessDaemon;
+use XPocketMP\crafting\CraftingManager;
+use XPocketMP\crafting\CraftingManagerFromDataHelper;
+use XPocketMP\crash\CrashDump;
+use XPocketMP\crash\CrashDumpRenderer;
+use XPocketMP\entity\EntityDataHelper;
+use XPocketMP\entity\Location;
+use XPocketMP\event\HandlerListManager;
+use XPocketMP\event\player\PlayerCreationEvent;
+use XPocketMP\event\player\PlayerDataSaveEvent;
+use XPocketMP\event\player\PlayerLoginEvent;
+use XPocketMP\event\server\CommandEvent;
+use XPocketMP\event\server\QueryRegenerateEvent;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\lang\Language;
+use XPocketMP\lang\LanguageNotFoundException;
+use XPocketMP\lang\Translatable;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\network\mcpe\compression\CompressBatchPromise;
+use XPocketMP\network\mcpe\compression\CompressBatchTask;
+use XPocketMP\network\mcpe\compression\Compressor;
+use XPocketMP\network\mcpe\compression\ZlibCompressor;
+use XPocketMP\network\mcpe\convert\TypeConverter;
+use XPocketMP\network\mcpe\encryption\EncryptionContext;
+use XPocketMP\network\mcpe\EntityEventBroadcaster;
+use XPocketMP\network\mcpe\NetworkSession;
+use XPocketMP\network\mcpe\PacketBroadcaster;
+use XPocketMP\network\mcpe\protocol\ProtocolInfo;
+use XPocketMP\network\mcpe\protocol\types\CompressionAlgorithm;
+use XPocketMP\network\mcpe\raklib\RakLibInterface;
+use XPocketMP\network\mcpe\StandardEntityEventBroadcaster;
+use XPocketMP\network\mcpe\StandardPacketBroadcaster;
+use XPocketMP\network\Network;
+use XPocketMP\network\NetworkInterfaceStartException;
+use XPocketMP\network\query\DedicatedQueryNetworkInterface;
+use XPocketMP\network\query\QueryHandler;
+use XPocketMP\network\query\QueryInfo;
+use XPocketMP\network\upnp\UPnPNetworkInterface;
+use XPocketMP\permission\BanList;
+use XPocketMP\permission\DefaultPermissions;
+use XPocketMP\player\DatFilePlayerDataProvider;
+use XPocketMP\player\GameMode;
+use XPocketMP\player\OfflinePlayer;
+use XPocketMP\player\Player;
+use XPocketMP\player\PlayerDataLoadException;
+use XPocketMP\player\PlayerDataProvider;
+use XPocketMP\player\PlayerDataSaveException;
+use XPocketMP\player\PlayerInfo;
+use XPocketMP\plugin\PharPluginLoader;
+use XPocketMP\plugin\PluginEnableOrder;
+use XPocketMP\plugin\PluginGraylist;
+use XPocketMP\plugin\PluginManager;
+use XPocketMP\plugin\PluginOwned;
+use XPocketMP\plugin\ScriptPluginLoader;
+use XPocketMP\promise\Promise;
+use XPocketMP\promise\PromiseResolver;
+use XPocketMP\resourcepacks\ResourcePackManager;
+use XPocketMP\scheduler\AsyncPool;
+use XPocketMP\snooze\SleeperHandler;
+use XPocketMP\stats\SendUsageTask;
+use XPocketMP\thread\log\AttachableThreadSafeLogger;
+use XPocketMP\thread\ThreadCrashException;
+use XPocketMP\thread\ThreadSafeClassLoader;
+use XPocketMP\timings\Timings;
+use XPocketMP\timings\TimingsHandler;
+use XPocketMP\updater\UpdateChecker;
+use XPocketMP\utils\AssumptionFailedError;
+use XPocketMP\utils\BroadcastLoggerForwarder;
+use XPocketMP\utils\Config;
+use XPocketMP\utils\Filesystem;
+use XPocketMP\utils\Internet;
+use XPocketMP\utils\MainLogger;
+use XPocketMP\utils\NotCloneable;
+use XPocketMP\utils\NotSerializable;
+use XPocketMP\utils\Process;
+use XPocketMP\utils\SignalHandler;
+use XPocketMP\utils\Terminal;
+use XPocketMP\utils\TextFormat;
+use XPocketMP\utils\Utils;
+use XPocketMP\world\format\io\WorldProviderManager;
+use XPocketMP\world\format\io\WritableWorldProviderManagerEntry;
+use XPocketMP\world\generator\Generator;
+use XPocketMP\world\generator\GeneratorManager;
+use XPocketMP\world\generator\InvalidGeneratorOptionsException;
+use XPocketMP\world\Position;
+use XPocketMP\world\World;
+use XPocketMP\world\WorldCreationOptions;
+use XPocketMP\world\WorldManager;
+use XPocketMP\YmlServerProperties as Yml;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Filesystem\Path;
 use function array_fill;
@@ -179,8 +179,8 @@ class Server{
 	use NotCloneable;
 	use NotSerializable;
 
-	public const BROADCAST_CHANNEL_ADMINISTRATIVE = "pocketmine.broadcast.admin";
-	public const BROADCAST_CHANNEL_USERS = "pocketmine.broadcast.user";
+	public const BROADCAST_CHANNEL_ADMINISTRATIVE = "XPocketMP.broadcast.admin";
+	public const BROADCAST_CHANNEL_USERS = "XPocketMP.broadcast.user";
 
 	public const DEFAULT_SERVER_NAME = VersionInfo::NAME . " Server";
 	public const DEFAULT_MAX_PLAYERS = 20;
@@ -323,11 +323,11 @@ class Server{
 	}
 
 	public function getFilePath() : string{
-		return \pocketmine\PATH;
+		return \XPocketMP\PATH;
 	}
 
 	public function getResourcePath() : string{
-		return \pocketmine\RESOURCE_PATH;
+		return \XPocketMP\RESOURCE_PATH;
 	}
 
 	public function getDataPath() : string{
@@ -524,7 +524,7 @@ class Server{
 				return $this->playerDataProvider->loadData($name);
 			}catch(PlayerDataLoadException $e){
 				$this->logger->debug("Failed to load player data for $name: " . $e->getMessage());
-				$this->logger->error($this->language->translate(KnownTranslationFactory::pocketmine_data_playerCorrupted($name)));
+				$this->logger->error($this->language->translate(KnownTranslationFactory::XPocketMP_data_playerCorrupted($name)));
 				return null;
 			}
 		});
@@ -543,7 +543,7 @@ class Server{
 				try{
 					$this->playerDataProvider->saveData($name, $ev->getSaveData());
 				}catch(PlayerDataSaveException $e){
-					$this->logger->critical($this->language->translate(KnownTranslationFactory::pocketmine_data_saveError($name, $e->getMessage())));
+					$this->logger->critical($this->language->translate(KnownTranslationFactory::XPocketMP_data_saveError($name, $e->getMessage())));
 					$this->logger->logException($e);
 				}
 			});
@@ -590,7 +590,7 @@ class Server{
 				},
 				function() use ($playerPromiseResolver, $session) : void{
 					if($session->isConnected()){
-						$session->disconnectWithError(KnownTranslationFactory::pocketmine_disconnect_error_respawn());
+						$session->disconnectWithError(KnownTranslationFactory::XPocketMP_disconnect_error_respawn());
 					}
 					$playerPromiseResolver->reject();
 				}
@@ -801,17 +801,17 @@ class Server{
 			$this->pluginPath = realpath($pluginPath) . DIRECTORY_SEPARATOR;
 
 			$this->logger->info("Loading server configuration");
-			$xpocketmpYmlPath = Path::join($this->dataPath, "xpocketmp.yml");
-			if(!file_exists($xpocketmpYmlPath)){
-				$content = Filesystem::fileGetContents(Path::join(\pocketmine\RESOURCE_PATH, "xpocketmp.yml"));
+			$XPocketMPYmlPath = Path::join($this->dataPath, "xpocketmp.yml");
+			if(!file_exists($XPocketMPYmlPath)){
+				$content = Filesystem::fileGetContents(Path::join(\XPocketMP\RESOURCE_PATH, "xpocketmp.yml"));
 				if(VersionInfo::IS_DEVELOPMENT_BUILD){
 					$content = str_replace("preferred-channel: stable", "preferred-channel: beta", $content);
 				}
-				@file_put_contents($xpocketmpYmlPath, $content);
+				@file_put_contents($XPocketMPYmlPath, $content);
 			}
 
 			$this->configGroup = new ServerConfigGroup(
-				new Config($xpocketmpYmlPath, Config::YAML, []),
+				new Config($XPocketMPYmlPath, Config::YAML, []),
 				new Config(Path::join($this->dataPath, "server.properties"), Config::PROPERTIES, [
 					ServerProperties::MOTD => self::DEFAULT_SERVER_NAME,
 					ServerProperties::SERVER_PORT_IPV4 => self::DEFAULT_PORT_IPV4,
@@ -859,26 +859,26 @@ class Server{
 
 			if(VersionInfo::IS_DEVELOPMENT_BUILD){
 				if(!$this->configGroup->getPropertyBool(Yml::SETTINGS_ENABLE_DEV_BUILDS, false)){
-					$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_server_devBuild_error1(VersionInfo::NAME)));
-					$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_server_devBuild_error2()));
-					$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_server_devBuild_error3()));
-					$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_server_devBuild_error4(Yml::SETTINGS_ENABLE_DEV_BUILDS)));
-					$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_server_devBuild_error5("https://github.com/pmmp/PocketMine-MP/releases")));
+					$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_server_devBuild_error1(VersionInfo::NAME)));
+					$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_server_devBuild_error2()));
+					$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_server_devBuild_error3()));
+					$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_server_devBuild_error4(Yml::SETTINGS_ENABLE_DEV_BUILDS)));
+					$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_server_devBuild_error5("https://github.com/pmmp/XPocketMP-MP/releases")));
 					$this->forceShutdownExit();
 
 					return;
 				}
 
 				$this->logger->warning(str_repeat("-", 40));
-				$this->logger->warning($this->language->translate(KnownTranslationFactory::pocketmine_server_devBuild_warning1(VersionInfo::NAME)));
-				$this->logger->warning($this->language->translate(KnownTranslationFactory::pocketmine_server_devBuild_warning2()));
-				$this->logger->warning($this->language->translate(KnownTranslationFactory::pocketmine_server_devBuild_warning3()));
+				$this->logger->warning($this->language->translate(KnownTranslationFactory::XPocketMP_server_devBuild_warning1(VersionInfo::NAME)));
+				$this->logger->warning($this->language->translate(KnownTranslationFactory::XPocketMP_server_devBuild_warning2()));
+				$this->logger->warning($this->language->translate(KnownTranslationFactory::XPocketMP_server_devBuild_warning3()));
 				$this->logger->warning(str_repeat("-", 40));
 			}
 
 			$this->memoryManager = new MemoryManager($this);
 
-			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_start(TextFormat::AQUA . $this->getVersion() . TextFormat::RESET)));
+			$this->logger->info($this->language->translate(KnownTranslationFactory::XPocketMP_server_start(TextFormat::AQUA . $this->getVersion() . TextFormat::RESET)));
 
 			if(($poolSize = $this->configGroup->getPropertyString(Yml::SETTINGS_ASYNC_WORKERS, "auto")) === "auto"){
 				$poolSize = 2;
@@ -938,11 +938,11 @@ class Server{
 
 			$this->onlineMode = $this->configGroup->getConfigBool(ServerProperties::XBOX_AUTH, true);
 			if($this->onlineMode){
-				$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_auth_enabled()));
+				$this->logger->info($this->language->translate(KnownTranslationFactory::XPocketMP_server_auth_enabled()));
 			}else{
-				$this->logger->warning($this->language->translate(KnownTranslationFactory::pocketmine_server_auth_disabled()));
-				$this->logger->warning($this->language->translate(KnownTranslationFactory::pocketmine_server_authWarning()));
-				$this->logger->warning($this->language->translate(KnownTranslationFactory::pocketmine_server_authProperty_disabled()));
+				$this->logger->warning($this->language->translate(KnownTranslationFactory::XPocketMP_server_auth_disabled()));
+				$this->logger->warning($this->language->translate(KnownTranslationFactory::XPocketMP_server_authWarning()));
+				$this->logger->warning($this->language->translate(KnownTranslationFactory::XPocketMP_server_authProperty_disabled()));
 			}
 
 			if($this->configGroup->getConfigBool(ServerProperties::HARDCORE, false) && $this->getDifficulty() < World::DIFFICULTY_HARD){
@@ -959,11 +959,11 @@ class Server{
 			$this->network = new Network($this->logger);
 			$this->network->setName($this->getMotd());
 
-			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_info(
+			$this->logger->info($this->language->translate(KnownTranslationFactory::XPocketMP_server_info(
 				$this->getName(),
 				(VersionInfo::IS_DEVELOPMENT_BUILD ? TextFormat::YELLOW : "") . $this->getXPocketMPVersion() . TextFormat::RESET
 			)));
-			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_license($this->getName())));
+			$this->logger->info($this->language->translate(KnownTranslationFactory::XPocketMP_server_license($this->getName())));
 
 			TimingsHandler::setEnabled($this->configGroup->getPropertyBool(Yml::SETTINGS_ENABLE_PROFILING, false));
 			$this->profilingTickRate = $this->configGroup->getPropertyInt(Yml::SETTINGS_PROFILE_REPORT_TRIGGER, self::TARGET_TICKS_PER_SECOND);
@@ -972,14 +972,14 @@ class Server{
 
 			$this->commandMap = new SimpleCommandMap($this);
 
-			$this->craftingManager = CraftingManagerFromDataHelper::make(Path::join(\pocketmine\BEDROCK_DATA_PATH, "recipes"));
+			$this->craftingManager = CraftingManagerFromDataHelper::make(Path::join(\XPocketMP\BEDROCK_DATA_PATH, "recipes"));
 
 			$this->resourceManager = new ResourcePackManager(Path::join($this->dataPath, "resource_packs"), $this->logger);
 
 			$pluginGraylist = null;
 			$graylistFile = Path::join($this->dataPath, "plugin_list.yml");
 			if(!file_exists($graylistFile)){
-				copy(Path::join(\pocketmine\RESOURCE_PATH, 'plugin_list.yml'), $graylistFile);
+				copy(Path::join(\XPocketMP\RESOURCE_PATH, 'plugin_list.yml'), $graylistFile);
 			}
 			try{
 				$pluginGraylist = PluginGraylist::fromArray(yaml_parse(Filesystem::fileGetContents($graylistFile)));
@@ -999,7 +999,7 @@ class Server{
 			){
 				$providerManager->setDefault($format);
 			}elseif($formatName !== ""){
-				$this->logger->warning($this->language->translate(KnownTranslationFactory::pocketmine_level_badDefaultFormat($formatName)));
+				$this->logger->warning($this->language->translate(KnownTranslationFactory::XPocketMP_level_badDefaultFormat($formatName)));
 			}
 
 			$this->worldManager = new WorldManager($this, Path::join($this->dataPath, "worlds"), $providerManager);
@@ -1017,12 +1017,12 @@ class Server{
 			$loadErrorCount = 0;
 			$this->pluginManager->loadPlugins($this->pluginPath, $loadErrorCount);
 			if($loadErrorCount > 0){
-				$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_plugin_someLoadErrors()));
+				$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_plugin_someLoadErrors()));
 				$this->forceShutdownExit();
 				return;
 			}
 			if(!$this->enablePlugins(PluginEnableOrder::STARTUP)){
-				$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_plugin_someEnableErrors()));
+				$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_plugin_someEnableErrors()));
 				$this->forceShutdownExit();
 				return;
 			}
@@ -1033,7 +1033,7 @@ class Server{
 			}
 
 			if(!$this->enablePlugins(PluginEnableOrder::POSTWORLD)){
-				$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_plugin_someEnableErrors()));
+				$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_plugin_someEnableErrors()));
 				$this->forceShutdownExit();
 				return;
 			}
@@ -1050,9 +1050,9 @@ class Server{
 
 			$this->configGroup->save();
 
-			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_defaultGameMode($this->getGamemode()->getTranslatableName())));
-			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_donate(TextFormat::AQUA . "send money to gameplaytebakgambard@gmail.com in paypal" . TextFormat::RESET)));
-			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_startFinished(strval(round(microtime(true) - $this->startTime, 3)))));
+			$this->logger->info($this->language->translate(KnownTranslationFactory::XPocketMP_server_defaultGameMode($this->getGamemode()->getTranslatableName())));
+			$this->logger->info($this->language->translate(KnownTranslationFactory::XPocketMP_server_donate(TextFormat::AQUA . "send money to gameplaytebakgambard@gmail.com in paypal" . TextFormat::RESET)));
+			$this->logger->info($this->language->translate(KnownTranslationFactory::XPocketMP_server_startFinished(strval(round(microtime(true) - $this->startTime, 3)))));
 
 			$forwarder = new BroadcastLoggerForwarder($this, $this->logger, $this->language);
 			$this->subscribeToBroadcastChannel(self::BROADCAST_CHANNEL_ADMINISTRATIVE, $forwarder);
@@ -1074,18 +1074,18 @@ class Server{
 		$getGenerator = function(string $generatorName, string $generatorOptions, string $worldName) : ?string{
 			$generatorEntry = GeneratorManager::getInstance()->getGenerator($generatorName);
 			if($generatorEntry === null){
-				$this->logger->error($this->language->translate(KnownTranslationFactory::pocketmine_level_generationError(
+				$this->logger->error($this->language->translate(KnownTranslationFactory::XPocketMP_level_generationError(
 					$worldName,
-					KnownTranslationFactory::pocketmine_level_unknownGenerator($generatorName)
+					KnownTranslationFactory::XPocketMP_level_unknownGenerator($generatorName)
 				)));
 				return null;
 			}
 			try{
 				$generatorEntry->validateGeneratorOptions($generatorOptions);
 			}catch(InvalidGeneratorOptionsException $e){
-				$this->logger->error($this->language->translate(KnownTranslationFactory::pocketmine_level_generationError(
+				$this->logger->error($this->language->translate(KnownTranslationFactory::XPocketMP_level_generationError(
 					$worldName,
-					KnownTranslationFactory::pocketmine_level_invalidGeneratorOptions($generatorOptions, $generatorName, $e->getMessage())
+					KnownTranslationFactory::XPocketMP_level_invalidGeneratorOptions($generatorOptions, $generatorName, $e->getMessage())
 				)));
 				return null;
 			}
@@ -1146,7 +1146,7 @@ class Server{
 			}
 			if(!$this->worldManager->loadWorld($default, true)){
 				if($this->worldManager->isWorldGenerated($default)){
-					$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_level_defaultError()));
+					$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_level_defaultError()));
 
 					return false;
 				}
@@ -1155,7 +1155,7 @@ class Server{
 				$generatorClass = $getGenerator($generatorName, $generatorOptions, $default);
 
 				if($generatorClass === null){
-					$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_level_defaultError()));
+					$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_level_defaultError()));
 					return false;
 				}
 				$creationOptions = WorldCreationOptions::create()
@@ -1192,7 +1192,7 @@ class Server{
 		try{
 			$rakLibRegistered = $this->network->registerInterface(new RakLibInterface($this, $ip, $port, $ipV6, $packetBroadcaster, $entityEventBroadcaster, $typeConverter));
 		}catch(NetworkInterfaceStartException $e){
-			$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_server_networkStartFailed(
+			$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_server_networkStartFailed(
 				$ip,
 				(string) $port,
 				$e->getMessage()
@@ -1200,7 +1200,7 @@ class Server{
 			return false;
 		}
 		if($rakLibRegistered){
-			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_networkStart($prettyIp, (string) $port)));
+			$this->logger->info($this->language->translate(KnownTranslationFactory::XPocketMP_server_networkStart($prettyIp, (string) $port)));
 		}
 		if($useQuery){
 			if(!$rakLibRegistered){
@@ -1208,7 +1208,7 @@ class Server{
 				//if it's not registered we need to make sure Query still works
 				$this->network->registerInterface(new DedicatedQueryNetworkInterface($ip, $port, $ipV6, new \PrefixedLogger($this->logger, "Dedicated Query Interface")));
 			}
-			$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_server_query_running($prettyIp, (string) $port)));
+			$this->logger->info($this->language->translate(KnownTranslationFactory::XPocketMP_server_query_running($prettyIp, (string) $port)));
 		}
 		return true;
 	}
@@ -1456,7 +1456,7 @@ class Server{
 		}
 
 		if($this->isRunning){
-			$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_server_forcingShutdown()));
+			$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_server_forcingShutdown()));
 		}
 		try{
 			if(!$this->isRunning()){
@@ -1603,12 +1603,12 @@ class Server{
 		ini_set("error_reporting", '0');
 		ini_set("memory_limit", '-1'); //Fix error dump not dumped on memory problems
 		try{
-			$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_crash_create()));
+			$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_crash_create()));
 			$dump = new CrashDump($this, $this->pluginManager ?? null);
 
 			$crashDumpPath = $this->writeCrashDumpFile($dump);
 
-			$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_crash_submit($crashDumpPath)));
+			$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_crash_submit($crashDumpPath)));
 
 			if($this->configGroup->getPropertyBool(Yml::AUTO_REPORT_ENABLED, true)){
 				$report = true;
@@ -1636,7 +1636,7 @@ class Server{
 					$reply = Internet::postURL($url, [
 						"report" => "yes",
 						"name" => $this->getName() . " " . $this->getXPocketMPVersion(),
-						"email" => "crash@pocketmine.net",
+						"email" => "crash@xpocketmc.xyz",
 						"reportPaste" => base64_encode($dump->getEncodedData())
 					], 10, [], $postUrlError);
 
@@ -1644,7 +1644,7 @@ class Server{
 						if(isset($data->crashId) && is_int($data->crashId) && isset($data->crashUrl) && is_string($data->crashUrl)){
 							$reportId = $data->crashId;
 							$reportUrl = $data->crashUrl;
-							$this->logger->emergency($this->language->translate(KnownTranslationFactory::pocketmine_crash_archive($reportUrl, (string) $reportId)));
+							$this->logger->emergency($this->language->translate(KnownTranslationFactory::XPocketMP_crash_archive($reportUrl, (string) $reportId)));
 						}elseif(isset($data->error) && is_string($data->error)){
 							$this->logger->emergency("Automatic crash report submission failed: $data->error");
 						}else{
@@ -1658,7 +1658,7 @@ class Server{
 		}catch(\Throwable $e){
 			$this->logger->logException($e);
 			try{
-				$this->logger->critical($this->language->translate(KnownTranslationFactory::pocketmine_crash_error($e->getMessage())));
+				$this->logger->critical($this->language->translate(KnownTranslationFactory::XPocketMP_crash_error($e->getMessage())));
 			}catch(\Throwable $e){}
 		}
 
@@ -1710,7 +1710,7 @@ class Server{
 
 		$session = $player->getNetworkSession();
 		$position = $player->getPosition();
-		$this->logger->info($this->language->translate(KnownTranslationFactory::pocketmine_player_logIn(
+		$this->logger->info($this->language->translate(KnownTranslationFactory::XPocketMP_player_logIn(
 			TextFormat::AQUA . $player->getName() . TextFormat::RESET,
 			$session->getIp(),
 			(string) $session->getPort(),
@@ -1843,7 +1843,7 @@ class Server{
 		}
 
 		if(($this->tickCounter % self::TICKS_PER_TPS_OVERLOAD_WARNING) === 0 && $this->getTicksPerSecondAverage() < self::TPS_OVERLOAD_WARNING_THRESHOLD){
-			$this->logger->warning($this->language->translate(KnownTranslationFactory::pocketmine_server_tickOverload()));
+			$this->logger->warning($this->language->translate(KnownTranslationFactory::XPocketMP_server_tickOverload()));
 		}
 
 		$this->memoryManager->check();

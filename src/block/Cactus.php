@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\AgeableTrait;
-use pocketmine\block\utils\BlockEventHelper;
-use pocketmine\block\utils\StaticSupportTrait;
-use pocketmine\block\utils\SupportType;
-use pocketmine\entity\Entity;
-use pocketmine\event\entity\EntityDamageByBlockEvent;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\math\AxisAlignedBB;
-use pocketmine\math\Facing;
+use XPocketMPlock\utils\AgeableTrait;
+use XPocketMPlock\utils\BlockEventHelper;
+use XPocketMPlock\utils\StaticSupportTrait;
+use XPocketMPlock\utils\SupportType;
+use XPocketMP\entity\Entity;
+use XPocketMP\event\entity\EntityDamageByBlockEvent;
+use XPocketMP\event\entity\EntityDamageEvent;
+use XPocketMP\math\AxisAlignedBB;
+use XPocketMP\math\Facing;
 
 class Cactus extends Transparent{
 	use AgeableTrait;

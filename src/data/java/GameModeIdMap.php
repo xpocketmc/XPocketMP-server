@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\java;
+namespace XPocketMP\data\java;
 
-use pocketmine\player\GameMode;
-use pocketmine\utils\SingletonTrait;
+use XPocketMP\player\GameMode;
+use XPocketMP\utils\SingletonTrait;
 use function array_key_exists;
 use function spl_object_id;
 

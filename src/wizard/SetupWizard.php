@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -25,20 +25,20 @@ declare(strict_types=1);
  * Set-up wizard used on the first run
  * Can be disabled with --no-wizard
  */
-namespace pocketmine\wizard;
+namespace XPocketMP\wizard;
 
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\lang\Language;
-use pocketmine\lang\LanguageNotFoundException;
-use pocketmine\lang\Translatable;
-use pocketmine\player\GameMode;
-use pocketmine\Server;
-use pocketmine\ServerProperties;
-use pocketmine\utils\Config;
-use pocketmine\utils\Internet;
-use pocketmine\utils\InternetException;
-use pocketmine\utils\Utils;
-use pocketmine\VersionInfo;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\lang\Language;
+use XPocketMP\lang\LanguageNotFoundException;
+use XPocketMP\lang\Translatable;
+use XPocketMP\player\GameMode;
+use XPocketMP\Server;
+use XPocketMP\ServerProperties;
+use XPocketMP\utils\Config;
+use XPocketMP\utils\Internet;
+use XPocketMP\utils\InternetException;
+use XPocketMP\utils\Utils;
+use XPocketMP\VersionInfo;
 use Symfony\Component\Filesystem\Path;
 use function fgets;
 use function sleep;
@@ -118,7 +118,7 @@ class SetupWizard{
 	}
 
 	private function showLicense() : bool{
-		$this->message($this->lang->translate(KnownTranslationFactory::welcome_to_pocketmine(VersionInfo::NAME)));
+		$this->message($this->lang->translate(KnownTranslationFactory::welcome_to_XPocketMP(VersionInfo::NAME)));
 		echo <<<LICENSE
 
   This program is free software: you can redistribute it and/or modify
@@ -234,8 +234,8 @@ LICENSE;
 
 	private function endWizard() : void{
 		$this->message($this->lang->translate(KnownTranslationFactory::you_have_finished()));
-		$this->message($this->lang->translate(KnownTranslationFactory::pocketmine_plugins()));
-		$this->message($this->lang->translate(KnownTranslationFactory::pocketmine_will_start(VersionInfo::NAME)));
+		$this->message($this->lang->translate(KnownTranslationFactory::XPocketMP_plugins()));
+		$this->message($this->lang->translate(KnownTranslationFactory::XPocketMP_will_start(VersionInfo::NAME)));
 
 		$this->writeLine();
 		$this->writeLine();

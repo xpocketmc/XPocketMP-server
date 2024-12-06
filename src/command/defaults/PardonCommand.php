@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\command\utils\InvalidCommandSyntaxException;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\permission\DefaultPermissionNames;
+use XPocketMP\command\Command;
+use XPocketMP\command\CommandSender;
+use XPocketMP\command\utils\InvalidCommandSyntaxException;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\permission\DefaultPermissionNames;
 use function count;
 
 class PardonCommand extends VanillaCommand{
@@ -35,7 +35,7 @@ class PardonCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"pardon",
-			KnownTranslationFactory::pocketmine_command_unban_player_description(),
+			KnownTranslationFactory::XPocketMP_command_unban_player_description(),
 			KnownTranslationFactory::commands_unban_usage(),
 			["unban"]
 		);

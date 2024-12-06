@@ -13,25 +13,25 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\block\upgrade;
+namespace xpocketmp\data\bedrock\block\upgrade;
 
 use PHPUnit\Framework\TestCase;
-use pocketmine\data\bedrock\block\BlockStateData;
-use pocketmine\nbt\tag\IntTag;
+use xpocketmp\data\bedrock\block\BlockStateData;
+use xpocketmp\nbt\tag\IntTag;
 use const PHP_INT_MAX;
 
 class BlockStateUpgraderTest extends TestCase{
 
-	private const TEST_BLOCK = "pocketmine:test_block";
-	private const TEST_BLOCK_2 = "pocketmine:test_block_2";
+	private const TEST_BLOCK = "xpocketmp:test_block";
+	private const TEST_BLOCK_2 = "xpocketmp:test_block_2";
 	private const TEST_PROPERTY = "test_property";
 	private const TEST_PROPERTY_2 = "test_property_2";
 	private const TEST_VERSION = 1;

@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item;
+namespace XPocketMP\item;
 
-use pocketmine\entity\Location;
-use pocketmine\entity\projectile\Throwable;
-use pocketmine\event\entity\ProjectileLaunchEvent;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
-use pocketmine\world\sound\ThrowSound;
+use XPocketMP\entity\Location;
+use XPocketMP\entity\projectile\Throwable;
+use XPocketMP\event\entity\ProjectileLaunchEvent;
+use XPocketMP\math\Vector3;
+use XPocketMP\player\Player;
+use XPocketMP\world\sound\ThrowSound;
 
 abstract class ProjectileItem extends Item{
 

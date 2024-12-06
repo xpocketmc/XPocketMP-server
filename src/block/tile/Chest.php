@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\tile;
+namespace XPocketMPlock\tile;
 
-use pocketmine\block\inventory\ChestInventory;
-use pocketmine\block\inventory\DoubleChestInventory;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\IntTag;
-use pocketmine\world\format\Chunk;
-use pocketmine\world\World;
+use XPocketMPlock\inventory\ChestInventory;
+use XPocketMPlock\inventory\DoubleChestInventory;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\tag\IntTag;
+use XPocketMP\world\format\Chunk;
+use XPocketMP\world\World;
 use function abs;
 
 class Chest extends Spawnable implements Container, Nameable{

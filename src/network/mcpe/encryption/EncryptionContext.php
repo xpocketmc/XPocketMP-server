@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\encryption;
+namespace XPocketMP\network\mcpe\encryption;
 
 use Crypto\Cipher;
-use pocketmine\utils\Binary;
+use XPocketMP\utils\Binary;
 use function bin2hex;
 use function openssl_digest;
 use function openssl_error_string;

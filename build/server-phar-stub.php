@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\server_phar_stub;
+namespace xpocketmp\server_phar_stub;
 
 use function clearstatcache;
 use function copy;
@@ -55,7 +55,7 @@ function preparePharCacheDirectory() : string{
 
 	$i = 0;
 	do{
-		$tmpPath = sys_get_temp_dir() . '/PocketMine-MP-phar-cache.' . $i;
+		$tmpPath = sys_get_temp_dir() . '/xpocketmp-MP-phar-cache.' . $i;
 		$i++;
 	}while(is_file($tmpPath));
 	if(!@mkdir($tmpPath) && !is_dir($tmpPath)){

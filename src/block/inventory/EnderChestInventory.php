@@ -13,27 +13,27 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\inventory;
+namespace XPocketMPlock\inventory;
 
-use pocketmine\block\tile\EnderChest;
-use pocketmine\inventory\DelegateInventory;
-use pocketmine\inventory\Inventory;
-use pocketmine\inventory\PlayerEnderInventory;
-use pocketmine\network\mcpe\protocol\BlockEventPacket;
-use pocketmine\network\mcpe\protocol\types\BlockPosition;
-use pocketmine\player\Player;
-use pocketmine\world\Position;
-use pocketmine\world\sound\EnderChestCloseSound;
-use pocketmine\world\sound\EnderChestOpenSound;
-use pocketmine\world\sound\Sound;
+use XPocketMPlock\tile\EnderChest;
+use XPocketMP\inventory\DelegateInventory;
+use XPocketMP\inventory\Inventory;
+use XPocketMP\inventory\PlayerEnderInventory;
+use XPocketMP\network\mcpe\protocol\BlockEventPacket;
+use XPocketMP\network\mcpe\protocol\types\BlockPosition;
+use XPocketMP\player\Player;
+use XPocketMP\world\Position;
+use XPocketMP\world\sound\EnderChestCloseSound;
+use XPocketMP\world\sound\EnderChestOpenSound;
+use XPocketMP\world\sound\Sound;
 
 /**
  * EnderChestInventory is not a real inventory; it's just a gateway to the player's ender inventory.

@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\CommandSender;
-use pocketmine\command\utils\InvalidCommandSyntaxException;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\permission\DefaultPermissionNames;
-use pocketmine\player\Player;
+use XPocketMP\command\CommandSender;
+use XPocketMP\command\utils\InvalidCommandSyntaxException;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\permission\DefaultPermissionNames;
+use XPocketMP\player\Player;
 use function count;
 
 class TransferServerCommand extends VanillaCommand{
@@ -35,8 +35,8 @@ class TransferServerCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"transferserver",
-			KnownTranslationFactory::pocketmine_command_transferserver_description(),
-			KnownTranslationFactory::pocketmine_command_transferserver_usage()
+			KnownTranslationFactory::XPocketMP_command_transferserver_description(),
+			KnownTranslationFactory::XPocketMP_command_transferserver_usage()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_TRANSFERSERVER);
 	}

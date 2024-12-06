@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\crafting;
+namespace XPocketMP\crafting;
 
-use pocketmine\utils\LegacyEnumShimTrait;
-use pocketmine\world\sound\BlastFurnaceSound;
-use pocketmine\world\sound\CampfireSound;
-use pocketmine\world\sound\FurnaceSound;
-use pocketmine\world\sound\SmokerSound;
-use pocketmine\world\sound\Sound;
+use XPocketMP\utils\LegacyEnumShimTrait;
+use XPocketMP\world\sound\BlastFurnaceSound;
+use XPocketMP\world\sound\CampfireSound;
+use XPocketMP\world\sound\FurnaceSound;
+use XPocketMP\world\sound\SmokerSound;
+use XPocketMP\world\sound\Sound;
 use function spl_object_id;
 
 /**

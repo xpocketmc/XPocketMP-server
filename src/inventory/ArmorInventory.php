@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\inventory;
+namespace XPocketMP\inventory;
 
-use pocketmine\block\BlockTypeIds;
-use pocketmine\entity\Living;
-use pocketmine\inventory\transaction\action\validator\CallbackSlotValidator;
-use pocketmine\inventory\transaction\TransactionValidationException;
-use pocketmine\item\Armor;
-use pocketmine\item\Item;
-use pocketmine\item\ItemBlock;
+use XPocketMPlock\BlockTypeIds;
+use XPocketMP\entity\Living;
+use XPocketMP\inventory\transaction\action\validator\CallbackSlotValidator;
+use XPocketMP\inventory\transaction\TransactionValidationException;
+use XPocketMP\item\Armor;
+use XPocketMP\item\Item;
+use XPocketMP\item\ItemBlock;
 
 class ArmorInventory extends SimpleInventory{
 	public const SLOT_HEAD = 0;

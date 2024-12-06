@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\thread;
+namespace XPocketMP\thread;
 
 use pmmp\thread\Worker as NativeWorker;
-use pocketmine\scheduler\AsyncTask;
+use XPocketMP\scheduler\AsyncTask;
 
 /**
- * Specialized Worker class for PocketMine-MP-related use cases. It handles setting up autoloading and error handling.
+ * Specialized Worker class for XPocketMP-MP-related use cases. It handles setting up autoloading and error handling.
  *
  * Workers are a special type of thread which execute tasks passed to them during their lifetime. Since creating a new
  * thread has a high resource cost, workers can be kept around and reused for lots of short-lived tasks.

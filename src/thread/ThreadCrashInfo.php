@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\thread;
+namespace XPocketMP\thread;
 
 use pmmp\thread\ThreadSafe;
 use pmmp\thread\ThreadSafeArray;
-use pocketmine\errorhandler\ErrorTypeToStringMap;
-use pocketmine\utils\Filesystem;
-use pocketmine\utils\Utils;
+use XPocketMP\errorhandler\ErrorTypeToStringMap;
+use XPocketMP\utils\Filesystem;
+use XPocketMP\utils\Utils;
 use function get_class;
 use function sprintf;
 

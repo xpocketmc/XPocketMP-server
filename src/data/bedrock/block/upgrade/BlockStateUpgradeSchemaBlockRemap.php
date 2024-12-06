@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\block\upgrade;
+namespace XPocketMP\data\bedrock\block\upgrade;
 
-use pocketmine\nbt\tag\Tag;
-use pocketmine\utils\Utils;
+use XPocketMP\nbt\tag\Tag;
+use XPocketMP\utils\Utils;
 use function array_diff;
 use function count;
 

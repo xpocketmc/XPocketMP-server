@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\format\io;
+namespace XPocketMP\world\format\io;
 
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\world\format\SubChunk;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\world\format\SubChunk;
 
 final class ChunkData{
 

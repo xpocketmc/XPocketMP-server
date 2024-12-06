@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\convert;
+namespace XPocketMP\network\mcpe\convert;
 
-use pocketmine\entity\InvalidSkinException;
-use pocketmine\entity\Skin;
-use pocketmine\network\mcpe\protocol\types\skin\SkinData;
-use pocketmine\network\mcpe\protocol\types\skin\SkinImage;
+use XPocketMP\entity\InvalidSkinException;
+use XPocketMP\entity\Skin;
+use XPocketMP\network\mcpe\protocol\types\skin\SkinData;
+use XPocketMP\network\mcpe\protocol\types\skin\SkinImage;
 use function is_array;
 use function is_string;
 use function json_decode;

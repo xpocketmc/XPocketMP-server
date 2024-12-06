@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity\effect;
+namespace XPocketMP\entity\effect;
 
-use pocketmine\utils\SingletonTrait;
-use pocketmine\utils\StringToTParser;
+use XPocketMP\utils\SingletonTrait;
+use XPocketMP\utils\StringToTParser;
 
 /**
  * Handles parsing effect types from strings. This is used to interpret names in the /effect command.

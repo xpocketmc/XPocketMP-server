@@ -13,36 +13,36 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity\projectile;
+namespace XPocketMP\entity\projectile;
 
-use pocketmine\block\Block;
-use pocketmine\data\SavedDataLoadingException;
-use pocketmine\entity\Entity;
-use pocketmine\entity\Living;
-use pocketmine\entity\Location;
-use pocketmine\event\entity\EntityCombustByEntityEvent;
-use pocketmine\event\entity\EntityDamageByChildEntityEvent;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\event\entity\ProjectileHitBlockEvent;
-use pocketmine\event\entity\ProjectileHitEntityEvent;
-use pocketmine\event\entity\ProjectileHitEvent;
-use pocketmine\math\RayTraceResult;
-use pocketmine\math\Vector3;
-use pocketmine\math\VoxelRayTrace;
-use pocketmine\nbt\NBT;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\IntTag;
-use pocketmine\nbt\tag\ListTag;
-use pocketmine\timings\Timings;
+use XPocketMPlock\Block;
+use XPocketMP\data\SavedDataLoadingException;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\Living;
+use XPocketMP\entity\Location;
+use XPocketMP\event\entity\EntityCombustByEntityEvent;
+use XPocketMP\event\entity\EntityDamageByChildEntityEvent;
+use XPocketMP\event\entity\EntityDamageByEntityEvent;
+use XPocketMP\event\entity\EntityDamageEvent;
+use XPocketMP\event\entity\ProjectileHitBlockEvent;
+use XPocketMP\event\entity\ProjectileHitEntityEvent;
+use XPocketMP\event\entity\ProjectileHitEvent;
+use XPocketMP\math\RayTraceResult;
+use XPocketMP\math\Vector3;
+use XPocketMP\math\VoxelRayTrace;
+use XPocketMP\nbt\NBT;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\nbt\tag\IntTag;
+use XPocketMP\nbt\tag\ListTag;
+use XPocketMP\timings\Timings;
 use function assert;
 use function atan2;
 use function ceil;

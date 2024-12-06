@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
 final class BlockTypeTags{
-	private const PREFIX = "pocketmine:";
+	private const PREFIX = "XPocketMP:";
 
 	public const DIRT = self::PREFIX . "dirt";
 	public const MUD = self::PREFIX . "mud";

@@ -13,15 +13,15 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\phpstan\rules;
+namespace xpocketmp\phpstan\rules;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\StaticCall;
@@ -29,7 +29,7 @@ use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleErrorBuilder;
 use PHPStan\Type\TypeWithClassName;
-use pocketmine\utils\LegacyEnumShimTrait;
+use xpocketmp\utils\LegacyEnumShimTrait;
 use function sprintf;
 
 /**

@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\item\upgrade;
+namespace XPocketMP\data\bedrock\item\upgrade;
 
-use pocketmine\data\bedrock\LegacyToStringIdMap;
-use pocketmine\utils\SingletonTrait;
+use XPocketMP\data\bedrock\LegacyToStringIdMap;
+use XPocketMP\utils\SingletonTrait;
 use Symfony\Component\Filesystem\Path;
 
 final class LegacyItemIdToStringIdMap extends LegacyToStringIdMap{
 	use SingletonTrait;
 
 	public function __construct(){
-		parent::__construct(Path::join(\pocketmine\BEDROCK_ITEM_UPGRADE_SCHEMA_PATH, 'item_legacy_id_map.json'));
+		parent::__construct(Path::join(\XPocketMP\BEDROCK_ITEM_UPGRADE_SCHEMA_PATH, 'item_legacy_id_map.json'));
 	}
 }

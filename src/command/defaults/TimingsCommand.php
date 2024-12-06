@@ -13,29 +13,29 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\command\utils\InvalidCommandSyntaxException;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\permission\DefaultPermissionNames;
-use pocketmine\player\Player;
-use pocketmine\scheduler\BulkCurlTask;
-use pocketmine\scheduler\BulkCurlTaskOperation;
-use pocketmine\timings\TimingsHandler;
-use pocketmine\utils\InternetException;
-use pocketmine\utils\InternetRequestResult;
-use pocketmine\utils\Utils;
-use pocketmine\YmlServerProperties;
+use XPocketMP\command\Command;
+use XPocketMP\command\CommandSender;
+use XPocketMP\command\utils\InvalidCommandSyntaxException;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\permission\DefaultPermissionNames;
+use XPocketMP\player\Player;
+use XPocketMP\scheduler\BulkCurlTask;
+use XPocketMP\scheduler\BulkCurlTaskOperation;
+use XPocketMP\timings\TimingsHandler;
+use XPocketMP\utils\InternetException;
+use XPocketMP\utils\InternetRequestResult;
+use XPocketMP\utils\Utils;
+use XPocketMP\YmlServerProperties;
 use Symfony\Component\Filesystem\Path;
 use function count;
 use function fclose;
@@ -61,8 +61,8 @@ class TimingsCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"timings",
-			KnownTranslationFactory::pocketmine_command_timings_description(),
-			KnownTranslationFactory::pocketmine_command_timings_usage()
+			KnownTranslationFactory::XPocketMP_command_timings_description(),
+			KnownTranslationFactory::XPocketMP_command_timings_usage()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_TIMINGS);
 	}
@@ -76,21 +76,21 @@ class TimingsCommand extends VanillaCommand{
 
 		if($mode === "on"){
 			if(TimingsHandler::isEnabled()){
-				$sender->sendMessage(KnownTranslationFactory::pocketmine_command_timings_alreadyEnabled());
+				$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_timings_alreadyEnabled());
 				return true;
 			}
 			TimingsHandler::setEnabled();
-			Command::broadcastCommandMessage($sender, KnownTranslationFactory::pocketmine_command_timings_enable());
+			Command::broadcastCommandMessage($sender, KnownTranslationFactory::XPocketMP_command_timings_enable());
 
 			return true;
 		}elseif($mode === "off"){
 			TimingsHandler::setEnabled(false);
-			Command::broadcastCommandMessage($sender, KnownTranslationFactory::pocketmine_command_timings_disable());
+			Command::broadcastCommandMessage($sender, KnownTranslationFactory::XPocketMP_command_timings_disable());
 			return true;
 		}
 
 		if(!TimingsHandler::isEnabled()){
-			$sender->sendMessage(KnownTranslationFactory::pocketmine_command_timings_timingsDisabled());
+			$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_timings_timingsDisabled());
 
 			return true;
 		}
@@ -99,7 +99,7 @@ class TimingsCommand extends VanillaCommand{
 
 		if($mode === "reset"){
 			TimingsHandler::reload();
-			Command::broadcastCommandMessage($sender, KnownTranslationFactory::pocketmine_command_timings_reset());
+			Command::broadcastCommandMessage($sender, KnownTranslationFactory::XPocketMP_command_timings_reset());
 		}elseif($mode === "merged" || $mode === "report" || $paste){
 			$timings = "";
 			if($paste){
@@ -161,17 +161,17 @@ class TimingsCommand extends VanillaCommand{
 						}
 						$response = json_decode($result->getBody(), true);
 						if(is_array($response) && isset($response["id"])){
-							Command::broadcastCommandMessage($sender, KnownTranslationFactory::pocketmine_command_timings_timingsRead(
+							Command::broadcastCommandMessage($sender, KnownTranslationFactory::XPocketMP_command_timings_timingsRead(
 								"https://" . $host . "/?id=" . $response["id"]));
 						}else{
 							$sender->getServer()->getLogger()->debug("Invalid response from timings server (" . $result->getCode() . "): " . $result->getBody());
-							Command::broadcastCommandMessage($sender, KnownTranslationFactory::pocketmine_command_timings_pasteError());
+							Command::broadcastCommandMessage($sender, KnownTranslationFactory::XPocketMP_command_timings_pasteError());
 						}
 					}
 				));
 			}else{
 				fclose($fileTimings);
-				Command::broadcastCommandMessage($sender, KnownTranslationFactory::pocketmine_command_timings_timingsWrite($timings));
+				Command::broadcastCommandMessage($sender, KnownTranslationFactory::XPocketMP_command_timings_timingsWrite($timings));
 			}
 		}else{
 			throw new InvalidCommandSyntaxException();

@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -24,11 +24,11 @@ declare(strict_types=1);
 /**
  * Inventory related events
  */
-namespace pocketmine\event\inventory;
+namespace XPocketMP\event\inventory;
 
-use pocketmine\event\Event;
-use pocketmine\inventory\Inventory;
-use pocketmine\player\Player;
+use XPocketMP\event\Event;
+use XPocketMP\inventory\Inventory;
+use XPocketMP\player\Player;
 
 abstract class InventoryEvent extends Event{
 	public function __construct(

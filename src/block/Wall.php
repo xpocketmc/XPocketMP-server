@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\SupportType;
-use pocketmine\block\utils\WallConnectionType;
-use pocketmine\data\runtime\RuntimeDataDescriber;
-use pocketmine\math\Axis;
-use pocketmine\math\AxisAlignedBB;
-use pocketmine\math\Facing;
+use XPocketMPlock\utils\SupportType;
+use XPocketMPlock\utils\WallConnectionType;
+use XPocketMP\data\runtime\RuntimeDataDescriber;
+use XPocketMP\math\Axis;
+use XPocketMP\math\AxisAlignedBB;
+use XPocketMP\math\Facing;
 
 /**
  * @phpstan-type WallConnectionSet array<Facing::NORTH|Facing::EAST|Facing::SOUTH|Facing::WEST, WallConnectionType>

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace pocketmine;
+namespace xpocketmp;
 
-use pocketmine\utils\Internet;
+use xpocketmp\utils\Internet;
 use function dirname;
 use function fwrite;
 use function is_array;
@@ -25,10 +25,10 @@ function generateDiscordEmbed(string $version, string $channel, string $descript
 		$phpEmbedLink = "";
 	}
 	return [
-		"content" => "<@&$newsPingRoleId> New PocketMine-MP release: $version ($channel)",
+		"content" => "<@&$newsPingRoleId> New xpocketmp-MP release: $version ($channel)",
 		"embeds" => [
 			[
-				"title" => "New PocketMine-MP release: $version ($channel)",
+				"title" => "New xpocketmp-MP release: $version ($channel)",
 				"description" => <<<DESCRIPTION
 $description
 

@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item;
+namespace xpocketmp\item;
 
 use PHPUnit\Framework\TestCase;
-use pocketmine\utils\Utils;
+use xpocketmp\utils\Utils;
 use function array_unique;
 use function max;
 

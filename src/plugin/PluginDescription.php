@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\plugin;
+namespace XPocketMP\plugin;
 
-use pocketmine\permission\Permission;
-use pocketmine\permission\PermissionParser;
-use pocketmine\permission\PermissionParserException;
-use pocketmine\utils\Utils;
+use XPocketMP\permission\Permission;
+use XPocketMP\permission\PermissionParser;
+use XPocketMP\permission\PermissionParserException;
+use XPocketMP\utils\Utils;
 use function array_map;
 use function array_values;
 use function get_debug_type;
@@ -141,8 +141,8 @@ class PluginDescription{
 		$this->name = str_replace(" ", "_", $this->name);
 		$this->version = (string) $plugin[self::KEY_VERSION];
 		$this->main = $plugin[self::KEY_MAIN];
-		if(stripos($this->main, "pocketmine\\") === 0){
-			throw new PluginDescriptionParseException("Invalid Plugin main, cannot start within the PocketMine namespace");
+		if(stripos($this->main, "XPocketMP\\") === 0){
+			throw new PluginDescriptionParseException("Invalid Plugin main, cannot start within the XPocketMP namespace");
 		}
 
 		$this->srcNamespacePrefix = $plugin[self::KEY_SRC_NAMESPACE_PREFIX] ?? "";

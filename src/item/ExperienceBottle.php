@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item;
+namespace XPocketMP\item;
 
-use pocketmine\entity\Location;
-use pocketmine\entity\projectile\ExperienceBottle as ExperienceBottleEntity;
-use pocketmine\entity\projectile\Throwable;
-use pocketmine\player\Player;
+use XPocketMP\entity\Location;
+use XPocketMP\entity\projectile\ExperienceBottle as ExperienceBottleEntity;
+use XPocketMP\entity\projectile\Throwable;
+use XPocketMP\player\Player;
 
 class ExperienceBottle extends ProjectileItem{
 

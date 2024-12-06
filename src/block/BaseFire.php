@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\entity\Entity;
-use pocketmine\entity\projectile\Arrow;
-use pocketmine\event\entity\EntityCombustByBlockEvent;
-use pocketmine\event\entity\EntityDamageByBlockEvent;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\item\Item;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\projectile\Arrow;
+use XPocketMP\event\entity\EntityCombustByBlockEvent;
+use XPocketMP\event\entity\EntityDamageByBlockEvent;
+use XPocketMP\event\entity\EntityDamageEvent;
+use XPocketMP\item\Item;
 
 abstract class BaseFire extends Flowable{
 

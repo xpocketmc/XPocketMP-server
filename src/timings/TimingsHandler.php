@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\timings;
+namespace XPocketMP\timings;
 
-use pocketmine\Server;
-use pocketmine\utils\Utils;
+use XPocketMP\Server;
+use XPocketMP\utils\Utils;
 use function hrtime;
 use function implode;
 use function spl_object_id;

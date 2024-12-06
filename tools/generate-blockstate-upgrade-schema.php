@@ -13,34 +13,34 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\tools\blockstate_upgrade_schema_utils;
+namespace xpocketmp\tools\blockstate_upgrade_schema_utils;
 
-use pocketmine\data\bedrock\block\BlockStateData;
-use pocketmine\data\bedrock\block\upgrade\BlockStateUpgrader;
-use pocketmine\data\bedrock\block\upgrade\BlockStateUpgradeSchema;
-use pocketmine\data\bedrock\block\upgrade\BlockStateUpgradeSchemaBlockRemap;
-use pocketmine\data\bedrock\block\upgrade\BlockStateUpgradeSchemaFlattenInfo;
-use pocketmine\data\bedrock\block\upgrade\BlockStateUpgradeSchemaUtils;
-use pocketmine\data\bedrock\block\upgrade\BlockStateUpgradeSchemaValueRemap;
-use pocketmine\nbt\LittleEndianNbtSerializer;
-use pocketmine\nbt\tag\ByteTag;
-use pocketmine\nbt\tag\IntTag;
-use pocketmine\nbt\tag\StringTag;
-use pocketmine\nbt\tag\Tag;
-use pocketmine\nbt\TreeRoot;
-use pocketmine\network\mcpe\convert\BlockStateDictionary;
-use pocketmine\network\mcpe\protocol\serializer\NetworkNbtSerializer;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\utils\Filesystem;
-use pocketmine\utils\Utils;
+use xpocketmp\data\bedrock\block\BlockStateData;
+use xpocketmp\data\bedrock\block\upgrade\BlockStateUpgrader;
+use xpocketmp\data\bedrock\block\upgrade\BlockStateUpgradeSchema;
+use xpocketmp\data\bedrock\block\upgrade\BlockStateUpgradeSchemaBlockRemap;
+use xpocketmp\data\bedrock\block\upgrade\BlockStateUpgradeSchemaFlattenInfo;
+use xpocketmp\data\bedrock\block\upgrade\BlockStateUpgradeSchemaUtils;
+use xpocketmp\data\bedrock\block\upgrade\BlockStateUpgradeSchemaValueRemap;
+use xpocketmp\nbt\LittleEndianNbtSerializer;
+use xpocketmp\nbt\tag\ByteTag;
+use xpocketmp\nbt\tag\IntTag;
+use xpocketmp\nbt\tag\StringTag;
+use xpocketmp\nbt\tag\Tag;
+use xpocketmp\nbt\TreeRoot;
+use xpocketmp\network\mcpe\convert\BlockStateDictionary;
+use xpocketmp\network\mcpe\protocol\serializer\NetworkNbtSerializer;
+use xpocketmp\utils\AssumptionFailedError;
+use xpocketmp\utils\Filesystem;
+use xpocketmp\utils\Utils;
 use Symfony\Component\Filesystem\Path;
 use function array_key_first;
 use function array_key_last;

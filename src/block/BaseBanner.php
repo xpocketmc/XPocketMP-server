@@ -13,27 +13,27 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\tile\Banner as TileBanner;
-use pocketmine\block\utils\BannerPatternLayer;
-use pocketmine\block\utils\ColoredTrait;
-use pocketmine\block\utils\SupportType;
-use pocketmine\item\Banner as ItemBanner;
-use pocketmine\item\Item;
-use pocketmine\item\VanillaItems;
-use pocketmine\math\AxisAlignedBB;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
-use pocketmine\world\BlockTransaction;
+use XPocketMPlock\tile\Banner as TileBanner;
+use XPocketMPlock\utils\BannerPatternLayer;
+use XPocketMPlock\utils\ColoredTrait;
+use XPocketMPlock\utils\SupportType;
+use XPocketMP\item\Banner as ItemBanner;
+use XPocketMP\item\Item;
+use XPocketMP\item\VanillaItems;
+use XPocketMP\math\AxisAlignedBB;
+use XPocketMP\math\Vector3;
+use XPocketMP\player\Player;
+use XPocketMP\world\BlockTransaction;
 use function assert;
 use function count;
 

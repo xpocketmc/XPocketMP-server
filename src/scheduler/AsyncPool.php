@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\scheduler;
+namespace XPocketMP\scheduler;
 
 use pmmp\thread\Thread as NativeThread;
-use pocketmine\snooze\SleeperHandler;
-use pocketmine\thread\log\ThreadSafeLogger;
-use pocketmine\thread\ThreadCrashException;
-use pocketmine\thread\ThreadSafeClassLoader;
-use pocketmine\timings\Timings;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\utils\Utils;
+use XPocketMP\snooze\SleeperHandler;
+use XPocketMP\thread\log\ThreadSafeLogger;
+use XPocketMP\thread\ThreadCrashException;
+use XPocketMP\thread\ThreadSafeClassLoader;
+use XPocketMP\timings\Timings;
+use XPocketMP\utils\AssumptionFailedError;
+use XPocketMP\utils\Utils;
 use function array_keys;
 use function array_map;
 use function assert;

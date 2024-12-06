@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\BlockIdentifier as BID;
-use pocketmine\block\BlockTypeIds as Ids;
-use pocketmine\block\tile\Sign as TileSign;
-use pocketmine\block\utils\LeavesType;
-use pocketmine\block\utils\SaplingType;
-use pocketmine\block\utils\WoodType;
-use pocketmine\item\VanillaItems;
+use XPocketMPlock\BlockIdentifier as BID;
+use XPocketMPlock\BlockTypeIds as Ids;
+use XPocketMPlock\tile\Sign as TileSign;
+use XPocketMPlock\utils\LeavesType;
+use XPocketMPlock\utils\SaplingType;
+use XPocketMPlock\utils\WoodType;
+use XPocketMP\item\VanillaItems;
 
 /**
  * All wood-like blocks have different IDs for different wood types.
@@ -149,7 +149,7 @@ final class WoodLikeBlockIdHelper{
 
 	/**
 	 * @return BID[]|\Closure[]
-	 * @phpstan-return array{BID, BID, \Closure() : \pocketmine\item\Item}
+	 * @phpstan-return array{BID, BID, \Closure() : \XPocketMP\item\Item}
 	 */
 	public static function getSignInfo(WoodType $treeType) : array{
 		$make = fn(int $floorId, int $wallId, \Closure $getItem) => [

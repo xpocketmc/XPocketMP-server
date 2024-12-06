@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\CommandSender;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\permission\DefaultPermissionNames;
-use pocketmine\plugin\Plugin;
-use pocketmine\utils\TextFormat;
+use XPocketMP\command\CommandSender;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\permission\DefaultPermissionNames;
+use XPocketMP\plugin\Plugin;
+use XPocketMP\utils\TextFormat;
 use function array_map;
 use function count;
 use function implode;
@@ -39,7 +39,7 @@ class PluginsCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"plugins",
-			KnownTranslationFactory::pocketmine_command_plugins_description(),
+			KnownTranslationFactory::XPocketMP_command_plugins_description(),
 			null,
 			["pl"]
 		);
@@ -52,7 +52,7 @@ class PluginsCommand extends VanillaCommand{
 		}, $sender->getServer()->getPluginManager()->getPlugins());
 		sort($list, SORT_STRING);
 
-		$sender->sendMessage(KnownTranslationFactory::pocketmine_command_plugins_success((string) count($list), implode(TextFormat::RESET . ", ", $list)));
+		$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_plugins_success((string) count($list), implode(TextFormat::RESET . ", ", $list)));
 		return true;
 	}
 }

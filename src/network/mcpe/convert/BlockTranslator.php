@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\convert;
+namespace XPocketMP\network\mcpe\convert;
 
-use pocketmine\data\bedrock\block\BlockStateData;
-use pocketmine\data\bedrock\block\BlockStateSerializeException;
-use pocketmine\data\bedrock\block\BlockStateSerializer;
-use pocketmine\data\bedrock\block\BlockTypeNames;
-use pocketmine\utils\AssumptionFailedError;
+use XPocketMP\data\bedrock\block\BlockStateData;
+use XPocketMP\data\bedrock\block\BlockStateSerializeException;
+use XPocketMP\data\bedrock\block\BlockStateSerializer;
+use XPocketMP\data\bedrock\block\BlockTypeNames;
+use XPocketMP\utils\AssumptionFailedError;
 
 /**
  * @internal

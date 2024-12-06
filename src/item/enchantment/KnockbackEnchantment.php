@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item\enchantment;
+namespace XPocketMP\item\enchantment;
 
-use pocketmine\entity\Entity;
-use pocketmine\entity\Living;
+use XPocketMP\entity\Entity;
+use XPocketMP\entity\Living;
 
 class KnockbackEnchantment extends MeleeWeaponEnchantment{
 

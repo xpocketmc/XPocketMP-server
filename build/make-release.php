@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\build\make_release;
+namespace xpocketmp\build\make_release;
 
-use pocketmine\utils\Filesystem;
-use pocketmine\utils\Utils;
-use pocketmine\utils\VersionString;
-use pocketmine\VersionInfo;
+use xpocketmp\utils\Filesystem;
+use xpocketmp\utils\Utils;
+use xpocketmp\utils\VersionString;
+use xpocketmp\VersionInfo;
 use function array_keys;
 use function array_map;
 use function dirname;

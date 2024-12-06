@@ -1,10 +1,10 @@
-![](http://cdn.pocketmine.net/img/PocketMine-MP-h.png)
+![](http://cdn.xpocketmp.net/img/xpocketmp-MP-h.png)
 
-# PocketMine-MP Contribution Guidelines
+# xpocketmp-MP Contribution Guidelines
 
-PocketMine-MP is an open source project, and contributions from the community are welcomed, as long as they comply with our quality standards and licensing.
+xpocketmp-MP is an open source project, and contributions from the community are welcomed, as long as they comply with our quality standards and licensing.
 
-Code contributions must be submitted using [GitHub Pull Requests](https://github.com/pmmp/PocketMine-MP/pulls), where they will be reviewed by maintainers.
+Code contributions must be submitted using [GitHub Pull Requests](https://github.com/pmmp/xpocketmp-MP/pulls), where they will be reviewed by maintainers.
 
 Small contributions (e.g. minor bug fixes) can be submitted as pull requests directly.
 
@@ -18,30 +18,30 @@ Larger contributions like feature additions should be preceded by a [Change Prop
 ## Other things you'll need
 - [git](https://git-scm.com/)
 
-## List of `pocketmine` namespaces which are in other repos
-PocketMine-MP has several dependencies which are independent from the main server code. Most of them use the `pocketmine` namespace.
-Some of these add extra classes to packages which already exist in PocketMine-MP.
+## List of `xpocketmp` namespaces which are in other repos
+xpocketmp-MP has several dependencies which are independent from the main server code. Most of them use the `xpocketmp` namespace.
+Some of these add extra classes to packages which already exist in xpocketmp-MP.
 
 Take a look at the table below if you can't find the class or function you're looking for.
 
 | Source URL                                                      | Namespace, class or function                                                                                                             |
 |:----------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
-| [pmmp/BedrockProtocol](https://github.com/pmmp/BedrockProtocol) | `pocketmine\network\mcpe\protocol`                                                                                                       |
-| [pmmp/BinaryUtils](https://github.com/pmmp/BinaryUtils)         | `pocketmine\utils\BinaryDataException`</br>`pocketmine\utils\BinaryStream`</br>`pocketmine\utils\Binary`                                 |
-| [pmmp/Color](https://github.com/pmmp/Color)                     | `pocketmine\color`                                                                                                                       |
-| [pmmp/ErrorHandler](https://github.com/pmmp/ErrorHandler)       | `pocketmine\errorhandler`                                                                                                                |
+| [pmmp/BedrockProtocol](https://github.com/pmmp/BedrockProtocol) | `xpocketmp\network\mcpe\protocol`                                                                                                       |
+| [pmmp/BinaryUtils](https://github.com/pmmp/BinaryUtils)         | `xpocketmp\utils\BinaryDataException`</br>`xpocketmp\utils\BinaryStream`</br>`xpocketmp\utils\Binary`                                 |
+| [pmmp/Color](https://github.com/pmmp/Color)                     | `xpocketmp\color`                                                                                                                       |
+| [pmmp/ErrorHandler](https://github.com/pmmp/ErrorHandler)       | `xpocketmp\errorhandler`                                                                                                                |
 | [pmmp/Log](https://github.com/pmmp/Log)                         | `AttachableLogger`</br>`BufferedLogger`</br>`GlobalLogger`</br>`LogLevel`</br>`Logger`</br>`PrefixedLogger`</br>`SimpleLogger`           |
-| [pmmp/Math](https://github.com/pmmp/Math)                       | `pocketmine\math`                                                                                                                        |
-| [pmmp/NBT](https://github.com/pmmp/NBT)                         | `pocketmine\nbt`                                                                                                                         |
+| [pmmp/Math](https://github.com/pmmp/Math)                       | `xpocketmp\math`                                                                                                                        |
+| [pmmp/NBT](https://github.com/pmmp/NBT)                         | `xpocketmp\nbt`                                                                                                                         |
 | [pmmp/RakLibIpc](https://github.com/pmmp/RakLibIpc)             | `raklib\server\ipc`                                                                                                                      |
 | [pmmp/RakLib](https://github.com/pmmp/RakLib)                   | `raklib`                                                                                                                                 |
-| [pmmp/Snooze](https://github.com/pmmp/Snooze)                   | `pocketmine\snooze`                                                                                                                      |
-| [pmmp/ext-chunkutils2](https://github.com/pmmp/ext-chunkutils2) | `pocketmine\world\format\LightArray`</br>`pocketmine\world\format\PalettedBlockArray`</br>`pocketmine\world\format\io\SubChunkConverter` |
+| [pmmp/Snooze](https://github.com/pmmp/Snooze)                   | `xpocketmp\snooze`                                                                                                                      |
+| [pmmp/ext-chunkutils2](https://github.com/pmmp/ext-chunkutils2) | `xpocketmp\world\format\LightArray`</br>`xpocketmp\world\format\PalettedBlockArray`</br>`xpocketmp\world\format\io\SubChunkConverter` |
 | [pmmp/ext-morton](https://github.com/pmmp/ext-morton)           | `morton2d_decode`</br>`morton2d_encode`</br>`morton3d_decode`</br>`morton3d_encode`                                                      |
 | [pmmp/ext-libdeflate](https://github.com/pmmp/ext-libdeflate)   | `libdeflate_deflate_compress`</br>`libdeflate_gzip_compress`</br>`libdeflate_zlib_compress`                                              |
 
 ## Choosing a target branch
-PocketMine-MP has three primary branches of development.
+xpocketmp-MP has three primary branches of development.
 
 | Type of change                                                                              | `stable` |          `minor-next`           | `major-next` |
 |:--------------------------------------------------------------------------------------------|:--------:|:-------------------------------:|:------------:|
@@ -58,7 +58,7 @@ PocketMine-MP has three primary branches of development.
 | Changing API behaviour                                                                      |    ❌     | 🟡 Only if backwards-compatible |      ✔️      |
 | Removal of API                                                                              |    ❌     |                ❌                |      ✔️      |
 | Backwards-incompatible API change (e.g. renaming a method)                                  |    ❌     |                ❌                |      ✔️      |
-| Backwards-incompatible internals change (e.g. changing things in `pocketmine\network\mcpe`) |    ❌     |               ✔️                |      ✔️      |
+| Backwards-incompatible internals change (e.g. changing things in `xpocketmp\network\mcpe`) |    ❌     |               ✔️                |      ✔️      |
 
 ### Notes
 - **Non-disruptive** means that usage should not be significantly altered by the change.
@@ -66,17 +66,17 @@ PocketMine-MP has three primary branches of development.
   - Examples of **disruptive** changes include changing the way the server is run, world format changes (since those require downtime for the user to convert their world).
 - **API** includes all public and protected classes, functions and constants (unless marked as `@internal`).
   - Private members are not part of the API, **unless in a trait**.
-  - The `pocketmine\network\mcpe` package is considered implicitly `@internal` in its entirety (see its [README](src/network/mcpe/README.md) for more details).
+  - The `xpocketmp\network\mcpe` package is considered implicitly `@internal` in its entirety (see its [README](src/network/mcpe/README.md) for more details).
 - Minecraft's protocol changes are considered necessary internal changes, and are **not** subject to the same rules.
   - Protocol changes must always be released in a new minor version, since they disrupt user experience by requiring a client update.
 - BC-breaking changes to the internal network API are allowed, but only in new minor versions. This ensures that plugins which use the internal network API will not break (though they shouldn't use such API anyway).
 
 ## Making a pull request
 The basic procedure to create a pull request is:
-1. [Fork the repository on GitHub](https://github.com/pmmp/PocketMine-MP/fork). This gives you your own copy of the repository to make changes to.
+1. [Fork the repository on GitHub](https://github.com/pmmp/xpocketmp-MP/fork). This gives you your own copy of the repository to make changes to.
 2. Create a branch on your fork for your changes.
 3. Make the changes you want to make on this branch.
-4. You can then make a [pull request](https://github.com/pmmp/PocketMine-MP/pull/new) to the project.
+4. You can then make a [pull request](https://github.com/pmmp/xpocketmp-MP/pull/new) to the project.
 
 ## Pull request reviews
 Pull requests will be reviewed by maintainers when they are available.
@@ -88,8 +88,8 @@ Depending on the changes, maintainers might ask you to make changes to the PR to
 ### Requirements
 The following are required as a minimum for pull requests. PRs that don't meet these requirements will be declined unless updated to meet them.
 
-- **All code must be licensed under the [LGPLv3 license](LICENSE)** as per PocketMine-MP's own license, or a compatible license.
-  - By proposing a pull request, you agree to your code being distributed within PocketMine-MP under the same license.
+- **All code must be licensed under the [LGPLv3 license](LICENSE)** as per xpocketmp-MP's own license, or a compatible license.
+  - By proposing a pull request, you agree to your code being distributed within xpocketmp-MP under the same license.
   - If you take code from other projects, that code MUST be licensed under an LGPL-compatible license.
 - **PRs should be about ONE thing**
   - If you want to make multiple changes, those changes should each be contributed as separate pull requests. **DO NOT** mix unrelated changes.
@@ -102,7 +102,7 @@ The following are required as a minimum for pull requests. PRs that don't meet t
   - Where possible, PHPUnit tests should be written for new or changed code. If that's not possible (e.g. for in-game functionality), the code must be tested manually and details of the tests done must be provided.
   - **Simply saying "Tested" is not acceptable** and could lead to your PR being declined.
 - **Code, comments and documentation must be written in American English.** English is the shared languages of all current maintainers.
-- **Code must be in the PocketMine-MP style.**
+- **Code must be in the xpocketmp-MP style.**
   - It's your responsibility to ensure your code matches the formatting and styling of the rest of the code.
   - If you use PhpStorm, a `Project` code style is provided, which you can use to automatically format new code.
   - You can also use [`php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer) to format your code.
@@ -142,7 +142,7 @@ The following are required as a minimum for pull requests. PRs that don't meet t
   - See the [documentation on `git add -i` or `git add -p`](https://git-scm.com/docs/git-add) for information on how to split up local changes for committing.
 
 
-**Thanks for contributing to PocketMine-MP!**
+**Thanks for contributing to xpocketmp-MP!**
 
 ## RFCs / Change Proposals
 Change Proposals are issues or discussions which describe a new feature proposal or behavioural change.

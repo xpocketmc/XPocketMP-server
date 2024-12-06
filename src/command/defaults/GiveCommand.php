@@ -13,28 +13,28 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\command\utils\InvalidCommandSyntaxException;
-use pocketmine\item\LegacyStringToItemParser;
-use pocketmine\item\LegacyStringToItemParserException;
-use pocketmine\item\StringToItemParser;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\nbt\JsonNbtParser;
-use pocketmine\nbt\NbtDataException;
-use pocketmine\nbt\NbtException;
-use pocketmine\permission\DefaultPermissionNames;
-use pocketmine\utils\TextFormat;
+use XPocketMP\command\Command;
+use XPocketMP\command\CommandSender;
+use XPocketMP\command\utils\InvalidCommandSyntaxException;
+use XPocketMP\item\LegacyStringToItemParser;
+use XPocketMP\item\LegacyStringToItemParserException;
+use XPocketMP\item\StringToItemParser;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\nbt\JsonNbtParser;
+use XPocketMP\nbt\NbtDataException;
+use XPocketMP\nbt\NbtException;
+use XPocketMP\permission\DefaultPermissionNames;
+use XPocketMP\utils\TextFormat;
 use function array_slice;
 use function count;
 use function implode;
@@ -44,8 +44,8 @@ class GiveCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"give",
-			KnownTranslationFactory::pocketmine_command_give_description(),
-			KnownTranslationFactory::pocketmine_command_give_usage()
+			KnownTranslationFactory::XPocketMP_command_give_description(),
+			KnownTranslationFactory::XPocketMP_command_give_usage()
 		);
 		$this->setPermissions([
 			DefaultPermissionNames::COMMAND_GIVE_SELF,

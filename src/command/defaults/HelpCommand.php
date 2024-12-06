@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\lang\Translatable;
-use pocketmine\permission\DefaultPermissionNames;
-use pocketmine\utils\TextFormat;
+use XPocketMP\command\Command;
+use XPocketMP\command\CommandSender;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\lang\Translatable;
+use XPocketMP\permission\DefaultPermissionNames;
+use XPocketMP\utils\TextFormat;
 use function array_chunk;
 use function array_pop;
 use function count;
@@ -47,7 +47,7 @@ class HelpCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"help",
-			KnownTranslationFactory::pocketmine_command_help_description(),
+			KnownTranslationFactory::XPocketMP_command_help_description(),
 			KnownTranslationFactory::commands_help_usage(),
 			["?"]
 		);
@@ -101,25 +101,25 @@ class HelpCommand extends VanillaCommand{
 					$lang = $sender->getLanguage();
 					$description = $cmd->getDescription();
 					$descriptionString = $description instanceof Translatable ? $lang->translate($description) : $description;
-					$sender->sendMessage(KnownTranslationFactory::pocketmine_command_help_specificCommand_header($cmd->getLabel())
+					$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_help_specificCommand_header($cmd->getLabel())
 						->format(TextFormat::YELLOW . "--------- " . TextFormat::RESET, TextFormat::YELLOW . " ---------"));
-					$sender->sendMessage(KnownTranslationFactory::pocketmine_command_help_specificCommand_description(TextFormat::RESET . $descriptionString)
+					$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_help_specificCommand_description(TextFormat::RESET . $descriptionString)
 						->prefix(TextFormat::GOLD));
 
 					$usage = $cmd->getUsage();
 					$usageString = $usage instanceof Translatable ? $lang->translate($usage) : $usage;
-					$sender->sendMessage(KnownTranslationFactory::pocketmine_command_help_specificCommand_usage(TextFormat::RESET . implode("\n" . TextFormat::RESET, explode("\n", $usageString)))
+					$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_help_specificCommand_usage(TextFormat::RESET . implode("\n" . TextFormat::RESET, explode("\n", $usageString)))
 						->prefix(TextFormat::GOLD));
 
 					$aliases = $cmd->getAliases();
 					sort($aliases, SORT_NATURAL);
-					$sender->sendMessage(KnownTranslationFactory::pocketmine_command_help_specificCommand_aliases(TextFormat::RESET . implode(", ", $aliases))
+					$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_help_specificCommand_aliases(TextFormat::RESET . implode(", ", $aliases))
 						->prefix(TextFormat::GOLD));
 
 					return true;
 				}
 			}
-			$sender->sendMessage(KnownTranslationFactory::pocketmine_command_notFound($commandName, "/help")->prefix(TextFormat::RED));
+			$sender->sendMessage(KnownTranslationFactory::XPocketMP_command_notFound($commandName, "/help")->prefix(TextFormat::RED));
 
 			return true;
 		}

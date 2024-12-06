@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\generator\populator;
+namespace XPocketMP\world\generator\populator;
 
-use pocketmine\block\BlockTypeIds;
-use pocketmine\block\Leaves;
-use pocketmine\block\VanillaBlocks;
-use pocketmine\utils\Random;
-use pocketmine\world\ChunkManager;
-use pocketmine\world\format\Chunk;
+use XPocketMPlock\BlockTypeIds;
+use XPocketMPlock\Leaves;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\utils\Random;
+use XPocketMP\world\ChunkManager;
+use XPocketMP\world\format\Chunk;
 
 class TallGrass implements Populator{
 	private int $randomAmount = 1;

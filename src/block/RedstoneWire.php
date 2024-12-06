@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\AnalogRedstoneSignalEmitterTrait;
-use pocketmine\block\utils\StaticSupportTrait;
-use pocketmine\item\Item;
-use pocketmine\item\VanillaItems;
-use pocketmine\math\Facing;
+use XPocketMPlock\utils\AnalogRedstoneSignalEmitterTrait;
+use XPocketMPlock\utils\StaticSupportTrait;
+use XPocketMP\item\Item;
+use XPocketMP\item\VanillaItems;
+use XPocketMP\math\Facing;
 
 class RedstoneWire extends Flowable{
 	use AnalogRedstoneSignalEmitterTrait;

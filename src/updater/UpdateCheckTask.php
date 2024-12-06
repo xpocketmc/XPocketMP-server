@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\updater;
+namespace XPocketMP\updater;
 
-use pocketmine\scheduler\AsyncTask;
-use pocketmine\utils\Internet;
+use XPocketMP\scheduler\AsyncTask;
+use XPocketMP\utils\Internet;
 use function is_array;
 use function is_string;
 use function json_decode;

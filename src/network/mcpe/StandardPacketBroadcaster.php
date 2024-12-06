@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe;
+namespace XPocketMP\network\mcpe;
 
-use pocketmine\event\server\DataPacketSendEvent;
-use pocketmine\network\mcpe\protocol\serializer\PacketBatch;
-use pocketmine\network\mcpe\protocol\serializer\PacketSerializer;
-use pocketmine\Server;
-use pocketmine\timings\Timings;
-use pocketmine\utils\BinaryStream;
+use XPocketMP\event\server\DataPacketSendEvent;
+use XPocketMP\network\mcpe\protocol\serializer\PacketBatch;
+use XPocketMP\network\mcpe\protocol\serializer\PacketSerializer;
+use XPocketMP\Server;
+use XPocketMP\timings\Timings;
+use XPocketMP\utils\BinaryStream;
 use function count;
 use function log;
 use function spl_object_id;

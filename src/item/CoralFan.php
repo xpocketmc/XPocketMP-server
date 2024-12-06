@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item;
+namespace XPocketMP\item;
 
-use pocketmine\block\Block;
-use pocketmine\block\utils\CoralTypeTrait;
-use pocketmine\block\VanillaBlocks;
-use pocketmine\data\runtime\RuntimeDataDescriber;
-use pocketmine\math\Axis;
-use pocketmine\math\Facing;
+use XPocketMPlock\Block;
+use XPocketMPlock\utils\CoralTypeTrait;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\data\runtime\RuntimeDataDescriber;
+use XPocketMP\math\Axis;
+use XPocketMP\math\Facing;
 
 final class CoralFan extends Item{
 	use CoralTypeTrait {

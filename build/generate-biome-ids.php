@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\build\generate_biome_ids;
+namespace xpocketmp\build\generate_biome_ids;
 
-use pocketmine\data\bedrock\BedrockDataFiles;
-use pocketmine\utils\Filesystem;
-use pocketmine\utils\Utils;
+use xpocketmp\data\bedrock\BedrockDataFiles;
+use xpocketmp\utils\Filesystem;
+use xpocketmp\utils\Utils;
 use function asort;
 use function dirname;
 use function fclose;
@@ -57,8 +57,8 @@ const HEADER = <<<'HEADER'
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
@@ -89,7 +89,7 @@ function generate(array $map, string $outputFile) : void{
 	$file = safe_fopen($outputFile, 'wb');
 	fwrite($file, HEADER);
 	fwrite($file, <<<'CLASSHEADER'
-namespace pocketmine\data\bedrock;
+namespace xpocketmp\data\bedrock;
 
 final class BiomeIds{
 

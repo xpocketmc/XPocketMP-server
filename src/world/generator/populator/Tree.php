@@ -13,23 +13,23 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\generator\populator;
+namespace XPocketMP\world\generator\populator;
 
-use pocketmine\block\BlockTypeIds;
-use pocketmine\block\BlockTypeTags;
-use pocketmine\utils\Random;
-use pocketmine\world\ChunkManager;
-use pocketmine\world\format\Chunk;
-use pocketmine\world\generator\object\TreeFactory;
-use pocketmine\world\generator\object\TreeType;
+use XPocketMPlock\BlockTypeIds;
+use XPocketMPlock\BlockTypeTags;
+use XPocketMP\utils\Random;
+use XPocketMP\world\ChunkManager;
+use XPocketMP\world\format\Chunk;
+use XPocketMP\world\generator\object\TreeFactory;
+use XPocketMP\world\generator\object\TreeType;
 
 class Tree implements Populator{
 	private int $randomAmount = 1;

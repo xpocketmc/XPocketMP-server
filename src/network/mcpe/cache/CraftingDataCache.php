@@ -13,36 +13,36 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\cache;
+namespace XPocketMP\network\mcpe\cache;
 
-use pocketmine\crafting\CraftingManager;
-use pocketmine\crafting\FurnaceType;
-use pocketmine\crafting\ShapedRecipe;
-use pocketmine\crafting\ShapelessRecipe;
-use pocketmine\crafting\ShapelessRecipeType;
-use pocketmine\network\mcpe\convert\TypeConverter;
-use pocketmine\network\mcpe\protocol\CraftingDataPacket;
-use pocketmine\network\mcpe\protocol\types\recipe\CraftingRecipeBlockName;
-use pocketmine\network\mcpe\protocol\types\recipe\FurnaceRecipe as ProtocolFurnaceRecipe;
-use pocketmine\network\mcpe\protocol\types\recipe\FurnaceRecipeBlockName;
-use pocketmine\network\mcpe\protocol\types\recipe\IntIdMetaItemDescriptor;
-use pocketmine\network\mcpe\protocol\types\recipe\PotionContainerChangeRecipe as ProtocolPotionContainerChangeRecipe;
-use pocketmine\network\mcpe\protocol\types\recipe\PotionTypeRecipe as ProtocolPotionTypeRecipe;
-use pocketmine\network\mcpe\protocol\types\recipe\RecipeUnlockingRequirement;
-use pocketmine\network\mcpe\protocol\types\recipe\ShapedRecipe as ProtocolShapedRecipe;
-use pocketmine\network\mcpe\protocol\types\recipe\ShapelessRecipe as ProtocolShapelessRecipe;
-use pocketmine\timings\Timings;
-use pocketmine\utils\AssumptionFailedError;
-use pocketmine\utils\Binary;
-use pocketmine\utils\SingletonTrait;
+use XPocketMP\crafting\CraftingManager;
+use XPocketMP\crafting\FurnaceType;
+use XPocketMP\crafting\ShapedRecipe;
+use XPocketMP\crafting\ShapelessRecipe;
+use XPocketMP\crafting\ShapelessRecipeType;
+use XPocketMP\network\mcpe\convert\TypeConverter;
+use XPocketMP\network\mcpe\protocol\CraftingDataPacket;
+use XPocketMP\network\mcpe\protocol\types\recipe\CraftingRecipeBlockName;
+use XPocketMP\network\mcpe\protocol\types\recipe\FurnaceRecipe as ProtocolFurnaceRecipe;
+use XPocketMP\network\mcpe\protocol\types\recipe\FurnaceRecipeBlockName;
+use XPocketMP\network\mcpe\protocol\types\recipe\IntIdMetaItemDescriptor;
+use XPocketMP\network\mcpe\protocol\types\recipe\PotionContainerChangeRecipe as ProtocolPotionContainerChangeRecipe;
+use XPocketMP\network\mcpe\protocol\types\recipe\PotionTypeRecipe as ProtocolPotionTypeRecipe;
+use XPocketMP\network\mcpe\protocol\types\recipe\RecipeUnlockingRequirement;
+use XPocketMP\network\mcpe\protocol\types\recipe\ShapedRecipe as ProtocolShapedRecipe;
+use XPocketMP\network\mcpe\protocol\types\recipe\ShapelessRecipe as ProtocolShapelessRecipe;
+use XPocketMP\timings\Timings;
+use XPocketMP\utils\AssumptionFailedError;
+use XPocketMP\utils\Binary;
+use XPocketMP\utils\SingletonTrait;
 use Ramsey\Uuid\Uuid;
 use function array_map;
 use function spl_object_id;

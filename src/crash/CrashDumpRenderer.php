@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\crash;
+namespace XPocketMP\crash;
 
-use pocketmine\utils\Utils;
-use pocketmine\utils\VersionString;
+use XPocketMP\utils\Utils;
+use XPocketMP\utils\VersionString;
 use function count;
 use function date;
 use function fwrite;

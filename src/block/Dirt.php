@@ -13,29 +13,29 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block;
+namespace XPocketMPlock;
 
-use pocketmine\block\utils\DirtType;
-use pocketmine\data\runtime\RuntimeDataDescriber;
-use pocketmine\item\Fertilizer;
-use pocketmine\item\Hoe;
-use pocketmine\item\Item;
-use pocketmine\item\Potion;
-use pocketmine\item\PotionType;
-use pocketmine\item\SplashPotion;
-use pocketmine\math\Facing;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
-use pocketmine\world\sound\ItemUseOnBlockSound;
-use pocketmine\world\sound\WaterSplashSound;
+use XPocketMPlock\utils\DirtType;
+use XPocketMP\data\runtime\RuntimeDataDescriber;
+use XPocketMP\item\Fertilizer;
+use XPocketMP\item\Hoe;
+use XPocketMP\item\Item;
+use XPocketMP\item\Potion;
+use XPocketMP\item\PotionType;
+use XPocketMP\item\SplashPotion;
+use XPocketMP\math\Facing;
+use XPocketMP\math\Vector3;
+use XPocketMP\player\Player;
+use XPocketMP\world\sound\ItemUseOnBlockSound;
+use XPocketMP\world\sound\WaterSplashSound;
 
 class Dirt extends Opaque{
 	protected DirtType $dirtType = DirtType::NORMAL;

@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe;
+namespace XPocketMP\network\mcpe;
 
-use pocketmine\network\PacketHandlingException;
+use XPocketMP\network\PacketHandlingException;
 use function hrtime;
 use function intdiv;
 use function min;

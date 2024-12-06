@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\entity;
+namespace XPocketMP\event\entity;
 
-use pocketmine\entity\object\ItemEntity;
+use XPocketMP\entity\object\ItemEntity;
 
 /**
  * Called when an item is spawned or loaded.

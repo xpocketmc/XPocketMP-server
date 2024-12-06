@@ -13,29 +13,29 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\cache;
+namespace XPocketMP\network\mcpe\cache;
 
-use pocketmine\data\bedrock\BedrockDataFiles;
-use pocketmine\network\mcpe\protocol\AvailableActorIdentifiersPacket;
-use pocketmine\network\mcpe\protocol\BiomeDefinitionListPacket;
-use pocketmine\network\mcpe\protocol\serializer\NetworkNbtSerializer;
-use pocketmine\network\mcpe\protocol\types\CacheableNbt;
-use pocketmine\utils\Filesystem;
-use pocketmine\utils\SingletonTrait;
+use XPocketMP\data\bedrock\BedrockDataFiles;
+use XPocketMP\network\mcpe\protocol\AvailableActorIdentifiersPacket;
+use XPocketMP\network\mcpe\protocol\BiomeDefinitionListPacket;
+use XPocketMP\network\mcpe\protocol\serializer\NetworkNbtSerializer;
+use XPocketMP\network\mcpe\protocol\types\CacheableNbt;
+use XPocketMP\utils\Filesystem;
+use XPocketMP\utils\SingletonTrait;
 
 class StaticPacketCache{
 	use SingletonTrait;
 
 	/**
-	 * @phpstan-return CacheableNbt<\pocketmine\nbt\tag\CompoundTag>
+	 * @phpstan-return CacheableNbt<\XPocketMP\nbt\tag\CompoundTag>
 	 */
 	private static function loadCompoundFromFile(string $filePath) : CacheableNbt{
 		return new CacheableNbt((new NetworkNbtSerializer())->read(Filesystem::fileGetContents($filePath))->mustGetCompoundTag());

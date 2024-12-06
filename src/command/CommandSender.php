@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command;
+namespace XPocketMP\command;
 
-use pocketmine\lang\Language;
-use pocketmine\lang\Translatable;
-use pocketmine\permission\Permissible;
-use pocketmine\Server;
+use XPocketMP\lang\Language;
+use XPocketMP\lang\Translatable;
+use XPocketMP\permission\Permissible;
+use XPocketMP\Server;
 
 interface CommandSender extends Permissible{
 

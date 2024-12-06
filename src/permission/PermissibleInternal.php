@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\permission;
+namespace XPocketMP\permission;
 
-use pocketmine\plugin\Plugin;
-use pocketmine\plugin\PluginException;
-use pocketmine\timings\Timings;
-use pocketmine\utils\ObjectSet;
-use pocketmine\utils\Utils;
+use XPocketMP\plugin\Plugin;
+use XPocketMP\plugin\PluginException;
+use XPocketMP\timings\Timings;
+use XPocketMP\utils\ObjectSet;
+use XPocketMP\utils\Utils;
 use function count;
 use function spl_object_id;
 

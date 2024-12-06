@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
@@ -26,7 +26,7 @@ namespace pmmp\TesterPlugin;
 use pmmp\TesterPlugin\event\ChildEvent;
 use pmmp\TesterPlugin\event\GrandchildEvent;
 use pmmp\TesterPlugin\event\ParentEvent;
-use pocketmine\event\EventPriority;
+use xpocketmp\event\EventPriority;
 use function implode;
 
 final class EventHandlerInheritanceTest extends Test{

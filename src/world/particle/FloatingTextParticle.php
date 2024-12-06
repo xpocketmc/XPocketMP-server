@@ -13,31 +13,31 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\particle;
+namespace XPocketMP\world\particle;
 
-use pocketmine\block\VanillaBlocks;
-use pocketmine\entity\Entity;
-use pocketmine\math\Vector3;
-use pocketmine\network\mcpe\convert\TypeConverter;
-use pocketmine\network\mcpe\protocol\AddActorPacket;
-use pocketmine\network\mcpe\protocol\RemoveActorPacket;
-use pocketmine\network\mcpe\protocol\types\entity\ByteMetadataProperty;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
-use pocketmine\network\mcpe\protocol\types\entity\FloatMetadataProperty;
-use pocketmine\network\mcpe\protocol\types\entity\IntMetadataProperty;
-use pocketmine\network\mcpe\protocol\types\entity\LongMetadataProperty;
-use pocketmine\network\mcpe\protocol\types\entity\PropertySyncData;
-use pocketmine\network\mcpe\protocol\types\entity\StringMetadataProperty;
+use XPocketMPlock\VanillaBlocks;
+use XPocketMP\entity\Entity;
+use XPocketMP\math\Vector3;
+use XPocketMP\network\mcpe\convert\TypeConverter;
+use XPocketMP\network\mcpe\protocol\AddActorPacket;
+use XPocketMP\network\mcpe\protocol\RemoveActorPacket;
+use XPocketMP\network\mcpe\protocol\types\entity\ByteMetadataProperty;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataFlags;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use XPocketMP\network\mcpe\protocol\types\entity\FloatMetadataProperty;
+use XPocketMP\network\mcpe\protocol\types\entity\IntMetadataProperty;
+use XPocketMP\network\mcpe\protocol\types\entity\LongMetadataProperty;
+use XPocketMP\network\mcpe\protocol\types\entity\PropertySyncData;
+use XPocketMP\network\mcpe\protocol\types\entity\StringMetadataProperty;
 
 class FloatingTextParticle implements Particle{
 	//TODO: HACK!

@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\block\utils;
+namespace XPocketMPlock\utils;
 
-use pocketmine\block\BlockIdentifier;
-use pocketmine\block\BlockTypeInfo;
+use XPocketMPlock\BlockIdentifier;
+use XPocketMPlock\BlockTypeInfo;
 
 trait WoodTypeTrait{
 	private WoodType $woodType; //immutable for now

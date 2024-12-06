@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\permission\DefaultPermissionNames;
+use XPocketMP\command\Command;
+use XPocketMP\command\CommandSender;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\permission\DefaultPermissionNames;
 use function microtime;
 use function round;
 
@@ -35,13 +35,13 @@ class SaveCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"save-all",
-			KnownTranslationFactory::pocketmine_command_save_description()
+			KnownTranslationFactory::XPocketMP_command_save_description()
 		);
 		$this->setPermission(DefaultPermissionNames::COMMAND_SAVE_PERFORM);
 	}
 
 	public function execute(CommandSender $sender, string $commandLabel, array $args){
-		Command::broadcastCommandMessage($sender, KnownTranslationFactory::pocketmine_save_start());
+		Command::broadcastCommandMessage($sender, KnownTranslationFactory::XPocketMP_save_start());
 		$start = microtime(true);
 
 		foreach($sender->getServer()->getOnlinePlayers() as $player){
@@ -52,7 +52,7 @@ class SaveCommand extends VanillaCommand{
 			$world->save(true);
 		}
 
-		Command::broadcastCommandMessage($sender, KnownTranslationFactory::pocketmine_save_success((string) round(microtime(true) - $start, 3)));
+		Command::broadcastCommandMessage($sender, KnownTranslationFactory::XPocketMP_save_success((string) round(microtime(true) - $start, 3)));
 
 		return true;
 	}

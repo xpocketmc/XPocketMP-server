@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -24,11 +24,11 @@ declare(strict_types=1);
 /**
  * Noise classes used in world generation
  */
-namespace pocketmine\world\generator;
+namespace XPocketMP\world\generator;
 
-use pocketmine\utils\Random;
-use pocketmine\utils\Utils;
-use pocketmine\world\ChunkManager;
+use XPocketMP\utils\Random;
+use XPocketMP\utils\Utils;
+use XPocketMP\world\ChunkManager;
 use function preg_match;
 
 abstract class Generator{

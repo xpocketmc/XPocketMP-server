@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\event\player;
+namespace XPocketMP\event\player;
 
-use pocketmine\command\CommandSender;
-use pocketmine\event\Cancellable;
-use pocketmine\event\CancellableTrait;
-use pocketmine\player\chat\ChatFormatter;
-use pocketmine\player\Player;
-use pocketmine\utils\Utils;
+use XPocketMP\command\CommandSender;
+use XPocketMP\event\Cancellable;
+use XPocketMP\event\CancellableTrait;
+use XPocketMP\player\chat\ChatFormatter;
+use XPocketMP\player\Player;
+use XPocketMP\utils\Utils;
 
 /**
  * Called when a player chats something

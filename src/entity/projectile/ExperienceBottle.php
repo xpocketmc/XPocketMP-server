@@ -13,20 +13,20 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\entity\projectile;
+namespace XPocketMP\entity\projectile;
 
-use pocketmine\event\entity\ProjectileHitEvent;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\world\particle\PotionSplashParticle;
-use pocketmine\world\sound\PotionSplashSound;
+use XPocketMP\event\entity\ProjectileHitEvent;
+use XPocketMP\network\mcpe\protocol\types\entity\EntityIds;
+use XPocketMP\world\particle\PotionSplashParticle;
+use XPocketMP\world\sound\PotionSplashSound;
 use function mt_rand;
 
 class ExperienceBottle extends Throwable{

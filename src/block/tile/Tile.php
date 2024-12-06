@@ -13,8 +13,8 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
@@ -25,18 +25,18 @@ declare(strict_types=1);
  * All the Tile classes and related classes
  */
 
-namespace pocketmine\block\tile;
+namespace XPocketMPlock\tile;
 
-use pocketmine\block\Block;
-use pocketmine\item\Item;
-use pocketmine\math\Vector3;
-use pocketmine\nbt\NbtDataException;
-use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\timings\Timings;
-use pocketmine\timings\TimingsHandler;
-use pocketmine\VersionInfo;
-use pocketmine\world\Position;
-use pocketmine\world\World;
+use XPocketMPlock\Block;
+use XPocketMP\item\Item;
+use XPocketMP\math\Vector3;
+use XPocketMP\nbt\NbtDataException;
+use XPocketMP\nbt\tag\CompoundTag;
+use XPocketMP\timings\Timings;
+use XPocketMP\timings\TimingsHandler;
+use XPocketMP\VersionInfo;
+use XPocketMP\world\Position;
+use XPocketMP\world\World;
 use function get_class;
 
 abstract class Tile{

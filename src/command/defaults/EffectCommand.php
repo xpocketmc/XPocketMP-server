@@ -13,24 +13,24 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\command\defaults;
+namespace XPocketMP\command\defaults;
 
-use pocketmine\command\CommandSender;
-use pocketmine\command\utils\InvalidCommandSyntaxException;
-use pocketmine\entity\effect\EffectInstance;
-use pocketmine\entity\effect\StringToEffectParser;
-use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\permission\DefaultPermissionNames;
-use pocketmine\utils\Limits;
-use pocketmine\utils\TextFormat;
+use XPocketMP\command\CommandSender;
+use XPocketMP\command\utils\InvalidCommandSyntaxException;
+use XPocketMP\entity\effect\EffectInstance;
+use XPocketMP\entity\effect\StringToEffectParser;
+use XPocketMP\lang\KnownTranslationFactory;
+use XPocketMP\permission\DefaultPermissionNames;
+use XPocketMP\utils\Limits;
+use XPocketMP\utils\TextFormat;
 use function count;
 use function strtolower;
 
@@ -39,7 +39,7 @@ class EffectCommand extends VanillaCommand{
 	public function __construct(){
 		parent::__construct(
 			"effect",
-			KnownTranslationFactory::pocketmine_command_effect_description(),
+			KnownTranslationFactory::XPocketMP_command_effect_description(),
 			KnownTranslationFactory::commands_effect_usage()
 		);
 		$this->setPermissions([

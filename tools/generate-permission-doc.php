@@ -13,22 +13,22 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\generate_permission_doc;
+namespace xpocketmp\generate_permission_doc;
 
-use pocketmine\lang\Language;
-use pocketmine\lang\Translatable;
-use pocketmine\permission\DefaultPermissions;
-use pocketmine\permission\PermissionManager;
-use pocketmine\utils\Utils;
-use pocketmine\VersionInfo;
+use xpocketmp\lang\Language;
+use xpocketmp\lang\Translatable;
+use xpocketmp\permission\DefaultPermissions;
+use xpocketmp\permission\PermissionManager;
+use xpocketmp\utils\Utils;
+use xpocketmp\VersionInfo;
 use Symfony\Component\Filesystem\Path;
 use function count;
 use function dirname;
@@ -125,7 +125,7 @@ if($format === "md"){
 $newline = $format === "md" ? "<br>\n" : "\n\n";
 $code = $format === "md" ? "`" : "``";
 fwrite($doc, "Some permissions automatically grant (or deny) other permissions by default when granted. These are referred to as **implied permissions**.$newline");
-fwrite($doc, "Permissions may imply permissions which in turn imply other permissions (e.g. {$code}pocketmine.group.operator{$code} implies {$code}pocketmine.group.user{$code}, which in turn implies {$code}pocketmine.command.help{$code}).$newline");
+fwrite($doc, "Permissions may imply permissions which in turn imply other permissions (e.g. {$code}xpocketmp.group.operator{$code} implies {$code}xpocketmp.group.user{$code}, which in turn implies {$code}xpocketmp.command.help{$code}).$newline");
 fwrite($doc, "Implied permissions can be overridden by explicit permissions from elsewhere.$newline");
 fwrite($doc, "**Note:** When explicitly denied, implied permissions are inverted. This means that \"granted\" becomes \"denied\" and vice versa.$newline");
 fwrite($doc, "\n\n");

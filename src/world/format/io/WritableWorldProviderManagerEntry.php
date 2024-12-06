@@ -13,17 +13,17 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\format\io;
+namespace XPocketMP\world\format\io;
 
-use pocketmine\world\WorldCreationOptions;
+use XPocketMP\world\WorldCreationOptions;
 
 /**
  * @phpstan-type FromPath \Closure(string $path, \Logger $logger) : WritableWorldProvider

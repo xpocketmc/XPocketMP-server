@@ -13,21 +13,21 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\build\generate_item_serializer_ids;
+namespace xpocketmp\build\generate_item_serializer_ids;
 
-use pocketmine\data\bedrock\item\BlockItemIdMap;
-use pocketmine\errorhandler\ErrorToExceptionHandler;
-use pocketmine\network\mcpe\convert\ItemTypeDictionaryFromDataHelper;
-use pocketmine\network\mcpe\protocol\serializer\ItemTypeDictionary;
-use pocketmine\utils\Utils;
+use xpocketmp\data\bedrock\item\BlockItemIdMap;
+use xpocketmp\errorhandler\ErrorToExceptionHandler;
+use xpocketmp\network\mcpe\convert\ItemTypeDictionaryFromDataHelper;
+use xpocketmp\network\mcpe\protocol\serializer\ItemTypeDictionary;
+use xpocketmp\utils\Utils;
 use function asort;
 use function count;
 use function dirname;
@@ -75,15 +75,15 @@ function generateItemIds(ItemTypeDictionary $dictionary, BlockItemIdMap $blockIt
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\item;
+namespace xpocketmp\data\bedrock\item;
 
 /**
  * This class is generated automatically from the item type dictionary for the current version. Do not edit it manually.

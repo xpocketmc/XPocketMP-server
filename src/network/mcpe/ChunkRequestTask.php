@@ -13,29 +13,29 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe;
+namespace XPocketMP\network\mcpe;
 
-use pocketmine\network\mcpe\compression\CompressBatchPromise;
-use pocketmine\network\mcpe\compression\Compressor;
-use pocketmine\network\mcpe\convert\TypeConverter;
-use pocketmine\network\mcpe\protocol\LevelChunkPacket;
-use pocketmine\network\mcpe\protocol\serializer\PacketBatch;
-use pocketmine\network\mcpe\protocol\types\ChunkPosition;
-use pocketmine\network\mcpe\protocol\types\DimensionIds;
-use pocketmine\network\mcpe\serializer\ChunkSerializer;
-use pocketmine\scheduler\AsyncTask;
-use pocketmine\thread\NonThreadSafeValue;
-use pocketmine\utils\BinaryStream;
-use pocketmine\world\format\Chunk;
-use pocketmine\world\format\io\FastChunkSerializer;
+use XPocketMP\network\mcpe\compression\CompressBatchPromise;
+use XPocketMP\network\mcpe\compression\Compressor;
+use XPocketMP\network\mcpe\convert\TypeConverter;
+use XPocketMP\network\mcpe\protocol\LevelChunkPacket;
+use XPocketMP\network\mcpe\protocol\serializer\PacketBatch;
+use XPocketMP\network\mcpe\protocol\types\ChunkPosition;
+use XPocketMP\network\mcpe\protocol\types\DimensionIds;
+use XPocketMP\network\mcpe\serializer\ChunkSerializer;
+use XPocketMP\scheduler\AsyncTask;
+use XPocketMP\thread\NonThreadSafeValue;
+use XPocketMP\utils\BinaryStream;
+use XPocketMP\world\format\Chunk;
+use XPocketMP\world\format\io\FastChunkSerializer;
 use function chr;
 
 class ChunkRequestTask extends AsyncTask{

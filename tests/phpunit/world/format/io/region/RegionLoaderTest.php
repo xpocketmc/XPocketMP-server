@@ -13,18 +13,18 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author xpocketmp Team
+ * @link http://www.xpocketmp.net/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\world\format\io\region;
+namespace xpocketmp\world\format\io\region;
 
 use PHPUnit\Framework\TestCase;
-use pocketmine\world\format\ChunkException;
+use xpocketmp\world\format\ChunkException;
 use Symfony\Component\Filesystem\Path;
 use function bin2hex;
 use function clearstatcache;
@@ -110,7 +110,7 @@ class RegionLoaderTest extends TestCase{
 	 * @dataProvider outOfBoundsCoordsProvider
 	 *
 	 * @throws \InvalidArgumentException
-	 * @throws \pocketmine\world\format\io\exception\CorruptedChunkException
+	 * @throws \xpocketmp\world\format\io\exception\CorruptedChunkException
 	 */
 	public function testReadChunkOutOfBounds(int $x, int $z) : void{
 		$this->expectException(\InvalidArgumentException::class);

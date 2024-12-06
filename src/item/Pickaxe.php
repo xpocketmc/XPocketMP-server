@@ -13,19 +13,19 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
+ * @author XPocketMP Team
+ * @link http://www.xpocketmc.xyz/
  *
  *
  */
 
 declare(strict_types=1);
 
-namespace pocketmine\item;
+namespace XPocketMP\item;
 
-use pocketmine\block\Block;
-use pocketmine\block\BlockToolType;
-use pocketmine\entity\Entity;
+use XPocketMPlock\Block;
+use XPocketMPlock\BlockToolType;
+use XPocketMP\entity\Entity;
 
 class Pickaxe extends TieredTool{
 
