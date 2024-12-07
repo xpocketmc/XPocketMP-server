@@ -34,7 +34,7 @@ use pocketmine\world\generator\object\TreeType;
 class Tree implements Populator{
 	private int $randomAmount = 1;
 	private int $baseAmount = 0;
-	private int $tree = null;
+	private ?int $tree = null;
 	private TreeType $type;
 
 	/**
@@ -52,7 +52,7 @@ class Tree implements Populator{
 		$this->baseAmount = $amount;
 	}
 
-	public function setTree(int $tree) : void{
+	public function setTree(?int $tree) : void{
 		$this->tree = $tree;
 	}
 
