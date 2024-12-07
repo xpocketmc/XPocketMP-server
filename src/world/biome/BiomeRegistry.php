@@ -56,7 +56,7 @@ final class BiomeRegistry{
 
 		$this->register(BiomeIds::BIRCH_FOREST, new ForestBiome(TreeType::BIRCH));
 
-		$this->register(BiomeIds::CHERRY, new CherryBiome());
+		$this->register(BiomeIds::CHERRY_GROVE, new CherryBiome());
 	}
 
 	public function register(int $id, Biome $biome) : void{
