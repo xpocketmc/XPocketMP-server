@@ -23,7 +23,7 @@ declare(strict_types=1);
 
 namespace pocketmine\world\biome;
 
-use pocketmine\block\VanillaBlocks;use pocketmine\world\generator\populator\Tree;
+use pocketmine\world\generator\populator\Tree;
 
 class PaleGardenBiome extends GrassyBiome{
 	public function __construct() {
@@ -36,7 +36,7 @@ class PaleGardenBiome extends GrassyBiome{
 		$this->setFoliageColor(0x878D76);
 	}
 
-	public function getName(): string {
+	public function getName() : string {
 		return "Pale Garden";
 	}
 }
