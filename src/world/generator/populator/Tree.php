@@ -30,6 +30,7 @@ use pocketmine\world\ChunkManager;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\generator\object\TreeFactory;
 use pocketmine\world\generator\object\TreeType;
+use function in_array;
 
 class Tree implements Populator{
 	private int $randomAmount = 1;
@@ -52,30 +53,28 @@ class Tree implements Populator{
 		$this->baseAmount = $amount;
 	}
 
-    /**
-     * Add tree types to the populator
-     *
-     * @param string $treeType Tree type (examples: "Oak", "Cherry", etc.)
-     * @throws InvalidArgumentException If the tree type is invalid
-     */
-    public function addTree(string $treeType): void {
-        $allowedTypes = ["Oak", "Spruce", "Birch", "Jungle", "Cherry"];
-        if (!in_array($treeType, $allowedTypes, true)) {
-            throw new InvalidArgumentException("Invalid tree type: $treeType");
-        }
+	/**
+	 * Add tree types to the populator
+	 *
+	 * @param string $treeType Tree type (examples: "Oak", "Cherry", etc.)
+	 * @throws InvalidArgumentException If the tree type is invalid
+	 */
+	public function addTree(string $treeType) : void {
+		$allowedTypes = ["Oak", "Spruce", "Birch", "Jungle", "Cherry"];
+		if (!in_array($treeType, $allowedTypes, true)) {
+			throw new InvalidArgumentException("Invalid tree type: $treeType");
+		}
 
-        if (!in_array($treeType, $this->trees, true)) {
-            $this->trees[] = $treeType;
-        }
-    }
+		if (!in_array($treeType, $this->trees, true)) {
+			$this->trees[] = $treeType;
+		}
+	}
 
-    /**
-     * Get a list of trees that have been added
-     *
-     * @return array
-     */
-    public function getTrees(): array {
-        return $this->trees;
+	/**
+	 * Get a list of trees that have been added
+	 */
+	public function getTrees() : array {
+		return $this->trees;
 	}
 
 	public function populate(ChunkManager $world, int $chunkX, int $chunkZ, Random $random) : void{
