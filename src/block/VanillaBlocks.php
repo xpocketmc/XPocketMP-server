@@ -173,6 +173,7 @@ use function strtolower;
  * @method static Wood CHERRY_LOG()
  * @method static Planks CHERRY_PLANKS()
  * @method static WoodenPressurePlate CHERRY_PRESSURE_PLATE()
+ * @method static Sapling CHERRY_SAPLING()
  * @method static FloorSign CHERRY_SIGN()
  * @method static WoodenSlab CHERRY_SLAB()
  * @method static WoodenStairs CHERRY_STAIRS()
