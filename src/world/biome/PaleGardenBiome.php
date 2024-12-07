@@ -1,0 +1,49 @@
+<?php
+
+/*
+ *
+ *  ____            _        _   __  __ _                  __  __ ____
+ * |  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
+ * | |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
+ * |  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
+ * |_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
+ *
+ *
+ */
+
+declare(strict_types=1);
+
+namespace pocketmine\world\biome;
+
+use pocketmine\block\VanillaBlocks;use pocketmine\world\generator\populator\Tree;
+
+class PaleGardenBiome extends GrassyBiome{
+	public function __construct(){
+		parent::__construct();
+
+		$effects = new BiomeEffects();
+		$effects->setSkyColor(0xB9B9B9);
+		$effects->setFogColor(0x817770);
+		$effects->setGrassColor(0x778272);
+		$effects->setFoliageColor(0x878D76);
+		$effects->setWaterColor(0x76889D);
+		$effects->setWaterFogColor(0x556980);
+		$this->setEffects($effects);
+
+		$tree = new Tree(VanillaBlocks::OAK_LOG(), VanillaBlocks::OAK_LEAVES());
+		$tree->setTreeCount(5);
+		$this->addPopulator($tree);
+	}
+
+	public function getName() : string{
+		return "Pale Garden";
+	}
+}
