@@ -34,7 +34,7 @@ use pocketmine\world\generator\object\TreeType;
 class Tree implements Populator{
 	private int $randomAmount = 1;
 	private int $baseAmount = 0;
-	private ?int $tree = null;
+	private array $trees = [];
 	private TreeType $type;
 
 	/**
@@ -42,7 +42,6 @@ class Tree implements Populator{
 	 */
 	public function __construct(?TreeType $type = null){
 		$this->type = $type ?? TreeType::OAK;
-		$this->tree = $tree;
 	}
 
 	public function setRandomAmount(int $amount) : void{
@@ -53,8 +52,30 @@ class Tree implements Populator{
 		$this->baseAmount = $amount;
 	}
 
-	public function setTree(?int $tree) : void{
-		$this->tree = $tree;
+    /**
+     * Add tree types to the populator
+     *
+     * @param string $treeType Tree type (examples: "Oak", "Cherry", etc.)
+     * @throws InvalidArgumentException If the tree type is invalid
+     */
+    public function addTree(string $treeType): void {
+        $allowedTypes = ["Oak", "Spruce", "Birch", "Jungle", "Cherry"];
+        if (!in_array($treeType, $allowedTypes, true)) {
+            throw new InvalidArgumentException("Invalid tree type: $treeType");
+        }
+
+        if (!in_array($treeType, $this->trees, true)) {
+            $this->trees[] = $treeType;
+        }
+    }
+
+    /**
+     * Get a list of trees that have been added
+     *
+     * @return array
+     */
+    public function getTrees(): array {
+        return $this->trees;
 	}
 
 	public function populate(ChunkManager $world, int $chunkX, int $chunkZ, Random $random) : void{
