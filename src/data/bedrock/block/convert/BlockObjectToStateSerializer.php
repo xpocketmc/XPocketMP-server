@@ -758,6 +758,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 			Ids::JUNGLE_SAPLING => Blocks::JUNGLE_SAPLING(),
 			Ids::OAK_SAPLING => Blocks::OAK_SAPLING(),
 			Ids::SPRUCE_SAPLING => Blocks::SPRUCE_SAPLING(),
+		                                    Ids::CHERRY_SAPLING => Blocks::CHERRY_SAPLING(),
 		] as $id => $block){
 			$this->map($block, fn(Sapling $block) => Helper::encodeSapling($block, new Writer($id)));
 		}
