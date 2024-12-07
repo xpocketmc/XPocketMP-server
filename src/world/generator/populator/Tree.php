@@ -34,6 +34,7 @@ use pocketmine\world\generator\object\TreeType;
 class Tree implements Populator{
 	private int $randomAmount = 1;
 	private int $baseAmount = 0;
+	private int $tree = null;
 	private TreeType $type;
 
 	/**
@@ -50,6 +51,9 @@ class Tree implements Populator{
 	public function setBaseAmount(int $amount) : void{
 		$this->baseAmount = $amount;
 	}
+
+	public function setTree(int $tree) : void{
+		$this->tree = $tree;
 
 	public function populate(ChunkManager $world, int $chunkX, int $chunkZ, Random $random) : void{
 		$amount = $random->nextRange(0, $this->randomAmount) + $this->baseAmount;
