@@ -54,6 +54,7 @@ class Tree implements Populator{
 
 	public function setTree(int $tree) : void{
 		$this->tree = $tree;
+	}
 
 	public function populate(ChunkManager $world, int $chunkX, int $chunkZ, Random $random) : void{
 		$amount = $random->nextRange(0, $this->randomAmount) + $this->baseAmount;
