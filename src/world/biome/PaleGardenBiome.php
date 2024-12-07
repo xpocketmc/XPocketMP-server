@@ -26,24 +26,17 @@ namespace pocketmine\world\biome;
 use pocketmine\block\VanillaBlocks;use pocketmine\world\generator\populator\Tree;
 
 class PaleGardenBiome extends GrassyBiome{
-	public function __construct(){
+	public function __construct() {
 		parent::__construct();
 
-		$effects = new BiomeEffects();
-		$effects->setSkyColor(0xB9B9B9);
-		$effects->setFogColor(0x817770);
-		$effects->setGrassColor(0x778272);
-		$effects->setFoliageColor(0x878D76);
-		$effects->setWaterColor(0x76889D);
-		$effects->setWaterFogColor(0x556980);
-		$this->setEffects($effects);
-
-		$tree = new Tree(VanillaBlocks::OAK_LOG(), VanillaBlocks::OAK_LEAVES());
-		$tree->setTreeCount(5);
+		$tree = new Tree(TreeType::OAK());
 		$this->addPopulator($tree);
+
+		$this->setGrassColor(0x778272);
+		$this->setFoliageColor(0x878D76);
 	}
 
-	public function getName() : string{
+	public function getName(): string {
 		return "Pale Garden";
 	}
 }
