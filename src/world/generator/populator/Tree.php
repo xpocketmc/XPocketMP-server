@@ -42,6 +42,7 @@ class Tree implements Populator{
 	 */
 	public function __construct(?TreeType $type = null){
 		$this->type = $type ?? TreeType::OAK;
+		$this->tree = $tree;
 	}
 
 	public function setRandomAmount(int $amount) : void{
