@@ -58,7 +58,7 @@ enum SaplingType{
 			self::JUNGLE => TreeType::JUNGLE,
 			self::ACACIA => TreeType::ACACIA,
 			self::DARK_OAK => TreeType::DARK_OAK,
-			self::CHERRY => TreeType::CHERRY,                              
+			self::CHERRY => TreeType::CHERRY,
 		};
 	}
 
