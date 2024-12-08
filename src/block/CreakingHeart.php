@@ -101,6 +101,9 @@ class CreakingHeart extends SimplePillar{
 		return false;
 	}
 
+	/**
+	 * @return array<string, int>
+	 */
 	private function getFacingPairFromAxis(int $axis) : ?array{
 		return match($axis){
 			Axis::X => [Facing::EAST, Facing::WEST],
