@@ -150,6 +150,7 @@ final class WoodLikeBlockIdHelper{
 			SaplingType::JUNGLE => Ids::JUNGLE_SAPLING,
 			SaplingType::ACACIA => Ids::ACACIA_SAPLING,
 			SaplingType::DARK_OAK => Ids::DARK_OAK_SAPLING,
+			SaplingType::PALE_OAK => Ids::PALE_OAK,
 		});
 	}
 
