@@ -672,6 +672,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 			Ids::DARK_OAK_SAPLING => fn() => Blocks::DARK_OAK_SAPLING(),
 			Ids::JUNGLE_SAPLING => fn() => Blocks::JUNGLE_SAPLING(),
 			Ids::OAK_SAPLING => fn() => Blocks::OAK_SAPLING(),
+			Ids::PALE_OAK_SAPLING => fn() => Blocks::PALE_OAK_SAPLING(),
 			Ids::SPRUCE_SAPLING => fn() => Blocks::SPRUCE_SAPLING(),
 		] as $id => $getBlock){
 			$this->map($id, fn(Reader $in) => Helper::decodeSapling($getBlock(), $in));
