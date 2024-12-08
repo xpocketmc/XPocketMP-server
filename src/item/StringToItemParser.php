@@ -885,6 +885,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("pale_oak_log", fn() => Blocks::PALE_OAK_LOG()->setStripped(false));
 		$result->registerBlock("pale_oak_planks", fn() => Blocks::PALE_OAK_PLANKS());
 		$result->registerBlock("pale_oak_pressure_plate", fn() => Blocks::PALE_OAK_PRESSURE_PLATE());
+		$result->registerBlock("pale_oak_sapling", fn() => Blocks::PALE_OAK_SAPLING());
 		$result->registerBlock("pale_oak_sign", fn() => Blocks::PALE_OAK_SIGN());
 		$result->registerBlock("pale_oak_slab", fn() => Blocks::PALE_OAK_SLAB());
 		$result->registerBlock("pale_oak_stairs", fn() => Blocks::PALE_OAK_STAIRS());
