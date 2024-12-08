@@ -79,7 +79,7 @@ class ResinClump extends Transparent{
 	}
 
 	/**
-	 * @return AxisAlignedBB[]
+	 * @return array<AxisAlignedBB>
 	 */
 	protected function recalculateCollisionBoxes() : array{
 		return [];
