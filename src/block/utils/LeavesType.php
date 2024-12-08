@@ -68,7 +68,7 @@ enum LeavesType{
 			self::AZALEA => "Azalea",
 			self::FLOWERING_AZALEA => "Flowering Azalea",
 			self::CHERRY => "Cherry",
-			self::PALE_OAK => "Pale Oak"
+			self::PALE_OAK => "Pale Oak",
 		};
 	}
 }
