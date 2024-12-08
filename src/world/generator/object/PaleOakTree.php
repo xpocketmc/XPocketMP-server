@@ -23,22 +23,19 @@ declare(strict_types=1);
 
 namespace pocketmine\world\generator\object;
 
+use pocketmine\block\VanillaBlocks;
 use pocketmine\utils\Random;
+use pocketmine\world\BlockTransaction;
+use pocketmine\world\ChunkManager;
 
-final class TreeFactory{
+class PaleOakTree extends Tree{
 
-	/**
-	 * @param TreeType|null $type default oak
-	 */
-	public static function get(Random $random, ?TreeType $type = null) : ?Tree{
-		return match($type){
-			null, TreeType::OAK => new OakTree(), //TODO: big oak has a 1/10 chance
-			TreeType::SPRUCE => new SpruceTree(),
-			TreeType::JUNGLE => new JungleTree(),
-			TreeType::ACACIA => new AcaciaTree(),
-			TreeType::BIRCH => new BirchTree($random->nextBoundedInt(39) === 0),
-			TreeType::PALE_OAK => new PaleOakTree(),
-			default => null,
-		};
+	public function __construct(){
+		parent::__construct(VanillaBlocks::PALE_OAK_LOG(), VanillaBlocks::PALE_OAK_LEAVES());
+	}
+
+	public function getBlockTransaction(ChunkManager $world, int $x, int $y, int $z, Random $random) : ?BlockTransaction{
+		$this->treeHeight = $random->nextBoundedInt(3) + 4;
+		return parent::getBlockTransaction($world, $x, $y, $z, $random);
 	}
 }

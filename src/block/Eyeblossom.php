@@ -21,24 +21,22 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\world\generator\object;
+namespace pocketmine\block;
 
-use pocketmine\utils\Random;
+use pocketmine\data\runtime\RuntimeDataDescriber;
 
-final class TreeFactory{
+class Eyeblossom extends Flower{
+	protected bool $open = false;
 
-	/**
-	 * @param TreeType|null $type default oak
-	 */
-	public static function get(Random $random, ?TreeType $type = null) : ?Tree{
-		return match($type){
-			null, TreeType::OAK => new OakTree(), //TODO: big oak has a 1/10 chance
-			TreeType::SPRUCE => new SpruceTree(),
-			TreeType::JUNGLE => new JungleTree(),
-			TreeType::ACACIA => new AcaciaTree(),
-			TreeType::BIRCH => new BirchTree($random->nextBoundedInt(39) === 0),
-			TreeType::PALE_OAK => new PaleOakTree(),
-			default => null,
-		};
+	public function describeBlockItemState(RuntimeDataDescriber $w) : void{
+		$w->bool($this->open);
+	}
+
+	public function isOpen() : bool{ return $this->open; }
+
+	/** @return $this */
+	public function setOpen(bool $open) : self{
+		$this->open = $open;
+		return $this;
 	}
 }
