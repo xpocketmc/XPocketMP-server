@@ -788,8 +788,9 @@ final class BlockTypeIds{
 	public const RESIN_BRICK_WALL = 10758;
 	public const RESIN_BRICKS = 10759;
 	public const RESIN_CLUMP = 10760;
+	public const PALE_OAK_SAPLING = 10761;
 
-	public const FIRST_UNUSED_BLOCK_ID = 10761;
+	public const FIRST_UNUSED_BLOCK_ID = 10762;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_BLOCK_ID;
 
