@@ -102,7 +102,7 @@ class CreakingHeart extends SimplePillar{
 	}
 
 	/**
-	 * @return array<string, int>|null
+	 * @return array<int, int>|null
 	 */
 	private function getFacingPairFromAxis(int $axis) : ?array{
 		return match($axis){
