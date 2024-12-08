@@ -69,7 +69,6 @@ enum LeavesType{
 			self::FLOWERING_AZALEA => "Flowering Azalea",
 			self::CHERRY => "Cherry",
 			self::PALE_OAK => "Pale Oak",
-			default => throw new \UnexpectedValueException("Unhandled leaves type: $leavesType"),
 		};
 	}
 }
