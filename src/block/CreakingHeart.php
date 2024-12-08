@@ -26,6 +26,7 @@ namespace pocketmine\block;
 use pocketmine\data\runtime\RuntimeDataDescriber;
 use pocketmine\item\Item;
 use pocketmine\math\Axis;
+use pocketmine\math\AxisAlignedBB;
 use pocketmine\math\Facing;
 use pocketmine\player\Player;
 use function mt_rand;
