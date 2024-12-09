@@ -29,12 +29,12 @@ enum MossBlockType{
 	use LegacyEnumShimTrait;
 
 	/**
- * TODO: These tags need to be removed once we get rid of LegacyEnumShimTrait (PM6)
- *  These are retained for backwards compatibility only.
- *
- * @method static MossBlockType NORMAL()
- * @method static MossBlockType PALE()
- */
+	 * TODO: These tags need to be removed once we get rid of LegacyEnumShimTrait (PM6)
+	 *  These are retained for backwards compatibility only.
+	 *
+	 * @method static MossBlockType NORMAL()
+	 * @method static MossBlockType PALE()
+	 */
 	case NORMAL;
 	case PALE;
 }
