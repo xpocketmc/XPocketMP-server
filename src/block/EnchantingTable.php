@@ -30,7 +30,6 @@ use pocketmine\math\AxisAlignedBB;
 use pocketmine\math\Facing;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
-use pocketmine\world\particle\EnchantingTableParticle;
 
 class EnchantingTable extends Transparent{
 
