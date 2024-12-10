@@ -30,6 +30,7 @@ use pocketmine\math\AxisAlignedBB;
 use pocketmine\math\Facing;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
+use pocketmine\world\particle\EnchantingTableParticle;
 
 class EnchantingTable extends Transparent{
 
@@ -48,6 +49,7 @@ class EnchantingTable extends Transparent{
 		if($player instanceof Player){
 			//TODO lock
 
+			$player->getWorld()->addParticle($this->position->add(0.5, 1, 0.5), new EnchantmentTableParticle());
 			$player->setCurrentWindow(new EnchantInventory($this->position));
 		}
 
