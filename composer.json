@@ -2,8 +2,8 @@
    "name": "xpocketmc/xpocketmp",
    "description": "A server software for Minecraft: Bedrock Edition written in PHP",
    "type": "project",
-   "homepage": "https://pmmp.io",
-   "license": "LGPL-3.0",
+   "homepage": "https://xpocketmc.xyz",
+   "license": "MIT",
    "require": {
       "php": "^8.1",
       "php-64bit": "*",
