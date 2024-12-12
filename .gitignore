@@ -17,7 +17,7 @@ memory_dumps/*
 resource_packs/
 server.lock
 /phpstan.neon
-
+node_modules/*
 # Common IDEs
 .idea/*
 !.idea/codeStyles/
