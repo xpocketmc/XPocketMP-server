@@ -137,6 +137,10 @@ final class KnownTranslationKeys{
 	public const COMMANDS_WHITELIST_REMOVE_SUCCESS = "commands.whitelist.remove.success";
 	public const COMMANDS_WHITELIST_REMOVE_USAGE = "commands.whitelist.remove.usage";
 	public const COMMANDS_WHITELIST_USAGE = "commands.whitelist.usage";
+	public const COMMANDS_XP_FAILURE_WIDTHDRAWXP = "commands.xp.failure.widthdrawXp";
+	public const COMMANDS_XP_SUCCESS = "commands.xp.success";
+	public const COMMANDS_XP_SUCCESS_LEVELS = "commands.xp.success.levels";
+	public const COMMANDS_XP_SUCCESS_NEGATIVE_LEVELS = "commands.xp.success.negative.levels";
 	public const DEATH_ATTACK_ANVIL = "death.attack.anvil";
 	public const DEATH_ATTACK_ARROW = "death.attack.arrow";
 	public const DEATH_ATTACK_ARROW_ITEM = "death.attack.arrow.item";
@@ -228,11 +232,15 @@ final class KnownTranslationKeys{
 	public const ITEM_RECORD_BLOCKS_DESC = "item.record_blocks.desc";
 	public const ITEM_RECORD_CAT_DESC = "item.record_cat.desc";
 	public const ITEM_RECORD_CHIRP_DESC = "item.record_chirp.desc";
+	public const ITEM_RECORD_CREATOR_DESC = "item.record_creator.desc";
+	public const ITEM_RECORD_CREATOR_MUSIC_BOX_DESC = "item.record_creator_music_box.desc";
 	public const ITEM_RECORD_FAR_DESC = "item.record_far.desc";
 	public const ITEM_RECORD_MALL_DESC = "item.record_mall.desc";
 	public const ITEM_RECORD_MELLOHI_DESC = "item.record_mellohi.desc";
 	public const ITEM_RECORD_OTHERSIDE_DESC = "item.record_otherside.desc";
 	public const ITEM_RECORD_PIGSTEP_DESC = "item.record_pigstep.desc";
+	public const ITEM_RECORD_PRECIPICE_DESC = "item.record_precipice.desc";
+	public const ITEM_RECORD_RELIC_DESC = "item.record_relic.desc";
 	public const ITEM_RECORD_STAL_DESC = "item.record_stal.desc";
 	public const ITEM_RECORD_STRAD_DESC = "item.record_strad.desc";
 	public const ITEM_RECORD_WAIT_DESC = "item.record_wait.desc";
@@ -307,6 +315,7 @@ final class KnownTranslationKeys{
 	public const POCKETMINE_COMMAND_TIME_DESCRIPTION = "pocketmine.command.time.description";
 	public const POCKETMINE_COMMAND_TIME_USAGE = "pocketmine.command.time.usage";
 	public const POCKETMINE_COMMAND_TIMINGS_ALREADYENABLED = "pocketmine.command.timings.alreadyEnabled";
+	public const POCKETMINE_COMMAND_TIMINGS_COLLECT = "pocketmine.command.timings.collect";
 	public const POCKETMINE_COMMAND_TIMINGS_DESCRIPTION = "pocketmine.command.timings.description";
 	public const POCKETMINE_COMMAND_TIMINGS_DISABLE = "pocketmine.command.timings.disable";
 	public const POCKETMINE_COMMAND_TIMINGS_ENABLE = "pocketmine.command.timings.enable";
@@ -337,6 +346,8 @@ final class KnownTranslationKeys{
 	public const POCKETMINE_COMMAND_VERSION_SERVERSOFTWAREVERSION = "pocketmine.command.version.serverSoftwareVersion";
 	public const POCKETMINE_COMMAND_VERSION_USAGE = "pocketmine.command.version.usage";
 	public const POCKETMINE_COMMAND_WHITELIST_DESCRIPTION = "pocketmine.command.whitelist.description";
+	public const POCKETMINE_COMMAND_XP_DESCRIPTION = "pocketmine.command.xp.description";
+	public const POCKETMINE_COMMAND_XP_USAGE = "pocketmine.command.xp.usage";
 	public const POCKETMINE_CRASH_ARCHIVE = "pocketmine.crash.archive";
 	public const POCKETMINE_CRASH_CREATE = "pocketmine.crash.create";
 	public const POCKETMINE_CRASH_ERROR = "pocketmine.crash.error";
@@ -450,6 +461,8 @@ final class KnownTranslationKeys{
 	public const POCKETMINE_PERMISSION_COMMAND_WHITELIST_LIST = "pocketmine.permission.command.whitelist.list";
 	public const POCKETMINE_PERMISSION_COMMAND_WHITELIST_RELOAD = "pocketmine.permission.command.whitelist.reload";
 	public const POCKETMINE_PERMISSION_COMMAND_WHITELIST_REMOVE = "pocketmine.permission.command.whitelist.remove";
+	public const POCKETMINE_PERMISSION_COMMAND_XP_OTHER = "pocketmine.permission.command.xp.other";
+	public const POCKETMINE_PERMISSION_COMMAND_XP_SELF = "pocketmine.permission.command.xp.self";
 	public const POCKETMINE_PERMISSION_GROUP_CONSOLE = "pocketmine.permission.group.console";
 	public const POCKETMINE_PERMISSION_GROUP_OPERATOR = "pocketmine.permission.group.operator";
 	public const POCKETMINE_PERMISSION_GROUP_USER = "pocketmine.permission.group.user";
