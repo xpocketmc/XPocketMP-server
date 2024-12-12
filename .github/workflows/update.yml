@@ -58,8 +58,10 @@ jobs:
     - name: Set Git config
       working-directory: ${{ github.workspace }}/xpocketmp
       run: |
-        git config user.name '${{ steps.token.outputs.app-slug }}[bot]'
-        git config user.email '${{ steps.get-user-id.outputs.user-id }}+${{ steps.token.outputs.app-slug }}[bot]@users.noreply.github.com'
+        git config user.name 'xpocketmp[bot]'
+        git config user.email '${{ steps.get-user-id.outputs.user-id }}+xpocketmp[bot]@users.noreply.github.com'
+        git add .
+        git commit -m "Apply PHP-CS-Fixer changes"
 
     - name: Push changes
       run: git push
