@@ -54,8 +54,8 @@ return (new PhpCsFixer\Config)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the MIT License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+the Free Software Foundation
+The files in XPocketMP are mostly from PocketMine-MP.
 
 @author ClousClouds Team
 @link https://xpocketmc.xyz/
