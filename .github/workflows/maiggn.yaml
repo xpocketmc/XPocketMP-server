@@ -28,6 +28,7 @@ jobs:
       - name: Set up GitHub App Authentication
         id: auth
         run: |
+          npm install jsonwebtoken
           echo "APP_ID=${{ secrets.APP_ID }}" >> $GITHUB_ENV
           echo "${{ secrets.APP_PRIVATE_KEY }}" > private-key.pem
           JWT=$(node -e "
