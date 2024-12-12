@@ -25,6 +25,30 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Set up GitHub App Authentication
+        id: auth
+        run: |
+          echo "APP_ID=${{ secrets.APP_ID }}" >> $GITHUB_ENV
+          echo "${{ secrets.APP_PRIVATE_KEY }}" > private-key.pem
+          JWT=$(node -e "
+            const jwt = require('jsonwebtoken');
+            const fs = require('fs');
+            const privateKey = fs.readFileSync('private-key.pem');
+            const payload = { appId: process.env.APP_ID };
+            const token = jwt.sign(payload, privateKey, { algorithm: 'RS256', expiresIn: '10m' });
+            console.log(token);
+          ")
+          echo "JWT=$JWT" >> $GITHUB_ENV
+
+      - name: Get Installation Access Token
+        id: token
+        run: |
+          INSTALLATION_TOKEN=$(curl -X POST https://api.github.com/app/installations/${{ secrets.APP_ID }}/access_tokens \
+            -H "Authorization: Bearer ${{ env.JWT }}" \
+            -H "Accept: application/vnd.github+json" \
+            | jq -r .token)
+          echo "INSTALLATION_TOKEN=$INSTALLATION_TOKEN" >> $GITHUB_ENV
+
       - name: Update Version in VersionInfo.php
         run: |
           # Update BASE_VERSION and API values
@@ -37,11 +61,14 @@ jobs:
           sed -i "s/IS_DEVELOPMENT_BUILD = .*/IS_DEVELOPMENT_BUILD = ${{ github.event.inputs.dev }};/g" src/VersionInfo.php
 
       - name: Commit and Push Changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
-          git config --global user.name "dktapps"
-          git config --global user.email "dktapps@pmmp.io"
+          git config --global user.name "XPocketMP[bot]"
+          git config --global user.email "XPocketMP[bot]+${{ github.run_id }}@users.noreply.github.com"
           git add src/VersionInfo.php
           git commit -m "${{ github.event.inputs.new_version }} is next"
-          git push origin
+          
+          # Use GitHub App Installation Token to Push
+          curl -X POST -H "Authorization: Bearer ${{ env.INSTALLATION_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            -d '{"message": "${{ github.event.inputs.new_version }} is next", "commits": [{"path": "src/VersionInfo.php", "content": "$(cat src/VersionInfo.php)", "sha": "$(git rev-parse HEAD)"}]}' \
+            https://api.github.com/repos/${{ github.repository }}/contents/src/VersionInfo.php
