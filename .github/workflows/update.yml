@@ -49,12 +49,17 @@ jobs:
       run: composer install --ignore-platform-req=* && composer update-codegen
 
     # Commit dan push perubahan dengan token aplikasi
-    - name: Commit and push changes
+    - name: Get GitHub App User ID
+      id: get-user-id
+      run: echo "user-id=$(gh api "/users/${{ steps.token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
       env:
-        GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+        GH_TOKEN: ${{ steps.token.outputs.token }}
+  
+    - name: Set Git config
+      working-directory: ${{ github.workspace }}/xpocketmp
       run: |
-        git config --global user.name 'XPocketMP[bot]'
-        git config --global user.email 'xpocketmp[bot]@xpocketmc.xyz'
-        git add .
-        git commit -m "Apply PHP-CS-Fixer changes" || echo "No changes to commit"
-        git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
+        git config user.name '${{ steps.token.outputs.app-slug }}[bot]'
+        git config user.email '${{ steps.get-user-id.outputs.user-id }}+${{ steps.token.outputs.app-slug }}[bot]@users.noreply.github.com'
+
+    - name: Push changes
+      run: git push
