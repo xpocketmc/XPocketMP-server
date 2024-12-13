@@ -328,8 +328,9 @@ final class ItemTypeIds{
 	public const PALE_OAK_BOAT = 20289;
 	public const PALE_OAK_SIGN = 20290;
 	public const RESIN_BRICK = 20291;
+	public const BUNDLE = 20292
 
-	public const FIRST_UNUSED_ITEM_ID = 20292;
+	public const FIRST_UNUSED_ITEM_ID = 20293;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
 
