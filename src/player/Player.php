@@ -1466,14 +1466,14 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 			}
 
 			if($this->isOnline() && $this->getServer()->isShowCoordinate()){
-    $position = $this->getPosition();
-    if ($position !== null) {
-        $this->sendTip("§0 §fPosition: " . round($position->getX()) . ", " .
-                       round($position->getY()) . ", " .
-                       round($position->getZ()));
-    } else {
-        $this->sendTip("§0 §fPosition: N/A");
-    }
+	$position = $this->getPosition();
+	if ($position !== null) {
+		$this->sendTip("§0 §fPosition: " . round($position->getX()) . ", " .
+					   round($position->getY()) . ", " .
+					   round($position->getZ()));
+	} else {
+		$this->sendTip("§0 §fPosition: N/A");
+	}
 }
 		}
 
