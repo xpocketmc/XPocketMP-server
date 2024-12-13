@@ -417,6 +417,10 @@ class Server{
 		return $this->configGroup->getConfigString(ServerProperties::MOTD, self::DEFAULT_SERVER_NAME);
 	}
 
+	public function isShowCoordinate() : bool{
+		return $this->configGroup->getConfigBool(ServerProperties::SHOW_COORDINATES, false);
+	}
+
 	public function getLoader() : ThreadSafeClassLoader{
 		return $this->autoloader;
 	}

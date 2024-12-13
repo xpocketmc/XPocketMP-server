@@ -52,6 +52,7 @@ final class ServerProperties{
 	public const SERVER_IPV6 = "server-ipv6";
 	public const SERVER_PORT_IPV4 = "server-port";
 	public const SERVER_PORT_IPV6 = "server-portv6";
+	public const SHOW_COORDINATES = "show-coordinates";
 	public const VIEW_DISTANCE = "view-distance";
 	public const WHITELIST = "white-list";
 	public const XBOX_AUTH = "xbox-auth";
