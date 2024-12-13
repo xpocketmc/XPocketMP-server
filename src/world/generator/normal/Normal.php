@@ -93,8 +93,10 @@ class Normal extends Generator{
 						return BiomeIds::EXTREME_HILLS;
 					}elseif($temperature < 0.40){
 						return BiomeIds::EXTREME_HILLS_EDGE;
-					}else{
+					}elseif($temperature < 0.30){
 						return BiomeIds::RIVER;
+					}else{
+						return BiomeIds::PALE_GARDEN;
 					}
 				}
 			}
