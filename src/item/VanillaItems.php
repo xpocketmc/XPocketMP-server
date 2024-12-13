@@ -71,6 +71,7 @@ use function strtolower;
  * @method static Bread BREAD()
  * @method static Item BRICK()
  * @method static Bucket BUCKET()
+ * @method static Item BUNDLE()
  * @method static Carrot CARROT()
  * @method static Armor CHAINMAIL_BOOTS()
  * @method static Armor CHAINMAIL_CHESTPLATE()
@@ -388,6 +389,7 @@ final class VanillaItems{
 		self::register("bread", new Bread(new IID(Ids::BREAD), "Bread"));
 		self::register("brick", new Item(new IID(Ids::BRICK), "Brick"));
 		self::register("bucket", new Bucket(new IID(Ids::BUCKET), "Bucket"));
+		self::register("bundle", new Item(new IID(Ids::BUNDLE), "Bundle"));
 		self::register("carrot", new Carrot(new IID(Ids::CARROT), "Carrot"));
 		self::register("charcoal", new Coal(new IID(Ids::CHARCOAL), "Charcoal"));
 		self::register("cherry_sign", new ItemBlockWallOrFloor(new IID(Ids::CHERRY_SIGN), Blocks::CHERRY_SIGN(), Blocks::CHERRY_WALL_SIGN()));

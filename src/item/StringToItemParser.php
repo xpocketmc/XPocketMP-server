@@ -1252,6 +1252,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->register("bread", fn() => Items::BREAD());
 		$result->register("brick", fn() => Items::BRICK());
 		$result->register("bucket", fn() => Items::BUCKET());
+		$result->register("bundle", fn() => Items::BUNDLE());
 		$result->register("carrot", fn() => Items::CARROT());
 		$result->register("chain_boots", fn() => Items::CHAINMAIL_BOOTS());
 		$result->register("chain_chestplate", fn() => Items::CHAINMAIL_CHESTPLATE());
