@@ -151,6 +151,7 @@ use function mb_strlen;
 use function microtime;
 use function min;
 use function preg_match;
+use function round;
 use function spl_object_id;
 use function sqrt;
 use function str_starts_with;
@@ -1462,6 +1463,13 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 
 			if($this->blockBreakHandler !== null && !$this->blockBreakHandler->update()){
 				$this->blockBreakHandler = null;
+			}
+
+			if($this->isOnline() && $this->getServer()->isShowCoordinate()){
+				$position = $this->getPosition();
+				$this->sendTip("§0 §fPosition: " . round($position->getX()) . ", " .
+round($position->getY()) . ", " .
+				   round($position->getZ()));
 			}
 		}
 
