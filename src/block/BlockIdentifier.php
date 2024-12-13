@@ -42,7 +42,7 @@ class BlockIdentifier{
 		}
 	}
 
-	public function getBlockId() : int{ return $this->blockTypeId; }
+	public function getBlockTypeId() : int{ return $this->blockTypeId; }
 
 	/**
 	 * @phpstan-return class-string<Tile>|null
