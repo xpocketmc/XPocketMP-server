@@ -366,23 +366,23 @@ class ItemStackRequestExecutor{
 			$this->setNextCreatedItem($nextResultItem);
 		}elseif($action instanceof DeprecatedCraftingResultsStackRequestAction){
 			//no obvious use
-		}elseif($action instanceof BeaconPaymentStackRequestAction{
-		  $inventory = $this->player->getCurrentWindow();
-			if (!$inventory instanceof BeaconInventory) {
-				throw new ItemStackRequestProcessException("Expected a beacon inventory as current window");
-			}
+		}elseif($action instanceof BeaconPaymentStackRequestAction){
+    $inventory = $this->player->getCurrentWindow();
+    if(!$inventory instanceof BeaconInventory){
+        throw new ItemStackRequestProcessException("Expected a beacon inventory as current window");
+    }
 
-			$effectMap = EffectIdMap::getInstance();
-			$primaryEffect = $effectMap->fromId($action->getPrimaryEffectId());
-			if ($primaryEffect === null) {
-				throw new ItemStackRequestProcessException("No such effect with id: " . $action->getPrimaryEffectId());
-			}
-			$secondaryEffect = $effectMap->fromId($action->getSecondaryEffectId());
+    $effectMap = EffectIdMap::getInstance();
+    $primaryEffect = $effectMap->fromId($action->getPrimaryEffectId());
+    if($primaryEffect === null){
+        throw new ItemStackRequestProcessException("No such effect with id: ".$action->getPrimaryEffectId());
+    }
+    $secondaryEffect = $effectMap->fromId($action->getSecondaryEffectId());
 
-			$this->builder->addAction(new BeaconPaymentAction($inventory, $primaryEffect, $secondaryEffect));
-		}else{
-			throw new ItemStackRequestProcessException("Unhandled item stack request action");
-		}
+    $this->builder->addAction(new BeaconPaymentAction($inventory, $primaryEffect, $secondaryEffect));
+}else{
+    throw new ItemStackRequestProcessException("Unhandled item stack request action");
+}
 	}
 
 	/**
