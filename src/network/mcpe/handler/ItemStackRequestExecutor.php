@@ -380,7 +380,6 @@ class ItemStackRequestExecutor{
 			$secondaryEffect = $effectMap->fromId($action->getSecondaryEffectId());
 
 			$this->builder->addAction(new BeaconPaymentAction($inventory, $primaryEffect, $secondaryEffect));
-		}
 		}else{
 			throw new ItemStackRequestProcessException("Unhandled item stack request action");
 		}
