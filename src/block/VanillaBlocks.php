@@ -901,7 +901,7 @@ final class VanillaBlocks{
 
 		self::register("diamond", new Opaque(new BID(Ids::DIAMOND), "Diamond Block", new Info(BreakInfo::pickaxe(5.0, ToolTier::IRON, 30.0))));
 		self::register("dirt", new Dirt(new BID(Ids::DIRT), "Dirt", new Info(BreakInfo::shovel(0.5), [Tags::DIRT])));
-		self::register("moss_block", new MossBlock(new BID(Ids::MOSS_BLOCK), "Moss Block", new Info(BreakInfo::shovel(0.5))))
+		self::register("moss_block", new MossBlock(new BID(Ids::MOSS_BLOCK), "Moss Block", new Info(BreakInfo::shovel(0.5))));
 		self::register("sunflower", new DoublePlant(new BID(Ids::SUNFLOWER), "Sunflower", new Info(BreakInfo::instant())));
 		self::register("lilac", new DoublePlant(new BID(Ids::LILAC), "Lilac", new Info(BreakInfo::instant())));
 		self::register("rose_bush", new DoublePlant(new BID(Ids::ROSE_BUSH), "Rose Bush", new Info(BreakInfo::instant())));
