@@ -107,7 +107,6 @@ use pocketmine\block\LitPumpkin;
 use pocketmine\block\Loom;
 use pocketmine\block\MelonStem;
 use pocketmine\block\MobHead;
-use pocketmine\block\MossBlockType;
 use pocketmine\block\NetherPortal;
 use pocketmine\block\NetherVines;
 use pocketmine\block\NetherWartPlant;
