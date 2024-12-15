@@ -41,7 +41,7 @@ enum MossBlockType{
 	public function getDisplayName() : string{
 		return match($this){
 			self::NORMAL => "Moss Block",
-			self::PALE => "Pale Moss Block
+			self::PALE => "Pale Moss Block",
 		};
 	}
 }
