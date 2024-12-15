@@ -46,6 +46,7 @@ use pocketmine\block\utils\DyeColor;
 use pocketmine\block\utils\FroglightType;
 use pocketmine\block\utils\LeverFacing;
 use pocketmine\block\utils\MobHeadType;
+use pocketmine\block\utils\MossBlockType;
 use pocketmine\block\VanillaBlocks as Blocks;
 use pocketmine\block\Wood;
 use pocketmine\data\bedrock\block\BlockLegacyMetadata;
@@ -88,6 +89,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->registerLightDeserializers();
 		$this->registerMobHeadDeserializers();
 		$this->registerSimpleDeserializers();
+		$this->registerMossBlockDeserializers();
 		$this->registerDeserializers();
 	}
 
@@ -1827,5 +1829,10 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$block = $this->deserializeFuncs[$id]($reader);
 		$reader->checkUnreadProperties();
 		return $block;
+	}
+
+	public function registerMossBlockDeserializers() : void{
+		$this->map(Ids::MOSS_BLOCK, fn() => Blocks::MOSS_BLOCK()->setMossBlockType(MossBlockType::NORMAL));
+		$this->map(Ids::PALE_MOSS_BLOCK, fn() => Blocks::MOSS_BLOCK()->setMossBlockType(MossBlockType::PALE));
 	}
 }
