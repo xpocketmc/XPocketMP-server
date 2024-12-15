@@ -30,6 +30,7 @@ use pocketmine\utils\LegacyEnumShimTrait;
  *  These are retained for backwards compatibility only.
  *
  * @method static MossBlockType NORMAL()
+ * @method static MossBlockType PALE()
  */
 enum MossBlockType{
 	use LegacyEnumShimTrait;
