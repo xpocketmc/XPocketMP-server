@@ -58,7 +58,6 @@ use pocketmine\block\tile\ShulkerBox as TileShulkerBox;
 use pocketmine\block\tile\Smoker as TileSmoker;
 use pocketmine\block\utils\AmethystTrait;
 use pocketmine\block\utils\LeavesType;
-use pocketmine\block\utils\MossBlockType;
 use pocketmine\block\utils\SaplingType;
 use pocketmine\block\utils\WoodType;
 use pocketmine\crafting\FurnaceType;
@@ -548,6 +547,7 @@ use function strtolower;
  * @method static Slab MOSSY_STONE_BRICK_SLAB()
  * @method static Stair MOSSY_STONE_BRICK_STAIRS()
  * @method static Wall MOSSY_STONE_BRICK_WALL()
+ * @method static MossBlock MOSS_BLOCK()
  * @method static Opaque MUD()
  * @method static SimplePillar MUDDY_MANGROVE_ROOTS()
  * @method static Opaque MUD_BRICKS()
