@@ -3,9 +3,9 @@ updates:
 - package-ecosystem: composer
   directory: "/"
   schedule:
-    interval: weekly
+    interval: daily
     time: "10:00"
-  open-pull-requests-limit: 10
+  open-pull-requests-limit: 1007
   ignore:
     #only allow patch updates for locale-data - this has to be updated manually due to codegen
     - dependency-name: pocketmine/locale-data
@@ -16,9 +16,9 @@ updates:
 - package-ecosystem: gitsubmodule
   directory: "/"
   schedule:
-    interval: weekly
+    interval: daily
 
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
-    interval: weekly
+    interval: daily
