@@ -107,6 +107,7 @@ use pocketmine\block\LitPumpkin;
 use pocketmine\block\Loom;
 use pocketmine\block\MelonStem;
 use pocketmine\block\MobHead;
+use pocketmine\block\MossBlockType;
 use pocketmine\block\NetherPortal;
 use pocketmine\block\NetherVines;
 use pocketmine\block\NetherWartPlant;
@@ -217,6 +218,7 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->registerSaplingSerializers();
 		$this->registerMobHeadSerializers();
 		$this->registerSimpleSerializers();
+		$this->registerMossBlockSerializers();
 		$this->registerSerializers();
 	}
 
@@ -1886,5 +1888,14 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				->writeInt(StateNames::REDSTONE_SIGNAL, $block->getOutputSignalStrength());
 		});
 		$this->map(Blocks::WHEAT(), fn(Wheat $block) => Helper::encodeCrops($block, new Writer(Ids::WHEAT)));
+	}
+
+	public function registerMossBlockSerializers() : void{
+		$this->map(Blocks::MOSS_BLOCK(), function(MossBlock $block) : Writer{
+			return Writer::create(match($block->getDirtType()){
+				DirtType::NORMAL => Ids::MOSS_BLOCK,
+				DirtType::PALE => Ids::PALE_MOSS_BLOCK,
+			});
+		});
 	}
 }
