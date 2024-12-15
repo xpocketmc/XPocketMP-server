@@ -25,16 +25,22 @@ namespace pocketmine\block\utils;
 
 use pocketmine\utils\LegacyEnumShimTrait;
 
+/**
+ * TODO: These tags need to be removed once we get rid of LegacyEnumShimTrait (PM6)
+ *  These are retained for backwards compatibility only.
+ *
+ * @method static MossBlockType NORMAL()
+ */
 enum MossBlockType{
 	use LegacyEnumShimTrait;
 
-	/**
-	 * TODO: These tags need to be removed once we get rid of LegacyEnumShimTrait (PM6)
-	 *  These are retained for backwards compatibility only.
-	 *
-	 * @method static MossBlockType NORMAL()
-	 * @method static MossBlockType PALE()
-	 */
 	case NORMAL;
 	case PALE;
+
+	public function getDisplayName() : string{
+		return match($this){
+			self::NORMAL => "Moss Block",
+			self::PALE => "Pale Moss Block
+		};
+	}
 }
