@@ -92,6 +92,8 @@ class PluginManager{
 	 */
 	protected array $fileAssociations = [];
 
+	private static ?self $instance = null;
+
 	public function __construct(
 		private Server $server,
 		private ?string $pluginDataDirectory,
@@ -104,6 +106,13 @@ class PluginManager{
 				throw new \RuntimeException("Plugin data path $this->pluginDataDirectory exists and is not a directory");
 			}
 		}
+	}
+
+	public static function getInstance() : self{
+		if(self::$instance === null){
+			self::$instance = new self();
+		}
+		return self::$instance;
 	}
 
 	public function getPlugin(string $name) : ?Plugin{
