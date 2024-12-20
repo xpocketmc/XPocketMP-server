@@ -86,13 +86,13 @@ class PluginManager{
 
 	private bool $loadPluginsGuard = false;
 
+	private static ?self $instance = null;
+
 	/**
 	 * @var PluginLoader[]
 	 * @phpstan-var array<class-string<PluginLoader>, PluginLoader>
 	 */
 	protected array $fileAssociations = [];
-
-	private static ?self $instance = null;
 
 	public function __construct(
 		private Server $server,
