@@ -117,6 +117,7 @@ use pocketmine\permission\DefaultPermissionNames;
 use pocketmine\permission\DefaultPermissions;
 use pocketmine\permission\PermissibleBase;
 use pocketmine\permission\PermissibleDelegateTrait;
+use pocketmine\player\camera\instruction\CameraInstruction;
 use pocketmine\player\chat\StandardChatFormatter;
 use pocketmine\Server;
 use pocketmine\ServerProperties;
@@ -2132,6 +2133,10 @@ round($position->getY()) . ", " .
 	 */
 	public function sendToastNotification(string $title, string $body) : void{
 		$this->getNetworkSession()->onToastNotification($title, $body);
+	}
+
+	public function sendCameraInstruction(CameraInstruction ...$instructions) : void{
+	  $this->getNetworkSession()->onCameraInstruction(...$instructions);
 	}
 
 	/**
