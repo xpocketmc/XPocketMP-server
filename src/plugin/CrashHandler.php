@@ -34,6 +34,7 @@ use const PHP_EOL;
 
 class CrashHandler{
 	private static ?self $instance = null;
+	/** @var array<string, Plugin> */
 	private array $crashedPlugins = [];
 
 	/**
