@@ -29,6 +29,7 @@ use pocketmine\block\utils\HorizontalFacingTrait;
 use pocketmine\block\utils\SupportType;
 use pocketmine\data\runtime\RuntimeDataDescriber;
 use pocketmine\entity\projectile\Projectile;
+use pocketmine\entity\projectile\WindCharge;
 use pocketmine\item\Item;
 use pocketmine\math\AxisAlignedBB;
 use pocketmine\math\Facing;
@@ -68,6 +69,12 @@ final class Bell extends Transparent{
 		return [
 			$this->attachmentType === BellAttachmentType::ONE_WALL ? $box->trim($this->facing, 3 / 16) : $box
 		];
+	}
+
+	protected function onProjectileInteraction(Projectile $projectile) : void{
+		if($projectile instanceof WindCharge){
+			$this->ring($this->facing);
+		}
 	}
 
 	public function getSupportType(int $facing) : SupportType{
