@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71edccdc8c396c974417734662a7d25b",
+    "content-hash": "b0ab5737567aaee1f18bd14f15ae8988",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -1152,7 +1152,7 @@
         },
         {
             "name": "xpocketmp/sounds",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ClousClouds/SoundManager.git",
@@ -1183,7 +1183,7 @@
             "description": "A plugin or library for XPocketMP for handling Minecraft Bedrock Edition sounds",
             "support": {
                 "issues": "https://github.com/ClousClouds/SoundManager/issues",
-                "source": "https://github.com/ClousClouds/SoundManager/tree/1.0.0"
+                "source": "https://github.com/ClousClouds/SoundManager/tree/1.0.1"
             },
             "time": "2024-12-19T09:17:10+00:00"
         }
@@ -2975,7 +2975,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
@@ -3006,7 +3006,7 @@
         "ext-zlib": ">=1.2.11",
         "composer-runtime-api": "^2.0"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "platform-overrides": {
         "php": "8.1.0"
     },
