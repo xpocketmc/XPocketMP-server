@@ -32,8 +32,8 @@ use const FILE_APPEND;
 use const PHP_EOL;
 
 class CrashHandler{
-	private static $instance;
-	private $crashedPlugins = [];
+	private static int $instance;
+	private array $crashedPlugins = [];
 
 	/**
 	 * Gets the singleton instance of the CrashHandler.
