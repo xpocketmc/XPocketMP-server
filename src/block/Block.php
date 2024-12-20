@@ -500,6 +500,10 @@ class Block{
 		return false;
 	}
 
+	protected function onProjectileInteraction(Projectile $projectile) : void{
+
+	}
+
 	/**
 	 * Called when this block is randomly updated due to chunk ticking.
 	 * WARNING: This will not be called if {@link Block::ticksRandomly()} does not return true!
