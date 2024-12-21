@@ -1,0 +1,61 @@
+name: Dependency Updater
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # Jalankan setiap hari jam 2 pagi UTC
+  workflow_dispatch: # Opsi manual untuk menjalankan secara manual
+
+permissions:
+  contents: write
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup PHP
+      uses: pmmp/setup-php-action@3.2.0
+      with:
+        php-version: 8.2
+        install-path: "./bin"
+
+    - name: Generate Access Token
+      id: generate-token
+      uses: actions/create-github-app-token@v1
+      with:
+        app-id: ${{ secrets.APP_ID }}
+        private-key: ${{ secrets.APP_PRIVATE_KEY }}
+        owner: ${{ github.repository_owner }}
+        repositories: RestrictedActions
+
+    - name: Get GitHub App User ID
+      id: get-user-id
+      run: echo "user-id=$(gh api "/users/${{ steps.generate-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+      env:
+        GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+
+    - name: Set Git config
+      run: |
+        git config user.name 'xpocketmp[bot]'
+        git config user.email '${{ steps.get-user-id.outputs.user-id }}+xpocketmp[bot]@users.noreply.github.com'
+
+    - name: Install dependencies and update
+      run: |
+        composer install
+        git checkout -b update-dependencies
+        git add .
+        git commit -m "chore: update dependencies" || echo "No changes to commit"
+        git push origin update-dependencies
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ steps.generate-token.outputs.token }}
+        commit-message: "chore: update dependencies"
+        branch: update-dependencies
+        title: "chore: update dependencies"
+        body: |
+          This PR updates dependencies automatically.
