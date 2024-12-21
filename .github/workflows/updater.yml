@@ -56,6 +56,7 @@ jobs:
         token: ${{ steps.generate-token.outputs.token }}
         commit-message: "chore: update dependencies"
         branch: update-dependencies
+        base: stable
         title: "chore: update dependencies"
         body: |
           This PR updates dependencies automatically.
