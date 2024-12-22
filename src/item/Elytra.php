@@ -78,7 +78,7 @@ class Elytra extends Armor{
 			return;
 		}
 
-		$location = $event->getTi();
+		$location = $event->getId();
 		if($location->pitch >= self::MINIMUM_PITCH && $location->pitch <= self::MAXIMUM_PUTCH){
 			$player->resetFallDistence();
 		}
