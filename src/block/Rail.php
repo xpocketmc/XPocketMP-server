@@ -30,7 +30,7 @@ use pocketmine\math\Facing;
 use pocketmine\player\Player;
 use pocketmine\world\World;
 
-class RedstoneRail extends BaseRail{
+class Rail extends BaseRail{
 	use RailPoweredByRedstone;
 
 	private int $railShape = BlockLegacyMetadata::RAIL_STRAIGHT_NORTH_SOUTH;
