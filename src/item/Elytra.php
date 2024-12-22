@@ -23,19 +23,92 @@ declare(strict_types=1);
 
 namespace pocketmine\item;
 
+use pocketmine\event\player\PlayerItemUseEvent;
+use pocketmine\event\player\PlayerMoveEvent;
+use pocketmine\event\player\PlayerToggleGlideEvent;
+use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\inventory\ArmorInventory;
+use pocketmine\data\bedrock\item\ItemTypeNames;
+use pocketmine\data\bedrock\item\SavedItemData;
+use pocketmine\event\player\{PlayerItemUseEvent, PlayerMoveEvent, PlayerToggleGlideEvent, PlayerQuitEvent};
+use pocketmine\inventory\{ArmorInventory};
+use pocketmine\item\{StringToItemParser};
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use pocketmine\scheduler\{ClosureTask, TaskHandler};
 
-class Elytra extends Armor {
-	public function __construct(ItemIdentifier $identifier, string $name) {
+class Elytra extends Armor{
+
+	public const MINIMUM_PITCH = -59;
+	public const MAXIMUM_PITCH = 38;
+
+	private array $glidingTicker = [];
+
+	public function __construct(ItemIdentifier $identifier, string $name){
 		parent::__construct($identifier, $name, new ArmorTypeInfo(0, 432, ArmorInventory::SLOT_CHEST));
 	}
 
-	public function getMaxDurability() : int {
+	public function getMaxDurability() : int{
 		return 432;
 	}
 
-	public function applyDamage(int $amount) : bool {
+	public function applyDamage(int $amount) : bool{
 		$this->setDamage($this->getDamage() + $amount);
 		return $this->getDamage() >= $this->getMaxDurability();
+	}
+
+	public function onPlayerItemUse(PlayerItemUseEvent $event) : void{
+		$player = $event->getPlayer();
+		$inventory = $player->getInventory();
+		$item = $inventory->getItemInHand();
+		if(!$item instanceof Fireworks){
+			return;
+		}
+		if(!$player->isGliding()){
+			return;
+		}
+		$item->pop();
+		$location = $player->getLocation();
+		$entity = new FireworksRocket($location, $item);
+
+		$entity->getNetworkProperties()->setLong(EntityMetadataProperties::MINECART_HAS_DISPLAY, $player->getId();
+		$entity->setOwningEntity($player);
+		$entity->spawnToAll();
+
+		$inventory->setItemInHand($item);
+	}
+
+	public function onPlayerMove(PlayerMoveEvent $event) : void{
+		$player = $event->getPlayer();
+		if(!player->isGliding()){
+			return;
+		}
+
+		$location = $event->getTi();
+		if($location->pitch >= self::MINIMUM_PITCH and $location->pitch <= self::MAXIMUM_PUTCH){
+			$player->resetFallDistence();
+		}
+	}
+
+	public function onPlayerToggleGlide(PlayerToggleGlideEvent $event): void{
+        $player = $event->getPlayer();
+        $rawUUID = $player->getUniqueId()->getBytes();
+        if($event->isGliding()){
+            $armorInventory = $player->getArmorInventory();
+            $this->glidingTicker[$rawUUID] = $this->getScheduler()->scheduleRepeatingTask(new ClosureTask(static function() use($armorInventory, $player): void{
+                if($player->hasFiniteResources() and ($elytra = $armorInventory->getChestplate()) instanceof Elytra and $elytra->applyDamage(1)){
+                    $armorInventory->setChestplate($elytra);
+                }
+            }), 20);
+        }else{
+            ($this->glidingTicker[$rawUUID] ?? null)?->cancel();
+            unset($this->glidingTicker[$rawUUID]);
+		}
+	}
+
+	public function onPlayerQuit(PlayerQuitEvent $event) : void{
+		$rawUUID = $event->getPlayer()->getUniqueId()->getBytes();
+		($this->glidingTicker[$rawUUID] ?? null)?->cancel();
+
+		unset($this->glidingTicker[$rawUUID]);
 	}
 }
