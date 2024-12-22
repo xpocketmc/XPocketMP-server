@@ -25,12 +25,11 @@ namespace pocketmine\item;
 
 use pocketmine\event\player\PlayerItemUseEvent;
 use pocketmine\event\player\PlayerMoveEvent;
-use pocketmine\event\player\PlayerToggleGlideEvent;
 use pocketmine\event\player\PlayerQuitEvent;
+use pocketmine\event\player\PlayerToggleGlideEvent;
 use pocketmine\inventory\ArmorInventory;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
 use pocketmine\scheduler\ClosureTask;
-use pocketmine\scheduler\TaskHandler;
 
 class Elytra extends Armor{
 
@@ -80,24 +79,24 @@ class Elytra extends Armor{
 		}
 
 		$location = $event->getTi();
-		if($location->pitch >= self::MINIMUM_PITCH and $location->pitch <= self::MAXIMUM_PUTCH){
+		if($location->pitch >= self::MINIMUM_PITCH && $location->pitch <= self::MAXIMUM_PUTCH){
 			$player->resetFallDistence();
 		}
 	}
 
-	public function onPlayerToggleGlide(PlayerToggleGlideEvent $event): void{
-        $player = $event->getPlayer();
-        $rawUUID = $player->getUniqueId()->getBytes();
-        if($event->isGliding()){
-            $armorInventory = $player->getArmorInventory();
-            $this->glidingTicker[$rawUUID] = $this->getScheduler()->scheduleRepeatingTask(new ClosureTask(static function() use($armorInventory, $player): void{
-                if($player->hasFiniteResources() and ($elytra = $armorInventory->getChestplate()) instanceof Elytra and $elytra->applyDamage(1)){
-                    $armorInventory->setChestplate($elytra);
-                }
-            }), 20);
-        }else{
-            ($this->glidingTicker[$rawUUID] ?? null)?->cancel();
-            unset($this->glidingTicker[$rawUUID]);
+	public function onPlayerToggleGlide(PlayerToggleGlideEvent $event) : void{
+		$player = $event->getPlayer();
+		$rawUUID = $player->getUniqueId()->getBytes();
+		if($event->isGliding()){
+			$armorInventory = $player->getArmorInventory();
+			$this->glidingTicker[$rawUUID] = $this->getScheduler()->scheduleRepeatingTask(new ClosureTask(static function() use($armorInventory, $player) : void{
+				if($player->hasFiniteResources() && ($elytra = $armorInventory->getChestplate()) instanceof Elytra && $elytra->applyDamage(1)){
+					$armorInventory->setChestplate($elytra);
+				}
+			}), 20);
+		}else{
+			($this->glidingTicker[$rawUUID] ?? null)?->cancel();
+			unset($this->glidingTicker[$rawUUID]);
 		}
 	}
 
