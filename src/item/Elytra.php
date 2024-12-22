@@ -70,7 +70,7 @@ class Elytra extends Armor{
 		$location = $player->getLocation();
 		$entity = new FireworksRocket($location, $item);
 
-		$entity->getNetworkProperties()->setLong(EntityMetadataProperties::MINECART_HAS_DISPLAY, $player->getId();
+		$entity->getNetworkProperties()->setLong(EntityMetadataProperties::MINECART_HAS_DISPLAY, $player->getId());
 		$entity->setOwningEntity($player);
 		$entity->spawnToAll();
 
