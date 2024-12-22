@@ -28,13 +28,9 @@ use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerToggleGlideEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\inventory\ArmorInventory;
-use pocketmine\data\bedrock\item\ItemTypeNames;
-use pocketmine\data\bedrock\item\SavedItemData;
-use pocketmine\event\player\{PlayerItemUseEvent, PlayerMoveEvent, PlayerToggleGlideEvent, PlayerQuitEvent};
-use pocketmine\inventory\{ArmorInventory};
-use pocketmine\item\{StringToItemParser};
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
-use pocketmine\scheduler\{ClosureTask, TaskHandler};
+use pocketmine\scheduler\ClosureTask;
+use pocketmine\scheduler\TaskHandler;
 
 class Elytra extends Armor{
 
