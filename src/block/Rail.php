@@ -23,7 +23,7 @@ declare(strict_types=1);
 namespace pocketmine\block;
 
 use pocketmine\block\utils\RailConnectionInfo;
-use pocketmine\block\utils\RailPoweredByRedstone;
+use pocketmine\block\utils\RailPoweredByRedstoneTrait;
 use pocketmine\data\bedrock\block\BlockLegacyMetadata;
 use pocketmine\data\runtime\RuntimeDataDescriber;
 use pocketmine\math\Facing;
@@ -31,7 +31,7 @@ use pocketmine\player\Player;
 use pocketmine\world\World;
 
 class Rail extends BaseRail{
-	use RailPoweredByRedstone;
+	use RailPoweredByRedstoneTrait;
 
 	private int $railShape = BlockLegacyMetadata::RAIL_STRAIGHT_NORTH_SOUTH;
 
