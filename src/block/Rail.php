@@ -16,7 +16,6 @@
  * @author ClousClouds Team
  * @link https://xpocketmc.xyz/
  *
- *
  */
 
 declare(strict_types=1);
@@ -24,18 +23,21 @@ declare(strict_types=1);
 namespace pocketmine\block;
 
 use pocketmine\block\utils\RailConnectionInfo;
+use pocketmine\block\utils\RailPoweredByRedstone;
 use pocketmine\data\bedrock\block\BlockLegacyMetadata;
 use pocketmine\data\runtime\RuntimeDataDescriber;
 use pocketmine\math\Facing;
-use function array_keys;
-use function implode;
+use pocketmine\player\Player;
+use pocketmine\world\World;
 
-class Rail extends BaseRail{
+class RedstoneRail extends BaseRail{
+	use RailPoweredByRedstone;
 
 	private int $railShape = BlockLegacyMetadata::RAIL_STRAIGHT_NORTH_SOUTH;
 
 	protected function describeBlockOnlyState(RuntimeDataDescriber $w) : void{
 		$w->railShape($this->railShape);
+		$w->bool($this->isPowered());
 	}
 
 	protected function setShapeFromConnections(array $connections) : void{
@@ -50,33 +52,42 @@ class Rail extends BaseRail{
 		return RailConnectionInfo::CURVE_CONNECTIONS[$this->railShape] ?? RailConnectionInfo::CONNECTIONS[$this->railShape];
 	}
 
-	protected function getPossibleConnectionDirectionsOneConstraint(int $constraint) : array{
-		$possible = parent::getPossibleConnectionDirectionsOneConstraint($constraint);
-
-		if(($constraint & RailConnectionInfo::FLAG_ASCEND) === 0){
-			foreach([
-				Facing::NORTH,
-				Facing::SOUTH,
-				Facing::WEST,
-				Facing::EAST
-			] as $d){
-				if($constraint !== $d){
-					$possible[$d] = true;
-				}
-			}
-		}
-
-		return $possible;
+	public function getShape() : int{
+		return $this->railShape;
 	}
 
-	public function getShape() : int{ return $this->railShape; }
-
-	/** @return $this */
 	public function setShape(int $shape) : self{
 		if(!isset(RailConnectionInfo::CONNECTIONS[$shape]) && !isset(RailConnectionInfo::CURVE_CONNECTIONS[$shape])){
 			throw new \InvalidArgumentException("Invalid shape, must be one of " . implode(", ", [...array_keys(RailConnectionInfo::CONNECTIONS), ...array_keys(RailConnectionInfo::CURVE_CONNECTIONS)]));
 		}
 		$this->railShape = $shape;
 		return $this;
+	}
+
+	public function onRedstoneUpdate(World $world, int $powerLevel) : void{
+		$powered = $powerLevel > 0;
+		if($this->isPowered() !== $powered){
+			$this->setPowered($powered);
+			$world->setBlock($this->position, $this);
+		}
+	}
+
+	public function onNeighborChange(World $world) : void{
+		$powerLevel = $world->getRedstonePowerAt($this->position);
+		$this->onRedstoneUpdate($world, $powerLevel);
+	}
+
+	public function isPowered() : bool{
+		return $this->getPersistentData()->getBool("powered", false);
+	}
+
+	public function setPowered(bool $powered) : void{
+		$this->getPersistentData()->setBool("powered", $powered);
+	}
+
+	public function onInteract(Player $player) : bool{
+		$this->setPowered(!$this->isPowered());
+		$player->getWorld()->setBlock($this->position, $this);
+		return true;
 	}
 }
