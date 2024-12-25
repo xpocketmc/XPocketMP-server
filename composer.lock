@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0ab5737567aaee1f18bd14f15ae8988",
+    "content-hash": "a55214c1fab0b859d4e7338cca557588",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -205,16 +205,16 @@
         },
         {
             "name": "pocketmine/bedrock-protocol",
-            "version": "35.0.0+bedrock-1.21.50",
+            "version": "35.0.1+bedrock-1.21.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/BedrockProtocol.git",
-                "reference": "bd1ec79bae8c88aa984e1c5f0c3313be5ae9b435"
+                "reference": "f5daac3c11b7a1f5ba2437ecc09f9ad5ebf72aa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pmmp/BedrockProtocol/zipball/bd1ec79bae8c88aa984e1c5f0c3313be5ae9b435",
-                "reference": "bd1ec79bae8c88aa984e1c5f0c3313be5ae9b435",
+                "url": "https://api.github.com/repos/pmmp/BedrockProtocol/zipball/f5daac3c11b7a1f5ba2437ecc09f9ad5ebf72aa8",
+                "reference": "f5daac3c11b7a1f5ba2437ecc09f9ad5ebf72aa8",
                 "shasum": ""
             },
             "require": {
@@ -245,9 +245,9 @@
             "description": "An implementation of the Minecraft: Bedrock Edition protocol in PHP",
             "support": {
                 "issues": "https://github.com/pmmp/BedrockProtocol/issues",
-                "source": "https://github.com/pmmp/BedrockProtocol/tree/35.0.0+bedrock-1.21.50"
+                "source": "https://github.com/pmmp/BedrockProtocol/tree/35.0.1+bedrock-1.21.50"
             },
-            "time": "2024-12-04T13:02:00+00:00"
+            "time": "2024-12-23T20:25:21+00:00"
         },
         {
             "name": "pocketmine/binaryutils",
@@ -1152,28 +1152,30 @@
         },
         {
             "name": "xpocketmp/sounds",
-            "version": "1.0.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ClousClouds/SoundManager.git",
-                "reference": "3422862fe73d3b930669f1515f36a7297e5fba98"
+                "reference": "897a21ee3f4c0af4ef8736f6bb39d76bc35b70be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ClousClouds/SoundManager/zipball/3422862fe73d3b930669f1515f36a7297e5fba98",
-                "reference": "3422862fe73d3b930669f1515f36a7297e5fba98",
+                "url": "https://api.github.com/repos/ClousClouds/SoundManager/zipball/897a21ee3f4c0af4ef8736f6bb39d76bc35b70be",
+                "reference": "897a21ee3f4c0af4ef8736f6bb39d76bc35b70be",
                 "shasum": ""
             },
             "require": {
-                "pocketmine/bedrock-protocol": "^35.0.0"
+                "pocketmine/bedrock-protocol": "^35.0.0",
+                "pocketmine/math": "1.0.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "~1.11.3"
+                "phpstan/phpstan": "~1.11.3",
+                "xpocketmc/xpocketmp": "dev-stable"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "\\pocketmine\\world\\sound\\": "src/"
+                    "\\pocketmine\\world\\sound\\": "src/world/sound"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1183,9 +1185,9 @@
             "description": "A plugin or library for XPocketMP for handling Minecraft Bedrock Edition sounds",
             "support": {
                 "issues": "https://github.com/ClousClouds/SoundManager/issues",
-                "source": "https://github.com/ClousClouds/SoundManager/tree/1.0.1"
+                "source": "https://github.com/ClousClouds/SoundManager/tree/1.2.0"
             },
-            "time": "2024-12-19T09:17:10+00:00"
+            "time": "2024-12-25T07:32:53+00:00"
         }
     ],
     "packages-dev": [
