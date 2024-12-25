@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a55214c1fab0b859d4e7338cca557588",
+    "content-hash": "349757faf04187da50092dadde1b993e",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -1152,16 +1152,16 @@
         },
         {
             "name": "xpocketmp/sounds",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ClousClouds/SoundManager.git",
-                "reference": "897a21ee3f4c0af4ef8736f6bb39d76bc35b70be"
+                "reference": "8c8e60ade6d18513f5df6b2672a86b313718bef4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ClousClouds/SoundManager/zipball/897a21ee3f4c0af4ef8736f6bb39d76bc35b70be",
-                "reference": "897a21ee3f4c0af4ef8736f6bb39d76bc35b70be",
+                "url": "https://api.github.com/repos/ClousClouds/SoundManager/zipball/8c8e60ade6d18513f5df6b2672a86b313718bef4",
+                "reference": "8c8e60ade6d18513f5df6b2672a86b313718bef4",
                 "shasum": ""
             },
             "require": {
@@ -1182,12 +1182,12 @@
             "license": [
                 "MIT"
             ],
-            "description": "A plugin or library for XPocketMP for handling Minecraft Bedrock Edition sounds",
+            "description": "A library for XPocketMP for handling Minecraft Bedrock Edition sounds",
             "support": {
                 "issues": "https://github.com/ClousClouds/SoundManager/issues",
-                "source": "https://github.com/ClousClouds/SoundManager/tree/1.2.0"
+                "source": "https://github.com/ClousClouds/SoundManager/tree/1.2.1"
             },
-            "time": "2024-12-25T07:32:53+00:00"
+            "time": "2024-12-25T09:22:42+00:00"
         }
     ],
     "packages-dev": [
