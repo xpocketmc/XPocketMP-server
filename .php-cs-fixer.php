@@ -56,7 +56,8 @@ This program is free software: you can redistribute it and/or modify
 it under the terms of the MIT License as published by
 the Free Software Foundation
 The files in XPocketMP are mostly from PocketMine-MP.
-Developed: ClousClouds, PMMP Team
+Developed by ClousClouds, PMMP Team
+
 @author ClousClouds Team
 @link https://xpocketmc.xyz/
 
