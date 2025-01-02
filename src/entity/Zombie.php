@@ -113,4 +113,4 @@ class Zombie extends Living{
         $packet->action = AnimatePacket::ACTION_SWING_ARM,
         $this->getWorld()->broadcastPacketToViewers($this->getPosition(), $packet);
     }
-}a
+}
