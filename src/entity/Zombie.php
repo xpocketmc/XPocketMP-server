@@ -14,26 +14,26 @@ use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\player\Player;
 use function mt_rand;
 
-class Zombie extends Living {
-    public static function getNetworkTypeId() : string {
+class Zombie extends Living{
+    public static function getNetworkTypeId() : string{
         return EntityIds::ZOMBIE;
     }
 
-    protected function getInitialSizeInfo() : EntitySizeInfo {
+    protected function getInitialSizeInfo() : EntitySizeInfo{
         return new EntitySizeInfo(1.8, 0.6);
     }
 
-    public function getName() : string {
+    public function getName() : string{
         return "Zombie";
     }
 
-    public function getDrops() : array {
+    public function getDrops() : array{
         $drops = [
             VanillaItems::ROTTEN_FLESH()->setCount(mt_rand(0, 2))
         ];
 
-        if(mt_rand(0, 199) < 5) {
-            switch(mt_rand(0, 2)) {
+        if(mt_rand(0, 199) < 5){
+            switch(mt_rand(0, 2)){
                 case 0:
                     $drops[] = VanillaItems::IRON_INGOT();
                     break;
@@ -49,26 +49,26 @@ class Zombie extends Living {
         return $drops;
     }
 
-    public function getXpDropAmount() : int {
+    public function getXpDropAmount() : int{
         return 5;
     }
 
-    public function attackEntity(Player $player) : void {
+    public function attackEntity(Player $player) : void{
         $distance = $this->getPosition()->distance($player->getPosition());
 
-        if($distance <= 1.5) {
+        if($distance <= 1.5){
             $event = new EntityDamageByEntityEvent($this, $player, EntityDamageEvent::CAUSE_ENTITY_ATTACK, mt_rand(2, 4));
             $player->attack($event);
         }
     }
 
-    public function onUpdate(int $currentTick) : bool {
+    public function onUpdate(int $currentTick) : bool{
         $nearestPlayer = $this->getNearestPlayer();
 
-        if($nearestPlayer !== null) {
+        if($nearestPlayer !== null){
             $distance = $this->getPosition()->distance($nearestPlayer->getPosition());
 
-            if($distance < 10) {
+            if($distance < 10){
                 $this->moveTowards($nearestPlayer->getPosition());
                 $this->playWalkingAnimation();
             }
@@ -78,7 +78,7 @@ class Zombie extends Living {
         $positionAbove = $this->getPosition()->add(0, 1, 0);
         $blockAbove = $this->getWorld()->getBlock($positionAbove);
 
-        if($this->isDaytime() && $block->getId() !== VanillaBlocks::WATER()->getId() && $blockAbove->isTransparent()) {
+        if($this->isDaytime() && $block->getTypeId() !== VanillaBlocks::WATER()->getTypeId() && $blockAbove->isTransparent()){
             $this->setOnFire(20);
         }
 
