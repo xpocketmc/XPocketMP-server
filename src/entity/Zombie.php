@@ -11,12 +11,9 @@ use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\player\Player;
-use pocketmine\world\Position;
 use function mt_rand;
 
-class Zombie extends Living{
-	private ?Player $target = null;
-
+class Zombie extends Living {
 	public static function getNetworkTypeId() : string{
 		return EntityIds::ZOMBIE;
 	}
@@ -71,13 +68,16 @@ class Zombie extends Living{
 			$distance = $this->getPosition()->distance($nearestPlayer->getPosition());
 
 			if($distance < 10){
-				$this->setTarget($nearestPlayer);
 				$this->moveTowards($nearestPlayer->getPosition());
 				$this->playWalkingAnimation();
 			}
 		}
 
-		if($this->isDaytime() && !$this->isInWater() && !$this->isUnderShade()){
+		$block = $this->getWorld()->getBlock($this->getPosition());
+		$positionAbove = $this->getPosition()->add(0, 1, 0);
+		$blockAbove = $this->getWorld()->getBlock($positionAbove);
+
+		if($this->isDaytime() && !$block->isWater() && $blockAbove->isTransparent()){
 			$this->setOnFire(20);
 		}
 
@@ -100,8 +100,10 @@ class Zombie extends Living{
 	}
 
 	private function moveTowards(Vector3 $target) : void{
-		$direction = $target->subtract($this->getPosition())->normalize();
-		$this->motion->set($direction->x * 0.1, $this->motion->y, $direction->z * 0.1);
+		$direction = $target->asVector3()->subtract($this->getPosition()->asVector3())->normalize();
+		$this->motion->x = $direction->x * 0.1;
+		$this->motion->y = $this->motion->y;
+		$this->motion->z = $direction->z * 0.1;
 	}
 
 	private function playWalkingAnimation() : void{
@@ -109,15 +111,7 @@ class Zombie extends Living{
 		$this->broadcastAnimation($animation);
 	}
 
-	public function setTarget(?Player $player) : void{
-		$this->target = $player;
-	}
-
 	private function isDaytime() : bool{
 		return $this->getWorld()->getTime() % 24000 < 12000;
-	}
-
-	private function isUnderShade() : bool{
-		return !$this->getWorld()->canBlockSeeSky($this->getPosition());
 	}
 }
