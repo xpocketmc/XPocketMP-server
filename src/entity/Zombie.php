@@ -35,7 +35,7 @@ use pocketmine\player\Player;
 use function mt_rand;
 use const PHP_FLOAT_MAX;
 
-class Zombie extends Living{
+class Zombie extends Monster{
 	public static function getNetworkTypeId() : string{
 		return EntityIds::ZOMBIE;
 	}
@@ -50,7 +50,8 @@ class Zombie extends Living{
 
 	public function getDrops() : array{
 		$drops = [
-			VanillaItems::ROTTEN_FLESH()->setCount(mt_rand(0, 2))
+			VanillaItems::ROTTEN_FLESH()->setCount(mt_rand(0, 2)),
+			VanillaItems::ZOMBIE_HEAD()->setCount(mt_rand(1))
 		];
 
 		if(mt_rand(0, 199) < 5){
@@ -106,7 +107,7 @@ class Zombie extends Living{
 		return parent::onUpdate($currentTick);
 	}
 
-	private function getNearestPlayer() : ?Player {
+	private function getNearestPlayer() : ?Player{
 		$nearestPlayer = null;
 		$nearestDistance = PHP_FLOAT_MAX;
 
@@ -121,7 +122,7 @@ class Zombie extends Living{
 		return $nearestPlayer;
 	}
 
-	private function moveTowards(Vector3 $target) : void {
+	private function moveTowards(Vector3 $target) : void{
 		$direction = new Vector3(
 			$target->x - $this->getPosition()->x,
 			$target->y - $this->getPosition()->y,
@@ -133,12 +134,12 @@ class Zombie extends Living{
 		$this->motion->z = $direction->z * 0.1;
 	}
 
-	private function playWalkingAnimation() : void {
+	private function playWalkingAnimation() : void{
 		$animation = new ArmSwingAnimation($this);
 		$this->broadcastAnimation($animation);
 	}
 
-	private function isDaytime() : bool {
+	private function isDaytime() : bool{
 		return $this->getWorld()->getTime() % 24000 < 12000;
 	}
 }
