@@ -9,9 +9,6 @@ use pocketmine\item\VanillaItems;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
-use pocketmine\world\sound\ZombieGroanSound;
-use pocketmine\world\sound\ZombieHurtSound;
-use pocketmine\world\sound\ZombieDeathSound;
 use function mt_rand;
 
 class Zombie extends Living{
@@ -56,19 +53,18 @@ class Zombie extends Living{
     public function attackEntity(Player $player): void{
         $distance = $this->getPosition()->distance($player->getPosition());
 
-        if ($distance <= 1.5) {
+        if($distance <= 1.5){
             $player->attack(mt_rand(2, 4));
-            $this->getWorld()->addSound($this->getPosition(), new ZombieGroanSound());
         }
     }
 
     public function onUpdate(int $currentTick): bool{
         $nearestPlayer = $this->getNearestPlayer();
 
-        if ($nearestPlayer !== null) {
+        if($nearestPlayer !== null){
             $distance = $this->getPosition()->distance($nearestPlayer->getPosition());
 
-            if ($distance < 10) {
+            if ($distance < 10){
                 $this->setTarget($nearestPlayer);
                 $this->moveTowards($nearestPlayer->getPosition());
                 $this->playWalkingAnimation();
@@ -76,15 +72,7 @@ class Zombie extends Living{
         }
 
         return parent::onUpdate($currentTick);
-    }
-
-    public function onHurt(): void{
-        $this->getWorld()->addSound($this->getPosition(), new ZombieHurtSound());
-    }
-
-    public function onDeath(): void{
-        $this->getWorld()->addSound($this->getPosition(), new ZombieDeathSound());
-    }
+}
 
     private function getNearestPlayer(): ?Player{
         $nearestPlayer = null;
