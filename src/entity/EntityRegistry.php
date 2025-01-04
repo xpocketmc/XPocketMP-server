@@ -64,7 +64,7 @@ use function reset;
  * This class manages the creation of entities loaded from disk.
  * You need to register your entity into this factory if you want to load/save your entity on disk (saving with chunks).
  */
-final class EntityFactory{
+final class EntityRegistry{
 	use SingletonTrait;
 
 	public const TAG_IDENTIFIER = "identifier"; //TAG_String
