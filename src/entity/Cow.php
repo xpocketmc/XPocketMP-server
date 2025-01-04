@@ -49,7 +49,9 @@ class Cow extends Living{
 		return mt_rand(1, 3);
 	}
 
-	public function onInteract(Player $player, Item $item) : bool{
+	public function onInteract(Player $player, Vector3 $clickPos): bool{
+		$item = $player->getInventory()->getItemInHand();
+
 		if($item->equals(VanillaItems::BUCKET(), true)){
 			$player->getInventory()->addItem(VanillaItems::MILK_BUCKET());
 			return true;
@@ -60,7 +62,7 @@ class Cow extends Living{
 			return true;
 		}
 
-		return parent::onInteract($player, $item);
+		return parent::onInteract($player, $clickPos);
 	}
 
 	public function onUpdate(int $currentTick) : bool{
