@@ -1,19 +1,35 @@
 <?php
 
+/*
+ *
+ *  __  ______            _        _   __  __ ____
+ *  \ \/ /  _ \ ___   ___| | _____| |_|  \/  |  _ \
+ *   \  /| |_) / _ \ / __| |/ / _ \ __| |\/| | |_) |
+ *   /  \|  __/ (_) | (__|   <  __/ |_| |  | |  __/
+ *  /_/\_\_|   \___/ \___|_|\_\___|\__|_|  |_|_|
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the MIT License as published by
+ * the Free Software Foundation
+ * The files in XPocketMP are mostly from PocketMine-MP.
+ * Developed by ClousClouds, PMMP Team
+ *
+ * @author ClousClouds Team
+ * @link https://xpocketmc.xyz/
+ *
+ *
+ */
+
 declare(strict_types=1);
 
 namespace pocketmine\entity;
 
-use pocketmine\entity\animation\ArmSwingAnimation;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\item\Item;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\player\Player;
-use pocketmine\block\VanillaBlocks;
 use function mt_rand;
+use const PHP_FLOAT_MAX;
 
 class Cow extends Living{
 
@@ -25,9 +41,9 @@ class Cow extends Living{
 	}
 
 	protected function getInitialSizeInfo() : EntitySizeInfo{
-		return $this->isBaby 
-			? new EntitySizeInfo(0.7, 0.45) 
-			: new EntitySizeInfo(1.4, 0.9); 
+		return $this->isBaby
+			? new EntitySizeInfo(0.7, 0.45)
+			: new EntitySizeInfo(1.4, 0.9);
 	}
 
 	public function getName() : string{
@@ -49,7 +65,7 @@ class Cow extends Living{
 		return mt_rand(1, 3);
 	}
 
-	public function onInteract(Player $player, Vector3 $clickPos): bool{
+	public function onInteract(Player $player, Vector3 $clickPos) : bool{
 		$item = $player->getInventory()->getItemInHand();
 
 		if($item->equals(VanillaItems::BUCKET(), true)){
