@@ -89,6 +89,10 @@ final class EntityFactory{
 			return new Arrow(Helper::parseLocation($nbt, $world), null, $nbt->getByte(Arrow::TAG_CRIT, 0) === 1, $nbt);
 		}, ['Arrow', 'minecraft:arrow']);
 
+		$this->register(Cow::class, function(World $world, CompoundTag $nbt) : Cow{
+			return new Cow(Helper::parseLocation($nbt, $world), $nbt);
+		}, ['Cow', 'minecraft:cow']);
+
 		$this->register(Egg::class, function(World $world, CompoundTag $nbt) : Egg{
 			return new Egg(Helper::parseLocation($nbt, $world), null, $nbt);
 		}, ['Egg', 'minecraft:egg']);
@@ -115,6 +119,10 @@ final class EntityFactory{
 		$this->register(FallingBlock::class, function(World $world, CompoundTag $nbt) : FallingBlock{
 			return new FallingBlock(Helper::parseLocation($nbt, $world), FallingBlock::parseBlockNBT(RuntimeBlockStateRegistry::getInstance(), $nbt), $nbt);
 		}, ['FallingSand', 'minecraft:falling_block']);
+
+		$this->register(Human::class, function(World $world, CompoundTag $nbt) : Human{
+			return new Human(Helper::parseLocation($nbt, $world), Human::parseSkinNBT($nbt), $nbt);
+		}, ['Human']);
 
 		$this->register(ItemEntity::class, function(World $world, CompoundTag $nbt) : ItemEntity{
 			$itemTag = $nbt->getCompoundTag(ItemEntity::TAG_ITEM);
@@ -173,10 +181,6 @@ final class EntityFactory{
 		$this->register(Zombie::class, function(World $world, CompoundTag $nbt) : Zombie{
 			return new Zombie(Helper::parseLocation($nbt, $world), $nbt);
 		}, ['Zombie', 'minecraft:zombie']);
-
-		$this->register(Human::class, function(World $world, CompoundTag $nbt) : Human{
-			return new Human(Helper::parseLocation($nbt, $world), Human::parseSkinNBT($nbt), $nbt);
-		}, ['Human']);
 	}
 
 	/**
