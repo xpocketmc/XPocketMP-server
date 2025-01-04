@@ -26,6 +26,7 @@ namespace pocketmine\item;
 
 use pocketmine\block\utils\RecordType;
 use pocketmine\block\VanillaBlocks as Blocks;
+use pocketmine\entity\Cow;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Location;
 use pocketmine\entity\Squid;
@@ -135,6 +136,7 @@ use function strtolower;
  * @method static Cookie COOKIE()
  * @method static Item COPPER_INGOT()
  * @method static CoralFan CORAL_FAN()
+ * @method static SpawnEgg COW_SPAWN_EGG()
  * @method static ItemBlockWallOrFloor CRIMSON_SIGN()
  * @method static Boat DARK_OAK_BOAT()
  * @method static ItemBlockWallOrFloor DARK_OAK_SIGN()
@@ -594,9 +596,9 @@ final class VanillaItems{
 	}
 
 	private static function registerSpawnEggs() : void{
-		self::register("zombie_spawn_egg", new class(new IID(Ids::ZOMBIE_SPAWN_EGG), "Zombie Spawn Egg") extends SpawnEgg{
+		self::register("cow_spawn_egg", new class(new IID(Ids::COW_SPAWN_EGG), "Cow Spawn Egg") extends SpawnEgg{
 			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
-				return new Zombie(Location::fromObject($pos, $world, $yaw, $pitch));
+				return new Cow(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
 		self::register("squid_spawn_egg", new class(new IID(Ids::SQUID_SPAWN_EGG), "Squid Spawn Egg") extends SpawnEgg{
@@ -607,6 +609,11 @@ final class VanillaItems{
 		self::register("villager_spawn_egg", new class(new IID(Ids::VILLAGER_SPAWN_EGG), "Villager Spawn Egg") extends SpawnEgg{
 			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
 				return new Villager(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+		self::register("zombie_spawn_egg", new class(new IID(Ids::ZOMBIE_SPAWN_EGG), "Zombie Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Zombie(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
 	}
