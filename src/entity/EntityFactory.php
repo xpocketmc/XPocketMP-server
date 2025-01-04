@@ -90,7 +90,7 @@ final class EntityFactory{
 		}, ['Arrow', 'minecraft:arrow']);
 
 		$this->register(Cow::class, function(World $world, CompoundTag $nbt) : Cow{
-			return new Cow(Helper::parseLocation($nbt, $world), null, $nbt);
+			return new Cow(Helper::parseLocation($nbt, $world), $nbt);
 		}, ['Cow', 'minecraft:cow']);
 
 		$this->register(Egg::class, function(World $world, CompoundTag $nbt) : Egg{
