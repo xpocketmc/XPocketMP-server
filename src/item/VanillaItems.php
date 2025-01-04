@@ -26,6 +26,7 @@ namespace pocketmine\item;
 
 use pocketmine\block\utils\RecordType;
 use pocketmine\block\VanillaBlocks as Blocks;
+use pocketmine\block\Cow;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Location;
 use pocketmine\entity\Squid;
@@ -135,8 +136,8 @@ use function strtolower;
  * @method static Cookie COOKIE()
  * @method static Item COPPER_INGOT()
  * @method static CoralFan CORAL_FAN()
- * @method static ItemBlockWallOrFloor CRIMSON_SIGN()
  * @method static SpawnEgg COW_SPAWN_EGG()
+ * @method static ItemBlockWallOrFloor CRIMSON_SIGN()
  * @method static Boat DARK_OAK_BOAT()
  * @method static ItemBlockWallOrFloor DARK_OAK_SIGN()
  * @method static Item DIAMOND()
