@@ -51,7 +51,6 @@ class Zombie extends Monster{
 	public function getDrops() : array{
 		$drops = [
 			VanillaItems::ROTTEN_FLESH()->setCount(mt_rand(0, 2)),
-			VanillaItems::ZOMBIE_HEAD()->setCount(mt_rand(1))
 		];
 
 		if(mt_rand(0, 199) < 5){
