@@ -2877,10 +2877,10 @@ class World implements ChunkManager{
 
 		if(count($chunkData->getEntityNBT()) !== 0){
 			$this->timings->syncChunkLoadEntities->startTiming();
-			$entityFactory = EntityFactory::getInstance();
+			$entityRegistry = EntityRegistry::getInstance();
 			foreach($chunkData->getEntityNBT() as $k => $nbt){
 				try{
-					$entity = $entityFactory->createFromData($this, $nbt);
+					$entity = $entityRegistry->createFromData($this, $nbt);
 				}catch(SavedDataLoadingException $e){
 					$logger->error("Bad entity data at list position $k: " . $e->getMessage());
 					$logger->logException($e);
