@@ -490,7 +490,7 @@ abstract class Entity{
 			]));
 
 		if(!($this instanceof Player)){
-			EntityFactory::getInstance()->injectSaveId(get_class($this), $nbt);
+			EntityRegistry::getInstance()->injectSaveId(get_class($this), $nbt);
 
 			if($this->getNameTag() !== ""){
 				$nbt->setString(self::TAG_CUSTOM_NAME, $this->getNameTag());
