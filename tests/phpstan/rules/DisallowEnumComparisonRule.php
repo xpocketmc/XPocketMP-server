@@ -62,7 +62,8 @@ class DisallowEnumComparisonRule implements Rule{
 				$node instanceof Identical ? '===' : '!==',
 				$leftType->describe(VerbosityLevel::value()),
 				$rightType->describe(VerbosityLevel::value())
-			))->build()];
+			))->identifier('deprecated.legacyEnumAccessor')
+			  ->build()];
 		}
 		return [];
 	}

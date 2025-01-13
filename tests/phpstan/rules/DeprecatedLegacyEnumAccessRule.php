@@ -52,8 +52,12 @@ final class DeprecatedLegacyEnumAccessRule implements Rule{
 			$scope->resolveTypeByName($node->class) :
 			$scope->getType($node->class);
 
-		if(!$classType instanceof TypeWithClassName){
+		if(!$classType->isObject()){
 			return [];
+		}
+		$className = $classType->getObjectClassName();
+		if(empty($className)){
+		  return[]
 		}
 
 		$reflection = $classType->getClassReflection();
@@ -67,7 +71,8 @@ final class DeprecatedLegacyEnumAccessRule implements Rule{
 					'Use of legacy enum case accessor %s::%s().',
 					$reflection->getName(),
 					$caseName
-				))->tip(sprintf(
+				))->identifier('deprecated.legacyEnumAccessor')
+				  ->tip(sprintf(
 					'Access the enum constant directly instead (remove the brackets), e.g. %s::%s',
 					$reflection->getName(),
 					$caseName

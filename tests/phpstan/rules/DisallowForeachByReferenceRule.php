@@ -44,6 +44,7 @@ final class DisallowForeachByReferenceRule implements Rule{
 		if($node->byRef){
 			return [
 				RuleErrorBuilder::message("Foreach by-reference is not allowed, because it has surprising behaviour.")
+				  ->identifier('deprecated.legacyEnumAccessor')
 					->tip("If the value variable is used outside of the foreach construct (e.g. in a second foreach), the iterable's contents will be unexpectedly altered.")
 					->build()
 			];

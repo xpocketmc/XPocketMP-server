@@ -84,7 +84,8 @@ final class UnsafeForeachArrayOfStringRule implements Rule{
 				RuleErrorBuilder::message(sprintf(
 					"Unsafe foreach on array with key type %s (they might be casted to int).",
 					$iterableType->getIterableKeyType()->describe(VerbosityLevel::value())
-				))->tip(sprintf("Use %s() for a safe Generator-based iterator.", Utils::getNiceClosureName($func)))->build()
+				))->identifier('deprecated.legacyEnumAccessor')
+				  ->tip(sprintf("Use %s() for a safe Generator-based iterator.", Utils::getNiceClosureName($func)))->build()
 			];
 		}
 		return [];
