@@ -74,7 +74,11 @@ class AsyncPoolTest extends TestCase{
 	public function testThreadSafeSetResult() : void{
 		$resolver = new PromiseResolver();
 		$resolver->getPromise()->onCompletion(
-			function(ThreadSafeArray $result) : void{
+			function(mixed $result) : void{
+			  if(!$result instanceof ThreadSafeArray){
+			    self:fail("Result is not a ThreadSafeArray");
+			    return;
+			  }
 				self::assertCount(1, $result);
 				self::assertSame(["foo"], (array) $result);
 			},
