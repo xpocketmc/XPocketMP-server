@@ -342,7 +342,7 @@ class PluginManager{
 				}
 			}
 
-			if(count($dependencyLists[$pluginName])) === 0){
+			if(count($dependencyLists[$pluginName]) === 0){
 				unset($dependencyLists[$pluginName]);
 			}
 		}
