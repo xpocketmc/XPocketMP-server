@@ -240,7 +240,7 @@ class CraftingManager{
 	public function matchRecipe(CraftingGrid $grid, array $outputs) : ?CraftingRecipe{
 		//TODO: try to match special recipes before anything else (first they need to be implemented!)
 
-		$outputHash = self::hashOutputs($outputs);
+		$outputHash = array_values(self::hashOutputs($outputs));
 
 		if(isset($this->shapedRecipes[$outputHash])){
 			foreach($this->shapedRecipes[$outputHash] as $recipe){
@@ -270,7 +270,7 @@ class CraftingManager{
 	public function matchRecipeByOutputs(array $outputs) : \Generator{
 		//TODO: try to match special recipes before anything else (first they need to be implemented!)
 
-		$outputHash = self::hashOutputs($outputs);
+		$outputHash = array_values(self::hashOutputs($outputs));
 
 		if(isset($this->shapedRecipes[$outputHash])){
 			foreach($this->shapedRecipes[$outputHash] as $recipe){

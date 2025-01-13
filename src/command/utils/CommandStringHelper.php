@@ -60,6 +60,6 @@ final class CommandStringHelper{
 			}
 		}
 
-		return $args;
+		return array_values($args);
 	}
 }
