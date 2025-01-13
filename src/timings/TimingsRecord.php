@@ -132,7 +132,7 @@ final class TimingsRecord{
 	}
 
 	public function stopTiming(int $now) : void{
-		if($this->start == 0){
+		if($this->start === 0){
 			return;
 		}
 		if(self::$currentRecord !== $this){

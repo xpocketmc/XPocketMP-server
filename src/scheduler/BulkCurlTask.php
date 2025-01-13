@@ -27,6 +27,7 @@ namespace pocketmine\scheduler;
 use pocketmine\utils\Internet;
 use pocketmine\utils\InternetException;
 use pocketmine\utils\InternetRequestResult;
+use function array_values;
 use function igbinary_serialize;
 use function igbinary_unserialize;
 
@@ -80,6 +81,6 @@ class BulkCurlTask extends AsyncTask{
 		$callback = $this->fetchLocal(self::TLS_KEY_COMPLETION_CALLBACK);
 		/** @var InternetRequestResult[]|InternetException[] $results */
 		$results = $this->getResult();
-		$callback($results);
+		$callback(array_values($results));
 	}
 }
