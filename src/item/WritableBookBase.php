@@ -75,7 +75,7 @@ abstract class WritableBookBase extends Item{
 			$this->addPage($pageId);
 		}
 
-		$this->array_values(pages[$pageId]) = new WritableBookPage($pageText);
+		$this->pages[$pageId] = new WritableBookPage($pageText);
 		return $this;
 	}
 
