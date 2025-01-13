@@ -82,7 +82,7 @@ class PluginDescription{
 	private array $compatibleOperatingSystems = [];
 	/**
 	 * @var string[][]
-	 * @phpstan-var array<string, list<string>>
+	 * @phpstan-var array<string, array<string>>
 	 */
 	private array $extensions = [];
 	/** @var string[] */
@@ -211,6 +211,7 @@ class PluginDescription{
 		$this->authors = [];
 		if(isset($plugin[self::KEY_AUTHOR])){
 			if(is_array($plugin[self::KEY_AUTHOR])){
+			  /** @var array<string> $rawAuthors */
 				$this->authors = $plugin[self::KEY_AUTHOR];
 			}else{
 				$this->authors[] = $plugin[self::KEY_AUTHOR];
