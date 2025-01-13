@@ -55,7 +55,7 @@ use const STR_PAD_LEFT;
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 function newImage(int $scale, int $radius) : \GdImage{
-	$image = Utils::assumeNotFalse(imagecreatetruecolor($scale * $radius * 2, $scale * $radius * 2));
+	$image = Utils::assumeNotFalse(imagecreatetruecolor(max(1, $scale * $radius * 2), max(1, $scale * $radius * 2)));
 	imagesavealpha($image, true);
 
 	$black = Utils::assumeNotFalse(imagecolorallocate($image, 0, 0, 0));

@@ -657,7 +657,7 @@ function processRemappedStates(array $upgradeTable) : array{
 	usort($list, function(BlockStateUpgradeSchemaBlockRemap $a, BlockStateUpgradeSchemaBlockRemap $b) : int{
 		return count($b->oldState) <=> count($a->oldState);
 	});
-	return array_values($list);
+	return $list;
 }
 
 /**

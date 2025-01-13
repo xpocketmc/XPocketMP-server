@@ -592,7 +592,7 @@ abstract class Entity{
 	 * Sets the health of the Entity. This won't send any update to the players
 	 */
 	public function setHealth(float $amount) : void{
-		if($amount == $this->health){
+		if($amount === $this->health){
 			return;
 		}
 
@@ -761,8 +761,8 @@ abstract class Entity{
 
 		$diffMotion = $this->motion->subtractVector($this->lastMotion)->lengthSquared();
 
-		$still = $this->motion->lengthSquared() == 0.0;
-		$wasStill = $this->lastMotion->lengthSquared() == 0.0;
+		$still = $this->motion->lengthSquared() === 0.0;
+		$wasStill = $this->lastMotion->lengthSquared() === 0.0;
 		if($wasStill !== $still){
 			//TODO: hack for client-side AI interference: prevent client sided movement when motion is 0
 			$this->setNoClientPredictions($still);
@@ -1005,7 +1005,7 @@ abstract class Entity{
 				abs($this->motion->z) <= self::MOTION_THRESHOLD ? 0 : null
 			);
 
-			if($this->motion->x != 0 || $this->motion->y != 0 || $this->motion->z != 0){
+			if($this->motion->x !== 0 || $this->motion->y !== 0 || $this->motion->z !== 0){
 				$this->move($this->motion->x, $this->motion->y, $this->motion->z);
 			}
 
@@ -1059,9 +1059,9 @@ abstract class Entity{
 	public function hasMovementUpdate() : bool{
 		return (
 			$this->forceMovementUpdate ||
-			$this->motion->x != 0 ||
-			$this->motion->y != 0 ||
-			$this->motion->z != 0 ||
+			$this->motion->x !== 0 ||
+			$this->motion->y !== 0 ||
+			$this->motion->z !== 0 ||
 			!$this->onGround
 		);
 	}
@@ -1164,7 +1164,7 @@ abstract class Entity{
 
 			$moveBB->offset(0, $dy, 0);
 
-			$fallingFlag = ($this->onGround || ($dy != $wantedY && $wantedY < 0));
+			$fallingFlag = ($this->onGround || ($dy !== $wantedY && $wantedY < 0));
 
 			foreach($list as $bb){
 				$dx = $bb->calculateXOffset($moveBB, $dx);
@@ -1178,7 +1178,7 @@ abstract class Entity{
 
 			$moveBB->offset(0, 0, $dz);
 
-			if($this->stepHeight > 0 && $fallingFlag && ($wantedX != $dx || $wantedZ != $dz)){
+			if($this->stepHeight > 0 && $fallingFlag && ($wantedX !== $dx || $wantedZ !== $dz)){
 				$cx = $dx;
 				$cy = $dy;
 				$cz = $dz;
@@ -1243,9 +1243,9 @@ abstract class Entity{
 		$postFallVerticalVelocity = $this->updateFallState($dy, $this->onGround);
 
 		$this->motion = $this->motion->withComponents(
-			$wantedX != $dx ? 0 : null,
-			$postFallVerticalVelocity ?? ($wantedY != $dy ? 0 : null),
-			$wantedZ != $dz ? 0 : null
+			$wantedX !== $dx ? 0 : null,
+			$postFallVerticalVelocity ?? ($wantedY !== $dy ? 0 : null),
+			$wantedZ !== $dz ? 0 : null
 		);
 
 		//TODO: vehicle collision events (first we need to spawn them!)
@@ -1254,10 +1254,10 @@ abstract class Entity{
 	}
 
 	protected function checkGroundState(float $wantedX, float $wantedY, float $wantedZ, float $dx, float $dy, float $dz) : void{
-		$this->isCollidedVertically = $wantedY != $dy;
-		$this->isCollidedHorizontally = ($wantedX != $dx || $wantedZ != $dz);
+		$this->isCollidedVertically = $wantedY !== $dy;
+		$this->isCollidedHorizontally = ($wantedX !== $dx || $wantedZ !== $dz);
 		$this->isCollided = ($this->isCollidedHorizontally || $this->isCollidedVertically);
-		$this->onGround = ($wantedY != $dy && $wantedY < 0);
+		$this->onGround = ($wantedY !== $dy && $wantedY < 0);
 	}
 
 	/**

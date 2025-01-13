@@ -332,17 +332,17 @@ class PluginManager{
 	 * @phpstan-param-out array<string, list<string>> $dependencyLists
 	 */
 	private function checkDepsForTriage(string $pluginName, string $dependencyType, array &$dependencyLists, array $loadedPlugins, PluginLoadTriage $triage) : void{
-		if(isset($dependencyLists[$pluginName])){
+		if(isset(array_values($dependencyLists[$pluginName]))){
 			foreach($dependencyLists[$pluginName] as $key => $dependency){
 				if(isset($loadedPlugins[$dependency]) || $this->getPlugin($dependency) instanceof Plugin){
 					$this->server->getLogger()->debug("Successfully resolved $dependencyType dependency \"$dependency\" for plugin \"$pluginName\"");
-					unset($dependencyLists[$pluginName][$key]);
+					unset(array_values($dependencyLists[$pluginName][$key]));
 				}elseif(array_key_exists($dependency, $triage->plugins)){
 					$this->server->getLogger()->debug("Deferring resolution of $dependencyType dependency \"$dependency\" for plugin \"$pluginName\" (found but not loaded yet)");
 				}
 			}
 
-			if(count($dependencyLists[$pluginName]) === 0){
+			if(count(array_values($dependencyLists[$pluginName])) === 0){
 				unset($dependencyLists[$pluginName]);
 			}
 		}
