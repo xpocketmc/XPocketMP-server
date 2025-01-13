@@ -1,8 +1,6 @@
 name: Update Code
 
 on:
-  pull_request:
-  push:
   workflow_call:
 
 permissions:
@@ -40,7 +38,7 @@ jobs:
       run: |
         php-cs-fixer fix --allow-risky=yes --quiet
 
-    - name: UPDATE CODE GEN
+    - name: Update Codegen
       run: composer install --ignore-platform-req=* && composer update-codegen
 
     - name: Get GitHub App User ID
