@@ -114,7 +114,6 @@ if ($raw === false) {
 	exit(1);
 }
 
-// Debugging output: Tampilkan data JSON yang dibaca
 file_put_contents('debug_raw.json', $raw);
 
 $dictionary = ItemTypeDictionaryFromDataHelper::loadFromString($raw);

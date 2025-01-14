@@ -84,6 +84,7 @@ if($output === false){
 }
 fwrite($output, <<<'HEADER'
 <?php
+
 /*
  *
  *  __  ______            _        _   __  __ ____
