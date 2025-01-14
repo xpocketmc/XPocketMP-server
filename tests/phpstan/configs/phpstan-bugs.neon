@@ -49,7 +49,10 @@ parameters:
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\) with false will always evaluate to true\\.$#"
 			count: 1
 			path: ../../phpunit/promise/PromiseTest.php
-
+		-
+		  message: "#^Offset 2 does not exist on array\\{0\\?: string, 1: ''\\|numeric-string, 2\\?: non-empty-string\\}\\.$#"
+		  count: 1
+		  path: src/world/generator/FlatGeneratorOptions.php
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with false and 'All promise should…' will always evaluate to false\\.$#"
 			count: 1

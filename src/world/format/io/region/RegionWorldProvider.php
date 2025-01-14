@@ -37,7 +37,6 @@ use Symfony\Component\Filesystem\Path;
 use function assert;
 use function file_exists;
 use function is_dir;
-use function is_int;
 use function morton2d_encode;
 use function rename;
 use function scandir;
@@ -196,7 +195,7 @@ abstract class RegionWorldProvider extends BaseWorldProvider{
 	public function loadChunk(int $chunkX, int $chunkZ) : ?LoadedChunkData{
 		$regionX = $regionZ = null;
 		self::getRegionIndex($chunkX, $chunkZ, $regionX, $regionZ);
-		assert(is_int($regionX) && is_int($regionZ));
+		assert($regionX !== 0 && $regionZ !== 0);
 
 		if(!file_exists($this->pathToRegion($regionX, $regionZ))){
 			return null;

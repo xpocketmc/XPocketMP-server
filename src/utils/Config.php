@@ -561,7 +561,7 @@ class Config{
 						};
 						break;
 				}
-				$result[(string) $k] = $v;
+				$result[$k] = $v;
 			}
 		}
 
