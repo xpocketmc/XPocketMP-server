@@ -146,7 +146,6 @@ use function count;
 use function explode;
 use function floor;
 use function get_class;
-use function is_int;
 use function max;
 use function mb_strlen;
 use function microtime;
@@ -817,7 +816,7 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 			$X = null;
 			$Z = null;
 			World::getXZ($index, $X, $Z);
-			assert($X && $Z);
+			assert($X !== 0 && $Z !== 0);
 
 			++$count;
 

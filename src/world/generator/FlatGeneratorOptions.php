@@ -30,6 +30,7 @@ use pocketmine\item\LegacyStringToItemParserException;
 use function array_map;
 use function count;
 use function explode;
+use function method_exists;
 use function preg_match;
 use function preg_match_all;
 
@@ -81,15 +82,24 @@ final class FlatGeneratorOptions{
 				throw new InvalidGeneratorOptionsException("Invalid preset layer \"$line\"");
 			}
 
-			$cnt = $matches[1] !== "" ? (int) $matches[1] : 1;
-			try{
-				$b = $itemParser->parse($matches[2])->getBlock();
-			}catch(LegacyStringToItemParserException $e){
-				throw new InvalidGeneratorOptionsException("Invalid preset layer \"$line\": " . $e->getMessage(), 0, $e);
-			}
-			for($cY = $y, $y += $cnt; $cY < $y; ++$cY){
-				$result[$cY] = $b->getStateId();
-			}
+			$cnt = $matches[1] !== "" ? (int) $matches[1] : 1;try{
+	if(isset($matches[2])){
+		$b = $itemParser->parse($matches[2])->getBlock();
+	}else{
+		throw new InvalidGeneratorOptionsException("Preset layer \"$line\" is invalid because $matches[2] is missing.");
+	}
+}catch(LegacyStringToItemParserException $e){
+	throw new InvalidGeneratorOptionsException("Invalid preset layer \"$line\": " . $e->getMessage(), 0, $e);
+}
+
+for($cY = $y, $yEnd = $y + $cnt; $cY < $yEnd; ++$cY){
+	if($b !== null && method_exists($b, 'getStateId')){
+		$result[$cY] = $b->getStateId();
+	}else{
+		throw new InvalidGeneratorOptionsException("Invalid block object for preset layer \"$line\".");
+	}
+}
+
 		}
 
 		return $result;
