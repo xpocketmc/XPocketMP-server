@@ -70,30 +70,32 @@ final class FlatGeneratorOptions{
 	 *
 	 * @throws InvalidGeneratorOptionsException
 	 */
-	public static function parseLayers(string $layers) : array{
-		$result = [];
-		$split = array_map('\trim', explode(',', $layers));
-		$y = 0;
-		$itemParser = LegacyStringToItemParser::getInstance();
-		foreach($split as $line){
-			preg_match('#^(?:(\d+)[x|*])?(.+)$#', $line, $matches);
-			if(count($matches) !== 3){
-				throw new InvalidGeneratorOptionsException("Invalid preset layer \"$line\"");
-			}
-
-			$cnt = $matches[1] !== "" ? (int) $matches[1] : 1;
-			try{
-				$b = $itemParser->parse($matches[2])->getBlock();
-			}catch(LegacyStringToItemParserException $e){
-				throw new InvalidGeneratorOptionsException("Invalid preset layer \"$line\": " . $e->getMessage(), 0, $e);
-			}
-			for($cY = $y, $y += $cnt; $cY < $y; ++$cY){
-				$result[$cY] = $b->getStateId();
-			}
+	 public static function parseLayers(string $layers) : array{
+	$result = [];
+	$split = array_map('\trim', explode(',', $layers));
+	$y = 0;
+	$itemParser = LegacyStringToItemParser::getInstance();
+	foreach($split as $line){
+		preg_match('#^(?:(\d+)[x|*])?(.+)$#', $line, $matches);
+		if(count($matches) !== 3 || !isset($matches[2])){
+			throw new InvalidGeneratorOptionsException("Invalid preset layer \"$line\"");
 		}
 
-		return $result;
+		$cnt = isset($matches[1]) && $matches[1] !== "" ? (int) $matches[1] : 1;
+		try{
+			$b = $itemParser->parse($matches[2])->getBlock();
+		}catch(LegacyStringToItemParserException $e){
+			throw new InvalidGeneratorOptionsException("Invalid preset layer \"$line\": " . $e->getMessage(), 0, $e);
+		}
+
+		for($cY = $y, $yEnd = $y + $cnt; $cY < $yEnd; ++$cY){
+			$result[$cY] = $b->getStateId();
+		}
+		$y += $cnt;
 	}
+
+	return $result;
+  }
 
 	/**
 	 * @throws InvalidGeneratorOptionsException
@@ -120,9 +122,8 @@ final class FlatGeneratorOptions{
 					}
 				}
 			}
-			$options[(string) $option] = $params;
+			$options[$option] = $params;
 		}
 		return new self($structure, $biomeId, $options);
 	}
-
 }
