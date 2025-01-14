@@ -817,7 +817,7 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 			$X = null;
 			$Z = null;
 			World::getXZ($index, $X, $Z);
-			assert(is_int($X) && is_int($Z));
+			assert($X && $Z);
 
 			++$count;
 

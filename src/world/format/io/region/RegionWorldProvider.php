@@ -196,7 +196,7 @@ abstract class RegionWorldProvider extends BaseWorldProvider{
 	public function loadChunk(int $chunkX, int $chunkZ) : ?LoadedChunkData{
 		$regionX = $regionZ = null;
 		self::getRegionIndex($chunkX, $chunkZ, $regionX, $regionZ);
-		assert(is_int($regionX) && is_int($regionZ));
+		assert($regionX && $regionZ);
 
 		if(!file_exists($this->pathToRegion($regionX, $regionZ))){
 			return null;
