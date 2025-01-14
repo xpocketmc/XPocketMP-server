@@ -81,7 +81,7 @@ final class FlatGeneratorOptions{
 			throw new InvalidGeneratorOptionsException("Invalid preset layer \"$line\"");
 		}
 
-		$cnt = $matches[1] !== "" ? (int) $matches[1] : 1;
+		$cnt = isset($matches[1]) && $matches[1] !== "" ? (int) $matches[1] : 1;
 		try{
 			$b = $itemParser->parse($matches[2])->getBlock();
 		}catch(LegacyStringToItemParserException $e){
