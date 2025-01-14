@@ -53,7 +53,7 @@
 	  "xpocketmp/sounds": "1.2.1"
    },
    "require-dev": {
-      "phpstan/phpstan": "~1.11.3",
+      "phpstan/phpstan": "~1.11.11",
       "phpstan/phpstan-phpunit": "^1.0.0",
       "phpstan/phpstan-strict-rules": "^1.1.0",
       "phpunit/phpunit": "^10"
