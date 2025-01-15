@@ -50,7 +50,7 @@ jobs:
         run: composer install --prefer-dist --no-interaction
 
       - name: Run PHPStan
-        run: ./vendor/bin/phpstan analyze --vvv --no-progress --memory-limit=2G
+        run: ./vendor/bin/phpstan analyze -vvv --no-progress --memory-limit=2G
 
   phpunit:
     name: PHPUnit tests
