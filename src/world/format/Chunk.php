@@ -31,6 +31,7 @@ use pocketmine\block\Block;
 use pocketmine\block\tile\Tile;
 use pocketmine\data\bedrock\BiomeIds;
 use function array_map;
+use function array_values;
 
 class Chunk{
 	public const DIRTY_FLAG_BLOCKS = 1 << 0;

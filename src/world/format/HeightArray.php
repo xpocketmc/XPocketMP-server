@@ -25,6 +25,7 @@ declare(strict_types=1);
 namespace pocketmine\world\format;
 
 use function array_fill;
+use function array_values;
 use function count;
 
 final class HeightArray{
