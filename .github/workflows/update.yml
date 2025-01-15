@@ -47,6 +47,8 @@ jobs:
       env:
         GH_TOKEN: ${{ steps.generate-token.outputs.token }}
 
+    - run: phpstan analyse --generate-baseline=phpstan-baseline.neon
+
     - name: Set Git config
       run: |
         git config user.name 'xpocketmp[bot]'
