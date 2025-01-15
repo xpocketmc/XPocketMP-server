@@ -70,7 +70,7 @@ final class HeightArray{
 	 * @phpstan-return list<int>
 	 */
 	public function getValues() : array{
-		return $this->array->toArray();
+		return $this->array_values(array->toArray());
 	}
 
 	public function __clone(){

@@ -338,7 +338,7 @@ class ParserPacketHandler extends PacketHandler{
 		}
 		$unlockingIngredients = $entry->getUnlockingRequirement()->getUnlockingIngredients();
 		return new ShapedRecipeData(
-			array_map(fn(array $array) => implode('', $array), $shape),
+			array_map(fn(array $array) => implode('', $array), array_values($shape)),
 			$outputsByKey,
 			array_map(fn(ItemStack $output) => $this->itemStackToJson($output), $entry->getOutput()),
 			$entry->getBlockName(),

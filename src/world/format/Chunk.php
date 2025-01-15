@@ -247,7 +247,7 @@ class Chunk{
 	 * @param int[] $values
 	 */
 	public function setHeightMapArray(array $values) : void{
-		$this->heightMap = new HeightArray($values);
+		$this->heightMap = new HeightArray(array_values($values));
 	}
 
 	public function isTerrainDirty() : bool{
