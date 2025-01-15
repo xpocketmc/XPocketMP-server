@@ -3,6 +3,7 @@ name: Update Code
 on:
   workflow_call:
   workflow_dispatch:
+  push:
 
 permissions:
   contents: write
