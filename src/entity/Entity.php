@@ -592,7 +592,7 @@ abstract class Entity{
 	 * Sets the health of the Entity. This won't send any update to the players
 	 */
 	public function setHealth(float $amount) : void{
-		if($amount == $this->health){
+		if($amount === $this->health){
 			return;
 		}
 
@@ -761,8 +761,8 @@ abstract class Entity{
 
 		$diffMotion = $this->motion->subtractVector($this->lastMotion)->lengthSquared();
 
-		$still = $this->motion->lengthSquared() == 0.0;
-		$wasStill = $this->lastMotion->lengthSquared() == 0.0;
+		$still = $this->motion->lengthSquared() === 0.0;
+		$wasStill = $this->lastMotion->lengthSquared() === 0.0;
 		if($wasStill !== $still){
 			//TODO: hack for client-side AI interference: prevent client sided movement when motion is 0
 			$this->setNoClientPredictions($still);
