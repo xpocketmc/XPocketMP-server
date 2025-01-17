@@ -26,9 +26,9 @@ namespace pocketmine;
 
 use pocketmine\event\server\LowMemoryEvent;
 use pocketmine\network\mcpe\cache\ChunkCache;
-use pocketmine	askDumpWorkerMemoryTask;
-use pocketmine	askGarbageCollectionTask;
-use pocketmine\profilerTimings;
+use pocketmine\task\DumpWorkerMemoryTask;
+use pocketmine\task\GarbageCollectionTask;
+use pocketmine\profiler\Timings;
 use pocketmine\utils\Process;
 use pocketmine\utils\Utils;
 use pocketmine\YmlServerProperties as Yml;

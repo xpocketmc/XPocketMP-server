@@ -32,7 +32,7 @@ use pocketmine\network\mcpe\protocol\serializer\PacketBatch;
 use pocketmine\network\mcpe\protocol\types\ChunkPosition;
 use pocketmine\network\mcpe\protocol\types\DimensionIds;
 use pocketmine\network\mcpe\serializer\ChunkSerializer;
-use pocketmine	askAsyncTask;
+use pocketmine\task\AsyncTask;
 use pocketmine\thread\NonThreadSafeValue;
 use pocketmine\utils\BinaryStream;
 use pocketmine\world\format\Chunk;

@@ -26,7 +26,7 @@ declare(strict_types=1);
  * Task scheduling related classes
  */
 
-namespace pocketmine	ask;
+namespace pocketmine\task;
 
 use pocketmine\utils\ObjectSet;
 use pocketmine\utils\ReversePriorityQueue;

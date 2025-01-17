@@ -26,7 +26,7 @@ namespace pocketmine\analytics;
 
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
 use pocketmine\player\Player;
-use pocketmine	askAsyncTask;
+use pocketmine\task\AsyncTask;
 use pocketmine\Server;
 use pocketmine\utils\Internet;
 use pocketmine\utils\Process;

@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\resourcepacks\json;
+namespace pocketmine\packs\json;
 
 /**
  * Model for JsonMapper to represent resource pack manifest.json contents.

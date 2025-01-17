@@ -25,7 +25,7 @@ declare(strict_types=1);
 namespace pocketmine\network\mcpe\encryption;
 
 use pocketmine\network\mcpe\JwtUtils;
-use pocketmine	askAsyncTask;
+use pocketmine\task\AsyncTask;
 use pocketmine\utils\AssumptionFailedError;
 use function igbinary_serialize;
 use function igbinary_unserialize;

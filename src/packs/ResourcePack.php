@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\resourcepacks;
+namespace pocketmine\packs;
 
 interface ResourcePack{
 

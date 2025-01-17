@@ -26,7 +26,7 @@ namespace pocketmine\event\player;
 
 use pocketmine\event\Event;
 use pocketmine\player\PlayerInfo;
-use pocketmine\resourcepacks\ResourcePack;
+use pocketmine\packs\ResourcePack;
 use function array_unshift;
 
 /**

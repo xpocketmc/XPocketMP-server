@@ -22,10 +22,10 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\resourcepacks;
+namespace pocketmine\packs;
 
 use Ahc\Json\Comment as CommentedJsonDecoder;
-use pocketmine\resourcepacks\json\Manifest;
+use pocketmine\packs\json\Manifest;
 use pocketmine\utils\Utils;
 use function assert;
 use function fclose;

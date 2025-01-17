@@ -22,14 +22,14 @@
 
 declare(strict_types=1);
 
-namespace pocketmine	ask;
+namespace pocketmine\task;
 
 use pmmp\thread\Thread as NativeThread;
 use pocketmine\snooze\SleeperHandler;
 use pocketmine\thread\log\ThreadSafeLogger;
 use pocketmine\thread\ThreadCrashException;
 use pocketmine\thread\ThreadSafeClassLoader;
-use pocketmine\profilerTimings;
+use pocketmine\profiler\Timings;
 use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\Utils;
 use function array_keys;
