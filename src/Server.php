@@ -234,7 +234,7 @@ class Server{
 
 	private UpdateChecker $updater;
 
-	private AsyncPool $asyncPool;
+	private AsyncPool $async\Pool;
 
 	/** Counts the ticks since the server start */
 	private int $tickCounter = 0;
@@ -451,7 +451,7 @@ class Server{
 	}
 
 	public function getAsyncPool() : AsyncPool{
-		return $this->asyncPool;
+		return $this->async\Pool;
 	}
 
 	public function getTick() : int{
@@ -896,7 +896,7 @@ class Server{
 				$poolSize = max(1, (int) $poolSize);
 			}
 
-			$this->asyncPool = new AsyncPool($poolSize, max(-1, $this->configGroup->getPropertyInt(Yml::MEMORY_ASYNC_WORKER_HARD_LIMIT, 256)), $this->autoloader, $this->logger, $this->tickSleeper);
+			$this->async\Pool = new AsyncPool($poolSize, max(-1, $this->configGroup->getPropertyInt(Yml::MEMORY_ASYNC_WORKER_HARD_LIMIT, 256)), $this->autoloader, $this->logger, $this->tickSleeper);
 
 			$netCompressionThreshold = -1;
 			if($this->configGroup->getPropertyInt(Yml::NETWORK_BATCH_THRESHOLD, 256) >= 0){
@@ -1388,7 +1388,7 @@ class Server{
 				if(!$sync && strlen($buffer) >= $this->networkCompressionAsyncThreshold){
 					$promise = new CompressBatchPromise();
 					$task = new CompressBatchTask($buffer, $promise, $compressor);
-					$this->asyncPool->submitTask($task);
+					$this->async\Pool->submitTask($task);
 					return $promise;
 				}
 
@@ -1491,9 +1491,9 @@ class Server{
 			$this->logger->debug("Removing event handlers");
 			HandlerListManager::global()->unregisterAll();
 
-			if(isset($this->asyncPool)){
+			if(isset($this->async\Pool)){
 				$this->logger->debug("Shutting down async task worker pool");
-				$this->asyncPool->shutdown();
+				$this->async\Pool->shutdown();
 			}
 
 			if(isset($this->configGroup)){
@@ -1750,7 +1750,7 @@ class Server{
 
 	public function sendUsage(int $type = SendUsageTask::TYPE_STATUS) : void{
 		if($this->configGroup->getPropertyBool(Yml::ANONYMOUS_STATISTICS_ENABLED, true)){
-			$this->asyncPool->submitTask(new SendUsageTask($this, $type, $this->uniquePlayers));
+			$this->async\Pool->submitTask(new SendUsageTask($this, $type, $this->uniquePlayers));
 		}
 		$this->uniquePlayers = [];
 	}
@@ -1812,7 +1812,7 @@ class Server{
 		Timings::$scheduler->stopTiming();
 
 		Timings::$schedulerAsync->startTiming();
-		$this->asyncPool->collectTasks();
+		$this->async\Pool->collectTasks();
 		Timings::$schedulerAsync->stopTiming();
 
 		$this->worldManager->tick($this->tickCounter);

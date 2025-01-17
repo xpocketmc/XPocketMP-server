@@ -25,7 +25,7 @@ declare(strict_types=1);
 namespace pocketmine\task;
 
 use pmmp\thread\ThreadSafeArray;
-use pocketmine\asyncPromiseResolver;
+use pocketmine\async\PromiseResolver;
 
 class ThreadSafeResultAsyncTask extends AsyncTask{
 	private const TLS_KEY_PROMISE = "promise";

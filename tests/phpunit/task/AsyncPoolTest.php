@@ -26,7 +26,7 @@ namespace pocketmine\task;
 
 use PHPUnit\Framework\TestCase;
 use pmmp\thread\ThreadSafeArray;
-use pocketmine\asyncPromiseResolver;
+use pocketmine\async\PromiseResolver;
 use pocketmine\snooze\SleeperHandler;
 use pocketmine\thread\ThreadSafeClassLoader;
 use pocketmine\utils\MainLogger;

@@ -76,7 +76,7 @@ use pocketmine\network\mcpe\protocol\ClientboundPacket;
 use pocketmine\network\mcpe\protocol\types\BlockPosition;
 use pocketmine\network\mcpe\protocol\UpdateBlockPacket;
 use pocketmine\player\Player;
-use pocketmine\async\async;
+use pocketmine\async\Promise;
 use pocketmine\async\PromiseResolver;
 use pocketmine\task\AsyncPool;
 use pocketmine\Server;

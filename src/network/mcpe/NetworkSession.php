@@ -105,7 +105,7 @@ use pocketmine\player\Player;
 use pocketmine\player\PlayerInfo;
 use pocketmine\player\UsedChunkStatus;
 use pocketmine\player\XboxLivePlayerInfo;
-use pocketmine\async\async;
+use pocketmine\async\Promise;
 use pocketmine\async\PromiseResolver;
 use pocketmine\Server;
 use pocketmine\profiler\Timings;
