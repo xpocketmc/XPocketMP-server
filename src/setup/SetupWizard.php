@@ -26,7 +26,7 @@ declare(strict_types=1);
  * Set-up wizard used on the first run
  * Can be disabled with --no-wizard
  */
-namespace pocketmine\wizard;
+namespace pocketmine\setup;
 
 use pocketmine\lang\KnownTranslationFactory;
 use pocketmine\lang\Language;
