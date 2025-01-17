@@ -106,7 +106,7 @@ use pocketmine\player\PlayerInfo;
 use pocketmine\player\UsedChunkStatus;
 use pocketmine\player\XboxLivePlayerInfo;
 use pocketmine\async\async;
-use pocketmine\async\asyncResolver;
+use pocketmine\async\PromiseResolver;
 use pocketmine\Server;
 use pocketmine\profiler\Timings;
 use pocketmine\utils\AssumptionFailedError;

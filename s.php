@@ -41,7 +41,7 @@ function replaceInFiles($directory, $pattern, $replacement) {
 $directory = __DIR__; // Ganti dengan direktori utama Anda
 
 // Regex untuk menangkap pola dengan spasi/tab tidak wajar
-$pattern = 'use pocketmine\profiler\T'; // Menangkap bentuk seperti `use pocketmine\task\AsyncTask;`
-$replacement = 'use pocketmine\profiler\T'; // Perbaikan yang benar
+$pattern = '\Promise;'; // Menangkap bentuk seperti `use pocketmine\task\AsyncTask;`
+$replacement = '\Promise;'; // Perbaikan yang benar
 
 replaceInFiles($directory, $pattern, $replacement);
