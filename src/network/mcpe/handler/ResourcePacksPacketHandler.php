@@ -38,6 +38,7 @@ use pocketmine\network\mcpe\protocol\types\resourcepacks\ResourcePackInfoEntry;
 use pocketmine\network\mcpe\protocol\types\resourcepacks\ResourcePackStackEntry;
 use pocketmine\network\mcpe\protocol\types\resourcepacks\ResourcePackType;
 use pocketmine\packs\ResourcePack;
+use pocketmine\async\Promise;
 use Ramsey\Uuid\Uuid;
 use function array_keys;
 use function array_map;

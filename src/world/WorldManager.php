@@ -24,6 +24,7 @@ declare(strict_types=1);
 
 namespace pocketmine\world;
 
+use pocketmine\async\Promise;
 use pocketmine\entity\Entity;
 use pocketmine\event\world\WorldInitEvent;
 use pocketmine\event\world\WorldLoadEvent;
