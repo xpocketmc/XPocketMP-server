@@ -78,7 +78,7 @@ use pocketmine\network\mcpe\protocol\UpdateBlockPacket;
 use pocketmine\player\Player;
 use pocketmine\async\async;
 use pocketmine\async\asyncResolver;
-use pocketmine	askAsyncPool;
+use pocketmine\task\AsyncPool;
 use pocketmine\Server;
 use pocketmine\ServerConfigGroup;
 use pocketmine\utils\AssumptionFailedError;

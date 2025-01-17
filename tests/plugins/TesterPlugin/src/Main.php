@@ -27,8 +27,8 @@ namespace pmmp\TesterPlugin;
 use pocketmine\event\Listener;
 use pocketmine\event\server\CommandEvent;
 use pocketmine\plugin\PluginBase;
-use pocketmine	askCancelTaskException;
-use pocketmine	askClosureTask;
+use pocketmine\task\CancelTaskException;
+use pocketmine\task\ClosureTask;
 use function array_shift;
 
 class Main extends PluginBase implements Listener{

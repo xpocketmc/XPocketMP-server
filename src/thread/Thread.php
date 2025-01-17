@@ -25,7 +25,7 @@ declare(strict_types=1);
 namespace pocketmine\thread;
 
 use pmmp\thread\Thread as NativeThread;
-use pocketmine	askAsyncTask;
+use pocketmine\task\AsyncTask;
 
 /**
  * Specialized Thread class aimed at PocketMine-MP-related usages. It handles setting up autoloading and error handling.

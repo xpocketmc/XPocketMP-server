@@ -30,8 +30,8 @@ use pocketmine\event\Event;
 use pocketmine\network\mcpe\protocol\ClientboundPacket;
 use pocketmine\network\mcpe\protocol\ServerboundPacket;
 use pocketmine\player\Player;
-use pocketmine	askAsyncTask;
-use pocketmine	askTaskHandler;
+use pocketmine\task\AsyncTask;
+use pocketmine\task\TaskHandler;
 use function get_class;
 use function str_starts_with;
 

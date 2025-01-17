@@ -30,7 +30,7 @@ use pocketmine\network\mcpe\JwtException;
 use pocketmine\network\mcpe\JwtUtils;
 use pocketmine\network\mcpe\protocol\types\login\JwtChainLinkBody;
 use pocketmine\network\mcpe\protocol\types\login\JwtHeader;
-use pocketmine	askAsyncTask;
+use pocketmine\task\AsyncTask;
 use pocketmine\thread\NonThreadSafeValue;
 use function base64_decode;
 use function igbinary_serialize;
