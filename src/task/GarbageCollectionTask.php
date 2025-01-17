@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace pocketmine	ask;
+namespace pocketmine\task;
 
 use function gc_collect_cycles;
 use function gc_enable;

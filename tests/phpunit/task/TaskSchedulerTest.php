@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace pocketmine	ask;
+namespace pocketmine\task;
 
 use PHPUnit\Framework\TestCase;
 

@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace pocketmine	ask;
+namespace pocketmine\task;
 
 class PublishProgressRaceAsyncTask extends AsyncTask{
 	/** @var bool */

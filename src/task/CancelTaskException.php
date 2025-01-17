@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace pocketmine	ask;
+namespace pocketmine\task;
 
 /**
  * This exception can be thrown from Task::onRun() to cancel the execution of the task.
