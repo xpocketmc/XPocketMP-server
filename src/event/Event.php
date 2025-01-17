@@ -27,7 +27,7 @@ declare(strict_types=1);
  */
 namespace pocketmine\event;
 
-use pocketmine\profilerTimings;
+use pocketmine\profiler\Timings;
 use function count;
 use function get_class;
 

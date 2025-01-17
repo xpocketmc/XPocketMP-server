@@ -25,7 +25,7 @@ declare(strict_types=1);
 namespace pocketmine\event;
 
 use pocketmine\plugin\Plugin;
-use pocketmine\profilerTimingsHandler;
+use pocketmine\profiler\TimingsHandler;
 use function in_array;
 
 class RegisteredListener{

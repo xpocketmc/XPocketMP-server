@@ -121,7 +121,7 @@ use pocketmine\permission\PermissibleDelegateTrait;
 use pocketmine\player\chat\StandardChatFormatter;
 use pocketmine\Server;
 use pocketmine\ServerProperties;
-use pocketmine\profilerTimings;
+use pocketmine\profiler\Timings;
 use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\TextFormat;
 use pocketmine\world\ChunkListener;

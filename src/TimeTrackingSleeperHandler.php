@@ -26,7 +26,7 @@ namespace pocketmine;
 
 use pocketmine\snooze\SleeperHandler;
 use pocketmine\snooze\SleeperHandlerEntry;
-use pocketmine\profilerTimingsHandler;
+use pocketmine\profiler\TimingsHandler;
 use pocketmine\utils\Utils;
 use function hrtime;
 

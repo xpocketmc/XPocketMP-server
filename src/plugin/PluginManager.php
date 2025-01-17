@@ -38,7 +38,7 @@ use pocketmine\permission\DefaultPermissions;
 use pocketmine\permission\PermissionManager;
 use pocketmine\permission\PermissionParser;
 use pocketmine\Server;
-use pocketmine\profilerTimings;
+use pocketmine\profiler\Timings;
 use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\Utils;
 use Symfony\Component\Filesystem\Path;

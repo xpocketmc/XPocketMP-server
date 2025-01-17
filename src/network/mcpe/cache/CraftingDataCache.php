@@ -40,7 +40,7 @@ use pocketmine\network\mcpe\protocol\types\recipe\PotionTypeRecipe as ProtocolPo
 use pocketmine\network\mcpe\protocol\types\recipe\RecipeUnlockingRequirement;
 use pocketmine\network\mcpe\protocol\types\recipe\ShapedRecipe as ProtocolShapedRecipe;
 use pocketmine\network\mcpe\protocol\types\recipe\ShapelessRecipe as ProtocolShapelessRecipe;
-use pocketmine\profilerTimings;
+use pocketmine\profiler\Timings;
 use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\Binary;
 use pocketmine\utils\SingletonTrait;

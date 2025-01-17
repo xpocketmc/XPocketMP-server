@@ -24,8 +24,8 @@ declare(strict_types=1);
 
 namespace pocketmine\task;
 
-use pocketmine\profilerTimings;
-use pocketmine\profilerTimingsHandler;
+use pocketmine\profiler\Timings;
+use pocketmine\profiler\TimingsHandler;
 
 class TaskHandler{
 	protected int $nextRun;

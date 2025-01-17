@@ -108,7 +108,7 @@ use pocketmine\player\XboxLivePlayerInfo;
 use pocketmine\async\async;
 use pocketmine\async\asyncResolver;
 use pocketmine\Server;
-use pocketmine\profilerTimings;
+use pocketmine\profiler\Timings;
 use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\BinaryDataException;
 use pocketmine\utils\BinaryStream;
