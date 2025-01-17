@@ -37,6 +37,8 @@ class TaskScheduler{
 	/** @phpstan-var ReversePriorityQueue<int, TaskHandler> */
 	protected ReversePriorityQueue $queue;
 
+	protected TaskHandler $taskHandler;
+
 	/**
 	 * @var ObjectSet|TaskHandler[]
 	 * @phpstan-var ObjectSet<TaskHandler>
@@ -50,6 +52,7 @@ class TaskScheduler{
 	){
 		$this->queue = new ReversePriorityQueue();
 		$this->tasks = new ObjectSet();
+		$this->taskHandler = new taskHandler();
 	}
 
 	public function scheduleTask(Task $task) : TaskHandler{
