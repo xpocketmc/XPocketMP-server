@@ -44,9 +44,12 @@ use function strlen;
 class ZippedResourcePack implements ResourcePack{
 	protected string $path;
 	protected Manifest $manifest;
+	/**
+	 * @var string|null
+   */
 	protected ?string $sha256 = null;
 
-	/** @var resource */
+	/** @var resource|null */
 	protected $fileResource;
 
 	/**
@@ -143,6 +146,9 @@ class ZippedResourcePack implements ResourcePack{
 		return $this->manifest->header->uuid;
 	}
 
+  /**
+   * @return int|false
+   */
 	public function getPackSize() : int{
 		return filesize($this->path);
 	}

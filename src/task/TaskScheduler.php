@@ -147,6 +147,9 @@ class TaskScheduler{
 	}
 
 	private function isReady(int $currentTick) : bool{
+	  if($taskHandler instanceof TaskHandler){
+	    $nextRun = $taskHandler->getNextRun();
+	  }
 		return !$this->queue->isEmpty() && $this->queue->current()->getNextRun() <= $currentTick;
 	}
 }
