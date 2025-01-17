@@ -24,7 +24,7 @@ declare(strict_types=1);
 
 namespace pocketmine\world\generator;
 
-use pocketmine	askAsyncTask;
+use pocketmine\task\AsyncTask;
 use pocketmine\world\World;
 
 class GeneratorRegisterTask extends AsyncTask{

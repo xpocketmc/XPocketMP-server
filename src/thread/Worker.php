@@ -25,7 +25,7 @@ declare(strict_types=1);
 namespace pocketmine\thread;
 
 use pmmp\thread\Worker as NativeWorker;
-use pocketmine	askAsyncTask;
+use pocketmine\task\AsyncTask;
 
 /**
  * Specialized Worker class for PocketMine-MP-related use cases. It handles setting up autoloading and error handling.
