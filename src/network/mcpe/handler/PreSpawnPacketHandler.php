@@ -44,7 +44,7 @@ use pocketmine\network\mcpe\protocol\types\ServerAuthMovementMode;
 use pocketmine\network\mcpe\protocol\types\SpawnSettings;
 use pocketmine\player\Player;
 use pocketmine\Server;
-use pocketmine\timings\Timings;
+use pocketmine\profilerTimings;
 use pocketmine\VersionInfo;
 use Ramsey\Uuid\Uuid;
 use function sprintf;

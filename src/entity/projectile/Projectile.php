@@ -43,7 +43,7 @@ use pocketmine\nbt\NBT;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\nbt\tag\IntTag;
 use pocketmine\nbt\tag\ListTag;
-use pocketmine\timings\Timings;
+use pocketmine\profilerTimings;
 use function assert;
 use function atan2;
 use function ceil;

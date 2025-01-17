@@ -40,7 +40,7 @@ use pocketmine\network\PacketHandlingException;
 use pocketmine\player\GameMode;
 use pocketmine\Server;
 use pocketmine\thread\ThreadCrashException;
-use pocketmine\timings\Timings;
+use pocketmine\profilerTimings;
 use pocketmine\utils\Utils;
 use pocketmine\YmlServerProperties;
 use raklib\generic\DisconnectReason;

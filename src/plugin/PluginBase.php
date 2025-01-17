@@ -29,7 +29,7 @@ use pocketmine\command\CommandExecutor;
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginCommand;
 use pocketmine\lang\KnownTranslationFactory;
-use pocketmine\scheduler\TaskScheduler;
+use pocketmine	askTaskScheduler;
 use pocketmine\Server;
 use pocketmine\utils\Config;
 use pocketmine\utils\Utils;

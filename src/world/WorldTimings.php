@@ -24,7 +24,7 @@ declare(strict_types=1);
 
 namespace pocketmine\world;
 
-use pocketmine\timings\TimingsHandler;
+use pocketmine\profilerTimingsHandler;
 
 class WorldTimings{
 

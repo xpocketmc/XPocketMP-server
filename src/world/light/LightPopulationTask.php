@@ -25,7 +25,7 @@ declare(strict_types=1);
 namespace pocketmine\world\light;
 
 use pocketmine\block\RuntimeBlockStateRegistry;
-use pocketmine\scheduler\AsyncTask;
+use pocketmine	askAsyncTask;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\format\io\FastChunkSerializer;
 use pocketmine\world\format\LightArray;

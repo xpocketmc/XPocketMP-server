@@ -69,7 +69,7 @@ use pocketmine\command\utils\CommandStringHelper;
 use pocketmine\command\utils\InvalidCommandSyntaxException;
 use pocketmine\lang\KnownTranslationFactory;
 use pocketmine\Server;
-use pocketmine\timings\Timings;
+use pocketmine\profilerTimings;
 use pocketmine\utils\TextFormat;
 use pocketmine\utils\Utils;
 use function array_shift;

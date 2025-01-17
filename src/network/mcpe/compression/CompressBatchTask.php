@@ -24,7 +24,7 @@ declare(strict_types=1);
 
 namespace pocketmine\network\mcpe\compression;
 
-use pocketmine\scheduler\AsyncTask;
+use pocketmine	askAsyncTask;
 use pocketmine\thread\NonThreadSafeValue;
 use function chr;
 

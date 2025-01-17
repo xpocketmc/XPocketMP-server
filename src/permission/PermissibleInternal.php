@@ -26,7 +26,7 @@ namespace pocketmine\permission;
 
 use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginException;
-use pocketmine\timings\Timings;
+use pocketmine\profilerTimings;
 use pocketmine\utils\ObjectSet;
 use pocketmine\utils\Utils;
 use function count;

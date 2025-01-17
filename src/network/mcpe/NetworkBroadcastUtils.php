@@ -26,7 +26,7 @@ namespace pocketmine\network\mcpe;
 
 use pocketmine\network\mcpe\protocol\ClientboundPacket;
 use pocketmine\player\Player;
-use pocketmine\timings\Timings;
+use pocketmine\profilerTimings;
 use function count;
 use function spl_object_id;
 

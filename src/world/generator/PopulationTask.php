@@ -24,7 +24,7 @@ declare(strict_types=1);
 
 namespace pocketmine\world\generator;
 
-use pocketmine\scheduler\AsyncTask;
+use pocketmine	askAsyncTask;
 use pocketmine\utils\AssumptionFailedError;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\format\io\FastChunkSerializer;

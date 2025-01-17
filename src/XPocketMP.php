@@ -35,7 +35,7 @@ namespace pocketmine {
 	use pocketmine\utils\Terminal;
 	use pocketmine\utils\Timezone;
 	use pocketmine\utils\Utils;
-	use pocketmine\wizard\SetupWizard;
+	use pocketmine\setupSetupWizard;
 	use Symfony\Component\Filesystem\Path;
 	use function count;
 	use function defined;

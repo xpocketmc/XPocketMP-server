@@ -24,7 +24,7 @@ declare(strict_types=1);
 
 namespace pocketmine\updater;
 
-use pocketmine\scheduler\AsyncTask;
+use pocketmine	askAsyncTask;
 use pocketmine\utils\Internet;
 use function is_array;
 use function is_string;
