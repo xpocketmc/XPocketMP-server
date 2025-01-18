@@ -1400,6 +1400,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->register("iron_boots", fn() => Items::IRON_BOOTS());
 		$result->register("iron_chestplate", fn() => Items::IRON_CHESTPLATE());
 		$result->register("iron_helmet", fn() => Items::IRON_HELMET());
+		$result->register("iron_golem_spawn_egg", fn() => Items::IRON_GOLEM_SPAWN_EGG());
 		$result->register("iron_hoe", fn() => Items::IRON_HOE());
 		$result->register("iron_ingot", fn() => Items::IRON_INGOT());
 		$result->register("iron_leggings", fn() => Items::IRON_LEGGINGS());

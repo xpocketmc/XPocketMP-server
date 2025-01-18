@@ -271,6 +271,7 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::IRON_AXE, Items::IRON_AXE());
 		$this->map1to1Item(Ids::IRON_BOOTS, Items::IRON_BOOTS());
 		$this->map1to1Item(Ids::IRON_CHESTPLATE, Items::IRON_CHESTPLATE());
+		$this->map1to1Item(Ids::IRON_GOLEM_SPAWN_EGG, Items::IRON_GOLEM_SPAWN_EGG());
 		$this->map1to1Item(Ids::IRON_HELMET, Items::IRON_HELMET());
 		$this->map1to1Item(Ids::IRON_HOE, Items::IRON_HOE());
 		$this->map1to1Item(Ids::IRON_INGOT, Items::IRON_INGOT());

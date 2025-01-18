@@ -28,6 +28,7 @@ use pocketmine\block\utils\RecordType;
 use pocketmine\block\VanillaBlocks as Blocks;
 use pocketmine\entity\Cow;
 use pocketmine\entity\Entity;
+use pocketmine\entity\IronGolem;
 use pocketmine\entity\Location;
 use pocketmine\entity\Squid;
 use pocketmine\entity\Villager;
@@ -197,6 +198,7 @@ use function strtolower;
  * @method static Axe IRON_AXE()
  * @method static Armor IRON_BOOTS()
  * @method static Armor IRON_CHESTPLATE()
+ * @method static SpawnEgg IRON_GOLEM_SPAWN_EGG()
  * @method static Armor IRON_HELMET()
  * @method static Hoe IRON_HOE()
  * @method static Item IRON_INGOT()
@@ -600,6 +602,11 @@ final class VanillaItems{
 			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
 				return new Cow(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
+		});
+		self::register("iron_golem_egg", new class(new IID(Ids::IRON_GOLEM_SPAWN_EGG), "Iron Golem Spawn Egg") extends SpawnEgg{
+		  protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new IronGolem(Location::fromObject($pos, $world, $yaw, $pitch));
+		  }
 		});
 		self::register("squid_spawn_egg", new class(new IID(Ids::SQUID_SPAWN_EGG), "Squid Spawn Egg") extends SpawnEgg{
 			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{

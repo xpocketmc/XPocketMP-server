@@ -120,6 +120,9 @@ final class EntityFactory{
 			return new FallingBlock(Helper::parseLocation($nbt, $world), FallingBlock::parseBlockNBT(RuntimeBlockStateRegistry::getInstance(), $nbt), $nbt);
 		}, ['FallingSand', 'minecraft:falling_block']);
 
+		$this->register(IronGolem::class, function(World $world, CompoundTag $nbt) : IronGolem{
+			return new IronGolem(Helper::parseLocation($nbt, $world), $nbt);
+		}, ['IronGolem', 'minecraft:iron_golem']);
 		$this->register(Human::class, function(World $world, CompoundTag $nbt) : Human{
 			return new Human(Helper::parseLocation($nbt, $world), Human::parseSkinNBT($nbt), $nbt);
 		}, ['Human']);
