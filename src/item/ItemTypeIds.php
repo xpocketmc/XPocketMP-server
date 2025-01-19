@@ -330,8 +330,11 @@ final class ItemTypeIds{
 	public const PALE_OAK_SIGN = 20290;
 	public const RESIN_BRICK = 20291;
 	public const COW_SPAWN_EGG = 20292;
+	public const PIG_SPAWN_EGG = 20293;
+	public const SHEEP_SPAWN_EGG = 20294;
+	public const CHICKEN_SPAWN_EGG = 20295;
 
-	public const FIRST_UNUSED_ITEM_ID = 20293;
+	public const FIRST_UNUSED_ITEM_ID = 20296;
 
 	private static int $nextDynamicId = self::FIRST_UNUSED_ITEM_ID;
 

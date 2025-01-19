@@ -63,7 +63,7 @@ class Salmon extends WaterAnimal
 
 	public static function getNetworkTypeId() : string
 	{
-		return "minecraft:salmon";
+		return EntityIds::SALMON;
 	}
 
 	public function initEntity(CompoundTag $nbt) : void

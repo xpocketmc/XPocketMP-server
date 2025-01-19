@@ -26,9 +26,12 @@ namespace pocketmine\item;
 
 use pocketmine\block\utils\RecordType;
 use pocketmine\block\VanillaBlocks as Blocks;
+use pocketmine\entity\Chicken;
 use pocketmine\entity\Cow;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Location;
+use pocketmine\entity\Pig;
+use pocketmine\entity\Sheep;
 use pocketmine\entity\Squid;
 use pocketmine\entity\Villager;
 use pocketmine\entity\Zombie;
@@ -596,9 +599,24 @@ final class VanillaItems{
 	}
 
 	private static function registerSpawnEggs() : void{
+	  self::register("chicken_spawn_egg", new class(new IID(Ids::CHICKEN_SPAWN_EGG), "Chicken Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Chicken(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
 		self::register("cow_spawn_egg", new class(new IID(Ids::COW_SPAWN_EGG), "Cow Spawn Egg") extends SpawnEgg{
 			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
 				return new Cow(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+		self::register("pig_spawn_egg", new class(new IID(Ids::PIG_SPAWN_EGG), "Pig Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Pig(Location::fromObject($pos, $world, $yaw, $pitch));
+			}
+		});
+		self::register("sheep_spawn_egg", new class(new IID(Ids::SHEEP_SPAWN_EGG), "Sheep Spawn Egg") extends SpawnEgg{
+			protected function createEntity(World $world, Vector3 $pos, float $yaw, float $pitch) : Entity{
+				return new Sheep(Location::fromObject($pos, $world, $yaw, $pitch));
 			}
 		});
 		self::register("squid_spawn_egg", new class(new IID(Ids::SQUID_SPAWN_EGG), "Squid Spawn Egg") extends SpawnEgg{
@@ -701,5 +719,4 @@ final class VanillaItems{
 		self::register("wayfinder_armor_trim_smithing_template", new Item(new IID(Ids::WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE), "Wayfinder Armor Trim Smithing Template"));
 		self::register("wild_armor_trim_smithing_template", new Item(new IID(Ids::WILD_ARMOR_TRIM_SMITHING_TEMPLATE), "Wild Armor Trim Smithing Template"));
 	}
-
 }
