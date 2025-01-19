@@ -31,7 +31,7 @@ use pocketmine\player\Player;
 use function mt_rand;
 use const PHP_FLOAT_MAX;
 
-class Sheep extends Living{
+class Pig extends Living{
 
   public const NETWORK_ID = EntityIds::PIG;
 	private bool $isBaby = false;
