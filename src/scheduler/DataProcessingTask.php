@@ -6,8 +6,8 @@ namespace pocketmine\scheduler;
 
 use React\Promise\PromiseInterface;
 use React\Promise\Deferred;
-use React\Promise\Promise;
 use function React\Promise\all;
+use function React\Promise\resolve;
 use pocketmine\Server;
 
 class DataProcessingTask extends AsyncTask{
@@ -20,30 +20,28 @@ class DataProcessingTask extends AsyncTask{
     /**
      * @param array<string> $data
      */
-    public function __construct(array $data,int $batchSize=100){
-        $this->data=$data;
-        $this->batchSize=max(1,$batchSize);
+    public function __construct(array $data, int $batchSize = 100){
+        $this->data = $data;
+        $this->batchSize = max(1, $batchSize);
     }
 
     /**
      * @return PromiseInterface<array<string>>
      */
-    public function onRunAsync():PromiseInterface{
-        $deferred=new Deferred();
+    public function onRunAsync(): PromiseInterface{
+        $deferred = new Deferred();
 
-        async(function()use($deferred):void{
-            $chunks=array_chunk($this->data,$this->batchSize);
-            $promises=array_map(fn(array $chunk):PromiseInterface=>Promise::resolve($this->processBatch($chunk)),$chunks);
+        $chunks = array_chunk($this->data, $this->batchSize);
+        $promises = array_map(fn(array $chunk): PromiseInterface => resolve($this->processBatch($chunk)), $chunks);
 
-            all($promises)->then(
-                function(array $results)use($deferred):void{
-                    $deferred->resolve(array_merge(...$results));
-                },
-                function(\Throwable $e)use($deferred):void{
-                    $deferred->reject($e);
-                }
-            );
-        })();
+        all($promises)->then(
+            function(array $results) use ($deferred): void{
+                $deferred->resolve(array_merge(...$results));
+            },
+            function(\Throwable $e) use ($deferred): void{
+                $deferred->reject($e);
+            }
+        );
 
         return $deferred->promise();
     }
@@ -52,10 +50,10 @@ class DataProcessingTask extends AsyncTask{
      * @param array<string> $batch
      * @return array<string>
      */
-    private function processBatch(array $batch):array{
-        $processed=[];
-        foreach($batch as $item){
-            $processed[]=strtoupper($item);
+    private function processBatch(array $batch): array{
+        $processed = [];
+        foreach ($batch as $item){
+            $processed[] = strtoupper($item);
         }
         return $processed;
     }
@@ -63,10 +61,10 @@ class DataProcessingTask extends AsyncTask{
     /**
      * @param array<string> $result
      */
-    public function onComplete(array $result):void{
-        Server::getInstance()->getLogger()->info("Data processing complete. Processed items: ".count($result));
+    public function onComplete(array $result): void{
+        Server::getInstance()->getLogger()->info("Data processing complete. Processed items: " . count($result));
     }
 
-    public function onRun():void{
+    public function onRun(): void{
     }
 }
