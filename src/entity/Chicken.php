@@ -25,14 +25,15 @@ declare(strict_types=1);
 namespace pocketmine\entity;
 
 use pocketmine\item\VanillaItems;
+use pocketmine\math\Vector3;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
+use pocketmine\player\Player;
 use function mt_rand;
+use const PHP_FLOAT_MAX;
 
 class Chicken extends Living{
 
   public const NETWORK_ID = EntityIds::CHICKEN;
-	private bool $isBaby = false;
-	private int $growUpTime = 6000;
 
 	public static function getNetworkTypeId() : string{
 		return EntityIds::CHICKEN;
@@ -48,7 +49,7 @@ class Chicken extends Living{
 
 	public function getDrops() : array{
 		return [
-			VanillaItems::CHICKEN_RAW()->setCount(mt_rand(1)),
+			VanillaItems::RAW_CHICKEN()->setCount(mt_rand(1)),
 			VanillaItems::FEATHER()->setCount(mt_rand(0, 2))
 		];
 	}
