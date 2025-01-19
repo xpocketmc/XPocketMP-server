@@ -24,6 +24,7 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
+use pocketmine\block\VanillaBlocks;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Vector3;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
@@ -58,7 +59,7 @@ class Sheep extends Living{
 
 		return [
 			VanillaItems::RAW_MUTTON()->setCount(mt_rand(1, 2)),
-			VanillaItems::WOOL()->setCount(mt_rand(0, 2))
+			VanillaBlocks::WOOL()->setCount(mt_rand(0, 2))
 		];
 	}
 
