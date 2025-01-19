@@ -59,7 +59,7 @@ class Sheep extends Living{
 
 		return [
 			VanillaItems::RAW_MUTTON()->setCount(mt_rand(1, 2)),
-			VanillaBlocks::WOOL()->setCount(mt_rand(0, 2))
+			VanillaBlocks::WOOL()->asItem()
 		];
 	}
 
