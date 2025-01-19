@@ -50,7 +50,8 @@
       "pocketmine/snooze": "^0.5.0",
       "ramsey/uuid": "~4.7.0",
       "symfony/filesystem": "~6.4.0",
-	  "xpocketmp/sounds": "1.2.1"
+	  "xpocketmp/sounds": "1.2.1",
+	  "react/async": "4.0.0",
    },
    "require-dev": {
       "phpstan/phpstan": "~1.12.13",
