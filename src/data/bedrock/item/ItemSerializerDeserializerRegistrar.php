@@ -194,6 +194,7 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::CHERRY_BOAT, Items::CHERRY_BOAT());
 		$this->map1to1Item(Ids::CHERRY_SIGN, Items::CHERRY_SIGN());
 		$this->map1to1Item(Ids::CHICKEN, Items::RAW_CHICKEN());
+		$this->map1to1Item(Ids::CHICKEN_SPAWN_EGG, Items::CHICKEN_SPAWN_EGG());
 		$this->map1to1Item(Ids::CHORUS_FRUIT, Items::CHORUS_FRUIT());
 		$this->map1to1Item(Ids::CLAY_BALL, Items::CLAY());
 		$this->map1to1Item(Ids::CLOCK, Items::CLOCK());
@@ -335,6 +336,7 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::PALE_OAK_SIGN, Items::PALE_OAK_SIGN());
 		$this->map1to1Item(Ids::PAPER, Items::PAPER());
 		$this->map1to1Item(Ids::PHANTOM_MEMBRANE, Items::PHANTOM_MEMBRANE());
+		$this->map1to1Item(Ids::PIG_SPAWN_EGG, Items::PIG_SPAWN_EGG());
 		$this->map1to1Item(Ids::PITCHER_POD, Items::PITCHER_POD());
 		$this->map1to1Item(Ids::POISONOUS_POTATO, Items::POISONOUS_POTATO());
 		$this->map1to1Item(Ids::POPPED_CHORUS_FRUIT, Items::POPPED_CHORUS_FRUIT());
@@ -363,6 +365,7 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE, Items::SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE());
 		$this->map1to1Item(Ids::SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE, Items::SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE());
 		$this->map1to1Item(Ids::SHEARS, Items::SHEARS());
+		$this->map1to1Item(Ids::SHEEP_SPAWN_EGG, Items::SHEEP_SPAWN_EGG());
 		$this->map1to1Item(Ids::SHULKER_SHELL, Items::SHULKER_SHELL());
 		$this->map1to1Item(Ids::SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE, Items::SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE());
 		$this->map1to1Item(Ids::SLIME_BALL, Items::SLIMEBALL());

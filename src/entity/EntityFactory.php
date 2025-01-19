@@ -89,6 +89,10 @@ final class EntityFactory{
 			return new Arrow(Helper::parseLocation($nbt, $world), null, $nbt->getByte(Arrow::TAG_CRIT, 0) === 1, $nbt);
 		}, ['Arrow', 'minecraft:arrow']);
 
+	$this->register(Chicken::class, function(World $world, CompoundTag $nbt) : Chicken{
+			return new Chicken(Helper::parseLocation($nbt, $world), $nbt);
+		}, ['Chicken', 'minecraft:chicken']);
+
 		$this->register(Cow::class, function(World $world, CompoundTag $nbt) : Cow{
 			return new Cow(Helper::parseLocation($nbt, $world), $nbt);
 		}, ['Cow', 'minecraft:cow']);
@@ -154,9 +158,17 @@ final class EntityFactory{
 			return new Painting(Helper::parseLocation($nbt, $world), $blockIn, $facing, $motive, $nbt);
 		}, ['Painting', 'minecraft:painting']);
 
+	$this->register(Pig::class, function(World $world, CompoundTag $nbt) : Pig{
+			return new Pig(Helper::parseLocation($nbt, $world), $nbt);
+		}, ['Pig', 'minecraft:pig']);
+
 		$this->register(PrimedTNT::class, function(World $world, CompoundTag $nbt) : PrimedTNT{
 			return new PrimedTNT(Helper::parseLocation($nbt, $world), $nbt);
 		}, ['PrimedTnt', 'PrimedTNT', 'minecraft:tnt']);
+
+	$this->register(Sheep::class, function(World $world, CompoundTag $nbt) : Sheep{
+			return new Sheep(Helper::parseLocation($nbt, $world), $nbt);
+		}, ['Sheep', 'minecraft:sheep']);
 
 		$this->register(Snowball::class, function(World $world, CompoundTag $nbt) : Snowball{
 			return new Snowball(Helper::parseLocation($nbt, $world), null, $nbt);

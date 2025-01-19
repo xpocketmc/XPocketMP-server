@@ -31,14 +31,14 @@ use pocketmine\player\Player;
 use function mt_rand;
 use const PHP_FLOAT_MAX;
 
-class Cow extends Living{
+class Sheep extends Living{
 
-  public const NETWORK_ID = EntityIds::COW;
+  public const NETWORK_ID = EntityIds::SHEEP;
 	private bool $isBaby = false;
 	private int $growUpTime = 6000;
 
 	public static function getNetworkTypeId() : string{
-		return EntityIds::COW;
+		return EntityIds::SHEEP;
 	}
 
 	protected function getInitialSizeInfo() : EntitySizeInfo{
@@ -48,7 +48,7 @@ class Cow extends Living{
 	}
 
 	public function getName() : string{
-		return "Cow";
+		return "Sheep";
 	}
 
 	public function getDrops() : array{
@@ -57,8 +57,8 @@ class Cow extends Living{
 		}
 
 		return [
-			VanillaItems::RAW_BEEF()->setCount(mt_rand(1, 3)),
-			VanillaItems::LEATHER()->setCount(mt_rand(0, 2))
+			VanillaItems::RAW_MUTTON()->setCount(mt_rand(1, 2)),
+			VanillaItems::WOOL()->setCount(mt_rand(0, 2))
 		];
 	}
 
