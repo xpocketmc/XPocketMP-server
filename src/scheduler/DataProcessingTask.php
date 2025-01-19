@@ -15,6 +15,7 @@ class DataProcessingTask extends AsyncTask{
     /** @var array<string> */
     private array $data;
 
+	/** @var int<1, max> */
     private int $batchSize;
 
     /**
@@ -31,7 +32,7 @@ class DataProcessingTask extends AsyncTask{
     public function onRunAsync(): PromiseInterface{
         $deferred = new Deferred();
 
-        $chunks = array_chunk($this->data, $this->batchSize);
+        $chunks = array_chunk($this->data, max(1, $this->batchSize));
         $promises = array_map(fn(array $chunk): PromiseInterface => resolve($this->processBatch($chunk)), $chunks);
 
         all($promises)->then(
