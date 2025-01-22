@@ -26,7 +26,7 @@ namespace pocketmine\world;
 use pocketmine\math\Vector3;
 use pocketmine\utils\Limits;
 use pocketmine\utils\Utils;
-use pocketmine\world\hell\Nether;
+use pocketmine\world\generator\hell\Nether;
 use pocketmine\world\generator\Generator;
 use pocketmine\world\generator\normal\Normal;
 use function random_int;
