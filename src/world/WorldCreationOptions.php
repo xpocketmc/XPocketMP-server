@@ -36,10 +36,10 @@ use function random_int;
  */
 final class WorldCreationOptions{
 
-    /** @var string[]|class-string<Generator>[] */
+    /** @var class-string<Generator>[] */
     private array $generatorClasses = [Normal::class, Nether::class];
 
-    /** @phpstan-var class-string<Generator>|null */
+    /** @var class-string<Generator>|null */
     private ?string $generatorClass = null;
 
     private int $seed;
@@ -68,6 +68,10 @@ final class WorldCreationOptions{
      * @return $this
      */
     public function setGeneratorClass(string $generatorClass) : self{
+        if (!in_array($generatorClass, $this->generatorClasses, true)) {
+            throw new \InvalidArgumentException("Invalid generator class.");
+        }
+
         Utils::testValidInstance($generatorClass, Generator::class);
         $this->generatorClass = $generatorClass;
         return $this;
