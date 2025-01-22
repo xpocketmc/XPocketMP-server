@@ -27,6 +27,7 @@ namespace pocketmine\world;
 use pocketmine\math\Vector3;
 use pocketmine\utils\Limits;
 use pocketmine\utils\Utils;
+use pocketmine\world\hell\Nether;
 use pocketmine\world\generator\Generator;
 use pocketmine\world\generator\normal\Normal;
 use function random_int;
@@ -37,7 +38,7 @@ use function random_int;
 final class WorldCreationOptions{
 
 	/** @phpstan-var class-string<Generator> */
-	private string $generatorClass = Normal::class;
+	private string $generatorClass = $data->getGenerator() === "nether" ? Nether::class : Normal::class;
 	private int $seed;
 	private int $difficulty = World::DIFFICULTY_NORMAL;
 	private string $generatorOptions = "";
