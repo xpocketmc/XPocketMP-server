@@ -17,7 +17,6 @@
  * @author ClousClouds Team
  * @link https://xpocketmc.xyz/
  *
- *
  */
 
 declare(strict_types=1);
@@ -33,68 +32,84 @@ use pocketmine\world\generator\normal\Normal;
 use function random_int;
 
 /**
- * Represents user-customizable settings for world creation
+ * Represents user-customizable settings for world creation.
  */
 final class WorldCreationOptions{
 
-	/** @phpstan-var class-string<Generator> */
-	private string $generatorClass = $data->getGenerator() === "nether" ? Nether::class : Normal::class;
-	private int $seed;
-	private int $difficulty = World::DIFFICULTY_NORMAL;
-	private string $generatorOptions = "";
-	private Vector3 $spawnPosition;
+    /** @var string[]|class-string<Generator>[] */
+    private array $generatorClasses = [Normal::class, Nether::class];
 
-	public function __construct(){
-		$this->seed = random_int(Limits::INT32_MIN, Limits::INT32_MAX);
-		$this->spawnPosition = new Vector3(256, 70, 256);
-	}
+    /** @phpstan-var class-string<Generator>|null */
+    private ?string $generatorClass = null;
 
-	public static function create() : self{
-		return new self();
-	}
+    private int $seed;
+    private int $difficulty = World::DIFFICULTY_NORMAL;
+    private string $generatorOptions = "";
+    private Vector3 $spawnPosition;
 
-	/** @phpstan-return class-string<Generator> */
-	public function getGeneratorClass() : string{ return $this->generatorClass; }
+    public function __construct(){
+        $this->seed = random_int(Limits::INT32_MIN, Limits::INT32_MAX);
+        $this->spawnPosition = new Vector3(256, 70, 256);
+    }
 
-	/**
-	 * @phpstan-param class-string<Generator> $generatorClass
-	 * @return $this
-	 */
-	public function setGeneratorClass(string $generatorClass) : self{
-		Utils::testValidInstance($generatorClass, Generator::class);
-		$this->generatorClass = $generatorClass;
-		return $this;
-	}
+    public static function create() : self{
+        return new self();
+    }
 
-	public function getSeed() : int{ return $this->seed; }
+    /**
+     * @phpstan-return class-string<Generator>|null
+     */
+    public function getGeneratorClass() : ?string{
+        return $this->generatorClass;
+    }
 
-	/** @return $this */
-	public function setSeed(int $seed) : self{
-		$this->seed = $seed;
-		return $this;
-	}
+    /**
+     * @phpstan-param class-string<Generator> $generatorClass
+     * @return $this
+     */
+    public function setGeneratorClass(string $generatorClass) : self{
+        Utils::testValidInstance($generatorClass, Generator::class);
+        $this->generatorClass = $generatorClass;
+        return $this;
+    }
 
-	public function getDifficulty() : int{ return $this->difficulty; }
+    public function getSeed() : int{
+        return $this->seed;
+    }
 
-	/** @return $this */
-	public function setDifficulty(int $difficulty) : self{
-		$this->difficulty = $difficulty;
-		return $this;
-	}
+    /** @return $this */
+    public function setSeed(int $seed) : self{
+        $this->seed = $seed;
+        return $this;
+    }
 
-	public function getGeneratorOptions() : string{ return $this->generatorOptions; }
+    public function getDifficulty() : int{
+        return $this->difficulty;
+    }
 
-	/** @return $this */
-	public function setGeneratorOptions(string $generatorOptions) : self{
-		$this->generatorOptions = $generatorOptions;
-		return $this;
-	}
+    /** @return $this */
+    public function setDifficulty(int $difficulty) : self{
+        $this->difficulty = $difficulty;
+        return $this;
+    }
 
-	public function getSpawnPosition() : Vector3{ return $this->spawnPosition; }
+    public function getGeneratorOptions() : string{
+        return $this->generatorOptions;
+    }
 
-	/** @return $this */
-	public function setSpawnPosition(Vector3 $spawnPosition) : self{
-		$this->spawnPosition = $spawnPosition;
-		return $this;
-	}
+    /** @return $this */
+    public function setGeneratorOptions(string $generatorOptions) : self{
+        $this->generatorOptions = $generatorOptions;
+        return $this;
+    }
+
+    public function getSpawnPosition() : Vector3{
+        return $this->spawnPosition;
+    }
+
+    /** @return $this */
+    public function setSpawnPosition(Vector3 $spawnPosition) : self{
+        $this->spawnPosition = $spawnPosition;
+        return $this;
+    }
 }
