@@ -27,7 +27,7 @@ namespace pocketmine\world\format\io;
 use pocketmine\utils\Filesystem;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\generator\GeneratorManager;
-use pocketmine\world\gemerator\hell\Nether;
+use pocketmine\world\generator\hell\Nether;
 use pocketmine\world\generator\normal\Normal;
 use pocketmine\world\WorldCreationOptions;
 use Symfony\Component\Filesystem\Path;
