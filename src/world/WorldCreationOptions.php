@@ -36,10 +36,10 @@ use function random_int;
  */
 final class WorldCreationOptions{
 
-    /** @var class-string<Generator>[] */
+    /** @phpstan-var class-string<Generator>[] */
     private array $generatorClasses = [Normal::class, Nether::class];
 
-    /** @var class-string<Generator>|null */
+    /** @phpstan-var class-string<Generator>|null */
     private ?string $generatorClass = null;
 
     private int $seed;
