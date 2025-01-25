@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe;
+namespace pocketmine\network\mcpe\inventory;
 
 use pocketmine\inventory\Inventory;
 use pocketmine\network\mcpe\protocol\types\inventory\ItemStack;
