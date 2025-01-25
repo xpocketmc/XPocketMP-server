@@ -36,6 +36,8 @@ use pocketmine\entity\animation\Animation;
 use pocketmine\entity\animation\ArmSwingAnimation;
 use pocketmine\entity\animation\CriticalHitAnimation;
 use pocketmine\entity\attribute\Attribute;
+use pocketmine\entity\attribute\AttributeFactory;
+use pocketmine\entity\attribute\AttributeMap;
 use pocketmine\entity\effect\VanillaEffects;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Human;
