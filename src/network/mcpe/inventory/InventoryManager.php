@@ -43,6 +43,8 @@ use pocketmine\inventory\transaction\InventoryTransaction;
 use pocketmine\item\enchantment\EnchantingOption;
 use pocketmine\item\enchantment\EnchantmentInstance;
 use pocketmine\network\mcpe\cache\CreativeInventoryCache;
+use pocketmine\network\mcpe\ItemStackInfo;
+use pocketmine\network\mcpe\NetworkSession;
 use pocketmine\network\mcpe\protocol\ClientboundPacket;
 use pocketmine\network\mcpe\protocol\ContainerClosePacket;
 use pocketmine\network\mcpe\protocol\ContainerOpenPacket;
