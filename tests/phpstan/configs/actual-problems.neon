@@ -631,7 +631,7 @@ parameters:
 			path: ../../../src/network/mcpe/NetworkSession.php
 
 		-
-			message: "#^Cannot call method syncAll\\(\\) on pocketmine\\\\network\\\\mcpe\\\\InventoryManager\\|null\\.$#"
+			message: "#^Cannot call method syncAll\\(\\) on pocketmine\\\\network\\\\mcpe\\\\inventory\\\\InventoryManager\\|null\\.$#"
 			count: 1
 			path: ../../../src/network/mcpe/NetworkSession.php
 
