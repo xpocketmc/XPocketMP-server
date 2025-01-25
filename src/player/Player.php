@@ -168,7 +168,7 @@ use const PHP_INT_MAX;
 /**
  * Main class that handles networking, recovery, and packet sending to the server part
  */
-class Player extends Human implements CommandSender, ChunkListener, IPlayer{
+class Player extends Human implements CommandSender, ChunkListener, PlayerInterface{
 	use PermissibleDelegateTrait;
 
 	private const MOVES_PER_TICK = 2;
