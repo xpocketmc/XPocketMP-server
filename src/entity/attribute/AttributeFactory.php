@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\entity;
+namespace pocketmine\entity\attribute;
 
 use pocketmine\utils\SingletonTrait;
 
