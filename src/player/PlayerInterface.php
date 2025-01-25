@@ -24,7 +24,7 @@ declare(strict_types=1);
 
 namespace pocketmine\player;
 
-interface IPlayer{
+interface PlayerInterface{
 
 	public function getName() : string;
 
