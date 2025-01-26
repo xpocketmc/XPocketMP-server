@@ -81,8 +81,8 @@ use pocketmine\event\player\PlayerToggleSprintEvent;
 use pocketmine\event\player\PlayerToggleSwimEvent;
 use pocketmine\event\player\PlayerTransferEvent;
 use pocketmine\event\player\PlayerViewDistanceChangeEvent;
-use pocketmine\form\FormUIInterface;
-use pocketmine\form\FormUIValidationException;
+use pocketmine\ui\FormUIInterface;
+use pocketmine\ui\FormUIValidationException;
 use pocketmine\inventory\CallbackInventoryListener;
 use pocketmine\inventory\CreativeInventory;
 use pocketmine\inventory\Inventory;
@@ -2156,7 +2156,7 @@ round($position->getY()) . ", " .
 
 		try{
 			$this->forms[$formId]->handleResponse($this, $responseData);
-		}catch(FormValidationException $e){
+		}catch(FormUIValidationException $e){
 			$this->logger->critical("Failed to validate form " . get_class($this->forms[$formId]) . ": " . $e->getMessage());
 			$this->logger->logException($e);
 		}finally{
