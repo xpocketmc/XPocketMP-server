@@ -31,7 +31,7 @@ use pocketmine\event\player\PlayerResourcePackOfferEvent;
 use pocketmine\event\server\DataPacketDecodeEvent;
 use pocketmine\event\server\DataPacketReceiveEvent;
 use pocketmine\event\server\DataPacketSendEvent;
-use pocketmine\form\Form;
+use pocketmine\ui\FormUIInterface;
 use pocketmine\item\Item;
 use pocketmine\lang\KnownTranslationFactory;
 use pocketmine\lang\Translatable;
