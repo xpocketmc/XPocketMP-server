@@ -81,8 +81,8 @@ use pocketmine\event\player\PlayerToggleSprintEvent;
 use pocketmine\event\player\PlayerToggleSwimEvent;
 use pocketmine\event\player\PlayerTransferEvent;
 use pocketmine\event\player\PlayerViewDistanceChangeEvent;
-use pocketmine\form\Form;
-use pocketmine\form\FormValidationException;
+use pocketmine\form\FormUIInterface;
+use pocketmine\form\FormUIValidationException;
 use pocketmine\inventory\CallbackInventoryListener;
 use pocketmine\inventory\CreativeInventory;
 use pocketmine\inventory\Inventory;
@@ -296,7 +296,7 @@ class Player extends Human implements CommandSender, ChunkListener, PlayerInterf
 	private int $lastEmoteTick = 0;
 
 	protected int $formIdCounter = 0;
-	/** @var Form[] */
+	/** @var FormUIInterface[] */
 	protected array $forms = [];
 
 	protected \Logger $logger;
