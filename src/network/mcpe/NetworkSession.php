@@ -1173,7 +1173,7 @@ class NetworkSession{
 		$this->sendDataPacket(TextPacket::tip($message));
 	}
 
-	public function onFormSent(int $id, Form $form) : bool{
+	public function onFormSent(int $id, FormUIInterface $form) : bool{
 		return $this->sendDataPacket(ModalFormRequestPacket::create($id, json_encode($form, JSON_THROW_ON_ERROR)));
 	}
 
