@@ -30,14 +30,14 @@ use pocketmine\player\Player;
  * Form implementations must implement this interface to be able to utilize the Player form-sending mechanism.
  * There is no restriction on custom implementations other than that they must implement this.
  */
-interface FormUiInterface extends \JsonSerializable{
+interface FormUIInterface extends \JsonSerializable{
 
 	/**
 	 * Handles a form response from a player.
 	 *
 	 * @param mixed $data
 	 *
-	 * @throws FormValidationException if the data could not be processed
+	 * @throws FormUIValidationException if the data could not be processed
 	 */
 	public function handleResponse(Player $player, $data) : void;
 }
