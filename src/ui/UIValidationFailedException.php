@@ -24,6 +24,6 @@ declare(strict_types=1);
 
 namespace pocketmine\ui;
 
-class UIValidationFailedException extends \RuntimeException{
+class FormUIValidationFailedException extends \RuntimeException{
 
 }
