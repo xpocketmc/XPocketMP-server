@@ -2141,7 +2141,7 @@ round($position->getY()) . ", " .
 	 *
 	 * @throws \InvalidArgumentException
 	 */
-	public function sendForm(Form $form) : void{
+	public function sendForm(FormUIInterface $form) : void{
 		$id = $this->formIdCounter++;
 		if($this->getNetworkSession()->onFormSent($id, $form)){
 			$this->forms[$id] = $form;
