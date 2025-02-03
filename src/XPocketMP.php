@@ -135,6 +135,7 @@ use const ZEND_DEBUG_BUILD;
 			"yaml" => "YAML",
 			"zip" => "Zip",
 			"zlib" => "Zlib"
+			"commandutils" => "CommandUtils"
 		];
 
 		foreach($extensions as $ext => $name){
