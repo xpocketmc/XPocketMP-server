@@ -134,7 +134,7 @@ use const ZEND_DEBUG_BUILD;
 			"spl" => "SPL",
 			"yaml" => "YAML",
 			"zip" => "Zip",
-			"zlib" => "Zlib"
+			"zlib" => "Zlib",
 			"commandutils" => "CommandUtils"
 		];
 
