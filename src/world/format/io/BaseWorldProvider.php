@@ -65,48 +65,48 @@ abstract class BaseWorldProvider implements WorldProvider{
 	 */
 	abstract protected function loadLevelData() : WorldData;
 
- 	private function translatePalette(PalettedBlockArray $blockArray, \Logger $logger) : PalettedBlockArray{
-        /** @phpstan-var list<int> $palette */
-        $palette = $blockArray->getPalette();
+	private function translatePalette(PalettedBlockArray $blockArray, \Logger $logger) : PalettedBlockArray{
+		/** @phpstan-var list<int> $palette */
+		$palette = $blockArray->getPalette();
 
-        $newPalette = [];
-        $blockDecodeErrors = [];
-        $unknownBlocks = [];
+		$newPalette = [];
+		$blockDecodeErrors = [];
+		$unknownBlocks = [];
 
-        foreach($palette as $k => $legacyIdMeta){
-            $id = $legacyIdMeta >> 4;
-            $meta = $legacyIdMeta & 0xf;
+		foreach($palette as $k => $legacyIdMeta){
+			$id = $legacyIdMeta >> 4;
+			$meta = $legacyIdMeta & 0xf;
 
-            if (isset($unknownBlocks[$id][$meta])) {
-                $newPalette[$k] = $unknownBlocks[$id][$meta];
-                continue;
-            }
+			if (isset($unknownBlocks[$id][$meta])) {
+				$newPalette[$k] = $unknownBlocks[$id][$meta];
+				continue;
+			}
 
-            try{
-                $newStateData = $this->blockDataUpgrader->upgradeIntIdMeta($id, $meta);
-            }catch(BlockStateDeserializeException $e){
-                $blockDecodeErrors[] = "Palette offset $k / Failed to upgrade legacy ID/meta $id:$meta: " . $e->getMessage();
-                $newStateData = GlobalBlockStateHandlers::getUnknownBlockStateData();
-                $unknownBlocks[$id][$meta] = $newStateData;
-            }
+			try{
+				$newStateData = $this->blockDataUpgrader->upgradeIntIdMeta($id, $meta);
+			}catch(BlockStateDeserializeException $e){
+				$blockDecodeErrors[] = "Palette offset $k / Failed to upgrade legacy ID/meta $id:$meta: " . $e->getMessage();
+				$newStateData = GlobalBlockStateHandlers::getUnknownBlockStateData();
+				$unknownBlocks[$id][$meta] = $newStateData;
+			}
 
-            try{
-                $newPalette[$k] = $this->blockStateDeserializer->deserialize($newStateData);
-            }catch(BlockStateDeserializeException $e){
-                $blockDecodeErrors[] = "Palette offset $k / Failed to deserialize upgraded state $id:$meta: " . $e->getMessage();
-            $newPalette[$k] = $this->blockStateDeserializer->deserialize(GlobalBlockStateHandlers::getUnknownBlockStateData());
-            }
-        }
+			try{
+				$newPalette[$k] = $this->blockStateDeserializer->deserialize($newStateData);
+			}catch(BlockStateDeserializeException $e){
+				$blockDecodeErrors[] = "Palette offset $k / Failed to deserialize upgraded state $id:$meta: " . $e->getMessage();
+			$newPalette[$k] = $this->blockStateDeserializer->deserialize(GlobalBlockStateHandlers::getUnknownBlockStateData());
+			}
+		}
 
-        if(count($blockDecodeErrors) > 0){
-            $logger->error("Errors decoding/upgrading blocks:\n - " . implode("\n - ", $blockDecodeErrors));
-        }
+		if(count($blockDecodeErrors) > 0){
+			$logger->error("Errors decoding/upgrading blocks:\n - " . implode("\n - ", $blockDecodeErrors));
+		}
 
-        return PalettedBlockArray::fromData(
-            $blockArray->getBitsPerBlock(),
-            $blockArray->getWordArray(),
-            $newPalette
-        );
+		return PalettedBlockArray::fromData(
+			$blockArray->getBitsPerBlock(),
+			$blockArray->getWordArray(),
+			$newPalette
+		);
 	}
 
 	protected function palettizeLegacySubChunkXZY(string $idArray, string $metaArray, \Logger $logger) : PalettedBlockArray{
