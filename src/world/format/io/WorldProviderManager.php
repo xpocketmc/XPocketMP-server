@@ -2,20 +2,19 @@
 
 /*
  *
- *  __  ______            _        _   __  __ ____
- *  \ \/ /  _ \ ___   ___| | _____| |_|  \/  |  _ \
- *   \  /| |_) / _ \ / __| |/ / _ \ __| |\/| | |_) |
- *   /  \|  __/ (_) | (__|   <  __/ |_| |  | |  __/
- *  /_/\_\_|   \___/ \___|_|\_\___|\__|_|  |_|_|
+ *  ____            _        _   __  __ _                  __  __ ____
+ * |  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
+ * | |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
+ * |  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
+ * |_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the MIT License as published by
- * the Free Software Foundation
- * The files in XPocketMP are mostly from PocketMine-MP.
- * Developed by ClousClouds, PMMP Team
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @author ClousClouds Team
- * @link https://xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -26,9 +25,11 @@ namespace pocketmine\world\format\io;
 
 use pocketmine\utils\Utils;
 use pocketmine\world\format\io\leveldb\LevelDB;
+use pocketmine\world\format\io\leveldb\RegionizedLevelDB;
 use pocketmine\world\format\io\region\Anvil;
 use pocketmine\world\format\io\region\McRegion;
 use pocketmine\world\format\io\region\PMAnvil;
+use pocketmine\world\WorldCreationOptions;
 use function strtolower;
 use function trim;
 
@@ -42,9 +43,23 @@ final class WorldProviderManager{
 	private WritableWorldProviderManagerEntry $default;
 
 	public function __construct(){
-		$leveldb = new WritableWorldProviderManagerEntry(LevelDB::isValid(...), fn(string $path, \Logger $logger) => new LevelDB($path, $logger), LevelDB::generate(...));
+		$leveldb = new WritableWorldProviderManagerEntry(
+			LevelDB::isValid(...),
+			fn(string $path, \Logger $logger) => new LevelDB($path, $logger),
+			LevelDB::generate(...)
+		);
 		$this->default = $leveldb;
 		$this->addProvider($leveldb, "leveldb");
+
+		//any arbitrary size is supported, but powers of 2 are best
+		//these are the most likely to be useful
+		foreach([128, 256] as $regionLength){
+			$this->addProvider(new WritableWorldProviderManagerEntry(
+				fn(string $path) => RegionizedLevelDB::isValid($path, $regionLength),
+				fn(string $path, \Logger $logger) => new RegionizedLevelDB($path, $logger, $regionLength),
+				fn(string $path, string $name, WorldCreationOptions $options) => RegionizedLevelDB::generate($path, $name, $options, $regionLength)
+			), "custom-leveldb-regions-$regionLength");
+		}
 
 		$this->addProvider(new ReadOnlyWorldProviderManagerEntry(Anvil::isValid(...), fn(string $path, \Logger $logger) => new Anvil($path, $logger)), "anvil");
 		$this->addProvider(new ReadOnlyWorldProviderManagerEntry(McRegion::isValid(...), fn(string $path, \Logger $logger) => new McRegion($path, $logger)), "mcregion");
