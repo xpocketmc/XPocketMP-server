@@ -117,7 +117,6 @@ use const ZEND_DEBUG_BUILD;
 			"curl" => "cURL",
 			"crypto" => "php-crypto",
 			"ctype" => "ctype",
-			"commandutils" => "CommandUtils",
 			"date" => "Date",
 			"gmp" => "GMP",
 			"hash" => "Hash",
