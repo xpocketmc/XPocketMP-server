@@ -117,6 +117,7 @@ use const ZEND_DEBUG_BUILD;
 			"curl" => "cURL",
 			"crypto" => "php-crypto",
 			"ctype" => "ctype",
+			"commandutils" => "CommandUtils",
 			"date" => "Date",
 			"gmp" => "GMP",
 			"hash" => "Hash",
@@ -134,8 +135,7 @@ use const ZEND_DEBUG_BUILD;
 			"spl" => "SPL",
 			"yaml" => "YAML",
 			"zip" => "Zip",
-			"zlib" => "Zlib",
-			"commandutils" => "commandutils"
+			"zlib" => "Zlib"
 		];
 
 		foreach($extensions as $ext => $name){
