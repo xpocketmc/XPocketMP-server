@@ -1,10 +1,8 @@
 name: Build And Upload
 
 on:
-  push:
-    branches: [ "stable" ]
   pull_request:
-    branches: [ "stable" ]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -26,7 +24,7 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Create XPocketMP.phar
-      run: composer make-server # Pastikan ini adalah command yang benar untuk membuat .phar file
+      run: composer make-server
 
     - name: Upload XPocketMP.phar
       uses: actions/upload-artifact@v4
