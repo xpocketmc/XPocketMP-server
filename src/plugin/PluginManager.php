@@ -87,6 +87,8 @@ class PluginManager{
 
 	private bool $loadPluginsGuard = false;
 
+	private static ?self $instance = null;
+
 	/**
 	 * @var PluginLoader[]
 	 * @phpstan-var array<class-string<PluginLoader>, PluginLoader>
@@ -107,12 +109,25 @@ class PluginManager{
 		}
 	}
 
+	public static function init(Server $server, ?string $pluginDataDirectory) : void{
+		if(self::$instance === null){
+			self::$instance = new self($server, $pluginDataDirectory);
+		}
+	}
+
 	public function getPlugin(string $name) : ?Plugin{
 		if(isset($this->plugins[$name])){
 			return $this->plugins[$name];
 		}
 
 		return null;
+	}
+
+	public static function getInstance() : self{
+		if(self::$instance === null){
+			throw new \RuntimeException("PluginManager has not been initialized");
+		}
+		return self::$instance;
 	}
 
 	public function registerInterface(PluginLoader $loader) : void{
