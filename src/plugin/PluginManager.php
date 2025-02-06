@@ -108,9 +108,9 @@ class PluginManager{
 		}
 	}
 
-	public static function getInstance() : self{
+	public static function getInstance(Server $server, ?string $pluginDataDirectory) : self{
 		if(self::$instance === null){
-			self::$instance = new self();
+			self::$instance = new self($server, $pluginDataDirectory);
 		}
 		return self::$instance;
 	}
