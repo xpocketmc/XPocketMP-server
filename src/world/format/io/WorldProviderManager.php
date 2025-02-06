@@ -26,9 +26,11 @@ namespace pocketmine\world\format\io;
 
 use pocketmine\utils\Utils;
 use pocketmine\world\format\io\leveldb\LevelDB;
+use pocketmine\world\format\io\leveldb\RegionizedLevelDB;
 use pocketmine\world\format\io\region\Anvil;
 use pocketmine\world\format\io\region\McRegion;
 use pocketmine\world\format\io\region\PMAnvil;
+use pocketmine\world\WorldCreationOptions;
 use function strtolower;
 use function trim;
 
@@ -42,9 +44,23 @@ final class WorldProviderManager{
 	private WritableWorldProviderManagerEntry $default;
 
 	public function __construct(){
-		$leveldb = new WritableWorldProviderManagerEntry(LevelDB::isValid(...), fn(string $path, \Logger $logger) => new LevelDB($path, $logger), LevelDB::generate(...));
+		$leveldb = new WritableWorldProviderManagerEntry(
+			LevelDB::isValid(...),
+			fn(string $path, \Logger $logger) => new LevelDB($path, $logger),
+			LevelDB::generate(...)
+		);
 		$this->default = $leveldb;
 		$this->addProvider($leveldb, "leveldb");
+
+		//any arbitrary size is supported, but powers of 2 are best
+		//these are the most likely to be useful
+		foreach([128, 256] as $regionLength){
+			$this->addProvider(new WritableWorldProviderManagerEntry(
+				fn(string $path) => RegionizedLevelDB::isValid($path, $regionLength),
+				fn(string $path, \Logger $logger) => new RegionizedLevelDB($path, $logger, $regionLength),
+				fn(string $path, string $name, WorldCreationOptions $options) => RegionizedLevelDB::generate($path, $name, $options, $regionLength)
+			), "custom-leveldb-regions-$regionLength");
+		}
 
 		$this->addProvider(new ReadOnlyWorldProviderManagerEntry(Anvil::isValid(...), fn(string $path, \Logger $logger) => new Anvil($path, $logger)), "anvil");
 		$this->addProvider(new ReadOnlyWorldProviderManagerEntry(McRegion::isValid(...), fn(string $path, \Logger $logger) => new McRegion($path, $logger)), "mcregion");
