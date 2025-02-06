@@ -108,11 +108,10 @@ class PluginManager{
 		}
 	}
 
-	public static function getInstance(Server $server, ?string $pluginDataDirectory) : self{
+	public static function init(Server $server, ?string $pluginDataDirectory) : void{
 		if(self::$instance === null){
 			self::$instance = new self($server, $pluginDataDirectory);
 		}
-		return self::$instance;
 	}
 
 	public function getPlugin(string $name) : ?Plugin{
@@ -121,6 +120,13 @@ class PluginManager{
 		}
 
 		return null;
+	}
+
+	public static function getInstance() : self{
+		if(self::$instance === null){
+			throw new \RuntimeException("PluginManager has not been initialized");
+		}
+		return self::$instance;
 	}
 
 	public function registerInterface(PluginLoader $loader) : void{
