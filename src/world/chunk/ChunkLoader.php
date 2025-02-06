@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\world;
+namespace pocketmine\world\chunk;
 
 /**
  * If you want to keep chunks loaded, implement this interface and register it into World.
