@@ -22,7 +22,9 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\world;
+namespace pocketmine\world\chunk;
+
+use pocketmine\world\World;
 
 /**
  * Used to signal to the World that a chunk should be ticked.
