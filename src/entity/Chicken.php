@@ -25,11 +25,8 @@ declare(strict_types=1);
 namespace pocketmine\entity;
 
 use pocketmine\item\VanillaItems;
-use pocketmine\math\Vector3;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\player\Player;
 use function mt_rand;
-use const PHP_FLOAT_MAX;
 
 class Chicken extends Living{
 
