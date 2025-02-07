@@ -49,10 +49,14 @@ class PharPluginLoader implements PluginLoader{
         $this->loader->addPath($description->getSrcNamespacePrefix(), "$file/src");
 
         try {
-            $plugin = $this->loader->loadPlugin($file); // Pastikan plugin di-load dulu
-            $plugin->onLoad();
+            $plugin = $this->getServer()->getPluginManager()->loadPlugin($file);
+            if ($plugin !== null) {
+                $plugin->onLoad();
+            } else {
+                throw new \RuntimeException("Gagal memuat plugin dari $file");
+            }
         } catch (\Throwable $e) {
-            CrashHandler::getInstance()->handlePluginCrash($plugin, $e);
+            CrashHandler::getInstance()->handlePluginCrash($plugin ?? null, $e);
         }
     }
 }
