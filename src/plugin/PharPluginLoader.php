@@ -43,12 +43,19 @@ class PharPluginLoader implements PluginLoader{
 	/**
 	 * Loads the plugin contained in $file
 	 */
-	public function loadPlugin(string $file) : void{
-		$description = $this->getPluginDescription($file);
-		if($description !== null){
-			$this->loader->addPath($description->getSrcNamespacePrefix(), "$file/src");
-		}
-	}
+	public function loadPlugin(string $file) : void {
+    $description = $this->getPluginDescription($file);
+    if ($description !== null) {
+        $this->loader->addPath($description->getSrcNamespacePrefix(), "$file/src");
+
+        try {
+            $plugin = $this->loader->loadPlugin($file); // Pastikan plugin di-load dulu
+            $plugin->onLoad();
+        } catch (\Throwable $e) {
+            CrashHandler::getInstance()->handlePluginCrash($plugin, $e);
+        }
+    }
+}
 
 	/**
 	 * Gets the PluginDescription from the file
