@@ -107,6 +107,11 @@ class PluginManager{
 				throw new \RuntimeException("Plugin data path $this->pluginDataDirectory exists and is not a directory");
 			}
 		}
+		try {
+    $this->plugin->onLoad();
+} catch (Throwable $e) {
+    CrashHandler::getInstance()->handlePluginCrash($plugin, $e);
+		}
 	}
 
 	public static function init(Server $server, ?string $pluginDataDirectory) : void{
