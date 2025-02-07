@@ -82,8 +82,6 @@ class PluginManager{
 	 */
 	protected array $enabledPlugins = [];
 
-	private Plugin $plugin;
-
 	/** @var array<string, array<string, true>> */
 	private array $pluginDependents = [];
 
@@ -108,12 +106,6 @@ class PluginManager{
 			}elseif(!is_dir($this->pluginDataDirectory)){
 				throw new \RuntimeException("Plugin data path $this->pluginDataDirectory exists and is not a directory");
 			}
-		}
-		$this->plugin = $plugin
-		try {
-    $this->plugin->onLoad();
-} catch (\Throwable $e) {
-    CrashHandler::getInstance()->handlePluginCrash($plugin, $e);
 		}
 	}
 
