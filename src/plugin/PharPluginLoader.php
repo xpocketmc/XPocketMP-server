@@ -49,7 +49,7 @@ class PharPluginLoader implements PluginLoader{
         $this->loader->addPath($description->getSrcNamespacePrefix(), "$file/src");
 
         try {
-            $plugin = $this->getServer()->getPluginManager()->loadPlugin($file);
+            $plugin = $this->getServer()->getPluginManager()->loadPlugins($file);
             if ($plugin !== null) {
                 $plugin->onLoad();
             } else {
