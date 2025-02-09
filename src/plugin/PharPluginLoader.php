@@ -24,6 +24,7 @@ declare(strict_types=1);
 
 namespace pocketmine\plugin;
 
+use pocketmine\Server;
 use pocketmine\thread\ThreadSafeClassLoader;
 use function is_file;
 use function str_ends_with;
@@ -32,9 +33,13 @@ use function str_ends_with;
  * Handles different types of plugins
  */
 class PharPluginLoader implements PluginLoader{
+	private Server $server;
+
 	public function __construct(
 		private ThreadSafeClassLoader $loader
-	){}
+	){
+		$this->server = $server;
+	}
 
 	public function canLoadPlugin(string $path) : bool{
 		return is_file($path) && str_ends_with($path, ".phar");
@@ -76,4 +81,7 @@ class PharPluginLoader implements PluginLoader{
 	public function getAccessProtocol() : string{
 		return "phar://";
 	}
+
+	public function getServer() : Server{
+		return $this->server;
 }
