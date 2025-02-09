@@ -63,21 +63,27 @@ class PharPluginLoader implements PluginLoader {
 			$this->loader->addPath($description->getSrcNamespacePrefix(), "$file/src");
 
 			try {
-				$plugins = $this->getServer()->getPluginManager()->loadPlugins($file);
-				
-				if (is_array($plugins)) {
-					foreach ($plugins as $plugin) {
+				$loadedPlugins = $this->getServer()->getPluginManager()->loadPlugins($file);
+				$pluginInstance = null;
+
+				if ($loadedPlugins instanceof Plugin) {
+					$pluginInstance = $loadedPlugins;
+					$pluginInstance->onLoad();
+				} elseif (is_array($loadedPlugins)) {
+					foreach ($loadedPlugins as $plugin) {
 						if ($plugin instanceof Plugin) {
+							$pluginInstance = $plugin;
 							$plugin->onLoad();
+							break; // Only handle the first valid plugin
 						}
 					}
-				} elseif ($plugins instanceof Plugin) {
-					$plugins->onLoad();
-				} else {
+				}
+
+				if ($pluginInstance === null) {
 					throw new \RuntimeException("Failed to load plugin from $file");
 				}
 			} catch (\Throwable $e) {
-				CrashHandler::getInstance()->handlePluginCrash($plugins ?? null, $e);
+				CrashHandler::getInstance()->handlePluginCrash($pluginInstance, $e);
 			}
 		}
 	}
