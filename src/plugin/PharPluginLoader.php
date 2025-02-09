@@ -32,57 +32,85 @@ use function str_ends_with;
 /**
  * Handles different types of plugins
  */
-class PharPluginLoader implements PluginLoader{
+class PharPluginLoader implements PluginLoader {
 	private Server $server;
 
 	public function __construct(
 		private ThreadSafeClassLoader $loader
-	){
-		$this->server = $server;
+	) {
+		$this->server = Server::getInstance();
 	}
 
-	public function canLoadPlugin(string $path) : bool{
+	/**
+	 * Determines if the given path can be loaded as a plugin
+	 *
+	 * @param string $path
+	 * @return bool
+	 */
+	public function canLoadPlugin(string $path): bool {
 		return is_file($path) && str_ends_with($path, ".phar");
 	}
 
 	/**
 	 * Loads the plugin contained in $file
+	 *
+	 * @param string $file
+	 * @return void
 	 */
-	public function loadPlugin(string $file) : void {
-    $description = $this->getPluginDescription($file);
-    if ($description !== null) {
-        $this->loader->addPath($description->getSrcNamespacePrefix(), "$file/src");
+	public function loadPlugin(string $file): void {
+		$description = $this->getPluginDescription($file);
+		if ($description !== null) {
+			$this->loader->addPath($description->getSrcNamespacePrefix(), "$file/src");
 
-        try {
-            $plugin = $this->getServer()->getPluginManager()->loadPlugins($file);
-            if ($plugin !== null) {
-                $plugin->onLoad();
-            } else {
-                throw new \RuntimeException("Gagal memuat plugin dari $file");
-            }
-        } catch (\Throwable $e) {
-            CrashHandler::getInstance()->handlePluginCrash($plugin ?? null, $e);
-        }
-    }
-}
+			try {
+				$plugins = $this->getServer()->getPluginManager()->loadPlugins($file);
+				
+				if (is_array($plugins)) {
+					foreach ($plugins as $plugin) {
+						if ($plugin instanceof Plugin) {
+							$plugin->onLoad();
+						}
+					}
+				} elseif ($plugins instanceof Plugin) {
+					$plugins->onLoad();
+				} else {
+					throw new \RuntimeException("Failed to load plugin from $file");
+				}
+			} catch (\Throwable $e) {
+				CrashHandler::getInstance()->handlePluginCrash($plugins ?? null, $e);
+			}
+		}
+	}
 
 	/**
 	 * Gets the PluginDescription from the file
+	 *
+	 * @param string $file
+	 * @return PluginDescription|null
 	 */
-	public function getPluginDescription(string $file) : ?PluginDescription{
+	public function getPluginDescription(string $file): ?PluginDescription {
 		$phar = new \Phar($file);
-		if(isset($phar["plugin.yml"])){
+		if (isset($phar["plugin.yml"])) {
 			return new PluginDescription($phar["plugin.yml"]->getContent());
 		}
-
 		return null;
 	}
 
-	public function getAccessProtocol() : string{
+	/**
+	 * Returns the access protocol
+	 *
+	 * @return string
+	 */
+	public function getAccessProtocol(): string {
 		return "phar://";
 	}
 
-	public function getServer() : Server{
+	/**
+	 * Gets the server instance
+	 *
+	 * @return Server
+	 */
+	public function getServer(): Server {
 		return $this->server;
-}
+	}
 }
