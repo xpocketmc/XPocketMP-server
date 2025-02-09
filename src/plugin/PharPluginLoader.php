@@ -85,3 +85,4 @@ class PharPluginLoader implements PluginLoader{
 	public function getServer() : Server{
 		return $this->server;
 }
+}
