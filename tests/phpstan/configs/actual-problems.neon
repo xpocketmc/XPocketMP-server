@@ -1111,12 +1111,12 @@ parameters:
 			path: ../../../src/world/generator/object/TallGrass.php
 
 		-
-			message: "#^Parameter \\#2 \\$y of method pocketmine\\\\world\\\\ChunkManager\\:\\:getBlockAt\\(\\) expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#2 \\$y of method pocketmine\\\\world\\\\chunk\\\\ChunkManager\\:\\:getBlockAt\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: ../../../src/world/generator/object/TallGrass.php
 
 		-
-			message: "#^Parameter \\#2 \\$y of method pocketmine\\\\world\\\\ChunkManager\\:\\:setBlockAt\\(\\) expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#2 \\$y of method pocketmine\\\\world\\\\chunk\\\\ChunkManager\\:\\:setBlockAt\\(\\) expects int, float\\|int given\\.$#"
 			count: 1
 			path: ../../../src/world/generator/object/TallGrass.php
 
