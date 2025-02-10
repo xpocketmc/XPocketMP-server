@@ -22,8 +22,16 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\form;
+namespace pocketmine\player;
 
-class FormValidationFailedException extends \RuntimeException{
+interface PlayerInterface{
+
+	public function getName() : string;
+
+	public function getFirstPlayed() : ?int;
+
+	public function getLastPlayed() : ?int;
+
+	public function hasPlayedBefore() : bool;
 
 }

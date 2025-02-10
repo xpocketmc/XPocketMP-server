@@ -22,32 +22,17 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe;
+namespace pocketmine\world\chunk;
 
-use pocketmine\inventory\Inventory;
-use pocketmine\network\mcpe\protocol\types\inventory\ItemStack;
+/**
+ * If you want to keep chunks loaded, implement this interface and register it into World.
+ *
+ * @see World::registerChunkLoader()
+ * @see World::unregisterChunkLoader()
+ *
+ * WARNING: When moving this object around in the world or destroying it,
+ * be sure to unregister the loader from chunks you're not using, otherwise you'll leak memory.
+ */
+interface ChunkLoader{
 
-final class InventoryManagerEntry{
-	/**
-	 * @var ItemStack[]
-	 * @phpstan-var array<int, ItemStack>
-	 */
-	public array $predictions = [];
-
-	/**
-	 * @var ItemStackInfo[]
-	 * @phpstan-var array<int, ItemStackInfo>
-	 */
-	public array $itemStackInfos = [];
-
-	/**
-	 * @var ItemStack[]
-	 * @phpstan-var array<int, ItemStack>
-	 */
-	public array $pendingSyncs = [];
-
-	public function __construct(
-		public Inventory $inventory,
-		public ?ComplexInventoryMapEntry $complexSlotMap = null
-	){}
 }

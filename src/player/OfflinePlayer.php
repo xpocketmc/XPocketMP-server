@@ -27,7 +27,7 @@ namespace pocketmine\player;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\nbt\tag\LongTag;
 
-class OfflinePlayer implements IPlayer{
+class OfflinePlayer implements PlayerInterface{
 	public function __construct(
 		private string $name,
 		private ?CompoundTag $namedtag

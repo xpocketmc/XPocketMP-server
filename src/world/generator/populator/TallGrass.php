@@ -28,7 +28,7 @@ use pocketmine\block\BlockTypeIds;
 use pocketmine\block\Leaves;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\utils\Random;
-use pocketmine\world\ChunkManager;
+use pocketmine\world\chunk\ChunkManager;
 use pocketmine\world\format\Chunk;
 
 class TallGrass implements Populator{

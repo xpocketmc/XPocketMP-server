@@ -22,25 +22,33 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\world\generator\object;
+namespace pocketmine\network\mcpe\inventory;
 
-use pocketmine\block\VanillaBlocks;
-use pocketmine\utils\Random;
-use pocketmine\world\BlockTransaction;
-use pocketmine\world\chunk\ChunkManager;
+use pocketmine\inventory\Inventory;
+use pocketmine\network\mcpe\ItemStackInfo;
+use pocketmine\network\mcpe\protocol\types\inventory\ItemStack;
 
-class BirchTree extends Tree{
+final class InventoryManagerEntry{
+	/**
+	 * @var ItemStack[]
+	 * @phpstan-var array<int, ItemStack>
+	 */
+	public array $predictions = [];
+
+	/**
+	 * @var ItemStackInfo[]
+	 * @phpstan-var array<int, ItemStackInfo>
+	 */
+	public array $itemStackInfos = [];
+
+	/**
+	 * @var ItemStack[]
+	 * @phpstan-var array<int, ItemStack>
+	 */
+	public array $pendingSyncs = [];
+
 	public function __construct(
-		protected bool $superBirch = false
-	){
-		parent::__construct(VanillaBlocks::BIRCH_LOG(), VanillaBlocks::BIRCH_LEAVES());
-	}
-
-	public function getBlockTransaction(ChunkManager $world, int $x, int $y, int $z, Random $random) : ?BlockTransaction{
-		$this->treeHeight = $random->nextBoundedInt(3) + 5;
-		if($this->superBirch){
-			$this->treeHeight += 5;
-		}
-		return parent::getBlockTransaction($world, $x, $y, $z, $random);
-	}
+		public Inventory $inventory,
+		public ?ComplexInventoryMapEntry $complexSlotMap = null
+	){}
 }

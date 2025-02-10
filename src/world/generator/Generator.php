@@ -29,7 +29,7 @@ namespace pocketmine\world\generator;
 
 use pocketmine\utils\Random;
 use pocketmine\utils\Utils;
-use pocketmine\world\ChunkManager;
+use pocketmine\world\chunk\ChunkManager;
 use function preg_match;
 
 abstract class Generator{

@@ -22,14 +22,8 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\world;
+namespace pocketmine\ui;
 
-/**
- * Used to signal to the World that a chunk should be ticked.
- *
- * @see World::registerTickingChunk()
- * @see World::unregisterTickingChunk()
- */
-final class ChunkTicker{
+class FormUIValidationFailedException extends \RuntimeException{
 
 }

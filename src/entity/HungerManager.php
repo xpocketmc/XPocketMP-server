@@ -24,6 +24,9 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
+use pocketmine\entity\attribute\Attribute;
+use pocketmine\entity\attribute\AttributeFactory;
+use pocketmine\entity\attribute\AttributeMap;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityRegainHealthEvent;
 use pocketmine\event\player\PlayerExhaustEvent;

@@ -631,7 +631,7 @@ parameters:
 			path: ../../../src/network/mcpe/NetworkSession.php
 
 		-
-			message: "#^Cannot call method syncAll\\(\\) on pocketmine\\\\network\\\\mcpe\\\\InventoryManager\\|null\\.$#"
+			message: "#^Cannot call method syncAll\\(\\) on pocketmine\\\\network\\\\mcpe\\\\inventory\\\\InventoryManager\\|null\\.$#"
 			count: 1
 			path: ../../../src/network/mcpe/NetworkSession.php
 
@@ -691,12 +691,12 @@ parameters:
 			path: ../../../src/network/mcpe/NetworkSession.php
 
 		-
-			message: "#^Parameter \\#3 \\$inventoryManager of class pocketmine\\\\network\\\\mcpe\\\\handler\\\\InGamePacketHandler constructor expects pocketmine\\\\network\\\\mcpe\\\\InventoryManager, pocketmine\\\\network\\\\mcpe\\\\InventoryManager\\|null given\\.$#"
+			message: "#^Parameter \\#3 \\$inventoryManager of class pocketmine\\\\network\\\\mcpe\\\\handler\\\\InGamePacketHandler constructor expects pocketmine\\\\network\\\\mcpe\\\\inventory\\\\InventoryManager, pocketmine\\\\network\\\\mcpe\\\\inventory\\\\InventoryManager\\|null given\\.$#"
 			count: 2
 			path: ../../../src/network/mcpe/NetworkSession.php
 
 		-
-			message: "#^Parameter \\#4 \\$inventoryManager of class pocketmine\\\\network\\\\mcpe\\\\handler\\\\PreSpawnPacketHandler constructor expects pocketmine\\\\network\\\\mcpe\\\\InventoryManager, pocketmine\\\\network\\\\mcpe\\\\InventoryManager\\|null given\\.$#"
+			message: "#^Parameter \\#4 \\$inventoryManager of class pocketmine\\\\network\\\\mcpe\\\\handler\\\\PreSpawnPacketHandler constructor expects pocketmine\\\\network\\\\mcpe\\\\inventory\\\\InventoryManager, pocketmine\\\\network\\\\mcpe\\\\inventory\\\\InventoryManager\\|null given\\.$#"
 			count: 1
 			path: ../../../src/network/mcpe/NetworkSession.php
 
@@ -1111,12 +1111,12 @@ parameters:
 			path: ../../../src/world/generator/object/TallGrass.php
 
 		-
-			message: "#^Parameter \\#2 \\$y of method pocketmine\\\\world\\\\ChunkManager\\:\\:getBlockAt\\(\\) expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#2 \\$y of method pocketmine\\\\world\\\\chunk\\\\ChunkManager\\:\\:getBlockAt\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: ../../../src/world/generator/object/TallGrass.php
 
 		-
-			message: "#^Parameter \\#2 \\$y of method pocketmine\\\\world\\\\ChunkManager\\:\\:setBlockAt\\(\\) expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#2 \\$y of method pocketmine\\\\world\\\\chunk\\\\ChunkManager\\:\\:setBlockAt\\(\\) expects int, float\\|int given\\.$#"
 			count: 1
 			path: ../../../src/world/generator/object/TallGrass.php
 

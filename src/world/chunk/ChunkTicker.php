@@ -22,22 +22,16 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\form;
+namespace pocketmine\world\chunk;
 
-use pocketmine\player\Player;
+use pocketmine\world\World;
 
 /**
- * Form implementations must implement this interface to be able to utilize the Player form-sending mechanism.
- * There is no restriction on custom implementations other than that they must implement this.
+ * Used to signal to the World that a chunk should be ticked.
+ *
+ * @see World::registerTickingChunk()
+ * @see World::unregisterTickingChunk()
  */
-interface Form extends \JsonSerializable{
+final class ChunkTicker{
 
-	/**
-	 * Handles a form response from a player.
-	 *
-	 * @param mixed $data
-	 *
-	 * @throws FormValidationException if the data could not be processed
-	 */
-	public function handleResponse(Player $player, $data) : void;
 }

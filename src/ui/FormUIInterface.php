@@ -22,18 +22,22 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\world;
+namespace pocketmine\ui;
 
-use pocketmine\utils\NotCloneable;
-use pocketmine\utils\NotSerializable;
+use pocketmine\player\Player;
 
 /**
- * Represents a unique lock ID for use with World chunk locking.
- *
- * @see World::lockChunk()
- * @see World::unlockChunk()
+ * Form implementations must implement this interface to be able to utilize the Player form-sending mechanism.
+ * There is no restriction on custom implementations other than that they must implement this.
  */
-final class ChunkLockId{
-	use NotCloneable;
-	use NotSerializable;
+interface FormUIInterface extends \JsonSerializable{
+
+	/**
+	 * Handles a form response from a player.
+	 *
+	 * @param mixed $data
+	 *
+	 * @throws FormUIValidationException if the data could not be processed
+	 */
+	public function handleResponse(Player $player, $data) : void;
 }

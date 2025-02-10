@@ -30,7 +30,7 @@ use pocketmine\block\Sapling;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\utils\Random;
 use pocketmine\world\BlockTransaction;
-use pocketmine\world\ChunkManager;
+use pocketmine\world\chunk\ChunkManager;
 use function abs;
 
 abstract class Tree{
