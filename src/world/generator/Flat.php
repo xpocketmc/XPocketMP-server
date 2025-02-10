@@ -9,7 +9,7 @@ use pocketmine\world\chunk\ChunkManager;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\format\SubChunk;
 use pocketmine\world\generator\object\OreType;
-use pocketmine\world\generator\populator\Oreuze;
+use pocketmine\world\generator\populator\Ore;
 use pocketmine\world\generator\populator\Populator;
 use function count;
 
