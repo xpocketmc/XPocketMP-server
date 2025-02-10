@@ -35,7 +35,9 @@ use pocketmine\data\java\GameModeIdMap;
 use pocketmine\entity\animation\Animation;
 use pocketmine\entity\animation\ArmSwingAnimation;
 use pocketmine\entity\animation\CriticalHitAnimation;
-use pocketmine\entity\Attribute;
+use pocketmine\entity\attribute\Attribute;
+use pocketmine\entity\attribute\AttributeFactory;
+use pocketmine\entity\attribute\AttributeMap;
 use pocketmine\entity\effect\VanillaEffects;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Human;
@@ -79,8 +81,8 @@ use pocketmine\event\player\PlayerToggleSprintEvent;
 use pocketmine\event\player\PlayerToggleSwimEvent;
 use pocketmine\event\player\PlayerTransferEvent;
 use pocketmine\event\player\PlayerViewDistanceChangeEvent;
-use pocketmine\form\Form;
-use pocketmine\form\FormValidationException;
+use pocketmine\ui\FormUIInterface;
+use pocketmine\ui\FormUIValidationException;
 use pocketmine\inventory\CallbackInventoryListener;
 use pocketmine\inventory\CreativeInventory;
 use pocketmine\inventory\Inventory;
@@ -124,10 +126,10 @@ use pocketmine\ServerProperties;
 use pocketmine\timings\Timings;
 use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\TextFormat;
-use pocketmine\world\ChunkListener;
-use pocketmine\world\ChunkListenerNoOpTrait;
-use pocketmine\world\ChunkLoader;
-use pocketmine\world\ChunkTicker;
+use pocketmine\world\chunk\ChunkListener;
+use pocketmine\world\chunk\ChunkListenerNoOpTrait;
+use pocketmine\world\chunk\ChunkLoader;
+use pocketmine\world\chunk\ChunkTicker;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\Position;
 use pocketmine\world\sound\EntityAttackNoDamageSound;
@@ -166,7 +168,7 @@ use const PHP_INT_MAX;
 /**
  * Main class that handles networking, recovery, and packet sending to the server part
  */
-class Player extends Human implements CommandSender, ChunkListener, IPlayer{
+class Player extends Human implements CommandSender, ChunkListener, PlayerInterface{
 	use PermissibleDelegateTrait;
 
 	private const MOVES_PER_TICK = 2;
@@ -294,7 +296,7 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 	private int $lastEmoteTick = 0;
 
 	protected int $formIdCounter = 0;
-	/** @var Form[] */
+	/** @var FormUIInterface[] */
 	protected array $forms = [];
 
 	protected \Logger $logger;
@@ -2139,7 +2141,7 @@ round($position->getY()) . ", " .
 	 *
 	 * @throws \InvalidArgumentException
 	 */
-	public function sendForm(Form $form) : void{
+	public function sendForm(FormUIInterface $form) : void{
 		$id = $this->formIdCounter++;
 		if($this->getNetworkSession()->onFormSent($id, $form)){
 			$this->forms[$id] = $form;
@@ -2154,7 +2156,7 @@ round($position->getY()) . ", " .
 
 		try{
 			$this->forms[$formId]->handleResponse($this, $responseData);
-		}catch(FormValidationException $e){
+		}catch(FormUIValidationException $e){
 			$this->logger->critical("Failed to validate form " . get_class($this->forms[$formId]) . ": " . $e->getMessage());
 			$this->logger->logException($e);
 		}finally{

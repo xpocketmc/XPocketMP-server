@@ -28,7 +28,7 @@ use pocketmine\block\VanillaBlocks;
 use pocketmine\data\bedrock\BiomeIds;
 use pocketmine\world\biome\Biome;
 use pocketmine\world\biome\BiomeRegistry;
-use pocketmine\world\ChunkManager;
+use pocketmine\world\chunk\ChunkManager;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\generator\biome\BiomeSelector;
 use pocketmine\world\generator\Gaussian;

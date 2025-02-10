@@ -29,7 +29,7 @@ use pocketmine\scheduler\AsyncTask;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\format\io\FastChunkSerializer;
 use pocketmine\world\format\LightArray;
-use pocketmine\world\SimpleChunkManager;
+use pocketmine\world\chunk\SimpleChunkManager;
 use pocketmine\world\utils\SubChunkExplorer;
 use pocketmine\world\World;
 use function igbinary_serialize;

@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\world;
+namespace pocketmine\world\chunk;
 
 use pocketmine\block\Block;
 use pocketmine\world\format\Chunk;

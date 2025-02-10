@@ -25,7 +25,7 @@ declare(strict_types=1);
 namespace pocketmine\network\mcpe\handler;
 
 use pocketmine\lang\Translatable;
-use pocketmine\network\mcpe\InventoryManager;
+use pocketmine\network\mcpe\inventory\InventoryManager;
 use pocketmine\network\mcpe\NetworkSession;
 use pocketmine\network\mcpe\protocol\ContainerClosePacket;
 use pocketmine\network\mcpe\protocol\DeathInfoPacket;

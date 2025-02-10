@@ -29,7 +29,7 @@ use pocketmine\block\BlockTypeIds;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\math\Vector3;
 use pocketmine\utils\Random;
-use pocketmine\world\ChunkManager;
+use pocketmine\world\chunk\ChunkManager;
 use function count;
 
 class TallGrass{

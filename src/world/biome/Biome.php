@@ -26,7 +26,7 @@ namespace pocketmine\world\biome;
 
 use pocketmine\block\Block;
 use pocketmine\utils\Random;
-use pocketmine\world\ChunkManager;
+use pocketmine\world\chunk\ChunkManager;
 use pocketmine\world\generator\populator\Populator;
 
 abstract class Biome{

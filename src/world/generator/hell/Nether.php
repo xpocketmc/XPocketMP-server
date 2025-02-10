@@ -27,7 +27,7 @@ namespace pocketmine\world\generator\hell;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\data\bedrock\BiomeIds;
 use pocketmine\world\biome\BiomeRegistry;
-use pocketmine\world\ChunkManager;
+use pocketmine\world\chunk\ChunkManager;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\generator\Generator;
 use pocketmine\world\generator\InvalidGeneratorOptionsException;

@@ -22,8 +22,18 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\form;
+namespace pocketmine\world\chunk;
 
-class FormValidationException extends \RuntimeException{
+use pocketmine\utils\NotCloneable;
+use pocketmine\utils\NotSerializable;
 
+/**
+ * Represents a unique lock ID for use with World chunk locking.
+ *
+ * @see World::lockChunk()
+ * @see World::unlockChunk()
+ */
+final class ChunkLockId{
+	use NotCloneable;
+	use NotSerializable;
 }
