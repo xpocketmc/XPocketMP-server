@@ -88,7 +88,7 @@ use pocketmine\world\biome\Biome;
 use pocketmine\world\biome\BiomeRegistry;
 use pocketmine\world\chunk\ChunkListener;
 use pocketmine\world\chunk\ChunkListenerNoOpTrait;
-use pocketmine\world\chunk\ChunkLoader
+use pocketmine\world\chunk\ChunkLoader;
 use pocketmine\world\chunk\ChunkLockId;
 use pocketmine\world\chunk\ChunkManager;
 use pocketmine\world\chunk\ChunkTicker;
