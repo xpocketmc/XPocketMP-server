@@ -25,7 +25,7 @@ declare(strict_types=1);
 namespace pocketmine\world\generator;
 
 use pocketmine\block\VanillaBlocks;
-use pocketmine\world\ChunkManager;
+use pocketmine\world\chunk\ChunkManager;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\format\SubChunk;
 use pocketmine\world\generator\object\OreType;

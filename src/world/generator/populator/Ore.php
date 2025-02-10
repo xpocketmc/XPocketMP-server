@@ -25,7 +25,7 @@ declare(strict_types=1);
 namespace pocketmine\world\generator\populator;
 
 use pocketmine\utils\Random;
-use pocketmine\world\ChunkManager;
+use pocketmine\world\chunk\ChunkManager;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\generator\object\Ore as ObjectOre;
 use pocketmine\world\generator\object\OreType;
