@@ -32,9 +32,9 @@ use function str_repeat;
 
 final class VersionInfo{
 	public const NAME = "XPocketMP";
-	public const BASE_VERSION = "5.23.2";
-	public const API = "5";
-	public const IS_DEVELOPMENT_BUILD = true;
+	public const BASE_VERSION = "6.0.0";
+	public const API = "6";
+	public const IS_DEVELOPMENT_BUILD = false;
 	public const BUILD_CHANNEL = "stable";
 
 	/**
