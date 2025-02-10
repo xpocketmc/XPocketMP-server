@@ -1,4 +1,4 @@
-name: Bump Version
+name: Bump version
 
 on:
   workflow_dispatch:
@@ -73,3 +73,4 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -d '{"message": "${{ github.event.inputs.new_version }} is next", "commits": [{"path": "src/VersionInfo.php", "content": "$(cat src/VersionInfo.php)", "sha": "$(git rev-parse HEAD)"}]}' \
             https://api.github.com/repos/${{ github.repository }}/contents/src/VersionInfo.php
+          git push
