@@ -26,7 +26,7 @@ namespace pocketmine\world\generator\object;
 
 use pocketmine\math\VectorMath;
 use pocketmine\utils\Random;
-use pocketmine\world\ChunkManager;
+use pocketmine\world\chunk\ChunkManager;
 use function sin;
 use const M_PI;
 

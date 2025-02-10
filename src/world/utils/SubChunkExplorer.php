@@ -24,7 +24,7 @@ declare(strict_types=1);
 
 namespace pocketmine\world\utils;
 
-use pocketmine\world\ChunkManager;
+use pocketmine\world\chunk\ChunkManager;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\format\SubChunk;
 
