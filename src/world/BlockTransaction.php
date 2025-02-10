@@ -27,6 +27,7 @@ namespace pocketmine\world;
 use pocketmine\block\Block;
 use pocketmine\math\Vector3;
 use pocketmine\utils\Utils;
+use pocketmine\world\chunk\ChunkManager;
 
 class BlockTransaction{
 	/**
