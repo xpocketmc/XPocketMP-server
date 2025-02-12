@@ -29,7 +29,7 @@ use pocketmine\network\mcpe\convert\TypeConverter;
 use pocketmine\network\mcpe\protocol\CreativeContentPacket;
 use pocketmine\network\mcpe\protocol\types\inventory\CreativeGroupEntry;
 use pocketmine\network\mcpe\protocol\types\inventory\CreativeItemEntry;
-use pocketmine\item\ItemFactory; // Perlu jika `ItemStack` harus dibuat
+use pocketmine\item\VanillaItems;
 use pocketmine\utils\SingletonTrait;
 use function spl_object_id;
 
@@ -63,7 +63,7 @@ final class CreativeInventoryCache {
 		$groups = [];
 		$items = [];
 		$typeConverter = TypeConverter::getInstance();
-		$icon = ItemFactory::getInstance()->get(1);
+		$icon = VanillaItems::getInstance()->get(1);
 		$groups[] = new CreativeGroupEntry(0, "Default Group", $typeConverter->coreItemStackToNet($icon));
 
 		//creative inventory may have holes if items were unregistered - ensure network IDs used are always consistent
@@ -72,14 +72,5 @@ final class CreativeInventoryCache {
 		}
 
 		return CreativeContentPacket::create($groups, $items);
-	}
-}
-
-		//creative inventory may have holes if items were unregistered - ensure network IDs used are always consistent
-		foreach($inventory->getAll() as $k => $item){
-			$items[] = new CreativeContentEntry($k, $typeConverter->coreItemStackToNet($item));
-		}
-
-		return CreativeContentPacket::create([], $items);
 	}
 }
