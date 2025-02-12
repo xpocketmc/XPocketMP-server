@@ -222,7 +222,8 @@ abstract class Living extends Entity{
 	}
 
 	public function setMaxHealth(int $amount) : void{
-		$this->healthAttr->setMaxValue($amount)->setDefaultValue($amount);
+		$this->healthAttr->setMaxValue($amount);
+		$this->healthAttr->setDefaultValue($amount);
 	}
 
 	public function getAbsorption() : float{
