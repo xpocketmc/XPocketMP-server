@@ -2,20 +2,19 @@
 
 /*
  *
- *  __  ______            _        _   __  __ ____
- *  \ \/ /  _ \ ___   ___| | _____| |_|  \/  |  _ \
- *   \  /| |_) / _ \ / __| |/ / _ \ __| |\/| | |_) |
- *   /  \|  __/ (_) | (__|   <  __/ |_| |  | |  __/
- *  /_/\_\_|   \___/ \___|_|\_\___|\__|_|  |_|_|
+ *  ____            _        _   __  __ _                  __  __ ____
+ * |  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
+ * | |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
+ * |  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
+ * |_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the MIT License as published by
- * the Free Software Foundation
- * The files in XPocketMP are mostly from PocketMine-MP.
- * Developed by ClousClouds, PMMP Team
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @author ClousClouds Team
- * @link https://xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -35,7 +34,6 @@ use function dirname;
 use function explode;
 use function fclose;
 use function file_get_contents;
-use function file_put_contents;
 use function fopen;
 use function fwrite;
 use function strtoupper;
@@ -109,14 +107,10 @@ if(count($argv) !== 2){
 }
 
 $raw = file_get_contents($argv[1]);
-if ($raw === false) {
+if($raw === false){
 	fwrite(STDERR, "Failed to read item type dictionary file\n");
 	exit(1);
 }
-
-file_put_contents('debug_raw.json', $raw);
-
-$dictionary = ItemTypeDictionaryFromDataHelper::loadFromString($raw);
 
 $dictionary = ItemTypeDictionaryFromDataHelper::loadFromString($raw);
 $blockItemIdMap = BlockItemIdMap::getInstance();
