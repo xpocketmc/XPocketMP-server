@@ -82,7 +82,14 @@ class AttributeValue {
             $this->desynchronized = true;
             $this->maxValue = $maxValue;
         }
-    }
+	}
+
+	public function setDefaultValue(float $defaultValue) : void{
+		if($defaultValue < $this->minValue || $defaultValue > $this->maxValue){
+			throw new \InvalidArgumentException("Default value must be within min and max range.");
+		}
+		$this->defaultValue = $defaultValue;
+	}
 
     public function resetToDefault(): void {
         $this->setValue($this->defaultValue, true);
