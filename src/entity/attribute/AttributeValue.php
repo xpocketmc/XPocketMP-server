@@ -48,7 +48,7 @@ class AttributeValue {
         return $this->currentValue;
     }
 
-    public function setValue(float $value, bool $fit = false): void {
+    public function setValue(float $value, bool $fit = false) : void {
         if ($value < $this->minValue || $value > $this->maxValue) {
             if (!$fit) {
                 throw new \InvalidArgumentException("Value out of range: $value (allowed: {$this->minValue} - {$this->maxValue})");
@@ -65,7 +65,7 @@ class AttributeValue {
     /**
 	 * @return $this
 	 */
-	public function setMinValue(float $minValue){
+	public function setMinValue(float $minValue) : void{
 		if($minValue > ($max = $this->getMaxValue())){
 			throw new \InvalidArgumentException("Minimum $minValue is greater than the maximum $max");
 		}

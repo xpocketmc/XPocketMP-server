@@ -68,6 +68,6 @@ final class AttributeFactory{
 	 * @throws \InvalidArgumentException
 	 */
 	public function register(string $id, float $minValue, float $maxValue, float $defaultValue, bool $shouldSend = true) : AttributeValue{
-		return $this->attributes[$id] = new Attribute($id, $minValue, $maxValue, $defaultValue, $shouldSend);
+		return $this->attributes[$id] = new AttributeValue($id, $minValue, $maxValue, $defaultValue, $shouldSend);
 	}
 }
