@@ -211,30 +211,4 @@ final class CreativeInventory{
 			$callback();
 		}
 	}
-}	/**
-	 * Removes an item from the creative menu.
-	 * Note: Players who are already online when this is called will not see this change.
-	 */
-	public function remove(Item $item) : void{
-		$index = $this->getItemIndex($item);
-		if($index !== -1){
-			unset($this->creative[$index]);
-			$this->onContentChange();
-		}
-	}
-
-	public function contains(Item $item) : bool{
-		return $this->getItemIndex($item) !== -1;
-	}
-
-	/** @phpstan-return ObjectSet<\Closure() : void> */
-	public function getContentChangedCallbacks() : ObjectSet{
-		return $this->contentChangedCallbacks;
-	}
-
-	private function onContentChange() : void{
-		foreach($this->contentChangedCallbacks as $callback){
-			$callback();
-		}
-	}
 }
