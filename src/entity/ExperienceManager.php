@@ -26,6 +26,8 @@ namespace pocketmine\entity;
 
 use pocketmine\entity\attribute\Attribute;
 use pocketmine\entity\attribute\AttributeFactory;
+use pocketmine\entity\attribute\AttributeType;
+use pocketmine\entity\attribute\AttributeValue
 use pocketmine\entity\attribute\AttributeMap;
 use pocketmine\entity\utils\ExperienceUtils;
 use pocketmine\event\player\PlayerExperienceChangeEvent;
@@ -54,11 +56,11 @@ class ExperienceManager{
 	public function __construct(
 		private Human $entity
 	){
-		$this->levelAttr = self::fetchAttribute($entity, Attribute::EXPERIENCE_LEVEL);
-		$this->progressAttr = self::fetchAttribute($entity, Attribute::EXPERIENCE);
+		$this->levelAttr = self::fetchAttribute($entity, AttributeType::EXPERIENCE_LEVEL);
+		$this->progressAttr = self::fetchAttribute($entity, AttributeType::EXPERIENCE);
 	}
 
-	private static function fetchAttribute(Entity $entity, string $attributeId) : Attribute{
+	private static function fetchAttribute(Entity $entity, string $attributeId) : AttributeValue{
 		$attribute = AttributeFactory::getInstance()->mustGet($attributeId);
 		$entity->getAttributeMap()->add($attribute);
 		return $attribute;

@@ -25,7 +25,7 @@ declare(strict_types=1);
 namespace pocketmine\network\mcpe;
 
 use pocketmine\data\bedrock\EffectIdMap;
-use pocketmine\entity\attribute\Attribute;
+use pocketmine\entity\attribute\AttributeValue;
 use pocketmine\entity\effect\EffectInstance;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Human;
@@ -68,7 +68,7 @@ final class StandardEntityEventBroadcaster implements EntityEventBroadcaster{
 		if(count($attributes) > 0){
 			$this->sendDataPacket($recipients, UpdateAttributesPacket::create(
 				$entity->getId(),
-				array_map(fn(Attribute $attr) => new UpdateAttribute($attr->getId(), $attr->getMinValue(), $attr->getMaxValue(), $attr->getValue(), $attr->getMinValue(), $attr->getMaxValue(), $attr->getDefaultValue(), []), $attributes),
+				array_map(fn(AttributeValue $attr) => new UpdateAttribute($attr->getId(), $attr->getMinValue(), $attr->getMaxValue(), $attr->getValue(), $attr->getMinValue(), $attr->getMaxValue(), $attr->getDefaultValue(), []), $attributes),
 				0
 			));
 		}

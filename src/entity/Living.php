@@ -191,12 +191,12 @@ abstract class Living extends Entity{
 	}
 
 	protected function addAttributes() : void{
-		$this->attributeMap->add($this->healthAttr = AttributeFactory::getInstance()->mustGet(Attribute::HEALTH));
-		$this->attributeMap->add(AttributeFactory::getInstance()->mustGet(Attribute::FOLLOW_RANGE));
-		$this->attributeMap->add($this->knockbackResistanceAttr = AttributeFactory::getInstance()->mustGet(Attribute::KNOCKBACK_RESISTANCE));
-		$this->attributeMap->add($this->moveSpeedAttr = AttributeFactory::getInstance()->mustGet(Attribute::MOVEMENT_SPEED));
-		$this->attributeMap->add(AttributeFactory::getInstance()->mustGet(Attribute::ATTACK_DAMAGE));
-		$this->attributeMap->add($this->absorptionAttr = AttributeFactory::getInstance()->mustGet(Attribute::ABSORPTION));
+		$this->attributeMap->add($this->healthAttr = AttributeFactory::getInstance()->mustGet(AttributeType::HEALTH));
+		$this->attributeMap->add(AttributeFactory::getInstance()->mustGet(AttributeType::FOLLOW_RANGE));
+		$this->attributeMap->add($this->knockbackResistanceAttr = AttributeFactory::getInstance()->mustGet(AttributeType::KNOCKBACK_RESISTANCE));
+		$this->attributeMap->add($this->moveSpeedAttr = AttributeFactory::getInstance()->mustGet(AttributeType::MOVEMENT_SPEED));
+		$this->attributeMap->add(AttributeFactory::getInstance()->mustGet(AttributeType::ATTACK_DAMAGE));
+		$this->attributeMap->add($this->absorptionAttr = AttributeFactory::getInstance()->mustGet(AttributeType::ABSORPTION));
 	}
 
 	/**
