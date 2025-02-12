@@ -30,7 +30,7 @@ final class AttributeMap {
     private array $attributes = [];
 
     public function add(AttributeValue $attributeValue): void {
-        $this->attributes[$attributeValue->getAttribute()->getId()] = $attributeValue;
+        $this->attributes[$attributeValue->getId()] = $attributeValue;
     }
 
     public function get(string $id): ?AttributeValue {
@@ -49,7 +49,7 @@ final class AttributeMap {
      */
     public function needSend(): array {
         return array_filter($this->attributes, static fn(AttributeValue $attributeValue): bool =>
-            $attributeValue->getAttribute()->isSyncable() && $attributeValue->isDesynchronized()
+            $attributeValue->isSyncable() && $attributeValue->isDesynchronized()
         );
     }
 }
