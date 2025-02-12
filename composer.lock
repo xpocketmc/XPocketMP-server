@@ -420,16 +420,16 @@
         },
         {
             "name": "pocketmine/locale-data",
-            "version": "2.22.1",
+            "version": "2.22.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/Language.git",
-                "reference": "fa4e377c437391cfcfdedd08eea3a848eabd1b49"
+                "reference": "9033695e71dcacd7665e957c29fd2f29ba42fb67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pmmp/Language/zipball/fa4e377c437391cfcfdedd08eea3a848eabd1b49",
-                "reference": "fa4e377c437391cfcfdedd08eea3a848eabd1b49",
+                "url": "https://api.github.com/repos/pmmp/Language/zipball/9033695e71dcacd7665e957c29fd2f29ba42fb67",
+                "reference": "9033695e71dcacd7665e957c29fd2f29ba42fb67",
                 "shasum": ""
             },
             "type": "library",
@@ -437,9 +437,9 @@
             "description": "Language resources used by PocketMine-MP",
             "support": {
                 "issues": "https://github.com/pmmp/Language/issues",
-                "source": "https://github.com/pmmp/Language/tree/2.22.1"
+                "source": "https://github.com/pmmp/Language/tree/2.22.2"
             },
-            "time": "2024-12-06T14:44:17+00:00"
+            "time": "2025-02-11T16:17:35+00:00"
         },
         {
             "name": "pocketmine/log",
@@ -3197,7 +3197,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
@@ -3228,9 +3228,9 @@
         "ext-zlib": ">=1.2.11",
         "composer-runtime-api": "^2.0"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "platform-overrides": {
         "php": "8.1.0"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
