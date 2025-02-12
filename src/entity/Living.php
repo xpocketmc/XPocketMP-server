@@ -122,10 +122,10 @@ abstract class Living extends Entity{
 	protected int $breathTicks = self::DEFAULT_BREATH_TICKS;
 	protected int $maxBreathTicks = self::DEFAULT_BREATH_TICKS;
 
-	protected Attribute $healthAttr;
-	protected Attribute $absorptionAttr;
-	protected Attribute $knockbackResistanceAttr;
-	protected Attribute $moveSpeedAttr;
+	protected AttributeValue $healthAttr;
+	protected AttributeValue $absorptionAttr;
+	protected AttributeValue $knockbackResistanceAttr;
+	protected AttributeValue $moveSpeedAttr;
 
 	protected bool $sprinting = false;
 	protected bool $sneaking = false;

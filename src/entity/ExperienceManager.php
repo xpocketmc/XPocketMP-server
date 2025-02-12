@@ -44,8 +44,8 @@ use function min;
 
 class ExperienceManager{
 
-	private Attribute $levelAttr;
-	private Attribute $progressAttr;
+	private AttributeValue $levelAttr;
+	private AttributeValue $progressAttr;
 
 	private int $totalXp = 0;
 

@@ -7,20 +7,29 @@ namespace pocketmine\entity\attribute;
 use function max;
 use function min;
 
-final class AttributeValue extends  Attribute{
+class AttributeValue {
     private float $currentValue;
     private bool $desynchronized = true;
 
     public function __construct(
+        private string $id,
         private float $minValue,
         private float $maxValue,
-        private float $defaultValue
+        private float $defaultValue,
+        private bool $shouldSend = true
     ) {
-	parent::__construct();
         if ($minValue > $maxValue || $defaultValue > $maxValue || $defaultValue < $minValue) {
             throw new \InvalidArgumentException("Invalid range: min=$minValue, max=$maxValue, default=$defaultValue");
         }
         $this->currentValue = $defaultValue;
+    }
+
+    public function getId(): string {
+        return $this->id;
+    }
+
+    public function isSyncable(): bool {
+        return $this->shouldSend;
     }
 
     public function getMinValue(): float {
