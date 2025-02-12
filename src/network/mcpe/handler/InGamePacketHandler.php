@@ -29,8 +29,6 @@ use pocketmine\block\Lectern;
 use pocketmine\block\tile\Sign;
 use pocketmine\block\utils\SignText;
 use pocketmine\entity\animation\ConsumingItemAnimation;
-use pocketmine\entity\attribute\Attribute;
-use pocketmine\entity\attribute\AttributeMap;
 use pocketmine\entity\attribute\AttributeType;
 use pocketmine\entity\InvalidSkinException;
 use pocketmine\event\player\PlayerEditBookEvent;
