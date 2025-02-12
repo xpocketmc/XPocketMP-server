@@ -33,6 +33,8 @@ use pocketmine\entity\animation\RespawnAnimation;
 use pocketmine\entity\attribute\Attribute;
 use pocketmine\entity\attribute\AttributeFactory;
 use pocketmine\entity\attribute\AttributeMap;
+use pocketmine\entity\attribute\AttributeType;
+use pocketmine\entity\attribute\AttributeValue;
 use pocketmine\entity\effect\EffectInstance;
 use pocketmine\entity\effect\EffectManager;
 use pocketmine\entity\effect\VanillaEffects;

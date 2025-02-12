@@ -52,11 +52,11 @@ final class AttributeFactory{
 		$this->register(AttributeType::LAVA_MOVEMENT, 0.0, 340282346638528859811704183484516925440.0, 0.02);
 	}
 
-	public function get(string $id) : ?Attribute{
+	public function get(string $id) : ?AttributeValue{
 		return isset($this->attributes[$id]) ? clone $this->attributes[$id] : null;
 	}
 
-	public function mustGet(string $id) : Attribute{
+	public function mustGet(string $id) : AttributeValue{
 		$result = $this->get($id);
 		if($result === null){
 			throw new \InvalidArgumentException("Attribute $id is not registered");
@@ -67,7 +67,7 @@ final class AttributeFactory{
 	/**
 	 * @throws \InvalidArgumentException
 	 */
-	public function register(string $id, float $minValue, float $maxValue, float $defaultValue, bool $shouldSend = true) : Attribute{
+	public function register(string $id, float $minValue, float $maxValue, float $defaultValue, bool $shouldSend = true) : AttributeValue{
 		return $this->attributes[$id] = new Attribute($id, $minValue, $maxValue, $defaultValue, $shouldSend);
 	}
 }
