@@ -30,6 +30,7 @@ use pocketmine\block\Bamboo;
 use pocketmine\block\Block;
 use pocketmine\block\CaveVines;
 use pocketmine\block\ChorusFlower;
+use pocketmine\block\CreakingHeart;
 use pocketmine\block\DoublePitcherCrop;
 use pocketmine\block\Opaque;
 use pocketmine\block\PinkPetals;
