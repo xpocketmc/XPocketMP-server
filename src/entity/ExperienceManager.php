@@ -24,11 +24,9 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
-use pocketmine\entity\attribute\Attribute;
 use pocketmine\entity\attribute\AttributeFactory;
 use pocketmine\entity\attribute\AttributeType;
 use pocketmine\entity\attribute\AttributeValue;
-use pocketmine\entity\attribute\AttributeMap;
 use pocketmine\entity\utils\ExperienceUtils;
 use pocketmine\event\player\PlayerExperienceChangeEvent;
 use pocketmine\item\Durable;
