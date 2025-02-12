@@ -37,9 +37,9 @@ use function min;
 
 class HungerManager{
 
-	private Attribute $hungerAttr;
-	private Attribute $saturationAttr;
-	private Attribute $exhaustionAttr;
+	private AttributeValue $hungerAttr;
+	private AttributeValue $saturationAttr;
+	private AttributeValue $exhaustionAttr;
 
 	private int $foodTickTimer = 0;
 

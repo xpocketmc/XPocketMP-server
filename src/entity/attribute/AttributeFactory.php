@@ -29,7 +29,7 @@ use pocketmine\utils\SingletonTrait;
 final class AttributeFactory{
 	use SingletonTrait;
 
-	/** @var Attribute[] */
+	/** @var AttributeValue[] */
 	private array $attributes = [];
 
 	public function __construct(){
