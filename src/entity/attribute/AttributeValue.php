@@ -62,7 +62,7 @@ class AttributeValue {
         }
     }
 
-	public function setMinValue(float $minValue) : void{
+	public function setMinValue(float $minValue) : self{
 		if($minValue > ($max = $this->getMaxValue())){
 			throw new \InvalidArgumentException("Minimum $minValue is greater than the maximum $max");
 		}
@@ -74,7 +74,7 @@ class AttributeValue {
 		return $this;
 	}
 
-    public function setMaxValue(float $maxValue){
+    public function setMaxValue(float $maxValue) : void{
 		if($maxValue < ($min = $this->getMinValue())){
 			throw new \InvalidArgumentException("Maximum $maxValue is less than the minimum $min");
 		}
