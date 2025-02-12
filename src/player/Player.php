@@ -37,6 +37,7 @@ use pocketmine\entity\animation\ArmSwingAnimation;
 use pocketmine\entity\animation\CriticalHitAnimation;
 use pocketmine\entity\attribute\Attribute;
 use pocketmine\entity\attribute\AttributeFactory;
+use pocketmine\entity\attribute\AttributeType;
 use pocketmine\entity\attribute\AttributeMap;
 use pocketmine\entity\effect\VanillaEffects;
 use pocketmine\entity\Entity;
@@ -2450,7 +2451,7 @@ round($position->getY()) . ", " .
 				$this->setHealth($this->getMaxHealth());
 
 				foreach($this->attributeMap->getAll() as $attr){
-					if($attr->getId() === Attribute::EXPERIENCE || $attr->getId() === Attribute::EXPERIENCE_LEVEL){ //we have already reset both of those if needed when the player died
+					if($attr->getId() === AttributeType::EXPERIENCE || $attr->getId() === AttributeType::EXPERIENCE_LEVEL){ //we have already reset both of those if needed when the player died
 						continue;
 					}
 					$attr->resetToDefault();

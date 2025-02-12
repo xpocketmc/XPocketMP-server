@@ -7,7 +7,7 @@ namespace pocketmine\entity\attribute;
 use function max;
 use function min;
 
-final class AttributeValue {
+final class AttributeValue implements Attribute{
     private float $currentValue;
     private bool $desynchronized = true;
 
