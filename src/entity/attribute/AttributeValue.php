@@ -7,7 +7,7 @@ namespace pocketmine\entity\attribute;
 use function max;
 use function min;
 
-final class AttributeValue implements Attribute{
+final class AttributeValue extends  Attribute{
     private float $currentValue;
     private bool $desynchronized = true;
 
@@ -16,6 +16,7 @@ final class AttributeValue implements Attribute{
         private float $maxValue,
         private float $defaultValue
     ) {
+	parent::__construct();
         if ($minValue > $maxValue || $defaultValue > $maxValue || $defaultValue < $minValue) {
             throw new \InvalidArgumentException("Invalid range: min=$minValue, max=$maxValue, default=$defaultValue");
         }

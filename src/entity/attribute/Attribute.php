@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace pocketmine\entity\attribute;
 
-final class Attribute {
+class Attribute {
     private AttributeValue $value;
 
     public function __construct(
