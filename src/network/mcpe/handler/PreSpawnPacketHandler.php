@@ -111,7 +111,6 @@ class PreSpawnPacketHandler extends PacketHandler{
 				false,
 				false,
 				new NetworkPermissions(disableClientSounds: true),
-				[],
 				0,
 				$typeConverter->getItemTypeDictionary()->getEntries(),
 			));

@@ -27,11 +27,13 @@ namespace pocketmine\network\mcpe\cache;
 use pocketmine\inventory\CreativeInventory;
 use pocketmine\network\mcpe\convert\TypeConverter;
 use pocketmine\network\mcpe\protocol\CreativeContentPacket;
-use pocketmine\network\mcpe\protocol\types\inventory\CreativeContentEntry;
+use pocketmine\network\mcpe\protocol\types\inventory\CreativeGroupEntry;
+use pocketmine\network\mcpe\protocol\types\inventory\CreativeItemEntry;
+use pocketmine\item\ItemFactory; // Perlu jika `ItemStack` harus dibuat
 use pocketmine\utils\SingletonTrait;
 use function spl_object_id;
 
-final class CreativeInventoryCache{
+final class CreativeInventoryCache {
 	use SingletonTrait;
 
 	/**
@@ -40,13 +42,13 @@ final class CreativeInventoryCache{
 	 */
 	private array $caches = [];
 
-	public function getCache(CreativeInventory $inventory) : CreativeContentPacket{
+	public function getCache(CreativeInventory $inventory) : CreativeContentPacket {
 		$id = spl_object_id($inventory);
-		if(!isset($this->caches[$id])){
-			$inventory->getDestructorCallbacks()->add(function() use ($id) : void{
+		if (!isset($this->caches[$id])) {
+			$inventory->getDestructorCallbacks()->add(function() use ($id) : void {
 				unset($this->caches[$id]);
 			});
-			$inventory->getContentChangedCallbacks()->add(function() use ($id) : void{
+			$inventory->getContentChangedCallbacks()->add(function() use ($id) : void {
 				unset($this->caches[$id]);
 			});
 			$this->caches[$id] = $this->buildCreativeInventoryCache($inventory);
@@ -57,14 +59,27 @@ final class CreativeInventoryCache{
 	/**
 	 * Rebuild the cache for the given inventory.
 	 */
-	private function buildCreativeInventoryCache(CreativeInventory $inventory) : CreativeContentPacket{
-		$entries = [];
+	private function buildCreativeInventoryCache(CreativeInventory $inventory) : CreativeContentPacket {
+		$groups = [];
+		$items = [];
 		$typeConverter = TypeConverter::getInstance();
+		$icon = ItemFactory::getInstance()->get(1);
+		$groups[] = new CreativeGroupEntry(0, "Default Group", $typeConverter->coreItemStackToNet($icon));
+
 		//creative inventory may have holes if items were unregistered - ensure network IDs used are always consistent
-		foreach($inventory->getAll() as $k => $item){
-			$entries[] = new CreativeContentEntry($k, $typeConverter->coreItemStackToNet($item));
+		foreach ($inventory->getAll() as $k => $item) {
+			$items[] = new CreativeItemEntry($k, $typeConverter->coreItemStackToNet($item));
 		}
 
-		return CreativeContentPacket::create($entries);
+		return CreativeContentPacket::create($groups, $items);
+	}
+}
+
+		//creative inventory may have holes if items were unregistered - ensure network IDs used are always consistent
+		foreach($inventory->getAll() as $k => $item){
+			$items[] = new CreativeContentEntry($k, $typeConverter->coreItemStackToNet($item));
+		}
+
+		return CreativeContentPacket::create([], $items);
 	}
 }

@@ -235,19 +235,6 @@ class ParserPacketHandler extends PacketHandler{
 	}
 
 	public function handleStartGame(StartGamePacket $packet) : bool{
-		$this->itemTypeDictionary = new ItemTypeDictionary($packet->itemTable);
-
-		echo "updating legacy item ID mapping table\n";
-		$table = [];
-		foreach($packet->itemTable as $entry){
-			$table[$entry->getStringId()] = [
-				"runtime_id" => $entry->getNumericId(),
-				"component_based" => $entry->isComponentBased()
-			];
-		}
-		ksort($table, SORT_STRING);
-		file_put_contents($this->bedrockDataPath . '/required_item_list.json', json_encode($table, JSON_PRETTY_PRINT) . "\n");
-
 		foreach($packet->levelSettings->experiments->getExperiments() as $name => $experiment){
 			echo "Experiment \"$name\" is " . ($experiment ? "" : "not ") . "active\n";
 		}
