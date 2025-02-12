@@ -38,7 +38,7 @@ interface EntityEventBroadcaster{
 
 	/**
 	 * @param NetworkSession[] $recipients
-	 * @param AttributeValue[]      $attributes
+	 * @param AttributeValue[] $attributes
 	 */
 	public function syncAttributes(array $recipients, Living $entity, array $attributes) : void;
 
