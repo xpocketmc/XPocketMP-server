@@ -62,39 +62,37 @@ class AttributeValue {
         }
     }
 
-	public function setMinValue(float $minValue) : self{
-		if($minValue > ($max = $this->getMaxValue())){
-			throw new \InvalidArgumentException("Minimum $minValue is greater than the maximum $max");
-		}
+    public function setMinValue(float $minValue) : void {
+        if ($minValue > ($max = $this->getMaxValue())) {
+            throw new \InvalidArgumentException("Minimum $minValue is greater than the maximum $max");
+        }
 
-		if($this->minValue !== $minValue){
-			$this->desynchronized = true;
-			$this->minValue = $minValue;
-		}
-		return $this;
-	}
+        if ($this->minValue !== $minValue) {
+            $this->desynchronized = true;
+            $this->minValue = $minValue;
+        }
+    }
 
-    public function setMaxValue(float $maxValue) : void{
-		if($maxValue < ($min = $this->getMinValue())){
-			throw new \InvalidArgumentException("Maximum $maxValue is less than the minimum $min");
-		}
+    public function setMaxValue(float $maxValue) : void {
+        if ($maxValue < ($min = $this->getMinValue())) {
+            throw new \InvalidArgumentException("Maximum $maxValue is less than the minimum $min");
+        }
 
-		if($this->maxValue !== $maxValue){
-			$this->desynchronized = true;
-			$this->maxValue = $maxValue;
-		}
-		return $this;
-	}
+        if ($this->maxValue !== $maxValue) {
+            $this->desynchronized = true;
+            $this->maxValue = $maxValue;
+        }
+    }
 
     public function resetToDefault(): void {
         $this->setValue($this->defaultValue, true);
     }
 
-    public function isDesynchronized() : bool{
-		return $this->shouldSend && $this->desynchronized;
-	}
+    public function isDesynchronized() : bool {
+        return $this->shouldSend && $this->desynchronized;
+    }
 
-	public function markSynchronized(bool $synced = true) : void{
-		$this->desynchronized = !$synced;
-	}
+    public function markSynchronized(bool $synced = true) : void {
+        $this->desynchronized = !$synced;
+    }
 }
