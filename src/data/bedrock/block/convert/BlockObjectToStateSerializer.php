@@ -1310,12 +1310,6 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 				)
 			);
 		});
-		$this->map(Blocks::CREAKING_HEART(), function(CreakingHeart $block) : Writer{
-			return Writer::create(Ids::CREAKING_HEART)
-				->writeBool(StateNames::ACTIVE, $block->isActive())
-				->writePillarAxis($block->getAxis())
-				->writeBool(StateNames::NATURAL, $block->isNatural());
-		});
 		$this->map(Blocks::CUT_COPPER(), function(Copper $block) : Writer{
 			$oxidation = $block->getOxidation();
 			return new Writer($block->isWaxed() ?
