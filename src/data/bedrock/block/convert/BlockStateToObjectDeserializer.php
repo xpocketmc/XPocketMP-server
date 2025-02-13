@@ -1242,7 +1242,7 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->map(Ids::CREAKING_HEART, function(Reader $in) : Block {
     $state = $in->readString(StateNames::CREAKING_HEART_STATE);
     return Blocks::CREAKING_HEART()
-        ->setActive($state === BlockStateStringValues::CREAKING_HEART_STATE_UPROOTED) // true jika "uprooted", false jika "dormant"
+        ->setActive($state === StringValues::CREAKING_HEART_STATE_UPROOTED)
         ->setAxis($in->readPillarAxis())
         ->setNatural($in->readBool(StateNames::NATURAL));
 });
