@@ -1240,14 +1240,15 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->mapSlab(Ids::CUT_RED_SANDSTONE_SLAB, Ids::CUT_RED_SANDSTONE_DOUBLE_SLAB, fn() => Blocks::CUT_RED_SANDSTONE_SLAB());
 		$this->mapSlab(Ids::CUT_SANDSTONE_SLAB, Ids::CUT_SANDSTONE_DOUBLE_SLAB, fn() => Blocks::CUT_SANDSTONE_SLAB());
 		$this->map(Ids::CREAKING_HEART, function(Reader $in) : Block {
-			return Blocks::CREAKING_HEART()
-				->setActive($in->readInt(StateNames::CREAKING_HEART_STATE, [
-													  0 => StringValues::CREAKING_HEART_STATE_DORMANT,
-													  1 => StringValues::CREAKING_HEART_STATE_UPROOTED
-													  ]))
-				->setAxis($in->readPillarAxis())
-				->setNatural($in->readBool(StateNames::NATURAL));
-		});
+    $state = $in->readBool(StateNames::CREAKING_HEART_STATE) 
+        ? BlockStateStringValues::CREAKING_HEART_STATE_UPROOTED 
+        : BlockStateStringValues::CREAKING_HEART_STATE_DORMANT;
+
+    return Blocks::CREAKING_HEART()
+        ->setActive($state)
+        ->setAxis($in->readPillarAxis())
+        ->setNatural($in->readBool(StateNames::NATURAL));
+});
 		$this->mapSlab(Ids::DARK_PRISMARINE_SLAB, Ids::DARK_PRISMARINE_DOUBLE_SLAB, fn() => Blocks::DARK_PRISMARINE_SLAB());
 		$this->mapStairs(Ids::DARK_PRISMARINE_STAIRS, fn() => Blocks::DARK_PRISMARINE_STAIRS());
 		$this->map(Ids::DAYLIGHT_DETECTOR, fn(Reader $in) => Helper::decodeDaylightSensor(Blocks::DAYLIGHT_SENSOR(), $in)
