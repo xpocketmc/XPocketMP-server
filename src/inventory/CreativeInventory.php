@@ -62,6 +62,7 @@ final class CreativeInventory{
 	private function __construct(){
 		$this->contentChangedCallbacks = new ObjectSet();
 
+		/** @var object{groups: array, items: array} $creativeData */
 		$creativeData = json_decode(Filesystem::fileGetContents(BedrockDataFiles::CREATIVEITEMS_JSON));
 
 		$mapper = new \JsonMapper();
