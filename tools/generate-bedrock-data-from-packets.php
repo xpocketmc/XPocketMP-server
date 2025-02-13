@@ -36,6 +36,8 @@ use pocketmine\crafting\json\SmithingTrimRecipeData;
 use pocketmine\data\bedrock\block\BlockStateData;
 use pocketmine\data\bedrock\item\BlockItemIdMap;
 use pocketmine\data\bedrock\item\ItemTypeNames;
+use pocketmine\inventory\json\CreativeGroupData;
+use pocketmine\inventory\json\CreativeItemData;
 use pocketmine\nbt\LittleEndianNbtSerializer;
 use pocketmine\nbt\NBT;
 use pocketmine\nbt\tag\CompoundTag;
@@ -49,15 +51,18 @@ use pocketmine\network\mcpe\protocol\AvailableActorIdentifiersPacket;
 use pocketmine\network\mcpe\protocol\BiomeDefinitionListPacket;
 use pocketmine\network\mcpe\protocol\CraftingDataPacket;
 use pocketmine\network\mcpe\protocol\CreativeContentPacket;
+use pocketmine\network\mcpe\protocol\ItemRegistryPacket;
 use pocketmine\network\mcpe\protocol\PacketPool;
 use pocketmine\network\mcpe\protocol\serializer\ItemTypeDictionary;
 use pocketmine\network\mcpe\protocol\serializer\PacketSerializer;
 use pocketmine\network\mcpe\protocol\StartGamePacket;
 use pocketmine\network\mcpe\protocol\types\CacheableNbt;
-use pocketmine\network\mcpe\protocol\types\inventory\CreativeContentEntry;
+use pocketmine\network\mcpe\protocol\types\inventory\CreativeGroupEntry;
+use pocketmine\network\mcpe\protocol\types\inventory\CreativeItemEntry;
 use pocketmine\network\mcpe\protocol\types\inventory\ItemStack;
 use pocketmine\network\mcpe\protocol\types\inventory\ItemStackExtraData;
 use pocketmine\network\mcpe\protocol\types\inventory\ItemStackExtraDataShield;
+use pocketmine\network\mcpe\protocol\types\ItemTypeEntry;
 use pocketmine\network\mcpe\protocol\types\recipe\ComplexAliasItemDescriptor;
 use pocketmine\network\mcpe\protocol\types\recipe\FurnaceRecipe;
 use pocketmine\network\mcpe\protocol\types\recipe\IntIdMetaItemDescriptor;
@@ -135,6 +140,25 @@ class ParserPacketHandler extends PacketHandler{
 		return base64_encode((new LittleEndianNbtSerializer())->write(new TreeRoot($statePropertiesTag)));
 	}
 
+	private function creativeGroupEntryToJson(CreativeGroupEntry $entry) : CreativeGroupData{
+		$data = new CreativeGroupData();
+
+		$data->category_id = $entry->getCategoryId();
+		$data->category_name = $entry->getCategoryName();
+		$data->icon = $entry->getIcon()->getId() === 0 ? null : $this->itemStackToJson($entry->getIcon());
+
+		return $data;
+	}
+
+	private function creativeItemEntryToJson(CreativeItemEntry $entry) : CreativeItemData{
+		$data = new CreativeItemData();
+
+		$data->group_id = $entry->getGroupId();
+		$data->item = $this->itemStackToJson($entry->getItem());
+
+		return $data;
+	}
+
 	private function itemStackToJson(ItemStack $itemStack) : ItemStackData{
 		if($itemStack->getId() === 0){
 			throw new InvalidArgumentException("Cannot serialize a null itemstack");
@@ -199,12 +223,12 @@ class ParserPacketHandler extends PacketHandler{
 		$result = (array) ($object instanceof \JsonSerializable ? $object->jsonSerialize() : $object);
 		ksort($result, SORT_STRING);
 
-		foreach($result as $property => $value){
+		foreach(Utils::promoteKeys($result) as $property => $value){
 			if(is_object($value)){
 				$result[$property] = self::objectToOrderedArray($value);
 			}elseif(is_array($value)){
 				$array = [];
-				foreach($value as $k => $v){
+				foreach(Utils::promoteKeys($value) as $k => $v){
 					if(is_object($v)){
 						$array[$k] = self::objectToOrderedArray($v);
 					}else{
@@ -225,7 +249,7 @@ class ParserPacketHandler extends PacketHandler{
 		}
 		if(is_array($object)){
 			$result = [];
-			foreach($object as $k => $v){
+			foreach(Utils::promoteKeys($object) as $k => $v){
 				$result[$k] = self::sort($v);
 			}
 			return $result;
@@ -235,31 +259,47 @@ class ParserPacketHandler extends PacketHandler{
 	}
 
 	public function handleStartGame(StartGamePacket $packet) : bool{
-		$this->itemTypeDictionary = new ItemTypeDictionary($packet->itemTable);
-
-		echo "updating legacy item ID mapping table\n";
-		$table = [];
-		foreach($packet->itemTable as $entry){
-			$table[$entry->getStringId()] = [
-				"runtime_id" => $entry->getNumericId(),
-				"component_based" => $entry->isComponentBased()
-			];
-		}
-		ksort($table, SORT_STRING);
-		file_put_contents($this->bedrockDataPath . '/required_item_list.json', json_encode($table, JSON_PRETTY_PRINT) . "\n");
-
-		foreach($packet->levelSettings->experiments->getExperiments() as $name => $experiment){
+		foreach(Utils::promoteKeys($packet->levelSettings->experiments->getExperiments()) as $name => $experiment){
 			echo "Experiment \"$name\" is " . ($experiment ? "" : "not ") . "active\n";
 		}
 		return true;
 	}
 
+	public function handleItemRegistry(ItemRegistryPacket $packet) : bool{
+		$this->itemTypeDictionary = new ItemTypeDictionary($packet->getEntries());
+
+		echo "updating legacy item ID mapping table\n";
+		$table = [];
+		foreach($packet->getEntries() as $entry){
+			$table[$entry->getStringId()] = [
+				"runtime_id" => $entry->getNumericId(),
+				"component_based" => $entry->isComponentBased(),
+				"version" => $entry->getVersion(),
+			];
+		}
+		ksort($table, SORT_STRING);
+		file_put_contents($this->bedrockDataPath . '/required_item_list.json', json_encode($table, JSON_PRETTY_PRINT) . "\n");
+
+		echo "updating item registry\n";
+		$items = array_map(function(ItemTypeEntry $entry) : array{
+			return self::objectToOrderedArray($entry);
+		}, $packet->getEntries());
+		file_put_contents($this->bedrockDataPath . '/item_registry.json', json_encode($items, JSON_PRETTY_PRINT) . "\n");
+		return true;
+	}
+
 	public function handleCreativeContent(CreativeContentPacket $packet) : bool{
 		echo "updating creative inventory data\n";
-		$items = array_map(function(CreativeContentEntry $entry) : array{
-			return self::objectToOrderedArray($this->itemStackToJson($entry->getItem()));
-		}, $packet->getEntries());
-		file_put_contents($this->bedrockDataPath . '/creativeitems.json', json_encode($items, JSON_PRETTY_PRINT) . "\n");
+		$groups = array_map(function(CreativeGroupEntry $entry) : array{
+			return self::objectToOrderedArray($this->creativeGroupEntryToJson($entry));
+		}, $packet->getGroups());
+		$items = array_map(function(CreativeItemEntry $entry) : array{
+			return self::objectToOrderedArray($this->creativeItemEntryToJson($entry));
+		}, $packet->getItems());
+		file_put_contents($this->bedrockDataPath . '/creativeitems.json', json_encode([
+			'groups' => $groups,
+			'items' => $items,
+		], JSON_PRETTY_PRINT) . "\n");
 		return true;
 	}
 
@@ -318,8 +358,8 @@ class ParserPacketHandler extends PacketHandler{
 		$char = ord("A");
 
 		$outputsByKey = [];
-		foreach($entry->getInput() as $x => $row){
-			foreach($row as $y => $ingredient){
+		foreach(Utils::promoteKeys($entry->getInput()) as $x => $row){
+			foreach(Utils::promoteKeys($row) as $y => $ingredient){
 				if($ingredient->getDescriptor() === null){
 					$shape[$x][$y] = " ";
 				}else{
@@ -338,7 +378,7 @@ class ParserPacketHandler extends PacketHandler{
 		}
 		$unlockingIngredients = $entry->getUnlockingRequirement()->getUnlockingIngredients();
 		return new ShapedRecipeData(
-			array_map(fn(array $array) => implode('', $array), $shape),
+			array_map(fn(array $array) => implode('', array_values($array)), array_values($shape)),
 			$outputsByKey,
 			array_map(fn(ItemStack $output) => $this->itemStackToJson($output), $entry->getOutput()),
 			$entry->getBlockName(),
@@ -455,7 +495,7 @@ class ParserPacketHandler extends PacketHandler{
 
 		//this sorts the data into a canonical order to make diffs between versions reliable
 		//how the data is ordered doesn't matter as long as it's reproducible
-		foreach($recipes as $_type => $entries){
+		foreach(Utils::promoteKeys($recipes) as $_type => $entries){
 			$_sortedRecipes = [];
 			$_seen = [];
 			foreach($entries as $entry){
@@ -476,10 +516,10 @@ class ParserPacketHandler extends PacketHandler{
 		}
 
 		ksort($recipes, SORT_STRING);
-		foreach($recipes as $type => $entries){
+		foreach(Utils::promoteKeys($recipes) as $type => $entries){
 			echo "$type: " . count($entries) . "\n";
 		}
-		foreach($recipes as $type => $entries){
+		foreach(Utils::promoteKeys($recipes) as $type => $entries){
 			file_put_contents(Path::join($recipesPath, $type . '.json'), json_encode($entries, JSON_PRETTY_PRINT) . "\n");
 		}
 
