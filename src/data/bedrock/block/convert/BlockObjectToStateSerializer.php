@@ -1450,8 +1450,8 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
     return Writer::create(Ids::CREAKING_HEART)
         ->writeString(StateNames::CREAKING_HEART_STATE, 
             $block->isActive() 
-                ? BlockStateStringValues::CREAKING_HEART_STATE_UPROOTED 
-                : BlockStateStringValues::CREAKING_HEART_STATE_DORMANT
+                ? StringValues::CREAKING_HEART_STATE_UPROOTED 
+                : StringValues::CREAKING_HEART_STATE_DORMANT
         )
         ->writePillarAxis($block->getAxis())
         ->writeBool(StateNames::NATURAL, $block->isNatural());
