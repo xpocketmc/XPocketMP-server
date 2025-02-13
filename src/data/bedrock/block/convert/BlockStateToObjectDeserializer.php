@@ -1239,9 +1239,12 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->mapStairs(Ids::CUT_COPPER_STAIRS, fn() => Helper::decodeCopper(Blocks::CUT_COPPER_STAIRS(), CopperOxidation::NONE));
 		$this->mapSlab(Ids::CUT_RED_SANDSTONE_SLAB, Ids::CUT_RED_SANDSTONE_DOUBLE_SLAB, fn() => Blocks::CUT_RED_SANDSTONE_SLAB());
 		$this->mapSlab(Ids::CUT_SANDSTONE_SLAB, Ids::CUT_SANDSTONE_DOUBLE_SLAB, fn() => Blocks::CUT_SANDSTONE_SLAB());
-		$this->map(Ids::CREAKING_HEART, function(Reader $in) : Block{
+		$this->map(Ids::CREAKING_HEART, function(Reader $in) : Block {
 			return Blocks::CREAKING_HEART()
-				->setActive($in->readBool(StateNames::ACTIVE))
+				->setCreakingHeartState($in->readEnum(StateNames::CREAKING_HEART_STATE, [
+													  0 => StringValues::CREAKING_HEART_STATE_DORMANT,
+													  1 => StringValues::CREAKING_HEART_STATE_UPROOTED
+													  ]))
 				->setAxis($in->readPillarAxis())
 				->setNatural($in->readBool(StateNames::NATURAL));
 		});
