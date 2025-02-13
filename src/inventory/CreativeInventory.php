@@ -38,6 +38,7 @@ use pocketmine\utils\SingletonTrait;
 use pocketmine\utils\Utils;
 use function array_map;
 use function count;
+use function is_object;
 use function json_decode;
 
 final class CreativeInventory{
@@ -66,7 +67,7 @@ final class CreativeInventory{
 $creativeData = json_decode(Filesystem::fileGetContents(BedrockDataFiles::CREATIVEITEMS_JSON), false);
 
 if(!is_object($creativeData) || !isset($creativeData->groups) || !isset($creativeData->items)){
-    throw new \RuntimeException("Invalid creative items JSON structure");
+	throw new \RuntimeException("Invalid creative items JSON structure");
 }
 
 		$mapper = new \JsonMapper();

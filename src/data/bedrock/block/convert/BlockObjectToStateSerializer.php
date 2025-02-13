@@ -1447,14 +1447,14 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		$this->mapSlab(Blocks::CUT_RED_SANDSTONE_SLAB(), Ids::CUT_RED_SANDSTONE_SLAB, Ids::CUT_RED_SANDSTONE_DOUBLE_SLAB);
 		$this->mapSlab(Blocks::CUT_SANDSTONE_SLAB(), Ids::CUT_SANDSTONE_SLAB, Ids::CUT_SANDSTONE_DOUBLE_SLAB);
 		$this->map(Blocks::CREAKING_HEART(), function(CreakingHeart $block) : Writer {
-    return Writer::create(Ids::CREAKING_HEART)
-        ->writeString(StateNames::CREAKING_HEART_STATE, 
-            $block->isActive() 
-                ? StringValues::CREAKING_HEART_STATE_UPROOTED 
-                : StringValues::CREAKING_HEART_STATE_DORMANT
-        )
-        ->writePillarAxis($block->getAxis())
-        ->writeBool(StateNames::NATURAL, $block->isNatural());
+	return Writer::create(Ids::CREAKING_HEART)
+		->writeString(StateNames::CREAKING_HEART_STATE,
+			$block->isActive()
+				? StringValues::CREAKING_HEART_STATE_UPROOTED
+				: StringValues::CREAKING_HEART_STATE_DORMANT
+		)
+		->writePillarAxis($block->getAxis())
+		->writeBool(StateNames::NATURAL, $block->isNatural());
 });	$this->mapSlab(Blocks::DARK_PRISMARINE_SLAB(), Ids::DARK_PRISMARINE_SLAB, Ids::DARK_PRISMARINE_DOUBLE_SLAB);
 		$this->mapStairs(Blocks::DARK_PRISMARINE_STAIRS(), Ids::DARK_PRISMARINE_STAIRS);
 		$this->map(Blocks::DAYLIGHT_SENSOR(), function(DaylightSensor $block) : Writer{
