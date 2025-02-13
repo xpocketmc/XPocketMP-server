@@ -27,7 +27,9 @@ namespace pocketmine\network\mcpe\cache;
 use pocketmine\inventory\CreativeInventory;
 use pocketmine\network\mcpe\convert\TypeConverter;
 use pocketmine\network\mcpe\protocol\CreativeContentPacket;
-use pocketmine\network\mcpe\protocol\types\inventory\CreativeContentEntry;
+use pocketmine\network\mcpe\protocol\types\inventory\CreativeGroupEntry;
+use pocketmine\network\mcpe\protocol\types\inventory\CreativeItemEntry;
+use pocketmine\network\mcpe\protocol\types\inventory\ItemStack;
 use pocketmine\utils\SingletonTrait;
 use function spl_object_id;
 
@@ -58,13 +60,21 @@ final class CreativeInventoryCache{
 	 * Rebuild the cache for the given inventory.
 	 */
 	private function buildCreativeInventoryCache(CreativeInventory $inventory) : CreativeContentPacket{
-		$entries = [];
+		/** @var CreativeGroupEntry[] $groups */
+		$groups = [];
+		/** @var CreativeItemEntry[] $items */
+		$items = [];
+
 		$typeConverter = TypeConverter::getInstance();
-		//creative inventory may have holes if items were unregistered - ensure network IDs used are always consistent
-		foreach($inventory->getAll() as $k => $item){
-			$entries[] = new CreativeContentEntry($k, $typeConverter->coreItemStackToNet($item));
+		foreach($inventory->getGroups() as $group){
+			$groups[] = new CreativeGroupEntry($group->categoryId, $group->categoryName, $group->icon === null ? ItemStack::null() : $typeConverter->coreItemStackToNet($group->icon));
 		}
 
-		return CreativeContentPacket::create($entries);
+		//creative inventory may have holes if items were unregistered - ensure network IDs used are always consistent
+		foreach($inventory->getGroupedItems() as $k => $item){
+			$items[] = new CreativeItemEntry($k, $typeConverter->coreItemStackToNet($item->item), $item->groupId);
+		}
+
+		return CreativeContentPacket::create($groups, $items);
 	}
 }
