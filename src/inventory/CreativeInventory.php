@@ -62,8 +62,12 @@ final class CreativeInventory{
 	private function __construct(){
 		$this->contentChangedCallbacks = new ObjectSet();
 
-		/** @var object{groups: array, items: array} $creativeData */
-		$creativeData = json_decode(Filesystem::fileGetContents(BedrockDataFiles::CREATIVEITEMS_JSON));
+		/** @var object{groups: array<int, mixed>, items: array<int, mixed>} $creativeData */
+$creativeData = json_decode(Filesystem::fileGetContents(BedrockDataFiles::CREATIVEITEMS_JSON), false);
+
+if(!is_object($creativeData) || !isset($creativeData->groups) || !isset($creativeData->items)){
+    throw new \RuntimeException("Invalid creative items JSON structure");
+}
 
 		$mapper = new \JsonMapper();
 		$mapper->bStrictObjectTypeChecking = true;
