@@ -28,7 +28,6 @@ use pocketmine\data\bedrock\BiomeIds;
 use pocketmine\item\LegacyStringToItemParser;
 use pocketmine\item\LegacyStringToItemParserException;
 use function array_map;
-use function count;
 use function explode;
 use function preg_match;
 use function preg_match_all;

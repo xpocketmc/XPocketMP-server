@@ -32,8 +32,7 @@
       "ext-zlib": ">=1.2.11",
       "composer-runtime-api": "^2.0",
       "adhocore/json-comment": "~1.2.0",
-      "pocketmine/netresearch-jsonmapper": "~v4.4.999",
-   	  "pocketmine/bedrock-block-upgrade-schema": "5.1.0",
+      "pocketmine/bedrock-block-upgrade-schema": "5.1.0",
       "pocketmine/bedrock-data": "3.0.0+bedrock-1.21.60",
       "pocketmine/bedrock-item-upgrade-schema": "1.14.0+bedrock-1.21.50",
       "pocketmine/bedrock-protocol": "dev-bedrock-1.21.60",
@@ -45,13 +44,15 @@
       "pocketmine/log": "^0.4.0",
       "pocketmine/math": "~1.0.0",
       "pocketmine/nbt": "~1.1.0",
+      "pocketmine/netresearch-jsonmapper": "~v4.4.999",
       "pocketmine/raklib": "~1.1.0",
       "pocketmine/raklib-ipc": "~1.0.0",
       "pocketmine/snooze": "^0.5.0",
       "ramsey/uuid": "~4.7.0",
+      "react/async": "4.3.0",
+      "rector/rector": "^2.0",
       "symfony/filesystem": "~6.4.0",
-	  "xpocketmp/sounds": "dev-main",
-	  "react/async": "4.3.0"
+      "xpocketmp/sounds": "dev-main"
    },
    "require-dev": {
       "phpstan/phpstan": "^2.1.1",

@@ -213,8 +213,8 @@ abstract class RegionWorldProvider extends BaseWorldProvider{
 	}
 
   /**
-	 * @phpstan-return \RegexIterator<mixed, string, \FilesystemIterator>
-	 */
+   * @phpstan-return \RegexIterator<mixed, string, \FilesystemIterator>
+   */
 	private function createRegionIterator() : \RegexIterator{
 		return new \RegexIterator(
 			new \FilesystemIterator(
