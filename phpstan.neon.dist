@@ -1,7 +1,6 @@
 includes:
 	- tests/phpstan/analyse-for-current-php-version.neon.php
 	- tests/phpstan/configs/actual-problems.neon
-	- tests/phpstan/configs/dependency-problems.neon
 	- tests/phpstan/configs/impossible-generics.neon
 	- tests/phpstan/configs/php-bugs.neon
 	- tests/phpstan/configs/phpstan-bugs.neon
@@ -20,15 +19,18 @@ rules:
 parameters:
 	level: 9
 	checkMissingCallableSignature: true
+	rememberPossiblyImpureFunctionValues: false #risky to remember these, better for performance to avoid repeated calls anyway
 	treatPhpDocTypesAsCertain: false
 	bootstrapFiles:
 		- tests/phpstan/bootstrap.php
 	scanDirectories:
+		- build
 		- tests/plugins/TesterPlugin
 		- tools
 	scanFiles:
 		- src/XPocketMP.php
 	paths:
+		- build
 		- src
 		- tests/phpstan/DummyPluginOwned.php
 		- tests/phpstan/rules
@@ -40,9 +42,11 @@ parameters:
 			- build/php
 	dynamicConstantNames:
 		- pocketmine\VersionInfo::IS_DEVELOPMENT_BUILD
+		- pocketmine\VersionInfo::BUILD_CHANNEL
 		- pocketmine\DEBUG
 		- pocketmine\IS_DEVELOPMENT_BUILD
 	stubFiles:
+		- tests/phpstan/stubs/chunkutils2.stub
 		- tests/phpstan/stubs/JsonMapper.stub
 		- tests/phpstan/stubs/leveldb.stub
 		- tests/phpstan/stubs/pmmpthread.stub
