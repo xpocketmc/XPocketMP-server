@@ -40,7 +40,7 @@ jobs:
         php-cs-fixer fix --allow-risky=yes --quiet
 
     - name: Update Codegen
-      run: composer install --ignore-platform-req=* && composer update-codegen
+      run: composer install --ignore-platform-req=* && composer update-codegen && composer require rector/rector
 
     - name: Get GitHub App User ID
       id: get-user-id
