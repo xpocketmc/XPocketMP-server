@@ -34,7 +34,6 @@ use pocketmine\world\format\io\exception\CorruptedChunkException;
 use pocketmine\world\format\io\LoadedChunkData;
 use pocketmine\world\format\io\WorldData;
 use Symfony\Component\Filesystem\Path;
-use function assert;
 use function file_exists;
 use function is_dir;
 use function morton2d_encode;
@@ -60,7 +59,12 @@ abstract class RegionWorldProvider extends BaseWorldProvider{
 
 	public static function isValid(string $path) : bool{
 		if(file_exists(Path::join($path, "level.dat")) && is_dir($regionPath = Path::join($path, "region"))){
-			foreach(scandir($regionPath, SCANDIR_SORT_NONE) as $file){
+			$files = scandir($regionPath, SCANDIR_SORT_NONE);
+			if($files === false){
+				//we can't tell the type if we don't have read perms
+				return false;
+			}
+			foreach($files as $file){
 				$extPos = strrpos($file, ".");
 				if($extPos !== false && substr($file, $extPos + 1) === static::getRegionFileExtension()){
 					//we don't care if other region types exist, we only care if this format is possible
@@ -195,7 +199,6 @@ abstract class RegionWorldProvider extends BaseWorldProvider{
 	public function loadChunk(int $chunkX, int $chunkZ) : ?LoadedChunkData{
 		$regionX = $regionZ = null;
 		self::getRegionIndex($chunkX, $chunkZ, $regionX, $regionZ);
-		assert($regionX !== 0 && $regionZ !== 0);
 
 		if(!file_exists($this->pathToRegion($regionX, $regionZ))){
 			return null;
@@ -209,6 +212,9 @@ abstract class RegionWorldProvider extends BaseWorldProvider{
 		return null;
 	}
 
+  /**
+	 * @phpstan-return \RegexIterator<mixed, string, \FilesystemIterator>
+	 */
 	private function createRegionIterator() : \RegexIterator{
 		return new \RegexIterator(
 			new \FilesystemIterator(

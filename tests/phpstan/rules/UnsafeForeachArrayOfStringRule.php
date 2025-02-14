@@ -2,20 +2,19 @@
 
 /*
  *
- *  __  ______            _        _   __  __ ____
- *  \ \/ /  _ \ ___   ___| | _____| |_|  \/  |  _ \
- *   \  /| |_) / _ \ / __| |/ / _ \ __| |\/| | |_) |
- *   /  \|  __/ (_) | (__|   <  __/ |_| |  | |  __/
- *  /_/\_\_|   \___/ \___|_|\_\___|\__|_|  |_|_|
+ *  ____            _        _   __  __ _                  __  __ ____
+ * |  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
+ * | |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
+ * |  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
+ * |_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the MIT License as published by
- * the Free Software Foundation
- * The files in XPocketMP are mostly from PocketMine-MP.
- * Developed by ClousClouds, PMMP Team
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @author ClousClouds Team
- * @link https://xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -29,6 +28,7 @@ use PhpParser\Node\Stmt\Foreach_;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleErrorBuilder;
+use PHPStan\Type\BenevolentUnionType;
 use PHPStan\Type\ClassStringType;
 use PHPStan\Type\IntegerType;
 use PHPStan\Type\StringType;
@@ -63,8 +63,17 @@ final class UnsafeForeachArrayOfStringRule implements Rule{
 
 		$hasCastableKeyTypes = false;
 		$expectsIntKeyTypes = false;
-		TypeTraverser::map($iterableType->getIterableKeyType(), function(Type $type, callable $traverse) use (&$hasCastableKeyTypes, &$expectsIntKeyTypes) : Type{
-			if($type instanceof IntegerType){
+		$implicitType = false;
+		$benevolentUnionDepth = 0;
+		TypeTraverser::map($iterableType->getIterableKeyType(), function(Type $type, callable $traverse) use (&$hasCastableKeyTypes, &$expectsIntKeyTypes, &$benevolentUnionDepth, &$implicitType) : Type{
+			if($type instanceof BenevolentUnionType){
+				$implicitType = true;
+				$benevolentUnionDepth++;
+				$result = $traverse($type);
+				$benevolentUnionDepth--;
+				return $result;
+			}
+			if($type instanceof IntegerType && $benevolentUnionDepth === 0){
 				$expectsIntKeyTypes = true;
 				return $type;
 			}
@@ -79,12 +88,20 @@ final class UnsafeForeachArrayOfStringRule implements Rule{
 			return $type;
 		});
 		if($hasCastableKeyTypes && !$expectsIntKeyTypes){
-			$func = Utils::stringifyKeys(...);
+			$tip = $implicitType ?
+				sprintf(
+					"Declare a key type using @phpstan-var or @phpstan-param, or use %s() to promote the key type to get proper error reporting",
+					Utils::getNiceClosureName(Utils::promoteKeys(...))
+				) :
+				sprintf(
+					"Use %s() to get a \Generator that will force the keys to string",
+					Utils::getNiceClosureName(Utils::stringifyKeys(...)),
+				);
 			return [
 				RuleErrorBuilder::message(sprintf(
 					"Unsafe foreach on array with key type %s (they might be casted to int).",
 					$iterableType->getIterableKeyType()->describe(VerbosityLevel::value())
-				))->tip(sprintf("Use %s() for a safe Generator-based iterator.", Utils::getNiceClosureName($func)))->build()
+				))->tip($tip)->identifier('pocketmine.foreach.stringKeys')->build()
 			];
 		}
 		return [];

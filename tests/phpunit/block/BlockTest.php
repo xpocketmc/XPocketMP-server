@@ -2,20 +2,19 @@
 
 /*
  *
- *  __  ______            _        _   __  __ ____
- *  \ \/ /  _ \ ___   ___| | _____| |_|  \/  |  _ \
- *   \  /| |_) / _ \ / __| |/ / _ \ __| |\/| | |_) |
- *   /  \|  __/ (_) | (__|   <  __/ |_| |  | |  __/
- *  /_/\_\_|   \___/ \___|_|\_\___|\__|_|  |_|_|
+ *  ____            _        _   __  __ _                  __  __ ____
+ * |  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
+ * | |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
+ * |  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
+ * |_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the MIT License as published by
- * the Free Software Foundation
- * The files in XPocketMP are mostly from PocketMine-MP.
- * Developed by ClousClouds, PMMP Team
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @author ClousClouds Team
- * @link https://xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -28,6 +27,7 @@ use PHPUnit\Framework\TestCase;
 use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\Filesystem;
 use pocketmine\utils\Utils;
+use function get_debug_type;
 use function implode;
 use function is_array;
 use function is_int;
@@ -96,11 +96,12 @@ class BlockTest extends TestCase{
 	}
 
 	/**
-	 * @return int[]
-	 * @phpstan-return array<string, int>
+	 * @return int[][]|string[][]
+	 * @phpstan-return array{array<string, int>, array<string, string>}
 	 */
 	public static function computeConsistencyCheckTable(RuntimeBlockStateRegistry $blockStateRegistry) : array{
 		$newTable = [];
+		$newTileMap = [];
 
 		$idNameLookup = [];
 		//if we ever split up block registration into multiple registries (e.g. separating chemistry blocks),
@@ -119,36 +120,70 @@ class BlockTest extends TestCase{
 			}
 			$idName = $idNameLookup[$block->getTypeId()];
 			$newTable[$idName] = ($newTable[$idName] ?? 0) + 1;
-		}
 
-		return $newTable;
+			$tileClass = $block->getIdInfo()->getTileClass();
+			if($tileClass !== null){
+				if(isset($newTileMap[$idName]) && $newTileMap[$idName] !== $tileClass){
+					throw new AssumptionFailedError("Tile entity $tileClass for $idName is inconsistent");
+				}
+				$newTileMap[$idName] = $tileClass;
+			}
+		}
+		return [$newTable, $newTileMap];
 	}
 
 	/**
-	 * @phpstan-param array<string, int> $actual
+	 * @phpstan-param array<string, int>    $actualStateCounts
+	 * @phpstan-param array<string, string> $actualTiles
 	 *
 	 * @return string[]
 	 */
-	public static function computeConsistencyCheckDiff(string $expectedFile, array $actual) : array{
-		$expected = json_decode(Filesystem::fileGetContents($expectedFile), true, 2, JSON_THROW_ON_ERROR);
+	public static function computeConsistencyCheckDiff(string $expectedFile, array $actualStateCounts, array $actualTiles) : array{
+		$expected = json_decode(Filesystem::fileGetContents($expectedFile), true, 3, JSON_THROW_ON_ERROR);
 		if(!is_array($expected)){
-			throw new AssumptionFailedError("Old table should be array<string, int>");
+			throw new AssumptionFailedError("Old table should be array{stateCounts: array<string, int>, tiles: array<string, string>}");
+		}
+		$expectedStates = $expected["stateCounts"] ?? [];
+		$expectedTiles = $expected["tiles"] ?? [];
+		if(!is_array($expectedStates)){
+			throw new AssumptionFailedError("stateCounts should be an array, but have " . get_debug_type($expectedStates));
+		}
+		if(!is_array($expectedTiles)){
+			throw new AssumptionFailedError("tiles should be an array, but have " . get_debug_type($expectedTiles));
 		}
 
 		$errors = [];
-		foreach($expected as $typeName => $numStates){
+		foreach(Utils::promoteKeys($expectedStates) as $typeName => $numStates){
 			if(!is_string($typeName) || !is_int($numStates)){
 				throw new AssumptionFailedError("Old table should be array<string, int>");
 			}
-			if(!isset($actual[$typeName])){
+			if(!isset($actualStateCounts[$typeName])){
 				$errors[] = "Removed block type $typeName ($numStates permutations)";
-			}elseif($actual[$typeName] !== $numStates){
-				$errors[] = "Block type $typeName permutation count changed: $numStates -> " . $actual[$typeName];
+			}elseif($actualStateCounts[$typeName] !== $numStates){
+				$errors[] = "Block type $typeName permutation count changed: $numStates -> " . $actualStateCounts[$typeName];
 			}
 		}
-		foreach(Utils::stringifyKeys($actual) as $typeName => $numStates){
-			if(!isset($expected[$typeName])){
-				$errors[] = "Added block type $typeName (" . $actual[$typeName] . " permutations)";
+		foreach(Utils::stringifyKeys($actualStateCounts) as $typeName => $numStates){
+			if(!isset($expectedStates[$typeName])){
+				$errors[] = "Added block type $typeName (" . $actualStateCounts[$typeName] . " permutations)";
+			}
+		}
+
+		foreach(Utils::promoteKeys($expectedTiles) as $typeName => $tile){
+			if(!is_string($typeName) || !is_string($tile)){
+				throw new AssumptionFailedError("Tile table should be array<string, string>");
+			}
+			if(isset($actualStateCounts[$typeName])){
+				if(!isset($actualTiles[$typeName])){
+					$errors[] = "$typeName no longer has a tile";
+				}elseif($actualTiles[$typeName] !== $tile){
+					$errors[] = "$typeName has changed tile ($tile -> " . $actualTiles[$typeName] . ")";
+				}
+			}
+		}
+		foreach(Utils::promoteKeys($actualTiles) as $typeName => $tile){
+			if(isset($expectedStates[$typeName]) && !isset($expectedTiles[$typeName])){
+				$errors[] = "$typeName has a tile when it previously didn't ($tile)";
 			}
 		}
 
@@ -156,8 +191,8 @@ class BlockTest extends TestCase{
 	}
 
 	public function testConsistency() : void{
-		$newTable = self::computeConsistencyCheckTable($this->blockFactory);
-		$errors = self::computeConsistencyCheckDiff(__DIR__ . '/block_factory_consistency_check.json', $newTable);
+		[$newTable, $newTileMap] = self::computeConsistencyCheckTable($this->blockFactory);
+		$errors = self::computeConsistencyCheckDiff(__DIR__ . '/block_factory_consistency_check.json', $newTable, $newTileMap);
 
 		self::assertEmpty($errors, "Block factory consistency check failed:\n" . implode("\n", $errors));
 	}

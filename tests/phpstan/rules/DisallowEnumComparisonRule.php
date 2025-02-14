@@ -2,20 +2,19 @@
 
 /*
  *
- *  __  ______            _        _   __  __ ____
- *  \ \/ /  _ \ ___   ___| | _____| |_|  \/  |  _ \
- *   \  /| |_) / _ \ / __| |/ / _ \ __| |\/| | |_) |
- *   /  \|  __/ (_) | (__|   <  __/ |_| |  | |  __/
- *  /_/\_\_|   \___/ \___|_|\_\___|\__|_|  |_|_|
+ *  ____            _        _   __  __ _                  __  __ ____
+ * |  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
+ * | |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
+ * |  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
+ * |_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the MIT License as published by
- * the Free Software Foundation
- * The files in XPocketMP are mostly from PocketMine-MP.
- * Developed by ClousClouds, PMMP Team
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @author ClousClouds Team
- * @link https://xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -31,7 +30,6 @@ use PhpParser\Node\Expr\BinaryOp\NotIdentical;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleErrorBuilder;
-use PHPStan\Type\ObjectType;
 use PHPStan\Type\Type;
 use PHPStan\Type\UnionType;
 use PHPStan\Type\VerbosityLevel;
@@ -62,7 +60,7 @@ class DisallowEnumComparisonRule implements Rule{
 				$node instanceof Identical ? '===' : '!==',
 				$leftType->describe(VerbosityLevel::value()),
 				$rightType->describe(VerbosityLevel::value())
-			))->build()];
+			))->identifier('pocketmine.enum.badComparison')->build()];
 		}
 		return [];
 	}
@@ -70,7 +68,7 @@ class DisallowEnumComparisonRule implements Rule{
 	private function checkForEnumTypes(Type $comparedType) : bool{
 		//TODO: what we really want to do here is iterate over the contained types, but there's no universal way to
 		//do that. This might break with other circumstances.
-		if($comparedType instanceof ObjectType){
+		if($comparedType->isObject()->yes()){
 			$types = [$comparedType];
 		}elseif($comparedType instanceof UnionType){
 			$types = $comparedType->getTypes();
@@ -78,12 +76,14 @@ class DisallowEnumComparisonRule implements Rule{
 			return false;
 		}
 		foreach($types as $containedType){
-			if(!($containedType instanceof ObjectType)){
+			if(!($containedType->isObject()->yes())){
 				continue;
 			}
-			$class = $containedType->getClassReflection();
-			if($class !== null && $class->hasTraitUse(EnumTrait::class)){
-				return true;
+			$classes = $containedType->getObjectClassReflections();
+			foreach($classes as $class){
+				if($class->hasTraitUse(EnumTrait::class)){
+					return true;
+				}
 			}
 		}
 		return false;

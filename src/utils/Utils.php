@@ -166,6 +166,7 @@ final class Utils{
 
 	/**
 	 * @phpstan-return \Closure(object) : object
+	 * @deprecated
 	 */
 	public static function cloneCallback() : \Closure{
 		return static function(object $o){
@@ -178,15 +179,13 @@ final class Utils{
 	 * @phpstan-template TValue of object
 	 *
 	 * @param object[] $array
-	 * @phpstan-param array<TKey, TValue> $array
+	 * @phpstan-param array<TKey, TValue>|list<TValue> $array
 	 *
 	 * @return object[]
-	 * @phpstan-return array<TKey, TValue>
+	 * @phpstan-return ($array is list<TValue> ? list<TValue> : array<TKey, TValue>)
 	 */
 	public static function cloneObjectArray(array $array) : array{
-		/** @phpstan-var \Closure(TValue) : TValue $callback */
-		$callback = self::cloneCallback();
-		return array_map($callback, $array);
+	  return array_map(fn(object $o) => clone $o, $array);
 	}
 
 	/**
@@ -405,6 +404,7 @@ final class Utils{
 
 	/**
 	 * @param mixed[][] $trace
+	 * @phpstan-param list<array<string, mixed>>|null $trace
 	 * @return string[]
 	 */
 	public static function printableExceptionInfo(\Throwable $e, $trace = null) : array{

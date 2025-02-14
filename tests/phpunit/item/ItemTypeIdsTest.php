@@ -2,20 +2,19 @@
 
 /*
  *
- *  __  ______            _        _   __  __ ____
- *  \ \/ /  _ \ ___   ___| | _____| |_|  \/  |  _ \
- *   \  /| |_) / _ \ / __| |/ / _ \ __| |\/| | |_) |
- *   /  \|  __/ (_) | (__|   <  __/ |_| |  | |  __/
- *  /_/\_\_|   \___/ \___|_|\_\___|\__|_|  |_|_|
+ *  ____            _        _   __  __ _                  __  __ ____
+ * |  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
+ * | |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
+ * |  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
+ * |_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the MIT License as published by
- * the Free Software Foundation
- * The files in XPocketMP are mostly from PocketMine-MP.
- * Developed by ClousClouds, PMMP Team
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @author ClousClouds Team
- * @link https://xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -36,8 +35,12 @@ class ItemTypeIdsTest extends TestCase{
 
 		$constants = $reflect->getConstants();
 		unset($constants['FIRST_UNUSED_ITEM_ID']);
+		self::assertNotEmpty($constants, "We should never have zero type IDs");
 
-		self::assertSame($reflect->getConstant('FIRST_UNUSED_ITEM_ID'), max($constants) + 1, "FIRST_UNUSED_ITEM_ID must be one higher than the highest fixed type ID");
+		$max = max($constants);
+		self::assertIsInt($max, "Max type ID should always be an integer");
+
+		self::assertSame($reflect->getConstant('FIRST_UNUSED_ITEM_ID'), $max + 1, "FIRST_UNUSED_ITEM_ID must be one higher than the highest fixed type ID");
 	}
 
 	public function testNoDuplicates() : void{
@@ -55,6 +58,7 @@ class ItemTypeIdsTest extends TestCase{
 			}
 			$expected = $item->getTypeId();
 			$actual = $reflect->getConstant($name);
+			self::assertNotFalse($actual, "VanillaItems::$name() does not have an ItemTypeIds constant");
 			self::assertSame($expected, $actual, "VanillaItems::$name() type ID does not match ItemTypeIds::$name");
 		}
 	}

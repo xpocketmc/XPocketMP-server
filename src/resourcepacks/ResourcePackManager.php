@@ -48,10 +48,16 @@ class ResourcePackManager{
 	private string $path;
 	private bool $serverForceResources = false;
 
-	/** @var ResourcePack[] */
+	/**
+	 * @var ResourcePack[]
+	 * @phpstan-var list<ResourcePack>
+	 */
 	private array $resourcePacks = [];
 
-	/** @var ResourcePack[] */
+	/**
+	 * @var ResourcePack[]
+	 * @phpstan-var array<string, ResourcePack>
+	 */
 	private array $uuidList = [];
 
 	/**
@@ -166,6 +172,7 @@ class ResourcePackManager{
 	/**
 	 * Returns an array of resource packs in use, sorted in order of priority.
 	 * @return ResourcePack[]
+	 * @phpstan-param list<ResourcePack>
 	 */
 	public function getResourceStack() : array{
 		return $this->resourcePacks;

@@ -2,20 +2,19 @@
 
 /*
  *
- *  __  ______            _        _   __  __ ____
- *  \ \/ /  _ \ ___   ___| | _____| |_|  \/  |  _ \
- *   \  /| |_) / _ \ / __| |/ / _ \ __| |\/| | |_) |
- *   /  \|  __/ (_) | (__|   <  __/ |_| |  | |  __/
- *  /_/\_\_|   \___/ \___|_|\_\___|\__|_|  |_|_|
+ *  ____            _        _   __  __ _                  __  __ ____
+ * |  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
+ * | |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
+ * |  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
+ * |_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the MIT License as published by
- * the Free Software Foundation
- * The files in XPocketMP are mostly from PocketMine-MP.
- * Developed by ClousClouds, PMMP Team
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * @author ClousClouds Team
- * @link https://xpocketmc.xyz/
+ * @author PocketMine Team
+ * @link http://www.pocketmine.net/
  *
  *
  */
@@ -25,8 +24,10 @@ declare(strict_types=1);
 namespace pocketmine\data\bedrock\block\upgrade;
 
 use PHPUnit\Framework\TestCase;
+use pocketmine\block\Block;
 use pocketmine\data\bedrock\block\BlockStateData;
 use pocketmine\nbt\tag\IntTag;
+use pocketmine\nbt\tag\StringTag;
 use const PHP_INT_MAX;
 
 class BlockStateUpgraderTest extends TestCase{
@@ -209,6 +210,23 @@ class BlockStateUpgraderTest extends TestCase{
 		$upgradedStateData = $this->upgrade($getStateData(), $getStateData);
 
 		self::assertSame($upgradedStateData->getState(self::TEST_PROPERTY_2)?->getValue(), $valueAfter);
+	}
+
+	public function testFlattenProperty() : void{
+		$schema = $this->getNewSchema();
+		$schema->flattenedProperties[self::TEST_BLOCK] = new BlockStateUpgradeSchemaFlattenInfo(
+			"minecraft:",
+			"test",
+			"_suffix",
+			[],
+			StringTag::class
+		);
+
+		$stateData = new BlockStateData(self::TEST_BLOCK, ["test" => new StringTag("value1")], 0);
+		$upgradedStateData = $this->upgrade($stateData, fn() => $stateData);
+
+		self::assertSame("minecraft:value1_suffix", $upgradedStateData->getName());
+		self::assertEmpty($upgradedStateData->getStates());
 	}
 
 	/**

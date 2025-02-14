@@ -118,6 +118,7 @@ use function array_keys;
 use function array_map;
 use function array_merge;
 use function array_sum;
+use function array_values;
 use function assert;
 use function cos;
 use function count;
@@ -679,7 +680,6 @@ class World implements ChunkManager{
 	 * Used for broadcasting sounds and particles with specific targets.
 	 *
 	 * @param Player[] $allowed
-	 * @phpstan-param list<Player> $allowed
 	 *
 	 * @return array<int, Player>
 	 */
@@ -1090,7 +1090,6 @@ class World implements ChunkManager{
 
 	/**
 	 * @param Vector3[] $blocks
-	 * @phpstan-param list<Vector3> $blocks
 	 *
 	 * @return ClientboundPacket[]
 	 * @phpstan-return list<ClientboundPacket>
@@ -1441,8 +1440,8 @@ class World implements ChunkManager{
 				$this->provider->saveChunk($chunkX, $chunkZ, new ChunkData(
 					$chunk->getSubChunks(),
 					$chunk->isPopulated(),
-					array_map(fn(Entity $e) => $e->saveNBT(), array_filter($this->getChunkEntities($chunkX, $chunkZ), fn(Entity $e) => $e->canSaveWithChunk())),
-					array_map(fn(Tile $t) => $t->saveNBT(), $chunk->getTiles()),
+					array_map(fn(Entity $e) => $e->saveNBT(), array_values(array_filter($this->getChunkEntities($chunkX, $chunkZ), fn(Entity $e) => $e->canSaveWithChunk()))),
+					array_map(fn(Tile $t) => $t->saveNBT(), array_values($chunk->getTiles())),
 				), $chunk->getTerrainDirtyFlags());
 				$chunk->clearTerrainDirtyFlags();
 			}
@@ -2990,8 +2989,8 @@ class World implements ChunkManager{
 					$this->provider->saveChunk($x, $z, new ChunkData(
 						$chunk->getSubChunks(),
 						$chunk->isPopulated(),
-						array_map(fn(Entity $e) => $e->saveNBT(), array_filter($this->getChunkEntities($x, $z), fn(Entity $e) => $e->canSaveWithChunk())),
-						array_map(fn(Tile $t) => $t->saveNBT(), $chunk->getTiles()),
+						array_map(fn(Entity $e) => $e->saveNBT(), array_values(array_filter($this->getChunkEntities($x, $z), fn(Entity $e) => $e->canSaveWithChunk()))),
+						array_map(fn(Tile $t) => $t->saveNBT(), array_values($chunk->getTiles())),
 					), $chunk->getTerrainDirtyFlags());
 				}finally{
 					$this->timings->syncChunkSave->stopTiming();

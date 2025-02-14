@@ -240,7 +240,7 @@ class InventoryTransaction{
 
 	/**
 	 * @param SlotChangeAction[] $possibleActions
-	 * @phpstan-param list<SlotChangeAction> $possibleActions
+	 * @phpstan-param array<int, SlotChangeAction> $possibleActions
 	 */
 	protected function findResultItem(Item $needOrigin, array $possibleActions) : ?Item{
 		assert(count($possibleActions) > 0);
