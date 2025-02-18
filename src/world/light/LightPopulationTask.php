@@ -62,7 +62,7 @@ class LightPopulationTask extends AsyncTask{
 		foreach([
 			"Block" => new BlockLightUpdate(new SubChunkExplorer($manager), $blockFactory->lightFilter, $blockFactory->light),
 			"Sky" => new SkyLightUpdate(new SubChunkExplorer($manager), $blockFactory->lightFilter, $blockFactory->blocksDirectSkyLight),
-		] as $name => $update){
+		] as $update){
 			$update->recalculateChunk(0, 0);
 			$update->execute();
 		}

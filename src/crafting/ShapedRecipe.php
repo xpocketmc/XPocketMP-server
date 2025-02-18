@@ -84,7 +84,7 @@ class ShapedRecipe implements CraftingRecipe{
 			throw new \InvalidArgumentException("Shaped recipes may only have 1, 2 or 3 columns, not $this->width");
 		}
 
-		foreach($shape as $y => $row){
+		foreach($shape as $row){
 			if(strlen($row) !== $this->width){
 				throw new \InvalidArgumentException("Shaped recipe rows must all have the same length (expected $this->width, got " . strlen($row) . ")");
 			}

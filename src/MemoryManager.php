@@ -100,10 +100,10 @@ class MemoryManager{
 
 	private bool $dumpWorkers = true;
 
-	private \Logger $logger;
+	private readonly \Logger $logger;
 
 	public function __construct(
-		private Server $server
+		private readonly Server $server
 	){
 		$this->logger = new \PrefixedLogger($server->getLogger(), "Memory Manager");
 
@@ -398,7 +398,7 @@ class MemoryManager{
 				}
 				$continue = true;
 
-				$className = get_class($object);
+				$className = $object::class;
 				if(!isset($instanceCounts[$className])){
 					$instanceCounts[$className] = 1;
 				}else{

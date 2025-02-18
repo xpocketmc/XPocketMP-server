@@ -59,7 +59,7 @@ $usageMessage = "Options:\n";
 foreach($requiredOpts as $_opt => $_desc){
 	$usageMessage .= "\t--$_opt : $_desc\n";
 }
-$plainArgs = getopt("", array_map(function(string $str){ return "$str:"; }, array_keys($requiredOpts)));
+$plainArgs = getopt("", array_map(fn(string $str) => "$str:", array_keys($requiredOpts)));
 $args = [];
 foreach($requiredOpts as $opt => $desc){
 	if(!isset($plainArgs[$opt]) || !is_string($plainArgs[$opt])){
@@ -90,7 +90,7 @@ if(count($oldProviderClasses) === 0){
 	exit(1);
 }
 if(count($oldProviderClasses) > 1){
-	fwrite(STDERR, "Ambiguous input world format: matched " . count($oldProviderClasses) . " (" . implode(array_keys($oldProviderClasses)) . ")" . PHP_EOL);
+	fwrite(STDERR, "Ambiguous input world format: matched " . count($oldProviderClasses) . " (" . implode('', array_keys($oldProviderClasses)) . ")" . PHP_EOL);
 	exit(1);
 }
 $oldProviderClass = array_shift($oldProviderClasses);

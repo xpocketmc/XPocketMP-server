@@ -48,11 +48,8 @@ class NetherVines extends Flowable{
 
 	public const MAX_AGE = 25;
 
-	/** Direction the vine grows towards. */
-	private int $growthFace;
-
-	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, int $growthFace){
-		$this->growthFace = $growthFace;
+	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, /** Direction the vine grows towards. */
+    private int $growthFace){
 		parent::__construct($idInfo, $name, $typeInfo);
 	}
 

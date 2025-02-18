@@ -42,11 +42,8 @@ class Sapling extends Flowable{
 
 	protected bool $ready = false;
 
-	private SaplingType $saplingType;
-
-	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, SaplingType $saplingType){
+	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, private SaplingType $saplingType){
 		parent::__construct($idInfo, $name, $typeInfo);
-		$this->saplingType = $saplingType;
 	}
 
 	protected function describeBlockOnlyState(RuntimeDataDescriber $w) : void{

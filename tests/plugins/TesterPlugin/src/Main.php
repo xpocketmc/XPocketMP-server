@@ -85,23 +85,13 @@ class Main extends PluginBase implements Listener{
 
 	private function onTestCompleted(Test $test) : void{
 		$message = "Finished test #" . $this->currentTestNumber . " (" . $test->getName() . "): ";
-		switch($test->getResult()){
-			case Test::RESULT_OK:
-				$message .= "PASS";
-				break;
-			case Test::RESULT_FAILED:
-				$message .= "FAIL";
-				break;
-			case Test::RESULT_ERROR:
-				$message .= "ERROR";
-				break;
-			case Test::RESULT_WAITING:
-				$message .= "TIMEOUT";
-				break;
-			default:
-				$message .= "UNKNOWN";
-				break;
-		}
+		match ($test->getResult()) {
+            Test::RESULT_OK => $message .= "PASS",
+            Test::RESULT_FAILED => $message .= "FAIL",
+            Test::RESULT_ERROR => $message .= "ERROR",
+            Test::RESULT_WAITING => $message .= "TIMEOUT",
+            default => $message .= "UNKNOWN",
+        };
 
 		$this->getLogger()->notice($message);
 

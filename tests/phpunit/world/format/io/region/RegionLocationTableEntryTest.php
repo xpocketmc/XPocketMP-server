@@ -45,9 +45,7 @@ class RegionLocationTableEntryTest extends TestCase{
 	 * @dataProvider overlapDataProvider
 	 */
 	public function testOverlap(RegionLocationTableEntry $entry1, RegionLocationTableEntry $entry2, bool $overlaps) : void{
-		$stringify = function(RegionLocationTableEntry $entry) : string{
-			return sprintf("entry first=%d last=%d size=%d", $entry->getFirstSector(), $entry->getLastSector(), $entry->getSectorCount());
-		};
+		$stringify = (fn(RegionLocationTableEntry $entry): string => sprintf("entry first=%d last=%d size=%d", $entry->getFirstSector(), $entry->getLastSector(), $entry->getSectorCount()));
 		self::assertSame($overlaps, $entry1->overlaps($entry2), $stringify($entry1) . " expected to " . ($overlaps ? "overlap" : "not overlap") . " with " . $stringify($entry2));
 		self::assertSame($overlaps, $entry2->overlaps($entry1), $stringify($entry2) . " expected to " . ($overlaps ? "overlap" : "not overlap") . " with " . $stringify($entry1));
 	}

@@ -32,8 +32,8 @@ class BlockIdentifier{
 	 * @phpstan-param class-string<Tile>|null $tileClass
 	 */
 	public function __construct(
-		private int $blockTypeId,
-		private ?string $tileClass = null
+		private readonly int $blockTypeId,
+		private readonly ?string $tileClass = null
 	){
 		if($blockTypeId < 0){
 			throw new \InvalidArgumentException("Block type ID may not be negative");

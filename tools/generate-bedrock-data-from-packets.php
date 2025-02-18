@@ -118,10 +118,10 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 class ParserPacketHandler extends PacketHandler{
 
 	public ?ItemTypeDictionary $itemTypeDictionary = null;
-	private BlockTranslator $blockTranslator;
-	private BlockItemIdMap $blockItemIdMap;
+	private readonly BlockTranslator $blockTranslator;
+	private readonly BlockItemIdMap $blockItemIdMap;
 
-	public function __construct(private string $bedrockDataPath){
+	public function __construct(private readonly string $bedrockDataPath){
 		$this->blockTranslator = new BlockTranslator(
 			BlockStateDictionary::loadFromString(
 				Filesystem::fileGetContents(Path::join($this->bedrockDataPath, "canonical_block_states.nbt")),
@@ -281,21 +281,15 @@ class ParserPacketHandler extends PacketHandler{
 		file_put_contents($this->bedrockDataPath . '/required_item_list.json', json_encode($table, JSON_PRETTY_PRINT) . "\n");
 
 		echo "updating item registry\n";
-		$items = array_map(function(ItemTypeEntry $entry) : array{
-			return self::objectToOrderedArray($entry);
-		}, $packet->getEntries());
+		$items = array_map(fn(ItemTypeEntry $entry): array => self::objectToOrderedArray($entry), $packet->getEntries());
 		file_put_contents($this->bedrockDataPath . '/item_registry.json', json_encode($items, JSON_PRETTY_PRINT) . "\n");
 		return true;
 	}
 
 	public function handleCreativeContent(CreativeContentPacket $packet) : bool{
 		echo "updating creative inventory data\n";
-		$groups = array_map(function(CreativeGroupEntry $entry) : array{
-			return self::objectToOrderedArray($this->creativeGroupEntryToJson($entry));
-		}, $packet->getGroups());
-		$items = array_map(function(CreativeItemEntry $entry) : array{
-			return self::objectToOrderedArray($this->creativeItemEntryToJson($entry));
-		}, $packet->getItems());
+		$groups = array_map(fn(CreativeGroupEntry $entry): array => self::objectToOrderedArray($this->creativeGroupEntryToJson($entry)), $packet->getGroups());
+		$items = array_map(fn(CreativeItemEntry $entry): array => self::objectToOrderedArray($this->creativeItemEntryToJson($entry)), $packet->getItems());
 		file_put_contents($this->bedrockDataPath . '/creativeitems.json', json_encode([
 			'groups' => $groups,
 			'items' => $items,
@@ -342,7 +336,7 @@ class ParserPacketHandler extends PacketHandler{
 		}elseif($descriptor instanceof ComplexAliasItemDescriptor){
 			$data->name = $descriptor->getAlias();
 		}else{
-			throw new \UnexpectedValueException("Unknown item descriptor type " . get_class($descriptor));
+			throw new \UnexpectedValueException("Unknown item descriptor type " . $descriptor::class);
 		}
 		if($itemStack->getCount() !== 1){
 			$data->count = $itemStack->getCount();
@@ -470,7 +464,7 @@ class ParserPacketHandler extends PacketHandler{
 			}elseif($entry instanceof SmithingTrimRecipe){
 				$recipes[$mappedType][] = $this->smithingTrimRecipeToJson($entry);
 			}else{
-				throw new AssumptionFailedError("Unknown recipe type " . get_class($entry));
+				throw new AssumptionFailedError("Unknown recipe type " . $entry::class);
 			}
 		}
 
@@ -633,7 +627,7 @@ function main(array $argv) : int{
 		$pk->decode($serializer);
 		$pk->handle($handler);
 		if(!$serializer->feof()){
-			echo "Packet on line " . ($lineNum + 1) . ": didn't read all data from " . get_class($pk) . " (stopped at offset " . $serializer->getOffset() . " of " . strlen($serializer->getBuffer()) . " bytes): " . bin2hex($serializer->getRemaining()) . "\n";
+			echo "Packet on line " . ($lineNum + 1) . ": didn't read all data from " . $pk::class . " (stopped at offset " . $serializer->getOffset() . " of " . strlen($serializer->getBuffer()) . " bytes): " . bin2hex($serializer->getRemaining()) . "\n";
 		}
 	}
 	return 0;

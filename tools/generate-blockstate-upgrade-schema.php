@@ -391,7 +391,7 @@ function checkFlattenPropertySuitability(Tag $oldValue, ?string &$expectedType, 
 		return false;
 	}
 	if($expectedType === null){
-		$expectedType = get_class($oldValue);
+		$expectedType = $oldValue::class;
 	}elseif(!$oldValue instanceof $expectedType){
 		//property type mismatch - bad candidate for flattening
 		return false;
@@ -656,9 +656,7 @@ function processRemappedStates(array $upgradeTable) : array{
 
 	//more specific filters must come before less specific ones, in case of a remap on a certain value which is
 	//otherwise unchanged
-	usort($list, function(BlockStateUpgradeSchemaBlockRemap $a, BlockStateUpgradeSchemaBlockRemap $b) : int{
-		return count($b->oldState) <=> count($a->oldState);
-	});
+	usort($list, fn(BlockStateUpgradeSchemaBlockRemap $a, BlockStateUpgradeSchemaBlockRemap $b): int => count($b->oldState) <=> count($a->oldState));
 	return $list;
 }
 

@@ -78,7 +78,7 @@ foreach($states as $state){
 		}else{
 			throw new AssumptionFailedError("Unexpected tag type for $name -> $propertyName ($value)");
 		}
-		$reportMap[$name][$propertyName][get_class($value) . ":" . $value->getValue()] = $rawValue;
+		$reportMap[$name][$propertyName][$value::class . ":" . $value->getValue()] = $rawValue;
 	}
 }
 

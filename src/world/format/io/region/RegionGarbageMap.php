@@ -134,7 +134,7 @@ final class RegionGarbageMap{
 	}
 
 	public function allocate(int $newSize) : ?RegionLocationTableEntry{
-		foreach($this->getArray() as $start => $candidate){
+		foreach($this->getArray() as $candidate){
 			$candidateSize = $candidate->getSectorCount();
 			if($candidateSize < $newSize){
 				continue;

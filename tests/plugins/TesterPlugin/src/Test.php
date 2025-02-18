@@ -31,9 +31,6 @@ abstract class Test{
 	const RESULT_OK = 0;
 	const RESULT_FAILED = 1;
 	const RESULT_ERROR = 2;
-
-	/** @var Main */
-	private $plugin;
 	/** @var int */
 	private $result = Test::RESULT_WAITING;
 	/** @var int */
@@ -41,9 +38,9 @@ abstract class Test{
 	/** @var int */
 	private $timeout = 60; //seconds
 
-	public function __construct(Main $plugin){
-		$this->plugin = $plugin;
-	}
+	public function __construct(private readonly Main $plugin)
+    {
+    }
 
 	public function getPlugin() : Main{
 		return $this->plugin;

@@ -61,12 +61,12 @@ function replaceVersion(string $versionInfoPath, string $newVersion, bool $isDev
 	$versionInfo = preg_replace(
 		'/^([\t ]*public )?const IS_DEVELOPMENT_BUILD = (?:true|false);$/m',
 		'$1const IS_DEVELOPMENT_BUILD = ' . ($isDev ? 'true' : 'false') . ';',
-		$versionInfo
+		(string) $versionInfo
 	);
 	$versionInfo = preg_replace(
 		'/^([\t ]*public )?const BUILD_CHANNEL = ".*";$/m',
 		'$1const BUILD_CHANNEL = "' . $channel . '";',
-		$versionInfo
+		(string) $versionInfo
 	);
 	file_put_contents($versionInfoPath, $versionInfo);
 }

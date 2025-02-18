@@ -32,10 +32,7 @@ use pocketmine\item\Item;
  */
 class UnknownBlock extends Transparent{
 
-	private int $stateData;
-
-	public function __construct(BlockIdentifier $idInfo, BlockTypeInfo $typeInfo, int $stateData){
-		$this->stateData = $stateData;
+	public function __construct(BlockIdentifier $idInfo, BlockTypeInfo $typeInfo, private int $stateData){
 		parent::__construct($idInfo, "Unknown", $typeInfo);
 	}
 

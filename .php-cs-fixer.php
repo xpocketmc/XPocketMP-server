@@ -11,6 +11,7 @@ $finder = PhpCsFixer\Finder::create()
 return (new PhpCsFixer\Config)
     ->setRiskyAllowed(true)
     ->setRules([
+	'@PSR-12' => true,
         'align_multiline_comment' => [
             'comment_type' => 'phpdocs_only'
         ],

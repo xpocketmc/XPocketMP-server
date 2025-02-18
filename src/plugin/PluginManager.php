@@ -432,7 +432,7 @@ class PluginManager{
 					if(isset($triage->dependencies[$name])){
 						$unknownDependencies = [];
 
-						foreach($triage->dependencies[$name] as $k => $dependency){
+						foreach($triage->dependencies[$name] as $dependency){
 							if($this->getPlugin($dependency) === null && !array_key_exists($dependency, $triage->plugins)){
 								//assume that the plugin is never going to be loaded
 								//by this point all soft dependencies have been ignored if they were able to be, so

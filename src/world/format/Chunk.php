@@ -313,7 +313,7 @@ class Chunk{
 	 * Disposes of empty subchunks and frees data where possible
 	 */
 	public function collectGarbage() : void{
-		foreach($this->subChunks as $y => $subChunk){
+		foreach($this->subChunks as $subChunk){
 			$subChunk->collectGarbage();
 		}
 	}

@@ -293,7 +293,7 @@ class Human extends Living implements ProjectileSource, InventoryHolder{
 			$armorInventoryItems = [];
 
 			/** @var CompoundTag $item */
-			foreach($inventoryTag as $i => $item){
+			foreach($inventoryTag as $item){
 				$slot = $item->getByte(SavedItemStackData::TAG_SLOT);
 				if($slot >= 0 && $slot < 9){ //Hotbar
 					//Old hotbar saving stuff, ignore it
@@ -321,7 +321,7 @@ class Human extends Living implements ProjectileSource, InventoryHolder{
 			$enderChestInventoryItems = [];
 
 			/** @var CompoundTag $item */
-			foreach($enderChestInventoryTag as $i => $item){
+			foreach($enderChestInventoryTag as $item){
 				$enderChestInventoryItems[$item->getByte(SavedItemStackData::TAG_SLOT)] = Item::nbtDeserialize($item);
 			}
 			self::populateInventoryFromListTag($this->enderInventory, $enderChestInventoryItems);

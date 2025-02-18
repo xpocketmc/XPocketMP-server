@@ -101,7 +101,7 @@ function ping_server(\Socket $socket, string $serverIp, int $serverPort, int $ti
 			\GlobalLogger::get()->info("Response time: " . (hrtime_ms() - $pong->sendPingTime) . " ms");
 			return true;
 		}else{
-			\GlobalLogger::get()->debug("Garbage packet from $recvAddr $recvPort: " . bin2hex($recvBuffer));
+			\GlobalLogger::get()->debug("Garbage packet from $recvAddr $recvPort: " . bin2hex((string) $recvBuffer));
 		}
 	}
 

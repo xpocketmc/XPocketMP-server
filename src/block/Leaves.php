@@ -39,15 +39,12 @@ use pocketmine\world\World;
 use function mt_rand;
 
 class Leaves extends Transparent{
-	private const MAX_LOG_DISTANCE = 4;
-
-	protected LeavesType $leavesType; //immutable for now
+	private const MAX_LOG_DISTANCE = 4; //immutable for now
 	protected bool $noDecay = false;
 	protected bool $checkDecay = false;
 
-	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, LeavesType $leavesType){
+	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, protected LeavesType $leavesType){
 		parent::__construct($idInfo, $name, $typeInfo);
-		$this->leavesType = $leavesType;
 	}
 
 	protected function describeBlockOnlyState(RuntimeDataDescriber $w) : void{
