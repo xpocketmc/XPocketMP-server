@@ -38,13 +38,9 @@ final class TestCloningRegistry{
 
 	/**
 	 * @return \stdClass[]
-	 * @phpstan-return array<string, \stdClass>
 	 */
 	public static function getAll() : array{
-		/**
-		 * @var \stdClass[] $result
-		 * @phpstan-var array<string, \stdClass> $result
-		 */
+		/** @var \stdClass[] $result */
 		$result = self::_registryGetAll();
 		return $result;
 	}

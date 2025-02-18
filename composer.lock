@@ -1493,12 +1493,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ClousClouds/SoundManager.git",
-                "reference": "11afb426a99c08b2c42c9290aa923611866701cf"
+                "reference": "36c1be25be108003ce22db741b4352800c593043"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ClousClouds/SoundManager/zipball/11afb426a99c08b2c42c9290aa923611866701cf",
-                "reference": "11afb426a99c08b2c42c9290aa923611866701cf",
+                "url": "https://api.github.com/repos/ClousClouds/SoundManager/zipball/36c1be25be108003ce22db741b4352800c593043",
+                "reference": "36c1be25be108003ce22db741b4352800c593043",
                 "shasum": ""
             },
             "require": {
@@ -1525,7 +1525,7 @@
                 "issues": "https://github.com/ClousClouds/SoundManager/issues",
                 "source": "https://github.com/ClousClouds/SoundManager/tree/main"
             },
-            "time": "2025-02-12T08:04:26+00:00"
+            "time": "2025-02-18T00:02:50+00:00"
         }
     ],
     "packages-dev": [

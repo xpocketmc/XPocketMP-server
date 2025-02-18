@@ -31,6 +31,7 @@ use PhpParser\Node\Expr\BinaryOp\NotIdentical;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleErrorBuilder;
+use PHPStan\Type\ObjectType;
 use PHPStan\Type\Type;
 use PHPStan\Type\UnionType;
 use PHPStan\Type\VerbosityLevel;
@@ -61,7 +62,7 @@ class DisallowEnumComparisonRule implements Rule{
 				$node instanceof Identical ? '===' : '!==',
 				$leftType->describe(VerbosityLevel::value()),
 				$rightType->describe(VerbosityLevel::value())
-			))->identifier('pocketmine.enum.badComparison')->build()];
+			))->build()];
 		}
 		return [];
 	}
@@ -69,7 +70,7 @@ class DisallowEnumComparisonRule implements Rule{
 	private function checkForEnumTypes(Type $comparedType) : bool{
 		//TODO: what we really want to do here is iterate over the contained types, but there's no universal way to
 		//do that. This might break with other circumstances.
-		if($comparedType->isObject()->yes()){
+		if($comparedType instanceof ObjectType){
 			$types = [$comparedType];
 		}elseif($comparedType instanceof UnionType){
 			$types = $comparedType->getTypes();
@@ -77,14 +78,12 @@ class DisallowEnumComparisonRule implements Rule{
 			return false;
 		}
 		foreach($types as $containedType){
-			if(!($containedType->isObject()->yes())){
+			if(!($containedType instanceof ObjectType)){
 				continue;
 			}
-			$classes = $containedType->getObjectClassReflections();
-			foreach($classes as $class){
-				if($class->hasTraitUse(EnumTrait::class)){
-					return true;
-				}
+			$class = $containedType->getClassReflection();
+			if($class !== null && $class->hasTraitUse(EnumTrait::class)){
+				return true;
 			}
 		}
 		return false;

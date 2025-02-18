@@ -25,12 +25,6 @@ declare(strict_types=1);
 namespace pocketmine\event;
 
 use PHPUnit\Framework\TestCase;
-use pocketmine\event\fixtures\TestAbstractAllowHandleEvent;
-use pocketmine\event\fixtures\TestAbstractEvent;
-use pocketmine\event\fixtures\TestConcreteEvent;
-use pocketmine\event\fixtures\TestConcreteExtendsAbstractEvent;
-use pocketmine\event\fixtures\TestConcreteExtendsAllowHandleEvent;
-use pocketmine\event\fixtures\TestConcreteExtendsConcreteEvent;
 
 class HandlerListManagerTest extends TestCase{
 

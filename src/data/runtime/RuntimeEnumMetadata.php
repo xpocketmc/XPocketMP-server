@@ -24,6 +24,7 @@ declare(strict_types=1);
 
 namespace pocketmine\data\runtime;
 
+use function array_values;
 use function ceil;
 use function count;
 use function log;
@@ -60,7 +61,7 @@ final class RuntimeEnumMetadata{
 		usort($members, fn(\UnitEnum $a, \UnitEnum $b) => $a->name <=> $b->name); //sort by name to ensure consistent ordering (and thus consistent bit assignments)
 
 		$this->bits = (int) ceil(log(count($members), 2));
-		$this->intToEnum = $members;
+		$this->intToEnum = array_values($members);
 
 		$reversed = [];
 		foreach($this->intToEnum as $int => $enum){

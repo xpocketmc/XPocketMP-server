@@ -72,7 +72,6 @@ class AsyncPoolTest extends TestCase{
 	}
 
 	public function testThreadSafeSetResult() : void{
-		/** @phpstan-var PromiseResolver<ThreadSafeArray<array-key, mixed>> $resolver */
 		$resolver = new PromiseResolver();
 		$resolver->getPromise()->onCompletion(
 			function(ThreadSafeArray $result) : void{
