@@ -10,8 +10,8 @@ return RectorConfig::configure()
         __DIR__ . '/tests',
         __DIR__ . '/tools',
     ])
-    // uncomment to reach your current PHP version
-    // ->withPhpSets()
-    ->withTypeCoverageLevel(0)
-    ->withDeadCodeLevel(0)
-    ->withCodeQualityLevel(0);
+
+    ->withPhpSets(804)
+    ->withTypeCoverageLevel(3)
+    ->withDeadCodeLevel(3)
+    ->withCodeQualityLevel(3);
