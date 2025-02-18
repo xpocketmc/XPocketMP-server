@@ -11,7 +11,6 @@ return RectorConfig::configure()
         __DIR__ . '/tools',
     ])
 
-    ->withPhpSets(804)
     ->withTypeCoverageLevel(3)
     ->withDeadCodeLevel(3)
     ->withCodeQualityLevel(3);
