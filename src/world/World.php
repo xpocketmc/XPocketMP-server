@@ -720,7 +720,7 @@ class World implements ChunkManager{
 					$this->broadcastPacketToViewers($pos, $e);
 				}
 			}else{
-				NetworkBroadcastUtils::broadcastPackets($this->filterViewersForPosition($pos, $players), $pk);
+				NetworkBroadcastUtils::broadcastPackets($this->filterViewersForPosition($pos, array_values($players)), $pk);
 			}
 		}
 	}
@@ -749,7 +749,7 @@ class World implements ChunkManager{
 					$this->broadcastPacketToViewers($pos, $e);
 				}
 			}else{
-				NetworkBroadcastUtils::broadcastPackets($this->filterViewersForPosition($pos, $players), $pk);
+				NetworkBroadcastUtils::broadcastPackets($this->filterViewersForPosition($pos, array_values($players)), $pk);
 			}
 		}
 	}
@@ -2032,7 +2032,7 @@ class World implements ChunkManager{
 			$orbs[] = $orb;
 		}
 
-		return $orbs;
+		return array_values($orbs);
 	}
 
 	/**

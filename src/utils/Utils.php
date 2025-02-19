@@ -219,7 +219,7 @@ final class Utils{
 			$mac = implode("\n", $mac);
 			if(preg_match_all("#Physical Address[. ]{1,}: ([0-9A-F\\-]{17})#", $mac, $matches) > 0){
 				foreach($matches[1] as $i => $v){
-					if($v == "00-00-00-00-00-00"){
+					if($v === "00-00-00-00-00-00"){
 						unset($matches[1][$i]);
 					}
 				}
@@ -233,7 +233,7 @@ final class Utils{
 				$mac = implode("\n", $mac);
 				if(preg_match_all("#HWaddr[ \t]{1,}([0-9a-f:]{17})#", $mac, $matches) > 0){
 					foreach($matches[1] as $i => $v){
-						if($v == "00:00:00:00:00:00"){
+						if($v === "00:00:00:00:00:00"){
 							unset($matches[1][$i]);
 						}
 					}

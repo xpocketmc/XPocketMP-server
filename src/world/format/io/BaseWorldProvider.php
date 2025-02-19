@@ -105,7 +105,7 @@ abstract class BaseWorldProvider implements WorldProvider{
 		return PalettedBlockArray::fromData(
 			$blockArray->getBitsPerBlock(),
 			$blockArray->getWordArray(),
-			$newPalette
+			array_values($newPalette)
 		);
 	}
 
