@@ -38,7 +38,7 @@ cp -r tests/plugins/TesterPlugin "$PLUGINS_DIR"
 echo -e "stop\n" | php XPocketMP.phar --no-wizard --disable-ansi --disable-readline --debug.level=2 --data="$DATA_DIR" --plugins="$PLUGINS_DIR" --anonymous-statistics.enabled=0 --settings.async-workers="$PM_WORKERS" --settings.enable-dev-builds=1
 
 output=$(grep '\[TesterPlugin\]' "$DATA_DIR/server.log")
-if [ "$output" === "" ]; then
+if [ "$output" == "" ]; then
 	echo TesterPlugin failed to run tests, check the logs
 	exit 1
 fi

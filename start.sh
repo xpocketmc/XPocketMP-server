@@ -19,7 +19,7 @@ while getopts "p:f:l" OPTION 2> /dev/null; do
 	esac
 done
 
-if [ "$PHP_BINARY" === "" ]; then
+if [ "$PHP_BINARY" == "" ]; then
 	if [ -f ./bin/php7/bin/php ]; then
 		export PHPRC=""
 		PHP_BINARY="./bin/php7/bin/php"
@@ -32,12 +32,12 @@ if [ "$PHP_BINARY" === "" ]; then
 	fi
 fi
 
-if [ "$POCKETMINE_FILE" === "" ]; then
+if [ "$POCKETMINE_FILE" == "" ]; then
 	if [ -f ./XPocketMP.phar ]; then
 		POCKETMINE_FILE="./XPocketMP.phar"
 	else
 		echo "XPocketMP.phar not found"
-		echo "Downloads can be found at https://github.com/xpocketmc/XPocketMP-server/releases"
+		echo "Downloads can be found at https://github.com/ClousClouds/XPocketMP/releases"
 		exit 1
 	fi
 fi
@@ -46,7 +46,7 @@ LOOPS=0
 
 set +e
 
-if [ "$DO_LOOP" === "yes" ]; then
+if [ "$DO_LOOP" == "yes" ]; then
 	while true; do
 		if [ ${LOOPS} -gt 0 ]; then
 			echo "Restarted $LOOPS times"

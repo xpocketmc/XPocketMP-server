@@ -326,7 +326,7 @@ class PluginManager{
 				$triage->plugins[$name] = new PluginLoadTriageEntry($file, $loader, $description);
 
 				$triage->softDependencies[$name] = array_merge(array_values($triage->softDependencies[$name]) ?? [], $description->getSoftDepend());
-				array_values($triage->dependencies[$name]) = $description->getDepend();
+				$triage->dependencies[$name] = array_values($description->getDepend());
 
 				foreach($description->getLoadBefore() as $before){
 					if(isset($triage->softDependencies[$before])){

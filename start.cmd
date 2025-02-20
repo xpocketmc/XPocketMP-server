@@ -26,7 +26,7 @@ if exist XPocketMP.phar (
 	set POCKETMINE_FILE=XPocketMP.phar
 ) else (
 	echo XPocketMP.phar not found
-	echo Downloads can be found at https://github.com/xpocketmc/XPocketMP-server/releases
+	echo Downloads can be found at https://github.com/ClousClouds/XPocketMP/releases
 	pause
 	exit 1
 )
