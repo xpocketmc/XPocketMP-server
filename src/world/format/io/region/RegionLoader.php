@@ -246,7 +246,7 @@ class RegionLoader{
 		 * the header will still point to the old (intact) copy of the chunk, instead of a potentially broken new
 		 * version of the file (e.g. partially written).
 		*/
-		$oldLocation = $this->locationTable[$index];
+		$oldLocation = array_values($this->locationTable[$index]);
 		$this->locationTable[$index] = $newLocation;
 		$this->writeLocationIndex($index);
 
@@ -260,7 +260,7 @@ class RegionLoader{
 	 */
 	public function removeChunk(int $x, int $z) : void{
 		$index = self::getChunkOffset($x, $z);
-		$oldLocation = $this->locationTable[$index];
+		$oldLocation = array_values($this->locationTable[$index]);
 		$this->locationTable[$index] = null;
 		$this->writeLocationIndex($index);
 		if($oldLocation !== null){
@@ -319,9 +319,9 @@ class RegionLoader{
 			$timestamp = $data[$i + 1025];
 
 			if($offset === 0 || $sectorCount === 0){
-				$this->locationTable[$i] = null;
+				array_values($this->locationTable[$i]) = null;
 			}elseif($offset >= self::FIRST_SECTOR){
-				$this->bumpNextFreeSector($this->locationTable[$i] = new RegionLocationTableEntry($offset, $sectorCount, $timestamp));
+				$this->bumpNextFreeSector(array_values($this->locationTable[$i]) = new RegionLocationTableEntry($offset, $sectorCount, $timestamp));
 			}else{
 				self::getChunkCoords($i, $chunkXX, $chunkZZ);
 				throw new CorruptedRegionException("Invalid region header entry for x=$chunkXX z=$chunkZZ, offset overlaps with header");

@@ -80,6 +80,6 @@ class BulkCurlTask extends AsyncTask{
 		$callback = $this->fetchLocal(self::TLS_KEY_COMPLETION_CALLBACK);
 		/** @var InternetRequestResult[]|InternetException[] $results */
 		$results = $this->getResult();
-		$callback($results);
+		$callback(array_values($results));
 	}
 }

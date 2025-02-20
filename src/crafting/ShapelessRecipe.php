@@ -55,7 +55,7 @@ class ShapelessRecipe implements CraftingRecipe{
 			throw new \InvalidArgumentException("Shapeless recipes cannot have more than 9 ingredients");
 		}
 		$this->ingredients = $ingredients;
-		$this->results = Utils::cloneObjectArray($results);
+		$this->results = Utils::cloneObjectArray(array_values($results));
 	}
 
 	/**
@@ -63,7 +63,7 @@ class ShapelessRecipe implements CraftingRecipe{
 	 * @phpstan-return list<Item>
 	 */
 	public function getResults() : array{
-		return Utils::cloneObjectArray($this->results);
+		return Utils::cloneObjectArray(array_values($this->results));
 	}
 
 	public function getResultsFor(CraftingGrid $grid) : array{

@@ -106,7 +106,7 @@ class ShapedRecipe implements CraftingRecipe{
 			$this->ingredientList[$char] = clone $i;
 		}
 
-		$this->results = Utils::cloneObjectArray($results);
+		$this->results = Utils::cloneObjectArray(array_values($results));
 	}
 
 	public function getWidth() : int{
@@ -122,7 +122,7 @@ class ShapedRecipe implements CraftingRecipe{
 	 * @phpstan-return list<Item>
 	 */
 	public function getResults() : array{
-		return Utils::cloneObjectArray($this->results);
+		return Utils::cloneObjectArray(array_values($this->results));
 	}
 
 	/**
@@ -146,7 +146,7 @@ class ShapedRecipe implements CraftingRecipe{
 			}
 		}
 
-		return $ingredients;
+		return array_values($ingredients);
 	}
 
 	public function getIngredientList() : array{

@@ -1312,7 +1312,7 @@ class Player extends Human implements CommandSender, ChunkListener, PlayerInterf
 			$this->nextChunkOrderRun = 0;
 		}
 
-		if(!$revert && $distanceSquared != 0){
+		if(!$revert && $distanceSquared !== 0){
 			$dx = $newPos->x - $oldPos->x;
 			$dy = $newPos->y - $oldPos->y;
 			$dz = $newPos->z - $oldPos->z;
@@ -2259,7 +2259,7 @@ round($position->getY()) . ", " .
 
 		$ev = new PlayerQuitEvent($this, $quitMessage ?? $this->getLeaveMessage(), $reason);
 		$ev->call();
-		if(($quitMessage = $ev->getQuitMessage()) != ""){
+		if(($quitMessage = $ev->getQuitMessage()) !== ""){
 			$this->server->broadcastMessage($quitMessage);
 		}
 		$this->save();
@@ -2390,7 +2390,7 @@ round($position->getY()) . ", " .
 			$this->xpManager->setXpAndProgress(0, 0.0);
 		}
 
-		if($ev->getDeathMessage() != ""){
+		if($ev->getDeathMessage() !== ""){
 			$this->server->broadcastMessage($ev->getDeathMessage());
 		}
 

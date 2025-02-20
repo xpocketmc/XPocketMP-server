@@ -414,7 +414,7 @@ final class Utils{
 
 		$lines = [self::printableExceptionMessage($e)];
 		$lines[] = "--- Stack trace ---";
-		foreach(Utils::printableTrace($trace) as $line){
+		foreach(Utils::printableTrace(array_values($trace)) as $line){
 			$lines[] = "  " . $line;
 		}
 		for($prev = $e->getPrevious(); $prev !== null; $prev = $prev->getPrevious()){

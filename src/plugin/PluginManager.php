@@ -325,12 +325,12 @@ class PluginManager{
 
 				$triage->plugins[$name] = new PluginLoadTriageEntry($file, $loader, $description);
 
-				$triage->softDependencies[$name] = array_merge($triage->softDependencies[$name] ?? [], $description->getSoftDepend());
-				$triage->dependencies[$name] = $description->getDepend();
+				$triage->softDependencies[$name] = array_merge(array_values($triage->softDependencies[$name]) ?? [], $description->getSoftDepend());
+				array_values($triage->dependencies[$name]) = $description->getDepend();
 
 				foreach($description->getLoadBefore() as $before){
 					if(isset($triage->softDependencies[$before])){
-						$triage->softDependencies[$before][] = $name;
+						array_values($triage->softDependencies[$before][]) = $name;
 					}else{
 						$triage->softDependencies[$before] = [$name];
 					}
@@ -347,18 +347,18 @@ class PluginManager{
 	 * @phpstan-param-out array<string, list<string>> $dependencyLists
 	 */
 	private function checkDepsForTriage(string $pluginName, string $dependencyType, array &$dependencyLists, array $loadedPlugins, PluginLoadTriage $triage) : void{
-		if(isset($dependencyLists[$pluginName])){
+		if(isset(array_values($dependencyLists[$pluginName]))){
 			foreach($dependencyLists[$pluginName] as $key => $dependency){
 				if(isset($loadedPlugins[$dependency]) || $this->getPlugin($dependency) instanceof Plugin){
 					$this->server->getLogger()->debug("Successfully resolved $dependencyType dependency \"$dependency\" for plugin \"$pluginName\"");
-					unset($dependencyLists[$pluginName][$key]);
+					unset(array_values($dependencyLists[$pluginName][$key]));
 				}elseif(array_key_exists($dependency, $triage->plugins)){
 					$this->server->getLogger()->debug("Deferring resolution of $dependencyType dependency \"$dependency\" for plugin \"$pluginName\" (found but not loaded yet)");
 				}
 			}
 
-			if(count($dependencyLists[$pluginName]) === 0){
-				unset($dependencyLists[$pluginName]);
+			if(count(array_values($dependencyLists[$pluginName])) === 0){
+				unset(array_values($dependencyLists[$pluginName]));
 			}
 		}
 	}
@@ -418,11 +418,11 @@ class PluginManager{
 						foreach($triage->softDependencies[$name] as $k => $dependency){
 							if($this->getPlugin($dependency) === null && !array_key_exists($dependency, $triage->plugins)){
 								$this->server->getLogger()->debug("Skipping resolution of missing soft dependency \"$dependency\" for plugin \"$name\"");
-								unset($triage->softDependencies[$name][$k]);
+								unset(array_values($triage->softDependencies[$name][$k]));
 							}
 						}
 						if(count($triage->softDependencies[$name]) === 0){
-							unset($triage->softDependencies[$name]);
+							unset(array_values($triage->softDependencies[$name]));
 							continue 2; //go back to the top and try again
 						}
 					}

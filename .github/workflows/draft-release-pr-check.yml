@@ -16,7 +16,7 @@ on:
     outputs:
       valid:
         description: Whether this commit is valid for release
-        value: ${{ jobs.check-intent.outputs.valid && jobs.check-validity.result == 'success' }}
+        value: ${{ jobs.check-intent.outputs.valid && jobs.check-validity.result === 'success' }}
 
 permissions:
   contents: read #for user access check
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     outputs:
-      valid: ${{ steps.validate.outputs.DEV_BUILD == 'false' }}
+      valid: ${{ steps.validate.outputs.DEV_BUILD === 'false' }}
 
     steps:
       - uses: actions/checkout@v4
@@ -41,7 +41,7 @@ jobs:
     name: Validate release info
     needs: [check-intent]
     #don't do these checks if this isn't a release - we don't want to generate unnecessary failed statuses
-    if: needs.check-intent.outputs.valid == 'true'
+    if: needs.check-intent.outputs.valid === 'true'
 
     runs-on: ubuntu-20.04
 
@@ -78,7 +78,7 @@ jobs:
 
       - name: Abort if user permissions are insufficient
         #user doesn't have permission or is a bot
-        if: steps.check-permission.outputs.require-result != 'true' || steps.check-permission.outputs.check-result != 'false'
+        if: steps.check-permission.outputs.require-result !== 'true' || steps.check-permission.outputs.check-result !== 'false'
         run: |
           echo "::error::This user is not authorized to trigger releases"
           exit 1
@@ -105,7 +105,7 @@ jobs:
       - name: Check version is valid for the selected channel
         run: |
           CHANNEL="$(php build/dump-version-info.php channel)"
-          if [ "$(php build/dump-version-info.php suffix_valid)" != "true" ]; then
+          if [ "$(php build/dump-version-info.php suffix_valid)" !== "true" ]; then
             echo "::error::Version $(php build/dump-version-info.php base_version) is not allowed on the $CHANNEL channel"
             exit 1
           fi

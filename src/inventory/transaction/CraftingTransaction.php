@@ -116,7 +116,7 @@ class CraftingTransaction extends InventoryTransaction{
 			throw new TransactionValidationException("No transaction items given");
 		}
 
-		$packedProvidedItems = self::packItems(Utils::cloneObjectArray($providedItems));
+		$packedProvidedItems = self::packItems(Utils::cloneObjectArray(array_values($providedItems)));
 		$packedProvidedItemMatches = array_fill_keys(array_keys($packedProvidedItems), 0);
 
 		$recipeIngredientMatches = [];

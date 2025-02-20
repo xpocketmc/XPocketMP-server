@@ -61,7 +61,7 @@ final class RuntimeEnumMetadata{
 		usort($members, fn(\UnitEnum $a, \UnitEnum $b) => $a->name <=> $b->name); //sort by name to ensure consistent ordering (and thus consistent bit assignments)
 
 		$this->bits = (int) ceil(log(count($members), 2));
-		$this->intToEnum = array_values($members);
+		$this->intToEnum = $members;
 
 		$reversed = [];
 		foreach($this->intToEnum as $int => $enum){

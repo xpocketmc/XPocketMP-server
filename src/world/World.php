@@ -1032,7 +1032,7 @@ class World implements ChunkManager{
 							$p->onChunkChanged($chunkX, $chunkZ, $chunk);
 						}
 					}else{
-						foreach($this->createBlockUpdatePackets($blocks) as $packet){
+						foreach($this->createBlockUpdatePackets(array_values($blocks)) as $packet){
 							$this->broadcastPacketToPlayersUsingChunk($chunkX, $chunkZ, $packet);
 						}
 					}
@@ -1442,7 +1442,7 @@ class World implements ChunkManager{
 					$chunk->getSubChunks(),
 					$chunk->isPopulated(),
 					array_map(fn(Entity $e) => $e->saveNBT(), array_filter($this->getChunkEntities($chunkX, $chunkZ), fn(Entity $e) => $e->canSaveWithChunk())),
-					array_map(fn(Tile $t) => $t->saveNBT(), $chunk->getTiles()),
+					array_map(fn(Tile $t) => array_values($t->saveNBT(), $chunk->getTiles())),
 				), $chunk->getTerrainDirtyFlags());
 				$chunk->clearTerrainDirtyFlags();
 			}
@@ -1585,7 +1585,7 @@ class World implements ChunkManager{
 				for($y = $minY; $y <= $maxY; ++$y){
 					$relativeBlockHash = World::chunkBlockHash($x, $y, $z);
 
-					$boxes = $this->blockCollisionBoxCache[$chunkPosHash][$relativeBlockHash] ??= $this->getBlockCollisionBoxesForCell($x, $y, $z);
+					$boxes = array_values($this->blockCollisionBoxCache[$chunkPosHash][$relativeBlockHash]) ??= $this->getBlockCollisionBoxesForCell($x, $y, $z);
 
 					foreach($boxes as $blockBB){
 						if($blockBB->intersectsWith($bb)){
@@ -2990,8 +2990,8 @@ class World implements ChunkManager{
 					$this->provider->saveChunk($x, $z, new ChunkData(
 						$chunk->getSubChunks(),
 						$chunk->isPopulated(),
-						array_map(fn(Entity $e) => $e->saveNBT(), array_filter($this->getChunkEntities($x, $z), fn(Entity $e) => $e->canSaveWithChunk())),
-						array_map(fn(Tile $t) => $t->saveNBT(), $chunk->getTiles()),
+						array_map(fn(Entity $e) => $e->saveNBT(), array_filter($this->getChunkEntities($x, $z), fn(Entity $e) => array_values($e->canSaveWithChunk()))),
+						array_map(fn(Tile $t) => $t->saveNBT(), array_values($chunk->getTiles())),
 					), $chunk->getTerrainDirtyFlags());
 				}finally{
 					$this->timings->syncChunkSave->stopTiming();

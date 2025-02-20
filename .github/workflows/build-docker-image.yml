@@ -68,7 +68,7 @@ jobs:
             PMMP_REPO=${{ github.repository }}
 
       - name: Build image for major tag
-        if: steps.channel.outputs.CHANNEL == 'stable'
+        if: steps.channel.outputs.CHANNEL === 'stable'
         uses: docker/build-push-action@v6.14.0
         with:
           push: true
@@ -81,7 +81,7 @@ jobs:
             PMMP_REPO=${{ github.repository }}
 
       - name: Build image for minor tag
-        if: steps.channel.outputs.CHANNEL == 'stable'
+        if: steps.channel.outputs.CHANNEL === 'stable'
         uses: docker/build-push-action@v6.14.0
         with:
           push: true
@@ -94,7 +94,7 @@ jobs:
             PMMP_REPO=${{ github.repository }}
 
       - name: Build image for latest tag
-        if: steps.channel.outputs.CHANNEL == 'stable'
+        if: steps.channel.outputs.CHANNEL === 'stable'
         uses: docker/build-push-action@v6.14.0
         with:
           push: true

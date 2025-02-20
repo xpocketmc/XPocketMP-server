@@ -112,7 +112,7 @@ final class CraftingDataCache{
 				$recipesWithTypeIds[] = $r = new ProtocolShapedRecipe(
 					CraftingDataPacket::ENTRY_SHAPED,
 					Binary::writeInt($index),
-					$inputs,
+					array_values($inputs),
 					array_map($converter->coreItemStackToNet(...), $recipe->getResults()),
 					$nullUUID,
 					CraftingRecipeBlockName::CRAFTING_TABLE,

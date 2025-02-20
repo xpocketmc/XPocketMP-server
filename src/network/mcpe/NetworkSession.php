@@ -588,7 +588,7 @@ class NetworkSession{
 				}
 
 				$stream = new BinaryStream();
-				PacketBatch::encodeRaw($stream, $this->sendBuffer);
+				PacketBatch::encodeRaw($stream, array_values($this->sendBuffer));
 
 				if($this->enableCompression){
 					$batch = $this->server->prepareBatch($stream->getBuffer(), $this->compressor, $syncMode, Timings::$playerNetworkSendCompressSessionBuffer);
@@ -938,7 +938,7 @@ class NetworkSession{
 		}
 		$event = new PlayerResourcePackOfferEvent($this->info, $resourcePacks, $keys, $packManager->resourcePacksRequired());
 		$event->call();
-		$this->setHandler(new ResourcePacksPacketHandler($this, $event->getResourcePacks(), $event->getEncryptionKeys(), $event->mustAccept(), function() : void{
+		$this->setHandler(new ResourcePacksPacketHandler($this, array_values($event->getResourcePacks()), $event->getEncryptionKeys(), $event->mustAccept(), function() : void{
 			$this->createPlayer();
 		}));
 	}
@@ -1108,7 +1108,7 @@ class NetworkSession{
 					//work around a client bug which makes the original name not show when aliases are used
 					$aliases[] = $lname;
 				}
-				$aliasObj = new CommandEnum(ucfirst($command->getLabel()) . "Aliases", array_values($aliases));
+				$aliasObj = new CommandEnum(ucfirst($command->getLabel()) . "Aliases", $aliases);
 			}
 
 			$description = $command->getDescription();

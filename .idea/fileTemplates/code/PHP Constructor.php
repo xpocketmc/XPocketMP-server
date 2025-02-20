@@ -1,4 +1,4 @@
-#if(${THROWS_DOC} != "")
+#if(${THROWS_DOC} !== "")
 /**
 ${THROWS_DOC}
 */

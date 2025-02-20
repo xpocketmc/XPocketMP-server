@@ -1154,7 +1154,7 @@ class Server{
 
 		if($this->worldManager->getDefaultWorld() === null){
 			$default = $this->configGroup->getConfigString(ServerProperties::DEFAULT_WORLD_NAME, "world");
-			if(trim($default) == ""){
+			if(trim($default) === ""){
 				$this->logger->warning("level-name cannot be null, using default");
 				$default = "world";
 				$this->configGroup->setConfigString(ServerProperties::DEFAULT_WORLD_NAME, "world");

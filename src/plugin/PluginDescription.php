@@ -184,7 +184,7 @@ class PluginDescription{
 					$k = $v;
 					$v = "*";
 				}
-				$this->extensions[(string) $k] = array_map('strval', is_array($v) ? $v : [$v]);
+				array_values($this->extensions[(string) $k]) = array_map('strval', is_array($v) ? $v : [$v]);
 			}
 		}
 

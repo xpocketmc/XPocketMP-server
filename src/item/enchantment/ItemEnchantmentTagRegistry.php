@@ -104,7 +104,7 @@ final class ItemEnchantmentTagRegistry{
 
 		foreach(Utils::stringifyKeys($this->tagMap) as $key => $nestedTags){
 			if(($nestedKey = array_search($tag, $nestedTags, true)) !== false){
-				unset($this->tagMap[$key][$nestedKey]);
+				unset(array_values($this->tagMap[$key][$nestedKey]));
 			}
 		}
 	}
@@ -116,7 +116,7 @@ final class ItemEnchantmentTagRegistry{
 	 */
 	public function removeNested(string $tag, array $nestedTags) : void{
 		$this->assertNotInternalTag($tag);
-		$this->tagMap[$tag] = array_diff($this->tagMap[$tag], $nestedTags);
+		$this->tagMap[$tag] = array_diff(array_values($this->tagMap[$tag]), $nestedTags);
 	}
 
 	/**
