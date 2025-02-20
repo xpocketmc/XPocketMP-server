@@ -7,7 +7,7 @@ while getopts "t:" OPTION 2> /dev/null; do
 		t)
 			PM_WORKERS="$OPTARG"
 			;;
-        /?)
+        \?)
 		    break
 	        ;;
 	esac
@@ -15,6 +15,7 @@ done
 
 #Run-the-server tests
 DATA_DIR="$(pwd)/test_data"
+
 PLUGINS_DIR="$DATA_DIR/plugins"
 
 rm -rf "$DATA_DIR"
@@ -44,7 +45,7 @@ if [ "$output" == "" ]; then
 fi
 
 result=$(echo "$output" | grep 'Finished' | grep -v 'PASS')
-if [ "$result" !== "" ]; then
+if [ "$result" != "" ]; then
 	echo "$result"
 	echo Some tests did not complete successfully, changing build status to failed
 	exit 1

@@ -330,7 +330,7 @@ class PluginManager{
 
 				foreach($description->getLoadBefore() as $before){
 					if(isset($triage->softDependencies[$before])){
-						array_values($triage->softDependencies[$before][]) = $name;
+						$triage->softDependencies[$before][] = array_values($name);
 					}else{
 						$triage->softDependencies[$before] = [$name];
 					}
