@@ -33,7 +33,7 @@ use function str_ends_with;
  */
 class PharPluginLoader implements PluginLoader{
 	public function __construct(
-		private ThreadSafeClassLoader $loader
+		private readonly ThreadSafeClassLoader $loader
 	){}
 
 	public function canLoadPlugin(string $path) : bool{

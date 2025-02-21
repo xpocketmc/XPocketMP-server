@@ -30,9 +30,9 @@ namespace pocketmine\plugin;
 final class PluginLoadTriageEntry{
 
 	public function __construct(
-		private string $file,
-		private PluginLoader $loader,
-		private PluginDescription $description
+		private readonly string $file,
+		private readonly PluginLoader $loader,
+		private readonly PluginDescription $description
 	){}
 
 	public function getFile() : string{ return $this->file; }

@@ -96,9 +96,9 @@ class PluginManager{
 	protected array $fileAssociations = [];
 
 	public function __construct(
-		private Server $server,
-		private ?string $pluginDataDirectory,
-		private ?PluginGraylist $graylist = null
+		private readonly Server $server,
+		private readonly ?string $pluginDataDirectory,
+		private readonly ?PluginGraylist $graylist = null
 	){
 		if($this->pluginDataDirectory !== null){
 			if(!file_exists($this->pluginDataDirectory)){
@@ -116,11 +116,7 @@ class PluginManager{
 	}
 
 	public function getPlugin(string $name) : ?Plugin{
-		if(isset($this->plugins[$name])){
-			return $this->plugins[$name];
-		}
-
-		return null;
+		return $this->plugins[$name] ?? null;
 	}
 
 	public static function getInstance() : self{
@@ -131,7 +127,7 @@ class PluginManager{
 	}
 
 	public function registerInterface(PluginLoader $loader) : void{
-		$this->fileAssociations[get_class($loader)] = $loader;
+		$this->fileAssociations[$loader::class] = $loader;
 	}
 
 	/**
@@ -613,10 +609,10 @@ class PluginManager{
 	 */
 	public function registerEvents(Listener $listener, Plugin $plugin) : void{
 		if(!$plugin->isEnabled()){
-			throw new PluginException("Plugin attempted to register " . get_class($listener) . " while not enabled");
+			throw new PluginException("Plugin attempted to register " . $listener::class . " while not enabled");
 		}
 
-		$reflection = new \ReflectionClass(get_class($listener));
+		$reflection = new \ReflectionClass($listener::class);
 		foreach($reflection->getMethods(\ReflectionMethod::IS_PUBLIC) as $method){
 			$tags = Utils::parseDocComment((string) $method->getDocComment());
 			if(isset($tags[ListenerMethodTags::NOT_HANDLER]) || ($eventClass = $this->getEventsHandledBy($method)) === null){
@@ -627,7 +623,7 @@ class PluginManager{
 
 			try{
 				$priority = isset($tags[ListenerMethodTags::PRIORITY]) ? EventPriority::fromString($tags[ListenerMethodTags::PRIORITY]) : EventPriority::NORMAL;
-			}catch(\InvalidArgumentException $e){
+			}catch(\InvalidArgumentException){
 				throw new PluginException("Event handler " . Utils::getNiceClosureName($handlerClosure) . "() declares invalid/unknown priority \"" . $tags[ListenerMethodTags::PRIORITY] . "\"");
 			}
 

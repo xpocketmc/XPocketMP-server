@@ -92,8 +92,8 @@ final class ApiVersion{
 			}
 		}
 
-		usort($result, static function(VersionString $string1, VersionString $string2) : int{ return $string1->compare($string2); });
+		usort($result, static fn(VersionString $string1, VersionString $string2): int => $string1->compare($string2));
 
-		return array_map(static function(VersionString $string) : string{ return $string->getBaseVersion(); }, $result);
+		return array_map(static fn(VersionString $string): string => $string->getBaseVersion(), $result);
 	}
 }

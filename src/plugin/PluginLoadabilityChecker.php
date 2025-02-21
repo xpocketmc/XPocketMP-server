@@ -44,7 +44,7 @@ use function version_compare;
 final class PluginLoadabilityChecker{
 
 	public function __construct(
-		private string $apiVersion
+		private readonly string $apiVersion
 	){}
 
 	public function check(PluginDescription $description) : Translatable|null{

@@ -48,21 +48,21 @@ use const DIRECTORY_SEPARATOR;
 abstract class PluginBase implements Plugin, CommandExecutor{
 	private bool $isEnabled = false;
 
-	private string $resourceFolder;
+	private readonly string $resourceFolder;
 
 	private ?Config $config = null;
-	private string $configFile;
+	private readonly string $configFile;
 
-	private PluginLogger $logger;
-	private TaskScheduler $scheduler;
+	private readonly PluginLogger $logger;
+	private readonly TaskScheduler $scheduler;
 
 	public function __construct(
-		private PluginLoader $loader,
-		private Server $server,
-		private PluginDescription $description,
+		private readonly PluginLoader $loader,
+		private readonly Server $server,
+		private readonly PluginDescription $description,
 		private string $dataFolder,
 		private string $file,
-		private ResourceProvider $resourceProvider
+		private readonly ResourceProvider $resourceProvider
 	){
 		$this->dataFolder = rtrim($dataFolder, "/" . DIRECTORY_SEPARATOR) . "/";
 		//TODO: this is accessed externally via reflection, not unused
