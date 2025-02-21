@@ -20,7 +20,7 @@ jobs:
 
   rector:
     name: Run Rector
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
 
@@ -44,7 +44,7 @@ jobs:
         run: php vendor/bin/rector process tests
   shellcheck:
     name: ShellCheck
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
 
