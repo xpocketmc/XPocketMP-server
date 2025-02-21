@@ -58,7 +58,7 @@
       "phpstan/phpstan": "^2.1.1",
       "phpstan/phpstan-phpunit": "^2.0.0",
       "phpstan/phpstan-strict-rules": "^2.0.0",
-      "phpunit/phpunit": "^10"
+      "phpunit/phpunit": "^12"
    },
    "autoload": {
       "psr-4": {
