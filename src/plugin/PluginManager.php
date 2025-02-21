@@ -46,11 +46,11 @@ use function array_diff_key;
 use function array_key_exists;
 use function array_keys;
 use function array_merge;
-use function array_values;
 use function class_exists;
 use function count;
 use function dirname;
 use function file_exists;
+use function get_class;
 use function implode;
 use function is_a;
 use function is_array;
@@ -96,9 +96,9 @@ class PluginManager{
 	protected array $fileAssociations = [];
 
 	public function __construct(
-		private readonly Server $server,
-		private readonly ?string $pluginDataDirectory,
-		private readonly ?PluginGraylist $graylist = null
+		private Server $server,
+		private ?string $pluginDataDirectory,
+		private ?PluginGraylist $graylist = null
 	){
 		if($this->pluginDataDirectory !== null){
 			if(!file_exists($this->pluginDataDirectory)){
@@ -116,7 +116,11 @@ class PluginManager{
 	}
 
 	public function getPlugin(string $name) : ?Plugin{
-		return $this->plugins[$name] ?? null;
+		if(isset($this->plugins[$name])){
+			return $this->plugins[$name];
+		}
+
+		return null;
 	}
 
 	public static function getInstance() : self{
@@ -127,7 +131,7 @@ class PluginManager{
 	}
 
 	public function registerInterface(PluginLoader $loader) : void{
-		$this->fileAssociations[$loader::class] = $loader;
+		$this->fileAssociations[get_class($loader)] = $loader;
 	}
 
 	/**
@@ -343,11 +347,11 @@ class PluginManager{
 	 * @phpstan-param-out array<string, list<string>> $dependencyLists
 	 */
 	private function checkDepsForTriage(string $pluginName, string $dependencyType, array &$dependencyLists, array $loadedPlugins, PluginLoadTriage $triage) : void{
-		if(isset(array_values($dependencyLists[$pluginName]))){
+		if(isset($dependencyLists[$pluginName])){
 			foreach($dependencyLists[$pluginName] as $key => $dependency){
 				if(isset($loadedPlugins[$dependency]) || $this->getPlugin($dependency) instanceof Plugin){
 					$this->server->getLogger()->debug("Successfully resolved $dependencyType dependency \"$dependency\" for plugin \"$pluginName\"");
-					unset(array_values($dependencyLists[$pluginName][$key]));
+					unset(array_splice($dependencyLists[$pluginName][$key]));
 				}elseif(array_key_exists($dependency, $triage->plugins)){
 					$this->server->getLogger()->debug("Deferring resolution of $dependencyType dependency \"$dependency\" for plugin \"$pluginName\" (found but not loaded yet)");
 				}
@@ -609,10 +613,10 @@ class PluginManager{
 	 */
 	public function registerEvents(Listener $listener, Plugin $plugin) : void{
 		if(!$plugin->isEnabled()){
-			throw new PluginException("Plugin attempted to register " . $listener::class . " while not enabled");
+			throw new PluginException("Plugin attempted to register " . get_class($listener) . " while not enabled");
 		}
 
-		$reflection = new \ReflectionClass($listener::class);
+		$reflection = new \ReflectionClass(get_class($listener));
 		foreach($reflection->getMethods(\ReflectionMethod::IS_PUBLIC) as $method){
 			$tags = Utils::parseDocComment((string) $method->getDocComment());
 			if(isset($tags[ListenerMethodTags::NOT_HANDLER]) || ($eventClass = $this->getEventsHandledBy($method)) === null){
@@ -623,7 +627,7 @@ class PluginManager{
 
 			try{
 				$priority = isset($tags[ListenerMethodTags::PRIORITY]) ? EventPriority::fromString($tags[ListenerMethodTags::PRIORITY]) : EventPriority::NORMAL;
-			}catch(\InvalidArgumentException){
+			}catch(\InvalidArgumentException $e){
 				throw new PluginException("Event handler " . Utils::getNiceClosureName($handlerClosure) . "() declares invalid/unknown priority \"" . $tags[ListenerMethodTags::PRIORITY] . "\"");
 			}
 
