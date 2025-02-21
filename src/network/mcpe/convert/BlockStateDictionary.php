@@ -32,6 +32,7 @@ use pocketmine\network\mcpe\protocol\serializer\NetworkNbtSerializer;
 use pocketmine\utils\Utils;
 use function array_key_first;
 use function array_map;
+use function array_values;
 use function count;
 use function get_debug_type;
 use function is_array;

@@ -32,9 +32,9 @@ final class CloningRegistryTraitTest extends TestCase{
 	 * @phpstan-return \Generator<int, array{\Closure() : \stdClass}, void, void>
 	 */
 	public static function cloningRegistryMembersProvider() : \Generator{
-		yield [fn(): \stdClass => TestCloningRegistry::TEST1()];
-		yield [fn(): \stdClass => TestCloningRegistry::TEST2()];
-		yield [fn(): \stdClass => TestCloningRegistry::TEST3()];
+		yield [fn() : \stdClass => TestCloningRegistry::TEST1()];
+		yield [fn() : \stdClass => TestCloningRegistry::TEST2()];
+		yield [fn() : \stdClass => TestCloningRegistry::TEST3()];
 	}
 
 	/**

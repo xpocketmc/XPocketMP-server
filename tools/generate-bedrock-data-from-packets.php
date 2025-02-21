@@ -95,7 +95,6 @@ use function explode;
 use function file;
 use function file_put_contents;
 use function fwrite;
-use function get_class;
 use function implode;
 use function is_array;
 use function is_object;
@@ -281,15 +280,15 @@ class ParserPacketHandler extends PacketHandler{
 		file_put_contents($this->bedrockDataPath . '/required_item_list.json', json_encode($table, JSON_PRETTY_PRINT) . "\n");
 
 		echo "updating item registry\n";
-		$items = array_map(fn(ItemTypeEntry $entry): array => self::objectToOrderedArray($entry), $packet->getEntries());
+		$items = array_map(fn(ItemTypeEntry $entry) : array => self::objectToOrderedArray($entry), $packet->getEntries());
 		file_put_contents($this->bedrockDataPath . '/item_registry.json', json_encode($items, JSON_PRETTY_PRINT) . "\n");
 		return true;
 	}
 
 	public function handleCreativeContent(CreativeContentPacket $packet) : bool{
 		echo "updating creative inventory data\n";
-		$groups = array_map(fn(CreativeGroupEntry $entry): array => self::objectToOrderedArray($this->creativeGroupEntryToJson($entry)), $packet->getGroups());
-		$items = array_map(fn(CreativeItemEntry $entry): array => self::objectToOrderedArray($this->creativeItemEntryToJson($entry)), $packet->getItems());
+		$groups = array_map(fn(CreativeGroupEntry $entry) : array => self::objectToOrderedArray($this->creativeGroupEntryToJson($entry)), $packet->getGroups());
+		$items = array_map(fn(CreativeItemEntry $entry) : array => self::objectToOrderedArray($this->creativeItemEntryToJson($entry)), $packet->getItems());
 		file_put_contents($this->bedrockDataPath . '/creativeitems.json', json_encode([
 			'groups' => $groups,
 			'items' => $items,

@@ -26,6 +26,7 @@ namespace pocketmine\crafting;
 
 use pocketmine\item\Item;
 use pocketmine\utils\Utils;
+use function array_values;
 use function count;
 
 class ShapelessRecipe implements CraftingRecipe{

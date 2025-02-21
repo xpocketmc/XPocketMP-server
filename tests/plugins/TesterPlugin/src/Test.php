@@ -39,8 +39,8 @@ abstract class Test{
 	private $timeout = 60; //seconds
 
 	public function __construct(private readonly Main $plugin)
-    {
-    }
+	{
+	}
 
 	public function getPlugin() : Main{
 		return $this->plugin;

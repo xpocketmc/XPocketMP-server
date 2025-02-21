@@ -40,6 +40,7 @@ use pocketmine\world\format\io\exception\CorruptedChunkException;
 use pocketmine\world\format\io\LoadedChunkData;
 use pocketmine\world\format\PalettedBlockArray;
 use pocketmine\world\format\SubChunk;
+use function array_values;
 use function strlen;
 use function zlib_decode;
 

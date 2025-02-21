@@ -38,6 +38,7 @@ use pocketmine\VersionInfo;
 use pocketmine\YmlServerProperties;
 use Symfony\Component\Filesystem\Path;
 use function array_map;
+use function array_values;
 use function base64_encode;
 use function error_get_last;
 use function file;

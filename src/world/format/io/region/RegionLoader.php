@@ -30,6 +30,7 @@ use pocketmine\utils\BinaryDataException;
 use pocketmine\utils\BinaryStream;
 use pocketmine\world\format\ChunkException;
 use pocketmine\world\format\io\exception\CorruptedChunkException;
+use function array_values;
 use function assert;
 use function ceil;
 use function chr;

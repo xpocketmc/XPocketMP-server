@@ -30,6 +30,7 @@ use pocketmine\nbt\TreeRoot;
 use pocketmine\utils\BinaryStream;
 use pocketmine\utils\DestructorCallbackTrait;
 use pocketmine\utils\ObjectSet;
+use function array_values;
 use function spl_object_id;
 use function usort;
 

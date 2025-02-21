@@ -33,6 +33,7 @@ use function array_merge;
 use function array_search;
 use function array_shift;
 use function array_unique;
+use function array_values;
 use function count;
 
 /**

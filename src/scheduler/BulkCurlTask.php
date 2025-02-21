@@ -27,6 +27,7 @@ namespace pocketmine\scheduler;
 use pocketmine\utils\Internet;
 use pocketmine\utils\InternetException;
 use pocketmine\utils\InternetRequestResult;
+use function array_values;
 use function igbinary_serialize;
 use function igbinary_unserialize;
 

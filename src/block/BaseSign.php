@@ -248,7 +248,7 @@ abstract class BaseSign extends Transparent{
 		if($size > 1000){
 			throw new \UnexpectedValueException($author->getName() . " tried to write $size bytes of text onto a sign (bigger than max 1000)");
 		}
-		$ev = new SignChangeEvent($this, $author, new SignText(array_map(fn(string $line): string => TextFormat::clean($line, false), $text->getLines()), $this->text->getBaseColor(), $this->text->isGlowing()));
+		$ev = new SignChangeEvent($this, $author, new SignText(array_map(fn(string $line) : string => TextFormat::clean($line, false), $text->getLines()), $this->text->getBaseColor(), $this->text->isGlowing()));
 		if($this->waxed || $this->editorEntityRuntimeId !== $author->getId()){
 			$ev->cancel();
 		}

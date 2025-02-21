@@ -32,6 +32,7 @@ use pocketmine\world\format\io\exception\CorruptedWorldException;
 use pocketmine\world\format\io\exception\UnsupportedWorldFormatException;
 use pocketmine\world\format\PalettedBlockArray;
 use pocketmine\world\WorldException;
+use function array_values;
 use function count;
 use function file_exists;
 use function implode;

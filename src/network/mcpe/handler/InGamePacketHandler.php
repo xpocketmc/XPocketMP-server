@@ -109,6 +109,7 @@ use pocketmine\utils\TextFormat;
 use pocketmine\utils\Utils;
 use pocketmine\world\format\Chunk;
 use function array_push;
+use function array_values;
 use function count;
 use function fmod;
 use function get_debug_type;

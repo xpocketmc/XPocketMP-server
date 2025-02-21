@@ -24,7 +24,6 @@ declare(strict_types=1);
 
 namespace pocketmine\data\runtime;
 
-use function array_values;
 use function ceil;
 use function count;
 use function log;

@@ -55,7 +55,6 @@ use function dirname;
 use function file_exists;
 use function file_put_contents;
 use function fwrite;
-use function get_class;
 use function get_debug_type;
 use function implode;
 use function is_dir;
@@ -656,7 +655,7 @@ function processRemappedStates(array $upgradeTable) : array{
 
 	//more specific filters must come before less specific ones, in case of a remap on a certain value which is
 	//otherwise unchanged
-	usort($list, fn(BlockStateUpgradeSchemaBlockRemap $a, BlockStateUpgradeSchemaBlockRemap $b): int => count($b->oldState) <=> count($a->oldState));
+	usort($list, fn(BlockStateUpgradeSchemaBlockRemap $a, BlockStateUpgradeSchemaBlockRemap $b) : int => count($b->oldState) <=> count($a->oldState));
 	return $list;
 }
 

@@ -37,7 +37,6 @@ use function count;
 use function dirname;
 use function file_put_contents;
 use function fwrite;
-use function get_class;
 use function json_encode;
 use function ksort;
 use const JSON_PRETTY_PRINT;

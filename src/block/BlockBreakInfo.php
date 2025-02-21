@@ -26,7 +26,6 @@ namespace pocketmine\block;
 
 use pocketmine\item\Item;
 use pocketmine\item\ToolTier;
-use function get_class;
 
 class BlockBreakInfo{
 	/**

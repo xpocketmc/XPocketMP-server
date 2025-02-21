@@ -34,6 +34,7 @@ use pocketmine\utils\Utils;
 use function array_fill_keys;
 use function array_keys;
 use function array_pop;
+use function array_values;
 use function count;
 use function intdiv;
 use function min;
