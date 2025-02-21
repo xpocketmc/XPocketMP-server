@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef9b0ae210e39a1700299181e90a02f8",
+    "content-hash": "30d55ecd8c9b888f1ee1a299334fc429",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -211,16 +211,16 @@
         },
         {
             "name": "pocketmine/bedrock-data",
-            "version": "3.0.0+bedrock-1.21.60",
+            "version": "4.0.0+bedrock-1.21.60",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/BedrockData.git",
-                "reference": "bf5b5da7fa60062cb07a30d4ed273a7d24e94842"
+                "reference": "2e5f16ec2facac653f3f894f22eb831d880ba98e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pmmp/BedrockData/zipball/bf5b5da7fa60062cb07a30d4ed273a7d24e94842",
-                "reference": "bf5b5da7fa60062cb07a30d4ed273a7d24e94842",
+                "url": "https://api.github.com/repos/pmmp/BedrockData/zipball/2e5f16ec2facac653f3f894f22eb831d880ba98e",
+                "reference": "2e5f16ec2facac653f3f894f22eb831d880ba98e",
                 "shasum": ""
             },
             "type": "library",
@@ -233,7 +233,7 @@
                 "issues": "https://github.com/pmmp/BedrockData/issues",
                 "source": "https://github.com/pmmp/BedrockData/tree/bedrock-1.21.60"
             },
-            "time": "2025-02-11T17:11:05+00:00"
+            "time": "2025-02-16T15:56:56+00:00"
         },
         {
             "name": "pocketmine/bedrock-item-upgrade-schema",
