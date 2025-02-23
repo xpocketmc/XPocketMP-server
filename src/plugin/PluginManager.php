@@ -422,7 +422,7 @@ class PluginManager{
 							}
 						}
 						if(count($triage->softDependencies[$name]) === 0){
-							unset(array_values($triage->softDependencies[$name]));
+							unset($triage->softDependencies[$name]);
 							continue 2; //go back to the top and try again
 						}
 					}
