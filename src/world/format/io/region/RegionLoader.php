@@ -320,7 +320,7 @@ class RegionLoader{
 			$timestamp = $data[$i + 1025];
 
 			if($offset === 0 || $sectorCount === 0){
-				array_values($this->locationTable[$i]) = null;
+				$this->locationTable[$i] = null;
 			}elseif($offset >= self::FIRST_SECTOR){
 				$this->bumpNextFreeSector(array_values($this->locationTable[$i]) = new RegionLocationTableEntry($offset, $sectorCount, $timestamp));
 			}else{
