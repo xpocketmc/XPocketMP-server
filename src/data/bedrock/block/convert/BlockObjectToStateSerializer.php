@@ -1312,8 +1312,12 @@ final class BlockObjectToStateSerializer implements BlockStateSerializer{
 		});
 		$this->map(Blocks::CREAKING_HEART(), function(CreakingHeart $block) : Writer{
 			return Writer::create(Ids::CREAKING_HEART)
-				->writeBool(StateNames::ACTIVE, $block->isActive())
-				->writePillarAxis($block->getAxis())
+				->writeString(StateNames::CREAKING_HEART_STATE,
+			$block->isActive()
+				? StringValues::CREAKING_HEART_STATE_UPROOTED
+				: StringValues::CREAKING_HEART_STATE_DORMANT
+		)
+		->writePillarAxis($block->getAxis())
 				->writeBool(StateNames::NATURAL, $block->isNatural());
 		});
 		$this->map(Blocks::CUT_COPPER(), function(Copper $block) : Writer{

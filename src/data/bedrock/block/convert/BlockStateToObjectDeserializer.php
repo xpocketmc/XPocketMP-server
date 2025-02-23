@@ -1240,9 +1240,9 @@ final class BlockStateToObjectDeserializer implements BlockStateDeserializer{
 		$this->mapSlab(Ids::CUT_SANDSTONE_SLAB, Ids::CUT_SANDSTONE_DOUBLE_SLAB, fn() => Blocks::CUT_SANDSTONE_SLAB());
 		$this->map(Ids::CREAKING_HEART, function(Reader $in) : Block{
 			return Blocks::CREAKING_HEART()
-				->setActive($in->readBool(StateNames::ACTIVE))
-				->setAxis($in->readPillarAxis())
-				->setNatural($in->readBool(StateNames::NATURAL));
+			  ->setActive($state === StringValues::CREAKING_HEART_STATE_UPROOTED)
+	    	->setAxis($in->readPillarAxis())
+	    	->setNatural($in->readBool(StateNames::NATURAL));
 		});
 		$this->mapSlab(Ids::DARK_PRISMARINE_SLAB, Ids::DARK_PRISMARINE_DOUBLE_SLAB, fn() => Blocks::DARK_PRISMARINE_SLAB());
 		$this->mapStairs(Ids::DARK_PRISMARINE_STAIRS, fn() => Blocks::DARK_PRISMARINE_STAIRS());
