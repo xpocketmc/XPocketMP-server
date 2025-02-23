@@ -322,7 +322,7 @@ class RegionLoader{
 			if($offset === 0 || $sectorCount === 0){
 				$this->locationTable[$i] = null;
 			}elseif($offset >= self::FIRST_SECTOR){
-				$this->bumpNextFreeSector(array_values($this->locationTable[$i]) = new RegionLocationTableEntry($offset, $sectorCount, $timestamp));
+				$this->bumpNextFreeSector($this->locationTable[$i] = new RegionLocationTableEntry($offset, $sectorCount, $timestamp));
 			}else{
 				self::getChunkCoords($i, $chunkXX, $chunkZZ);
 				throw new CorruptedRegionException("Invalid region header entry for x=$chunkXX z=$chunkZZ, offset overlaps with header");
