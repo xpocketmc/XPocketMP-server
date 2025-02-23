@@ -152,7 +152,7 @@ final class BlockStateUpgradeSchemaUtils{
 				if(!isset($convertedRemappedValuesIndex[$mappedValuesKey])){
 					throw new \UnexpectedValueException("Missing key from schema values index $mappedValuesKey");
 				}
-				array_values($result->remappedPropertyValues[$blockName][$property]) = $convertedRemappedValuesIndex[$mappedValuesKey];
+				$result->remappedPropertyValues[$blockName][$property] = array_values($convertedRemappedValuesIndex[$mappedValuesKey]);
 			}
 		}
 
