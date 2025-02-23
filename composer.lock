@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30d55ecd8c9b888f1ee1a299334fc429",
+    "content-hash": "f0ca28e516a061346f058c2d358062e1",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -127,16 +127,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "451b17f9665481ee502adc39be987cb71067ece2"
+                "reference": "6eaec7c6c9e90dcfe46ad1e1ffa5171e2dab641c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/451b17f9665481ee502adc39be987cb71067ece2",
-                "reference": "451b17f9665481ee502adc39be987cb71067ece2",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/6eaec7c6c9e90dcfe46ad1e1ffa5171e2dab641c",
+                "reference": "6eaec7c6c9e90dcfe46ad1e1ffa5171e2dab641c",
                 "shasum": ""
             },
             "require": {
@@ -181,7 +181,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-02-13T12:49:56+00:00"
+            "time": "2025-02-19T15:46:42+00:00"
         },
         {
             "name": "pocketmine/bedrock-block-upgrade-schema",
@@ -263,16 +263,16 @@
         },
         {
             "name": "pocketmine/bedrock-protocol",
-            "version": "dev-bedrock-1.21.60",
+            "version": "36.0.0+bedrock-1.21.60",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/BedrockProtocol.git",
-                "reference": "015da57b32ad9a8a5306ee616bbe8395a1f397a5"
+                "reference": "2057de319c5c551001c2a544e08d1bc7727d9963"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pmmp/BedrockProtocol/zipball/015da57b32ad9a8a5306ee616bbe8395a1f397a5",
-                "reference": "015da57b32ad9a8a5306ee616bbe8395a1f397a5",
+                "url": "https://api.github.com/repos/pmmp/BedrockProtocol/zipball/2057de319c5c551001c2a544e08d1bc7727d9963",
+                "reference": "2057de319c5c551001c2a544e08d1bc7727d9963",
                 "shasum": ""
             },
             "require": {
@@ -303,9 +303,9 @@
             "description": "An implementation of the Minecraft: Bedrock Edition protocol in PHP",
             "support": {
                 "issues": "https://github.com/pmmp/BedrockProtocol/issues",
-                "source": "https://github.com/pmmp/BedrockProtocol/tree/bedrock-1.21.60"
+                "source": "https://github.com/pmmp/BedrockProtocol/tree/36.0.0+bedrock-1.21.60"
             },
-            "time": "2025-02-13T15:41:29+00:00"
+            "time": "2025-02-16T15:59:08+00:00"
         },
         {
             "name": "pocketmine/binaryutils",
@@ -478,16 +478,16 @@
         },
         {
             "name": "pocketmine/locale-data",
-            "version": "2.22.2",
+            "version": "2.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pmmp/Language.git",
-                "reference": "9033695e71dcacd7665e957c29fd2f29ba42fb67"
+                "reference": "6ec5e92c77a2102b2692763733e4763012facae9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pmmp/Language/zipball/9033695e71dcacd7665e957c29fd2f29ba42fb67",
-                "reference": "9033695e71dcacd7665e957c29fd2f29ba42fb67",
+                "url": "https://api.github.com/repos/pmmp/Language/zipball/6ec5e92c77a2102b2692763733e4763012facae9",
+                "reference": "6ec5e92c77a2102b2692763733e4763012facae9",
                 "shasum": ""
             },
             "type": "library",
@@ -495,9 +495,9 @@
             "description": "Language resources used by PocketMine-MP",
             "support": {
                 "issues": "https://github.com/pmmp/Language/issues",
-                "source": "https://github.com/pmmp/Language/tree/2.22.2"
+                "source": "https://github.com/pmmp/Language/tree/2.24.0"
             },
-            "time": "2025-02-11T16:17:35+00:00"
+            "time": "2025-02-16T20:46:34+00:00"
         },
         {
             "name": "pocketmine/log",
@@ -3256,7 +3256,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "pocketmine/bedrock-protocol": 20,
         "xpocketmp/sounds": 20
     },
     "prefer-stable": false,
