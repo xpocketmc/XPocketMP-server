@@ -120,7 +120,7 @@ class HandlerListManager{
 	public function getHandlersFor(string $event) : array{
 		$cache = $this->handlerCaches[$event] ?? null;
 		//getListFor() will populate the cache for the next call
-		return $cache?-> ?? $this->getListFor($event)->getListenerList();
+		return $cache?->getListenerList() ?? $this->getListFor($event)->getListenerList();
 	}
 
 	/**
