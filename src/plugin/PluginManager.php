@@ -418,7 +418,7 @@ class PluginManager{
 						foreach($triage->softDependencies[$name] as $k => $dependency){
 							if($this->getPlugin($dependency) === null && !array_key_exists($dependency, $triage->plugins)){
 								$this->server->getLogger()->debug("Skipping resolution of missing soft dependency \"$dependency\" for plugin \"$name\"");
-								unset(array_values($triage->softDependencies[$name][$k]));
+								unset($triage->softDependencies[$name][$k]);
 							}
 						}
 						if(count($triage->softDependencies[$name]) === 0){
