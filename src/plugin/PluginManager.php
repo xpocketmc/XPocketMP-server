@@ -351,14 +351,14 @@ class PluginManager{
 			foreach($dependencyLists[$pluginName] as $key => $dependency){
 				if(isset($loadedPlugins[$dependency]) || $this->getPlugin($dependency) instanceof Plugin){
 					$this->server->getLogger()->debug("Successfully resolved $dependencyType dependency \"$dependency\" for plugin \"$pluginName\"");
-					unset(array_splice($dependencyLists[$pluginName][$key]));
+					unset($dependencyLists[$pluginName][$key]);
 				}elseif(array_key_exists($dependency, $triage->plugins)){
 					$this->server->getLogger()->debug("Deferring resolution of $dependencyType dependency \"$dependency\" for plugin \"$pluginName\" (found but not loaded yet)");
 				}
 			}
 
-			if(count(array_values($dependencyLists[$pluginName])) === 0){
-				unset(array_values($dependencyLists[$pluginName]));
+			if(count($dependencyLists[$pluginName]) === 0){
+				unset($dependencyLists[$pluginName]);
 			}
 		}
 	}
