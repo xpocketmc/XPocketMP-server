@@ -54,13 +54,17 @@ abstract class BaseSign extends Transparent{
 
 	protected ?int $editorEntityRuntimeId = null;
 
+	/** @var \Closure() : Item */
+	private \Closure $asItemCallback;
+
 	/**
 	 * @param \Closure() : Item $asItemCallback
 	 */
-	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, WoodType $woodType, private \Closure $asItemCallback){
+	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, WoodType $woodType, \Closure $asItemCallback){
 		$this->woodType = $woodType;
 		parent::__construct($idInfo, $name, $typeInfo);
 		$this->text = new SignText();
+		$this->asItemCallback = $asItemCallback;
 	}
 
 	public function readStateFromWorld() : Block{
@@ -248,7 +252,9 @@ abstract class BaseSign extends Transparent{
 		if($size > 1000){
 			throw new \UnexpectedValueException($author->getName() . " tried to write $size bytes of text onto a sign (bigger than max 1000)");
 		}
-		$ev = new SignChangeEvent($this, $author, new SignText(array_map(fn(string $line) : string => TextFormat::clean($line, false), $text->getLines()), $this->text->getBaseColor(), $this->text->isGlowing()));
+		$ev = new SignChangeEvent($this, $author, new SignText(array_map(function(string $line) : string{
+			return TextFormat::clean($line, false);
+		}, $text->getLines()), $this->text->getBaseColor(), $this->text->isGlowing()));
 		if($this->waxed || $this->editorEntityRuntimeId !== $author->getId()){
 			$ev->cancel();
 		}

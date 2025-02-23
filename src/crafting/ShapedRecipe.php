@@ -84,7 +84,7 @@ class ShapedRecipe implements CraftingRecipe{
 			throw new \InvalidArgumentException("Shaped recipes may only have 1, 2 or 3 columns, not $this->width");
 		}
 
-		foreach($shape as $row){
+		foreach($shape as $y => $row){
 			if(strlen($row) !== $this->width){
 				throw new \InvalidArgumentException("Shaped recipe rows must all have the same length (expected $this->width, got " . strlen($row) . ")");
 			}
@@ -106,7 +106,7 @@ class ShapedRecipe implements CraftingRecipe{
 			$this->ingredientList[$char] = clone $i;
 		}
 
-		$this->results = Utils::cloneObjectArray(array_values($results));
+		$this->results = Utils::cloneObjectArray($results);
 	}
 
 	public function getWidth() : int{
@@ -122,7 +122,7 @@ class ShapedRecipe implements CraftingRecipe{
 	 * @phpstan-return list<Item>
 	 */
 	public function getResults() : array{
-		return Utils::cloneObjectArray(array_values($this->results));
+		return Utils::cloneObjectArray($this->results);
 	}
 
 	/**
@@ -146,7 +146,7 @@ class ShapedRecipe implements CraftingRecipe{
 			}
 		}
 
-		return array_values($ingredients);
+		return $ingredients;
 	}
 
 	public function getIngredientList() : array{

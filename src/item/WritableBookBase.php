@@ -75,7 +75,7 @@ abstract class WritableBookBase extends Item{
 			$this->addPage($pageId);
 		}
 
-		$this->pages[$pageId] = new WritableBookPage(array_values($pageText));
+		$this->pages[$pageId] = new WritableBookPage($pageText);
 		return $this;
 	}
 
@@ -104,7 +104,7 @@ abstract class WritableBookBase extends Item{
 	public function deletePage(int $pageId) : self{
 		unset($this->pages[$pageId]);
 		$this->pages = array_values($this->pages);
-		return array_values($this);
+		return $this;
 	}
 
 	/**

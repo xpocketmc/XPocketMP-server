@@ -26,7 +26,6 @@ namespace pocketmine\crafting;
 
 use pocketmine\item\Item;
 use pocketmine\utils\Utils;
-use function array_values;
 use function count;
 
 class ShapelessRecipe implements CraftingRecipe{
@@ -56,7 +55,7 @@ class ShapelessRecipe implements CraftingRecipe{
 			throw new \InvalidArgumentException("Shapeless recipes cannot have more than 9 ingredients");
 		}
 		$this->ingredients = $ingredients;
-		$this->results = Utils::cloneObjectArray(array_values($results));
+		$this->results = Utils::cloneObjectArray($results);
 	}
 
 	/**
@@ -64,7 +63,7 @@ class ShapelessRecipe implements CraftingRecipe{
 	 * @phpstan-return list<Item>
 	 */
 	public function getResults() : array{
-		return Utils::cloneObjectArray(array_values($this->results));
+		return Utils::cloneObjectArray($this->results);
 	}
 
 	public function getResultsFor(CraftingGrid $grid) : array{

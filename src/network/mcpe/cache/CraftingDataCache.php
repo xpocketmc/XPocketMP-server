@@ -46,7 +46,6 @@ use pocketmine\utils\Binary;
 use pocketmine\utils\SingletonTrait;
 use Ramsey\Uuid\Uuid;
 use function array_map;
-use function array_values;
 use function spl_object_id;
 
 final class CraftingDataCache{
@@ -113,7 +112,7 @@ final class CraftingDataCache{
 				$recipesWithTypeIds[] = $r = new ProtocolShapedRecipe(
 					CraftingDataPacket::ENTRY_SHAPED,
 					Binary::writeInt($index),
-					array_values($inputs),
+					$inputs,
 					array_map($converter->coreItemStackToNet(...), $recipe->getResults()),
 					$nullUUID,
 					CraftingRecipeBlockName::CRAFTING_TABLE,

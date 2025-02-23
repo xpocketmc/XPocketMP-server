@@ -33,7 +33,6 @@ use function array_merge;
 use function array_search;
 use function array_shift;
 use function array_unique;
-use function array_values;
 use function count;
 
 /**
@@ -117,7 +116,7 @@ final class ItemEnchantmentTagRegistry{
 	 */
 	public function removeNested(string $tag, array $nestedTags) : void{
 		$this->assertNotInternalTag($tag);
-		$this->tagMap[$tag] = array_diff(array_values($this->tagMap[$tag]), $nestedTags);
+		$this->tagMap[$tag] = array_diff($this->tagMap[$tag], $nestedTags);
 	}
 
 	/**

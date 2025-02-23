@@ -28,7 +28,7 @@ use pocketmine\item\Item;
 
 final class InfestedStone extends Opaque{
 
-	private readonly int $imitated;
+	private int $imitated;
 
 	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, Block $imitated){
 		parent::__construct($idInfo, $name, $typeInfo);

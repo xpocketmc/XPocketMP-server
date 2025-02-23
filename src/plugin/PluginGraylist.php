@@ -35,12 +35,14 @@ class PluginGraylist{
 
 	/** @var string[] */
 	private array $plugins;
+	private bool $isWhitelist = false;
 
 	/**
 	 * @param string[] $plugins
 	 */
-	public function __construct(array $plugins = [], private readonly bool $isWhitelist = false){
+	public function __construct(array $plugins = [], bool $whitelist = false){
 		$this->plugins = array_flip($plugins);
+		$this->isWhitelist = $whitelist;
 	}
 
 	/**

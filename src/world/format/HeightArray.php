@@ -25,7 +25,6 @@ declare(strict_types=1);
 namespace pocketmine\world\format;
 
 use function array_fill;
-use function array_values;
 use function count;
 
 final class HeightArray{
@@ -71,7 +70,7 @@ final class HeightArray{
 	 * @phpstan-return list<int>
 	 */
 	public function getValues() : array{
-		return array_values($this->array->toArray());
+		return $this->array->toArray();
 	}
 
 	public function __clone(){

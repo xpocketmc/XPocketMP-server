@@ -132,7 +132,7 @@ final class BlockStateDeserializerHelper{
 		//TODO: check if these need any special treatment to get the appropriate data to both halves of the door
 		return $block
 			->setTop($in->readBool(BlockStateNames::UPPER_BLOCK_BIT))
-			->setFacing($in->readCardinalHorizontalFacing())
+			->setFacing(Facing::rotateY($in->readLegacyHorizontalFacing(), false))
 			->setHingeRight($in->readBool(BlockStateNames::DOOR_HINGE_BIT))
 			->setOpen($in->readBool(BlockStateNames::OPEN_BIT));
 	}
@@ -146,7 +146,7 @@ final class BlockStateDeserializerHelper{
 	/** @throws BlockStateDeserializeException */
 	public static function decodeFenceGate(FenceGate $block, BlockStateReader $in) : FenceGate{
 		return $block
-			->setFacing($in->readCardinalHorizontalFacing())
+			->setFacing($in->readLegacyHorizontalFacing())
 			->setInWall($in->readBool(BlockStateNames::IN_WALL_BIT))
 			->setOpen($in->readBool(BlockStateNames::OPEN_BIT));
 	}

@@ -31,11 +31,11 @@ final class PluginDescriptionCommandEntry{
 	 * @phpstan-param list<string> $aliases
 	 */
 	public function __construct(
-		private readonly ?string $description,
-		private readonly ?string $usageMessage,
-		private readonly array $aliases,
-		private readonly string $permission,
-		private readonly ?string $permissionDeniedMessage,
+		private ?string $description,
+		private ?string $usageMessage,
+		private array $aliases,
+		private string $permission,
+		private ?string $permissionDeniedMessage,
 	){}
 
 	public function getDescription() : ?string{ return $this->description; }

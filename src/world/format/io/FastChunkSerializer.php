@@ -119,7 +119,7 @@ final class FastChunkSerializer{
 				$layers[] = self::deserializePalettedArray($stream);
 			}
 			$biomeArray = self::deserializePalettedArray($stream);
-			$subChunks[$y] = new SubChunk($airBlockId, array_values($layers), $biomeArray);
+			$subChunks[$y] = new SubChunk($airBlockId, $layers, $biomeArray);
 		}
 
 		return new Chunk($subChunks, $terrainPopulated);

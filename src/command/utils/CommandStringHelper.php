@@ -25,7 +25,6 @@ declare(strict_types=1);
 namespace pocketmine\command\utils;
 
 use pocketmine\utils\AssumptionFailedError;
-use function array_values;
 use function preg_last_error_msg;
 use function preg_match_all;
 use function preg_replace;
@@ -61,6 +60,6 @@ final class CommandStringHelper{
 			}
 		}
 
-		return array_values($args);
+		return $args;
 	}
 }

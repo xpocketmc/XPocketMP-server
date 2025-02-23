@@ -709,7 +709,7 @@ abstract class BaseLevelDB extends BaseWorldProvider implements WritableWorldPro
 		//TODO: tile ticks, biome states (?)
 
 		return new LoadedChunkData(
-			data: new ChunkData($subChunks, $terrainPopulated, array_values($entities), array_values($tiles)),
+			data: new ChunkData($subChunks, $terrainPopulated, $entities, $tiles),
 			upgraded: $hasBeenUpgraded,
 			fixerFlags: LoadedChunkData::FIXER_FLAG_ALL //TODO: fill this by version rather than just setting all flags
 		);

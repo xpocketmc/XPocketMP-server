@@ -35,11 +35,12 @@ use pocketmine\player\Player;
 use pocketmine\world\BlockTransaction;
 
 class Lantern extends Transparent{
-	//readonly
+	private int $lightLevel; //readonly
 
 	protected bool $hanging = false;
 
-	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, private readonly int $lightLevel){
+	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, int $lightLevel){
+		$this->lightLevel = $lightLevel;
 		parent::__construct($idInfo, $name, $typeInfo);
 	}
 

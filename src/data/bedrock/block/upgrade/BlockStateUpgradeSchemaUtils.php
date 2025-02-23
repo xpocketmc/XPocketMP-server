@@ -152,7 +152,7 @@ final class BlockStateUpgradeSchemaUtils{
 				if(!isset($convertedRemappedValuesIndex[$mappedValuesKey])){
 					throw new \UnexpectedValueException("Missing key from schema values index $mappedValuesKey");
 				}
-				$result->remappedPropertyValues[$blockName][$property] = array_values($convertedRemappedValuesIndex[$mappedValuesKey]);
+				$result->remappedPropertyValues[$blockName][$property] = $convertedRemappedValuesIndex[$mappedValuesKey];
 			}
 		}
 
@@ -362,7 +362,7 @@ final class BlockStateUpgradeSchemaUtils{
 				//remaps with the same number of criteria should be sorted alphabetically, but this is not strictly necessary
 				return json_encode($a->oldState ?? []) <=> json_encode($b->oldState ?? []);
 			});
-			$result->remappedStates[$oldBlockName] = $keyedRemaps;
+			$result->remappedStates[$oldBlockName] = array_values($keyedRemaps);
 		}
 		if(isset($result->remappedStates)){
 			ksort($result->remappedStates);

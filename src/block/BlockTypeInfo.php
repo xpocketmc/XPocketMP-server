@@ -39,9 +39,9 @@ final class BlockTypeInfo{
 	 * @param string[] $enchantmentTags
 	 */
 	public function __construct(
-		private readonly BlockBreakInfo $breakInfo,
+		private BlockBreakInfo $breakInfo,
 		array $typeTags = [],
-		private readonly array $enchantmentTags = []
+		private array $enchantmentTags = []
 	){
 		$this->typeTags = array_fill_keys($typeTags, true);
 	}

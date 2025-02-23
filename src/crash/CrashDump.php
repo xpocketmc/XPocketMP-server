@@ -38,7 +38,6 @@ use pocketmine\VersionInfo;
 use pocketmine\YmlServerProperties;
 use Symfony\Component\Filesystem\Path;
 use function array_map;
-use function array_values;
 use function base64_encode;
 use function error_get_last;
 use function file;
@@ -165,7 +164,7 @@ class CrashDump{
 		global $argv;
 
 		if($this->server->getConfigGroup()->getPropertyBool(YmlServerProperties::AUTO_REPORT_SEND_SETTINGS, true)){
-			$this->data->parameters = array_values($argv);
+			$this->data->parameters = (array) $argv;
 			if(($serverDotProperties = @file_get_contents(Path::join($this->server->getDataPath(), "server.properties"))) !== false){
 				$this->data->serverDotProperties = preg_replace("#^rcon\\.password=(.*)$#m", "rcon.password=******", $serverDotProperties) ?? throw new AssumptionFailedError("Pattern is valid");
 			}

@@ -26,9 +26,9 @@ namespace pocketmine\world\generator;
 
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\utils\AssumptionFailedError;
-use pocketmine\world\chunk\SimpleChunkManager;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\format\io\FastChunkSerializer;
+use pocketmine\world\chunk\SimpleChunkManager;
 use pocketmine\world\World;
 use function array_map;
 use function igbinary_serialize;

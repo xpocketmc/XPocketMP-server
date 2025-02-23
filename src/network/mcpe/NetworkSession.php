@@ -31,6 +31,7 @@ use pocketmine\event\player\PlayerResourcePackOfferEvent;
 use pocketmine\event\server\DataPacketDecodeEvent;
 use pocketmine\event\server\DataPacketReceiveEvent;
 use pocketmine\event\server\DataPacketSendEvent;
+use pocketmine\ui\FormUIInterface;
 use pocketmine\item\Item;
 use pocketmine\lang\KnownTranslationFactory;
 use pocketmine\lang\Translatable;
@@ -110,7 +111,6 @@ use pocketmine\promise\Promise;
 use pocketmine\promise\PromiseResolver;
 use pocketmine\Server;
 use pocketmine\timings\Timings;
-use pocketmine\ui\FormUIInterface;
 use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\BinaryDataException;
 use pocketmine\utils\BinaryStream;
@@ -588,7 +588,7 @@ class NetworkSession{
 				}
 
 				$stream = new BinaryStream();
-				PacketBatch::encodeRaw($stream, array_values($this->sendBuffer));
+				PacketBatch::encodeRaw($stream, $this->sendBuffer);
 
 				if($this->enableCompression){
 					$batch = $this->server->prepareBatch($stream->getBuffer(), $this->compressor, $syncMode, Timings::$playerNetworkSendCompressSessionBuffer);
@@ -938,7 +938,7 @@ class NetworkSession{
 		}
 		$event = new PlayerResourcePackOfferEvent($this->info, $resourcePacks, $keys, $packManager->resourcePacksRequired());
 		$event->call();
-		$this->setHandler(new ResourcePacksPacketHandler($this, array_values($event->getResourcePacks()), $event->getEncryptionKeys(), $event->mustAccept(), function() : void{
+		$this->setHandler(new ResourcePacksPacketHandler($this, $event->getResourcePacks(), $event->getEncryptionKeys(), $event->mustAccept(), function() : void{
 			$this->createPlayer();
 		}));
 	}
@@ -1058,7 +1058,7 @@ class NetworkSession{
 
 		$layers = [
 			//TODO: dynamic flying speed! FINALLY!!!!!!!!!!!!!!!!!
-			new AbilitiesLayer(AbilitiesLayer::LAYER_BASE, $boolAbilities, 0.05, 1, 0.1),
+			new AbilitiesLayer(AbilitiesLayer::LAYER_BASE, $boolAbilities, 0.05, 0.1),
 		];
 		if(!$for->hasBlockCollision()){
 			//TODO: HACK! In 1.19.80, the client starts falling in our faux spectator mode when it clips into a
@@ -1068,7 +1068,7 @@ class NetworkSession{
 
 			$layers[] = new AbilitiesLayer(AbilitiesLayer::LAYER_SPECTATOR, [
 				AbilitiesLayer::ABILITY_FLYING => true,
-			], null, null, null);
+			], null, null);
 		}
 
 		$this->sendDataPacket(UpdateAbilitiesPacket::create(new AbilitiesData(
@@ -1108,7 +1108,7 @@ class NetworkSession{
 					//work around a client bug which makes the original name not show when aliases are used
 					$aliases[] = $lname;
 				}
-				$aliasObj = new CommandEnum(ucfirst($command->getLabel()) . "Aliases", $aliases);
+				$aliasObj = new CommandEnum(ucfirst($command->getLabel()) . "Aliases", array_values($aliases));
 			}
 
 			$description = $command->getDescription();

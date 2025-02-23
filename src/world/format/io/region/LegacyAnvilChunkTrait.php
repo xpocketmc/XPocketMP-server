@@ -39,7 +39,6 @@ use pocketmine\world\format\io\exception\CorruptedChunkException;
 use pocketmine\world\format\io\LoadedChunkData;
 use pocketmine\world\format\PalettedBlockArray;
 use pocketmine\world\format\SubChunk;
-use function array_values;
 use function strlen;
 use function zlib_decode;
 
@@ -106,8 +105,8 @@ trait LegacyAnvilChunkTrait{
 			data: new ChunkData(
 				$subChunks,
 				$chunk->getByte("TerrainPopulated", 0) !== 0,
-				($entitiesTag = $chunk->getTag("Entities")) instanceof ListTag ? self::getCompoundList("Entities", array_values($entitiesTag)) : [],
-				($tilesTag = $chunk->getTag("TileEntities")) instanceof ListTag ? self::getCompoundList("TileEntities", array_values($tilesTag)) : [],
+				($entitiesTag = $chunk->getTag("Entities")) instanceof ListTag ? self::getCompoundList("Entities", $entitiesTag) : [],
+				($tilesTag = $chunk->getTag("TileEntities")) instanceof ListTag ? self::getCompoundList("TileEntities", $tilesTag) : [],
 			),
 			upgraded: true,
 			fixerFlags: LoadedChunkData::FIXER_FLAG_ALL

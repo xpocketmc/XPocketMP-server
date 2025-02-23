@@ -151,7 +151,7 @@ class InventoryTransaction{
 	protected function matchItems(array &$needItems, array &$haveItems) : void{
 		$needItems = [];
 		$haveItems = [];
-		foreach($this->actions as $action){
+		foreach($this->actions as $key => $action){
 			if(!$action->getTargetItem()->isNull()){
 				$needItems[] = $action->getTargetItem();
 			}
@@ -202,7 +202,7 @@ class InventoryTransaction{
 		$inventories = [];
 		$slots = [];
 
-		foreach($this->actions as $action){
+		foreach($this->actions as $key => $action){
 			if($action instanceof SlotChangeAction){
 				$slotChanges[$h = (spl_object_hash($action->getInventory()) . "@" . $action->getSlot())][] = $action;
 				$inventories[$h] = $action->getInventory();

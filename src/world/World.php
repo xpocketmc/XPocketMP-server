@@ -87,10 +87,12 @@ use pocketmine\utils\ReversePriorityQueue;
 use pocketmine\world\biome\Biome;
 use pocketmine\world\biome\BiomeRegistry;
 use pocketmine\world\chunk\ChunkListener;
+use pocketmine\world\chunk\ChunkListenerNoOpTrait;
 use pocketmine\world\chunk\ChunkLoader;
 use pocketmine\world\chunk\ChunkLockId;
 use pocketmine\world\chunk\ChunkManager;
 use pocketmine\world\chunk\ChunkTicker;
+use pocketmine\world\chunk\SimpleChunkManager;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\format\io\ChunkData;
 use pocketmine\world\format\io\exception\CorruptedChunkException;
@@ -118,7 +120,6 @@ use function array_keys;
 use function array_map;
 use function array_merge;
 use function array_sum;
-use function array_values;
 use function assert;
 use function cos;
 use function count;
@@ -721,7 +722,7 @@ class World implements ChunkManager{
 					$this->broadcastPacketToViewers($pos, $e);
 				}
 			}else{
-				NetworkBroadcastUtils::broadcastPackets($this->filterViewersForPosition($pos, array_values($players)), $pk);
+				NetworkBroadcastUtils::broadcastPackets($this->filterViewersForPosition($pos, $players), $pk);
 			}
 		}
 	}
@@ -750,7 +751,7 @@ class World implements ChunkManager{
 					$this->broadcastPacketToViewers($pos, $e);
 				}
 			}else{
-				NetworkBroadcastUtils::broadcastPackets($this->filterViewersForPosition($pos, array_values($players)), $pk);
+				NetworkBroadcastUtils::broadcastPackets($this->filterViewersForPosition($pos, $players), $pk);
 			}
 		}
 	}
@@ -1033,7 +1034,7 @@ class World implements ChunkManager{
 							$p->onChunkChanged($chunkX, $chunkZ, $chunk);
 						}
 					}else{
-						foreach($this->createBlockUpdatePackets(array_values($blocks)) as $packet){
+						foreach($this->createBlockUpdatePackets($blocks) as $packet){
 							$this->broadcastPacketToPlayersUsingChunk($chunkX, $chunkZ, $packet);
 						}
 					}
@@ -1443,7 +1444,7 @@ class World implements ChunkManager{
 					$chunk->getSubChunks(),
 					$chunk->isPopulated(),
 					array_map(fn(Entity $e) => $e->saveNBT(), array_filter($this->getChunkEntities($chunkX, $chunkZ), fn(Entity $e) => $e->canSaveWithChunk())),
-					array_map(fn(Tile $t) => array_values($t->saveNBT(), $chunk->getTiles())),
+					array_map(fn(Tile $t) => $t->saveNBT(), $chunk->getTiles()),
 				), $chunk->getTerrainDirtyFlags());
 				$chunk->clearTerrainDirtyFlags();
 			}
@@ -1586,7 +1587,7 @@ class World implements ChunkManager{
 				for($y = $minY; $y <= $maxY; ++$y){
 					$relativeBlockHash = World::chunkBlockHash($x, $y, $z);
 
-					$boxes = $this->blockCollisionBoxCache[$chunkPosHash][$relativeBlockHash] ??= array_values($this->getBlockCollisionBoxesForCell($x, $y, $z));
+					$boxes = $this->blockCollisionBoxCache[$chunkPosHash][$relativeBlockHash] ??= $this->getBlockCollisionBoxesForCell($x, $y, $z);
 
 					foreach($boxes as $blockBB){
 						if($blockBB->intersectsWith($bb)){
@@ -2033,7 +2034,7 @@ class World implements ChunkManager{
 			$orbs[] = $orb;
 		}
 
-		return array_values($orbs);
+		return $orbs;
 	}
 
 	/**
@@ -2991,8 +2992,8 @@ class World implements ChunkManager{
 					$this->provider->saveChunk($x, $z, new ChunkData(
 						$chunk->getSubChunks(),
 						$chunk->isPopulated(),
-						array_map(fn(Entity $e) => $e->saveNBT(), array_filter($this->getChunkEntities($x, $z), fn(Entity $e) => array_values($e->canSaveWithChunk()))),
-						array_map(fn(Tile $t) => $t->saveNBT(), array_values($chunk->getTiles())),
+						array_map(fn(Entity $e) => $e->saveNBT(), array_filter($this->getChunkEntities($x, $z), fn(Entity $e) => $e->canSaveWithChunk())),
+						array_map(fn(Tile $t) => $t->saveNBT(), $chunk->getTiles()),
 					), $chunk->getTerrainDirtyFlags());
 				}finally{
 					$this->timings->syncChunkSave->stopTiming();

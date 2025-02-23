@@ -39,7 +39,7 @@ use const DIRECTORY_SEPARATOR;
  * to enable special types of access.
  */
 class DiskResourceProvider implements ResourceProvider{
-	private readonly string $file;
+	private string $file;
 
 	public function __construct(string $path){
 		$this->file = rtrim(str_replace(DIRECTORY_SEPARATOR, "/", $path), "/") . "/";

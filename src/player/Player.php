@@ -35,7 +35,9 @@ use pocketmine\data\java\GameModeIdMap;
 use pocketmine\entity\animation\Animation;
 use pocketmine\entity\animation\ArmSwingAnimation;
 use pocketmine\entity\animation\CriticalHitAnimation;
-use pocketmine\entity\attribute\AttributeType;
+use pocketmine\entity\attribute\Attribute;
+use pocketmine\entity\attribute\AttributeFactory;
+use pocketmine\entity\attribute\AttributeMap;
 use pocketmine\entity\effect\VanillaEffects;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Human;
@@ -79,6 +81,8 @@ use pocketmine\event\player\PlayerToggleSprintEvent;
 use pocketmine\event\player\PlayerToggleSwimEvent;
 use pocketmine\event\player\PlayerTransferEvent;
 use pocketmine\event\player\PlayerViewDistanceChangeEvent;
+use pocketmine\ui\FormUIInterface;
+use pocketmine\ui\FormUIValidationException;
 use pocketmine\inventory\CallbackInventoryListener;
 use pocketmine\inventory\CreativeInventory;
 use pocketmine\inventory\Inventory;
@@ -120,8 +124,6 @@ use pocketmine\player\chat\StandardChatFormatter;
 use pocketmine\Server;
 use pocketmine\ServerProperties;
 use pocketmine\timings\Timings;
-use pocketmine\ui\FormUIInterface;
-use pocketmine\ui\FormUIValidationException;
 use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\TextFormat;
 use pocketmine\world\chunk\ChunkListener;
@@ -1312,7 +1314,7 @@ class Player extends Human implements CommandSender, ChunkListener, PlayerInterf
 			$this->nextChunkOrderRun = 0;
 		}
 
-		if(!$revert && $distanceSquared !== 0){
+		if(!$revert && $distanceSquared != 0){
 			$dx = $newPos->x - $oldPos->x;
 			$dy = $newPos->y - $oldPos->y;
 			$dz = $newPos->z - $oldPos->z;
@@ -2259,7 +2261,7 @@ round($position->getY()) . ", " .
 
 		$ev = new PlayerQuitEvent($this, $quitMessage ?? $this->getLeaveMessage(), $reason);
 		$ev->call();
-		if(($quitMessage = $ev->getQuitMessage()) !== ""){
+		if(($quitMessage = $ev->getQuitMessage()) != ""){
 			$this->server->broadcastMessage($quitMessage);
 		}
 		$this->save();
@@ -2390,7 +2392,7 @@ round($position->getY()) . ", " .
 			$this->xpManager->setXpAndProgress(0, 0.0);
 		}
 
-		if($ev->getDeathMessage() !== ""){
+		if($ev->getDeathMessage() != ""){
 			$this->server->broadcastMessage($ev->getDeathMessage());
 		}
 
@@ -2448,7 +2450,7 @@ round($position->getY()) . ", " .
 				$this->setHealth($this->getMaxHealth());
 
 				foreach($this->attributeMap->getAll() as $attr){
-					if($attr->getId() === AttributeType::EXPERIENCE || $attr->getId() === AttributeType::EXPERIENCE_LEVEL){ //we have already reset both of those if needed when the player died
+					if($attr->getId() === Attribute::EXPERIENCE || $attr->getId() === Attribute::EXPERIENCE_LEVEL){ //we have already reset both of those if needed when the player died
 						continue;
 					}
 					$attr->resetToDefault();

@@ -34,7 +34,6 @@ use pocketmine\utils\Utils;
 use function array_fill_keys;
 use function array_keys;
 use function array_pop;
-use function array_values;
 use function count;
 use function intdiv;
 use function min;
@@ -117,7 +116,7 @@ class CraftingTransaction extends InventoryTransaction{
 			throw new TransactionValidationException("No transaction items given");
 		}
 
-		$packedProvidedItems = self::packItems(Utils::cloneObjectArray(array_values($providedItems)));
+		$packedProvidedItems = self::packItems(Utils::cloneObjectArray($providedItems));
 		$packedProvidedItemMatches = array_fill_keys(array_keys($packedProvidedItems), 0);
 
 		$recipeIngredientMatches = [];

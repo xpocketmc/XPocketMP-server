@@ -30,7 +30,6 @@ use pocketmine\utils\BinaryDataException;
 use pocketmine\utils\BinaryStream;
 use pocketmine\world\format\ChunkException;
 use pocketmine\world\format\io\exception\CorruptedChunkException;
-use function array_values;
 use function assert;
 use function ceil;
 use function chr;
@@ -247,7 +246,7 @@ class RegionLoader{
 		 * the header will still point to the old (intact) copy of the chunk, instead of a potentially broken new
 		 * version of the file (e.g. partially written).
 		*/
-		$oldLocation = array_values($this->locationTable[$index]);
+		$oldLocation = $this->locationTable[$index];
 		$this->locationTable[$index] = $newLocation;
 		$this->writeLocationIndex($index);
 
@@ -261,7 +260,7 @@ class RegionLoader{
 	 */
 	public function removeChunk(int $x, int $z) : void{
 		$index = self::getChunkOffset($x, $z);
-		$oldLocation = array_values($this->locationTable[$index]);
+		$oldLocation = $this->locationTable[$index];
 		$this->locationTable[$index] = null;
 		$this->writeLocationIndex($index);
 		if($oldLocation !== null){

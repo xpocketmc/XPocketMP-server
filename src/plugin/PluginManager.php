@@ -326,11 +326,11 @@ class PluginManager{
 				$triage->plugins[$name] = new PluginLoadTriageEntry($file, $loader, $description);
 
 				$triage->softDependencies[$name] = array_merge($triage->softDependencies[$name] ?? [], $description->getSoftDepend());
-				$triage->dependencies[$name] = array_values($description->getDepend());
+				$triage->dependencies[$name] = $description->getDepend();
 
 				foreach($description->getLoadBefore() as $before){
 					if(isset($triage->softDependencies[$before])){
-						$triage->softDependencies[$before][] = array_values($name);
+						$triage->softDependencies[$before][] = $name;
 					}else{
 						$triage->softDependencies[$before] = [$name];
 					}
@@ -432,7 +432,7 @@ class PluginManager{
 					if(isset($triage->dependencies[$name])){
 						$unknownDependencies = [];
 
-						foreach($triage->dependencies[$name] as $dependency){
+						foreach($triage->dependencies[$name] as $k => $dependency){
 							if($this->getPlugin($dependency) === null && !array_key_exists($dependency, $triage->plugins)){
 								//assume that the plugin is never going to be loaded
 								//by this point all soft dependencies have been ignored if they were able to be, so

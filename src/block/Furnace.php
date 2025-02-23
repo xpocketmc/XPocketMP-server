@@ -38,7 +38,10 @@ class Furnace extends Opaque{
 	use FacesOppositePlacingPlayerTrait;
 	use LightableTrait;
 
-	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, protected FurnaceType $furnaceType){
+	protected FurnaceType $furnaceType;
+
+	public function __construct(BlockIdentifier $idInfo, string $name, BlockTypeInfo $typeInfo, FurnaceType $furnaceType){
+		$this->furnaceType = $furnaceType;
 		parent::__construct($idInfo, $name, $typeInfo);
 	}
 

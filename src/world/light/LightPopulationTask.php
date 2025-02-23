@@ -26,10 +26,10 @@ namespace pocketmine\world\light;
 
 use pocketmine\block\RuntimeBlockStateRegistry;
 use pocketmine\scheduler\AsyncTask;
-use pocketmine\world\chunk\SimpleChunkManager;
 use pocketmine\world\format\Chunk;
 use pocketmine\world\format\io\FastChunkSerializer;
 use pocketmine\world\format\LightArray;
+use pocketmine\world\chunk\SimpleChunkManager;
 use pocketmine\world\utils\SubChunkExplorer;
 use pocketmine\world\World;
 use function igbinary_serialize;
@@ -62,7 +62,7 @@ class LightPopulationTask extends AsyncTask{
 		foreach([
 			"Block" => new BlockLightUpdate(new SubChunkExplorer($manager), $blockFactory->lightFilter, $blockFactory->light),
 			"Sky" => new SkyLightUpdate(new SubChunkExplorer($manager), $blockFactory->lightFilter, $blockFactory->blocksDirectSkyLight),
-		] as $update){
+		] as $name => $update){
 			$update->recalculateChunk(0, 0);
 			$update->execute();
 		}

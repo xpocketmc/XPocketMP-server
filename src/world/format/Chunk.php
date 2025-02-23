@@ -31,7 +31,6 @@ use pocketmine\block\Block;
 use pocketmine\block\tile\Tile;
 use pocketmine\data\bedrock\BiomeIds;
 use function array_map;
-use function array_values;
 
 class Chunk{
 	public const DIRTY_FLAG_BLOCKS = 1 << 0;
@@ -248,7 +247,7 @@ class Chunk{
 	 * @param int[] $values
 	 */
 	public function setHeightMapArray(array $values) : void{
-		$this->heightMap = new HeightArray(array_values($values));
+		$this->heightMap = new HeightArray($values);
 	}
 
 	public function isTerrainDirty() : bool{
@@ -314,7 +313,7 @@ class Chunk{
 	 * Disposes of empty subchunks and frees data where possible
 	 */
 	public function collectGarbage() : void{
-		foreach($this->subChunks as $subChunk){
+		foreach($this->subChunks as $y => $subChunk){
 			$subChunk->collectGarbage();
 		}
 	}

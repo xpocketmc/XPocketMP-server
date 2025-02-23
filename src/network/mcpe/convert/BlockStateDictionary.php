@@ -32,7 +32,6 @@ use pocketmine\network\mcpe\protocol\serializer\NetworkNbtSerializer;
 use pocketmine\utils\Utils;
 use function array_key_first;
 use function array_map;
-use function array_values;
 use function count;
 use function get_debug_type;
 use function is_array;
@@ -194,7 +193,7 @@ final class BlockStateDictionary{
 				throw new \InvalidArgumentException("Invalid metaMap offset $i, expected int, got " . get_debug_type($meta));
 			}
 			$uniqueName = $uniqueNames[$state->getName()] ??= $state->getName();
-			$entries[$i] = new BlockStateDictionaryEntry($uniqueName, array_values($state->getStates()), $meta);
+			$entries[$i] = new BlockStateDictionaryEntry($uniqueName, $state->getStates(), $meta);
 		}
 
 		return new self($entries);

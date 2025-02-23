@@ -101,7 +101,7 @@ final class BlockStateSerializerHelper{
 	public static function encodeDoor(Door $block, Writer $out) : Writer{
 		return $out
 			->writeBool(BlockStateNames::UPPER_BLOCK_BIT, $block->isTop())
-			->writeCardinalHorizontalFacing($block->getFacing())
+			->writeLegacyHorizontalFacing(Facing::rotateY($block->getFacing(), true))
 			->writeBool(BlockStateNames::DOOR_HINGE_BIT, $block->isHingeRight())
 			->writeBool(BlockStateNames::OPEN_BIT, $block->isOpen());
 	}
@@ -113,7 +113,7 @@ final class BlockStateSerializerHelper{
 
 	public static function encodeFenceGate(FenceGate $block, Writer $out) : Writer{
 		return $out
-			->writeCardinalHorizontalFacing($block->getFacing())
+			->writeLegacyHorizontalFacing($block->getFacing())
 			->writeBool(BlockStateNames::IN_WALL_BIT, $block->isInWall())
 			->writeBool(BlockStateNames::OPEN_BIT, $block->isOpen());
 	}

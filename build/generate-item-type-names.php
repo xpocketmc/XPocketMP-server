@@ -35,6 +35,7 @@ use function dirname;
 use function explode;
 use function fclose;
 use function file_get_contents;
+use function file_put_contents;
 use function fopen;
 use function fwrite;
 use function strtoupper;
@@ -108,10 +109,14 @@ if(count($argv) !== 2){
 }
 
 $raw = file_get_contents($argv[1]);
-if($raw === false){
+if ($raw === false) {
 	fwrite(STDERR, "Failed to read item type dictionary file\n");
 	exit(1);
 }
+
+file_put_contents('debug_raw.json', $raw);
+
+$dictionary = ItemTypeDictionaryFromDataHelper::loadFromString($raw);
 
 $dictionary = ItemTypeDictionaryFromDataHelper::loadFromString($raw);
 $blockItemIdMap = BlockItemIdMap::getInstance();

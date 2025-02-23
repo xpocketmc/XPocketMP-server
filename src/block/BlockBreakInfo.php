@@ -26,6 +26,7 @@ namespace pocketmine\block;
 
 use pocketmine\item\Item;
 use pocketmine\item\ToolTier;
+use function get_class;
 
 class BlockBreakInfo{
 	/**
@@ -39,15 +40,15 @@ class BlockBreakInfo{
 	 */
 	public const INCOMPATIBLE_TOOL_MULTIPLIER = 5.0;
 
-	private readonly float $blastResistance;
+	private float $blastResistance;
 
 	/**
 	 * @param float|null $blastResistance default 5x hardness
 	 */
 	public function __construct(
-		private readonly float $hardness,
-		private readonly int $toolType = BlockToolType::NONE,
-		private readonly int $toolHarvestLevel = 0,
+		private float $hardness,
+		private int $toolType = BlockToolType::NONE,
+		private int $toolHarvestLevel = 0,
 		?float $blastResistance = null
 	){
 		$this->blastResistance = $blastResistance ?? $hardness * 5;
@@ -95,7 +96,7 @@ class BlockBreakInfo{
 	 * Returns whether this block can be instantly broken.
 	 */
 	public function breaksInstantly() : bool{
-		return $this->hardness === 0.0;
+		return $this->hardness == 0.0;
 	}
 
 	/**
@@ -154,7 +155,7 @@ class BlockBreakInfo{
 
 		$efficiency = $item->getMiningEfficiency(($this->toolType & $item->getBlockToolType()) !== 0);
 		if($efficiency <= 0){
-			throw new \InvalidArgumentException($item::class . " has invalid mining efficiency: expected >= 0, got $efficiency");
+			throw new \InvalidArgumentException(get_class($item) . " has invalid mining efficiency: expected >= 0, got $efficiency");
 		}
 
 		$base /= $efficiency;

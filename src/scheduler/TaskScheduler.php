@@ -69,7 +69,7 @@ class TaskScheduler{
 	}
 
 	public function cancelAllTasks() : void{
-		foreach($this->tasks as $task){
+		foreach($this->tasks as $id => $task){
 			$task->cancel();
 		}
 		$this->tasks->clear();

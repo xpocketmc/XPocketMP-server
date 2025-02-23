@@ -30,7 +30,6 @@ use pocketmine\nbt\TreeRoot;
 use pocketmine\utils\BinaryStream;
 use pocketmine\utils\DestructorCallbackTrait;
 use pocketmine\utils\ObjectSet;
-use function array_values;
 use function spl_object_id;
 use function usort;
 
@@ -241,7 +240,7 @@ class CraftingManager{
 	public function matchRecipe(CraftingGrid $grid, array $outputs) : ?CraftingRecipe{
 		//TODO: try to match special recipes before anything else (first they need to be implemented!)
 
-		$outputHash = self::hashOutputs(array_values($outputs));
+		$outputHash = self::hashOutputs($outputs);
 
 		if(isset($this->shapedRecipes[$outputHash])){
 			foreach($this->shapedRecipes[$outputHash] as $recipe){
@@ -271,7 +270,7 @@ class CraftingManager{
 	public function matchRecipeByOutputs(array $outputs) : \Generator{
 		//TODO: try to match special recipes before anything else (first they need to be implemented!)
 
-		$outputHash = self::hashOutputs(array_values($outputs));
+		$outputHash = self::hashOutputs($outputs);
 
 		if(isset($this->shapedRecipes[$outputHash])){
 			foreach($this->shapedRecipes[$outputHash] as $recipe){

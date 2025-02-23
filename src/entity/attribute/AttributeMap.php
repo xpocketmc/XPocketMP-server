@@ -26,31 +26,31 @@ namespace pocketmine\entity\attribute;
 
 use function array_filter;
 
-final class AttributeMap {
-	/** @var array<string, AttributeValue> */
+class AttributeMap{
+	/** @var Attribute[] */
 	private array $attributes = [];
 
-	public function add(AttributeValue $attributeValue) : void {
-		$this->attributes[$attributeValue->getId()] = $attributeValue;
+	public function add(Attribute $attribute) : void{
+		$this->attributes[$attribute->getId()] = $attribute;
 	}
 
-	public function get(string $id) : ?AttributeValue {
+	public function get(string $id) : ?Attribute{
 		return $this->attributes[$id] ?? null;
 	}
 
 	/**
-	 * @return AttributeValue[]
+	 * @return Attribute[]
 	 */
-	public function getAll() : array {
+	public function getAll() : array{
 		return $this->attributes;
 	}
 
 	/**
-	 * @return AttributeValue[]
+	 * @return Attribute[]
 	 */
-	public function needSend() : array {
-		return array_filter($this->attributes, static fn(AttributeValue $attributeValue) : bool =>
-			$attributeValue->isSyncable() && $attributeValue->isDesynchronized()
-		);
+	public function needSend() : array{
+		return array_filter($this->attributes, function(Attribute $attribute) : bool{
+			return $attribute->isSyncable() && $attribute->isDesynchronized();
+		});
 	}
 }

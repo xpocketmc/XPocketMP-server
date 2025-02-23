@@ -38,13 +38,16 @@ use function count;
 abstract class PressurePlate extends Transparent{
 	use StaticSupportTrait;
 
+	private readonly int $deactivationDelayTicks;
+
 	public function __construct(
 		BlockIdentifier $idInfo,
 		string $name,
 		BlockTypeInfo $typeInfo,
-		private readonly int $deactivationDelayTicks = 20 //TODO: make this mandatory in PM6
+		int $deactivationDelayTicks = 20 //TODO: make this mandatory in PM6
 	){
 		parent::__construct($idInfo, $name, $typeInfo);
+		$this->deactivationDelayTicks = $deactivationDelayTicks;
 	}
 
 	public function isSolid() : bool{

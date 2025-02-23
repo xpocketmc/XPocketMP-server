@@ -29,7 +29,8 @@ use pocketmine\block\Lectern;
 use pocketmine\block\tile\Sign;
 use pocketmine\block\utils\SignText;
 use pocketmine\entity\animation\ConsumingItemAnimation;
-use pocketmine\entity\attribute\AttributeType;
+use pocketmine\entity\attribute\Attribute;
+use pocketmine\entity\attribute\AttributeMap;
 use pocketmine\entity\InvalidSkinException;
 use pocketmine\event\player\PlayerEditBookEvent;
 use pocketmine\inventory\transaction\action\DropItemAction;
@@ -109,7 +110,6 @@ use pocketmine\utils\TextFormat;
 use pocketmine\utils\Utils;
 use pocketmine\world\format\Chunk;
 use function array_push;
-use function array_values;
 use function count;
 use function fmod;
 use function get_debug_type;
@@ -417,7 +417,7 @@ class InGamePacketHandler extends PacketHandler{
 		$droppedCount = null;
 
 		foreach($data->getActions() as $networkInventoryAction){
-			if($networkInventoryAction->sourceType === NetworkInventoryAction::SOURCE_WORLD && $networkInventoryAction->inventorySlot === NetworkInventoryAction::ACTION_MAGIC_SLOT_DROP_ITEM){
+			if($networkInventoryAction->sourceType === NetworkInventoryAction::SOURCE_WORLD && $networkInventoryAction->inventorySlot == NetworkInventoryAction::ACTION_MAGIC_SLOT_DROP_ITEM){
 				$droppedCount = $networkInventoryAction->newItem->getItemStack()->getCount();
 				if($droppedCount <= 0){
 					throw new PacketHandlingException("Expected positive count for dropped item");
@@ -512,7 +512,7 @@ class InGamePacketHandler extends PacketHandler{
 			case UseItemTransactionData::ACTION_CLICK_AIR:
 				if($this->player->isUsingItem()){
 					if(!$this->player->consumeHeldItem()){
-						$hungerAttr = $this->player->getAttributeMap()->get(AttributeType::HUNGER) ?? throw new AssumptionFailedError();
+						$hungerAttr = $this->player->getAttributeMap()->get(Attribute::HUNGER) ?? throw new AssumptionFailedError();
 						$hungerAttr->markSynchronized(false);
 					}
 					return true;
@@ -547,7 +547,7 @@ class InGamePacketHandler extends PacketHandler{
 			}else{
 				$blocks[] = $blockPos;
 			}
-			foreach($this->player->getWorld()->createBlockUpdatePackets(array_values($blocks)) as $packet){
+			foreach($this->player->getWorld()->createBlockUpdatePackets($blocks) as $packet){
 				$this->session->sendDataPacket($packet);
 			}
 		}
@@ -576,7 +576,7 @@ class InGamePacketHandler extends PacketHandler{
 	private function handleReleaseItemTransaction(ReleaseItemTransactionData $data) : bool{
 		$this->player->selectHotbarSlot($data->getHotbarSlot());
 
-		if($data->getActionType() === ReleaseItemTransactionData::ACTION_RELEASE){
+		if($data->getActionType() == ReleaseItemTransactionData::ACTION_RELEASE){
 			$this->player->releaseHeldItem();
 			return true;
 		}

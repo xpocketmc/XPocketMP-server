@@ -29,9 +29,9 @@ class Element extends Opaque{
 		BlockIdentifier $idInfo,
 		string $name,
 		BlockTypeInfo $typeInfo,
-		private readonly string $symbol,
-		private readonly int $atomicWeight,
-		private readonly int $group
+		private string $symbol,
+		private int $atomicWeight,
+		private int $group
 	){
 		parent::__construct($idInfo, $name, $typeInfo);
 	}

@@ -44,6 +44,7 @@ use function gc_collect_cycles;
 use function gc_disable;
 use function gc_enable;
 use function gc_mem_caches;
+use function get_class;
 use function get_declared_classes;
 use function get_defined_functions;
 use function ini_get;
@@ -99,10 +100,10 @@ class MemoryManager{
 
 	private bool $dumpWorkers = true;
 
-	private readonly \Logger $logger;
+	private \Logger $logger;
 
 	public function __construct(
-		private readonly Server $server
+		private Server $server
 	){
 		$this->logger = new \PrefixedLogger($server->getLogger(), "Memory Manager");
 
@@ -397,7 +398,7 @@ class MemoryManager{
 				}
 				$continue = true;
 
-				$className = $object::class;
+				$className = get_class($object);
 				if(!isset($instanceCounts[$className])){
 					$instanceCounts[$className] = 1;
 				}else{
