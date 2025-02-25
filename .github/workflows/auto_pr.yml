@@ -44,9 +44,10 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
       with:
-        token: ${{ steps.generate-token.outputs.token }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ inputs.source_branch }}
         base: ${{ inputs.target_branch }}
         title: ${{ inputs.pr_title }}
         body: ${{ inputs.pr_body }}
-        labels: "auto-pr"
+        author: xpocketmp[bot] <190384261+xpocketmp[bot]@users.noreply.github.com>
+        labels: "Category: Enchanment"
