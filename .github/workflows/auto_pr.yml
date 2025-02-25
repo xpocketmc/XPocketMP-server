@@ -1,0 +1,52 @@
+name: Create Pull Request
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_branch:
+        description: "Branch yang akan di-merge"
+        required: true
+        default: "ss"
+      target_branch:
+        description: "Branch tujuan"
+        required: true
+        default: "stable"
+      pr_title:
+        description: "Judul Pull Request"
+        required: true
+        default: "Merge SS ke Stable"
+      pr_body:
+        description: "Deskripsi Pull Request"
+        required: true
+        default: "PR otomatis dari SS ke Stable."
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Generate access token   
+      id: generate-token
+      uses: actions/create-github-app-token@v1
+      with:
+        app-id: ${{ secrets.APP_ID }}
+        private-key: ${{ secrets.APP_PRIVATE_KEY }}
+        owner: ${{ github.repository_owner }}
+        repositories: RestrictedActions
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ steps.generate-token.outputs.token }}
+        branch: ${{ inputs.source_branch }}
+        base: ${{ inputs.target_branch }}
+        title: ${{ inputs.pr_title }}
+        body: ${{ inputs.pr_body }}
+        labels: "auto-pr"
