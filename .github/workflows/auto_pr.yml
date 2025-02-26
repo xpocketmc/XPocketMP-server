@@ -51,3 +51,4 @@ jobs:
         body: ${{ inputs.pr_body }}
         author: xpocketmp[bot] <190384261+xpocketmp[bot]@users.noreply.github.com>
         labels: "Category: Enchanment"
+        push: false
