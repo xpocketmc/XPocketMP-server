@@ -24,9 +24,9 @@ declare(strict_types=1);
 
 namespace pocketmine\entity;
 
-use pocketmine\entity\attribute\Attribute;
 use pocketmine\entity\attribute\AttributeFactory;
-use pocketmine\entity\attribute\AttributeMap;
+use pocketmine\entity\attribute\AttributeType;
+use pocketmine\entity\attribute\AttributeValue;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityRegainHealthEvent;
 use pocketmine\event\player\PlayerExhaustEvent;
@@ -36,9 +36,9 @@ use function min;
 
 class HungerManager{
 
-	private Attribute $hungerAttr;
-	private Attribute $saturationAttr;
-	private Attribute $exhaustionAttr;
+	private AttributeValue $hungerAttr;
+	private AttributeValue $saturationAttr;
+	private AttributeValue $exhaustionAttr;
 
 	private int $foodTickTimer = 0;
 
@@ -47,12 +47,12 @@ class HungerManager{
 	public function __construct(
 		private Human $entity
 	){
-		$this->hungerAttr = self::fetchAttribute($entity, Attribute::HUNGER);
-		$this->saturationAttr = self::fetchAttribute($entity, Attribute::SATURATION);
-		$this->exhaustionAttr = self::fetchAttribute($entity, Attribute::EXHAUSTION);
+		$this->hungerAttr = self::fetchAttribute($entity, AttributeType::HUNGER);
+		$this->saturationAttr = self::fetchAttribute($entity, AttributeType::SATURATION);
+		$this->exhaustionAttr = self::fetchAttribute($entity, AttributeType::EXHAUSTION);
 	}
 
-	private static function fetchAttribute(Entity $entity, string $attributeId) : Attribute{
+	private static function fetchAttribute(Entity $entity, string $attributeId) : AttributeValue{
 		$attribute = AttributeFactory::getInstance()->mustGet($attributeId);
 		$entity->getAttributeMap()->add($attribute);
 		return $attribute;

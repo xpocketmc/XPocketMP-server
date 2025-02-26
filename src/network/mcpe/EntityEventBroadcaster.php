@@ -24,7 +24,7 @@ declare(strict_types=1);
 
 namespace pocketmine\network\mcpe;
 
-use pocketmine\entity\attribute\Attribute;
+use pocketmine\entity\attribute\AttributeValue;
 use pocketmine\entity\effect\EffectInstance;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Human;
@@ -38,7 +38,7 @@ interface EntityEventBroadcaster{
 
 	/**
 	 * @param NetworkSession[] $recipients
-	 * @param Attribute[]      $attributes
+	 * @param AttributeValue[] $attributes
 	 */
 	public function syncAttributes(array $recipients, Living $entity, array $attributes) : void;
 

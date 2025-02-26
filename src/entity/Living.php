@@ -30,9 +30,9 @@ use pocketmine\data\bedrock\EffectIdMap;
 use pocketmine\entity\animation\DeathAnimation;
 use pocketmine\entity\animation\HurtAnimation;
 use pocketmine\entity\animation\RespawnAnimation;
-use pocketmine\entity\attribute\Attribute;
 use pocketmine\entity\attribute\AttributeFactory;
-use pocketmine\entity\attribute\AttributeMap;
+use pocketmine\entity\attribute\AttributeType;
+use pocketmine\entity\attribute\AttributeValue;
 use pocketmine\entity\effect\EffectInstance;
 use pocketmine\entity\effect\EffectManager;
 use pocketmine\entity\effect\VanillaEffects;
@@ -122,10 +122,10 @@ abstract class Living extends Entity{
 	protected int $breathTicks = self::DEFAULT_BREATH_TICKS;
 	protected int $maxBreathTicks = self::DEFAULT_BREATH_TICKS;
 
-	protected Attribute $healthAttr;
-	protected Attribute $absorptionAttr;
-	protected Attribute $knockbackResistanceAttr;
-	protected Attribute $moveSpeedAttr;
+	protected AttributeValue $healthAttr;
+	protected AttributeValue $absorptionAttr;
+	protected AttributeValue $knockbackResistanceAttr;
+	protected AttributeValue $moveSpeedAttr;
 
 	protected bool $sprinting = false;
 	protected bool $sneaking = false;
@@ -191,12 +191,12 @@ abstract class Living extends Entity{
 	}
 
 	protected function addAttributes() : void{
-		$this->attributeMap->add($this->healthAttr = AttributeFactory::getInstance()->mustGet(Attribute::HEALTH));
-		$this->attributeMap->add(AttributeFactory::getInstance()->mustGet(Attribute::FOLLOW_RANGE));
-		$this->attributeMap->add($this->knockbackResistanceAttr = AttributeFactory::getInstance()->mustGet(Attribute::KNOCKBACK_RESISTANCE));
-		$this->attributeMap->add($this->moveSpeedAttr = AttributeFactory::getInstance()->mustGet(Attribute::MOVEMENT_SPEED));
-		$this->attributeMap->add(AttributeFactory::getInstance()->mustGet(Attribute::ATTACK_DAMAGE));
-		$this->attributeMap->add($this->absorptionAttr = AttributeFactory::getInstance()->mustGet(Attribute::ABSORPTION));
+		$this->attributeMap->add($this->healthAttr = AttributeFactory::getInstance()->mustGet(AttributeType::HEALTH));
+		$this->attributeMap->add(AttributeFactory::getInstance()->mustGet(AttributeType::FOLLOW_RANGE));
+		$this->attributeMap->add($this->knockbackResistanceAttr = AttributeFactory::getInstance()->mustGet(AttributeType::KNOCKBACK_RESISTANCE));
+		$this->attributeMap->add($this->moveSpeedAttr = AttributeFactory::getInstance()->mustGet(AttributeType::MOVEMENT_SPEED));
+		$this->attributeMap->add(AttributeFactory::getInstance()->mustGet(AttributeType::ATTACK_DAMAGE));
+		$this->attributeMap->add($this->absorptionAttr = AttributeFactory::getInstance()->mustGet(AttributeType::ABSORPTION));
 	}
 
 	/**
@@ -220,7 +220,8 @@ abstract class Living extends Entity{
 	}
 
 	public function setMaxHealth(int $amount) : void{
-		$this->healthAttr->setMaxValue($amount)->setDefaultValue($amount);
+		$this->healthAttr->setMaxValue($amount);
+		$this->healthAttr->setDefaultValue($amount);
 	}
 
 	public function getAbsorption() : float{

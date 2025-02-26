@@ -66,35 +66,29 @@ abstract class BaseWorldProvider implements WorldProvider{
 	abstract protected function loadLevelData() : WorldData;
 
 	private function translatePalette(PalettedBlockArray $blockArray, \Logger $logger) : PalettedBlockArray{
+		//TODO: missing type info in stubs
 		/** @phpstan-var list<int> $palette */
 		$palette = $blockArray->getPalette();
 
 		$newPalette = [];
 		$blockDecodeErrors = [];
-		$unknownBlocks = [];
-
 		foreach($palette as $k => $legacyIdMeta){
+			//TODO: remember data for unknown states so we can implement them later
 			$id = $legacyIdMeta >> 4;
 			$meta = $legacyIdMeta & 0xf;
-
-			if (isset($unknownBlocks[$id][$meta])) {
-				$newPalette[$k] = $unknownBlocks[$id][$meta];
-				continue;
-			}
-
 			try{
 				$newStateData = $this->blockDataUpgrader->upgradeIntIdMeta($id, $meta);
 			}catch(BlockStateDeserializeException $e){
 				$blockDecodeErrors[] = "Palette offset $k / Failed to upgrade legacy ID/meta $id:$meta: " . $e->getMessage();
 				$newStateData = GlobalBlockStateHandlers::getUnknownBlockStateData();
-				$unknownBlocks[$id][$meta] = $newStateData;
 			}
 
 			try{
-				$newPalette[$k] = $this->blockStateDeserializer->deserialize($newStateData);
+				$newPalette[] = $this->blockStateDeserializer->deserialize($newStateData);
 			}catch(BlockStateDeserializeException $e){
+				//this should never happen anyway - if the upgrader returned an invalid state, we have bigger problems
 				$blockDecodeErrors[] = "Palette offset $k / Failed to deserialize upgraded state $id:$meta: " . $e->getMessage();
-			$newPalette[$k] = $this->blockStateDeserializer->deserialize(GlobalBlockStateHandlers::getUnknownBlockStateData());
+				$newPalette[] = $this->blockStateDeserializer->deserialize(GlobalBlockStateHandlers::getUnknownBlockStateData());
 			}
 		}
 
@@ -102,6 +96,7 @@ abstract class BaseWorldProvider implements WorldProvider{
 			$logger->error("Errors decoding/upgrading blocks:\n - " . implode("\n - ", $blockDecodeErrors));
 		}
 
+		//TODO: this is sub-optimal since it reallocates the offset table multiple times
 		return PalettedBlockArray::fromData(
 			$blockArray->getBitsPerBlock(),
 			$blockArray->getWordArray(),
