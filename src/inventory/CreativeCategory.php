@@ -22,18 +22,14 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\inventory\json;
+namespace pocketmine\inventory;
 
-use pocketmine\crafting\json\ItemStackData;
-
-final class CreativeGroupData{
-	/** @required */
-	public string $group_name;
-	/** @required */
-	public ?ItemStackData $group_icon;
-	/**
-	 * @var \pocketmine\crafting\json\ItemStackData[]
-	 * @required
-	 */
-	public array $items;
+/**
+ * Available tabs in the creative inventory that an item can be displayed in.
+ */
+enum CreativeCategory{
+	case CONSTRUCTION;
+	case NATURE;
+	case EQUIPMENT;
+	case ITEMS;
 }

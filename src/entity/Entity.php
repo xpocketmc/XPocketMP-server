@@ -30,9 +30,8 @@ namespace pocketmine\entity;
 use pocketmine\block\Block;
 use pocketmine\block\Water;
 use pocketmine\entity\animation\Animation;
-use pocketmine\entity\attribute\Attribute;
-use pocketmine\entity\attribute\AttributeFactory;
 use pocketmine\entity\attribute\AttributeMap;
+use pocketmine\entity\attribute\AttributeValue;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityDespawnEvent;
 use pocketmine\event\entity\EntityMotionEvent;
@@ -1504,7 +1503,7 @@ abstract class Entity{
 			$this->location->yaw,
 			$this->location->yaw, //TODO: head yaw
 			$this->location->yaw, //TODO: body yaw (wtf mojang?)
-			array_map(function(Attribute $attr) : NetworkAttribute{
+			array_map(function(AttributeValue $attr) : NetworkAttribute{
 				return new NetworkAttribute($attr->getId(), $attr->getMinValue(), $attr->getMaxValue(), $attr->getValue(), $attr->getDefaultValue(), []);
 			}, $this->attributeMap->getAll()),
 			$this->getAllNetworkData(),

@@ -47,7 +47,7 @@ final class ItemTypeDictionaryFromDataHelper{
 			throw new AssumptionFailedError("Invalid item list format");
 		}
 
-    $emptyNBT = new CacheableNbt(new CompoundTag());
+		$emptyNBT = new CacheableNbt(new CompoundTag());
 		$nbtSerializer = new LittleEndianNbtSerializer();
 
 		$params = [];

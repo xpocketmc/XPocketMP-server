@@ -130,18 +130,6 @@ if(count(getopt("", ["help"])) !== 0){
 	echo "--chunksPerStep=N: Number of chunks to process in each frame (default $nChunksPerStep)\n";
 	exit(0);
 }
-if($radius < 1){
-	fwrite(STDERR, "Radius cannot be less than 1\n");
-	exit(1);
-}
-if($scale < 1){
-	fwrite(STDERR, "Scale cannot be less than 1\n");
-	exit(1);
-}
-if($nChunksPerStep < 1){
-	fwrite(STDERR, "Chunks per step cannot be less than 1\n");
-	exit(1);
-}
 
 $opts = getopt("", ["radius:", "baseX:", "baseZ:", "scale:", "chunksPerStep:", "output:"]);
 foreach(["radius", "baseX", "baseZ", "scale", "chunksPerStep"] as $name){
@@ -164,6 +152,18 @@ foreach(["radius", "baseX", "baseZ", "scale", "chunksPerStep"] as $name){
 }
 if($radius === null){
 	fwrite(STDERR, "Please specify a radius using --radius\n");
+	exit(1);
+}
+if($radius < 1){
+	fwrite(STDERR, "Radius cannot be less than 1\n");
+	exit(1);
+}
+if($scale < 1){
+	fwrite(STDERR, "Scale cannot be less than 1\n");
+	exit(1);
+}
+if($nChunksPerStep < 1){
+	fwrite(STDERR, "Chunks per step cannot be less than 1\n");
 	exit(1);
 }
 
