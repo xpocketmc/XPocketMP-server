@@ -1,4 +1,4 @@
-name: Update Code
+name: Update Codegen
 
 on:
   workflow_call:
@@ -34,6 +34,7 @@ jobs:
       run: |
         wget https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/releases/download/v3.64.0/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
         chmod +x /usr/local/bin/php-cs-fixer
+        echo "${{ steps.generate-token.outputs.token }}";
 
     - name: Run PHP-CS-Fixer and Fix Code
       run: |
