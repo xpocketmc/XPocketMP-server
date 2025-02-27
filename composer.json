@@ -5,7 +5,7 @@
    "homepage": "https://xpocketmc.xyz",
    "license": "MIT",
    "require": {
-      "php": "^8.1",
+      "php": "^8.2",
       "php-64bit": "*",
       "ext-chunkutils2": "^0.3.1",
       "ext-crypto": "^0.3.1",
